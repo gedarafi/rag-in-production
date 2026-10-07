@@ -29,8 +29,16 @@ def build_app(config_path: str = "settings.toml") -> gr.Blocks:
     settings = load_settings(config_path)
     pipeline = RagPipeline(settings)
 
+    def ask_question(question: str) -> str:
+        if not question.strip():
+            return "Enter a question about your documents."
+        try:
+            return pipeline.ask(question)
+        except (OSError, RuntimeError, ValueError) as error:
+            return f"Unable to answer: {error}"
+
     with gr.Blocks(title="Local RAG") as app:
-        gr.Markdown("# Local RAG\nAsk questions about your local documents.")
+        gr.Markdown("# Local RAG\nAsk questions about your local documents. The index is built automatically on your first question.")
         with gr.Row():
             with gr.Column(scale=1):
                 gr.Markdown("### Documents")
@@ -58,8 +66,8 @@ def build_app(config_path: str = "settings.toml") -> gr.Blocks:
             outputs=status,
         )
         ingest_button.click(lambda: f"Indexed {pipeline.ingest()} chunks.", outputs=status)
-        ask_button.click(pipeline.ask, inputs=question, outputs=answer)
-        question.submit(pipeline.ask, inputs=question, outputs=answer)
+        ask_button.click(ask_question, inputs=question, outputs=answer)
+        question.submit(ask_question, inputs=question, outputs=answer)
 
     return app
 

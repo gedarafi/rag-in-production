@@ -36,7 +36,7 @@ class RagPipeline:
         vectors_path = self.settings.index / "vectors.npy"
         chunks_path = self.settings.index / "chunks.json"
         if not vectors_path.exists() or not chunks_path.exists():
-            raise RuntimeError("Index not found. Run 'rag ingest' first.")
+            self.ingest()
         vectors = np.load(vectors_path)
         chunks = [Chunk(**item) for item in json.loads(chunks_path.read_text(encoding="utf-8"))]
         scores = self.models.embed([question]) @ vectors.T

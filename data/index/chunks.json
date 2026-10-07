@@ -1,0 +1,6 @@
+[
+  {
+    "text": "# Welcome to the local RAG template Replace this file with your own `.txt`, `.md`, `.pdf`, or `.docx` files. You can also point `[paths].documents` in `settings.toml` at another folder. Run `rag ingest` after changing documents, then run `rag ask \"your question\"`.",
+    "source": "welcome.md"
+  }
+]

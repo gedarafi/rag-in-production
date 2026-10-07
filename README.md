@@ -44,10 +44,11 @@ uv run rag ask "What is in my documents?"
 To launch the browser interface:
 
 ```powershell
-uv run python -m rag_in_production.gui
+uv run python -m src.gui
 ```
 
-Open `http://127.0.0.1:7860`. The first ingest downloads the configured embedding model from
+Open `http://127.0.0.1:7860`. If no index exists, asking a question builds it automatically.
+After adding documents, click **Rebuild index** to include them. The first ingest downloads the configured embedding model from
 Hugging Face and caches it locally.
 
 ### Configuration
@@ -57,5 +58,5 @@ generation settings. The environment variables `RAG_LLM_MODEL`, `RAG_EMBEDDING_M
 `RAG_OLLAMA_URL` temporarily override model settings.
 
 Use another TOML file with `--config path/to/settings.toml`. The provider boundary is
-`src/rag_in_production/providers.py`, so another local generation server can be integrated without
+`src/providers.py`, so another local generation server can be integrated without
 changing document loading, indexing, prompting, or the CLI.
