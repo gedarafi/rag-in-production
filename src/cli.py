@@ -4,6 +4,7 @@ import argparse
 import sys
 
 from .config import load_settings
+from .multidoc2dial import EVALUATION_FILE, prepare
 from .rag import RagPipeline
 
 
@@ -14,10 +15,19 @@ def main() -> None:
     subparsers.add_parser("ingest", help="Read documents and rebuild the local vector index")
     ask_parser = subparsers.add_parser("ask", help="Ask a question against the indexed documents")
     ask_parser.add_argument("question")
+    subparsers.add_parser(
+        "prepare-multidoc2dial",
+        help="Download MultiDoc2Dial into the documents folder and write its evaluation questions",
+    )
     args = parser.parse_args()
 
     try:
-        pipeline = RagPipeline(load_settings(args.config))
+        settings = load_settings(args.config)
+        if args.command == "prepare-multidoc2dial":
+            document_count, question_count = prepare(settings.documents, settings.root / EVALUATION_FILE)
+            print(f"Wrote {document_count} documents and {question_count} questions.")
+            return
+        pipeline = RagPipeline(settings)
         if args.command == "ingest":
             print(f"Indexed {pipeline.ingest()} chunks.")
         else:
