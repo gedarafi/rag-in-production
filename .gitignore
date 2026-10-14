@@ -43,3 +43,6 @@ data/raw/
 # Coverage data (just test-py)
 .coverage
 .coverage.*
+
+# Regenerated from the local VNDB dump
+/data/documents/vndb/

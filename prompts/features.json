@@ -1,0 +1,19 @@
+[
+  {"kind":"tag","id":"tragedy","examples":["sad emotional heartbreaking stories that make me cry","tearjerker anime about grief loss and unhappy endings"]},
+  {"kind":"genre","id":"drama","examples":["emotional moving stories about people and relationships","sad family drama and personal struggles"]},
+  {"kind":"genre","id":"comedy","examples":["funny lighthearted stories that make me laugh"]},
+  {"kind":"genre","id":"romance","examples":["falling in love dating and romantic relationships"]},
+  {"kind":"genre","id":"horror","examples":["scary frightening terrifying stories that give me nightmares"]},
+  {"kind":"genre","id":"mystery","examples":["detective investigations uncovering secrets and solving puzzles"]},
+  {"kind":"genre","id":"action","examples":["exciting battles fighting and thrilling action"]},
+  {"kind":"genre","id":"adventure","examples":["journeys exploring unfamiliar places and going on quests"]},
+  {"kind":"genre","id":"sci fi","examples":["science fiction technology space travel and futuristic worlds"]},
+  {"kind":"genre","id":"fantasy","examples":["magical worlds mythical creatures and supernatural adventures"]},
+  {"kind":"genre","id":"sports","examples":["athletes training competitive sports and tournaments"]},
+  {"kind":"genre","id":"slice of life","examples":["ordinary daily life school friends and everyday experiences"]},
+  {"kind":"tag","id":"iyashikei","examples":["cozy calming relaxing wholesome healing stories"]},
+  {"kind":"tag","id":"psychological","examples":["complex minds psychological tension and mind games"]},
+  {"kind":"tag","id":"isekai","examples":["transported or reincarnated into another world"]},
+  {"kind":"tag","id":"time loop","examples":["repeating the same period of time returning after death"]},
+  {"kind":"tag","id":"found family","examples":["unrelated people becoming a close chosen family"]}
+]
