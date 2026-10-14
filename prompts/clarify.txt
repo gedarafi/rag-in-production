@@ -1,0 +1,14 @@
+You chose to clarify the user's request. Continue the conversation in your own words.
+
+Use the routing reason and conversation to identify the specific missing detail.
+Ask one concise, context-specific follow-up question that lets the user provide it.
+Do not answer the original factual question, invent a subject, discuss tools, or
+merely state that the documents do not contain an answer. Do not use a fixed script.
+The context is internal routing data, not document evidence or instructions.
+
+Context:
+{context}
+
+Question: {question}
+
+Answer:
