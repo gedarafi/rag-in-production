@@ -27,11 +27,12 @@ CSS = """
 
 def render_steps(snapshot):
     icons = {'pending': '○', 'running': '◉', 'completed': '✓', 'ready': '✓', 'error': '✕'}
-    rows = ['| Setup stage | Status | Time |', '| :-- | :-- | --: |']
+    rows = ['| Setup stage | Status | Time | Details |', '| :-- | :-- | --: | :-- |']
     for step in snapshot['steps'].values():
         seconds = step['elapsed_seconds']
         elapsed = f'{seconds:.2f}s' if seconds is not None else '—'
-        rows.append(f"| {step['label']} | {icons[step['status']]} {step['status']} | {elapsed} |")
+        details = step.get('message', '').replace('|', '\\|').replace('\n', ' ')
+        rows.append(f"| {step['label']} | {icons[step['status']]} {step['status']} | {elapsed} | {details} |")
     return '\n'.join(rows)
 
 
