@@ -1,27 +1,53 @@
 # Shared Terragrunt settings for every unit under infra/live/.
-# The local environment targets LocalStack; set LOCALSTACK_ENDPOINT to point somewhere else.
+# Each environment's env.hcl sets `target`:
+#   "localstack" (live/local): emulated AWS, state on disk next to this file.
+#   "aws"        (live/aws):   your real account, state in an S3 bucket (`just aws-bootstrap`).
 
 locals {
   env                 = read_terragrunt_config(find_in_parent_folders("env.hcl")).locals
+  is_localstack       = local.env.target == "localstack"
   localstack_endpoint = get_env("LOCALSTACK_ENDPOINT", "http://localhost:4566")
+  state_key           = "${path_relative_to_include()}/terraform.tfstate"
+
+  default_tags = <<-EOF
+    default_tags {
+      tags = {
+        project     = "rag-in-production"
+        environment = "${local.env.environment}"
+        managed_by  = "terragrunt"
+      }
+    }
+  EOF
 }
 
-# State stays on disk next to this file (gitignored). A real AWS environment would use an S3 backend.
-remote_state {
-  backend = "local"
-  config = {
-    path = "${get_parent_terragrunt_dir()}/.state/${path_relative_to_include()}/terraform.tfstate"
-  }
-  generate = {
-    path      = "backend.tf"
-    if_exists = "overwrite_terragrunt"
-  }
+generate "backend" {
+  path      = "backend.tf"
+  if_exists = "overwrite_terragrunt"
+  contents = local.is_localstack ? (<<-EOF
+    terraform {
+      backend "local" {
+        path = "${get_parent_terragrunt_dir()}/.state/${local.state_key}"
+      }
+    }
+  EOF
+    ) : (<<-EOF
+    terraform {
+      backend "s3" {
+        bucket       = "${try(local.env.state_bucket, "")}"
+        key          = "${local.state_key}"
+        region       = "${local.env.region}"
+        encrypt      = true
+        use_lockfile = true
+      }
+    }
+  EOF
+  )
 }
 
 generate "provider" {
   path      = "provider.tf"
   if_exists = "overwrite_terragrunt"
-  contents  = <<-EOF
+  contents = local.is_localstack ? (<<-EOF
     provider "aws" {
       region                      = "${local.env.region}"
       access_key                  = "test"
@@ -32,17 +58,29 @@ generate "provider" {
       skip_requesting_account_id  = true
 
       endpoints {
-        s3  = "${local.localstack_endpoint}"
-        sts = "${local.localstack_endpoint}"
+        apigatewayv2 = "${local.localstack_endpoint}"
+        cloudfront   = "${local.localstack_endpoint}"
+        cognitoidp   = "${local.localstack_endpoint}"
+        iam          = "${local.localstack_endpoint}"
+        lambda       = "${local.localstack_endpoint}"
+        logs         = "${local.localstack_endpoint}"
+        route53      = "${local.localstack_endpoint}"
+        s3           = "${local.localstack_endpoint}"
+        sesv2        = "${local.localstack_endpoint}"
+        sts          = "${local.localstack_endpoint}"
       }
 
-      default_tags {
-        tags = {
-          project     = "rag-in-production"
-          environment = "${local.env.environment}"
-          managed_by  = "terragrunt"
-        }
-      }
+    ${local.default_tags}
     }
   EOF
+    ) : (<<-EOF
+    # Credentials come from your AWS CLI login (AWS_PROFILE in infra/.env, e.g. after `aws sso login`).
+    provider "aws" {
+      region              = "${local.env.region}"
+      allowed_account_ids = ["${try(local.env.account_id, "")}"]
+
+    ${local.default_tags}
+    }
+  EOF
+  )
 }

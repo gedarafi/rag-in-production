@@ -32,7 +32,12 @@ What the project uses today, and what is planned. Versions and settings come fro
 
 | Tool | Purpose | Status |
 | --- | --- | --- |
-| [AWS](https://aws.amazon.com/) | Production deployment target | Planned |
+| [AWS](https://aws.amazon.com/) | Production deployment target ([`infra/live/aws/`](infra/live/aws)) | Sign-in and placeholder chat in use; RAG planned |
+| Amazon Cognito | Passwordless sign-in with an email code, limited to university domains | In use |
+| Amazon SES | Sends the sign-in codes | In use (sandbox until production access) |
+| API Gateway (HTTP API) + Lambda | Chat endpoint behind a Cognito JWT authorizer; answers "under construction" | In use |
+| S3 + CloudFront | Hosts the page in [`web/`](web) and forwards `/api/*` to the API | In use |
+| Amazon Bedrock | Knowledge base and model for the RAG answers | Planned |
 | [LocalStack](https://www.localstack.cloud/) | Emulates AWS locally for development and tests, with no AWS cost; needs a free auth token in `infra/.env` | In use |
 | [OpenTofu](https://opentofu.org/) | Infrastructure as code (open-source Terraform fork); modules in [`infra/modules/`](infra/modules), tested with `tofu test` | In use (version in `infra/.opentofu-version`) |
 | [Terragrunt](https://terragrunt.gruntwork.io/) | Wraps OpenTofu per environment; config in [`infra/live/`](infra/live) | In use (version in `infra/.terragrunt-version`) |
