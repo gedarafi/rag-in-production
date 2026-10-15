@@ -94,6 +94,78 @@ class AniListSetupTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, 'Run setup'):
             self.workspace.ask('Hello')
 
+    def test_generation_settings_do_not_invalidate_existing_library(self):
+        self.run_setup(self.source)
+        # Existing installations may still have these fields in their manifest.
+        manifest = self.workspace.signature()
+        manifest.update(llm='old-model', ollama_url='http://localhost:11434')
+        self.workspace.manifest.write_text(json.dumps(manifest), encoding='utf-8')
+        changed = AniListWorkspace(replace(self.settings, llm='new-model',
+                                           ollama_url='http://127.0.0.1:11434'))
+        self.assertTrue(changed.ready)
+        changed.pipeline = MagicMock()
+        changed.pipeline.ask.return_value = 'An answer'
+        self.assertEqual(changed.ask('Hello'), 'An answer')
+
+    def test_missing_marker_still_requires_verification(self):
+        self.run_setup(self.source)
+        self.workspace.manifest.unlink()
+        self.assertFalse(AniListWorkspace(self.settings).ready)
+
+    def test_missing_ready_marker_resumes_without_reembedding(self):
+        self.run_setup(self.source)
+        self.workspace.manifest.unlink()
+        self.workspace = AniListWorkspace(self.settings)
+        self.assertIn('Found', self.workspace.steps['embeddings']['message'])
+        with patch.object(self.pipeline, 'ingest', side_effect=AssertionError('index already exists')):
+            snapshots = self.run_setup()
+        self.assertTrue(snapshots[-1]['ready'])
+        self.assertIn('Reusing', snapshots[-1]['steps']['embeddings']['message'])
+
+    def test_legacy_index_without_any_markers_is_verified_against_cache(self):
+        self.run_setup(self.source)
+        self.workspace.manifest.unlink()
+        (self.settings.index / 'embedding-state.json').unlink()
+        with patch.object(self.pipeline, 'ingest', side_effect=AssertionError('must adopt verified legacy index')):
+            snapshots = self.run_setup()
+        self.assertTrue(snapshots[-1]['ready'], snapshots[-1]['message'])
+        self.assertTrue((self.settings.index / 'embedding-state.json').exists())
+
+    def test_missing_tools_cache_reuses_document_index(self):
+        self.run_setup(self.source)
+        (self.settings.index / 'entity-tools.sqlite3').unlink()
+        self.workspace = AniListWorkspace(self.settings)
+        self.assertFalse(self.workspace.ready)
+        with patch.object(self.pipeline, 'ingest', side_effect=AssertionError('only tools are missing')):
+            snapshots = self.run_setup()
+        self.assertTrue(snapshots[-1]['ready'], snapshots[-1]['message'])
+        self.assertTrue((self.settings.index / 'entity-tools.sqlite3').exists())
+
+    def test_failed_final_verification_keeps_embedding_checkpoint_for_retry(self):
+        self.pipeline.models.answer = lambda *args: ''
+        self.assertFalse(self.run_setup(self.source)[-1]['ready'])
+        self.assertTrue((self.settings.index / 'embedding-state.json').exists())
+        self.pipeline.models.answer = lambda *args: 'READY'
+        with patch.object(self.pipeline, 'ingest', side_effect=AssertionError('resume after embeddings')):
+            snapshots = self.run_setup()
+        self.assertTrue(snapshots[-1]['ready'])
+
+    def test_corrupt_index_is_repaired_instead_of_reused(self):
+        self.run_setup(self.source)
+        (self.settings.index / 'vectors.npy').write_bytes(b'incomplete index')
+        with patch.object(self.pipeline, 'ingest', wraps=self.pipeline.ingest) as ingest:
+            snapshots = self.run_setup()
+        ingest.assert_called_once()
+        self.assertTrue(snapshots[-1]['ready'], snapshots[-1]['message'])
+
+    def test_legacy_vectors_from_different_model_are_not_reused_even_with_same_dimensions(self):
+        self.run_setup(self.source)
+        self.workspace.manifest.unlink()
+        (self.settings.index / 'embedding-state.json').unlink()
+        self.workspace.settings = replace(self.settings, embedding='another-model')
+        self.workspace.pipeline = self.pipeline
+        self.assertFalse(self.workspace.reusable_index())
+
     def test_ollama_unavailable_reports_retry_and_keeps_chat_disabled(self):
         with patch('src.anilist_setup.requests.get', side_effect=requests.ConnectionError('offline')):
             snapshots = list(self.workspace.setup(self.source))

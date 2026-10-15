@@ -110,6 +110,55 @@ class ToolPlanTests(unittest.TestCase):
         self.assertEqual(self.agent.identity_issues(
             'Subaru is not in Other World.', evidence), [])
 
+    def test_identity_checks_keep_case_insensitive_attribution(self):
+        evidence = [{'tool': 'get_anime', 'result': self.store.anime('1')}]
+        self.assertTrue(self.agent.identity_issues(
+            "SUBARU'S ability in OTHER WORLD is unusual.", evidence))
+
+    def test_planner_receives_evidence_availability_without_full_bundles(self):
+        self.ask('What was Re:Zero about?')
+        prompt = self.prompts[0][0]
+        data, _ = json.JSONDecoder().raw_decode(prompt[prompt.index('\n{') + 1:])
+        summary = data['evidence'][0]['result']
+        self.assertEqual(summary['id'], '1')
+        self.assertIn('description', summary['available_fields'])
+        self.assertEqual(summary['recommendations_count'], 1)
+        self.assertNotIn('description', summary)
+        self.assertNotIn('retrieved_guides', data)
+        self.assertNotIn('current_message_entity_ids', data)
+        self.assertIn('returns after death', self.final_prompts[0])
+
+    def test_synopsis_evidence_deduplicates_overview_and_omits_recommendations(self):
+        bundle = self.store.anime('1')
+        evidence = [{'tool': 'entity_context', 'result': bundle},
+                    {'tool': 'get_anime', 'result': bundle}]
+        selected = self.agent.answer_evidence('What was Re:Zero about?', evidence)
+        self.assertEqual(len(selected), 1)
+        self.assertIn('returns after death', selected[0]['result']['description'])
+        self.assertNotIn('recommendations', selected[0]['result'])
+        # Prompt trimming must not mutate the trusted evidence used for validation.
+        self.assertEqual(len(bundle['recommendations']), 1)
+
+    def test_answer_evidence_preserves_distinct_cast_and_profile_pages(self):
+        evidence = [{'tool': 'get_anime', 'result': self.store.anime('1')},
+                    {'tool': 'get_anime', 'result': self.store.anime('1', section='cast')},
+                    {'tool': 'get_character', 'result': self.store.character('17')}]
+        selected = self.agent.answer_evidence('Who are the characters?', evidence)
+        self.assertEqual(len(selected), 3)
+        self.assertIn('recommendations', selected[0]['result'])
+        self.assertIn('He returns after death', selected[1]['result']['cast'][0]['description'])
+        self.assertIn('protects his friends', selected[2]['result']['description'])
+
+    def test_recommendation_tool_evidence_is_retained_for_synopsis_wording(self):
+        evidence = [{'tool': 'recommend_anime', 'result': {'items': [self.store.anime('1')]}}]
+        selected = self.agent.answer_evidence('What was that about?', evidence)
+        self.assertEqual(selected, evidence)
+
+    def test_summarizing_recommendations_keeps_nested_matches(self):
+        evidence = [{'tool': 'get_anime', 'result': self.store.anime('1')}]
+        selected = self.agent.answer_evidence('Summarize recommendations for Re:Zero', evidence)
+        self.assertEqual(selected, evidence)
+
     def test_identity_error_gets_one_correction_and_tracks_actual_calls(self):
         replies = iter(['Other World (also known as "An invented title").',
                         'Try Other World for its shared Fantasy genre. [anime-2.md]'])

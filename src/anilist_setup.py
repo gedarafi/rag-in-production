@@ -2,8 +2,11 @@
 from __future__ import annotations
 
 import json
+import hashlib
 import shutil
+import sqlite3
 import threading
+from contextlib import closing
 from copy import deepcopy
 from pathlib import Path
 from time import perf_counter
@@ -14,6 +17,7 @@ import requests
 from .config import Settings
 from .datasets import ANILIST_FILENAME, ANILIST_URL, prepare_anilist
 from .entity_agent import EntityAgent
+from .documents import load_chunks
 from .rag import RagPipeline
 from .sqlite_catalog import SCHEMA_VERSION
 
@@ -36,6 +40,7 @@ class AniListWorkspace:
         self.ready = self.is_prepared()
         self.steps = {key: {'label': label, 'status': 'ready' if self.ready else 'pending',
                             'message': '', 'elapsed_seconds': None} for key, label in STEPS}
+        self.inspect_existing()
         self.message = 'Workspace prepared. You can chat or run setup to verify it again.' if self.ready else 'Run setup to prepare your AniList library.'
 
     def signature(self):
@@ -44,20 +49,103 @@ class AniListWorkspace:
         return {'version': 1, 'sql_schema': SCHEMA_VERSION, 'embedding': s.embedding,
                 'embedding_cache_version': s.embedding_cache_version,
                 'chunk_size': s.chunk_size, 'chunk_overlap': s.chunk_overlap,
-                'llm': s.llm, 'ollama_url': s.ollama_url,
                 'files': {str(p.relative_to(s.root)): [p.stat().st_size, p.stat().st_mtime_ns] for p in paths}}
 
     def is_prepared(self):
         try:
             required = [self.settings.documents / 'catalog.sqlite3',
                         self.settings.index / 'entity-tools.sqlite3', self.settings.index / 'entity-features.sqlite3']
+            saved = json.loads(self.manifest.read_text(encoding='utf-8'))
+            # Older manifests included generation settings. Neither changes the
+            # local catalog or embedding index; connection errors surface at chat.
+            if not isinstance(saved, dict):
+                return False
+            saved = {k: v for k, v in saved.items() if k not in ('llm', 'ollama_url')}
             return (all(p.is_file() and p.stat().st_size for p in required)
-                    and json.loads(self.manifest.read_text(encoding='utf-8')) == self.signature())
+                    and saved == self.signature())
         except (OSError, ValueError, KeyError):
             return False
 
     def snapshot(self):
         return {'ready': self.ready, 'message': self.message, 'steps': deepcopy(self.steps)}
+
+    def inspect_existing(self):
+        """Inventory artifacts without treating file existence as verification."""
+        s = self.settings
+        groups = {
+            'dataset': [s.root / 'data/raw' / ANILIST_FILENAME, s.root / 'data-raw' / ANILIST_FILENAME],
+            'documents': [s.documents / 'catalog.jsonl'],
+            'sql': [s.documents / 'catalog.sqlite3'],
+            'embeddings': [s.index / 'chunks.json', s.index / 'vectors.npy'],
+            'tools': [s.index / 'entity-tools.sqlite3', s.index / 'entity-features.sqlite3'],
+        }
+        for key, paths in groups.items():
+            found = [p.name for p in paths if p.is_file() and p.stat().st_size]
+            if found:
+                self.steps[key]['message'] = 'Found ' + ', '.join(found) + '; checking before reuse.'
+
+    def save_index_checkpoint(self):
+        """Keep index provenance even if a later setup stage is interrupted."""
+        target = self.settings.index / 'embedding-state.json'
+        temporary = target.with_suffix('.json.tmp')
+        temporary.write_text(json.dumps(self.signature()), encoding='utf-8')
+        temporary.replace(target)
+
+    def reusable_index(self):
+        """Validate the index independently of the final setup-ready marker."""
+        vectors = None
+        try:
+            s = self.settings
+            chunks = json.loads((s.index / 'chunks.json').read_text(encoding='utf-8'))
+            vectors = np.load(s.index / 'vectors.npy', mmap_mode='r', allow_pickle=False)
+            probe = self.pipeline.models.embed(['AniList workspace verification'])
+            if (not isinstance(chunks, list) or not chunks or vectors.ndim != 2
+                    or vectors.shape != (len(chunks), probe.shape[1])):
+                return False
+            if any(not np.isfinite(vectors[start:start + 8192]).all()
+                   for start in range(0, len(vectors), 8192)):
+                return False
+            signature = self.signature()
+            # A successful embedding stage is reusable even if tools/verification
+            # never finished and the final ready marker was deliberately removed.
+            for path in (s.index / 'embedding-state.json', self.manifest):
+                try:
+                    saved = json.loads(path.read_text(encoding='utf-8'))
+                    saved = {k: v for k, v in saved.items() if k not in ('llm', 'ollama_url')}
+                    if saved == signature:
+                        return True
+                except (OSError, ValueError, AttributeError):
+                    pass
+            # Adopt older prepared libraries without trusting dimensions alone:
+            # compare their chunks with today's documents/settings, then prove
+            # each vector belongs to the current model's content-addressed cache.
+            if not s.embedding_cache or not (s.index / 'embeddings.sqlite3').is_file():
+                return False
+            expected = load_chunks(s.documents, s.extensions, s.chunk_size, s.chunk_overlap)
+            if len(expected) != len(chunks) or any(c.__dict__ != saved for c, saved in zip(expected, chunks)):
+                return False
+            models = self.pipeline.models
+            namespace = json.dumps([s.embedding, s.embedding_cache_version,
+                                    getattr(models, 'cache_revision', None),
+                                    getattr(getattr(models, 'embedder', None), 'max_seq_length', None),
+                                    'normalized-f32-v1'])
+            with closing(sqlite3.connect(s.index / 'embeddings.sqlite3')) as db:
+                for start in range(0, len(chunks), 256):
+                    keys = [hashlib.sha256(c['text'].encode('utf-8')).hexdigest()
+                            for c in chunks[start:start + 256]]
+                    placeholders = ','.join('?' for _ in keys)
+                    found = dict(db.execute(f'SELECT hash,vector FROM embeddings WHERE namespace=? '
+                                            f'AND hash IN ({placeholders})', [namespace, *keys]))
+                    if any(key not in found or not np.array_equal(
+                            vectors[start + i], np.frombuffer(found[key], dtype=np.float32))
+                           for i, key in enumerate(keys)):
+                        return False
+            return True
+        except (OSError, ValueError, KeyError, TypeError, AttributeError, IndexError, sqlite3.Error):
+            return False
+        finally:
+            if vectors is not None and getattr(vectors, '_mmap', None) is not None:
+                vectors._mmap.close()
 
     def ensure_model(self, progress):
         url = self.settings.ollama_url
@@ -159,14 +247,18 @@ class AniListWorkspace:
         if not self.lock.acquire(blocking=False):
             raise RuntimeError('Setup or a chat request is already running.')
         progress = progress or (lambda *args: None)
-        previously_prepared = self.is_prepared()
         self.ready = False
         self.pipeline = RagPipeline(self.settings)
         self.steps = {key: {'label': label, 'status': 'pending', 'message': '', 'elapsed_seconds': None}
                       for key, label in STEPS}
+        self.inspect_existing()
         dataset = None
         prepared_now = False
         try:
+            # Preserve proven index provenance before removing the overall
+            # readiness marker, including installations from before checkpoints.
+            if self.is_prepared():
+                self.save_index_checkpoint()
             # A partial rebuild must never inherit an earlier ready marker.
             self.manifest.unlink(missing_ok=True)
             for key, _ in STEPS:
@@ -194,11 +286,12 @@ class AniListWorkspace:
                         self.pipeline._agent = EntityAgent(self.settings, self.pipeline.models, catalog, self.pipeline.vector_search)
                         message = f"{catalog.query('SELECT COUNT(*) FROM anime')[0][0]:,} anime indexed in SQL; entity dictionaries ready."
                     elif key == 'embeddings':
-                        if rebuild or prepared_now or not previously_prepared:
+                        if rebuild or prepared_now or not self.reusable_index():
                             count = self.pipeline.ingest(progress=progress)
                             message = f'{count:,} passages indexed; unchanged embeddings reused from cache.'
                         else:
                             message = 'Reusing the verified document embedding index.'
+                        self.save_index_checkpoint()
                     elif key == 'tools':
                         self.pipeline._agent.guides('Recommend anime')
                         self.pipeline._agent.feature_candidates('Anime genres and themes')

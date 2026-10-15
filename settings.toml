@@ -16,7 +16,7 @@ embedding_device = "auto" # auto prefers CUDA, then MPS, then CPU
 embedding_batch_size = 64 # Lower if GPU memory is insufficient
 embedding_cache = true # Reuse unchanged chunks and resume interrupted embedding
 embedding_cache_version = "1" # Change to force fresh embeddings for the same model
-ollama_url = "http://localhost:11434"
+ollama_url = "http://127.0.0.1:11434"
 
 [retrieval]
 chunk_size = 900
