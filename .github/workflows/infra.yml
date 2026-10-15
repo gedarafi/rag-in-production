@@ -1,0 +1,71 @@
+name: Infra
+
+on:
+  pull_request:
+    paths:
+      - "infra/**"
+      - "justfile"
+      - ".github/workflows/infra.yml"
+      - ".github/actions/setup-infra/**"
+  push:
+    branches: [main]
+    paths:
+      - "infra/**"
+      - "justfile"
+      - ".github/workflows/infra.yml"
+      - ".github/actions/setup-infra/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: infra-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  static:
+    name: Lint and unit tests
+    runs-on: ubuntu-latest
+    outputs:
+      has_localstack_token: ${{ steps.token.outputs.present }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup-infra
+
+      - run: just lint
+      - run: just test-unit
+
+      # Secrets are not available to pull requests from forks; the LocalStack job is skipped then.
+      - name: Check for LocalStack token
+        id: token
+        env:
+          TOKEN: ${{ secrets.LOCALSTACK_AUTH_TOKEN }}
+        run: echo "present=$([ -n "$TOKEN" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+
+  localstack:
+    name: LocalStack integration and e2e
+    needs: static
+    if: needs.static.outputs.has_localstack_token == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup-infra
+
+      - name: Configure LocalStack token
+        env:
+          TOKEN: ${{ secrets.LOCALSTACK_AUTH_TOKEN }}
+        run: echo "LOCALSTACK_AUTH_TOKEN=$TOKEN" > infra/.env
+
+      - run: just up
+      - run: just status
+      - run: just test-localstack
+      - run: just e2e
+
+      - name: LocalStack logs
+        if: failure()
+        run: just logs --no-follow
+
+      - name: Stop LocalStack
+        if: always()
+        run: just down

@@ -9,6 +9,7 @@ What the project uses today, and what is planned. Versions and settings come fro
 | --- | --- | --- |
 | Python | Language | `>= 3.14` (pinned in `.python-version`) |
 | [uv](https://docs.astral.sh/uv/) | Package and environment management | `uv sync` to install, `uv add <pkg>` to add a dependency; commit `uv.lock` |
+| [just](https://just.systems/) | Command runner | Run `just` to list the recipes in [`justfile`](justfile) |
 
 ### Main libraries
 
@@ -25,14 +26,22 @@ What the project uses today, and what is planned. Versions and settings come fro
 | Tool | Purpose | Status |
 | --- | --- | --- |
 | [Ollama](https://ollama.com/) | Runs the LLM locally (default `llama3.2:3b` at `http://localhost:11434`) | In use |
-| [Docker](https://www.docker.com/) | Same environment on macOS, Windows and Linux | Planned |
+| [Docker](https://www.docker.com/) | Same environment on macOS, Windows and Linux; runs LocalStack via [`infra/docker-compose.yml`](infra/docker-compose.yml) | In use |
 
 ## Cloud
 
 | Tool | Purpose | Status |
 | --- | --- | --- |
 | [AWS](https://aws.amazon.com/) | Production deployment target | Planned |
-| [LocalStack](https://www.localstack.cloud/) | Emulates AWS locally for development and tests, with no AWS account or cost | Planned |
+| [LocalStack](https://www.localstack.cloud/) | Emulates AWS locally for development and tests, with no AWS cost; needs a free auth token in `infra/.env` | In use |
+| [OpenTofu](https://opentofu.org/) | Infrastructure as code (open-source Terraform fork); modules in [`infra/modules/`](infra/modules), tested with `tofu test` | In use (version in `infra/.opentofu-version`) |
+| [Terragrunt](https://terragrunt.gruntwork.io/) | Wraps OpenTofu per environment; config in [`infra/live/`](infra/live) | In use (version in `infra/.terragrunt-version`) |
+
+## CI/CD
+
+| Tool | Purpose | Notes |
+| --- | --- | --- |
+| [GitHub Actions](https://docs.github.com/actions) | Lint and test the infrastructure on every pull request | [`.github/workflows/infra.yml`](.github/workflows/infra.yml); the LocalStack job needs the `LOCALSTACK_AUTH_TOKEN` repository secret |
 
 ## AI tooling
 
