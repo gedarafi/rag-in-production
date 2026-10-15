@@ -1,0 +1,164 @@
+:root {
+  --bg: #f6f5f1;
+  --surface: #ffffff;
+  --text: #1d1d1b;
+  --muted: #5f5e5a;
+  --border: #d9d7cf;
+  --accent: #2f5d8a;
+  --accent-text: #ffffff;
+  --error: #a32d2d;
+  --bubble-user: #e6eef7;
+  --bubble-bot: #ffffff;
+  --radius: 10px;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1b1b1a;
+    --surface: #252523;
+    --text: #ecebe6;
+    --muted: #a9a79f;
+    --border: #3a3a37;
+    --accent: #7fb0e0;
+    --accent-text: #10202f;
+    --error: #f09595;
+    --bubble-user: #233447;
+    --bubble-bot: #252523;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.brand { font-weight: 600; }
+.user { display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: 14px; }
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  max-width: 420px;
+  width: 100%;
+  margin: 40px auto 0;
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+h1 { font-size: 22px; font-weight: 600; margin: 0 0 8px; }
+.muted { color: var(--muted); margin: 0 0 20px; }
+.hint { color: var(--muted); font-size: 13px; margin: 6px 0 0; min-height: 1em; }
+.error { color: var(--error); font-size: 14px; margin: 8px 0 0; min-height: 1em; }
+.error:empty, .hint:empty { min-height: 0; margin: 0; }
+
+label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; }
+
+input, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+input:focus, textarea:focus, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+#code { letter-spacing: 0.3em; font-size: 20px; text-align: center; }
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border-radius: var(--radius);
+}
+
+button[type="submit"] {
+  margin-top: 16px;
+  width: 100%;
+  padding: 10px 16px;
+  border: 0;
+  background: var(--accent);
+  color: var(--accent-text);
+  font-weight: 600;
+}
+
+button:disabled { opacity: 0.6; cursor: progress; }
+
+.link {
+  border: 0;
+  background: none;
+  padding: 0;
+  color: var(--accent);
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+.row { display: flex; justify-content: space-between; margin-top: 16px; }
+
+.chat { flex: 1; display: flex; flex-direction: column; gap: 12px; }
+
+.messages {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.messages li {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.messages .from-user { align-self: flex-end; background: var(--bubble-user); }
+.messages .from-bot { align-self: flex-start; background: var(--bubble-bot); }
+.messages .pending { color: var(--muted); font-style: italic; }
+
+.composer { display: flex; gap: 8px; align-items: flex-end; }
+.composer textarea { resize: vertical; min-height: 48px; }
+.composer button[type="submit"] { width: auto; margin-top: 0; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+[hidden] { display: none !important; }
