@@ -8,3 +8,17 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Local secrets
+.env
+
+# LocalStack state (infra/.localstack/)
+.localstack/
+
+# OpenTofu / Terragrunt (keep .terraform.lock.hcl tracked)
+.terraform/
+.terragrunt-cache/
+infra/live/.state/
+*.tfstate
+*.tfstate.*
+*.tfplan

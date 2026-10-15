@@ -1,0 +1,25 @@
+# Local AWS emulator. Start it with `just up`; see the justfile for the other recipes.
+name: rag-in-production
+
+services:
+  localstack:
+    image: localstack/localstack:2026.10
+    container_name: localstack
+    ports:
+      - "127.0.0.1:4566:4566"            # LocalStack gateway
+      - "127.0.0.1:4510-4559:4510-4559"  # external service ports
+    environment:
+      # Free token from https://app.localstack.cloud → Auth Tokens; put it in .env.
+      - LOCALSTACK_AUTH_TOKEN=${LOCALSTACK_AUTH_TOKEN:?set LOCALSTACK_AUTH_TOKEN in .env (see .env.example)}
+      - DEBUG=${LOCALSTACK_DEBUG:-0}
+      - PERSISTENCE=${LOCALSTACK_PERSISTENCE:-0}
+    volumes:
+      - "./.localstack:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"  # needed for Lambda
+    healthcheck:
+      # The image ships Python but not curl.
+      test: ["CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:4566/_localstack/health', timeout=4)"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s

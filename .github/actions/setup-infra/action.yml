@@ -1,0 +1,44 @@
+name: Set up infra tooling
+description: Installs OpenTofu, Terragrunt and just at the versions pinned in infra/.
+
+runs:
+  using: composite
+  steps:
+    - name: Read pinned versions
+      id: versions
+      shell: bash
+      run: |
+        echo "tofu=$(tr -d '[:space:]' < infra/.opentofu-version)" >> "$GITHUB_OUTPUT"
+        echo "terragrunt=$(tr -d '[:space:]' < infra/.terragrunt-version)" >> "$GITHUB_OUTPUT"
+
+    - uses: opentofu/setup-opentofu@v2
+      with:
+        tofu_version: ${{ steps.versions.outputs.tofu }}
+        tofu_wrapper: false
+
+    - name: Install Terragrunt
+      shell: bash
+      env:
+        VERSION: ${{ steps.versions.outputs.terragrunt }}
+      run: |
+        base="https://github.com/gruntwork-io/terragrunt/releases/download/v${VERSION}"
+        cd "$RUNNER_TEMP"
+        curl -fsSLO "${base}/terragrunt_linux_amd64"
+        curl -fsSLO "${base}/SHA256SUMS"
+        grep ' terragrunt_linux_amd64$' SHA256SUMS | sha256sum -c -
+        install -m 0755 terragrunt_linux_amd64 /usr/local/bin/terragrunt
+        terragrunt --version
+
+    - uses: extractions/setup-just@v4
+
+    - name: Cache provider plugins
+      uses: actions/cache@v4
+      with:
+        path: ~/.terraform.d/plugin-cache
+        key: tofu-plugins-${{ runner.os }}-${{ hashFiles('infra/**/.terraform.lock.hcl') }}
+
+    - name: Enable plugin cache
+      shell: bash
+      run: |
+        mkdir -p ~/.terraform.d/plugin-cache
+        echo "TF_PLUGIN_CACHE_DIR=$HOME/.terraform.d/plugin-cache" >> "$GITHUB_ENV"
