@@ -9,6 +9,8 @@ endpoint := env("LOCALSTACK_ENDPOINT", "http://localhost:4566")
 region := env("AWS_DEFAULT_REGION", "us-east-1")
 modules := "modules/s3-bucket modules/auth modules/chat-api modules/web"
 live := "live/local"
+aws_live := "live/aws"
+aws_region := env("AWS_REGION", "eu-north-1")
 
 # List the recipes
 default:
@@ -75,6 +77,16 @@ test-localstack:
 # Run lint and every test
 test: lint test-unit test-localstack
 
+# Run the same steps as CI: lint and unit tests, then LocalStack tests and e2e on a fresh LocalStack
+ci: lint test-unit
+    #!/usr/bin/env bash
+    set -euo pipefail
+    trap 'rc=$?; [ $rc -eq 0 ] || just logs --tail=all; just down; exit $rc' EXIT
+    just up
+    just status
+    just test-localstack
+    just e2e
+
 # Plan the local environment
 plan:
     terragrunt run --all --non-interactive --working-dir {{live}} -- plan
@@ -98,6 +110,71 @@ e2e:
     [ "$status" = "Enabled" ] || { echo "expected versioning Enabled, got '$status'" >&2; exit 1; }
     echo "e2e: bucket rag-documents-local exists with versioning enabled"
     just flow e2e
+
+# --- Real AWS (needs the "Real AWS" part of infra/.env and `aws sso login`) ---
+
+# Refuse to run unless infra/.env is filled in and the AWS login is the expected account
+_aws-check:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    for v in AWS_PROFILE RAG_AWS_ACCOUNT_ID RAG_SES_IDENTITY; do
+      [ -n "${!v:-}" ] || { echo "Set $v in infra/.env (see infra/.env.example)." >&2; exit 1; }
+    done
+    account="$(aws sts get-caller-identity --query Account --output text)" \
+      || { echo "Not signed in to AWS: run 'aws sso login --profile $AWS_PROFILE'." >&2; exit 1; }
+    [ "$account" = "$RAG_AWS_ACCOUNT_ID" ] \
+      || { echo "AWS_PROFILE $AWS_PROFILE is account $account, not RAG_AWS_ACCOUNT_ID $RAG_AWS_ACCOUNT_ID." >&2; exit 1; }
+
+# Create the S3 bucket for the OpenTofu state (safe to run again)
+aws-bootstrap: _aws-check
+    #!/usr/bin/env bash
+    set -euo pipefail
+    bucket="rag-in-production-tfstate-$RAG_AWS_ACCOUNT_ID"
+    if aws s3api head-bucket --bucket "$bucket" --region {{aws_region}} 2>/dev/null; then
+      echo "State bucket $bucket already exists."
+    elif [ "{{aws_region}}" = "us-east-1" ]; then
+      aws s3api create-bucket --bucket "$bucket" --region us-east-1
+    else
+      aws s3api create-bucket --bucket "$bucket" --region {{aws_region}} \
+        --create-bucket-configuration LocationConstraint={{aws_region}}
+    fi
+    aws s3api put-public-access-block --bucket "$bucket" --region {{aws_region}} \
+      --public-access-block-configuration BlockPublicAcls=true,IgnorePublicAcls=true,BlockPublicPolicy=true,RestrictPublicBuckets=true
+    aws s3api put-bucket-versioning --bucket "$bucket" --region {{aws_region}} --versioning-configuration Status=Enabled
+    aws s3api put-bucket-encryption --bucket "$bucket" --region {{aws_region}} \
+      --server-side-encryption-configuration '{"Rules":[{"ApplyServerSideEncryptionByDefault":{"SSEAlgorithm":"AES256"}}]}'
+    echo "State bucket $bucket is ready."
+
+# Plan the real AWS environment
+aws-plan: _aws-check
+    terragrunt run --all --non-interactive --working-dir {{aws_live}} -- plan
+
+# Deploy to real AWS (CloudFront takes a few minutes)
+[confirm("Deploy to your real AWS account? (y/N)")]
+aws-apply: _aws-check
+    terragrunt run --all --non-interactive --working-dir {{aws_live}} -- apply -auto-approve
+
+# Page URL, API URL, user pool and client IDs of the real AWS environment
+aws-outputs: _aws-check
+    terragrunt run --all --non-interactive --working-dir {{aws_live}} -- output
+
+# Remove everything from real AWS, including registered users
+[confirm("Destroy everything in your real AWS account, including registered users? (y/N)")]
+aws-destroy: _aws-check
+    terragrunt run --all --non-interactive --working-dir {{aws_live}} -- destroy -auto-approve
+
+# Serve web/ on http://localhost:8000 against the API deployed on real AWS
+web-dev: _aws-check
+    #!/usr/bin/env bash
+    set -euo pipefail
+    out() { terragrunt run --non-interactive --log-level error --working-dir {{aws_live}}/$1 -- output -raw $2; }
+    client_id="$(out auth user_pool_client_id)"
+    api="$(out chat-api api_endpoint)"
+    domains="$(python3 -c 'import json, sys; print(json.dumps(sys.argv[1].split(",")))' "${RAG_ALLOWED_EMAIL_DOMAINS:-uu.se,student.uu.se}")"
+    printf 'window.APP_CONFIG = {"region":"%s","userPoolClientId":"%s","allowedEmailDomains":%s,"apiBase":"%s"};\n' \
+      "{{aws_region}}" "$client_id" "$domains" "$api" > ../web/config.js
+    echo "Wrote web/config.js; serving on http://localhost:8000"
+    python3 -m http.server 8000 --bind 127.0.0.1 --directory ../web
 
 # --- Trying the local stack by hand (after `just apply`) ---
 # LocalStack's Cognito has no passwordless sign-in, so local users get a fixed password instead.
