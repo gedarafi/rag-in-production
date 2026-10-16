@@ -212,3 +212,7 @@ providers, plus the Lambda unit tests). The second job starts LocalStack
 and runs `just test-localstack` and `just e2e`; it needs a `LOCALSTACK_AUTH_TOKEN` repository
 secret (**Settings → Secrets and variables → Actions**) and is skipped without it, for example
 on pull requests from forks.
+
+### Ethical considerations
+
+* GDPR-Compliant
