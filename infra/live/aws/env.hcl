@@ -5,7 +5,9 @@ locals {
   name_prefix = "rag-aws"
 
   # Stockholm: Cognito here can only send email through SES in the same region.
-  region = get_env("AWS_REGION", "eu-north-1")
+  # region = get_env("AWS_REGION", "eu-north-1")
+  region = get_env("AWS_REGION", "us-east-2")
+
 
   # The provider refuses to touch any other account, so a wrong AWS_PROFILE can't deploy elsewhere.
   # Defaults are empty so `just lint` works without credentials; the aws-* recipes require them.
