@@ -192,7 +192,9 @@ One-time setup:
 5. `just aws-outputs` prints the page URL.
 
 New accounts start in the **SES sandbox**: codes only reach addresses verified in SES (at most
-200 emails a day). Request production access in the SES console before inviting others.
+200 emails a day). Request production access in the SES console before inviting others, and set
+`deletion_protection = "ACTIVE"` in `infra/live/aws/env.hcl` so registered users can't be deleted
+by accident.
 
 ```sh
 just aws-plan       # preview changes
