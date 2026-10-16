@@ -64,7 +64,7 @@ jobs:
 
       - name: LocalStack logs
         if: failure()
-        run: just logs --no-follow
+        run: just logs --tail=all
 
       - name: Stop LocalStack
         if: always()

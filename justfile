@@ -27,7 +27,7 @@ down:
 # Restart LocalStack
 restart: down up
 
-# Follow the LocalStack logs (`just logs --no-follow` to print and exit)
+# Follow the LocalStack logs (`just logs --tail=all` to print and exit)
 logs *args="-f":
     {{compose}} logs {{args}} localstack
 

@@ -99,9 +99,33 @@ def cognito(action: str, body: dict) -> dict:
 # ---------- Flow ----------
 
 
+def start_ses():
+    """Make LocalStack load SES, which it does lazily on the first SES call.
+
+    Its /_aws/ses inbox endpoint only exists once SES is loaded; before that the request falls
+    through to another service and gets a non-JSON error. On a fresh LocalStack (as in CI) no SES
+    call has been made yet. The signature is not checked, only the service in the credential scope.
+    """
+    request(
+        "POST",
+        f"{ENDPOINT}/",
+        "Action=ListIdentities&Version=2010-12-01",
+        {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Authorization": "AWS4-HMAC-SHA256 Credential=test/20240101/us-east-1/ses/aws4_request, "
+            "SignedHeaders=host, Signature=0",
+        },
+    )
+
+
 def codes(email: str | None = None) -> list[tuple[str, str]]:
     """(recipient, code) for every code email in LocalStack's SES inbox, oldest first."""
-    _, _, text = request("GET", f"{ENDPOINT}/_aws/ses")
+    status, _, text = request("GET", f"{ENDPOINT}/_aws/ses")
+    if status != 200:
+        start_ses()
+        status, _, text = request("GET", f"{ENDPOINT}/_aws/ses")
+    if status != 200:
+        raise SystemExit(f"Cannot read LocalStack's SES inbox ({ENDPOINT}/_aws/ses): HTTP {status} {text[:200]}")
     found = []
     for msg in json.loads(text or "{}").get("messages", []):
         body = (msg.get("Body") or {}).get("text_part") or ""
