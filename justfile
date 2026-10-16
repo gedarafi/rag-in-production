@@ -179,9 +179,9 @@ web-dev: _aws-check
 # --- Trying the local stack by hand (after `just apply`) ---
 # LocalStack's Cognito has no passwordless sign-in, so local users get a fixed password instead.
 
-# Run a step of the local sign-in and chat flow (`just flow help` lists them)
+# Run a step of the local sign-in and chat flow (`just flow --help` lists them)
 flow *args:
-    @python3 -I scripts/local_flow.py {{args}}
+    @uv run --quiet --script scripts/local_flow.py {{args}}
 
 # Page URL, API URL, user pool and client IDs of the local stack
 outputs: (flow "outputs")
@@ -194,7 +194,7 @@ signup email: (flow "signup" email)
 
 # Sign in and send a message through CloudFront, e.g. `just chat me@student.uu.se "hello"`
 chat email message:
-    @python3 -I scripts/local_flow.py chat {{quote(email)}} {{quote(message)}}
+    @uv run --quiet --script scripts/local_flow.py chat {{quote(email)}} {{quote(message)}}
 
 # Print a snippet to paste in the browser console on the local page to sign in as email
 session email: (flow "session" email)

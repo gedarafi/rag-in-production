@@ -1,30 +1,51 @@
 from __future__ import annotations
 
-import argparse
-import sys
+from pathlib import Path
+from typing import Annotated
 
-from .config import load_settings
-from .rag import RagPipeline
+import typer
+
+app = typer.Typer(help="Run a local, configurable RAG pipeline.", no_args_is_help=True)
+
+
+@app.callback()
+def settings(
+    ctx: typer.Context,
+    config: Annotated[Path, typer.Option(help="Path to the TOML settings file")] = Path("settings.toml"),
+) -> None:
+    ctx.obj = config
+
+
+def _run(ctx: typer.Context, action):
+    """Build the pipeline from the settings file and run action on it, reporting errors briefly."""
+    # Imported here so `rag --help` doesn't wait for the embedding libraries to load.
+    from .config import load_settings
+    from .rag import RagPipeline
+
+    try:
+        return action(RagPipeline(load_settings(str(ctx.obj))))
+    except (OSError, RuntimeError, ValueError) as error:
+        typer.echo(f"Error: {error}", err=True)
+        raise typer.Exit(1) from error
+
+
+@app.command()
+def ingest(ctx: typer.Context) -> None:
+    """Read documents and rebuild the local vector index."""
+    typer.echo(f"Indexed {_run(ctx, lambda pipeline: pipeline.ingest())} chunks.")
+
+
+@app.command()
+def ask(
+    ctx: typer.Context,
+    question: Annotated[str, typer.Argument(help="Question to answer from the indexed documents")],
+) -> None:
+    """Ask a question against the indexed documents."""
+    typer.echo(_run(ctx, lambda pipeline: pipeline.ask(question)))
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Run a local, configurable RAG pipeline.")
-    parser.add_argument("--config", default="settings.toml", help="Path to the TOML settings file")
-    subparsers = parser.add_subparsers(dest="command", required=True)
-    subparsers.add_parser("ingest", help="Read documents and rebuild the local vector index")
-    ask_parser = subparsers.add_parser("ask", help="Ask a question against the indexed documents")
-    ask_parser.add_argument("question")
-    args = parser.parse_args()
-
-    try:
-        pipeline = RagPipeline(load_settings(args.config))
-        if args.command == "ingest":
-            print(f"Indexed {pipeline.ingest()} chunks.")
-        else:
-            print(pipeline.ask(args.question))
-    except (OSError, RuntimeError, ValueError) as error:
-        print(f"Error: {error}", file=sys.stderr)
-        raise SystemExit(1) from error
+    app()
 
 
 if __name__ == "__main__":

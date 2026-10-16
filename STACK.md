@@ -20,6 +20,7 @@ What the project uses today, and what is planned. Versions and settings come fro
 | `pypdf`, `python-docx` | Reading `.pdf` and `.docx` documents |
 | `requests` | Calling the Ollama API |
 | `gradio` | Browser interface (`uv run python -m src.gui`) |
+| `typer` | Command-line interfaces: the `rag` command ([`src/cli.py`](src/cli.py)) and the LocalStack flow script ([`infra/scripts/local_flow.py`](infra/scripts/local_flow.py), run with `uv run --script`) |
 
 ## Local
 

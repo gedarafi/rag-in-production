@@ -1,3 +1,7 @@
+# /// script
+# requires-python = ">=3.12"
+# dependencies = ["typer>=0.27"]
+# ///
 """Drive the sign-in and chat flow against the stack deployed on LocalStack (`just apply`).
 
 LocalStack's Cognito has no passwordless sign-in (SignUp without a password and the EMAIL_OTP
@@ -6,17 +10,11 @@ USER_AUTH + PASSWORD. Everything else is the real thing: the pre sign-up Lambda 
 domain, the confirmation code goes through SES, the API checks the Cognito token, and the chat
 Lambda answers through Bedrock, which LocalStack runs with a small Ollama model on CPU.
 
-Only the standard library: Cognito's sign-up and sign-in calls need no AWS signature, so this
-talks to the same JSON API the page does.
+Only the standard library plus Typer for the command line: Cognito's sign-up and sign-in calls
+need no AWS signature, so this talks to the same JSON API the page does.
 
-Usage: python3 local_flow.py <command> [args]   (see `just --list` for the wrappers)
-  outputs                 page URL, API URL, user pool and client IDs
-  codes [EMAIL]           codes LocalStack's SES has "sent", newest last
-  signup EMAIL            register EMAIL and confirm it with the emailed code
-  token EMAIL             print an access token for EMAIL
-  chat EMAIL MESSAGE      send MESSAGE to the chat through CloudFront
-  session EMAIL           print a snippet for the browser console that signs the page in
-  e2e                     run every check; exits non-zero on the first failure
+Run it with `uv run --script scripts/local_flow.py --help`, or through the `just` wrappers
+(`just flow --help`, `just signup`, `just chat`, ...).
 """
 
 import json
@@ -29,6 +27,9 @@ import urllib.parse
 import urllib.request
 import uuid
 from pathlib import Path
+from typing import Annotated
+
+import typer
 
 ENDPOINT = os.environ.get("LOCALSTACK_ENDPOINT", "http://localhost:4566").rstrip("/")
 STATE_DIR = Path(__file__).resolve().parent.parent / "live" / ".state" / "local"
@@ -311,34 +312,63 @@ def e2e():
 
 # ---------- CLI ----------
 
+app = typer.Typer(
+    help="Drive the sign-in and chat flow on the stack deployed to LocalStack (`just apply`).",
+    no_args_is_help=True,
+    add_completion=False,
+)
 
-def main(argv: list[str]):
-    cmd, args = (argv[0], argv[1:]) if argv else ("help", [])
-    if cmd == "outputs":
-        for key, value in stack().items():
-            print(f"{key:13} {value}")
-    elif cmd == "codes":
-        for to, code in codes(args[0] if args else None):
-            print(f"{to:40} {code}")
-    elif cmd == "signup" and len(args) == 1:
-        print(f"Registered {args[0]} with code {signup(args[0])} (local password: {LOCAL_PASSWORD})")
-    elif cmd == "token" and len(args) == 1:
-        print(sign_in(args[0])["AccessToken"])
-    elif cmd == "chat" and len(args) == 2:
-        wait_for_model()
-        status, body = chat(stack()["page"], args[1], sign_in(args[0])["AccessToken"])
-        print(status, json.dumps(body, indent=2))
-    elif cmd == "session" and len(args) == 1:
-        print(session_snippet(args[0]))
-    elif cmd == "e2e":
-        e2e()
-    else:
-        print(__doc__)
-        sys.exit(0 if cmd == "help" else 2)
+Email = Annotated[str, typer.Argument(help="Address to use, e.g. me@student.uu.se")]
+
+
+@app.command("outputs")
+def show_outputs():
+    """Page URL, API URL, user pool and client IDs, and the chat model."""
+    for key, value in stack().items():
+        typer.echo(f"{key:13} {value}")
+
+
+@app.command("codes")
+def show_codes(email: Annotated[str | None, typer.Argument(help="Only codes sent to this address")] = None):
+    """Codes LocalStack's SES has "sent", newest last."""
+    for to, code in codes(email):
+        typer.echo(f"{to:40} {code}")
+
+
+@app.command("signup")
+def signup_command(email: Email):
+    """Register EMAIL and confirm it with the emailed code."""
+    typer.echo(f"Registered {email} with code {signup(email)} (local password: {LOCAL_PASSWORD})")
+
+
+@app.command()
+def token(email: Email):
+    """Print an access token for EMAIL."""
+    typer.echo(sign_in(email)["AccessToken"])
+
+
+@app.command("chat")
+def chat_command(email: Email, message: Annotated[str, typer.Argument(help="Message for the chat")]):
+    """Sign in as EMAIL and send MESSAGE to the chat through CloudFront."""
+    wait_for_model()
+    status, body = chat(stack()["page"], message, sign_in(email)["AccessToken"])
+    typer.echo(f"{status} {json.dumps(body, indent=2)}")
+
+
+@app.command()
+def session(email: Email):
+    """Print a snippet for the browser console that signs the page in as EMAIL."""
+    typer.echo(session_snippet(email))
+
+
+@app.command("e2e")
+def e2e_command():
+    """Run every check; exits non-zero on the first failure."""
+    e2e()
 
 
 if __name__ == "__main__":
     try:
-        main(sys.argv[1:])
+        app()
     except CognitoError as err:
         sys.exit(str(err))
