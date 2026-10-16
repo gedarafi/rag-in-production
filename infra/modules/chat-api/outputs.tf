@@ -9,6 +9,11 @@ output "api_domain" {
 }
 
 output "chat_function_name" {
-  description = "Name of the chat Lambda, to replace with the RAG implementation later."
+  description = "Name of the chat Lambda."
   value       = aws_lambda_function.chat.function_name
+}
+
+output "model_id" {
+  description = "Bedrock model or inference profile the chat Lambda calls."
+  value       = var.model_id
 }

@@ -3,7 +3,8 @@
 LocalStack's Cognito has no passwordless sign-in (SignUp without a password and the EMAIL_OTP
 challenge are not emulated), so locally every user gets LOCAL_PASSWORD and signs in with
 USER_AUTH + PASSWORD. Everything else is the real thing: the pre sign-up Lambda gates the
-domain, the confirmation code goes through SES, and the API checks the Cognito token.
+domain, the confirmation code goes through SES, the API checks the Cognito token, and the chat
+Lambda answers through Bedrock, which LocalStack runs with a small Ollama model on CPU.
 
 Only the standard library: Cognito's sign-up and sign-in calls need no AWS signature, so this
 talks to the same JSON API the page does.
@@ -59,6 +60,7 @@ def stack() -> dict:
         "user_pool_id": auth["user_pool_id"],
         "client_id": auth["user_pool_client_id"],
         "ses_identity": auth["ses_identity"],
+        "model_id": api["model_id"],
     }
 
 
@@ -101,6 +103,16 @@ def cognito(action: str, body: dict) -> dict:
 # ---------- Flow ----------
 
 
+def signed(service: str, content_type: str) -> dict:
+    """Headers LocalStack routes to `service`. It reads the credential scope but checks no signature."""
+    region = stack()["user_pool_id"].split("_")[0]
+    return {
+        "Content-Type": content_type,
+        "Authorization": f"AWS4-HMAC-SHA256 Credential=test/20240101/{region}/{service}/aws4_request, "
+        "SignedHeaders=host, Signature=0",
+    }
+
+
 def verify_sender():
     """Verify the stack's sending identity in LocalStack's SES, which LocalStack does at once.
 
@@ -109,8 +121,7 @@ def verify_sender():
     which makes LocalStack load SES and with it the /_aws/ses inbox. The signature is not checked,
     only the service in the credential scope.
     """
-    s = stack()
-    identity, region = s["ses_identity"], s["user_pool_id"].split("_")[0]
+    identity = stack()["ses_identity"]
     if "@" in identity:
         params = {"Action": "VerifyEmailIdentity", "EmailAddress": identity}
     else:
@@ -119,11 +130,7 @@ def verify_sender():
         "POST",
         f"{ENDPOINT}/",
         urllib.parse.urlencode({**params, "Version": "2010-12-01"}),
-        {
-            "Content-Type": "application/x-www-form-urlencoded",
-            "Authorization": f"AWS4-HMAC-SHA256 Credential=test/20240101/{region}/ses/aws4_request, "
-            "SignedHeaders=host, Signature=0",
-        },
+        signed("ses", "application/x-www-form-urlencoded"),
     )
     if status != 200:
         raise SystemExit(f"Cannot verify {identity} in LocalStack's SES: HTTP {status} {text[:200]}")
@@ -188,6 +195,28 @@ def sign_in(email: str) -> dict:
     if "AuthenticationResult" not in res:
         raise SystemExit(f"Sign-in returned a challenge instead of tokens: {res.get('ChallengeName')}")
     return res["AuthenticationResult"]
+
+
+def wait_for_model(timeout: int = 600):
+    """Wait until LocalStack's Bedrock answers with the chat model.
+
+    BEDROCK_PREWARM pulls and loads the model in the background after LocalStack reports healthy,
+    so the first chat could otherwise outlast API Gateway's 30-second limit.
+    """
+    model_id = stack()["model_id"]
+    url = f"{ENDPOINT}/model/{urllib.parse.quote(model_id, safe='')}/converse"
+    body = json.dumps({"messages": [{"role": "user", "content": [{"text": "Say OK."}]}], "inferenceConfig": {"maxTokens": 5}})
+    deadline = time.monotonic() + timeout
+    while True:
+        status, _, text = request("POST", url, body, signed("bedrock", "application/json"))
+        if status == 200:
+            return
+        # A request or licence problem won't fix itself (Bedrock needs a LocalStack plan that includes it).
+        if (400 <= status < 500 and status not in (408, 429)) or "licen" in text.lower():
+            raise SystemExit(f"LocalStack's Bedrock refused {model_id}: HTTP {status} {text[:300]}")
+        if time.monotonic() > deadline:
+            raise SystemExit(f"LocalStack's Bedrock did not answer with {model_id} within {timeout}s: HTTP {status} {text[:300]}")
+        time.sleep(5)
 
 
 def chat(base: str, message: str, token: str | None) -> tuple[int, dict]:
@@ -255,17 +284,24 @@ def e2e():
     token = sign_in(email)["AccessToken"]
     check(bool(token), "the confirmed user gets an access token")
 
+    started = time.monotonic()
+    wait_for_model()
+    check(True, f"Bedrock answers with {s['model_id']} (ready after {time.monotonic() - started:.0f}s)")
+
     for name, base in (("API", s["api"]), ("CloudFront /api", s["page"])):
         status, _ = chat(base, "hello", None)
         check(status == 401, f"{name}: no token is rejected", status)
         status, _ = chat(base, "hello", "not.a.token")
         check(status == 401, f"{name}: a bad token is rejected", status)
         status, body = chat(base, "hello", token)
+        # The model's words vary from run to run; check that an answer came back, not what it says.
+        answer = body.get("answer")
         check(
-            status == 200 and body.get("status") == "under_construction",
-            f"{name}: a signed-in user gets the placeholder answer",
+            status == 200 and isinstance(answer, str) and answer.strip() != "",
+            f"{name}: a signed-in user gets an answer from the model",
             (status, body),
         )
+        print(f"     {answer[:100]!r}")
 
     status, body = chat(s["api"], "   ", token)
     check(status == 400, "an empty message is refused", (status, body))
@@ -289,6 +325,7 @@ def main(argv: list[str]):
     elif cmd == "token" and len(args) == 1:
         print(sign_in(args[0])["AccessToken"])
     elif cmd == "chat" and len(args) == 2:
+        wait_for_model()
         status, body = chat(stack()["page"], args[1], sign_in(args[0])["AccessToken"])
         print(status, json.dumps(body, indent=2))
     elif cmd == "session" and len(args) == 1:

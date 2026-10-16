@@ -1,11 +1,19 @@
 # HTTP API with a Cognito JWT authorizer in front of the chat Lambda.
-# The Lambda is a placeholder that answers "under construction" until the RAG backend exists.
+# The Lambda answers with a Bedrock model; retrieval from the course documents comes later.
+
+data "aws_caller_identity" "current" {}
+
+data "aws_region" "current" {}
 
 locals {
   function_name = "${var.name_prefix}-chat"
+
+  # A cross-region inference profile (us.amazon.nova-micro-v1:0) routes to the foundation model
+  # (amazon.nova-micro-v1:0) in any region of its geography; IAM must allow both.
+  base_model_id = try(regex("^(?:us|eu|apac|jp|au|ca|us-gov|global)\\.(.+)$", var.model_id)[0], var.model_id)
 }
 
-# ---------- Chat Lambda (placeholder) ----------
+# ---------- Chat Lambda ----------
 
 data "archive_file" "chat" {
   type        = "zip"
@@ -32,6 +40,23 @@ resource "aws_iam_role_policy_attachment" "chat_logs" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
+resource "aws_iam_role_policy" "chat_bedrock" {
+  name = "invoke-model"
+  role = aws_iam_role.chat.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Effect = "Allow"
+      Action = "bedrock:InvokeModel" # also covers the Converse API
+      Resource = [
+        "arn:aws:bedrock:*::foundation-model/${local.base_model_id}",
+        "arn:aws:bedrock:${data.aws_region.current.region}:${data.aws_caller_identity.current.account_id}:inference-profile/${var.model_id}",
+      ]
+    }]
+  })
+}
+
 resource "aws_cloudwatch_log_group" "chat" {
   name              = "/aws/lambda/${local.function_name}"
   retention_in_days = var.log_retention_days
@@ -45,9 +70,16 @@ resource "aws_lambda_function" "chat" {
   handler          = "chat.handler"
   filename         = data.archive_file.chat.output_path
   source_code_hash = data.archive_file.chat.output_base64sha256
-  timeout          = 10
-  memory_size      = 128
+  timeout          = 29 # API Gateway gives up after 30 seconds
+  memory_size      = 256
   tags             = var.tags
+
+  environment {
+    variables = {
+      MODEL_ID   = var.model_id
+      MAX_TOKENS = tostring(var.max_tokens)
+    }
+  }
 
   depends_on = [aws_cloudwatch_log_group.chat, aws_iam_role_policy_attachment.chat_logs]
 }

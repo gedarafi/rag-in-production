@@ -106,7 +106,7 @@ Everything lives in [`infra/`](infra):
 | `infra/docker-compose.yml` | LocalStack, which emulates AWS locally |
 | `infra/modules/s3-bucket/` | OpenTofu module for a private, versioned, encrypted S3 bucket, with tests in `tests/` |
 | `infra/modules/auth/` | Cognito user pool with passwordless email-code sign-in, limited to allowed email domains |
-| `infra/modules/chat-api/` | HTTP API with a Cognito JWT authorizer and a placeholder chat Lambda ("under construction") |
+| `infra/modules/chat-api/` | HTTP API with a Cognito JWT authorizer and a chat Lambda that answers with a Bedrock model |
 | `infra/modules/web/` | Private S3 bucket and CloudFront for the page in [`web/`](web); `/api/*` is forwarded to the chat API |
 | `infra/live/` | Terragrunt config; `live/local/` deploys to LocalStack, `live/aws/` to your real AWS account |
 | `web/` | Static sign-in and chat page (plain HTML, CSS and JavaScript; no build step) |
@@ -151,7 +151,13 @@ Run `just` to see all recipes.
 users get a fixed password ([`infra/scripts/local_flow.py`](infra/scripts/local_flow.py)) and the
 email-code screens can only be tried on real AWS. Everything else is exercised: the pre sign-up
 Lambda's domain check, the confirmation code sent through SES, the JWT authorizer, the chat
-Lambda and CloudFront's `/api/*` forwarding.
+Lambda's Bedrock call and CloudFront's `/api/*` forwarding.
+
+LocalStack emulates Bedrock with a small open model (`qwen2.5:0.5b`, about 400 MB) that it runs
+with Ollama on CPU, whatever model the request names: the local chat checks the whole path, not
+the quality of the answers. The model is pulled and loaded when LocalStack starts, which takes a
+minute or two the first time. Bedrock is part of LocalStack's paid plans, so the auth token must
+include it.
 
 ```sh
 just apply                                   # deploy
@@ -167,16 +173,18 @@ just destroy
 LocalStack doesn't apply CloudFront's security headers (CSP, HSTS) or check the token issuer
 strictly; check those on AWS.
 
-### Real AWS: sign-in page and placeholder chat
+### Real AWS: sign-in page and chat
 
 `infra/live/aws/` deploys a sign-in page where people with an allowed university email
 (`@uu.se`, `@student.uu.se` by default) register and sign in with a one-time code sent to
-their inbox, then reach a chat box. The chat answers "under construction" until the RAG
-backend replaces the Lambda in `infra/modules/chat-api/lambda/chat.py`.
+their inbox, then reach a chat box. The chat Lambda
+([`infra/modules/chat-api/lambda/chat.py`](infra/modules/chat-api/lambda/chat.py)) answers with a
+Bedrock model, Amazon Nova Micro by default (`RAG_BEDROCK_MODEL_ID` in `infra/.env` picks another).
+It doesn't search the course documents yet; retrieval comes with the RAG backend.
 
 ```text
 browser ── CloudFront ──┬── /        → S3 (web/)
-   │                    └── /api/*   → API Gateway (JWT authorizer) → chat Lambda
+   │                    └── /api/*   → API Gateway (JWT authorizer) → chat Lambda → Bedrock
    └── Cognito (email code; pre sign-up Lambda rejects other domains; codes sent through SES)
 ```
 
