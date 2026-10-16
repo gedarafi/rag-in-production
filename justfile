@@ -198,3 +198,17 @@ chat email message:
 
 # Print a snippet to paste in the browser console on the local page to sign in as email
 session email: (flow "session" email)
+
+# Start LocalStack, deploy, register email (once) and print how to chat, e.g. `just local-up me@student.uu.se`
+local-up email: up apply
+    #!/usr/bin/env bash
+    set -euo pipefail
+    just flow token {{quote(email)}} >/dev/null 2>&1 || just signup {{quote(email)}}
+    just outputs
+    echo
+    echo "Chat from the terminal:  just chat {{email}} \"hello\""
+    echo "Or open the page URL above and paste this in the browser console:"
+    just session {{quote(email)}}
+
+# Destroy the local environment and stop LocalStack
+local-down: destroy down
