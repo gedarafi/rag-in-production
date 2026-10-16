@@ -18,6 +18,27 @@ variable "jwt_audience" {
   type        = list(string)
 }
 
+variable "model_id" {
+  description = "Bedrock model or inference profile that answers, e.g. us.amazon.nova-micro-v1:0. On LocalStack, ollama.<model> runs that Ollama model on CPU."
+  type        = string
+
+  validation {
+    condition     = length(trimspace(var.model_id)) > 0
+    error_message = "model_id must not be empty."
+  }
+}
+
+variable "max_tokens" {
+  description = "Longest answer the model may write, in tokens."
+  type        = number
+  default     = 512
+
+  validation {
+    condition     = var.max_tokens >= 1 && var.max_tokens <= 4096
+    error_message = "max_tokens must be between 1 and 4096."
+  }
+}
+
 variable "throttling_rate_limit" {
   description = "Steady-state requests per second for the whole API. A cheap guard against runaway costs."
   type        = number

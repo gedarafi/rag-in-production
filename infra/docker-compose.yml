@@ -13,6 +13,10 @@ services:
       - LOCALSTACK_AUTH_TOKEN=${LOCALSTACK_AUTH_TOKEN:?set LOCALSTACK_AUTH_TOKEN in .env (see .env.example)}
       - DEBUG=${LOCALSTACK_DEBUG:-0}
       - PERSISTENCE=${LOCALSTACK_PERSISTENCE:-0}
+      # Bedrock runs this Ollama model on CPU (keep it in sync with model_id in live/local/env.hcl).
+      # Pre-warming pulls and loads it at startup instead of on the first chat.
+      - DEFAULT_BEDROCK_MODEL=qwen2.5:0.5b
+      - BEDROCK_PREWARM=1
     volumes:
       - "./.localstack:/var/lib/localstack"
       - "/var/run/docker.sock:/var/run/docker.sock"  # needed for Lambda

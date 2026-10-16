@@ -23,6 +23,10 @@ locals {
   # Switch to ACTIVE once real users depend on the pool.
   deletion_protection = "INACTIVE"
 
+  # Chat model: a Bedrock model or cross-region inference profile available in the region.
+  model_id   = get_env("RAG_BEDROCK_MODEL_ID", "us.amazon.nova-micro-v1:0")
+  max_tokens = 512
+
   # Lets `just web-dev` (http://localhost:8000) call the API directly.
   cors_allow_origins = ["http://localhost:8000"]
 }

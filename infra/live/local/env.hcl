@@ -13,6 +13,11 @@ locals {
   deletion_protection   = "INACTIVE"
   cors_allow_origins    = ["http://localhost:8000"]
 
+  # Chat model. LocalStack runs ollama.<model> on CPU (see docker-compose.yml); a tiny model keeps
+  # CI fast, and short answers stay well inside API Gateway's 30-second limit.
+  model_id   = "ollama.qwen2.5:0.5b"
+  max_tokens = 128
+
   # LocalStack serves the HTTP API on its gateway port, over plain HTTP.
   api_origin_port            = 4566
   api_origin_protocol_policy = "http-only"
