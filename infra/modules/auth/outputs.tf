@@ -22,3 +22,8 @@ output "ses_identity_status" {
   description = "Whether SES has verified the sending identity. Codes are only sent once this is SUCCESS."
   value       = var.create_ses_identity ? aws_sesv2_email_identity.sender[0].verification_status : "NOT_MANAGED"
 }
+
+output "ses_identity" {
+  description = "Domain or email address the one-time codes are sent from."
+  value       = var.ses_identity
+}

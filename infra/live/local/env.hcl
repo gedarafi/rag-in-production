@@ -4,8 +4,8 @@ locals {
   name_prefix = "rag-local"
   region      = "us-east-1"
 
-  # Sign-in settings. LocalStack accepts any sender without verification and sends no real email;
-  # the codes appear in its logs (`just codes`).
+  # Sign-in settings. LocalStack sends no real email; the codes land in its SES inbox (`just codes`).
+  # It does require a verified sender: scripts/local_flow.py verifies ses_identity before signing up.
   allowed_email_domains = ["uu.se", "student.uu.se"]
   ses_identity          = "no-reply@example.com"
   create_ses_identity   = false # LocalStack can't tag SESv2 identities

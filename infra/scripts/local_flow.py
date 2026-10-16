@@ -24,6 +24,7 @@ import re
 import sys
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 import uuid
 from pathlib import Path
@@ -57,6 +58,7 @@ def stack() -> dict:
         "api": gateway_url(api["api_endpoint"]),
         "user_pool_id": auth["user_pool_id"],
         "client_id": auth["user_pool_client_id"],
+        "ses_identity": auth["ses_identity"],
     }
 
 
@@ -99,30 +101,39 @@ def cognito(action: str, body: dict) -> dict:
 # ---------- Flow ----------
 
 
-def start_ses():
-    """Make LocalStack load SES, which it does lazily on the first SES call.
+def verify_sender():
+    """Verify the stack's sending identity in LocalStack's SES, which LocalStack does at once.
 
-    Its /_aws/ses inbox endpoint only exists once SES is loaded; before that the request falls
-    through to another service and gets a non-JSON error. On a fresh LocalStack (as in CI) no SES
-    call has been made yet. The signature is not checked, only the service in the credential scope.
+    Cognito's code emails are rejected until the sender is verified, and live/local can't create
+    the identity itself (LocalStack can't tag SESv2 identities). This is also the first SES call,
+    which makes LocalStack load SES and with it the /_aws/ses inbox. The signature is not checked,
+    only the service in the credential scope.
     """
-    request(
+    s = stack()
+    identity, region = s["ses_identity"], s["user_pool_id"].split("_")[0]
+    if "@" in identity:
+        params = {"Action": "VerifyEmailIdentity", "EmailAddress": identity}
+    else:
+        params = {"Action": "VerifyDomainIdentity", "Domain": identity}
+    status, _, text = request(
         "POST",
         f"{ENDPOINT}/",
-        "Action=ListIdentities&Version=2010-12-01",
+        urllib.parse.urlencode({**params, "Version": "2010-12-01"}),
         {
             "Content-Type": "application/x-www-form-urlencoded",
-            "Authorization": "AWS4-HMAC-SHA256 Credential=test/20240101/us-east-1/ses/aws4_request, "
+            "Authorization": f"AWS4-HMAC-SHA256 Credential=test/20240101/{region}/ses/aws4_request, "
             "SignedHeaders=host, Signature=0",
         },
     )
+    if status != 200:
+        raise SystemExit(f"Cannot verify {identity} in LocalStack's SES: HTTP {status} {text[:200]}")
 
 
 def codes(email: str | None = None) -> list[tuple[str, str]]:
     """(recipient, code) for every code email in LocalStack's SES inbox, oldest first."""
     status, _, text = request("GET", f"{ENDPOINT}/_aws/ses")
     if status != 200:
-        start_ses()
+        verify_sender()
         status, _, text = request("GET", f"{ENDPOINT}/_aws/ses")
     if status != 200:
         raise SystemExit(f"Cannot read LocalStack's SES inbox ({ENDPOINT}/_aws/ses): HTTP {status} {text[:200]}")
@@ -147,6 +158,7 @@ def latest_code(email: str, after: int = 0) -> str:
 
 
 def signup(email: str) -> str:
+    verify_sender()
     before = len(codes(email))
     cognito(
         "SignUp",
