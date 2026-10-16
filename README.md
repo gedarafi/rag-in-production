@@ -112,8 +112,9 @@ Everything lives in [`infra/`](infra):
 | `web/` | Static sign-in and chat page (plain HTML, CSS and JavaScript; no build step) |
 
 Requires [Docker](https://www.docker.com/), [just](https://just.systems/), the
-[AWS CLI](https://aws.amazon.com/cli/), [OpenTofu](https://opentofu.org/) and
-[Terragrunt](https://terragrunt.gruntwork.io/). The versions are pinned in
+[AWS CLI](https://aws.amazon.com/cli/), [OpenTofu](https://opentofu.org/),
+[Terragrunt](https://terragrunt.gruntwork.io/) and [uv](https://docs.astral.sh/uv/) (it runs
+`infra/scripts/local_flow.py` with its dependencies). The versions are pinned in
 `infra/.opentofu-version` and `infra/.terragrunt-version`; [tenv](https://github.com/tofuutils/tenv)
 picks them up automatically.
 

@@ -1,5 +1,5 @@
 name: Set up infra tooling
-description: Installs OpenTofu, Terragrunt and just at the versions pinned in infra/.
+description: Installs OpenTofu, Terragrunt and just at the versions pinned in infra/, and uv for infra/scripts.
 
 runs:
   using: composite
@@ -30,6 +30,9 @@ runs:
         terragrunt --version
 
     - uses: extractions/setup-just@v4
+
+    # Runs infra/scripts/local_flow.py with its inline dependencies (`uv run --script`).
+    - uses: astral-sh/setup-uv@v7
 
     - name: Cache provider plugins
       uses: actions/cache@v6
