@@ -108,13 +108,16 @@ Everything lives in [`infra/`](infra):
 | `infra/modules/auth/` | Cognito user pool with passwordless email-code sign-in, limited to allowed email domains |
 | `infra/modules/chat-api/` | HTTP API with a Cognito JWT authorizer and a chat Lambda that answers with a Bedrock model |
 | `infra/modules/web/` | Private S3 bucket and CloudFront for the page in [`web/`](web); `/api/*` is forwarded to the chat API |
+| `infra/modules/budget/` | Monthly cost budget for the AWS account, emailing at 80 % actual and 100 % forecasted spend (real AWS only) |
+| `infra/scripts/` | `local_flow.py` drives the local sign-in and chat flow; `diagram.py` draws the architecture diagram |
 | `infra/live/` | Terragrunt config; `live/local/` deploys to LocalStack, `live/aws/` to your real AWS account |
 | `web/` | Static sign-in and chat page (plain HTML, CSS and JavaScript; no build step) |
 
 Requires [Docker](https://www.docker.com/), [just](https://just.systems/), the
 [AWS CLI](https://aws.amazon.com/cli/), [OpenTofu](https://opentofu.org/),
 [Terragrunt](https://terragrunt.gruntwork.io/) and [uv](https://docs.astral.sh/uv/) (it runs
-`infra/scripts/local_flow.py` with its dependencies). The versions are pinned in
+the scripts in `infra/scripts/` with their dependencies). `just aws-diagram` also needs
+[Graphviz](https://graphviz.org/download/) (`dot`). The versions are pinned in
 `infra/.opentofu-version` and `infra/.terragrunt-version`; [tenv](https://github.com/tofuutils/tenv)
 picks them up automatically.
 
@@ -189,6 +192,14 @@ browser ── CloudFront ──┬── /        → S3 (web/)
    └── Cognito (email code; pre sign-up Lambda rejects other domains; codes sent through SES)
 ```
 
+![Architecture of the real AWS environment](docs/architecture.png)
+
+[`docs/architecture.png`](docs/architecture.png) is drawn by `just aws-diagram` from what is
+deployed: each icon is a service in a unit's OpenTofu state, and each arrow means that service's
+state refers to the other one (CloudFront's origins, the API's integration and authorizer,
+Cognito's pre sign-up trigger, the chat Lambda's model). Run it again after `just aws-apply`
+changes the services, and commit the new image.
+
 One-time setup:
 
 1. Sign in to your account with the AWS CLI, ideally through IAM Identity Center (`aws sso login`).
@@ -211,6 +222,7 @@ just aws-apply      # deploy
 just aws-outputs    # page URL, user pool and client IDs
 just aws-destroy    # remove everything, including registered users
 just web-dev        # serve web/ locally on http://localhost:8000 against the deployed API
+just aws-diagram    # redraw docs/architecture.png from the deployed services
 ```
 
 ### CI

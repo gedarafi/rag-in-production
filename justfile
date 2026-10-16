@@ -68,6 +68,7 @@ lock:
 test-unit:
     for m in {{modules}}; do tofu -chdir=$m init -backend=false -input=false >/dev/null && tofu -chdir=$m test -filter=tests/unit.tftest.hcl || exit 1; done
     for d in modules/auth/lambda modules/chat-api/lambda; do python3 -m unittest discover -s $d -p 'test_*.py' || exit 1; done
+    uv run --quiet --no-project --with 'typer>=0.27' python -m unittest discover -s scripts -p 'test_*.py'
 
 # Integration test that creates and destroys a bucket on LocalStack (run `just up` first)
 test-localstack:
@@ -162,6 +163,10 @@ aws-outputs: _aws-check
 [confirm("Destroy everything in your real AWS account, including registered users? (y/N)")]
 aws-destroy: _aws-check
     terragrunt run --all --non-interactive --working-dir {{aws_live}} -- destroy -auto-approve
+
+# Draw docs/architecture.png from the services deployed to real AWS
+aws-diagram: _aws-check
+    uv run --quiet --script scripts/diagram.py --live {{aws_live}} --out ../docs/architecture
 
 # Serve web/ on http://localhost:8000 against the API deployed on real AWS
 web-dev: _aws-check
