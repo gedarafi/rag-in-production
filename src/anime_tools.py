@@ -67,7 +67,8 @@ def structured(row: dict, source: str) -> dict:
         media = node.get("mediaRecommendation") or {}
         if media.get("id") is not None:
             recommendations.append({"id": str(media["id"]), "votes": number(node.get("rating")) or 0})
-    return {"id": str(row.get("id", source)), "title": aliases[0] if aliases else source,
+    from .catalog_metadata import production_metadata
+    return {**production_metadata(row), "id": str(row.get("id", source)), "title": aliases[0] if aliases else source,
             "aliases": aliases, "description": prose(row.get("description")),
             "popularity": number(row.get("popularity")), "score": number(row.get("averageScore")),
             "year": number(row.get("startDate_year")), "format": row.get("format", ""),

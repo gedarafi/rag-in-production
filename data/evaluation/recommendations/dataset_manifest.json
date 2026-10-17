@@ -1,0 +1,37 @@
+{
+  "dataset_version": 2,
+  "question_count": 72,
+  "catalog_count": 20428,
+  "catalog_tag_count": 422,
+  "requests_with_alternatives": 32,
+  "origin": "Individually authored naturalistic synthetic English requests; not real user logs.",
+  "source": "Imported local AniList catalog and anime_metadata.search_data; no live website lookups.",
+  "catalog_meta": {
+    "snapshot": "3:1791984482541471200:90688268",
+    "production_metadata": "3:1791984482541471200:90688268:production-v2"
+  },
+  "tag_threshold": 50,
+  "by_category": {
+    "tags": 21,
+    "multiple_tags": 3,
+    "tag_exclusions": 3,
+    "genres": 12,
+    "release_year": 6,
+    "release_date": 3,
+    "studios": 6,
+    "formats": 6,
+    "source_material": 3,
+    "length": 6,
+    "mixed_constraints": 3
+  },
+  "by_wording": {
+    "explicit": 24,
+    "indirect": 48
+  },
+  "files_sha256": {
+    "questions.jsonl": "08cbfde53acb9d92c807ab630526d6e418007d738e8cee74a003664e029ec08c",
+    "questions.csv": "d5fc7ec9637bd18bf3a91be3886192b23f3679cc41a908272858b08f4a42c477",
+    "catalog_reference.jsonl": "c99ef8e669efa89f879b87eec01117a63e3f5d71040f888426cc35cdccbba4d6",
+    "semantic_policy.json": "b1f12952445d97ab7864331ee31d542e185207c7f164a08316b30d26c8f3e76d"
+  }
+}

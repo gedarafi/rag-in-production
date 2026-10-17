@@ -1,0 +1,4 @@
+# Frozen benchmark hashes must survive checkout without newline conversion.
+data/evaluation/**/*.csv -text whitespace=cr-at-eol
+data/evaluation/**/*.json -text whitespace=cr-at-eol
+data/evaluation/**/*.jsonl -text whitespace=cr-at-eol

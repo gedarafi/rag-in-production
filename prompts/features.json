@@ -13,6 +13,8 @@
   {"kind":"genre","id":"slice of life","examples":["ordinary daily life school friends and everyday experiences"]},
   {"kind":"tag","id":"iyashikei","examples":["cozy calming relaxing wholesome healing stories"]},
   {"kind":"tag","id":"psychological","examples":["complex minds psychological tension and mind games"]},
+  {"kind":"tag","id":"anti hero","examples":["the main character turns bad becomes evil or villainous","protagonist moral decline corruption descent into villainy","a hero becomes ruthless loses their morals or switches to the villains side"]},
+  {"kind":"tag","id":"revenge","examples":["a protagonist seeking revenge and becoming consumed by vengeance","a main character grows ruthless while pursuing revenge"]},
   {"kind":"tag","id":"isekai","examples":["transported or reincarnated into another world"]},
   {"kind":"tag","id":"time loop","examples":["repeating the same period of time returning after death"]},
   {"kind":"tag","id":"found family","examples":["unrelated people becoming a close chosen family"]}
