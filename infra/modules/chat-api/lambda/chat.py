@@ -1,13 +1,18 @@
 """Chat endpoint: POST /api/chat with {"message": "..."}, answered by a Bedrock model.
 
-API Gateway has already validated the Cognito token before this runs. The model is MODEL_ID
-(on LocalStack an `ollama.<model>` ID, which LocalStack runs on CPU). There is no retrieval yet:
-the RAG pipeline (retrieve from the knowledge base, then generate) will extend answer() later.
+API Gateway has already validated the Cognito token before this runs. The model is MODEL_ID, and
+MODEL_API says how to call it:
+  converse  Converse on bedrock-runtime (on LocalStack an `ollama.<model>` ID, run on CPU).
+  openai    OpenAI-compatible Chat Completions on bedrock-mantle, which has its own quotas.
+There is no retrieval yet: the RAG pipeline (retrieve from the knowledge base, then generate) will
+extend answer() later.
 """
 
 import base64
 import json
 import os
+import urllib.error
+import urllib.request
 
 MAX_MESSAGE_CHARS = 4000
 
@@ -18,8 +23,10 @@ SYSTEM_PROMPT = (
 
 # Bedrock errors that mean "try again later" rather than "this request is broken".
 BUSY_ERRORS = {"ThrottlingException", "ServiceUnavailableException", "ModelNotReadyException"}
+BUSY_STATUSES = {429, 503}
 
 _client = None
+_mantle = None
 
 
 class ModelError(Exception):
@@ -41,14 +48,71 @@ def bedrock():
     return _client
 
 
+class Mantle:
+    """Chat Completions on bedrock-mantle, signed with the Lambda role's credentials.
+
+    boto3 has no bedrock-mantle client, so botocore signs the request and urllib sends it.
+    """
+
+    def __init__(self, region: str):
+        import botocore.session
+
+        self.region = region
+        self.url = f"https://bedrock-mantle.{region}.api.aws/v1/chat/completions"
+        self.credentials = botocore.session.get_session().get_credentials()
+
+    def chat_completions(self, **body) -> dict:
+        from botocore.auth import SigV4Auth
+        from botocore.awsrequest import AWSRequest
+
+        data = json.dumps(body).encode()
+        signed = AWSRequest(method="POST", url=self.url, data=data, headers={"content-type": "application/json"})
+        SigV4Auth(self.credentials.get_frozen_credentials(), "bedrock-mantle", self.region).add_auth(signed)
+        request = urllib.request.Request(self.url, data=data, headers=dict(signed.headers.items()), method="POST")
+        # Same budget as the bedrock-runtime client: inside API Gateway's 30-second limit.
+        with urllib.request.urlopen(request, timeout=25) as res:
+            return json.load(res)
+
+
+def mantle():
+    global _mantle
+    if _mantle is None:
+        _mantle = Mantle(os.environ["AWS_REGION"])
+    return _mantle
+
+
+def converse(message: str, max_tokens: int) -> str:
+    res = bedrock().converse(
+        modelId=os.environ["MODEL_ID"],
+        system=[{"text": SYSTEM_PROMPT}],
+        messages=[{"role": "user", "content": [{"text": message}]}],
+        inferenceConfig={"maxTokens": max_tokens, "temperature": 0.2},
+    )
+    return "".join(block.get("text", "") for block in res["output"]["message"]["content"])
+
+
+def chat_completions(message: str, max_tokens: int) -> str:
+    res = mantle().chat_completions(
+        model=os.environ["MODEL_ID"],
+        messages=[{"role": "system", "content": SYSTEM_PROMPT}, {"role": "user", "content": message}],
+        max_tokens=max_tokens,
+        temperature=0.2,
+    )
+    # A reasoning model that runs out of tokens while thinking returns content null.
+    choices = res.get("choices") or [{}]
+    return choices[0].get("message", {}).get("content") or ""
+
+
 def answer(message: str, user_id: str) -> str:
+    call = chat_completions if os.environ.get("MODEL_API") == "openai" else converse
     try:
-        res = bedrock().converse(
-            modelId=os.environ["MODEL_ID"],
-            system=[{"text": SYSTEM_PROMPT}],
-            messages=[{"role": "user", "content": [{"text": message}]}],
-            inferenceConfig={"maxTokens": int(os.environ.get("MAX_TOKENS", "512")), "temperature": 0.2},
-        )
+        text = call(message, int(os.environ.get("MAX_TOKENS", "512"))).strip()
+    except urllib.error.HTTPError as err:
+        # bedrock-mantle answers errors with an HTTP status and a JSON body.
+        print(f"Bedrock call failed for user {user_id}: HTTP {err.code}: {err.read(500).decode(errors='replace')}")
+        if err.code in BUSY_STATUSES:
+            raise ModelError(429, "The assistant is busy. Try again in a moment.") from err
+        raise ModelError(502, "The assistant couldn't answer. Try again.") from err
     except Exception as err:
         # botocore's ClientError carries the AWS error code; timeouts and connection errors don't.
         code = (getattr(err, "response", None) or {}).get("Error", {}).get("Code", "")
@@ -59,7 +123,6 @@ def answer(message: str, user_id: str) -> str:
             raise ModelError(502, "The assistant couldn't answer. Try again.") from err
         raise ModelError(504, "The assistant took too long to answer. Try again.") from err
 
-    text = "".join(block.get("text", "") for block in res["output"]["message"]["content"]).strip()
     if not text:
         raise ModelError(502, "The assistant returned an empty answer. Try again.")
     return text

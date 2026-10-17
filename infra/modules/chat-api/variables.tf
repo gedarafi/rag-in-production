@@ -19,12 +19,23 @@ variable "jwt_audience" {
 }
 
 variable "model_id" {
-  description = "Bedrock model or inference profile that answers, e.g. us.amazon.nova-micro-v1:0. On LocalStack, ollama.<model> runs that Ollama model on CPU."
+  description = "Bedrock model that answers: for converse a model or inference profile, e.g. us.amazon.nova-micro-v1:0; for openai a bedrock-mantle model, e.g. google.gemma-3-4b-it. On LocalStack, ollama.<model> runs that Ollama model on CPU."
   type        = string
 
   validation {
     condition     = length(trimspace(var.model_id)) > 0
     error_message = "model_id must not be empty."
+  }
+}
+
+variable "model_api" {
+  description = "How the Lambda calls the model: converse (Converse on bedrock-runtime, the only one LocalStack emulates) or openai (OpenAI-compatible Chat Completions on bedrock-mantle, which has its own quotas)."
+  type        = string
+  default     = "converse"
+
+  validation {
+    condition     = contains(["converse", "openai"], var.model_api)
+    error_message = "model_api must be converse or openai."
   }
 }
 

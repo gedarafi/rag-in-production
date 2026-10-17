@@ -14,8 +14,10 @@ locals {
   cors_allow_origins    = ["http://localhost:8000"]
 
   # Chat model. LocalStack runs ollama.<model> on CPU (see docker-compose.yml); a tiny model keeps
-  # CI fast, and short answers stay well inside API Gateway's 30-second limit.
+  # CI fast, and short answers stay well inside API Gateway's 30-second limit. LocalStack emulates
+  # Converse on bedrock-runtime, not bedrock-mantle.
   model_id   = "ollama.qwen2.5:0.5b"
+  model_api  = "converse"
   max_tokens = 128
 
   # LocalStack serves the HTTP API on its gateway port, over plain HTTP.

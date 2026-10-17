@@ -24,5 +24,6 @@ inputs = {
   jwt_audience       = [dependency.auth.outputs.user_pool_client_id]
   cors_allow_origins = local.env.cors_allow_origins
   model_id           = local.env.model_id
+  model_api          = local.env.model_api
   max_tokens         = local.env.max_tokens
 }
