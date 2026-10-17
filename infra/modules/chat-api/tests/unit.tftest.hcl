@@ -28,10 +28,11 @@ mock_provider "aws" {
 mock_provider "archive" {}
 
 variables {
-  name_prefix  = "rag-unit"
-  jwt_issuer   = "https://cognito-idp.eu-north-1.amazonaws.com/eu-north-1_TEST"
-  jwt_audience = ["client123"]
-  model_id     = "us.amazon.nova-micro-v1:0"
+  name_prefix       = "rag-unit"
+  lambda_source_dir = "../../../src/chat"
+  jwt_issuer        = "https://cognito-idp.eu-north-1.amazonaws.com/eu-north-1_TEST"
+  jwt_audience      = ["client123"]
+  model_id          = "us.amazon.nova-micro-v1:0"
 }
 
 run "protects_the_chat_route_with_cognito" {

@@ -3,6 +3,11 @@ variable "name_prefix" {
   type        = string
 }
 
+variable "lambda_source_dir" {
+  description = "Folder with the pre sign-up Lambda code: src/auth in the repository (Terragrunt passes it in)."
+  type        = string
+}
+
 variable "allowed_email_domains" {
   description = "Exact email domains that may register. Subdomains are not matched automatically."
   type        = list(string)

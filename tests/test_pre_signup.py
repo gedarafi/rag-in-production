@@ -5,7 +5,7 @@ import unittest
 
 def load_handler(domains: str):
     os.environ["ALLOWED_DOMAINS"] = domains
-    import pre_signup
+    from src.auth import pre_signup
 
     return importlib.reload(pre_signup).handler
 

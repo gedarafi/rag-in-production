@@ -57,7 +57,7 @@ resource "aws_route53_record" "dmarc" {
 
 data "archive_file" "pre_signup" {
   type        = "zip"
-  source_file = "${path.module}/lambda/pre_signup.py"
+  source_file = "${var.lambda_source_dir}/pre_signup.py"
   output_path = "${path.module}/build/pre_signup.zip"
 }
 

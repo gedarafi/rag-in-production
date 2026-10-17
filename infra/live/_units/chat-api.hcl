@@ -20,6 +20,7 @@ dependency "auth" {
 
 inputs = {
   name_prefix        = local.env.name_prefix
+  lambda_source_dir  = "${get_repo_root()}/src/chat"
   jwt_issuer         = dependency.auth.outputs.issuer
   jwt_audience       = [dependency.auth.outputs.user_pool_client_id]
   cors_allow_origins = local.env.cors_allow_origins

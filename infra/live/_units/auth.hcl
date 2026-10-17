@@ -10,6 +10,7 @@ terraform {
 
 inputs = {
   name_prefix           = local.env.name_prefix
+  lambda_source_dir     = "${get_repo_root()}/src/auth"
   allowed_email_domains = local.env.allowed_email_domains
   ses_identity          = local.env.ses_identity
   route53_zone_id       = local.env.route53_zone_id

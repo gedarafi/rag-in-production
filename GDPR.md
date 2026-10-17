@@ -50,7 +50,7 @@ data protection officer.
       as we can and write the chosen value in the privacy notice.
 - [ ] Check the API Gateway access log format: drop or truncate the IP address if we do not need it.
 - [ ] Never log chat messages, answers or email addresses; add a test that the Lambda error logs
-      in [`infra/modules/chat-api/lambda/chat.py`](infra/modules/chat-api/lambda/chat.py) contain only
+      in [`src/chat/handler.py`](src/chat/handler.py) contain only
       the user ID and the error.
 - [ ] Decide how long a Cognito account lives without use, and delete inactive accounts
       automatically (for example, a scheduled Lambda).

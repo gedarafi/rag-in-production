@@ -3,6 +3,11 @@ variable "name_prefix" {
   type        = string
 }
 
+variable "lambda_source_dir" {
+  description = "Folder with the chat Lambda code: src/chat in the repository (Terragrunt passes it in)."
+  type        = string
+}
+
 variable "jwt_issuer" {
   description = "Token issuer URL (the auth module's issuer output)."
   type        = string

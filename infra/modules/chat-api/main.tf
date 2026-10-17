@@ -36,7 +36,7 @@ locals {
 
 data "archive_file" "chat" {
   type        = "zip"
-  source_file = "${path.module}/lambda/chat.py"
+  source_file = "${var.lambda_source_dir}/handler.py"
   output_path = "${path.module}/build/chat.zip"
 }
 
@@ -79,7 +79,7 @@ resource "aws_lambda_function" "chat" {
   function_name    = local.function_name
   role             = aws_iam_role.chat.arn
   runtime          = "python3.13"
-  handler          = "chat.handler"
+  handler          = "handler.handler"
   filename         = data.archive_file.chat.output_path
   source_code_hash = data.archive_file.chat.output_base64sha256
   timeout          = 29 # API Gateway gives up after 30 seconds
