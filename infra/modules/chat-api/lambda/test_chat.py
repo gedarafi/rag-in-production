@@ -1,7 +1,9 @@
 import base64
+import io
 import json
 import os
 import unittest
+import urllib.error
 
 import chat
 from chat import MAX_MESSAGE_CHARS, SYSTEM_PROMPT, handler
@@ -24,6 +26,22 @@ class FakeBedrock:
         if self.error:
             raise self.error
         return {"output": {"message": {"role": "assistant", "content": [{"text": self.reply}]}}}
+
+
+class FakeMantle:
+    def __init__(self, reply="Week 3 covers recursion.", error=None):
+        self.reply, self.error, self.calls = reply, error, []
+
+    def chat_completions(self, **body):
+        self.calls.append(body)
+        if self.error:
+            raise self.error
+        return {"choices": [{"index": 0, "message": {"role": "assistant", "content": self.reply}}]}
+
+
+def http_error(status) -> urllib.error.HTTPError:
+    body = io.BytesIO(json.dumps({"error": {"code": str(status), "message": "nope"}}).encode())
+    return urllib.error.HTTPError("https://bedrock-mantle.example/v1/chat/completions", status, "error", {}, body)
 
 
 def event(body, sub="user-123", base64_encoded=False) -> dict:
@@ -112,6 +130,61 @@ class ChatTest(unittest.TestCase):
     def test_never_cached(self):
         result = handler(event({"message": "hi"}), None)
         self.assertEqual(result["headers"]["cache-control"], "no-store")
+
+
+class MantleTest(unittest.TestCase):
+    """MODEL_API=openai: Chat Completions on bedrock-mantle."""
+
+    def setUp(self):
+        self.mantle = FakeMantle()
+        chat._mantle = self.mantle
+        os.environ.update(MODEL_ID="google.gemma-3-4b-it", MODEL_API="openai")
+        self.addCleanup(setattr, chat, "_mantle", None)
+        self.addCleanup(os.environ.pop, "MODEL_ID", None)
+        self.addCleanup(os.environ.pop, "MODEL_API", None)
+
+    def test_answers_with_the_model(self):
+        status, body = call(event({"message": "  What is in week 3?  "}))
+        self.assertEqual(status, 200)
+        self.assertEqual(body, {"answer": "Week 3 covers recursion."})
+
+        (request,) = self.mantle.calls
+        self.assertEqual(request["model"], "google.gemma-3-4b-it")
+        self.assertEqual(request["messages"], [
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": "What is in week 3?"},
+        ])
+        self.assertEqual(request["max_tokens"], 512)
+
+    def test_does_not_call_converse(self):
+        chat._client = FakeBedrock()
+        self.addCleanup(setattr, chat, "_client", None)
+        call(event({"message": "hi"}))
+        self.assertEqual(chat._client.calls, [])
+
+    def test_model_errors(self):
+        cases = [
+            (http_error(429), 429),
+            (http_error(503), 429),
+            (http_error(400), 502),
+            (http_error(403), 502),
+            (urllib.error.URLError("connection refused"), 504),
+            (TimeoutError("read timeout"), 504),
+        ]
+        for error, expected in cases:
+            with self.subTest(error=error):
+                chat._mantle = FakeMantle(error=error)
+                status, body = call(event({"message": "hi"}))
+                self.assertEqual(status, expected)
+                self.assertIn("error", body)
+                self.assertNotIn("HTTP", body["error"])  # no endpoint internals in the reply
+
+    def test_empty_model_answer_is_an_error(self):
+        for reply in ["   ", None]:  # None: a reasoning model ran out of tokens while thinking
+            with self.subTest(reply=reply):
+                chat._mantle = FakeMantle(reply=reply)
+                status, _ = call(event({"message": "hi"}))
+                self.assertEqual(status, 502)
 
 
 if __name__ == "__main__":

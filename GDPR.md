@@ -31,12 +31,18 @@ data protection officer.
 - [ ] Move the AWS deployment to an EU region. `region` in
       [`infra/live/aws/env.hcl`](infra/live/aws/env.hcl) is `us-east-2` today; `eu-north-1`
       (Stockholm) is commented out next to it. Cognito, SES, Lambda, S3 and logs must all move.
-- [ ] Use a Bedrock model or an **EU** cross-region inference profile (`eu.` prefix), not the
-      `us.` profile, so prompts are not processed outside the EU.
+- [ ] Keep prompts in the EU. On bedrock-mantle (the default) the endpoint is regional
+      (`bedrock-mantle.<region>.api.aws`), so check that the chosen model is offered there in the EU
+      region. With Converse, use an **EU** cross-region inference profile (`eu.` prefix), not a `us.`
+      profile.
 - [ ] Check that the AWS Data Processing Addendum (part of the AWS service terms) covers the
       account, and list AWS as a sub-processor.
 - [ ] Confirm that Bedrock does not store or train on prompts and answers for the chosen model,
       and keep model invocation logging off (or, if turned on, treat it as personal data).
+- [ ] Set the bedrock-mantle **data retention** mode to `none`. `GET /v1/models` shows each
+      model's mode (`default` today) and the allowed ones, which include `provider_data_share`.
+      The chat uses Chat Completions, which stores nothing; the Responses API would store
+      conversations for 30 days by default.
 
 ## Minimise and limit retention
 

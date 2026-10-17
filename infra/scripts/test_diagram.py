@@ -73,6 +73,13 @@ class BuildTest(unittest.TestCase):
         self.assertEqual(self.edge("chat-api/aws_lambda_function.chat", BEDROCK), "Converse")
         self.assertIn("us.amazon.nova-micro-v1:0", self.graph.nodes[BEDROCK].label)
 
+    def test_the_lambda_calls_bedrock_mantle_in_openai_mode(self):
+        lam = resource("aws_lambda_function", "chat", id="rag-chat", arn=CHAT_ARN, function_name="rag-chat",
+                       environment=[{"variables": {"MODEL_ID": "google.gemma-3-4b-it", "MODEL_API": "openai"}}])
+        graph = build({"chat-api": state(lam)}, ACCOUNT)
+        self.assertEqual(graph.edges.get(("chat-api/aws_lambda_function.chat", BEDROCK)), "Chat Completions")
+        self.assertEqual(graph.nodes[BEDROCK].label, "Bedrock Mantle\ngoogle.gemma-3-4b-it")
+
     def test_users_reach_cloudfront_and_cognito(self):
         self.assertEqual(self.edge(USERS, "web/aws_cloudfront_distribution.site"), "HTTPS")
         self.assertEqual(self.edge(USERS, "auth/aws_cognito_user_pool.this"), "sign in")

@@ -121,6 +121,11 @@ run "configures_the_model" {
   }
 
   assert {
+    condition     = aws_lambda_function.chat.environment[0].variables.MODEL_API == "converse"
+    error_message = "The Lambda must call Converse unless asked otherwise (LocalStack emulates nothing else)."
+  }
+
+  assert {
     condition     = aws_lambda_function.chat.environment[0].variables.MAX_TOKENS == "512"
     error_message = "Answers must be capped at max_tokens."
   }
@@ -154,6 +159,47 @@ run "allows_a_plain_foundation_model" {
     condition     = contains(jsondecode(aws_iam_role_policy.chat_bedrock.policy).Statement[0].Resource, "arn:aws:bedrock:*::foundation-model/amazon.nova-lite-v1:0")
     error_message = "A model ID without a geography prefix is the foundation model itself."
   }
+}
+
+run "may_only_run_inference_in_the_default_mantle_project" {
+  command = apply
+
+  variables {
+    model_id  = "google.gemma-3-4b-it"
+    model_api = "openai"
+  }
+
+  assert {
+    condition     = aws_lambda_function.chat.environment[0].variables.MODEL_API == "openai"
+    error_message = "The Lambda must call the API it is configured for."
+  }
+
+  assert {
+    condition     = length(jsondecode(aws_iam_role_policy.chat_bedrock.policy).Statement) == 1
+    error_message = "In openai mode the Lambda needs bedrock-mantle and nothing else."
+  }
+
+  assert {
+    condition     = jsondecode(aws_iam_role_policy.chat_bedrock.policy).Statement[0].Action == "bedrock-mantle:CreateInference"
+    error_message = "In openai mode the Lambda may only run inference on bedrock-mantle."
+  }
+
+  assert {
+    condition = jsondecode(aws_iam_role_policy.chat_bedrock.policy).Statement[0].Resource == [
+      "arn:aws:bedrock-mantle:${data.aws_region.current.region}:${data.aws_caller_identity.current.account_id}:project/default",
+    ]
+    error_message = "In openai mode the Lambda may only use the account's default project."
+  }
+}
+
+run "rejects_an_unknown_model_api" {
+  command = plan
+
+  variables {
+    model_api = "invoke"
+  }
+
+  expect_failures = [var.model_api]
 }
 
 run "rejects_an_empty_model" {

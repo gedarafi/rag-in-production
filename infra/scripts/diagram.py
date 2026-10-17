@@ -10,7 +10,7 @@ origins name the bucket and the API, the API's integration names the chat Lambda
 Helper resources such as routes, integrations and authorizers are not drawn; they only add arrows
 between the services they connect. Resource policies are ignored, since they point from a service
 back to whoever may call it. Bedrock and the people using the page are not in any state:
-they are drawn from the chat Lambda's MODEL_ID and from the Cognito app client.
+they are drawn from the chat Lambda's MODEL_ID and MODEL_API, and from the Cognito app client.
 
 Rendering needs Graphviz (`dot`); the diagrams library supplies the AWS icons.
 """
@@ -124,7 +124,7 @@ def build(units: dict[str, dict], account_id: str = "") -> Graph:
             kinds[key] = kind
             env = (values.get("environment") or [{}])[0].get("variables") or {}
             if kind == "aws_lambda_function" and env.get("MODEL_ID"):
-                models[key] = env["MODEL_ID"]
+                models[key] = (env["MODEL_ID"], env.get("MODEL_API", "converse"))
 
     def label(src, dst):
         return EDGE_LABELS.get((kinds[src], kinds[dst]), "")
@@ -144,9 +144,13 @@ def build(units: dict[str, dict], account_id: str = "") -> Graph:
                     graph.connect(owner, dst, label(owner, dst))
 
     # Not in any state: the model the chat Lambda calls, and the people using the page.
-    for key, model_id in models.items():
-        graph.nodes[BEDROCK] = Node(BEDROCK, BEDROCK, f"Bedrock\n{model_id}")
-        graph.connect(key, BEDROCK, "Converse")
+    for key, (model_id, api) in models.items():
+        if api == "openai":
+            graph.nodes[BEDROCK] = Node(BEDROCK, BEDROCK, f"Bedrock Mantle\n{model_id}")
+            graph.connect(key, BEDROCK, "Chat Completions")
+        else:
+            graph.nodes[BEDROCK] = Node(BEDROCK, BEDROCK, f"Bedrock\n{model_id}")
+            graph.connect(key, BEDROCK, "Converse")
 
     has_client = any(r["type"] == "aws_cognito_user_pool_client" for s in units.values() for r in resources(s))
     for key, kind in kinds.items():

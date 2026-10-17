@@ -183,8 +183,12 @@ strictly; check those on AWS.
 (`@uu.se`, `@student.uu.se` by default) register and sign in with a one-time code sent to
 their inbox, then reach a chat box. The chat Lambda
 ([`infra/modules/chat-api/lambda/chat.py`](infra/modules/chat-api/lambda/chat.py)) answers with a
-Bedrock model, Amazon Nova Micro by default (`RAG_BEDROCK_MODEL_ID` in `infra/.env` picks another).
-It doesn't search the course documents yet; retrieval comes with the RAG backend.
+Bedrock model: by default Gemma 3 4B through Chat Completions on bedrock-mantle, Bedrock's
+OpenAI-compatible endpoint. Its quotas are separate from bedrock-runtime's, and the requests show
+up under the default project in the console. The Lambda signs these requests with its IAM role,
+so there is no API key to store. `RAG_BEDROCK_MODEL_ID` in `infra/.env` picks another model, and
+`RAG_BEDROCK_MODEL_API=converse` switches to Converse on bedrock-runtime, which is what LocalStack
+emulates. It doesn't search the course documents yet; retrieval comes with the RAG backend.
 
 ```text
 browser ── CloudFront ──┬── /        → S3 (web/)

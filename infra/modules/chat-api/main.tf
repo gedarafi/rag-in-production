@@ -1,5 +1,6 @@
 # HTTP API with a Cognito JWT authorizer in front of the chat Lambda.
-# The Lambda answers with a Bedrock model; retrieval from the course documents comes later.
+# The Lambda answers with a Bedrock model, through Converse on bedrock-runtime or OpenAI-compatible
+# Chat Completions on bedrock-mantle (var.model_api); retrieval from the course documents comes later.
 
 data "aws_caller_identity" "current" {}
 
@@ -11,6 +12,24 @@ locals {
   # A cross-region inference profile (us.amazon.nova-micro-v1:0) routes to the foundation model
   # (amazon.nova-micro-v1:0) in any region of its geography; IAM must allow both.
   base_model_id = try(regex("^(?:us|eu|apac|jp|au|ca|us-gov|global)\\.(.+)$", var.model_id)[0], var.model_id)
+
+  # Converse authorizes the model. bedrock-mantle authorizes the project the request runs in: the
+  # account's default project, since the Lambda names none.
+  bedrock_statement = {
+    converse = {
+      Effect = "Allow"
+      Action = "bedrock:InvokeModel" # also covers the Converse API
+      Resource = [
+        "arn:aws:bedrock:*::foundation-model/${local.base_model_id}",
+        "arn:aws:bedrock:${data.aws_region.current.region}:${data.aws_caller_identity.current.account_id}:inference-profile/${var.model_id}",
+      ]
+    }
+    openai = {
+      Effect   = "Allow"
+      Action   = "bedrock-mantle:CreateInference"
+      Resource = ["arn:aws:bedrock-mantle:${data.aws_region.current.region}:${data.aws_caller_identity.current.account_id}:project/default"]
+    }
+  }[var.model_api]
 }
 
 # ---------- Chat Lambda ----------
@@ -45,15 +64,8 @@ resource "aws_iam_role_policy" "chat_bedrock" {
   role = aws_iam_role.chat.id
 
   policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [{
-      Effect = "Allow"
-      Action = "bedrock:InvokeModel" # also covers the Converse API
-      Resource = [
-        "arn:aws:bedrock:*::foundation-model/${local.base_model_id}",
-        "arn:aws:bedrock:${data.aws_region.current.region}:${data.aws_caller_identity.current.account_id}:inference-profile/${var.model_id}",
-      ]
-    }]
+    Version   = "2012-10-17"
+    Statement = [local.bedrock_statement]
   })
 }
 
@@ -77,6 +89,7 @@ resource "aws_lambda_function" "chat" {
   environment {
     variables = {
       MODEL_ID   = var.model_id
+      MODEL_API  = var.model_api
       MAX_TOKENS = tostring(var.max_tokens)
     }
   }

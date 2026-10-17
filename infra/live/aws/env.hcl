@@ -23,8 +23,12 @@ locals {
   # Switch to ACTIVE once real users depend on the pool.
   deletion_protection = "INACTIVE"
 
-  # Chat model: a Bedrock model or cross-region inference profile available in the region.
-  model_id   = get_env("RAG_BEDROCK_MODEL_ID", "us.amazon.nova-micro-v1:0")
+  # Chat model. "openai" calls Chat Completions on bedrock-mantle (bedrock-mantle.<region>.api.aws),
+  # whose quotas are separate from bedrock-runtime's; the requests show up under the default project
+  # in the console. "converse" calls Converse on bedrock-runtime with a model or inference profile
+  # such as us.amazon.nova-micro-v1:0.
+  model_id   = get_env("RAG_BEDROCK_MODEL_ID", "google.gemma-3-4b-it")
+  model_api  = get_env("RAG_BEDROCK_MODEL_API", "openai")
   max_tokens = 512
 
   # Monthly cost budget for the whole account: emails at 80 % actual and 100 % forecasted spend.
