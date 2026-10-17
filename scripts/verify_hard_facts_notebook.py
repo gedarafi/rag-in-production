@@ -20,7 +20,7 @@ path = ROOT / 'notebook/hard_facts_evaluation.ipynb'
 notebook = nbformat.read(path, as_version=4)
 configuration = next(c for c in notebook.cells if c.cell_type == 'code' and c.source.startswith('RUN_LIVE ='))
 original = configuration.source
-configuration.source += f'\nMAX_NEW_QUESTIONS = {args.max_new_questions}\nprint("Verification execution budget: {args.max_new_questions} new live attempts; normal notebook configuration is retained.")\n'
+configuration.source += f'\nRUN_LIVE = {args.max_new_questions > 0}\nMAX_NEW_QUESTIONS = {args.max_new_questions}\nprint("Verification execution budget: {args.max_new_questions} new live attempts; normal notebook configuration is retained.")\n'
 runtime = ROOT / 'data/evaluation/hard_facts/.jupyter'
 kernel = runtime / 'kernels/project-evaluation'
 kernel.mkdir(parents=True, exist_ok=True)

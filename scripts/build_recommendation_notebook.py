@@ -1,6 +1,7 @@
-"""Build a clean, runnable recommendation evaluation notebook (standard library)."""
+"""Update recommendation notebook sources, preserving saved outputs."""
 import json
 from pathlib import Path
+from notebook_utils import write_notebook
 
 ROOT = Path(__file__).resolve().parents[1]
 cells = []
@@ -43,18 +44,24 @@ if ROOT is None:
     raise RuntimeError('Open this notebook from the repository root or notebook folder.')
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
-from src.recommendation_evaluation import load_dataset, METRICS
+from src.recommendation_evaluation import Catalog, load_dataset, METRICS
 from src.config import load_settings
 
 DATA = ROOT / 'data/evaluation/recommendations'
 PYTHON = ROOT / '.venv' / ('Scripts/python.exe' if os.name == 'nt' else 'bin/python')
 if not PYTHON.is_file():
-    raise RuntimeError('Run uv sync --extra evaluation from the repository root first.')
-questions, catalog, manifest = load_dataset(DATA)
+    PYTHON = Path(sys.executable)  # offline inspection can use the notebook kernel's environment
+REFERENCE_AVAILABLE = (DATA / 'catalog_reference.jsonl').is_file()
+questions, catalog, manifest = load_dataset(DATA, require_catalog=REFERENCE_AVAILABLE)
 frame = pd.DataFrame(questions)
 SETTINGS = load_settings(ROOT / 'settings.toml', 'anilist')
-print(f'{len(questions)} questions | {len(catalog.records)} frozen catalog entries | {frame.category.nunique()} categories')
-print('All reference hashes verified. No database mutation, inference, or downloads.')
+print(f'{len(questions)} questions | {frame.category.nunique()} categories')
+if REFERENCE_AVAILABLE:
+    print(f'{len(catalog.records)} local catalog references; all reference hashes verified.')
+else:
+    print('Authored question/policy hashes verified. Bulk catalog is not needed for offline coverage.')
+    print('For live scoring: complete AniList setup, then run python scripts/build_recommendation_benchmark.py.')
+print('No database mutation, inference, or downloads.')
 ''')
 cell('markdown', '''
 ## Labels and coverage
@@ -92,21 +99,26 @@ print('Dataset provenance:', manifest['origin'])
 cell('markdown', '''
 ## Check that valid implications receive credit
 
-This reference-only demonstration uses real catalog entries, **not model outputs**.
-It finds anime recorded as Mystery without a strong Detective tag and compares the
-same entries under an explicit tag request and the broader investigation request.
-The latter receives credit through the reviewed Mystery evidence path.
+With a prepared reference, this uses real catalog entries, **not model outputs**.
+On a fresh checkout it uses one clearly labeled illustrative metadata record instead.
+It compares Mystery without a strong Detective tag under an exact tag request and
+the broader investigation request. The latter earns credit through the reviewed path.
 ''')
 cell('code', '''
 lookup = {q['question_id']: q for q in questions}
 implication_examples = []
-for record in catalog.records.values():
+if catalog is None:
+    records = [{'title': 'Illustrative Mystery-only entry (synthetic)', 'genres': ['Mystery'], 'tag_ranks': {}}]
+    print('Illustrative scorer demonstration; not real catalog data or a model result.')
+else:
+    records = catalog.records.values()
+for record in records:
     if 'Mystery' in record['genres'] and record['tag_ranks'].get('Detective', 0) < 50:
         implication_examples.append({
             'title': record['title'], 'Detective rank': record['tag_ranks'].get('Detective', 0),
             'Mystery genre': True,
-            'explicit tag request': catalog.fits(lookup['detectives_01'], record)[1],
-            'investigation request': catalog.fits(lookup['detectives_02'], record)[1]})
+            'explicit tag request': Catalog.fits(lookup['detectives_01'], record)[1],
+            'investigation request': Catalog.fits(lookup['detectives_02'], record)[1]})
     if len(implication_examples) == 5:
         break
 display(pd.DataFrame(implication_examples))
@@ -196,6 +208,8 @@ print('Mode:', MODE, '| Live inference:', RUN_LIVE, '| Output:', OUTPUT)
 ''')
 cell('code', '''
 if RUN_LIVE:
+    if not REFERENCE_AVAILABLE or not (SETTINGS.documents / 'catalog.sqlite3').is_file():
+        raise RuntimeError('Live scoring needs AniList setup and python scripts/build_recommendation_benchmark.py. Offline inspection works without those files.')
     command = [str(PYTHON), '-u', '-X', 'utf8', '-m', 'src.recommendation_evaluation',
                '--settings', str(ROOT / 'settings.toml'), '--dataset', str(DATA),
                '--output', str(OUTPUT), '--mode', MODE]
@@ -307,5 +321,5 @@ notebook = {'cells': cells, 'metadata': {'kernelspec': {'display_name': 'Python 
                                        'language_info': {'name': 'python', 'version': '3.14.0'}},
             'nbformat': 4, 'nbformat_minor': 5}
 path = ROOT / 'notebook/recommendation_evaluation.ipynb'
-path.write_text(json.dumps(notebook, indent=1, ensure_ascii=False) + '\n', encoding='utf-8')
+write_notebook(path, notebook)
 print(path)

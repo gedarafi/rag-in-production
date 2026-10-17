@@ -24,6 +24,9 @@ print('ANSWER ' + reply, flush=True)
 # Validate the old reply against the original full evidence to isolate the regex
 # optimization from both changed model output and changed prompt selection.
 base = Path('data/latency-diagnostics')
+if not all((base / name).is_file() for name in ('answer-request.json', 'metrics.json')):
+    from capture_support import ensure_captures
+    base = ensure_captures(['answer-request.json', 'metrics.json'])
 payload = json.loads((base / 'answer-request.json').read_text(encoding='utf-8'))
 content = payload['messages'][1]['content']
 data, _ = json.JSONDecoder().raw_decode(content[content.index('{'):])

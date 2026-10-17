@@ -12,8 +12,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from src.config import load_settings
 from src.rag import RagPipeline
 from src.entity_agent import EntityAgent
+from capture_support import ensure_captures
 
-out = Path('data/latency-diagnostics')
+out = ensure_captures(['answer-request.json', 'metrics.json', 'answer-compact-request.json'])
 settings = load_settings('settings.toml', 'anilist')
 agent = EntityAgent(settings, None, RagPipeline(settings).anime_tools())
 request = json.loads((out / 'answer-request.json').read_text(encoding='utf-8'))
