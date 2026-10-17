@@ -97,13 +97,29 @@ Use another TOML file with `--config path/to/settings.toml`. The provider bounda
 `src/providers.py`, so another local generation server can be integrated without
 changing document loading, indexing, prompting, or the CLI.
 
+### Tracing with Phoenix
+
+[Arize Phoenix](https://phoenix.arize.com/) shows a trace of every `ingest` and question: the
+retrieved chunks with their scores, the prompt sent to Ollama, the answer, and the token counts.
+It runs in Docker next to LocalStack, so the compose file still needs `LOCALSTACK_AUTH_TOKEN` in
+`infra/.env` (see [LocalStack](#localstack-local-aws)):
+
+```sh
+just phoenix-up                                              # UI on http://localhost:6006
+export RAG_PHOENIX_ENDPOINT=http://localhost:6006/v1/traces  # or set [tracing] endpoint in settings.toml
+uv run rag ask "What is in my documents?"                    # the CLI and the GUI both send traces
+just phoenix-down                                            # stop it; traces stay in infra/.phoenix/
+```
+
+Tracing is off while the endpoint is empty. Only the local RAG is traced, not LocalStack or AWS.
+
 ## Infrastructure
 
 Everything lives in [`infra/`](infra):
 
 | Path | Contents |
 | --- | --- |
-| `infra/docker-compose.yml` | LocalStack, which emulates AWS locally |
+| `infra/docker-compose.yml` | LocalStack, which emulates AWS locally, and Phoenix, which traces the local RAG |
 | `infra/modules/s3-bucket/` | OpenTofu module for a private, versioned, encrypted S3 bucket, with tests in `tests/` |
 | `infra/modules/auth/` | Cognito user pool with passwordless email-code sign-in, limited to allowed email domains |
 | `infra/modules/chat-api/` | HTTP API with a Cognito JWT authorizer and a chat Lambda that answers with a Bedrock model |

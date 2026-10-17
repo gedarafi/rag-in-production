@@ -22,6 +22,8 @@ class Settings:
     temperature: float
     max_tokens: int
     extensions: tuple[str, ...]
+    tracing_endpoint: str
+    tracing_project: str
 
 
 def load_settings(path: str | Path = "settings.toml") -> Settings:
@@ -33,6 +35,7 @@ def load_settings(path: str | Path = "settings.toml") -> Settings:
     models = raw["models"]
     retrieval = raw["retrieval"]
     generation = raw["generation"]
+    tracing = raw.get("tracing", {})
     root = config_path.parent
 
     return Settings(
@@ -50,4 +53,6 @@ def load_settings(path: str | Path = "settings.toml") -> Settings:
         temperature=float(generation["temperature"]),
         max_tokens=int(generation["max_tokens"]),
         extensions=tuple(extension.lower() for extension in raw["files"]["extensions"]),
+        tracing_endpoint=os.getenv("RAG_PHOENIX_ENDPOINT", tracing.get("endpoint", "")),
+        tracing_project=os.getenv("RAG_PHOENIX_PROJECT", tracing.get("project", "rag-in-production")),
     )

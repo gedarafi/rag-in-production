@@ -46,6 +46,21 @@ aws *args:
 reset: down
     rm -rf .localstack
 
+# --- Phoenix (traces of the local RAG) ---
+
+# Start Phoenix and wait until it is healthy
+phoenix-up:
+    {{compose}} up -d --wait phoenix
+    @echo "Phoenix UI: http://localhost:6006 (send traces with RAG_PHOENIX_ENDPOINT=http://localhost:6006/v1/traces)"
+
+# Stop Phoenix
+phoenix-down:
+    {{compose}} stop phoenix
+
+# Follow the Phoenix logs (`just phoenix-logs --tail=all` to print and exit)
+phoenix-logs *args="-f":
+    {{compose}} logs {{args}} phoenix
+
 # --- OpenTofu / Terragrunt ---
 
 # Format all OpenTofu and Terragrunt files

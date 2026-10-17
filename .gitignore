@@ -15,6 +15,9 @@ wheels/
 # LocalStack state (infra/.localstack/)
 .localstack/
 
+# Phoenix traces (infra/.phoenix/)
+.phoenix/
+
 # OpenTofu / Terragrunt (keep .terraform.lock.hcl tracked)
 .terraform/
 .terragrunt-cache/

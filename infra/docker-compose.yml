@@ -1,4 +1,5 @@
-# Local AWS emulator. Start it with `just up`; see the justfile for the other recipes.
+# Local AWS emulator (`just up`) and Phoenix, which traces the local RAG (`just phoenix-up`).
+# See the justfile for the other recipes.
 name: rag-in-production
 
 services:
@@ -23,6 +24,23 @@ services:
     healthcheck:
       # The image ships Python but not curl.
       test: ["CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:4566/_localstack/health', timeout=4)"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+
+  phoenix:
+    # Traces of the local RAG in src/ (set [tracing] endpoint in settings.toml); UI on :6006.
+    image: arizephoenix/phoenix:version-20.19.0
+    container_name: phoenix
+    ports:
+      - "127.0.0.1:6006:6006"  # UI and OTLP/HTTP at /v1/traces
+    environment:
+      - PHOENIX_WORKING_DIR=/mnt/data
+    volumes:
+      - "./.phoenix:/mnt/data"  # traces survive restarts; delete the folder to clear them
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:6006/healthz', timeout=4)"]
       interval: 5s
       timeout: 5s
       retries: 20

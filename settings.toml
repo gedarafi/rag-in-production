@@ -22,3 +22,9 @@ max_tokens = 700
 
 [files]
 extensions = [".txt", ".md", ".pdf", ".docx"]
+
+[tracing]
+# Phoenix OTLP endpoint, e.g. "http://localhost:6006/v1/traces" (start it with `just phoenix-up`).
+# Empty turns tracing off.
+endpoint = ""
+project = "rag-in-production"
