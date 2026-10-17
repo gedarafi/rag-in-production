@@ -19,9 +19,9 @@ What the project uses today, and what is planned. Versions and settings come fro
 | `numpy` | Vector index, stored in `data/index/` |
 | `pypdf`, `python-docx` | Reading `.pdf` and `.docx` documents |
 | `requests` | Calling the Ollama API |
-| `arize-phoenix-otel`, `openinference-instrumentation` | Sending traces of the RAG to Phoenix ([`src/tracing.py`](src/tracing.py)) |
-| `gradio` | Browser interface (`uv run python -m src.gui`) |
-| `typer` | Command-line interfaces: the `rag` command ([`src/cli.py`](src/cli.py)) and the LocalStack flow script ([`infra/scripts/local_flow.py`](infra/scripts/local_flow.py), run with `uv run --script`) |
+| `arize-phoenix-otel`, `openinference-instrumentation` | Sending traces of the RAG to Phoenix ([`src/local/tracing.py`](src/local/tracing.py)) |
+| `gradio` | Browser interface (`uv run python -m src.local.gui`) |
+| `typer` | Command-line interfaces: the `rag` command ([`src/local/cli.py`](src/local/cli.py)) and the LocalStack flow script ([`infra/scripts/local_flow.py`](infra/scripts/local_flow.py), run with `uv run --script`) |
 
 ## Local
 

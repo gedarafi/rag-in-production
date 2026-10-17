@@ -5,8 +5,8 @@ import os
 import unittest
 import urllib.error
 
-import chat
-from chat import MAX_MESSAGE_CHARS, SYSTEM_PROMPT, handler
+from src.chat import handler as chat
+from src.chat.handler import MAX_MESSAGE_CHARS, SYSTEM_PROMPT, handler
 
 
 class AwsError(Exception):

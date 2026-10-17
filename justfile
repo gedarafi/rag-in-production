@@ -82,7 +82,7 @@ lock:
 # Unit tests with mocked providers, plus the Lambda unit tests (no LocalStack needed)
 test-unit:
     for m in {{modules}}; do tofu -chdir=$m init -backend=false -input=false >/dev/null && tofu -chdir=$m test -filter=tests/unit.tftest.hcl || exit 1; done
-    for d in modules/auth/lambda modules/chat-api/lambda; do python3 -m unittest discover -s $d -p 'test_*.py' || exit 1; done
+    python3 -m unittest discover -s ../tests -t ..
     uv run --quiet --no-project --with 'typer>=0.27' python -m unittest discover -s scripts -p 'test_*.py'
 
 # Integration test that creates and destroys a bucket on LocalStack (run `just up` first)

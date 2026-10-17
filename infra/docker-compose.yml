@@ -30,7 +30,7 @@ services:
       start_period: 10s
 
   phoenix:
-    # Traces of the local RAG in src/ (set [tracing] endpoint in settings.toml); UI on :6006.
+    # Traces of the local RAG in src/local/ (set [tracing] endpoint in settings.toml); UI on :6006.
     image: arizephoenix/phoenix:version-20.19.0
     container_name: phoenix
     ports:

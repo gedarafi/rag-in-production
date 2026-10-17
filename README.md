@@ -60,7 +60,7 @@ From the repository root, install Python and dependencies, download the model, a
 uv python install 3.14
 uv sync
 ollama pull llama3.2:3b
-uv run python -m src.gui
+uv run python -m src.local.gui
 ```
 
 If Ollama is installed but its server is not running, run `ollama serve` in a separate Terminal
@@ -79,7 +79,7 @@ uv run rag ask "What is in my documents?"
 To launch the browser interface:
 
 ```sh
-uv run python -m src.gui
+uv run python -m src.local.gui
 ```
 
 Open the URL printed in the terminal (normally `http://127.0.0.1:7860`). If the port is occupied,
@@ -94,7 +94,7 @@ generation settings. The environment variables `RAG_LLM_MODEL`, `RAG_EMBEDDING_M
 `RAG_OLLAMA_URL` temporarily override model settings.
 
 Use another TOML file with `--config path/to/settings.toml`. The provider boundary is
-`src/providers.py`, so another local generation server can be integrated without
+`src/local/providers.py`, so another local generation server can be integrated without
 changing document loading, indexing, prompting, or the CLI.
 
 ### Tracing with Phoenix
@@ -115,19 +115,21 @@ Tracing is off while the endpoint is empty. Only the local RAG is traced, not Lo
 
 ## Infrastructure
 
-Everything lives in [`infra/`](infra):
+The infrastructure lives in [`infra/`](infra); the Lambdas' code lives in [`src/`](src):
 
 | Path | Contents |
 | --- | --- |
 | `infra/docker-compose.yml` | LocalStack, which emulates AWS locally, and Phoenix, which traces the local RAG |
 | `infra/modules/s3-bucket/` | OpenTofu module for a private, versioned, encrypted S3 bucket, with tests in `tests/` |
-| `infra/modules/auth/` | Cognito user pool with passwordless email-code sign-in, limited to allowed email domains |
-| `infra/modules/chat-api/` | HTTP API with a Cognito JWT authorizer and a chat Lambda that answers with a Bedrock model |
+| `infra/modules/auth/` | Cognito user pool with passwordless email-code sign-in, limited to allowed email domains; the pre sign-up Lambda's code is in `src/auth/` |
+| `infra/modules/chat-api/` | HTTP API with a Cognito JWT authorizer and a chat Lambda that answers with a Bedrock model; its code is in `src/chat/` |
 | `infra/modules/web/` | Private S3 bucket and CloudFront for the page in [`web/`](web); `/api/*` is forwarded to the chat API |
 | `infra/modules/budget/` | Monthly cost budget for the AWS account, emailing at 80 % actual and 100 % forecasted spend (real AWS only) |
 | `infra/scripts/` | `local_flow.py` drives the local sign-in and chat flow; `diagram.py` draws the architecture diagram |
 | `infra/live/` | Terragrunt config; `live/local/` deploys to LocalStack, `live/aws/` to your real AWS account |
 | `web/` | Static sign-in and chat page (plain HTML, CSS and JavaScript; no build step) |
+| `src/chat/`, `src/auth/` | Code of the chat Lambda and the pre sign-up Lambda, zipped by the modules above |
+| `tests/` | Unit tests of the Lambdas (`just test-unit`) |
 
 Requires [Docker](https://www.docker.com/), [just](https://just.systems/), the
 [AWS CLI](https://aws.amazon.com/cli/), [OpenTofu](https://opentofu.org/),
@@ -198,7 +200,7 @@ strictly; check those on AWS.
 `infra/live/aws/` deploys a sign-in page where people with an allowed university email
 (`@uu.se`, `@student.uu.se` by default) register and sign in with a one-time code sent to
 their inbox, then reach a chat box. The chat Lambda
-([`infra/modules/chat-api/lambda/chat.py`](infra/modules/chat-api/lambda/chat.py)) answers with a
+([`src/chat/handler.py`](src/chat/handler.py)) answers with a
 Bedrock model: by default Gemma 3 4B through Chat Completions on bedrock-mantle, Bedrock's
 OpenAI-compatible endpoint. Its quotas are separate from bedrock-runtime's, and the requests show
 up under the default project in the console. The Lambda signs these requests with its IAM role,

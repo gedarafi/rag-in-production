@@ -41,6 +41,7 @@ mock_provider "archive" {}
 
 variables {
   name_prefix         = "rag-unit"
+  lambda_source_dir   = "../../../src/auth"
   ses_identity        = "uurag.se"
   route53_zone_id     = "Z123EXAMPLE"
   deletion_protection = "INACTIVE"
