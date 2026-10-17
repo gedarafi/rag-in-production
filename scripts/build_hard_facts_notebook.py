@@ -1,6 +1,7 @@
-"""Rebuild the hard-facts notebook with empty outputs (standard library only)."""
+"""Update hard-facts notebook sources while retaining saved execution outputs."""
 import json
 from pathlib import Path
+from notebook_utils import write_notebook
 
 ROOT = Path(__file__).resolve().parents[1]
 cells = []
@@ -58,9 +59,9 @@ SETTINGS = load_settings(ROOT / 'settings.toml', 'anilist')
 DATABASE = SETTINGS.documents / 'catalog.sqlite3'
 PROJECT_PYTHON = ROOT / '.venv' / ('Scripts/python.exe' if os.name == 'nt' else 'bin/python')
 if not PROJECT_PYTHON.is_file():
-    raise RuntimeError('Project environment missing. Run uv sync from the repository root first.')
+    PROJECT_PYTHON = Path(sys.executable)
 manifest = json.loads((DATA / 'dataset_manifest.json').read_text(encoding='utf-8'))
-questions = load_questions(QUESTIONS_CSV, DATABASE)  # all labels checked, read-only
+questions = load_questions(QUESTIONS_CSV, DATABASE if DATABASE.is_file() else None)
 frame = pd.DataFrame(questions)
 print(f'{len(questions)} questions | {frame.anime_id.nunique()} anime | {frame.field.nunique()} fields')
 print('Notebook kernel:', sys.executable)
@@ -88,7 +89,10 @@ assert Counter(frame.field) == manifest['by_field']
 assert frame.question_origin.eq('authored_naturalistic').all()
 display(frame.groupby('field').agg(questions=('question_id', 'size'), anime=('anime_id', 'nunique')).reset_index())
 display(frame.groupby('field', sort=False).head(2)[['question_id', 'field', 'question', 'expected_values']])
-print('All frozen labels match:', DATABASE)
+if DATABASE.is_file():
+    print('All frozen labels match:', DATABASE)
+else:
+    print('Frozen input hashes verified. Database comparison is available after AniList setup; offline inspection needs no bulk data.')
 ''')
 cell('markdown', '''
 ## Dataset visualization
@@ -187,6 +191,8 @@ additional prose claim. Startup is included in the first RAG latency; extraction
 cell('code', '''
 report, answers = None, []
 if RUN_LIVE:
+    if not DATABASE.is_file():
+        raise RuntimeError('Complete AniList setup before live evaluation. Offline dataset inspection works without it.')
     command = [str(PROJECT_PYTHON), '-u', '-X', 'utf8', '-m', 'src.factual_evaluation',
                '--settings', str(ROOT / 'settings.toml'),
                '--questions', str(RUN_QUESTIONS), '--output', str(OUTPUT)]
@@ -307,5 +313,5 @@ notebook = dict(cells=cells, nbformat=4, nbformat_minor=5, metadata={
     'language_info': {'name': 'python', 'version': '3.14'},
 })
 path = ROOT / 'notebook/hard_facts_evaluation.ipynb'
-path.write_text(json.dumps(notebook, indent=1, ensure_ascii=False) + '\n', encoding='utf-8')
+write_notebook(path, notebook)
 print('Created', path)

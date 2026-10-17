@@ -31,7 +31,9 @@ Year/episodes/duration reflect the specific entry, not the combined franchise.
 `dataset_manifest.json` records the catalog metadata, dataset hash, and label hash.
 The source is the imported local snapshot, not today's live AniList website.
 
-The notebook checks every label against the database before any inference. If labels
+The notebook checks hashes and displays dataset coverage without a local database.
+When the database exists, it checks every label against it; live inference always
+requires that database check. If labels
 drift, investigate the source change rather than silently replacing expected answers.
 To intentionally create refreshed labels, run from the root:
 

@@ -30,12 +30,15 @@ def digest(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
-def load_dataset(folder):
+def load_dataset(folder, *, require_catalog=True):
+    """Validate authored inputs; catalog-free inspection never computes model scores."""
     folder = Path(folder)
     manifest = json.loads((folder / 'dataset_manifest.json').read_text(encoding='utf-8'))
     if manifest['dataset_version'] not in {1, 2} or manifest['tag_threshold'] != 50:
         raise ValueError('Unsupported dataset version or tag threshold')
     for name, expected in manifest['files_sha256'].items():
+        if name == 'catalog_reference.jsonl' and not require_catalog:
+            continue
         if not (folder / name).is_file():
             raise FileNotFoundError(f'Missing local evaluation reference: {folder / name}. '
                                     'Prepare the AniList catalog, then run scripts/build_recommendation_benchmark.py. '
@@ -43,7 +46,7 @@ def load_dataset(folder):
         if digest(folder / name) != expected:
             raise ValueError(f'Frozen dataset changed: {name}; rebuild and version intentionally')
     questions = [json.loads(s) for s in (folder / 'questions.jsonl').read_text(encoding='utf-8').splitlines()]
-    catalog = Catalog(folder / 'catalog_reference.jsonl')
+    catalog = Catalog(folder / 'catalog_reference.jsonl') if require_catalog else None
     seen = set()
     for q in questions:
         if not re.fullmatch(r'[a-z0-9_-]+', q['question_id']) or q['question_id'] in seen:
@@ -55,7 +58,7 @@ def load_dataset(folder):
             raise ValueError('Missing expected constraints')
         for c in q['constraints']:
             validate_constraint(c)
-        if not any(catalog.fits(q, r)[1] for r in catalog.records.values()):
+        if catalog is not None and not any(catalog.fits(q, r)[1] for r in catalog.records.values()):
             raise ValueError(f'No strict catalog matches: {q["question_id"]}')
     if len(questions) != manifest['question_count']:
         raise ValueError('Question count differs from manifest')

@@ -1,9 +1,10 @@
 # Factual evaluation samples
 
-Open [`../../../notebook/factual_evaluation.ipynb`](../../../notebook/factual_evaluation.ipynb)
-in your existing Jupyter or VS Code notebook environment and run all cells with a Python kernel.
-The notebook now runs real RAG inference and automatic factual extraction through local Ollama.
-It requires the existing project environment, completed AniList setup, and an installed Ollama model.
+The published [hard-facts notebook](../../../notebook/hard_facts_evaluation.ipynb)
+provides the larger 180-question workflow, with offline inspection and optional live
+Ollama evaluation. The 42-question dataset in this directory remains available through
+the CLI below and as small synthetic scorer fixtures. Live inference requires the
+project environment, completed AniList setup, and an installed Ollama model.
 
 | CSV | Purpose |
 | --- | --- |
@@ -26,7 +27,7 @@ of performance over the full benchmark. It used `llama3.2:3b` for both RAG gener
 
 ## Real experiment
 
-Run all notebook cells, or use the CLI from the repository root:
+For this 42-question dataset, use the CLI from the repository root:
 
 ```powershell
 .venv/Scripts/python.exe -m src.factual_evaluation --output data/evaluation/factual/results/my_run

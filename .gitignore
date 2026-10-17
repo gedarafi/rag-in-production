@@ -14,6 +14,7 @@ wheels/
 
 # Downloaded corpora and prepared runtime knowledge bases
 /data-raw/
+/data/raw/
 /data/documents/*/
 /data/index/
 
@@ -37,3 +38,8 @@ wheels/
 /data/evaluation/**/answers_real_sample.csv
 /data/evaluation/multidoc2dial_validation.jsonl
 .ipynb_checkpoints/
+
+# Publish only the two maintained evaluation notebooks
+/notebook/*
+!/notebook/hard_facts_evaluation.ipynb
+!/notebook/recommendation_evaluation.ipynb
