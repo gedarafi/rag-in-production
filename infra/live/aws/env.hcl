@@ -31,6 +31,9 @@ locals {
   model_api  = get_env("RAG_BEDROCK_MODEL_API", "openai")
   max_tokens = 512
 
+  # Off: a Lambda in AWS can't reach the Phoenix on a developer's machine.
+  tracing_endpoint = ""
+
   # Monthly cost budget for the whole account: emails at 80 % actual and 100 % forecasted spend.
   # The emails default to RAG_SES_IDENTITY when that is an address (a domain is not); set RAG_BUDGET_EMAILS otherwise.
   budget_limit_usd = tonumber(get_env("RAG_BUDGET_LIMIT_USD", "10"))

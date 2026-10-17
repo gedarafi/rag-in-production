@@ -20,6 +20,10 @@ locals {
   model_api  = "converse"
   max_tokens = 128
 
+  # The Lambda's traces go to Phoenix in docker-compose.yml (`just phoenix-up`, UI on :6006). The Lambda
+  # containers join the Compose network (LAMBDA_DOCKER_NETWORK), where Phoenix is reachable as phoenix.
+  tracing_endpoint = "http://phoenix:6006/v1/traces"
+
   # LocalStack serves the HTTP API on its gateway port, over plain HTTP.
   api_origin_port            = 4566
   api_origin_protocol_policy = "http-only"

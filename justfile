@@ -82,7 +82,7 @@ lock:
 # Unit tests with mocked providers, plus the Lambda unit tests (no LocalStack needed)
 test-unit:
     for m in {{modules}}; do tofu -chdir=$m init -backend=false -input=false >/dev/null && tofu -chdir=$m test -filter=tests/unit.tftest.hcl || exit 1; done
-    python3 -m unittest discover -s ../tests -t ..
+    uv run --quiet --no-project --with-requirements ../src/chat/requirements.txt python -m unittest discover -s ../tests -t ..
     uv run --quiet --no-project --with 'typer>=0.27' python -m unittest discover -s scripts -p 'test_*.py'
 
 # Integration test that creates and destroys a bucket on LocalStack (run `just up` first)
@@ -234,7 +234,7 @@ chat email message:
 session email: (flow "session" email)
 
 # Start LocalStack, deploy, register email (once) and print how to chat, e.g. `just local-up me@student.uu.se`
-local-up email: up apply
+local-up email: up phoenix-up apply
     #!/usr/bin/env bash
     set -euo pipefail
     just flow token {{quote(email)}} >/dev/null 2>&1 || just signup {{quote(email)}}

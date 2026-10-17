@@ -18,6 +18,9 @@ wheels/
 # Phoenix traces (infra/.phoenix/)
 .phoenix/
 
+# Chat Lambda build folder (infra/.build/)
+infra/.build/
+
 # OpenTofu / Terragrunt (keep .terraform.lock.hcl tracked)
 .terraform/
 .terragrunt-cache/

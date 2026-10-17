@@ -4,7 +4,7 @@ variable "name_prefix" {
 }
 
 variable "lambda_source_dir" {
-  description = "Folder with the chat Lambda code: src/chat in the repository (Terragrunt passes it in)."
+  description = "Folder zipped as the chat Lambda: handler.py from src/chat plus its dependencies (Terragrunt builds it in infra/.build/chat)."
   type        = string
 }
 
@@ -53,6 +53,12 @@ variable "max_tokens" {
     condition     = var.max_tokens >= 1 && var.max_tokens <= 4096
     error_message = "max_tokens must be between 1 and 4096."
   }
+}
+
+variable "tracing_endpoint" {
+  description = "OTLP/HTTP endpoint the Lambda sends its traces to, e.g. a Phoenix at http://phoenix:6006/v1/traces. Empty turns tracing off."
+  type        = string
+  default     = ""
 }
 
 variable "throttling_rate_limit" {

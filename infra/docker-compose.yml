@@ -18,6 +18,8 @@ services:
       # Pre-warming pulls and loads it at startup instead of on the first chat.
       - DEFAULT_BEDROCK_MODEL=qwen2.5:0.5b
       - BEDROCK_PREWARM=1
+      # Lambda containers join this Compose network, so the chat Lambda can send traces to phoenix.
+      - LAMBDA_DOCKER_NETWORK=rag-in-production_default
     volumes:
       - "./.localstack:/var/lib/localstack"
       - "/var/run/docker.sock:/var/run/docker.sock"  # needed for Lambda

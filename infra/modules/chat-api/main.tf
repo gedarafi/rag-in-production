@@ -36,7 +36,7 @@ locals {
 
 data "archive_file" "chat" {
   type        = "zip"
-  source_file = "${var.lambda_source_dir}/handler.py"
+  source_dir  = var.lambda_source_dir
   output_path = "${path.module}/build/chat.zip"
 }
 
@@ -88,9 +88,10 @@ resource "aws_lambda_function" "chat" {
 
   environment {
     variables = {
-      MODEL_ID   = var.model_id
-      MODEL_API  = var.model_api
-      MAX_TOKENS = tostring(var.max_tokens)
+      MODEL_ID         = var.model_id
+      MODEL_API        = var.model_api
+      MAX_TOKENS       = tostring(var.max_tokens)
+      PHOENIX_ENDPOINT = var.tracing_endpoint
     }
   }
 
