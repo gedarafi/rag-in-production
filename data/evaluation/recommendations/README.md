@@ -13,8 +13,12 @@ with their saved inline outputs. The large `catalog_reference.jsonl`, prepared
 knowledge bases, exported charts, and separate model-run results are local artifacts and are not
 pushed. After AniList setup, run `scripts/build_recommendation_benchmark.py` to
 create the local reference and intentionally align labels with that snapshot.
+Both coverage plots and the notebook's offline inspection run without that reference.
+Its implication example uses real catalog records when available and a clearly
+labeled illustrative metadata record otherwise; it never invents model performance.
 Reference-dependent tests skip when the local reference is absent; source-input
-integrity and metric unit tests still run without it.
+integrity and metric unit tests still run without it. New-response scoring always
+requires the complete local reference, and saved model-run results are never fabricated.
 
 | Category | Questions |
 | --- | ---: |

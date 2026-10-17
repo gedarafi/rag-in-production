@@ -21,7 +21,9 @@ def render(dataset, output, results=None):
     from matplotlib.ticker import MaxNLocator
     import numpy as np
 
-    questions, _, dataset_manifest = load_dataset(dataset)
+    # Coverage and saved-result plots use the authored labels and recorded scores,
+    # not the large reference needed to score new model responses.
+    questions, _, dataset_manifest = load_dataset(dataset, require_catalog=False)
     plt.rcParams.update({'figure.dpi': 110, 'savefig.dpi': 150, 'font.size': 10,
                          'axes.spines.top': False, 'axes.spines.right': False})
     artifacts = []

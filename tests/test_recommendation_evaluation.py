@@ -166,6 +166,20 @@ class RecommendationEvaluationTests(unittest.TestCase):
 
 
 class AuthoredRecommendationInputTests(unittest.TestCase):
+    def test_offline_inspection_loads_without_bulk_references_but_live_scoring_requires_them(self):
+        import shutil
+        with tempfile.TemporaryDirectory() as folder:
+            destination = Path(folder)
+            manifest = json.loads((DATA / 'dataset_manifest.json').read_text(encoding='utf-8'))
+            for name in ['dataset_manifest.json', *manifest['files_sha256']]:
+                if name != 'catalog_reference.jsonl':
+                    shutil.copy2(DATA / name, destination / name)
+            questions, catalog, _ = load_dataset(destination, require_catalog=False)
+            self.assertEqual(len(questions), 72)
+            self.assertIsNone(catalog)
+            with self.assertRaisesRegex(FileNotFoundError, 'build_recommendation_benchmark'):
+                load_dataset(destination)
+
     def test_small_versioned_inputs_are_intact_without_a_local_catalog(self):
         import hashlib
         manifest = json.loads((DATA / 'dataset_manifest.json').read_text(encoding='utf-8'))

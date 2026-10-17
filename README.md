@@ -416,9 +416,9 @@ workflows and dataset-specific commands.
 
 ## Factual RAG evaluation
 
-Open [the evaluation notebook](notebook/factual_evaluation.ipynb) to run real-model
-questions and inspect database-backed accuracy, precision, recall, and F1. The
-benchmark includes 42 questions across six titles and seven factual fields.
+Open [the hard-facts notebook](notebook/hard_facts_evaluation.ipynb) to inspect the
+180-question benchmark and run real-model factual evaluation. A smaller 42-question
+CLI dataset across six titles and seven fields is also provided:
 
 ```sh
 uv run python -m src.factual_evaluation --output data/evaluation/factual/results/my_run
@@ -454,6 +454,24 @@ catalog-reference exports, logs, separate model responses, and exported charts s
 knowledge-base setup to prepare application data. Recommendation evaluation also
 requires `python scripts/build_recommendation_benchmark.py` after AniList setup;
 that command intentionally refreshes the local snapshot labels and manifest.
+
+Both published notebooks run in offline inspection mode without the excluded
+catalogs, databases, raw data, indexes, or saved runs. Install dependencies with
+`uv sync --extra evaluation`; dataset coverage and offline scoring demonstrations
+then work from the checked-in inputs. Saved notebook outputs are retained.
+Live inference requires Ollama and the normal AniList app setup, which recreates
+the excluded runtime assets rather than depending on copies from this machine.
+
+To verify the source-only distribution and execute both notebooks in real kernels:
+
+```sh
+uv run python scripts/verify_offline_notebooks.py --source-only --tests
+```
+
+Verification writes separate copies under the ignored `data/notebook-output-backups/`
+directory and leaves the published notebook outputs unchanged. Local diagnostic
+replay tools capture a fresh baseline when old captures are absent; these live
+diagnostics require the same model/setup as chat.
 
 ```sh
 uv run pytest
