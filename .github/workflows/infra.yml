@@ -24,6 +24,31 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # The workflow also runs for justfile, tooling and diagram-script changes; the LocalStack job
+  # only needs to run when the infrastructure it deploys, or the way it is deployed, changes.
+  changes:
+    name: Detect infra changes
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      infra: ${{ steps.filter.outputs.infra }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            infra:
+              - "infra/modules/**"
+              - "infra/live/**"
+              - "infra/docker-compose.yml"
+              - "infra/.opentofu-version"
+              - "infra/.terragrunt-version"
+              - "infra/scripts/local_flow.py"
+              - ".github/workflows/infra.yml"
+
   static:
     name: Lint and unit tests
     runs-on: ubuntu-24.04
@@ -45,8 +70,10 @@ jobs:
 
   localstack:
     name: LocalStack integration and e2e
-    needs: static
-    if: needs.static.outputs.has_localstack_token == 'true'
+    needs: [changes, static]
+    if: >-
+      needs.static.outputs.has_localstack_token == 'true' &&
+      (needs.changes.outputs.infra == 'true' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7
