@@ -9,7 +9,7 @@ endpoint := env("LOCALSTACK_ENDPOINT", "http://localhost:4566")
 region := env("AWS_DEFAULT_REGION", "us-east-1")
 modules := "modules/s3-bucket modules/auth modules/chat-api modules/web modules/budget"
 live := "live/local"
-aws_live := "live/aws"
+aws_live := env("RAG_AWS_LIVE", "live/aws") # `just aws-mantle` points the aws-* recipes at live/aws-mantle
 aws_region := env("AWS_REGION", "eu-north-1")
 
 # List the recipes
@@ -180,6 +180,20 @@ web-dev: _aws-check
       "{{aws_region}}" "$client_id" "$domains" "$api" > ../web/config.js
     echo "Wrote web/config.js; serving on http://localhost:8000"
     python3 -m http.server 8000 --bind 127.0.0.1 --directory ../web
+
+# --- Second real AWS account: only the monthly cost budget (RAG_MANTLE_* in infra/.env) ---
+
+# Run bootstrap, plan, apply or destroy in the second account, e.g. `just aws-mantle apply`
+aws-mantle step:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    case "{{step}}" in bootstrap|plan|apply|destroy) ;; *) echo "Use bootstrap, plan, apply or destroy." >&2; exit 1 ;; esac
+    for v in RAG_MANTLE_AWS_PROFILE RAG_MANTLE_AWS_ACCOUNT_ID; do
+      [ -n "${!v:-}" ] || { echo "Set $v in infra/.env (see infra/.env.example)." >&2; exit 1; }
+    done
+    # Variables already set win over infra/.env, so _aws-check verifies the second account.
+    AWS_PROFILE="$RAG_MANTLE_AWS_PROFILE" RAG_AWS_ACCOUNT_ID="$RAG_MANTLE_AWS_ACCOUNT_ID" RAG_AWS_LIVE=live/aws-mantle \
+      just aws-{{step}}
 
 # --- Trying the local stack by hand (after `just apply`) ---
 # LocalStack's Cognito has no passwordless sign-in, so local users get a fixed password instead.

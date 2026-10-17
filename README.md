@@ -229,6 +229,21 @@ just web-dev        # serve web/ locally on http://localhost:8000 against the de
 just aws-diagram    # redraw docs/architecture.png from the deployed services
 ```
 
+### A second AWS account: only the budget
+
+If you also call Bedrock by hand from another account, `infra/live/aws-mantle/` gives it the
+same monthly budget as the chatbot's account (`RAG_BUDGET_LIMIT_USD`, `RAG_BUDGET_EMAILS`). Like
+the original budget, it only sends emails and never stops anything. Set up a CLI profile for that
+account with permission for AWS Budgets and S3. Set `RAG_MANTLE_AWS_PROFILE` and
+`RAG_MANTLE_AWS_ACCOUNT_ID` in `infra/.env`, then:
+
+```sh
+just aws-mantle bootstrap   # state bucket in that account (once)
+just aws-mantle plan        # preview
+just aws-mantle apply       # create the rag-mantle-monthly budget
+just aws-mantle destroy     # remove it
+```
+
 ### CI
 
 [`.github/workflows/infra.yml`](.github/workflows/infra.yml) runs on pull requests that touch

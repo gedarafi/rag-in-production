@@ -2,6 +2,7 @@
 # Each environment's env.hcl sets `target`:
 #   "localstack" (live/local): emulated AWS, state on disk next to this file.
 #   "aws"        (live/aws):   your real account, state in an S3 bucket (`just aws-bootstrap`).
+#                (live/aws-mantle): a second real account with only the budget (`just aws-mantle bootstrap`).
 
 locals {
   env                 = read_terragrunt_config(find_in_parent_folders("env.hcl")).locals
