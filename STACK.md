@@ -19,7 +19,7 @@ What the project uses today, and what is planned. Versions and settings come fro
 | `numpy` | Vector index, stored in `data/index/` |
 | `pypdf`, `python-docx` | Reading `.pdf` and `.docx` documents |
 | `requests` | Calling the Ollama API |
-| `arize-phoenix-otel`, `openinference-semantic-conventions` | Sending traces of the RAG to Phoenix ([`src/tracing.py`](src/tracing.py)) |
+| `arize-phoenix-otel`, `openinference-instrumentation` | Sending traces of the RAG to Phoenix ([`src/tracing.py`](src/tracing.py)) |
 | `gradio` | Browser interface (`uv run python -m src.gui`) |
 | `typer` | Command-line interfaces: the `rag` command ([`src/cli.py`](src/cli.py)) and the LocalStack flow script ([`infra/scripts/local_flow.py`](infra/scripts/local_flow.py), run with `uv run --script`) |
 
@@ -29,7 +29,7 @@ What the project uses today, and what is planned. Versions and settings come fro
 | --- | --- | --- |
 | [Ollama](https://ollama.com/) | Runs the LLM locally (default `llama3.2:3b` at `http://localhost:11434`) | In use |
 | [Docker](https://www.docker.com/) | Same environment on macOS, Windows and Linux; runs LocalStack and Phoenix via [`infra/docker-compose.yml`](infra/docker-compose.yml) | In use |
-| [Arize Phoenix](https://phoenix.arize.com/) | Traces of the local RAG (retrieval, prompt, answer, tokens); `just phoenix-up`, UI on `http://localhost:6006` | In use (opt-in via `[tracing] endpoint`) |
+| [Arize Phoenix](https://phoenix.arize.com/) | Traces of the local RAG (retrieved chunks, prompt, answer); `just phoenix-up`, UI on `http://localhost:6006` | In use (opt-in via `[tracing] endpoint`) |
 
 ## Cloud
 
