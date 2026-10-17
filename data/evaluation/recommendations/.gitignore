@@ -1,0 +1,4 @@
+.jupyter/
+charts/.matplotlib/
+results/*/charts/.matplotlib/
+*.tmp

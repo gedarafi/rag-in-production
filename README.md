@@ -142,16 +142,20 @@ flowchart TD
     A["Question + browser chat history"] --> B["Workspace readiness check"]
     B -->|Not prepared| SETUP["Ask user to finish setup"]
     B -->|Prepared| C["Normalize and bound recent history"]
-    C --> D{"Complete recommendation request<br/>without backward references?"}
+    C --> INT["Interpret request against existing catalog<br/>Separate entities, preferences and typed attributes"]
+    INT --> D{"Complete recommendation request<br/>without backward references?"}
     D -->|Yes| E["Exclude prior history and cached topic"]
     D -->|No| F["Keep history available for follow-ups"]
     E --> G["Prepare current entities and source context"]
     F --> G
     G --> H["Embed question; retrieve tool guides<br/>and genre/tag candidates"]
-    H --> I["LLM call 1: produce one complete tool plan<br/>Choose context, goal, tools, arguments and limits"]
+    H --> I["LLM: produce one complete tool plan<br/>Choose context, goal, tools, arguments and limits"]
     I --> J{"Validate plan schema"}
     J -->|Invalid| FAIL["Record validation error as missing evidence"]
-    J -->|Valid| K["Apply context choice; compile dependencies<br/>and resolve result references"]
+    J -->|Valid| SCOPE{"Clearly unrelated, with a direct reply<br/>and no contradictory context or tools?"}
+    SCOPE -->|Yes| DIRECT["Use planner-written reply;<br/>skip tools and final model call"]
+    DIRECT --> W
+    SCOPE -->|No: in domain or uncertain| K["Apply context choice; compile dependencies<br/>and resolve result references"]
     K --> L{"Planned tool type"}
 
     subgraph TOOLS["Local tool execution - no LLM calls between tools"]
@@ -172,7 +176,10 @@ flowchart TD
     K -->|No tools needed| T["Bound evidence and select primary entity facts"]
     S -->|No| T
     FAIL --> T
-    T --> U["LLM call 2: write a grounded answer<br/>or explain missing information / ask clarification"]
+    T --> VERIFIED{"Verified recommendation candidates?"}
+    VERIFIED -->|Yes| RENDER["Render catalog titles and synopsis excerpts<br/>Disclose metadata limits and approximations"]
+    RENDER --> W
+    VERIFIED -->|No| U["LLM: write a grounded factual answer<br/>or explain missing information / ask clarification"]
     U --> V{"Identity checks pass?"}
     V -->|Yes| W["Remove internal source filenames;<br/>remember conversation-scoped entity state"]
     V -->|No| X["One additional LLM correction<br/>using the same source identities"]
@@ -182,16 +189,106 @@ flowchart TD
     W --> Z["Display reply in chat"]
 ```
 
-The normal path uses two LLM calls. All tool steps are planned up front; a tool
+The normal path interprets the request, plans tools, then presents an answer.
+Recommendation interpretation makes small semantic decisions per criterion,
+so its LLM call count varies with request complexity. Verified recommendation
+titles and synopsis excerpts are rendered directly from catalog records, so the
+final wording cannot invent additional exclusions or substitute another title.
+Factual questions normally
+use three calls. Interpretation separates named entities, hard constraints,
+and soft preferences. Constraints quote their user source, use canonical catalog
+feature types, and are validated before retrieval. Preferences follow Genre,
+then Tags, then semantic General Descriptions; factual dates, counts, runtime,
+format and other structured attributes keep their own typed lookup path.
+Recommendation tools share
+this contract, and returned candidates are checked against it again before the
+answer is generated. Subjective preferences use semantic ranking rather than
+literal synopsis keyword filters. Broader category mappings and unrepresentable
+requirements are disclosed in the answer. Invalid constraints are rejected
+rather than silently ignored.
+
+All tool steps are planned up front; a tool
 result can supply IDs to later steps through references such as `$0.matches.0.id`.
 Dependent steps run after their inputs are available, while failed dependencies
 do not prevent unrelated steps from completing. An existing source bundle can
 answer a simple question without additional tools.
 
+The same planning call also decides request scope. Clearly unrelated questions
+can receive a short, helpful reply written by the planner itself, without tool
+execution or a second model call. This is not an automatic refusal. Uncertain
+requests continue through the normal path; missing anime keywords or unknown
+titles alone do not make a request irrelevant. Explicit anime references,
+recommendation requests, contextual plans and planned tools prevent an early exit.
+
 History supplies omitted references, not new constraints for an independent
 request. A fresh mood-based search has no inherited seed; "anime like that" can
 use the previous reference anime. Recommendations default to five, and cast
 sections supply short biographies for character introductions.
+
+Recommendations can combine exact `year` or inclusive `year_from`/`year_to`
+(including open-ended ranges), studio, source material, staff name and credited
+role, format, genres, and tags. The planner interprets the timeframe; code applies
+the bounds without converting them into a fixed decade category. A reference
+anime or genre is optional. `sort_by=score` ranks by the imported average score;
+`sort_by=popularity` ranks by imported popularity. Missing metadata does not match
+a requested filter, and empty results do not silently widen the criteria.
+Production metadata from existing exports is indexed into SQL once without
+changing documents or rebuilding embeddings.
+
+Recommendations also accept general `filters`: an AND list of
+`{"field":"episodes","operator":"lte","value":"13"}` objects. Values are
+strings; numeric fields support `eq/ne/lt/lte/gt/gte`, and text/collection fields
+support `eq/ne/contains/not_contains`. Available fields are discovered from the
+imported data and supplied to the planner and its schema. These include counts,
+per-episode duration, status, score, popularity, adult flag, season, country,
+credits, character profiles, voice actors, relations and other export metadata.
+Collection searches match individual leaf values; they do not imply that two
+filters refer to the same nested member. Use `staff` with `staff_role` for a
+credit by the same person. Unknown values do not satisfy numeric bounds.
+`sort_by` supports score, popularity, year, episodes and duration, with
+`sort_order=asc/desc`.
+
+For vague measurements, RAG retrieves schema definitions and examples, and the
+model interprets the corresponding numeric bounds. Calendar expressions such as
+decades become inclusive release-year intervals; there are no decade phrase
+parsers. Subjective brevity refers to episode count by default: eligibility is
+capped at 50 episodes, with 10–19 episodes preferred. This policy is disclosed in
+the answer, and the preferred range affects ranking rather than becoming a hard
+category. Explicit per-episode runtime uses the separate duration field. Numeric
+preferences are ranked in SQL before the result limit and retained during
+semantic reranking. Unknown episode counts do not satisfy the ceiling.
+Extra export fields are indexed once in SQLite; subsequent launches reuse them,
+without rebuilding documents or embeddings. Large matching metadata lists are
+reduced to relevant values before answer generation.
+
+For open-ended tropes such as a protagonist turning villainous, the planner can
+call `search_features` to semantically search existing tag names, definitions and
+descriptive examples. Its result IDs feed into recommendations in the same plan,
+without another LLM planning call. `tag_match=any` retrieves alternative tags for
+one concept; the default `all` still combines separately required tags. The full
+preference reranks these candidates. An empty feature search cannot silently
+widen into an unfiltered recommendation. Tags identify candidates, not proof of
+a particular character arc; the answer must distinguish documented details from
+broader matches. Asking for a twist or arc permits its necessary spoilers.
+
+Multi-title questions retain each distinct title mention, including a base title
+named separately from a sequel with the same prefix. Compact per-work facts and
+synopses survive prose-window trimming and later tool calls. The planner loads
+evidence for all requested subjects; the answer model compares and reasons from
+those records, keeping claims attributed to the correct work. The same flow
+handles similarities, differences, factual questions and follow-ups without a
+question-specific calculation or comparison tool.
+
+Factual replies use a compact per-subject evidence packet and structured source
+selection. Numerical replies let the model choose expressions and labels; a
+bounded arithmetic renderer evaluates `+ - * /` over source measurements, carries
+their units, and converts compatible time units. It contains no anime-length
+formula or title-specific rules. Ordinary comparisons and explanations remain
+model-written prose. The normal path still uses one planning call and one answer
+call. Debug includes `answer_grounding` with selected facts and evaluated
+expressions. A contradictory context flag cannot erase a previous subject group
+explicitly selected by ID or a clear referential follow-up; assistant prose is
+never used as source data. Missing source evidence cannot support a guessed count.
 
 The implementation follows [anilist_setup.py](src/anilist_setup.py),
 [rag.py](src/rag.py), [entity_agent.py](src/entity_agent.py), and
@@ -210,6 +307,8 @@ Expand **Processing debug** in the GUI to inspect the latest full request snapsh
 
 - `history_policy` and `use_previous_context`: how previous conversation was handled.
 - `router_plan` and `selected_context`: planned work and selected entities.
+- `scope`: `in_domain`, `out_of_domain`, or `uncertain`; `response_path` is
+  `planner_direct_response` when the planner's reply skips tools and generation.
 - `agent_trace`: executed tools, result summaries, and each tool's elapsed time.
 - `timings_seconds`: context preparation, guide/feature lookup, planning, tools, and answer generation.
 - `llm_calls`, `planned_tools`, `executed_tools`, and total `elapsed_seconds`.
@@ -315,7 +414,46 @@ uv run rag tool popular --kb anilist --limit 5
 See the [backed-up README](README.backup-2026-10-14.md) for the original multi-library
 workflows and dataset-specific commands.
 
+## Factual RAG evaluation
+
+Open [the evaluation notebook](notebook/factual_evaluation.ipynb) to run real-model
+questions and inspect database-backed accuracy, precision, recall, and F1. The
+benchmark includes 42 questions across six titles and seven factual fields.
+
+```sh
+uv run python -m src.factual_evaluation --output data/evaluation/factual/results/my_run
+```
+
+Add `--limit 3` for a smoke test. Each final response is independently extracted
+through Ollama without exposing expected values to the extractor, then scored by
+code. Identical runs resume saved checkpoints. Review extraction evidence before
+interpreting scores. See [sample data and usage](data/evaluation/factual/README.md).
+
+## Recommendation evaluation
+
+Open [the recommendation notebook](notebook/recommendation_evaluation.ipynb) for
+72 natural-language requests covering tags and moods, genres, release dates,
+animation studios, formats, source material, lengths, and combined constraints.
+Forty-eight requests use indirect wording. A separate LLM request extracts titles
+from each real RAG answer; deterministic catalog checks score every recommendation.
+Metrics include strict P@k, graded fit, nDCG, constraint coverage, duplicates, and
+count adherence, with inline charts and per-item audits.
+
+```sh
+uv run python -m src.recommendation_evaluation --mode full --output data/evaluation/recommendations/results/full_001
+```
+
+The notebook defaults to offline inspection of saved results. Set `RUN_LIVE=True`
+to evaluate, and use `MODE='full'` for all questions. See [dataset and metric details](data/evaluation/recommendations/README.md).
+
 ## Development
+
+Git includes source code, tests, notebooks with their saved outputs, and small
+authored evaluation inputs. Downloaded corpora, prepared documents, indexes,
+catalog-reference exports, logs, separate model responses, and exported charts stay local. Run the normal
+knowledge-base setup to prepare application data. Recommendation evaluation also
+requires `python scripts/build_recommendation_benchmark.py` after AniList setup;
+that command intentionally refreshes the local snapshot labels and manifest.
 
 ```sh
 uv run python -m unittest discover -s tests

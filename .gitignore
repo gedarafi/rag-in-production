@@ -11,3 +11,29 @@ wheels/
 
 # Regenerated from the local VNDB dump
 /data/documents/vndb/
+
+# Downloaded corpora and prepared runtime knowledge bases
+/data-raw/
+/data/documents/*/
+/data/index/
+
+# Local request traces and diagnostics (keep authored Python helpers)
+/data/*.json
+/data/*.log
+/data/*.txt
+/data/latency-diagnostics/**
+!/data/latency-diagnostics/*.py
+!/data/latency-diagnostics/analysis.md
+/data/notebook-output-backups/
+
+# Evaluation inputs are versioned; generated references and results stay local
+/data/evaluation/**/results/
+/data/evaluation/**/charts/
+/data/evaluation/**/diagnostics/
+/data/evaluation/**/.jupyter/
+/data/evaluation/**/*.log
+/data/evaluation/**/smoke_questions.csv
+/data/evaluation/**/catalog_reference.jsonl
+/data/evaluation/**/answers_real_sample.csv
+/data/evaluation/multidoc2dial_validation.jsonl
+.ipynb_checkpoints/

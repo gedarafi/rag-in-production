@@ -124,15 +124,34 @@ class SqliteAnimeTools(AnimeTools):
     def __init__(self, database: Path):
         self.database = database
         self.folder = database.parent
+        from .catalog_metadata import ensure_production_metadata
+        ensure_production_metadata(self.folder, database, BUILD_LOCK)
         self.terms = {row[0]: row[1] for row in self.query("SELECT DISTINCT term,label FROM features")}
 
     def query(self, sql, parameters=()):
         # Connections belong to calls, so a GUI pipeline can cross worker threads.
         with closing(sqlite3.connect(self.database, timeout=120)) as db:
+            from .release_dates import complete_date
+            db.create_function('catalog_date', 3, complete_date, deterministic=True)
+            db.create_function('normalize_text', 1, lambda value: normalize(str(value)) if value is not None else '', deterministic=True)
             return db.execute(sql, parameters).fetchall()
+
+    def searchable_fields(self):
+        from .catalog_search import BASE_FIELDS
+        from .catalog_metadata import EXPORT_FIELDS
+        raw = self.query("SELECT value FROM meta WHERE key='search_fields'")
+        discovered = json.loads(raw[0][0]) if raw else {}
+        return {**{key: kind for key, kind in discovered.items() if key in EXPORT_FIELDS or key in ('voice_actors', 'tag_details')},
+                **BASE_FIELDS}
 
     def record(self, identifier: str, full: bool = False) -> dict:
         record = json.loads(self.query("SELECT data FROM anime WHERE id=?", (identifier,))[0][0])
+        metadata = self.query('SELECT data FROM anime_metadata WHERE anime_id=?', (identifier,))
+        if metadata:
+            record.update(json.loads(metadata[0][0]))
+        from .release_dates import complete_date
+        search = record.get('search_data', {})
+        record['start_date'] = complete_date(*(search.get('startDate_' + p) for p in ('year', 'month', 'day')))
         if full:
             record["characters"] = [dict(json.loads(data), role=role) for data, role in self.query(
                 "SELECT c.data,p.role FROM appearances p JOIN characters c ON c.id=p.character_id WHERE p.anime_id=?", (identifier,))]
@@ -163,9 +182,19 @@ class SqliteAnimeTools(AnimeTools):
 
     def _where(self, filters):
         clauses, params = ["1=1"], []
+        if 'filters' in filters:
+            from .catalog_search import predicates
+            extra, values = predicates(filters['filters'], self.searchable_fields())
+            clauses.extend(extra)
+            params.extend(values)
         for term in filters.get("terms", []):
             clauses.append("EXISTS (SELECT 1 FROM features f WHERE f.anime_id=a.id AND f.term=?)")
             params.append(normalize(term))
+        if filters.get('any_terms'):
+            values = [normalize(term) for term in filters['any_terms']]
+            clauses.append('EXISTS (SELECT 1 FROM features f WHERE f.anime_id=a.id AND f.term IN ('
+                           + ','.join('?' for _ in values) + '))')
+            params.extend(values)
         for term in filters.get("exclude_terms", []):
             clauses.append("NOT EXISTS (SELECT 1 FROM features f WHERE f.anime_id=a.id AND f.term=?)")
             params.append(normalize(term))
@@ -173,18 +202,53 @@ class SqliteAnimeTools(AnimeTools):
             if filters.get(key) is not None:
                 clauses.append(f"a.{key}=?")
                 params.append(filters[key])
+        for key, operator in (('year_from', '>='), ('year_to', '<=')):
+            if filters.get(key) is not None:
+                clauses.append(f'a.year{operator}?')
+                params.append(filters[key])
+        if filters.get('source_material'):
+            clauses.append("EXISTS (SELECT 1 FROM anime_metadata m WHERE m.anime_id=a.id "
+                           "AND lower(replace(json_extract(m.data,'$.source_material'),'_',' '))=?)")
+            params.append(normalize(filters['source_material']))
+        if filters.get('studio'):
+            clauses.append("EXISTS (SELECT 1 FROM anime_metadata m,json_each(m.data,'$.studios') s "
+                           "WHERE m.anime_id=a.id AND instr(' '||json_extract(s.value,'$.key')||' ',' '||?||' ')>0)")
+            params.append(normalize(filters['studio']))
+        if filters.get('staff') or filters.get('staff_role'):
+            conditions = ['m.anime_id=a.id']
+            if filters.get('staff'):
+                conditions.append("EXISTS (SELECT 1 FROM json_each(p.value,'$.keys') k "
+                                  "WHERE k.value IN (?,?) OR instr(' '||k.value||' ',' '||?||' ')>0)")
+                name = normalize(filters['staff'])
+                params.extend([name, ' '.join(sorted(name.split())), name])
+            if filters.get('staff_role'):
+                conditions.append("json_extract(p.value,'$.role_key')=?")
+                params.append(normalize(filters['staff_role']))
+            clauses.append("EXISTS (SELECT 1 FROM anime_metadata m,json_each(m.data,'$.staff') p WHERE "
+                           + ' AND '.join(conditions) + ')')
         return " AND ".join(clauses), params
 
     def popular(self, limit=5, filters=None):
         where, params = self._where(filters or {})
-        return [json.loads(r[0]) for r in self.query(f"SELECT a.data FROM anime a WHERE {where} "
-                "AND a.popularity IS NOT NULL ORDER BY a.popularity DESC,a.id LIMIT ?", (*params, limit))]
+        sort = (filters or {}).get('sort_by', 'popularity')
+        from .catalog_search import SORT_FIELDS, field_expression, preference_order
+        if sort not in SORT_FIELDS or (filters or {}).get('sort_order', 'desc') not in ('asc', 'desc'):
+            raise ValueError('Invalid catalog sort field or order')
+        expression, values = field_expression(sort, self.searchable_fields())
+        order = (filters or {}).get('sort_order', 'desc').upper()
+        preferred, preferred_params = preference_order((filters or {}).get('numeric_preferences', []), self.searchable_fields())
+        return [self.record(r[0]) for r in self.query(f"SELECT a.id FROM anime a WHERE {where} "
+                f"AND {expression} IS NOT NULL ORDER BY {preferred}{expression} {order},a.popularity DESC,a.id LIMIT ?",
+                (*params, *values, *preferred_params, *values, limit))]
 
     def count(self, filters=None):
         where, params = self._where(filters or {})
         return self.query(f"SELECT COUNT(*) FROM anime a WHERE {where}", params)[0][0]
 
-    def recommend(self, query, limit=5, seed_titles=None):
+    def recommend(self, query, limit=5, seed_titles=None, constraints=None):
+        from .catalog_search import SORT_FIELDS
+        if (constraints or {}).get('sort_by', 'popularity') not in SORT_FIELDS:
+            raise ValueError('Invalid catalog sort field')
         normalized = normalize(query)
         match = re.search(r"\b(?:similar to|like|based on|enjoyed|loved|liked|finished)\s+(.+)", normalized)
         subject = re.split(r"\s+(?:with|but|from|released|what|recommend|suggest)\s+", match[1])[0] if match else normalized
@@ -199,15 +263,32 @@ class SqliteAnimeTools(AnimeTools):
             for alias in sorted(seed["aliases"], key=len, reverse=True):
                 filter_query = filter_query.replace(normalize(alias), " ")
         filters = self.filters(filter_query)
+        filters.update(constraints or {})
         if not seeds:
-            if not any(filters.get(k) for k in ("terms", "exclude_terms", "year", "format")):
+            if not constraints and not any(filters.get(k) for k in ("terms", "exclude_terms", "year", "format")):
                 return [], {}
             rows = self.popular(limit, filters)
-            return rows, {r["id"]: "Matches: " + ", ".join(filters["terms"]) for r in rows}
+            labels = [*filters['terms'], *[f'{k}={v}' for k, v in (constraints or {}).items()]]
+            return rows, {r["id"]: "Matches: " + ", ".join(labels) for r in rows}
         ids = [r["id"] for r in seeds]
         marks = ",".join("?" for _ in ids)
         features = {row[0] for row in self.query(f"SELECT DISTINCT term FROM features WHERE anime_id IN ({marks})", ids)}
         where, params = self._where(filters)
+        score_order = ''
+        if (constraints or {}).get('sort_by'):
+            from .catalog_search import field_expression
+            expression, values = field_expression(constraints['sort_by'], self.searchable_fields())
+            direction = constraints.get('sort_order', 'desc')
+            if direction not in ('asc', 'desc'):
+                raise ValueError('Invalid catalog sort order')
+            where += f' AND {expression} IS NOT NULL'
+            params.extend(values)
+            # Resolve parameters in the ORDER BY after WHERE, below.
+            score_order = f'{expression} {direction.upper()},'
+        else:
+            values = []
+        from .catalog_search import preference_order
+        preferred, preferred_params = preference_order((constraints or {}).get('numeric_preferences', []), self.searchable_fields())
         # Candidate scores and limits are computed in SQL; only winners are hydrated.
         sql = f"""WITH seed_features AS (SELECT DISTINCT term FROM features WHERE anime_id IN ({marks})),
           votes AS (SELECT target_id,SUM(votes) AS vote FROM recommendations WHERE anime_id IN ({marks}) GROUP BY target_id),
@@ -216,10 +297,10 @@ class SqliteAnimeTools(AnimeTools):
           SELECT a.id,COALESCE(v.vote,0) FROM anime a LEFT JOIN votes v ON v.target_id=a.id
           LEFT JOIN shared s ON s.anime_id=a.id LEFT JOIN totals t ON t.anime_id=a.id
           WHERE {where} AND a.id NOT IN ({marks}) AND (COALESCE(v.vote,0)>0 OR COALESCE(s.count,0)>0)
-          ORDER BY COALESCE(v.vote,0)>0 DESC,COALESCE(v.vote,0) DESC,
+          ORDER BY {preferred}{score_order}COALESCE(v.vote,0)>0 DESC,COALESCE(v.vote,0) DESC,
           CAST(COALESCE(s.count,0) AS REAL)/MAX(1,?+COALESCE(t.count,0)-COALESCE(s.count,0)) DESC,
           a.popularity DESC,a.id LIMIT ?"""
-        winners = self.query(sql, (*ids, *ids, *params, *ids, len(features), limit))
+        winners = self.query(sql, (*ids, *ids, *params, *ids, *preferred_params, *values, len(features), limit))
         records, reasons = [], {}
         for aid, vote in winners:
             record = self.record(aid)

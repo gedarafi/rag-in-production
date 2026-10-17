@@ -1,0 +1,43 @@
+question_id,anime_id,field,question,expected_values
+fact_001,20,year,In what year did Naruto first air?,[2002.0]
+fact_002,20,episodes,How many episodes does Naruto have?,[220.0]
+fact_003,20,source_material,What is the source material of Naruto?,"[""MANGA""]"
+fact_004,20,main_animation_studios,"Which main animation studios made Naruto, according to the catalog?","[""Studio Pierrot""]"
+fact_005,20,main_characters,List all characters marked MAIN for Naruto in the catalog.,"[""Sasuke Uchiha"", ""Sakura Haruno"", ""Naruto Uzumaki"", ""Kakashi Hatake""]"
+fact_006,1735,year,In what year did Naruto: Shippuden first air?,[2007.0]
+fact_007,1735,episodes,How many episodes does Naruto: Shippuden have?,[500.0]
+fact_008,1735,source_material,What is the source material of Naruto: Shippuden?,"[""MANGA""]"
+fact_009,1735,main_animation_studios,"Which main animation studios made Naruto: Shippuden, according to the catalog?","[""Studio Pierrot""]"
+fact_010,1735,main_characters,List all characters marked MAIN for Naruto: Shippuden in the catalog.,"[""Sasuke Uchiha"", ""Sakura Haruno"", ""Naruto Uzumaki"", ""Kakashi Hatake""]"
+fact_011,2167,year,In what year did Clannad first air?,[2007.0]
+fact_012,2167,episodes,How many episodes does Clannad have?,[23.0]
+fact_013,2167,source_material,What is the source material of Clannad?,"[""VISUAL_NOVEL""]"
+fact_014,2167,main_animation_studios,"Which main animation studios made Clannad, according to the catalog?","[""Kyoto Animation""]"
+fact_015,2167,main_characters,List all characters marked MAIN for Clannad in the catalog.,"[""Fuuko Ibuki"", ""Kotomi Ichinose"", ""Tomoyo Sakagami"", ""Nagisa Furukawa"", ""Kyou Fujibayashi"", ""Tomoya Okazaki"", ""Ryou Fujibayashi"", ""Youhei Sunohara""]"
+fact_016,20,duration,"How many minutes per episode is Naruto, according to the catalog?",[23.0]
+fact_017,20,format,"What is the release format of Naruto (TV, movie, OVA, etc.)?","[""TV""]"
+fact_018,1735,duration,"How many minutes per episode is Naruto: Shippuden, according to the catalog?",[23.0]
+fact_019,1735,format,"What is the release format of Naruto: Shippuden (TV, movie, OVA, etc.)?","[""TV""]"
+fact_020,2167,duration,"How many minutes per episode is Clannad, according to the catalog?",[24.0]
+fact_021,2167,format,"What is the release format of Clannad (TV, movie, OVA, etc.)?","[""TV""]"
+fact_022,1,year,In what year did Cowboy Bebop first release?,[1998.0]
+fact_023,1,episodes,How many episodes does Cowboy Bebop have?,[26.0]
+fact_024,1,duration,"How many minutes per episode is Cowboy Bebop, according to the catalog?",[24.0]
+fact_025,1,format,"What is the release format of Cowboy Bebop (TV, movie, OVA, etc.)?","[""TV""]"
+fact_026,1,source_material,What is the source material of Cowboy Bebop?,"[""ORIGINAL""]"
+fact_027,1,main_animation_studios,"Which main animation studios made Cowboy Bebop, according to the catalog?","[""Sunrise""]"
+fact_028,1,main_characters,List all characters marked MAIN for Cowboy Bebop in the catalog.,"[""Spike Spiegel"", ""Edward Wong Hau Pepelu Tivrusky IV"", ""Faye Valentine"", ""Jet Black""]"
+fact_029,1535,year,In what year did Death Note first release?,[2006.0]
+fact_030,1535,episodes,How many episodes does Death Note have?,[37.0]
+fact_031,1535,duration,"How many minutes per episode is Death Note, according to the catalog?",[23.0]
+fact_032,1535,format,"What is the release format of Death Note (TV, movie, OVA, etc.)?","[""TV""]"
+fact_033,1535,source_material,What is the source material of Death Note?,"[""MANGA""]"
+fact_034,1535,main_animation_studios,"Which main animation studios made Death Note, according to the catalog?","[""MADHOUSE""]"
+fact_035,1535,main_characters,List all characters marked MAIN for Death Note in the catalog.,"[""Mihael Keehl"", ""Nate River"", ""L Lawliet"", ""Ryuk"", ""Light Yagami"", ""Misa Amane""]"
+fact_036,20954,year,In what year did A Silent Voice first release?,[2016.0]
+fact_037,20954,episodes,How many episodes does A Silent Voice have?,[1.0]
+fact_038,20954,duration,"How many minutes per episode is A Silent Voice, according to the catalog?",[130.0]
+fact_039,20954,format,"What is the release format of A Silent Voice (TV, movie, OVA, etc.)?","[""MOVIE""]"
+fact_040,20954,source_material,What is the source material of A Silent Voice?,"[""MANGA""]"
+fact_041,20954,main_animation_studios,"Which main animation studios made A Silent Voice, according to the catalog?","[""Kyoto Animation""]"
+fact_042,20954,main_characters,List all characters marked MAIN for A Silent Voice in the catalog.,"[""Shouko Nishimiya"", ""Shouya Ishida""]"

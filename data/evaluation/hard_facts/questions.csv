@@ -1,0 +1,181 @@
+question_id,anime_id,title,field,question,expected_values,question_origin,answer_source,benchmark_version
+hf_001,16498,Attack on Titan,year,What year did the first season of Attack on Titan start airing?,[2013.0],authored_naturalistic,local_anilist_catalog,1
+hf_002,101922,Demon Slayer: Kimetsu no Yaiba,year,When did Demon Slayer first come out? Just the year is fine.,[2019.0],authored_naturalistic,local_anilist_catalog,1
+hf_003,113415,JUJUTSU KAISEN,year,Which year was the first JUJUTSU KAISEN TV season released?,[2020.0],authored_naturalistic,local_anilist_catalog,1
+hf_004,1535,Death Note,year,When was Death Note first released as an anime? I'd like the year.,[2006.0],authored_naturalistic,local_anilist_catalog,1
+hf_005,21459,My Hero Academia,year,What was the premiere year for My Hero Academia season one?,[2016.0],authored_naturalistic,local_anilist_catalog,1
+hf_006,21087,One-Punch Man,year,In what year did One-Punch Man make its anime debut?,[2015.0],authored_naturalistic,local_anilist_catalog,1
+hf_007,20605,Tokyo Ghoul,year,I'm trying to place Tokyo Ghoul on a timeline. What year did its original TV anime begin?,[2014.0],authored_naturalistic,local_anilist_catalog,1
+hf_008,5114,Fullmetal Alchemist: Brotherhood,year,What year did Fullmetal Alchemist: Brotherhood first air?,[2009.0],authored_naturalistic,local_anilist_catalog,1
+hf_009,20,Naruto,year,What year did the original Naruto anime begin?,[2002.0],authored_naturalistic,local_anilist_catalog,1
+hf_010,20954,A Silent Voice,year,Which year was the anime film A Silent Voice released?,[2016.0],authored_naturalistic,local_anilist_catalog,1
+hf_011,21519,Your Name.,year,What is the release year of the movie Your Name?,[2016.0],authored_naturalistic,local_anilist_catalog,1
+hf_012,127230,Chainsaw Man,year,When was Chainsaw Man's first anime season released? I only need the year.,[2022.0],authored_naturalistic,local_anilist_catalog,1
+hf_013,101759,The Promised Neverland,year,What year marked the start of The Promised Neverland anime?,[2019.0],authored_naturalistic,local_anilist_catalog,1
+hf_014,20755,Assassination Classroom,year,Can you give me the year Assassination Classroom's first season premiered?,[2015.0],authored_naturalistic,local_anilist_catalog,1
+hf_015,21507,Mob Psycho 100,year,What year did the Mob Psycho 100 anime originally launch?,[2016.0],authored_naturalistic,local_anilist_catalog,1
+hf_016,20665,Your lie in April,year,Which year did Your Lie in April begin its TV run?,[2014.0],authored_naturalistic,local_anilist_catalog,1
+hf_017,1735,Naruto: Shippuden,year,What is Naruto: Shippuden's first airing year?,[2007.0],authored_naturalistic,local_anilist_catalog,1
+hf_018,21234,ERASED,year,In which year did the ERASED anime premiere?,[2016.0],authored_naturalistic,local_anilist_catalog,1
+hf_019,9253,Steins;Gate,year,What year was the original Steins;Gate TV series released?,[2011.0],authored_naturalistic,local_anilist_catalog,1
+hf_020,20464,HAIKYU!!,year,When did Haikyu's first TV season start? Please give the year.,[2014.0],authored_naturalistic,local_anilist_catalog,1
+hf_021,21827,Violet Evergarden,year,What release year is listed for the Violet Evergarden TV series?,[2018.0],authored_naturalistic,local_anilist_catalog,1
+hf_022,101348,Vinland Saga,year,Which year did Vinland Saga's first season debut?,[2019.0],authored_naturalistic,local_anilist_catalog,1
+hf_023,30,Neon Genesis Evangelion,year,What was the original broadcast year of Neon Genesis Evangelion?,[1995.0],authored_naturalistic,local_anilist_catalog,1
+hf_024,199,Spirited Away,year,What year did Spirited Away come out?,[2001.0],authored_naturalistic,local_anilist_catalog,1
+hf_025,1,Cowboy Bebop,year,What year did the Cowboy Bebop TV anime first air?,[1998.0],authored_naturalistic,local_anilist_catalog,1
+hf_026,154587,Frieren: Beyond Journey’s End,year,In what year did Frieren: Beyond Journey's End start airing?,[2023.0],authored_naturalistic,local_anilist_catalog,1
+hf_027,11061,Hunter x Hunter (2011),episodes,How many episodes are in Hunter x Hunter's 2011 adaptation?,[148.0],authored_naturalistic,local_anilist_catalog,1
+hf_028,20958,Attack on Titan Season 2,episodes,How long is Attack on Titan season two in episodes?,[12.0],authored_naturalistic,local_anilist_catalog,1
+hf_029,11757,Sword Art Online,episodes,What's the episode count for the first Sword Art Online TV series?,[25.0],authored_naturalistic,local_anilist_catalog,1
+hf_030,99147,Attack on Titan Season 3,episodes,"How many episodes does Attack on Titan Season 3 have, excluding Part 2?",[12.0],authored_naturalistic,local_anilist_catalog,1
+hf_031,21856,My Hero Academia Season 2,episodes,How many episodes would I need to watch to finish My Hero Academia season two?,[25.0],authored_naturalistic,local_anilist_catalog,1
+hf_032,110277,Attack on Titan Final Season,episodes,"What's the total episode count listed for Attack on Titan Final Season, without Part 2?",[16.0],authored_naturalistic,local_anilist_catalog,1
+hf_033,21355,Re:ZERO -Starting Life in Another World-,episodes,How many episodes make up the original Re:ZERO TV season?,[25.0],authored_naturalistic,local_anilist_catalog,1
+hf_034,104578,Attack on Titan Season 3 Part 2,episodes,Can you tell me the number of episodes in Attack on Titan Season 3 Part 2?,[10.0],authored_naturalistic,local_anilist_catalog,1
+hf_035,100166,My Hero Academia Season 3,episodes,How many episodes were made for My Hero Academia's third season?,[25.0],authored_naturalistic,local_anilist_catalog,1
+hf_036,97940,Black Clover,episodes,How many episodes does the Black Clover TV anime have?,[170.0],authored_naturalistic,local_anilist_catalog,1
+hf_037,101291,Rascal Does Not Dream of Bunny Girl Senpai,episodes,What's the length of Rascal Does Not Dream of Bunny Girl Senpai in episodes?,[13.0],authored_naturalistic,local_anilist_catalog,1
+hf_038,140960,SPY x FAMILY,episodes,"How many episodes are in the first SPY x FAMILY season, excluding Part 2?",[12.0],authored_naturalistic,local_anilist_catalog,1
+hf_039,101921,Kaguya-sama: Love is War,episodes,How many episodes does the first Kaguya-sama: Love is War season contain?,[12.0],authored_naturalistic,local_anilist_catalog,1
+hf_040,105333,Dr. STONE,episodes,What's the episode total for Dr. STONE season one?,[24.0],authored_naturalistic,local_anilist_catalog,1
+hf_041,124080,Horimiya,episodes,How many episodes are there in the original Horimiya TV anime?,[13.0],authored_naturalistic,local_anilist_catalog,1
+hf_042,4224,Toradora!,episodes,What episode count does the catalog give for Toradora!?,[25.0],authored_naturalistic,local_anilist_catalog,1
+hf_043,19815,"No Game, No Life",episodes,"How many episodes would finishing No Game, No Life's TV series take?",[12.0],authored_naturalistic,local_anilist_catalog,1
+hf_044,20613,Akame ga Kill!,episodes,What's the complete TV episode count for Akame ga Kill!?,[24.0],authored_naturalistic,local_anilist_catalog,1
+hf_045,20447,Noragami,episodes,How many episodes were in Noragami's first TV season?,[12.0],authored_naturalistic,local_anilist_catalog,1
+hf_046,20789,The Seven Deadly Sins,episodes,How many episodes aired in the first season of The Seven Deadly Sins?,[24.0],authored_naturalistic,local_anilist_catalog,1
+hf_047,269,Bleach,episodes,"How many episodes does the original Bleach series have, before Thousand-Year Blood War?",[366.0],authored_naturalistic,local_anilist_catalog,1
+hf_048,21202,KONOSUBA -God's blessing on this wonderful world!,episodes,How many episodes does the first KONOSUBA TV season run for?,[10.0],authored_naturalistic,local_anilist_catalog,1
+hf_049,1575,Code Geass: Lelouch of the Rebellion,episodes,What is the number of episodes in Code Geass: Lelouch of the Rebellion's first season?,[25.0],authored_naturalistic,local_anilist_catalog,1
+hf_050,20623,Parasyte -the maxim-,episodes,How many episodes are in Parasyte -the maxim- altogether?,[24.0],authored_naturalistic,local_anilist_catalog,1
+hf_051,99423,DARLING in the FRANXX,episodes,What's the TV episode count of DARLING in the FRANXX?,[24.0],authored_naturalistic,local_anilist_catalog,1
+hf_052,20931,Death Parade,episodes,How many episodes should I expect from Death Parade?,[12.0],authored_naturalistic,local_anilist_catalog,1
+hf_053,101922,Demon Slayer: Kimetsu no Yaiba,duration,About how many minutes is one episode of Demon Slayer's first season?,[24.0],authored_naturalistic,local_anilist_catalog,1
+hf_054,113415,JUJUTSU KAISEN,duration,What's the listed runtime per episode of JUJUTSU KAISEN season one?,[24.0],authored_naturalistic,local_anilist_catalog,1
+hf_055,1535,Death Note,duration,"How long does a single Death Note episode run, in minutes?",[23.0],authored_naturalistic,local_anilist_catalog,1
+hf_056,21459,My Hero Academia,duration,What is the episode duration for My Hero Academia's first season?,[24.0],authored_naturalistic,local_anilist_catalog,1
+hf_057,11061,Hunter x Hunter (2011),duration,How much time should I set aside for one episode of Hunter x Hunter (2011)? Give minutes.,[24.0],authored_naturalistic,local_anilist_catalog,1
+hf_058,21087,One-Punch Man,duration,What's the catalog's per-episode runtime for the original One-Punch Man season?,[24.0],authored_naturalistic,local_anilist_catalog,1
+hf_059,20605,Tokyo Ghoul,duration,How many minutes does a typical Tokyo Ghoul season-one episode last?,[24.0],authored_naturalistic,local_anilist_catalog,1
+hf_060,5114,Fullmetal Alchemist: Brotherhood,duration,What running time per episode is listed for Fullmetal Alchemist: Brotherhood?,[25.0],authored_naturalistic,local_anilist_catalog,1
+hf_061,20,Naruto,duration,"How long is an episode of the original Naruto anime, in minutes?",[23.0],authored_naturalistic,local_anilist_catalog,1
+hf_062,11757,Sword Art Online,duration,"For Sword Art Online's first TV series, what's the duration of one episode?",[23.0],authored_naturalistic,local_anilist_catalog,1
+hf_063,127230,Chainsaw Man,duration,How many minutes per episode should I expect for Chainsaw Man's first season?,[25.0],authored_naturalistic,local_anilist_catalog,1
+hf_064,101759,The Promised Neverland,duration,What runtime does the catalog list for each episode of The Promised Neverland season one?,[23.0],authored_naturalistic,local_anilist_catalog,1
+hf_065,20755,Assassination Classroom,duration,How long is a standard episode of Assassination Classroom's first season?,[23.0],authored_naturalistic,local_anilist_catalog,1
+hf_066,21507,Mob Psycho 100,duration,Can you give Mob Psycho 100 season one's episode length in minutes?,[24.0],authored_naturalistic,local_anilist_catalog,1
+hf_067,21355,Re:ZERO -Starting Life in Another World-,duration,What is the listed length of an episode of the first Re:ZERO season?,[25.0],authored_naturalistic,local_anilist_catalog,1
+hf_068,20665,Your lie in April,duration,"How much viewing time, in minutes, does one Your Lie in April episode take?",[23.0],authored_naturalistic,local_anilist_catalog,1
+hf_069,1735,Naruto: Shippuden,duration,What's the standard episode runtime listed for Naruto: Shippuden?,[23.0],authored_naturalistic,local_anilist_catalog,1
+hf_070,21234,ERASED,duration,How many minutes is an ERASED episode supposed to run?,[23.0],authored_naturalistic,local_anilist_catalog,1
+hf_071,9253,Steins;Gate,duration,What duration per episode is recorded for the original Steins;Gate series?,[24.0],authored_naturalistic,local_anilist_catalog,1
+hf_072,20464,HAIKYU!!,duration,How long does one first-season Haikyu episode last according to the catalog?,[24.0],authored_naturalistic,local_anilist_catalog,1
+hf_073,21827,Violet Evergarden,duration,"What's Violet Evergarden's TV runtime per episode, in minutes?",[24.0],authored_naturalistic,local_anilist_catalog,1
+hf_074,101348,Vinland Saga,duration,"For Vinland Saga season one, how many minutes long is each episode listed as?",[24.0],authored_naturalistic,local_anilist_catalog,1
+hf_075,30,Neon Genesis Evangelion,duration,What's the recorded episode length for Neon Genesis Evangelion?,[24.0],authored_naturalistic,local_anilist_catalog,1
+hf_076,1,Cowboy Bebop,duration,How many minutes does a Cowboy Bebop TV episode run?,[24.0],authored_naturalistic,local_anilist_catalog,1
+hf_077,154587,Frieren: Beyond Journey’s End,duration,What per-episode duration is listed for Frieren: Beyond Journey's End?,[24.0],authored_naturalistic,local_anilist_catalog,1
+hf_078,98314,Kakegurui,duration,How long is an episode of Kakegurui's first season?,[25.0],authored_naturalistic,local_anilist_catalog,1
+hf_079,20954,A Silent Voice,format,Is A Silent Voice cataloged as a movie or a TV series?,"[""MOVIE""]",authored_naturalistic,local_anilist_catalog,1
+hf_080,21519,Your Name.,format,What release format is Your Name listed under?,"[""MOVIE""]",authored_naturalistic,local_anilist_catalog,1
+hf_081,112151,Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train,format,"Is Demon Slayer: Mugen Train's movie entry a film, TV series, or special?","[""MOVIE""]",authored_naturalistic,local_anilist_catalog,1
+hf_082,199,Spirited Away,format,How is Spirited Away classified by release format?,"[""MOVIE""]",authored_naturalistic,local_anilist_catalog,1
+hf_083,131573,JUJUTSU KAISEN 0,format,Does JUJUTSU KAISEN 0 belong to the movie or TV category?,"[""MOVIE""]",authored_naturalistic,local_anilist_catalog,1
+hf_084,145064,JUJUTSU KAISEN Season 2,format,"What kind of anime release is JUJUTSU KAISEN Season 2: TV, OVA, or movie?","[""TV""]",authored_naturalistic,local_anilist_catalog,1
+hf_085,142329,Demon Slayer: Kimetsu no Yaiba Entertainment District Arc,format,Is Demon Slayer's Entertainment District Arc listed as television or a film?,"[""TV""]",authored_naturalistic,local_anilist_catalog,1
+hf_086,105310,Fire Force,format,What format does the first Fire Force anime season use?,"[""TV""]",authored_naturalistic,local_anilist_catalog,1
+hf_087,14719,JoJo's Bizarre Adventure (TV),format,Is the 2012 JoJo's Bizarre Adventure adaptation a TV series or an OVA?,"[""TV""]",authored_naturalistic,local_anilist_catalog,1
+hf_088,97668,One-Punch Man Season 2,format,What release-format category is One-Punch Man Season 2 in?,"[""TV""]",authored_naturalistic,local_anilist_catalog,1
+hf_089,101280,That Time I Got Reincarnated as a Slime,format,Is That Time I Got Reincarnated as a Slime's original adaptation a TV anime or movie?,"[""TV""]",authored_naturalistic,local_anilist_catalog,1
+hf_090,99263,The Rising of the Shield Hero,format,Which release format is recorded for The Rising of the Shield Hero season one?,"[""TV""]",authored_naturalistic,local_anilist_catalog,1
+hf_091,108465,Mushoku Tensei: Jobless Reincarnation,format,Is the first Mushoku Tensei: Jobless Reincarnation entry a TV series or a special?,"[""TV""]",authored_naturalistic,local_anilist_catalog,1
+hf_092,9919,Blue Exorcist,format,How does the catalog categorize the original Blue Exorcist anime's format?,"[""TV""]",authored_naturalistic,local_anilist_catalog,1
+hf_093,20594,Sword Art Online II,format,Is Sword Art Online II a television release or a film?,"[""TV""]",authored_naturalistic,local_anilist_catalog,1
+hf_094,151807,Solo Leveling,format,"What is Solo Leveling's first anime season classified as: TV, movie, or OVA?","[""TV""]",authored_naturalistic,local_anilist_catalog,1
+hf_095,101338,Mob Psycho 100 II,format,What release format is Mob Psycho 100 II?,"[""TV""]",authored_naturalistic,local_anilist_catalog,1
+hf_096,98659,Classroom of the Elite,format,Does Classroom of the Elite's first anime season have a TV or OVA format?,"[""TV""]",authored_naturalistic,local_anilist_catalog,1
+hf_097,120120,Tokyo Revengers,format,What type of release is the original Tokyo Revengers anime?,"[""TV""]",authored_naturalistic,local_anilist_catalog,1
+hf_098,6547,Angel Beats!,format,"Is Angel Beats! listed as a TV series, movie, or ONA?","[""TV""]",authored_naturalistic,local_anilist_catalog,1
+hf_099,131681,Attack on Titan Final Season Part 2,format,Which format does Attack on Titan Final Season Part 2 fall under?,"[""TV""]",authored_naturalistic,local_anilist_catalog,1
+hf_100,112641,Kaguya-sama: Love is War?,format,Is Kaguya-sama: Love is War's second season a television anime or a special?,"[""TV""]",authored_naturalistic,local_anilist_catalog,1
+hf_101,20997,Charlotte,format,What is the release format of Charlotte's main anime entry?,"[""TV""]",authored_naturalistic,local_anilist_catalog,1
+hf_102,132405,My Dress-Up Darling,format,Is the first My Dress-Up Darling anime a TV production or a film?,"[""TV""]",authored_naturalistic,local_anilist_catalog,1
+hf_103,10620,The Future Diary,format,What format is The Future Diary's main anime series recorded in?,"[""TV""]",authored_naturalistic,local_anilist_catalog,1
+hf_104,21311,Bungo Stray Dogs,format,"How is Bungo Stray Dogs season one classified: TV series, OVA, or movie?","[""TV""]",authored_naturalistic,local_anilist_catalog,1
+hf_105,16498,Attack on Titan,source_material,What type of source material was Attack on Titan adapted from?,"[""MANGA""]",authored_naturalistic,local_anilist_catalog,1
+hf_106,20954,A Silent Voice,source_material,"Was A Silent Voice based on a manga, a novel, or an original screenplay?","[""MANGA""]",authored_naturalistic,local_anilist_catalog,1
+hf_107,21519,Your Name.,source_material,Is Your Name an original anime work or an adaptation of another medium?,"[""ORIGINAL""]",authored_naturalistic,local_anilist_catalog,1
+hf_108,127230,Chainsaw Man,source_material,What medium did Chainsaw Man originate in before its anime adaptation?,"[""MANGA""]",authored_naturalistic,local_anilist_catalog,1
+hf_109,101759,The Promised Neverland,source_material,What is the original source medium for The Promised Neverland anime?,"[""MANGA""]",authored_naturalistic,local_anilist_catalog,1
+hf_110,21355,Re:ZERO -Starting Life in Another World-,source_material,"Did Re:ZERO's anime adapt a light novel, manga, or something else?","[""LIGHT_NOVEL""]",authored_naturalistic,local_anilist_catalog,1
+hf_111,9253,Steins;Gate,source_material,What kind of work was Steins;Gate adapted from?,"[""VISUAL_NOVEL""]",authored_naturalistic,local_anilist_catalog,1
+hf_112,101291,Rascal Does Not Dream of Bunny Girl Senpai,source_material,What's the source-material category for Rascal Does Not Dream of Bunny Girl Senpai?,"[""LIGHT_NOVEL""]",authored_naturalistic,local_anilist_catalog,1
+hf_113,140960,SPY x FAMILY,source_material,What was SPY x FAMILY adapted from originally?,"[""MANGA""]",authored_naturalistic,local_anilist_catalog,1
+hf_114,101921,Kaguya-sama: Love is War,source_material,Does the first Kaguya-sama: Love is War anime come from a manga or light novel?,"[""MANGA""]",authored_naturalistic,local_anilist_catalog,1
+hf_115,105333,Dr. STONE,source_material,Which source medium underlies Dr. STONE's anime?,"[""MANGA""]",authored_naturalistic,local_anilist_catalog,1
+hf_116,21827,Violet Evergarden,source_material,What sort of source material is listed for the Violet Evergarden TV anime?,"[""LIGHT_NOVEL""]",authored_naturalistic,local_anilist_catalog,1
+hf_117,124080,Horimiya,source_material,"Is Horimiya's anime based on a manga, game, or original story?","[""MANGA""]",authored_naturalistic,local_anilist_catalog,1
+hf_118,4224,Toradora!,source_material,What medium is credited as Toradora!'s source material?,"[""LIGHT_NOVEL""]",authored_naturalistic,local_anilist_catalog,1
+hf_119,19815,"No Game, No Life",source_material,"Was No Game, No Life adapted from a light novel or a manga?","[""LIGHT_NOVEL""]",authored_naturalistic,local_anilist_catalog,1
+hf_120,21202,KONOSUBA -God's blessing on this wonderful world!,source_material,What is the catalog's source-material label for KONOSUBA's first season?,"[""LIGHT_NOVEL""]",authored_naturalistic,local_anilist_catalog,1
+hf_121,1575,Code Geass: Lelouch of the Rebellion,source_material,Is Code Geass: Lelouch of the Rebellion an original anime or an adaptation?,"[""ORIGINAL""]",authored_naturalistic,local_anilist_catalog,1
+hf_122,99423,DARLING in the FRANXX,source_material,"Where does DARLING in the FRANXX fall in terms of source material: original, manga, or novel?","[""ORIGINAL""]",authored_naturalistic,local_anilist_catalog,1
+hf_123,30,Neon Genesis Evangelion,source_material,What source-material category is recorded for Neon Genesis Evangelion?,"[""ORIGINAL""]",authored_naturalistic,local_anilist_catalog,1
+hf_124,199,Spirited Away,source_material,Was Spirited Away adapted from a previously published work or made as an original anime?,"[""ORIGINAL""]",authored_naturalistic,local_anilist_catalog,1
+hf_125,1,Cowboy Bebop,source_material,What is the source type of the Cowboy Bebop TV series?,"[""ORIGINAL""]",authored_naturalistic,local_anilist_catalog,1
+hf_126,20931,Death Parade,source_material,"Is Death Parade an original anime, a manga adaptation, or a novel adaptation?","[""ORIGINAL""]",authored_naturalistic,local_anilist_catalog,1
+hf_127,101280,That Time I Got Reincarnated as a Slime,source_material,What medium was That Time I Got Reincarnated as a Slime's first anime adapted from?,"[""LIGHT_NOVEL""]",authored_naturalistic,local_anilist_catalog,1
+hf_128,99263,The Rising of the Shield Hero,source_material,Which kind of source work did The Rising of the Shield Hero adapt?,"[""LIGHT_NOVEL""]",authored_naturalistic,local_anilist_catalog,1
+hf_129,108465,Mushoku Tensei: Jobless Reincarnation,source_material,What source medium is listed for Mushoku Tensei: Jobless Reincarnation?,"[""LIGHT_NOVEL""]",authored_naturalistic,local_anilist_catalog,1
+hf_130,6547,Angel Beats!,source_material,Was Angel Beats! created as an original anime or adapted from another medium?,"[""ORIGINAL""]",authored_naturalistic,local_anilist_catalog,1
+hf_131,16498,Attack on Titan,main_animation_studios,Which studio handled the main animation for Attack on Titan season one?,"[""WIT STUDIO""]",authored_naturalistic,local_anilist_catalog,1
+hf_132,101922,Demon Slayer: Kimetsu no Yaiba,main_animation_studios,Who did the main animation on Demon Slayer's first season?,"[""ufotable""]",authored_naturalistic,local_anilist_catalog,1
+hf_133,113415,JUJUTSU KAISEN,main_animation_studios,Which animation studio made the first JUJUTSU KAISEN TV season?,"[""MAPPA""]",authored_naturalistic,local_anilist_catalog,1
+hf_134,1535,Death Note,main_animation_studios,What studio is credited with the main animation of Death Note?,"[""MADHOUSE""]",authored_naturalistic,local_anilist_catalog,1
+hf_135,21459,My Hero Academia,main_animation_studios,Who was the main animation studio behind My Hero Academia's debut season?,"[""bones""]",authored_naturalistic,local_anilist_catalog,1
+hf_136,11061,Hunter x Hunter (2011),main_animation_studios,Which studio animated Hunter x Hunter's 2011 TV adaptation?,"[""MADHOUSE""]",authored_naturalistic,local_anilist_catalog,1
+hf_137,21087,One-Punch Man,main_animation_studios,Who handled One-Punch Man season one's main animation?,"[""MADHOUSE""]",authored_naturalistic,local_anilist_catalog,1
+hf_138,20605,Tokyo Ghoul,main_animation_studios,Which main animation studio is listed for the first Tokyo Ghoul season?,"[""Studio Pierrot""]",authored_naturalistic,local_anilist_catalog,1
+hf_139,5114,Fullmetal Alchemist: Brotherhood,main_animation_studios,What studio animated Fullmetal Alchemist: Brotherhood?,"[""bones""]",authored_naturalistic,local_anilist_catalog,1
+hf_140,20,Naruto,main_animation_studios,Which company was responsible for the main animation of the original Naruto series?,"[""Studio Pierrot""]",authored_naturalistic,local_anilist_catalog,1
+hf_141,20954,A Silent Voice,main_animation_studios,Who animated the A Silent Voice film? I mean the animation studio.,"[""Kyoto Animation""]",authored_naturalistic,local_anilist_catalog,1
+hf_142,21519,Your Name.,main_animation_studios,Which studio is credited as Your Name's main animation studio?,"[""CoMix Wave""]",authored_naturalistic,local_anilist_catalog,1
+hf_143,127230,Chainsaw Man,main_animation_studios,Who produced the main animation for Chainsaw Man's first season?,"[""MAPPA""]",authored_naturalistic,local_anilist_catalog,1
+hf_144,21507,Mob Psycho 100,main_animation_studios,What animation studio worked on Mob Psycho 100's first season?,"[""bones""]",authored_naturalistic,local_anilist_catalog,1
+hf_145,21355,Re:ZERO -Starting Life in Another World-,main_animation_studios,Which studio animated the original Re:ZERO TV season?,"[""WHITE FOX""]",authored_naturalistic,local_anilist_catalog,1
+hf_146,20665,Your lie in April,main_animation_studios,What is the main animation studio for Your Lie in April?,"[""A-1 Pictures""]",authored_naturalistic,local_anilist_catalog,1
+hf_147,21234,ERASED,main_animation_studios,Which studio animated ERASED?,"[""A-1 Pictures""]",authored_naturalistic,local_anilist_catalog,1
+hf_148,9253,Steins;Gate,main_animation_studios,Which studio made the animation for the original Steins;Gate series?,"[""WHITE FOX""]",authored_naturalistic,local_anilist_catalog,1
+hf_149,20464,HAIKYU!!,main_animation_studios,Which main animation studio does the catalog credit for Haikyu season one?,"[""Production I.G""]",authored_naturalistic,local_anilist_catalog,1
+hf_150,140960,SPY x FAMILY,main_animation_studios,Can you list all main animation studios credited for SPY x FAMILY's first season?,"[""CloverWorks"", ""WIT STUDIO""]",authored_naturalistic,local_anilist_catalog,1
+hf_151,21827,Violet Evergarden,main_animation_studios,Which animation studio was behind the Violet Evergarden TV series?,"[""Kyoto Animation""]",authored_naturalistic,local_anilist_catalog,1
+hf_152,101348,Vinland Saga,main_animation_studios,"Who animated Vinland Saga season one, rather than its later seasons?","[""WIT STUDIO""]",authored_naturalistic,local_anilist_catalog,1
+hf_153,199,Spirited Away,main_animation_studios,What animation studio made Spirited Away?,"[""Studio Ghibli""]",authored_naturalistic,local_anilist_catalog,1
+hf_154,1,Cowboy Bebop,main_animation_studios,Which studio is responsible for Cowboy Bebop's TV animation?,"[""Sunrise""]",authored_naturalistic,local_anilist_catalog,1
+hf_155,97668,One-Punch Man Season 2,main_animation_studios,Who animated One-Punch Man's second season?,"[""J.C.STAFF""]",authored_naturalistic,local_anilist_catalog,1
+hf_156,16498,Attack on Titan,main_characters,Who are all the characters marked as main in Attack on Titan's first-season cast?,"[""Mikasa Ackerman"", ""Eren Yeager"", ""Armin Arlert""]",authored_naturalistic,local_anilist_catalog,1
+hf_157,101922,Demon Slayer: Kimetsu no Yaiba,main_characters,Can you list the main characters of Demon Slayer season one?,"[""Tanjirou Kamado"", ""Nezuko Kamado"", ""Inosuke Hashibira"", ""Zenitsu Agatsuma""]",authored_naturalistic,local_anilist_catalog,1
+hf_158,113415,JUJUTSU KAISEN,main_characters,Who makes up the main cast of JUJUTSU KAISEN's first season? Character names only.,"[""Megumi Fushiguro"", ""Yuuji Itadori"", ""Satoru Gojou"", ""Nobara Kugisaki""]",authored_naturalistic,local_anilist_catalog,1
+hf_159,1535,Death Note,main_characters,Which Death Note characters have a main role in the catalog?,"[""Mihael Keehl"", ""Nate River"", ""L Lawliet"", ""Ryuk"", ""Light Yagami"", ""Misa Amane""]",authored_naturalistic,local_anilist_catalog,1
+hf_160,21459,My Hero Academia,main_characters,Who are the main characters listed for My Hero Academia season one?,"[""Katsuki Bakugou"", ""Izuku Midoriya"", ""Ochako Uraraka"", ""Toshinori Yagi""]",authored_naturalistic,local_anilist_catalog,1
+hf_161,11061,Hunter x Hunter (2011),main_characters,Give me the complete main-character list for Hunter x Hunter (2011).,"[""Killua Zoldyck"", ""Kurapika"", ""Leorio Paradinight"", ""Gon Freecss"", ""Hisoka Morow""]",authored_naturalistic,local_anilist_catalog,1
+hf_162,21087,One-Punch Man,main_characters,Who is in One-Punch Man season one's main character cast?,"[""Saitama"", ""Genos""]",authored_naturalistic,local_anilist_catalog,1
+hf_163,20605,Tokyo Ghoul,main_characters,Which characters are classified as main in the first Tokyo Ghoul season?,"[""Ken Kaneki"", ""Touka Kirishima""]",authored_naturalistic,local_anilist_catalog,1
+hf_164,5114,Fullmetal Alchemist: Brotherhood,main_characters,Can you name every main character listed for Fullmetal Alchemist: Brotherhood?,"[""Edward Elric"", ""Alphonse Elric""]",authored_naturalistic,local_anilist_catalog,1
+hf_165,20,Naruto,main_characters,"Who belongs to the original Naruto anime's main cast, excluding supporting roles?","[""Sasuke Uchiha"", ""Sakura Haruno"", ""Naruto Uzumaki"", ""Kakashi Hatake""]",authored_naturalistic,local_anilist_catalog,1
+hf_166,20954,A Silent Voice,main_characters,What are the names of A Silent Voice's main characters?,"[""Shouko Nishimiya"", ""Shouya Ishida""]",authored_naturalistic,local_anilist_catalog,1
+hf_167,21519,Your Name.,main_characters,"Who are all the main characters in Your Name, according to the catalog?","[""Mitsuha Miyamizu"", ""Taki Tachibana""]",authored_naturalistic,local_anilist_catalog,1
+hf_168,127230,Chainsaw Man,main_characters,Which characters have main billing in Chainsaw Man's first anime season?,"[""Denji"", ""Power"", ""Makima"", ""Aki Hayakawa""]",authored_naturalistic,local_anilist_catalog,1
+hf_169,101759,The Promised Neverland,main_characters,Can I get the main-character names for The Promised Neverland season one?,"[""Norman"", ""Ray"", ""Emma""]",authored_naturalistic,local_anilist_catalog,1
+hf_170,20755,Assassination Classroom,main_characters,Who are the main characters in the first Assassination Classroom season?,"[""Koro-sensei"", ""Nagisa Shiota""]",authored_naturalistic,local_anilist_catalog,1
+hf_171,21507,Mob Psycho 100,main_characters,List everyone assigned a main character role in Mob Psycho 100 season one.,"[""Arataka Reigen"", ""Shigeo Kageyama"", ""Ekubo"", ""Ritsu Kageyama""]",authored_naturalistic,local_anilist_catalog,1
+hf_172,21355,Re:ZERO -Starting Life in Another World-,main_characters,Who are the main cast characters listed for Re:ZERO's first TV season?,"[""Emilia"", ""Subaru Natsuki"", ""Rem"", ""Ram""]",authored_naturalistic,local_anilist_catalog,1
+hf_173,20665,Your lie in April,main_characters,Which characters make up Your Lie in April's main cast?,"[""Ryouta Watari"", ""Kousei Arima"", ""Tsubaki Sawabe"", ""Kaori Miyazono""]",authored_naturalistic,local_anilist_catalog,1
+hf_174,1735,Naruto: Shippuden,main_characters,What is the full list of main characters for Naruto: Shippuden?,"[""Sasuke Uchiha"", ""Sakura Haruno"", ""Naruto Uzumaki"", ""Kakashi Hatake""]",authored_naturalistic,local_anilist_catalog,1
+hf_175,21234,ERASED,main_characters,Who has a main character role in ERASED?,"[""Satoru Fujinuma"", ""Kayo Hinazuki""]",authored_naturalistic,local_anilist_catalog,1
+hf_176,9253,Steins;Gate,main_characters,Please name the characters marked MAIN for the original Steins;Gate anime.,"[""Kurisu Makise"", ""Rintarou Okabe"", ""Mayuri Shiina"", ""Suzuha Amane"", ""Itaru Hashida""]",authored_naturalistic,local_anilist_catalog,1
+hf_177,20464,HAIKYU!!,main_characters,Who is included in Haikyu season one's main character lineup?,"[""Shouyou Hinata"", ""Tobio Kageyama""]",authored_naturalistic,local_anilist_catalog,1
+hf_178,4224,Toradora!,main_characters,Which characters are listed as main rather than supporting in Toradora!?,"[""Taiga Aisaka"", ""Ryuuji Takasu"", ""Minori Kushieda"", ""Yuusaku Kitamura"", ""Ami Kawashima""]",authored_naturalistic,local_anilist_catalog,1
+hf_179,30,Neon Genesis Evangelion,main_characters,Who are all the main characters credited for Neon Genesis Evangelion?,"[""Misato Katsuragi"", ""Rei Ayanami"", ""Shinji Ikari"", ""Asuka Langley Souryuu""]",authored_naturalistic,local_anilist_catalog,1
+hf_180,154587,Frieren: Beyond Journey’s End,main_characters,Can you give the complete catalog main cast for Frieren: Beyond Journey's End?,"[""Frieren"", ""Fern"", ""Stark""]",authored_naturalistic,local_anilist_catalog,1
