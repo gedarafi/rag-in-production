@@ -25,7 +25,7 @@ cloudfront = draw_box(axes, CDN_COLUMN, REQUEST_ROW, WIDTH, HEIGHT, "CloudFront"
 bucket = draw_box(axes, CDN_COLUMN, STORAGE_ROW, WIDTH, HEIGHT, "S3 bucket", "static web page")
 gateway = draw_box(axes, API_COLUMN, REQUEST_ROW, WIDTH, HEIGHT, "API Gateway", "HTTP API,\nJWT authorizer")
 chat = draw_box(axes, LAMBDA_COLUMN, REQUEST_ROW, WIDTH, HEIGHT, "Lambda", "chat handler")
-bedrock = draw_box(axes, MODEL_COLUMN, REQUEST_ROW, WIDTH, HEIGHT, "Bedrock", "Amazon Nova Micro", kind="llm")
+bedrock = draw_box(axes, MODEL_COLUMN, REQUEST_ROW, WIDTH, HEIGHT, "Bedrock", "Gemma 3 4B", kind="llm")
 draw_box(axes, MODEL_COLUMN, STORAGE_ROW, WIDTH, HEIGHT, "AWS Budgets", "e-mail alerts at\n80 % and 100 %")
 
 # Sign-in
@@ -39,7 +39,7 @@ draw_arrow(axes, users.right, cloudfront.left, "HTTPS")
 draw_arrow(axes, cloudfront.bottom, bucket.top, "static\npage", label_position="left")
 draw_arrow(axes, cloudfront.right, gateway.left, "/api/*")
 draw_arrow(axes, gateway.right, chat.left, "invokes")
-draw_arrow(axes, chat.right, bedrock.left, "Converse")
+draw_arrow(axes, chat.right, bedrock.left, "Chat\nCompletions")
 draw_arrow(axes, gateway.top, cognito.bottom, "checks JWT", label_position="right")
 
 # Sign-in flow
