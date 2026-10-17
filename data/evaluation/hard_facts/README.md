@@ -50,9 +50,9 @@ the user request; expected values, entity IDs, and requested-field annotations a
 not supplied to the RAG. The extractor receives the question, field, and response,
 but never reference values. A dedicated LLM request parses values; code attaches the full original answer as evidence.
 
-Set `RUN_LIVE = True` in the notebook to run inference. Choose `MODE = 'full'` for
-all 180 questions or `'smoke'` for seven questions covering all fields. The smoke
-CSV is deterministically selected by the notebook from the main dataset. Ollama,
+The notebook always selects all 180 questions, displaying the completed real-model
+`entity_resolution_v1_parser_v3` run by default. Set `RUN_LIVE = True` with a new
+run name to generate fresh full-benchmark answers. Ollama,
 the configured model, and prepared AniList indexes must be available. No setup or
 dataset rebuilding is performed. Results resume from per-question checkpoints;
 choose a new `RUN_NAME` to retry failures or compare another configuration.
@@ -112,15 +112,17 @@ denominator. A seven-question smoke result is only an integration check, not the
 the same small model generates and judges; manually audit the saved answer quotes.
 Scores concern the requested field only, not every extra claim in the answer.
 
-## Included live integration run
+## Completed full real-model run
 
-`results/smoke_validation/` contains seven real RAG attempts (one per field) using
-`llama3.2:3b` for generation and extraction. Three answers were exact matches, one
-was wrong, and three failed the RAG's grounded-response validation. End-to-end exact
-accuracy was **3/7 (42.9%)**, with scoring coverage **4/7**. The incorrect answer
-asserted 62 episodes for Hunter x Hunter (2011), versus 148 in the catalog. Saved
-quotes and debug checkpoints allow inspection. This is an integration sample only;
-**the full 180-question experiment has not been run**. The notebook displays these
-saved smoke results by default and makes no live calls until enabled.
+The notebook selects `results/entity_resolution_v1_parser_v3/`: **180 actual model
+attempts**, with 170 automatically scored answers and 10 generation errors. There
+were 127 exact matches, giving **127/180 (70.6%)** end-to-end exact accuracy and
+**170/180 (94.4%)** scoring coverage. The scored set includes one unanswered response.
+These are complete benchmark results; errors remain in the denominator.
+
+Saved quotes and debug checkpoints support inspection. The raw result files stay
+local; verified full-run tables and plots are embedded in the versioned notebook.
+These historical answers do not automatically measure later pipeline revisions.
+Use a new run name and `RUN_LIVE=True` to evaluate a fresh full run.
 
 Extractor v3 parses every answer with an LLM, including numeric answers. Evidence contains the entire original response, not a selected supporting span. Transport and malformed-output failures remain visible; unclear answers require review.

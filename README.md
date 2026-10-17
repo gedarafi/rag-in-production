@@ -443,8 +443,9 @@ count adherence, with inline charts and per-item audits.
 uv run python -m src.recommendation_evaluation --mode full --output data/evaluation/recommendations/results/full_001
 ```
 
-The notebook defaults to offline inspection of saved results. Set `RUN_LIVE=True`
-to evaluate, and use `MODE='full'` for all questions. See [dataset and metric details](data/evaluation/recommendations/README.md).
+The notebook selects the full 72-request benchmark and displays completed real-model
+results by default. Set `RUN_LIVE=True` with a new run name to generate fresh full-run
+answers. See [dataset and metric details](data/evaluation/recommendations/README.md).
 
 ## Development
 
@@ -457,8 +458,9 @@ that command intentionally refreshes the local snapshot labels and manifest.
 
 Both published notebooks run in offline inspection mode without the excluded
 catalogs, databases, raw data, indexes, or saved runs. Install dependencies with
-`uv sync --extra evaluation`; dataset coverage and offline scoring demonstrations
-then work from the checked-in inputs. Saved notebook outputs are retained.
+`uv sync --extra evaluation`; dataset coverage then works from the checked-in inputs.
+Saved outputs contain full real-model evaluations. No smoke or synthetic result is
+substituted when local references/results are missing.
 Live inference requires Ollama and the normal AniList app setup, which recreates
 the excluded runtime assets rather than depending on copies from this machine.
 
