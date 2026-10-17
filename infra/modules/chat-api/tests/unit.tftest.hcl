@@ -132,6 +132,11 @@ run "configures_the_model" {
   }
 
   assert {
+    condition     = aws_lambda_function.chat.environment[0].variables.PHOENIX_ENDPOINT == ""
+    error_message = "Tracing must be off unless a tracing_endpoint is given."
+  }
+
+  assert {
     condition     = aws_lambda_function.chat.timeout < 30
     error_message = "The Lambda must finish before API Gateway's 30-second limit."
   }

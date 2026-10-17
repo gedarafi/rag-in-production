@@ -14,6 +14,9 @@ import os
 import urllib.error
 import urllib.request
 
+from openinference.instrumentation import OITracer, TraceConfig
+from opentelemetry import trace
+
 MAX_MESSAGE_CHARS = 4000
 
 SYSTEM_PROMPT = (
@@ -27,6 +30,19 @@ BUSY_STATUSES = {429, 503}
 
 _client = None
 _mantle = None
+
+# On LocalStack the spans go to the local Phoenix (PHOENIX_ENDPOINT); without it the tracer records
+# nothing. Spans are sent as each one ends, before the Lambda is frozen.
+if os.environ.get("PHOENIX_ENDPOINT"):
+    from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
+    from opentelemetry.sdk.resources import Resource
+    from opentelemetry.sdk.trace import TracerProvider
+    from opentelemetry.sdk.trace.export import SimpleSpanProcessor
+
+    _provider = TracerProvider(resource=Resource({"openinference.project.name": "rag-in-production"}))
+    _provider.add_span_processor(SimpleSpanProcessor(OTLPSpanExporter(os.environ["PHOENIX_ENDPOINT"], timeout=2)))
+    trace.set_tracer_provider(_provider)
+tracer = OITracer(trace.get_tracer(__name__), config=TraceConfig())
 
 
 class ModelError(Exception):
@@ -81,6 +97,7 @@ def mantle():
     return _mantle
 
 
+@tracer.llm
 def converse(message: str, max_tokens: int) -> str:
     res = bedrock().converse(
         modelId=os.environ["MODEL_ID"],
@@ -91,6 +108,7 @@ def converse(message: str, max_tokens: int) -> str:
     return "".join(block.get("text", "") for block in res["output"]["message"]["content"])
 
 
+@tracer.llm
 def chat_completions(message: str, max_tokens: int) -> str:
     res = mantle().chat_completions(
         model=os.environ["MODEL_ID"],
@@ -103,6 +121,7 @@ def chat_completions(message: str, max_tokens: int) -> str:
     return choices[0].get("message", {}).get("content") or ""
 
 
+@tracer.chain
 def answer(message: str, user_id: str) -> str:
     call = chat_completions if os.environ.get("MODEL_API") == "openai" else converse
     try:
