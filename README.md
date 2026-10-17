@@ -100,7 +100,7 @@ changing document loading, indexing, prompting, or the CLI.
 ### Tracing with Phoenix
 
 [Arize Phoenix](https://phoenix.arize.com/) shows a trace of every `ingest` and question: the
-retrieved chunks with their scores, the prompt sent to Ollama, the answer, and the token counts.
+retrieved chunks, the prompt sent to Ollama, and the answer.
 It runs in Docker next to LocalStack, so the compose file still needs `LOCALSTACK_AUTH_TOKEN` in
 `infra/.env` (see [LocalStack](#localstack-local-aws)):
 
