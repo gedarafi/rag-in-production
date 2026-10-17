@@ -24,6 +24,14 @@ dependencies = [
 rag = "src.local.cli:main"
 anilist-gui = "src.anilist_gui:main"
 
+[project.optional-dependencies]
+evaluation = [
+    "ipykernel>=7.4.0",
+    "matplotlib>=3.11.2",
+    "nbclient>=0.11.0",
+    "pandas>=3.0.6",
+]
+
 [build-system]
 requires = ["uv_build>=0.9.21,<0.10.0"]
 build-backend = "uv_build"

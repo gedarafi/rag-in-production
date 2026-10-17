@@ -1,0 +1,66 @@
+{
+  "version": 2,
+  "principle": "Frozen request-specific evidence paths, authored before model scoring. Paths are alternatives, not additional requirements or universal equivalences. Unrelated extra catalog labels are never penalized.",
+  "rules": [
+    {
+      "families": ["detectives"], "prompt_numbers": [2, 3], "constraint_index": 0,
+      "alternatives": [
+        {"reason": "Mystery is an acceptable broader catalog interpretation of the request for investigations and clue-solving, even when Detective is unrecorded.", "constraints": [{"field": "genres", "op": "any", "value": ["Mystery"]}]}
+      ]
+    },
+    {
+      "families": ["comfort", "comfort_exclusion"], "prompt_numbers": [1, 2, 3], "constraint_index": 0,
+      "alternatives": [
+        {"reason": "Gentle everyday-life viewing can be supported by Slice of Life plus domestic/rural/cute-girl daily-life themes, with no strong tragic theme. Slice of Life alone is insufficient.", "constraints": [{"field": "genres", "op": "any", "value": ["Slice of Life"]}, {"field": "tags", "op": "any", "value": ["Cute Girls Doing Cute Things", "Family Life", "Rural"]}, {"field": "tags", "op": "none", "value": ["Tragedy"]}]}
+      ]
+    },
+    {
+      "families": ["tearjerker"], "prompt_numbers": [2], "constraint_index": 0,
+      "alternatives": [
+        {"reason": "For the request to cry over a heartbreaking story, dramatic bullying or unrequited love is also acceptable evidence; generic Drama alone is insufficient. This does not replace an explicit unhappy-ending requirement in prompt 3.", "constraints": [{"field": "genres", "op": "any", "value": ["Drama"]}, {"field": "tags", "op": "any", "value": ["Bullying", "Unrequited Love"]}]}
+      ]
+    },
+    {
+      "families": ["laughter"], "prompt_numbers": [2, 3], "constraint_index": 0,
+      "alternatives": [
+        {"reason": "Comedy with Parody or Meta humor is another reasonable interpretation of an absurd, ridiculous watch; unrelated comedy subtypes are not automatically equivalent.", "constraints": [{"field": "genres", "op": "any", "value": ["Comedy"]}, {"field": "tags", "op": "any", "value": ["Parody", "Meta"]}]}
+      ]
+    },
+    {
+      "families": ["found_family"], "prompt_numbers": [1, 2, 3], "constraint_index": 0,
+      "alternatives": [
+        {"reason": "Adoption directly supports unrelated people becoming a family; Ensemble Cast by itself does not.", "constraints": [{"field": "tags", "op": "any", "value": ["Adoption"]}]}
+      ]
+    },
+    {
+      "families": ["cyberpunk"], "prompt_numbers": [1, 2, 3], "constraint_index": 0,
+      "alternatives": [
+        {"reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.", "constraints": [{"field": "genres", "op": "any", "value": ["Sci-Fi"]}, {"field": "tags", "op": "any", "value": ["Dystopian"]}, {"field": "tags", "op": "any", "value": ["Cyborg", "Artificial Intelligence"]}]}
+      ]
+    },
+    {
+      "families": ["fantasy", "mixed"], "prompt_numbers": [1, 2, 3], "constraint_index": 0,
+      "alternatives": [
+        {"reason": "Magic, mythology, or dragons can substantiate the requested enchanted world even when Fantasy is not recorded as a genre. Other mixed-request date and source constraints still apply.", "constraints": [{"field": "tags", "op": "any", "value": ["Magic", "Mythology", "Dragons"]}]}
+      ]
+    },
+    {
+      "families": ["romance"], "prompt_numbers": [1, 2, 3], "constraint_index": 0,
+      "alternatives": [
+        {"reason": "Prominent love-triangle or unrequited-love themes are acceptable evidence for the requested focus on developing romantic feelings. A demographic or cast-gender tag alone is insufficient.", "constraints": [{"field": "tags", "op": "any", "value": ["Love Triangle", "Unrequited Love"]}]}
+      ]
+    },
+    {
+      "families": ["horror"], "prompt_numbers": [1, 2, 3], "constraint_index": 0,
+      "alternatives": [
+        {"reason": "Body Horror and Cosmic Horror are specific horror themes and valid alternatives to a missing broad Horror genre. Gore alone is not evidence that a show aims to scare.", "constraints": [{"field": "tags", "op": "any", "value": ["Body Horror", "Cosmic Horror"]}]}
+      ]
+    },
+    {
+      "families": ["comedy"], "prompt_numbers": [1, 2, 3], "constraint_index": 0,
+      "alternatives": [
+        {"reason": "Prominent slapstick, surreal comedy, or parody supports a general request for funny viewing without requiring the broad Comedy genre.", "constraints": [{"field": "tags", "op": "any", "value": ["Slapstick", "Surreal Comedy", "Parody"]}]}
+      ]
+    }
+  ]
+}

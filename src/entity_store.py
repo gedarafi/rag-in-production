@@ -6,7 +6,7 @@ import sqlite3
 from contextlib import closing
 from difflib import SequenceMatcher
 
-from .anime_tools import normalize
+from .anime_tools import normalize, contains
 from .sqlite_catalog import BUILD_LOCK
 from .sqlite_catalog import STOP
 
@@ -75,6 +75,10 @@ class EntityStore:
                                   'ON d.kind=k.kind AND d.id=k.id WHERE k.kind=? AND k.key IN (' + ','.join('?' for _ in keys) + ')' + scope,
                                   (kind, *keys, *scope_args))
         exact = bool(rows)
+        # Short mood words are not misspelled feature names: e.g. "sad"
+        # must not resolve to "Sadism". Exact short names still work.
+        if not exact and kind in ('genre', 'tag') and len(text) <= 3:
+            return {'kind': kind, 'query': query, 'matches': [], 'status': 'no_matches'}
         if not rows:
             grams = list(dict.fromkeys(text[i:i+3] for i in range(len(text)-2) if text[i:i+3].strip()))[:80]
             if grams:
@@ -99,9 +103,10 @@ class EntityStore:
                     score = max(score, .92)
                 # Compare a mistyped short title with the corresponding title
                 # prefix, rather than lowering precision for the whole catalog.
-                prefix = ' '.join(normalized_alias.split()[:len(text.split())])
-                score = max(score, SequenceMatcher(None, text, prefix).ratio())
-            threshold = .8 if kind == 'anime' else .65 if kind == 'character' else .6
+                if kind in ('anime', 'character'):
+                    prefix = ' '.join(normalized_alias.split()[:len(text.split())])
+                    score = max(score, SequenceMatcher(None, text, prefix).ratio())
+            threshold = .8 if kind == 'anime' else .65 if kind == 'character' else .85
             if not exact and score < threshold:
                 continue
             matches.append({'kind': kind, 'id': identifier, 'name': name, 'aliases': aliases[:8],
@@ -141,7 +146,16 @@ class EntityStore:
                     'cast': [{'kind': 'character', 'id': cid, 'name': name, 'role': role,
                               'description': profiles.get(cid, '')} for cid, name, role in page],
                     'total_cast': len(cast), 'next_offset': offset + limit if offset + limit < len(cast) else None}
-        if section in ('staff', 'studios', 'relations', 'voices'):
+        if section in ('staff', 'studios'):
+            rows = r.get(section, [])
+            fields = ('name', 'role') if section == 'staff' else ('name', 'main', 'animation')
+            return {'kind': 'anime', 'id': identifier, 'title': r['title'], 'source': r['source'],
+                    'section': section,
+                    section: [{key: person[key] for key in fields if key in person}
+                              for person in rows[offset:offset + limit]],
+                    'total_' + section: len(rows),
+                    'next_offset': offset + limit if offset + limit < len(rows) else None}
+        if section in ('relations', 'voices'):
             query = {'staff': 'staff director writer composer', 'studios': 'studio', 'relations': 'related sequel prequel', 'voices': 'voice'}[section]
             return {'kind': 'anime', 'id': identifier, 'title': r['title'], 'source': r['source'],
                     'section': section, 'data': self.catalog.detailed_fields(query, [r])}
@@ -160,7 +174,7 @@ class EntityStore:
                         shared_tags=sorted(set(r['tags']) & set(candidate['tags'])))
         # Keep biographies in character profiles, rather than mixing every
         # supporting character into an anime/recommendation prompt.
-        overview = {k: v for k, v in r.items() if k not in ('characters', 'recommendations')}
+        overview = {k: v for k, v in r.items() if k not in ('characters', 'recommendations', 'staff', 'search_data')}
         return {**overview, 'description': description[offset:offset+6000],
                 'description_characters': len(description),
                 'next_offset': offset+6000 if offset+6000 < len(description) else None,
@@ -193,10 +207,34 @@ class EntityStore:
     @staticmethod
     def brief(r):
         return {k: (r[k][:700] if k == 'description' else r[k]) for k in
-                ('id', 'title', 'aliases', 'description', 'genres', 'tags', 'year', 'score', 'popularity', 'source') if k in r}
+                ('id', 'title', 'aliases', 'description', 'genres', 'tags', 'year', 'start_date', 'score', 'popularity',
+                 'format', 'episodes', 'duration', 'status', 'adult', 'source_material', 'studios', 'source') if k in r}
 
-    def recommendations(self, seed_ids, terms, limit=5):
+    def recommendations(self, seed_ids, terms, limit=5, constraints=None):
         titles = [self.catalog.record(aid)['title'] for aid in seed_ids]
-        records, reasons = self.catalog.recommend(' '.join(terms), limit, seed_titles=titles if titles else None)
+        records, reasons = self.catalog.recommend(' '.join(terms), limit, seed_titles=titles if titles else None,
+                                                 **({'constraints': constraints} if constraints else {}))
+        def brief(record):
+            result = self.brief(record)
+            if constraints and constraints.get('filters'):
+                from .catalog_search import evidence_value
+                result['matched_fields'] = {item['field']: evidence_value(
+                                           record.get(item['field'], record.get('search_data', {}).get(item['field'])), item['value'])
+                                           for item in constraints['filters'] if item['field'] != 'characters'}
+            relations = record.get('search_data', {}).get('relations', [])
+            if isinstance(relations, list):
+                result['prior_related_works'] = [{'relation': item.get('relationType'),
+                    'title': (item.get('node', {}).get('title') or {})}
+                    for item in relations if item.get('relationType') in ('PREQUEL', 'PARENT')][:4]
+            if constraints and (constraints.get('staff') or constraints.get('staff_role')):
+                name = normalize(constraints.get('staff', ''))
+                role = normalize(constraints.get('staff_role', ''))
+                result['matched_staff'] = [{'name': person['name'], 'role': person['role']}
+                    for person in record.get('staff', [])
+                    if (not name or any(contains(key, name) or key == ' '.join(sorted(name.split()))
+                                        for key in person['keys']))
+                    and (not role or person['role_key'] == role)]
+            return result
         return {'seed_anime': [{'id': aid, 'title': self.catalog.record(aid)['title']} for aid in seed_ids],
-                'items': [{**self.brief(r), 'reason': reasons.get(r['id'], ''), 'kind': 'anime'} for r in records]}
+                'applied_filters': constraints or {},
+                'items': [{**brief(r), 'reason': reasons.get(r['id'], ''), 'kind': 'anime'} for r in records]}

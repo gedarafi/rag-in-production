@@ -1,0 +1,31 @@
+{
+  "benchmark_version": "1",
+  "question_count": 180,
+  "unique_anime": 76,
+  "by_field": {
+    "year": 26,
+    "episodes": 26,
+    "duration": 26,
+    "format": 26,
+    "source_material": 26,
+    "main_animation_studios": 25,
+    "main_characters": 25
+  },
+  "question_origin": "Individually authored naturalistic English prompts; not real user logs or externally sourced questions.",
+  "database_path": "data/documents/anilist/catalog.sqlite3",
+  "catalog_meta": {
+    "feature_definitions": "1791979371138625600:439112214",
+    "snapshot": "3:1791984482541471200:90688268",
+    "entity_dictionary": "3:1791984482541471200:90688268:dictionary-v1",
+    "search_fields": "{\"Dataset\": \"text\", \"id\": \"number\", \"idMal\": \"number\", \"title_romaji\": \"text\", \"title_english\": \"text\", \"title_native\": \"text\", \"title_userPreferred\": \"text\", \"type\": \"text\", \"format\": \"text\", \"status\": \"text\", \"startDate_year\": \"number\", \"startDate_month\": \"number\", \"startDate_day\": \"number\", \"endDate_year\": \"number\", \"endDate_month\": \"number\", \"endDate_day\": \"number\", \"season\": \"text\", \"seasonYear\": \"number\", \"seasonInt\": \"number\", \"episodes\": \"number\", \"duration\": \"number\", \"countryOfOrigin\": \"text\", \"isLicensed\": \"boolean\", \"updatedAt\": \"number\", \"coverImage_extraLarge\": \"text\", \"coverImage_large\": \"text\", \"coverImage_medium\": \"text\", \"coverImage_color\": \"text\", \"bannerImage\": \"text\", \"synonyms\": \"collection\", \"averageScore\": \"number\", \"meanScore\": \"number\", \"popularity\": \"number\", \"favourites\": \"number\", \"trending\": \"number\", \"rankings\": \"collection\", \"isFavourite\": \"boolean\", \"isAdult\": \"boolean\", \"isLocked\": \"boolean\", \"siteUrl\": \"text\", \"externalLinks\": \"collection\", \"streamingEpisodes\": \"collection\", \"relations\": \"collection\", \"airingSchedule\": \"collection\", \"recommendations\": \"collection\", \"reviews\": \"collection\", \"stats_scoreDistribution\": \"collection\", \"stats_statusDistribution\": \"collection\", \"tag_details\": \"collection\", \"voice_actors\": \"collection\", \"trailer_id\": \"text\", \"trailer_site\": \"text\", \"trailer_thumbnail\": \"text\", \"Note\": \"text\", \"nextAiringEpisode\": \"collection\", \"hashtag\": \"text\", \"Source\": \"text\", \"Romantica\": \"text\", \"Egoist\": \"text\", \"Terrorist\": \"text\", \"Credit\": \"text\", \"Hellsing\": \"text\", \"Animation\": \"text\", \"Director\": \"text\", \"Hyouka\": \"text\", \"Magi\": \"text\", \"Name\": \"text\", \"Motive\": \"text\", \"Riko\": \"text\", \"Mizuho\": \"text\", \"note\": \"text\"}",
+    "production_metadata": "3:1791984482541471200:90688268:production-v2"
+  },
+  "questions_sha256": "caf19a765640ed61c58d67c12624a09993a3626340b2ea3e333eca20820da6d0",
+  "labels_sha256": "3a716142aaf6fc51cc77c3b9237742441b7664e2280d0bef2fc18e95279ee180",
+  "definitions": {
+    "year": "First release year of the specific catalog entry; not a full calendar date.",
+    "duration": "Catalog minutes per episode; no opening/ending subtraction.",
+    "main_animation_studios": "All studios with main=true AND animation=true.",
+    "main_characters": "All appearances with role MAIN; supporting roles excluded."
+  }
+}

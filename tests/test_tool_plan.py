@@ -1,5 +1,8 @@
 import json
+import sqlite3
 import unittest
+from contextlib import closing
+from dataclasses import replace
 from unittest.mock import patch
 
 import test_entity_agent as fixtures
@@ -16,7 +19,8 @@ class ToolPlanTests(unittest.TestCase):
         fixtures.EntityAgentTests.setUp(self)
         self.agent.answer = EntityAgent.answer.__get__(self.agent)
         self.calls = []
-        self.plan = {'use_previous_context': False, 'goal': 'Answer the question from sources.', 'clarification': '', 'steps': []}
+        self.plan = {'scope': 'in_domain', 'direct_response': '', 'use_previous_context': False,
+                     'goal': 'Answer the question from sources.', 'clarification': '', 'steps': []}
         self.reply = 'A natural sourced answer. [anime-1.md]'
         self.final_prompts = []
         def plan(prompt, schema):
@@ -41,6 +45,168 @@ class ToolPlanTests(unittest.TestCase):
         self.assertIn('25 episodes', self.ask('How long is Re:Zero?'))
         self.assertEqual(self.agent.last_usage['executed_tools'], 0)
         self.assertIn('"episodes": 25.0', self.final_prompts[0])
+
+    def test_separately_mentioned_prefix_title_is_not_swallowed_by_sequel(self):
+        records = [{'id': 'base', 'aliases': ['Example']},
+                   {'id': 'sequel', 'aliases': ['Example Second Season']}]
+        self.assertEqual(self.agent.explicit_titles(records, 'Compare Example and Example Second Season'),
+                         ['base', 'sequel'])
+        self.assertEqual(self.agent.explicit_titles(records, 'How long is Example Second Season?'), ['sequel'])
+        self.assertEqual(self.agent.explicit_titles(records, 'Example Second Season versus Example'),
+                         ['sequel', 'base'])
+        self.assertEqual(self.agent.explicit_titles(records, 'Example and Example'), ['base'])
+        records.append({'id': 'ambiguous', 'aliases': ['Example']})
+        self.assertEqual(self.agent.explicit_titles(records, 'How long is Example?'), [])
+
+    def test_comparison_keeps_all_subject_facts_after_tools_and_context_trimming(self):
+        with closing(sqlite3.connect(self.catalog.database)) as db:
+            db.execute("UPDATE anime SET data=json_set(data,'$.episodes',12,'$.duration',30) WHERE id='2'")
+            db.commit()
+        self.agent.settings = replace(self.agent.settings, context_chars=500)
+        self.plan['steps'] = [step('get_anime', id='1'), step('get_anime', id='2')]
+        self.ask('What are the similarities between Re:Zero and Other World?')
+        self.assertEqual({row['id'] for row in self.agent.last_usage['selected_context']['anime']}, {'1', '2'})
+        prompt = self.final_prompts[-1]
+        payload, _ = json.JSONDecoder().raw_decode(prompt[prompt.index('{"history":'):])
+        self.assertEqual({row['id'] for row in payload['primary_entity_facts']}, {'1', '2'})
+        self.assertIn('older_bundle_not_in_window', prompt)
+        self.assertEqual({row['title'] for row in payload['primary_entity_facts']}, {'Re:Zero', 'Other World'})
+        facts = {row['id']: row for row in payload['primary_entity_facts']}
+        self.assertIn('Subaru', facts['1']['description'])
+        self.assertIn('Another ordinary boy', facts['2']['description'])
+        self.assertEqual(facts['1']['episodes'], 25)
+        self.assertEqual(facts['2']['episodes'], 12)
+        remembered = next(reversed(self.agent.memory.values()))
+        self.assertEqual(set(remembered['active_anime_ids']), {'1', '2'})
+
+    def test_resolved_second_subject_is_retained_with_explicit_first_subject(self):
+        self.plan['steps'] = [step('resolve_entity', kind='anime', query='Other World'),
+                              step('get_anime', id='$0.matches.0.id')]
+        self.ask('What do Re:Zero and OW have in common?')
+        remembered = next(reversed(self.agent.memory.values()))
+        self.assertEqual(set(remembered['active_anime_ids']), {'1', '2'})
+        self.assertIn('Subaru is transported', self.final_prompts[-1])
+        self.assertIn('Another ordinary boy is transported', self.final_prompts[-1])
+        self.assertEqual(self.agent.last_usage['llm_calls'], 2)
+
+    def test_multi_title_followup_rehydrates_all_subjects(self):
+        history = [{'role': 'user', 'content': 'Compare Re:Zero and Other World'},
+                   {'role': 'assistant', 'content': 'An earlier answer.'}]
+        self.plan['use_previous_context'] = True
+        self.ask('What do they have in common?', history)
+        self.assertEqual({row['id'] for row in self.agent.last_usage['selected_context']['anime']}, {'1', '2'})
+        self.assertIn('Subaru is transported to another world', self.final_prompts[-1])
+        self.assertIn('Another ordinary boy is transported', self.final_prompts[-1])
+
+    def test_semantic_feature_search_feeds_the_same_plan_without_rebinding_references(self):
+        self.plan['steps'] = [step('search_features', kind='tag', query='protagonist moral decline', limit=3),
+                              step('resolve_entity', kind='genre', query='Fantasy'),
+                              step('recommend_anime', genre_ids=['$1.matches.0.id'],
+                                   tag_ids=['$0.matches.*.id'], tag_match='any', query='MC turns bad')]
+        with patch.object(self.agent, 'feature_candidates', side_effect=[[], [
+            {'kind': 'tag', 'id': 'time loop', 'name': 'Time Loop', 'similarity': .9}]]):
+            self.ask('Give me anime where the MC turned bad')
+        self.assertEqual(self.agent.last_trace[2]['arguments']['tag_ids'], ['time loop'])
+        self.assertEqual(self.agent.last_trace[2]['arguments']['genre_ids'], ['fantasy'])
+        self.assertEqual(self.agent.last_usage['executed_tools'], 3)
+        self.assertIn('authorizes the spoilers needed', self.final_prompts[-1])
+        self.assertIn('does not prove a good-to-evil transition', self.final_prompts[-1])
+
+    def test_semantic_tag_search_returns_only_existing_tags_and_expands_mc(self):
+        captured = []
+        embed = self.models.embed
+        def capture(texts):
+            captured.extend(texts)
+            return embed(texts)
+        self.models.embed = capture
+        result = self.agent.execute('search_features', {'query': 'MC turned bad', 'kind': 'tag', 'limit': 3}, {})
+        self.assertTrue(result['matches'])
+        self.assertTrue(all(r['kind'] == 'tag' and r['id'] == 'time loop' for r in result['matches']))
+        self.assertIn('main protagonist turned bad', captured)
+
+    def test_empty_feature_search_cannot_widen_into_unfiltered_recommendations(self):
+        self.plan['steps'] = [step('search_features', query='unknown arc'),
+                              step('recommend_anime', tag_ids=['$0.matches.*.id'], tag_match='any')]
+        with patch.object(self.agent, 'feature_candidates', return_value=[]):
+            self.ask('Give me anime where the MC turned bad')
+        self.assertEqual(self.agent.last_usage['executed_tools'], 1)
+        self.assertIn('matched no items', self.agent.last_trace[-1]['error'])
+
+    def test_missing_link_to_one_semantic_tag_search_is_repaired_locally(self):
+        self.plan['steps'] = [step('search_features', query='moral decline'),
+                              step('recommend_anime', tag_match='any', query='MC turns bad')]
+        with patch.object(self.agent, 'feature_candidates', side_effect=[[], [
+            {'kind': 'tag', 'id': 'time loop', 'name': 'Time Loop', 'similarity': .9}]]):
+            self.ask('Give me anime where the MC turned bad')
+        self.assertEqual(self.agent.last_trace[1]['arguments']['tag_ids'], ['time loop'])
+        self.assertIn('any_terms', self.final_prompts[-1])
+
+    def test_alternative_tags_without_a_search_cannot_fall_back_to_popularity(self):
+        self.plan['steps'] = [step('recommend_anime', tag_match='any', query='MC turns bad')]
+        self.ask('Give me anime where the MC turned bad')
+        self.assertEqual(self.agent.last_usage['executed_tools'], 0)
+        self.assertIn('require tag IDs', self.agent.last_trace[0]['error'])
+
+    def test_unrelated_request_gets_llm_written_reply_without_tools_or_final_call(self):
+        self.plan.update(scope='out_of_domain', direct_response='Slice the apple and simmer it with a little water until soft.')
+        events = []
+        with patch.object(self.agent, 'execute', side_effect=AssertionError('must not run tools')), \
+             patch.object(self.agent, 'finish', side_effect=AssertionError('must not call final model')):
+            result = self.agent.answer('How to cook an apple?', [], debug=events.append)
+        self.assertEqual(result, self.plan['direct_response'])
+        self.assertEqual(self.calls, ['plan'])
+        self.assertEqual(self.agent.last_usage['llm_calls'], 1)
+        self.assertEqual(self.agent.last_usage['executed_tools'], 0)
+        self.assertEqual(self.agent.last_usage['response_path'], 'planner_direct_response')
+        self.assertEqual(events[-1]['scope'], 'out_of_domain')
+
+    def test_uncertain_request_keeps_normal_flow(self):
+        self.plan.update(scope='uncertain', clarification='Ask what Apple refers to.')
+        self.reply = 'Do you mean a title or something in the previous episode?'
+        self.assertEqual(self.ask('Apple?'), self.reply)
+        self.assertEqual(self.agent.last_usage['scope'], 'uncertain')
+
+    def test_scope_does_not_override_explicit_anime(self):
+        self.plan.update(scope='out_of_domain', direct_response='A mistaken general response.')
+        self.ask('What was Re:Zero about?')
+        self.assertEqual(self.agent.last_usage['scope'], 'uncertain')
+        self.assertIn('returns after death', self.final_prompts[-1])
+
+    def test_scope_does_not_override_independent_recommendations(self):
+        self.plan.update(scope='out_of_domain', direct_response='A mistaken general response.')
+        self.ask('Recommend some cooking anime')
+        self.assertEqual(self.agent.last_usage['scope'], 'uncertain')
+
+    def test_scope_does_not_override_contextual_followup(self):
+        self.plan.update(scope='out_of_domain', use_previous_context=True,
+                         direct_response='An unrelated cooking answer.')
+        self.ask('Why did she cook it?', [{'role': 'user', 'content': 'What is Re:Zero?'}])
+        self.assertEqual(self.agent.last_usage['scope'], 'uncertain')
+        self.assertTrue(self.agent.last_usage['use_previous_context'])
+
+    def test_contradictory_scope_with_tools_keeps_normal_flow(self):
+        self.plan.update(scope='out_of_domain', direct_response='A mistaken general response.',
+                         steps=[step('popular', limit=1)])
+        self.ask('What is most popular?')
+        self.assertEqual(self.agent.last_usage['scope'], 'uncertain')
+        self.assertEqual(self.agent.last_usage['executed_tools'], 1)
+
+    def test_empty_or_invalid_scope_response_does_not_shortcut(self):
+        for scope, direct in [('out_of_domain', ''), ('out_of_domain', '[anime-1.md]'), ('invalid', 'No.')]:
+            with self.subTest(scope=scope, direct=direct):
+                self.calls.clear()
+                self.plan.update(scope=scope, direct_response=direct)
+                self.ask('Apple?')
+
+    def test_direct_reply_clears_old_topic_for_followups(self):
+        self.plan.update(scope='out_of_domain', direct_response='Simmer apple slices until soft.')
+        history = [{'role': 'user', 'content': 'What was Re:Zero about?'},
+                   {'role': 'assistant', 'content': 'A prior anime discussion.'}]
+        question = 'How to cook an apple?'
+        result = self.agent.answer(question, history)
+        history += [{'role': 'user', 'content': question}, {'role': 'assistant', 'content': result}]
+        _, state, _, _ = self.agent.prepare('Why did she cook it?', history)
+        self.assertEqual(state['active_anime_ids'], [])
 
     def test_each_stage_and_tool_reports_elapsed_seconds(self):
         self.plan['steps'] = [step('get_anime', id='1')]
@@ -309,11 +475,71 @@ class ToolPlanTests(unittest.TestCase):
         self.assertNotIn('"episodes": 25.0', self.final_prompts[-1])
         self.assertEqual(self.agent.last_usage['selected_context']['anime'], [])
 
-    def test_discarded_context_ids_cannot_be_executed(self):
+    def test_prior_id_selection_repairs_contradictory_context_flag(self):
         self.plan['steps'] = [step('get_anime', id='1')]
         self.ask('How long is it?', [{'role': 'user', 'content': 'What is Re:Zero?'}])
-        self.assertEqual(self.agent.last_usage['executed_tools'], 0)
-        self.assertIn('Use anime IDs', self.final_prompts[-1])
+        self.assertEqual(self.agent.last_usage['executed_tools'], 1)
+        self.assertTrue(self.agent.last_usage['use_previous_context'])
+        self.assertIn('context_repair', self.agent.last_usage)
+        self.assertIn('"episodes": 25.0', self.final_prompts[-1])
+
+    def test_followup_keeps_group_when_one_prior_id_is_reloaded(self):
+        self.plan['steps'] = [step('get_anime', id='1')]
+        self.ask('How many episodes is it?', [
+            {'role': 'user', 'content': 'Compare Re:Zero and Other World'},
+            {'role': 'assistant', 'content': 'They have 999 episodes combined.'}])
+        remembered = next(reversed(self.agent.memory.values()))
+        self.assertEqual(set(remembered['active_anime_ids']), {'1', '2'})
+        self.assertIn('Previous assistant replies are unverified', self.final_prompts[-1])
+        self.assertIn('"duration": 24.0', self.final_prompts[-1])
+        self.assertNotIn('"recommendation_links"', self.final_prompts[-1])
+
+    def test_referential_followup_keeps_sources_even_if_planner_requests_missing_title(self):
+        self.plan['steps'] = [step('get_anime', id='title')]
+        self.plan['clarification'] = 'Please provide the anime title.'
+        self.ask('How many episodes it is?', [
+            {'role': 'user', 'content': 'Compare Re:Zero and Other World'},
+            {'role': 'assistant', 'content': 'An incorrect earlier answer.'}])
+        self.assertTrue(self.agent.last_usage['use_previous_context'])
+        self.assertEqual({row['id'] for row in self.agent.last_usage['selected_context']['anime']}, {'1', '2'})
+        self.assertIn('"episodes": 25.0', self.final_prompts[-1])
+
+    def test_fact_response_uses_general_grounding_interface_with_all_subjects(self):
+        calls = []
+        def fact_reply(prompt, temperature, max_tokens, subjects, measurements, **kwargs):
+            calls.append(subjects)
+            self.models.last_fact_grounding = {'supporting_facts': [], 'check': 'A source-based comparison.'}
+            return 'Both stories involve transportation to another world.'
+        self.models.agent_fact_reply = fact_reply
+        text = self.agent.answer('What do Re:Zero and Other World have in common?', [])
+        self.assertIn('Both stories', text)
+        self.assertEqual(set(calls[0]), {'anime:1', 'anime:2'})
+        self.assertEqual(self.agent.last_usage['llm_calls'], 2)
+        self.assertIn('answer_grounding', self.agent.last_usage)
+
+    def test_invalid_grounded_response_gets_one_counted_correction(self):
+        calls = []
+        def fact_reply(prompt, *_args, **kwargs):
+            calls.append(prompt)
+            if len(calls) == 1:
+                self.models.last_fact_validation_error = 'Ambiguous literal: use a measurement variable instead'
+                raise RuntimeError('The model returned an invalid grounded response. Please retry.')
+            self.models.last_fact_validation_error = ''
+            return 'Re:Zero has 25 episodes.'
+        self.models.agent_fact_reply = fact_reply
+        self.assertIn('25 episodes', self.agent.answer('How many episodes does Re:Zero have?', []))
+        self.assertEqual(len(calls), 2)
+        self.assertEqual(self.agent.last_usage['llm_calls'], 3)
+        self.assertEqual(len(self.agent.last_usage['grounding_corrections']), 1)
+
+    def test_rhetorical_comparison_is_not_forced_into_arithmetic(self):
+        modes = []
+        def fact_reply(prompt, *_args, **kwargs):
+            modes.append(bool(kwargs.get('require_quantities')))
+            return 'Both stories involve transportation to another world.'
+        self.models.agent_fact_reply = fact_reply
+        self.agent.answer('How much do Re:Zero and Other World have in common?', [])
+        self.assertEqual(modes, [False])
 
     def test_discarding_history_keeps_explicit_current_entity(self):
         self.ask('What is Re:Zero?', [{'role': 'user', 'content': 'What is Unrelated Show?'}])
@@ -342,6 +568,52 @@ class ToolPlanTests(unittest.TestCase):
         self.ask('Recommend me some sad anime')
         self.assertEqual(self.agent.last_usage['selected_context']['anime'], [])
         self.assertIn('semantic_feature_candidates', self.prompts[0][0])
+
+    def test_short_mood_is_not_a_fuzzy_feature_name(self):
+        with closing(sqlite3.connect(self.catalog.database)) as db:
+            db.execute('INSERT INTO entity_dictionary VALUES (?,?,?,?)',
+                       ('tag', 'sadism', 'Sadism', '["Sadism"]'))
+            db.execute('INSERT INTO entity_keys VALUES (?,?,?)', ('sadism', 'tag', 'sadism'))
+            db.commit()
+        self.assertEqual(self.store.lookup('tag', 'sad')['matches'], [])
+        self.assertEqual(self.store.lookup('tag', 'sadism')['matches'][0]['id'], 'sadism')
+        self.assertEqual(self.store.lookup('tag', 'Time Lop')['matches'][0]['id'], 'time loop')
+
+    def test_feature_lookup_uses_exact_dictionary_type(self):
+        self.plan['steps'] = [step('resolve_entity', kind='genre', query='Time Loop'),
+                              step('recommend_anime', genre_ids=['$0.matches.0.id'])]
+        self.ask('Recommend time loop anime')
+        self.assertEqual(self.agent.last_trace[0]['result']['kind'], 'tag')
+        self.assertIn('Subaru', self.final_prompts[-1])
+
+    def test_display_names_are_normalized_to_known_feature_ids(self):
+        self.plan['steps'] = [step('recommend_anime', genre_ids=['Fantasy'], tag_ids=['Time Loop'])]
+        self.ask('Recommend time loop anime')
+        self.assertEqual(self.agent.last_usage['executed_tools'], 1)
+        self.assertIn('"preference": "Recommend time loop anime"', self.final_prompts[-1])
+
+    def test_failed_recommendations_cannot_be_replaced_by_memory_based_titles(self):
+        self.plan['steps'] = [step('resolve_entity', kind='genre', query='nonexistent'),
+                              step('recommend_anime', genre_ids=['$0.matches.0.id'])]
+        self.reply = '1. Other World is a great choice.\n2. Unrelated Show is emotional.'
+        with self.assertRaisesRegex(RuntimeError, 'No supported recommendations'):
+            self.agent.answer('Recommend me some sad anime', [])
+        self.assertEqual(self.calls, ['plan', 'final'])
+        self.assertIn('"recommendation_evidence_missing": true', self.final_prompts[-1])
+        self.assertNotIn('"tool": "resolve_entity"', self.final_prompts[-1])
+        self.assertIn('No matching entity', self.final_prompts[-1])
+
+    def test_missing_recommendations_can_be_explained_without_listing_titles(self):
+        self.reply = 'The library search could not find supported recommendations. Could you try another preference?'
+        self.assertEqual(self.ask('Recommend me some sad anime'), self.reply)
+
+    def test_failed_feature_names_are_not_presented_as_recommendation_evidence(self):
+        evidence = [{'tool': 'resolve_entity', 'arguments': {'kind': 'genre', 'query': 'sadism'},
+                     'result': {'status': 'no_matches', 'matches': []}},
+                    {'tool': 'recommend_anime', 'result': {'items': [self.store.anime('1')]}}]
+        selected = self.agent.answer_evidence('Recommend sad anime', evidence)
+        self.assertEqual(len(selected), 1)
+        self.assertNotIn('sadism', json.dumps(selected))
 
     def test_new_preference_search_drops_stale_reference_even_if_planner_keeps_history(self):
         self.plan['use_previous_context'] = True
