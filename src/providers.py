@@ -24,6 +24,7 @@ class LocalModels:
                     "model": self.llm,
                     "prompt": prompt,
                     "stream": False,
+                    "think": False,
                     "options": {"temperature": temperature, "num_predict": max_tokens},
                 },
                 timeout=300,
