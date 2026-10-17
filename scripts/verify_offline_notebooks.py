@@ -56,11 +56,16 @@ def main():
     for name in ('hard_facts_evaluation.ipynb', 'recommendation_evaluation.ipynb'):
         path = root / 'notebook' / name
         notebook = nbformat.read(path, as_version=4)
+        original_sources = {}
         for cell in notebook.cells:
             if cell.cell_type == 'code' and 'RUN_LIVE =' in cell.source:
+                original_sources[cell.id] = cell.source
                 cell.source += '\nRUN_LIVE = False\n'
         NotebookClient(notebook, timeout=180, kernel_name='source-only-check', allow_errors=False,
                        resources={'metadata': {'path': str(root / 'notebook')}}).execute()
+        for cell in notebook.cells:
+            if cell.id in original_sources:
+                cell.source = original_sources[cell.id]
         nbformat.validate(notebook)
         nbformat.write(notebook, output / path.name)
         report.append({'notebook': path.name, 'code_cells': sum(c.cell_type == 'code' for c in notebook.cells),

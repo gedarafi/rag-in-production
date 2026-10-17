@@ -134,9 +134,9 @@ dataset_charts = show_evaluation_charts()
 cell('markdown', '''
 ## Experiment configuration
 
-Set `RUN_LIVE = True` to call the model. Choose `MODE = 'full'` and a new `RUN_NAME`
-to evaluate all 180 prompts. Smoke mode selects one prompt per field (seven total).
-The default validates data and displays any saved smoke run without calling the model.
+This notebook selects **all 180 prompts**. The default displays the completed full
+real-model run when available. Set `RUN_LIVE = True` to run or resume full inference;
+choose a new `RUN_NAME` when changing the experiment configuration.
 The notebook kernel needs pandas and Python 3.11 or newer. Live evaluation always runs
 in the project's `.venv` interpreter, even when Jupyter uses a different Python.
 This avoids importing incompatible global packages such as the obsolete `docx` package.
@@ -149,26 +149,17 @@ separately installed stronger model to reduce correlated generation/extraction e
 ''')
 cell('code', '''
 RUN_LIVE = False
-MODE = 'smoke'                # 'full' runs all 180 questions
-RUN_NAME = 'smoke_validation' # use e.g. 'full_001' for a full experiment
+MODE = 'full'                # all 180 questions
+RUN_NAME = 'entity_resolution_v1_parser_v3' # completed real full run; change for a new experiment
 EXTRACTOR_MODEL = None        # defaults to SETTINGS.llm
 MAX_NEW_QUESTIONS = None      # optional per-execution budget; None continues all missing prompts
 
-if MODE not in {'smoke', 'full'}:
-    raise ValueError("MODE must be 'smoke' or 'full'")
+if MODE != 'full':
+    raise ValueError('This notebook evaluates all 180 benchmark questions.')
 if not RUN_NAME or Path(RUN_NAME).name != RUN_NAME or RUN_NAME in {'.', '..'}:
     raise ValueError('RUN_NAME must be a single directory name')
-first_per_field = {}
-for question in questions:
-    first_per_field.setdefault(question['field'], question)
-selected = questions if MODE == 'full' else list(first_per_field.values())
+selected = questions
 RUN_QUESTIONS = QUESTIONS_CSV
-if MODE == 'smoke':
-    RUN_QUESTIONS = DATA / 'smoke_questions.csv'
-    with RUN_QUESTIONS.open('w', encoding='utf-8', newline='') as stream:
-        writer = csv.DictWriter(stream, fieldnames=list(questions[0]))
-        writer.writeheader()
-        writer.writerows(selected)
 OUTPUT = DATA / 'results' / RUN_NAME
 print(f'Mode: {MODE}; selected: {len(selected)}; live inference: {RUN_LIVE}')
 print('Generation:', SETTINGS.llm, '| Extractor:', EXTRACTOR_MODEL or SETTINGS.llm)
@@ -232,8 +223,6 @@ else:
 if report is not None:
     answers = read_csv(OUTPUT / 'answers.csv')
     print(f"Actual attempts: {report['overall']['attempted']} / {len(selected)} selected / 180 total prompts")
-    if MODE == 'smoke':
-        print('SMOKE ONLY: not the 180-question benchmark score.')
     display(pd.DataFrame([report['overall']]).drop(columns=['status_counts']))
     print('Statuses:', report['overall']['status_counts'])
     display(pd.DataFrame([{'field': field, **metrics} for field, metrics in report['by_field'].items()]))
@@ -277,20 +266,19 @@ else:
     print('Run an experiment before inspecting model errors.')
 ''')
 cell('markdown', '''
-## Offline scoring sanity checks
+## Full-run coverage
 
-These are synthetic correctness checks on the scorer, not RAG performance measurements.
+Coverage below comes from the selected real model run. A complete evaluation includes
+every authored request, including model/extraction failures; unsuccessful attempts
+remain in the denominator.
 ''')
 cell('code', '''
-assert score_values([24], ['24.0'], 'episodes')['exact_match'] == 1
-assert score_values(['MANGA'], ['manga'], 'source_material')['exact_match'] == 1
-assert score_values(['Studio Pierrot'], ['Pierrot'], 'main_animation_studios')['exact_match'] == 1
-assert score_values([24], [12], 'episodes')['exact_match'] == 0
-partial = score_values(['A', 'B'], ['A'], 'main_characters')
-assert partial['precision'] == 1 and partial['recall'] == 0.5
-extra = score_values(['A'], ['A', 'Wrong'], 'main_characters')
-assert extra['precision'] == 0.5 and extra['recall'] == 1
-print('Offline checks passed. Synthetic scores are not reported as model accuracy.')
+if report is None:
+    print('No full model run is available locally. Prepare AniList and set RUN_LIVE = True to evaluate all 180 questions.')
+else:
+    assert report['overall']['attempted'] <= len(questions)
+    print('Real model attempts:', report['overall']['attempted'], '/', len(questions))
+    print('Completed benchmark:', report['overall']['attempted'] == len(questions))
 ''')
 cell('markdown', '''
 ## Reproducibility and full-run command

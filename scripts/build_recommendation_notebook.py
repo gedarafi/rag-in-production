@@ -28,6 +28,11 @@ extracts recommended titles in order. Deterministic code resolves title aliases 
 scores every recommendation against frozen catalog attributes. Neither the RAG nor
 the extractor receives the reference labels. This notebook defaults to offline
 inspection and displays saved live results when available.
+
+The selected result is the **complete 72-request model run**, not a smoke subset.
+Scores were recomputed against the current reference/policy from saved genuine
+model answers and LLM title extractions; generation errors remain part of that run.
+Use a new run name with `RUN_LIVE = True` to measure a fresh pipeline version.
 ''')
 cell('code', '''
 from pathlib import Path
@@ -97,19 +102,19 @@ assert frame.question_origin.eq('authored_naturalistic').all()
 print('Dataset provenance:', manifest['origin'])
 ''')
 cell('markdown', '''
-## Check that valid implications receive credit
+## Catalog evidence for accepted implications
 
-With a prepared reference, this uses real catalog entries, **not model outputs**.
-On a fresh checkout it uses one clearly labeled illustrative metadata record instead.
-It compares Mystery without a strong Detective tag under an exact tag request and
-the broader investigation request. The latter earns credit through the reviewed path.
+This uses real catalog entries to compare Mystery without a strong Detective tag
+under an exact tag request and the broader investigation request. If the local
+reference has not been rebuilt, this section reports that prerequisite; it does not
+substitute synthetic records or model results.
 ''')
 cell('code', '''
 lookup = {q['question_id']: q for q in questions}
 implication_examples = []
 if catalog is None:
-    records = [{'title': 'Illustrative Mystery-only entry (synthetic)', 'genres': ['Mystery'], 'tag_ranks': {}}]
-    print('Illustrative scorer demonstration; not real catalog data or a model result.')
+    records = []
+    print('Real catalog examples require AniList setup and the reference build. No substitute records are used.')
 else:
     records = catalog.records.values()
 for record in records:
@@ -178,8 +183,9 @@ show_charts()
 cell('markdown', '''
 ## Run the actual model
 
-Set `RUN_LIVE = True` to evaluate. `MODE = 'smoke'` selects one request per category
-(11 requests); `MODE = 'full'` selects all 72. Use a new `RUN_NAME` for a new model,
+This notebook selects **all 72 requests**. `RUN_LIVE = False` displays the completed
+full run when available; set it to `True` to run or resume full live inference.
+Use a new `RUN_NAME` for a new model,
 new extraction model, changed settings, or a retry of a failed question. Identical
 runs resume per-question checkpoints, including failures. `MAX_NEW_QUESTIONS` limits
 new attempts per execution without changing the selection; `None` continues all.
@@ -193,13 +199,13 @@ extraction is marked for review. LLM extraction cannot guarantee error-free pars
 ''')
 cell('code', '''
 RUN_LIVE = False
-MODE = 'smoke'                  # 'full' for all 72 questions
-RUN_NAME = 'smoke_semantic_reviewed'  # change for a new experiment
+MODE = 'full'                   # all 72 questions; no smoke subset in this notebook
+RUN_NAME = 'full_real_v2'        # full real responses, rescored against the current reference/policy
 EXTRACTOR_MODEL = None          # e.g. a separately installed stronger Ollama model
 MAX_NEW_QUESTIONS = None        # 0 loads checkpoints only; None continues remaining requests
 
-if MODE not in {'smoke', 'full'}:
-    raise ValueError('MODE must be smoke or full')
+if MODE != 'full':
+    raise ValueError('This notebook evaluates the full 72-request benchmark.')
 if not RUN_NAME or Path(RUN_NAME).name != RUN_NAME or RUN_NAME in {'.', '..'}:
     raise ValueError('RUN_NAME must be a single directory name')
 OUTPUT = DATA / 'results' / RUN_NAME
@@ -244,6 +250,9 @@ are illustrative, not an exhaustive acceptable recommendation list.
 cell('code', '''
 rows = []
 if (OUTPUT / 'answers.json').is_file():
+    saved_manifest = json.loads((OUTPUT / 'manifest.json').read_text(encoding='utf-8'))
+    if saved_manifest['mode'] != 'full' or saved_manifest['question_ids'] != [q['question_id'] for q in questions]:
+        raise ValueError('Select a real full-benchmark run; subset results are not accepted here.')
     report = json.loads((OUTPUT / 'metrics.json').read_text(encoding='utf-8'))
     rows = json.loads((OUTPUT / 'answers.json').read_text(encoding='utf-8'))
     overall = report['overall']
@@ -258,7 +267,6 @@ if (OUTPUT / 'answers.json').is_file():
                               'end_to_end_P@k': summary['end_to_end_precision_at_k'],
                               'scoring_coverage': summary['scoring_coverage'], **summary['scored_macro']})
     display(pd.DataFrame(summaries))
-    print('The saved smoke uses explicit requests; the reference-only example above separately exercises an indirect request.')
     audit = [{**d, 'question_id': r['question_id']} for r in rows for d in r['recommendations']]
     if audit:
         display(pd.DataFrame(audit)[['question_id', 'rank', 'extracted_title', 'canonical_title',
