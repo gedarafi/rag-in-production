@@ -14,8 +14,8 @@ knowledge bases, exported charts, and separate model-run results are local artif
 pushed. After AniList setup, run `scripts/build_recommendation_benchmark.py` to
 create the local reference and intentionally align labels with that snapshot.
 Both coverage plots and the notebook's offline inspection run without that reference.
-Its implication example uses real catalog records when available and a clearly
-labeled illustrative metadata record otherwise; it never invents model performance.
+The implication section uses real catalog records only; when unavailable it reports
+the setup prerequisite without substituting illustrative records or model performance.
 Reference-dependent tests skip when the local reference is absent; source-input
 integrity and metric unit tests still run without it. New-response scoring always
 requires the complete local reference, and saved model-run results are never fabricated.
@@ -190,9 +190,6 @@ Install notebook/chart dependencies with `uv sync --extra evaluation`. Prepared
 AniList indexes and the configured Ollama model must already be available.
 
 ```powershell
-# One request per category (11); checkpoint after each answer.
-.venv/Scripts/python.exe -m src.recommendation_evaluation --output data/evaluation/recommendations/results/my_smoke
-
 # All 72; use an unused run name.
 .venv/Scripts/python.exe -m src.recommendation_evaluation --mode full --output data/evaluation/recommendations/results/full_001
 
@@ -205,21 +202,25 @@ new output directory. Saved failures are also resumed; use a new run name to ret
 `--max-new-questions 0` loads only existing checkpoints and never initializes the RAG.
 
 The notebook uses the project's `.venv` for generation and charts even if Jupyter
-uses another kernel. Set `RUN_LIVE=True` and `MODE='full'` for the complete benchmark.
-Default offline mode shows the saved `smoke_semantic_reviewed` run when present. Chart
+uses another kernel. The notebook selects all 72 requests and rejects subset runs.
+Set `RUN_LIVE=True` with a new name for fresh full inference.
+Default offline mode shows the saved `full_real_v2` run when present. Chart
 exports include coverage, strict compliance and scoring coverage, quality breakdowns,
 outcomes and title resolution, a per-item constraint heatmap, and measured latency.
 PNG and SVG files are saved alongside their inline notebook displays.
 
-The version-2 smoke is rescored from the original live answers and saved LLM title
-extractions. Original runs are preserved. All 11 smoke requests are explicit, so this
-sample is not evidence of improved indirect-request performance. The reference-only
-demonstration and tests exercise the accepted implication paths separately.
+`full_real_v2` is a complete 72-request model run: all requests were attempted,
+61 received automatic scores, 10 had generation errors, and one required extraction
+review. It reuses genuine full-run answers and LLM title extractions, deterministically
+rescored against the current reference and implication policy. The original `change`
+run remains intact and source hashes are saved in `rescoring_provenance.json`.
+These are historical model responses, not freshly generated answers from every
+subsequent code revision. A new live run is required to measure a new pipeline.
 
 To apply revised labels to saved answers without calling the RAG or extractor:
 
 ```powershell
-.venv/Scripts/python.exe -m src.recommendation_evaluation --rescore-from data/evaluation/recommendations/results/smoke_verified --output data/evaluation/recommendations/results/my_semantic_rescore
+.venv/Scripts/python.exe -m src.recommendation_evaluation --rescore-from data/evaluation/recommendations/results/change --output data/evaluation/recommendations/results/my_semantic_rescore
 ```
 
 Use a new destination. Question text and desired counts must match. The new run
@@ -270,5 +271,5 @@ indirect sets request different counts (3 versus 4/5), so their breakdown is des
 not a controlled wording experiment. Personalization, multi-turn behavior, real traffic
 frequency, precise franchise-wide runtime, and unknown/unanswerable constraints are
 outside this version. Report sample sizes, attempted/planned counts, and extraction
-coverage with every performance claim. The delivered smoke run is a small live sample,
-not a score for the complete benchmark.
+coverage with every performance claim. The notebook's selected evaluation includes
+all 72 requests, with failures retained in end-to-end accuracy denominators.
