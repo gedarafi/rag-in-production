@@ -7,6 +7,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+from src.recommender import evaluation_runtime
 from src.recommender.config import load_settings
 from src.recommender.rag import RagPipeline
 from src.recommender.recommendation_evaluation import VERSION, evaluate_question, extract_titles, load_dataset, save_results
@@ -20,23 +21,24 @@ def main():
     parser.add_argument('--output', type=Path, default=OUTPUT, help='New directory for live verification results')
     output = parser.parse_args().output
     questions, catalog, dataset_manifest = load_dataset(DATA)
-    settings = load_settings(ROOT / 'settings.toml', 'anilist')
+    settings = load_settings(ROOT / 'recommender.toml', 'anilist')
     selected = [next(q for q in questions if q['question_id'] == identifier)
                 for identifier in ('dates_01', 'recent_01')]
     output.mkdir(parents=True, exist_ok=False)
     (output / 'manifest.json').write_text(json.dumps({
         'settings': json.loads(json.dumps(asdict(settings), default=str)),
         'dataset_files': dataset_manifest['files_sha256'], 'question_ids': [q['question_id'] for q in selected],
-        'extractor_model': settings.llm, 'evaluator_version': VERSION, 'mode': 'date_fix_validation',
+        'extractor_model': evaluation_runtime.extractor_model(), 'evaluator_version': VERSION, 'mode': 'date_fix_validation',
     }, indent=2), encoding='utf-8')
     pipeline = RagPipeline(settings)
+    chat = evaluation_runtime.extractor_chat()
     rows = []
     for q in selected:
         pipeline._agent = None
         events = []
         print(q['question_id'], q['question'], flush=True)
-        row = evaluate_question(q, lambda text: pipeline.ask(text, history=[], debug=events.append),
-                                lambda q, a: extract_titles(q, a, url=settings.ollama_url, model=settings.llm), catalog)
+        row = evaluate_question(q, evaluation_runtime.traced_asker(pipeline, events),
+                                lambda q, a: extract_titles(q, a, chat=chat), catalog)
         row.update(debug_events=events, rag_usage=pipeline.last_route)
         (output / (q['question_id'] + '.json')).write_text(json.dumps(row, indent=2, ensure_ascii=False, default=str), encoding='utf-8')
         rows.append(row)

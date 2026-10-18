@@ -23,36 +23,29 @@ variable "jwt_audience" {
   type        = list(string)
 }
 
-variable "model_id" {
-  description = "Bedrock model that answers: for converse a model or inference profile, e.g. us.amazon.nova-micro-v1:0; for openai a bedrock-mantle model, e.g. google.gemma-3-4b-it. On LocalStack, ollama.<model> runs that Ollama model on CPU."
+variable "jobs_table" {
+  description = "DynamoDB table of the chat jobs (recommender module)."
   type        = string
-
-  validation {
-    condition     = length(trimspace(var.model_id)) > 0
-    error_message = "model_id must not be empty."
-  }
 }
 
-variable "model_api" {
-  description = "How the Lambda calls the model: converse (Converse on bedrock-runtime, the only one LocalStack emulates) or openai (OpenAI-compatible Chat Completions on bedrock-mantle, which has its own quotas)."
+variable "jobs_table_arn" {
+  description = "ARN of the chat jobs table."
   type        = string
-  default     = "converse"
-
-  validation {
-    condition     = contains(["converse", "openai"], var.model_api)
-    error_message = "model_api must be converse or openai."
-  }
 }
 
-variable "max_tokens" {
-  description = "Longest answer the model may write, in tokens."
-  type        = number
-  default     = 512
+variable "conversations_table" {
+  description = "DynamoDB table of the conversations (recommender module)."
+  type        = string
+}
 
-  validation {
-    condition     = var.max_tokens >= 1 && var.max_tokens <= 4096
-    error_message = "max_tokens must be between 1 and 4096."
-  }
+variable "queue_url" {
+  description = "URL of the queue the questions go to (recommender module)."
+  type        = string
+}
+
+variable "queue_arn" {
+  description = "ARN of the queue the questions go to."
+  type        = string
 }
 
 variable "tracing_endpoint" {

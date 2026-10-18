@@ -12,7 +12,9 @@ import numpy as np
 from src.recommender.anime_tools import AnimeTools, structured
 from src.recommender.config import load_settings
 from src.recommender.documents import load_chunks
-from src.recommender.providers import LocalModels
+from src.recommender.bedrock import InvalidOutput
+from src.recommender.embedding import OnnxEmbedder
+from tests.recommender.bedrock_stub import scripted_models
 from tests.recommender.routing_stub import plan_query
 from src.recommender.rag import RagPipeline
 from src.recommender.query_router import QueryPlan, fast_answer
@@ -110,16 +112,17 @@ class StagedRetrievalTests(unittest.TestCase):
         self.assertIn('220 episodes', evidence)
         self.assertIn('5060 minutes', evidence)
 
-    def test_ollama_routing_uses_json_schema_and_explicit_context_window(self):
-        model = LocalModels('unused', 'http://localhost:11434', 'test')
-        response = SimpleNamespace(raise_for_status=lambda: None, json=lambda: {'response': '{}'})
-        with patch('src.recommender.providers.requests.post', return_value=response) as post:
+    def test_routing_asks_for_its_json_schema_and_corrects_once(self):
+        model, transport = scripted_models('{}')
+        with self.assertRaises(InvalidOutput):
             model.route_plan('prompt')
-        request = post.call_args.kwargs['json']
-        self.assertIsInstance(request['format'], dict)
-        self.assertIn('seed_titles', request['format']['properties'])
-        self.assertEqual(request['options']['num_ctx'], 8192)
-        self.assertGreaterEqual(request['options']['num_predict'], 512)
+        request = transport.calls[0]
+        self.assertIn('seed_titles', request['schema']['properties'])
+        self.assertIn('seed_titles', request['system'])
+        self.assertGreaterEqual(request['max_tokens'], 512)
+        # One correction round with the validation error, then the step gives up.
+        self.assertEqual(len(transport.calls), 2)
+        self.assertIn('invalid', transport.calls[1]['messages'][-1]['content'])
 
     def test_cast_questions_resolve_subject_before_retrieval(self):
         with patch.object(self.pipeline, "vector_search", side_effect=AssertionError("unexpected global search")):
@@ -260,12 +263,10 @@ class StagedRetrievalTests(unittest.TestCase):
         self.assertEqual(refreshed.count(), 2)
 
     def test_model_generation_does_not_initialize_embedding_model(self):
-        model = LocalModels("unused-model", "http://localhost:11434", "test")
-        response = SimpleNamespace(raise_for_status=lambda: None, json=lambda: {"response": "Answer"})
-        with patch("src.recommender.providers.select_device", side_effect=AssertionError("unexpected GPU initialization")), \
-             patch("src.recommender.providers.requests.post", return_value=response):
-            self.assertEqual(model.answer("prompt", .2, 100), "Answer")
-        self.assertIsNone(model._embedder)
+        embedder = OnnxEmbedder()
+        model, _ = scripted_models("Answer", embedder=embedder)
+        self.assertEqual(model.answer("prompt", .2, 100), "Answer")
+        self.assertIsNone(embedder._session)
 
     def test_explanations_are_not_mistaken_for_short_synopses(self):
         self.assertEqual(plan_query("What is Naruto's relationship with Sasuke?").intent, "detail")

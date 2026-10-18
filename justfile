@@ -7,10 +7,12 @@ set dotenv-path := "infra/.env"
 compose := "docker compose"
 endpoint := env("LOCALSTACK_ENDPOINT", "http://localhost:4566")
 region := env("AWS_DEFAULT_REGION", "us-east-1")
-modules := "modules/s3-bucket modules/auth modules/chat-api modules/web modules/budget"
+modules := "modules/s3-bucket modules/auth modules/chat-api modules/web modules/budget modules/container-registry modules/recommender"
 live := "live/local"
 aws_live := env("RAG_AWS_LIVE", "live/aws") # `just aws-mantle` points the aws-* recipes at live/aws-mantle
 aws_region := env("AWS_REGION", "eu-north-1")
+# The recommender CLI with only the worker's dependencies (no PyTorch); run it from the repository root.
+recommender := "uv run --quiet --isolated --only-group recommender python -m src.recommender.cli"
 
 # List the recipes
 default:
@@ -18,9 +20,34 @@ default:
 
 # --- LocalStack ---
 
-# Start LocalStack and wait until it is healthy
+# Start LocalStack and the local model (Ollama, on the GPU when Docker has the NVIDIA runtime) and wait until they are healthy
 up:
-    {{compose}} up -d --wait localstack
+    #!/usr/bin/env bash
+    set -euo pipefail
+    files=(-f docker-compose.yml)
+    if docker info --format '{{{{json .Runtimes}}' | grep -q '"nvidia"'; then
+      files+=(-f docker-compose.gpu.yml)
+      where=GPU
+    else
+      where="CPU (\`just gpu-setup\` lets it use an NVIDIA GPU)"
+    fi
+    if [ "${RAG_LOCAL_MODEL_API:-ollama}" = ollama ]; then
+      {{compose}} "${files[@]}" up -d --wait localstack ollama
+      model="${RAG_LOCAL_MODEL:-llama3.2:3b}"
+      docker exec ollama ollama pull "$model" >/dev/null
+      echo "The recommender's model $model runs on the $where."
+    else
+      # LocalStack's own Bedrock model (RAG_LOCAL_MODEL_API=converse) can only get the GPU through
+      # its container's environment, with nvidia as Docker's default runtime (`just gpu-setup`).
+      if [ "$(docker info --format '{{{{.DefaultRuntime}}')" = nvidia ] && [ -z "${LOCALSTACK_BEDROCK_DOCKER_FLAGS:-}" ]; then
+        export LOCALSTACK_BEDROCK_DOCKER_FLAGS="-e NVIDIA_VISIBLE_DEVICES=all -e NVIDIA_DRIVER_CAPABILITIES=compute,utility"
+      fi
+      {{compose}} "${files[@]}" up -d --wait localstack
+    fi
+
+# Once: let Docker use the NVIDIA GPU so the local model runs on it (asks for sudo; restarts Docker)
+gpu-setup:
+    scripts/setup_gpu_docker.sh
 
 # Stop LocalStack
 down:
@@ -84,25 +111,26 @@ clean:
 lock:
     for m in {{modules}}; do tofu -chdir=$m providers lock -platform=linux_amd64 -platform=linux_arm64 -platform=darwin_amd64 -platform=darwin_arm64 -platform=windows_amd64 || exit 1; done
 
-# Unit tests with mocked providers, plus the Lambda unit tests (no LocalStack needed)
+# Unit tests with mocked providers, plus the Lambda and recommender unit tests (no LocalStack needed)
 test-unit:
     for m in {{modules}}; do tofu -chdir=$m init -backend=false -input=false >/dev/null && tofu -chdir=$m test -filter=tests/unit.tftest.hcl || exit 1; done
     just test-py
+    just test-recommender
 
-# Python tests with coverage (the Lambda's chat dependency group, without the local RAG's models); extra args go to pytest
+# Python tests with coverage (the chat API Lambda's dependency group, without the recommender's); extra args go to pytest
 [working-directory: '..']
 test-py *args:
     uv run --quiet --isolated --only-group test --only-group chat pytest --cov --cov-report=term-missing --ignore=tests/recommender {{args}}
 
-# Anime recommender tests (they need the project's own dependencies: NumPy, Gradio, PyTorch); extra args go to pytest
+# Recommender tests, with the worker image's dependency group (NumPy, ONNX Runtime; no PyTorch); extra args go to pytest
 [working-directory: '..']
 test-recommender *args:
-    uv run --quiet --group test pytest tests/recommender {{args}}
+    uv run --quiet --isolated --only-group test --only-group recommender pytest tests/recommender {{args}}
 
-# Check that the chat Lambda's traces reach the running Phoenix (run `just phoenix-up` first)
+# Check that a question's trace (api Lambda, then worker) reaches the running Phoenix (run `just phoenix-up` first)
 [working-directory: '..']
 test-phoenix:
-    uv run --quiet --isolated --only-group test --only-group chat pytest -m phoenix -v
+    uv run --quiet --isolated --only-group test --only-group recommender pytest -m phoenix -v
 
 # Integration test that creates and destroys a bucket on LocalStack (run `just up` first)
 test-localstack:
@@ -134,7 +162,7 @@ apply:
 destroy:
     terragrunt run --all --non-interactive --working-dir {{live}} -- destroy -auto-approve
 
-# Apply the local environment, check the bucket and the sign-in and chat flow, then destroy it
+# Apply the local environment, publish the fixture catalog, check the bucket and the sign-in and chat flow, then destroy it
 e2e:
     #!/usr/bin/env bash
     set -euo pipefail
@@ -144,7 +172,46 @@ e2e:
     status="$(just aws s3api get-bucket-versioning --bucket rag-documents-local --query Status --output text)"
     [ "$status" = "Enabled" ] || { echo "expected versioning Enabled, got '$status'" >&2; exit 1; }
     echo "e2e: bucket rag-documents-local exists with versioning enabled"
+    just recommender-publish fixture
     just flow e2e
+
+# --- Recommender artifacts and worker ---
+
+# Build a recommender bundle into build/recommender/<version>/: `fixture` (ten invented anime, seconds) or `full` (AniList, data/raw or download)
+[working-directory: '..']
+recommender-build which="fixture":
+    #!/usr/bin/env bash
+    set -euo pipefail
+    case "{{which}}" in
+      fixture) {{recommender}} build --source tests/fixtures/anilist-mini.csv --workspace build/fixture-workspace --out build/recommender ;;
+      full) {{recommender}} build --out build/recommender ;;
+      *) echo "Use fixture or full." >&2; exit 1 ;;
+    esac
+
+# Build a bundle and serve it from the local stack (after `just apply`), e.g. `just recommender-publish full`
+recommender-publish which="fixture":
+    #!/usr/bin/env bash
+    set -euo pipefail
+    bundle="$(just recommender-build {{which}} | tail -1)"
+    out() { terragrunt run --non-interactive --log-level error --working-dir {{live}}/recommender -- output -raw $1; }
+    bucket="$(out artifact_bucket)" parameter="$(out artifact_version_parameter)"
+    cd ..
+    AWS_ENDPOINT_URL={{endpoint}} AWS_ACCESS_KEY_ID=test AWS_SECRET_ACCESS_KEY=test AWS_DEFAULT_REGION={{region}} \
+      {{recommender}} publish "$bundle" --bucket "$bucket" --parameter "$parameter"
+
+# Serve an already published bundle version on the local stack (rollback), e.g. `just recommender-activate 20261018T120000Z`
+recommender-activate version:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    out() { terragrunt run --non-interactive --log-level error --working-dir {{live}}/recommender -- output -raw $1; }
+    bucket="$(out artifact_bucket)" parameter="$(out artifact_version_parameter)"
+    cd ..
+    AWS_ENDPOINT_URL={{endpoint}} AWS_ACCESS_KEY_ID=test AWS_SECRET_ACCESS_KEY=test AWS_DEFAULT_REGION={{region}} \
+      {{recommender}} activate {{quote(version)}} --bucket "$bucket" --parameter "$parameter"
+
+# Follow the local worker's log (`just recommender-logs --since 1h` to print and exit)
+recommender-logs *args="--follow":
+    just aws logs tail /aws/lambda/rag-local-recommender {{args}}
 
 # --- Real AWS (needs the "Real AWS" part of infra/.env and `aws sso login`) ---
 
@@ -210,6 +277,25 @@ aws-outputs: _aws-check
 aws-destroy: _aws-check
     terragrunt run --all --non-interactive --working-dir {{aws_live}} -- destroy -auto-approve
 
+# Build a bundle (default: the full AniList library) and serve it on real AWS
+aws-recommender-publish which="full": _aws-check
+    #!/usr/bin/env bash
+    set -euo pipefail
+    bundle="$(just recommender-build {{which}} | tail -1)"
+    out() { terragrunt run --non-interactive --log-level error --working-dir {{aws_live}}/recommender -- output -raw $1; }
+    bucket="$(out artifact_bucket)" parameter="$(out artifact_version_parameter)"
+    cd ..
+    AWS_REGION={{aws_region}} {{recommender}} publish "$bundle" --bucket "$bucket" --parameter "$parameter"
+
+# Serve an already published bundle version on real AWS (rollback)
+aws-recommender-activate version: _aws-check
+    #!/usr/bin/env bash
+    set -euo pipefail
+    out() { terragrunt run --non-interactive --log-level error --working-dir {{aws_live}}/recommender -- output -raw $1; }
+    bucket="$(out artifact_bucket)" parameter="$(out artifact_version_parameter)"
+    cd ..
+    AWS_REGION={{aws_region}} {{recommender}} activate {{quote(version)}} --bucket "$bucket" --parameter "$parameter"
+
 # Draw docs/architecture.png from the services deployed to real AWS
 aws-diagram: _aws-check
     uv run --quiet --script scripts/diagram.py --live {{aws_live}} --out ../docs/architecture
@@ -257,17 +343,18 @@ codes *email: (flow "codes" email)
 # Register a user on the local stack, e.g. `just signup me@student.uu.se`
 signup email: (flow "signup" email)
 
-# Sign in and send a message through CloudFront, e.g. `just chat me@student.uu.se "hello"`
-chat email message:
-    @uv run --quiet --script scripts/local_flow.py chat {{quote(email)}} {{quote(message)}}
+# Ask the recommender through CloudFront and wait for the answer, e.g. `just chat me@student.uu.se "Recommend a mystery"` (add `--conversation <id>` to follow up)
+chat email message *args:
+    @uv run --quiet --script scripts/local_flow.py chat {{quote(email)}} {{quote(message)}} {{args}}
 
 # Print a snippet to paste in the browser console on the local page to sign in as email
 session email: (flow "session" email)
 
-# Start LocalStack, deploy, register email (once) and print how to chat, e.g. `just local-up me@student.uu.se`
-local-up email: up phoenix-up apply
+# Start LocalStack, deploy, publish the AniList catalog (`fixture` for the ten invented anime), register email (once) and print how to chat, e.g. `just local-up me@student.uu.se`
+local-up email catalog="full": up phoenix-up apply
     #!/usr/bin/env bash
     set -euo pipefail
+    just recommender-publish {{catalog}}
     just flow token {{quote(email)}} >/dev/null 2>&1 || just signup {{quote(email)}}
     just outputs
     echo

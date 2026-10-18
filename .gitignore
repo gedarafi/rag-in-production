@@ -78,3 +78,6 @@ data/raw/
 /notebook/*
 !/notebook/hard_facts_evaluation.ipynb
 !/notebook/recommendation_evaluation.ipynb
+
+# Local model files (infra/.ollama/)
+.ollama/

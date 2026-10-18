@@ -1,94 +1,70 @@
 # Anime Watching Companion
 
-A local anime assistant with a dedicated Gradio interface for setup and chat.
-Prepare the AniList dataset, SQL search, entity dictionaries, and embeddings from
-one screen, then ask about anime, characters, and recommendations. Its code is in
-[`src/recommender/`](src/recommender) and its tests in [`tests/recommender/`](tests/recommender).
+An anime recommender that answers from the AniList catalog: recommendations, titles, characters and
+their facts, grounded in catalog records instead of the model's memory. It runs on AWS behind the
+sign-in page: a question goes to an API that queues it, a worker answers it with a Bedrock model over
+a published catalog bundle, and the page shows the answer. Everything runs first on LocalStack, and
+every answer is a trace in Phoenix (Arize AX on AWS).
 
-The original multi-library GUI remains available. The previous README is preserved
-in [README.backup-2026-10-14.md](README.backup-2026-10-14.md), including its custom
-document, MultiDoc2Dial, VNDB, and CLI instructions.
-
-## Start the GUI
-
-Install Python 3.14 or newer, [uv](https://docs.astral.sh/uv/getting-started/installation/),
-and [Ollama](https://ollama.com/download). Start the Ollama application, or leave
-`ollama serve` running in another terminal.
-
-From the repository root, on Windows PowerShell, macOS, or Linux:
-
-```sh
-uv sync
-uv run python -m src.recommender.anilist_gui
+```text
+browser ─ CloudFront ─┬─ /       → S3 (web/)
+                      └─ /api/*  → API Gateway (Cognito JWT) → api Lambda (src/chat/handler.py)
+                                     POST /api/chat          → DynamoDB job + SQS message → 202 {job_id}
+                                     GET  /api/chat/{job_id} → status and answer (the page polls)
+SQS (+ dead-letter queue) → worker Lambda (container image, src/recommender/worker.py)
+                              ├─ catalog bundle from S3 (the version named in SSM), cached in /tmp
+                              ├─ MiniLM embeddings in ONNX Runtime, SQLite catalog, vector index
+                              ├─ Bedrock: Qwen3 32B on bedrock-mantle (AWS), a stand-in or Ollama (LocalStack)
+                              └─ answer and conversation turn → DynamoDB
 ```
 
-Open **http://127.0.0.1:7861**. If that port is busy, the app selects the next
-available port and prints the URL. After `uv sync`, the shorter entry point also works:
+The code is in [`src/recommender/`](src/recommender) and its tests in
+[`tests/recommender/`](tests/recommender); the deployment is described in [INFRA.md](INFRA.md) and the
+tests in [TESTING.md](TESTING.md). The README of the earlier local app (Gradio and Ollama) is kept in
+[README.backup-2026-10-14.md](README.backup-2026-10-14.md).
+
+## Try it locally
+
+Needs Docker, [just](https://just.systems/), [uv](https://docs.astral.sh/uv/), OpenTofu, Terragrunt,
+the AWS CLI and a LocalStack auth token (see [INFRA.md](INFRA.md#localstack-local-aws)). One command
+starts LocalStack and Phoenix, deploys the stack, publishes the AniList catalog and registers you:
 
 ```sh
-uv run anilist-gui
+just local-up me@student.uu.se
+just chat me@student.uu.se "What should I watch after Steins;Gate?"
+just chat me@student.uu.se "Something shorter?" --conversation <id printed above>
 ```
 
-The browser interface handles dataset and model downloads. You do not need to run
-the prepare or ingest CLI commands first. Python dependencies and the Ollama
-application itself must be installed before launching the interface.
+LocalStack's Bedrock answers with Llama 3.2 3B, on the GPU once Docker can use it (see
+[TESTING.md](TESTING.md#try-the-recommender-locally-and-see-its-traces)), otherwise on CPU in minutes.
+CI uses a deterministic stand-in model instead (`RAG_LOCAL_MODEL_API=stub`). To try a stronger
+model, ask in-process with any Bedrock model:
 
-## Prepare the library
+```sh
+just recommender-build full          # the full AniList catalog (downloads it on first use)
+MODEL_API=openai MODEL_ID=qwen.qwen3-32b AWS_PROFILE=... AWS_REGION=us-east-2 \
+  TRACING_ENDPOINT=http://localhost:6006/v1/traces uv run recommender ask "What should I watch after Steins;Gate?" --kb anilist
+```
 
-Click **Set up / resume**. The setup panel shows each stage and its elapsed time;
-long downloads and embedding batches also report progress.
+## Build and release the catalog
 
-| Stage | What it does |
-| --- | --- |
-| Generation model | Checks the configured Ollama server and downloads the configured chat model if it is missing. |
-| Dataset download | Reuses prepared data or a local raw dataset, otherwise downloads the AniList snapshot. |
-| Prepare anime documents | Converts the CSV or ZIP into anime Markdown documents and a structured JSONL catalog. |
-| SQL catalog and dictionaries | Builds or updates SQLite tables, full-text search, anime/character dictionaries, aliases, and genre/tag dictionaries. |
-| Document embeddings | Loads the configured Sentence Transformers model, downloads it if needed, and builds the vector index. Reuses cached chunk embeddings. |
-| Routing and feature embeddings | Prepares semantic tool guides and genre/tag embeddings used for routing and preference matching. |
-| Verify workspace | Checks that the catalog and dictionaries contain data, validates vector shape and values, and checks that the chat model responds. |
+The worker reads a versioned bundle: the SQLite catalog, the documents, the vector index and the
+tool and feature embeddings, with `recommender.toml` and `prompts/`. `recommender build` prepares them
+(download or local CSV/ZIP, documents, SQL catalog and dictionaries, embeddings, verification) and
+writes `build/recommender/<version>/` with a manifest of every file's SHA-256. Unchanged chunks reuse
+their cached embeddings, so a rebuild after a small change is quick.
 
-Chat becomes available after verification succeeds. Setup writes a readiness
-manifest so a later launch can recognize the same prepared assets and settings.
-It does not download the full dataset or rebuild a verified index on every launch.
-The Ollama server must still be running when you chat.
+```sh
+just recommender-build fixture       # ten invented anime, seconds
+just recommender-build full          # AniList (data/raw/anilist_anime_data_complete.csv, else download)
+just recommender-publish full        # upload to the local stack and serve it
+just aws-recommender-publish         # the same on AWS
+just aws-recommender-activate 20261018T120000Z   # serve an older version again (rollback)
+```
 
-The dataset is a snapshot from
-[calebmwelsh/anilist-anime-dataset on Kaggle](https://www.kaggle.com/datasets/calebmwelsh/anilist-anime-dataset),
-not a live connection to your AniList account. Its release date, completeness,
-and source descriptions determine which questions the assistant can answer.
-
-### Use a local CSV or ZIP
-
-Under **Setup options**, select **Optional local AniList CSV or ZIP**, then click
-**Set up / resume**. The archive must contain `anilist_anime_data_complete.csv`
-or exactly one CSV. The app reads CSV data; it does not execute scripts or load
-pickles included in an archive.
-
-The selected source is copied into the managed raw-data directory for retries and
-tag-description lookup. Your original upload is preserved. Choosing a new source
-prepares that dataset and rebuilds the indexes with available embedding caches.
-
-If no upload is selected, setup looks for the raw dataset under `data/raw/` and
-then the older `data-raw/` location. An existing prepared library can also be used
-without downloading another raw copy.
-
-### Resume or rebuild
-
-If a stage fails, its error appears in the setup panel and terminal. Correct the
-problem and click **Set up / resume** again. Setup reruns its checks and reuses
-available downloads, prepared data, and committed embedding-cache batches. A failed
-or interrupted setup does not leave a valid ready marker.
-
-Select **Rebuild prepared data and indexes** when you want to regenerate the
-prepared library from the retained raw source. This reuses the source rather than
-fetching a newer release, and reuses unchanged embeddings when caching is enabled.
-To import a different snapshot, select its CSV or ZIP explicitly.
-
-Starting setup clears the current browser chat. Setup and chat requests run one
-at a time to avoid modifying indexes during a query.
-
-## Chat with the library
+Publishing uploads the bundle, then points the SSM parameter `/<prefix>/recommender/artifact-version`
+at it. Workers check the parameter every five minutes and download the new version into `/tmp`,
+verifying its checksum, so a release needs no redeploy.
 
 Try:
 
@@ -101,37 +77,9 @@ Recommend three comedy anime.
 ```
 
 Recommendations default to five titles unless you request another count, subject
-to available evidence. Cast answers include brief descriptions when biographies
-are present. Missing information should be identified rather than invented.
-
-Short follow-ups can use conversation history. Complete recommendation requests
-without backward references start a fresh search; requests such as "sad anime
-like that" retain their reference subject. **New chat** clears the visible history.
-
-Answers use local source data, not live web searches. Small local models can still
-make mistakes in interpretation, mood/tag selection, or wording; the debug view
-shows what they selected and retrieved.
-
-## Sample screenshots
-
-These examples show AniList queries in the original chat interface. Browse all
-images in [sample_screenshots/](sample_screenshots/).
-
-### Recommendations after a reference anime
-
-![Recommendations after Steins;Gate in the original chat interface](sample_screenshots/Screenshot%202026-10-14%20190555.png)
-
-### A new recommendation request
-
-![A standalone request for sad anime recommendations](sample_screenshots/Screenshot%202026-10-14%20190605.png)
-
-### Synopsis followed by a character question
-
-![An Umineko synopsis followed by a question about its characters](sample_screenshots/Screenshot%202026-10-14%20191953.png)
-
-![Umineko characters listed with brief descriptions of who they are](sample_screenshots/Screenshot%202026-10-14%20192003.png)
-
-### 
+to available evidence. Short follow-ups use the conversation's earlier turns; complete
+recommendation requests without backward references start a fresh search; **New conversation** on
+the page starts over.
 
 ## How queries flow
 
@@ -295,69 +243,45 @@ The implementation follows [anilist_setup.py](src/recommender/anilist_setup.py),
 [rag.py](src/recommender/rag.py), [entity_agent.py](src/recommender/entity_agent.py), and
 [tool_plan.py](src/recommender/tool_plan.py). The separate `SemanticRouter` in
 `src/recommender/semantic_router.py` belongs to the retained legacy retrieval backend; it is
-not an extra routing-model call in this AniList path. Stage timings and tool
-results stream to the terminal as this flow progresses.
+not an extra routing-model call in this AniList path. Each stage, tool call, model call and
+retrieval is a span of the question's trace (see below).
 
-## Debug output
+## Debugging with traces
 
-Keep the launching terminal open. Diagnostics print immediately as stages start
-and finish, including the validated plan, individual tool arguments/results,
-failures, and elapsed seconds. The final terminal message gives a request summary.
+There is no debug output: every question is one trace, sent to Phoenix locally (`just phoenix-up`,
+http://localhost:6006) and to Arize AX on AWS. The error the page shows carries the trace ID
+("reference …"), and `recommender ask` prints it. A trace holds:
 
-Expand **Processing debug** in the GUI to inspect the latest full request snapshot:
+| Span | Kind | What it shows |
+| --- | --- | --- |
+| `api.ask` | chain | the question, user and conversation (`session.id`, which groups a conversation in Phoenix's Sessions view) |
+| `recommender.job` | chain | the worker's attempt, bundle version and answer; failures with their exception |
+| `download_artifacts`, `warm_recommender` | chain | a cold start: bundle size and download time |
+| `EntityAgent.answer` | agent | events `history_selection`, `scope_decision`, `plan_ready` (with the plan and selected context) and the usage summary (`recommender.*`) |
+| `interpret_request`, `planning`, `generate_answer`, … | chain | each stage of the pipeline, with its duration |
+| `classify_mentions`, `plan_tools`, `agent_reply`, … | LLM | the messages, the reply, the model and token counts; `schema_validation_failed` events when a reply needed correcting |
+| `recommend_anime`, `get_anime`, … | tool | the tool's arguments and a summary of its result |
+| `vector_search`, `embed_query` | retriever, embedding | the retrieved chunks with their scores |
 
-- `history_policy` and `use_previous_context`: how previous conversation was handled.
-- `router_plan` and `selected_context`: planned work and selected entities.
-- `scope`: `in_domain`, `out_of_domain`, or `uncertain`; `response_path` is
-  `planner_direct_response` when the planner's reply skips tools and generation.
-- `agent_trace`: executed tools, result summaries, and each tool's elapsed time.
-- `timings_seconds`: context preparation, guide/feature lookup, planning, tools, and answer generation.
-- `llm_calls`, `planned_tools`, `executed_tools`, and total `elapsed_seconds`.
-
-The normal entity-agent path uses one planning call and one answer call. Identity
-validation can request an additional correction. Setup also makes a small model
-request during verification.
+The evaluations capture the same spans in-process and save their summary in each checkpoint
+(`debug_events`).
 
 ## Configuration
 
-The app reads `settings.toml`. It always selects AniList explicitly, without
-changing `[knowledge_base] default` for the original GUI or CLI. Model and device
-choices come from this file; restart the app after changing them.
+`recommender.toml` holds the catalog paths, chunking, retrieval and generation settings; it goes into
+every bundle. The model and tracing come from the environment, as in the Lambdas:
 
-```toml
-[models]
-provider = "ollama"
-llm = "llama3.2:3b"
-embedding = "sentence-transformers/all-MiniLM-L6-v2"
-embedding_device = "auto"
-embedding_batch_size = 64
-embedding_cache = true
-embedding_cache_version = "1"
-ollama_url = "http://localhost:11434"
+| Variable | Meaning |
+| --- | --- |
+| `MODEL_API` | `openai` (Chat Completions on bedrock-mantle), `converse` (bedrock-runtime, also LocalStack) or `stub` |
+| `MODEL_ID` | e.g. `qwen.qwen3-32b`, `us.amazon.nova-micro-v1:0`, `ollama.llama3.2:3b` (LocalStack) |
+| `MODEL_TIMEOUT_SECONDS` | per model call (default 60) |
+| `BEDROCK_ENDPOINT_URL` | Converse endpoint for the CLI, e.g. `http://localhost:4566` for LocalStack |
+| `TRACING_ENDPOINT`, `TRACING_PROJECT` | OTLP endpoint (Phoenix or Arize) and project; empty turns tracing off |
+| `EMBEDDING_MODEL_DIR` | where the pinned ONNX MiniLM lives (downloaded on first use; baked into the image) |
 
-[generation]
-context_window = 8192
-temperature = 0.2
-max_tokens = 700
-```
-
-Keep the other existing sections in your TOML file. `auto` prefers CUDA, then MPS,
-then CPU when available. Lower `embedding_batch_size` if GPU memory is insufficient.
-Windows dependencies use the configured CUDA 12.8 PyTorch index; other platforms
-use the platform-compatible PyTorch distribution. CPU mode remains available.
-
-`RAG_LLM_MODEL`, `RAG_EMBEDDING_MODEL`, and `RAG_OLLAMA_URL` override the corresponding
-model settings. Changes to the model, chunking, or index artifacts invalidate the
-saved readiness signature; run setup again to verify or rebuild the affected assets.
-
-Launch options:
-
-```sh
-uv run python -m src.recommender.anilist_gui --config settings.toml --host 127.0.0.1 --port 7861
-```
-
-The default server is local. The optional `--share` flag requests a public Gradio
-share URL; omit it for normal local use.
+Structured steps validate the model's JSON against their schema and ask once more with the
+validation error, because LocalStack and several Bedrock models don't enforce schemas themselves.
 
 ## Generated files
 
@@ -368,52 +292,9 @@ share URL; omit it for normal local use.
 | `data/documents/anilist/catalog.jsonl` | Structured source catalog. |
 | `data/documents/anilist/catalog.sqlite3` | SQL catalog, characters, relationships, dictionaries, and full-text passages. |
 | `data/index/anilist/chunks.json` and `vectors.npy` | Passage metadata and vector index. |
-| `data/index/anilist/embeddings.sqlite3` | Reusable chunk-embedding cache. |
-| `data/index/anilist/entity-tools.sqlite3` | Tool-guide embedding cache. |
-| `data/index/anilist/entity-features.sqlite3` | Genre/tag embedding cache. |
-| `data/index/anilist/setup.json` | Successful-setup readiness signature. |
-
-Embedding-model files use the normal Hugging Face/Sentence Transformers cache;
-generation-model files are managed by Ollama. SQL and vectors serve different
-purposes: catalog tools answer structured questions, while lexical and semantic
-retrieval provide additional descriptive evidence.
-
-## Troubleshooting
-
-| Problem | Action |
-| --- | --- |
-| Cannot connect to Ollama | Start the Ollama app or `ollama serve`; check `ollama_url`; retry setup. |
-| Dataset download fails or requires access | Obtain the dataset from its Kaggle page, select the CSV/ZIP in Setup options, and retry. |
-| Model download fails | Check the configured model name, Ollama availability, connection, and disk space. Retry setup. |
-| Embedding download fails | Allow the configured model to download from Hugging Face, or provide it in the local model cache, then retry. |
-| GPU out of memory | Lower the embedding batch size or use `embedding_device = "cpu"`, restart, and resume setup. |
-| Index verification fails | Select rebuild and rerun setup. Cached embeddings can be reused. |
-| Chat is disabled | Complete setup successfully; inspect the failed stage if one is shown. |
-| Existing data but no ready marker | Run setup once to check SQL, build missing caches, and verify the library. |
-
-First setup can take time and needs disk space for both model files and the full
-dataset/index. Progress reflects real downloads and batches; the app does not
-estimate a fixed completion time.
-
-## Existing GUI and CLI
-
-The original GUI is preserved at its original entry point and default port:
-
-```sh
-uv run python -m src.local.gui
-```
-
-The existing AniList CLI remains available:
-
-```sh
-uv run recommender prepare-anilist
-uv run recommender ingest --kb anilist
-uv run recommender ask "What should I watch after Steins;Gate?" --kb anilist --debug
-uv run recommender tool popular --kb anilist --limit 5
-```
-
-See the [backed-up README](README.backup-2026-10-14.md) for the original multi-library
-workflows and dataset-specific commands.
+| `data/index/anilist/embeddings.sqlite3` | Reusable chunk-embedding cache (not bundled). |
+| `data/index/anilist/entity-tools.sqlite3`, `entity-features.sqlite3` | Tool-guide and genre/tag embeddings. |
+| `build/recommender/<version>/` | Release bundles: `bundle.tar.zst` and `manifest.json`. |
 
 ## Factual RAG evaluation
 
@@ -425,8 +306,9 @@ CLI dataset across six titles and seven fields is also provided:
 uv run python -m src.recommender.factual_evaluation --output data/evaluation/factual/results/my_run
 ```
 
-Add `--limit 3` for a smoke test. Each final response is independently extracted
-through Ollama without exposing expected values to the extractor, then scored by
+Add `--limit 3` for a smoke test. Set `MODEL_API`, `MODEL_ID` (and `BEDROCK_ENDPOINT_URL` for
+LocalStack) first: the pipeline and the extractor use that Bedrock model. Each final response is
+independently extracted without exposing expected values to the extractor, then scored by
 code. Identical runs resume saved checkpoints. Review extraction evidence before
 interpreting scores. See [sample data and usage](data/evaluation/factual/README.md).
 
@@ -453,7 +335,7 @@ answers. See [dataset and metric details](data/evaluation/recommendations/README
 Git includes source code, tests, notebooks with their saved outputs, and small
 authored evaluation inputs. Downloaded corpora, prepared documents, indexes,
 catalog-reference exports, logs, separate model responses, and exported charts stay local. Run the normal
-knowledge-base setup to prepare application data. Recommendation evaluation also
+`just recommender-build full` to prepare application data. Recommendation evaluation also
 requires `python scripts/build_recommendation_benchmark.py` after AniList setup;
 that command intentionally refreshes the local snapshot labels and manifest.
 
@@ -462,8 +344,8 @@ catalogs, databases, raw data, indexes, or saved runs. Install dependencies with
 `uv sync --extra evaluation`; dataset coverage then works from the checked-in inputs.
 Saved outputs contain full real-model evaluations. No smoke or synthetic result is
 substituted when local references/results are missing.
-Live inference requires Ollama and the normal AniList app setup, which recreates
-the excluded runtime assets rather than depending on copies from this machine.
+Live inference requires a Bedrock model (`MODEL_API`, `MODEL_ID`) and `just recommender-build full`,
+which recreates the excluded runtime assets rather than depending on copies from this machine.
 
 To verify the source-only distribution and execute both notebooks in real kernels:
 
@@ -472,9 +354,7 @@ uv run python scripts/verify_offline_notebooks.py --source-only --tests
 ```
 
 Verification writes separate copies under the ignored `data/notebook-output-backups/`
-directory and leaves the published notebook outputs unchanged. Local diagnostic
-replay tools capture a fresh baseline when old captures are absent; these live
-diagnostics require the same model/setup as chat.
+directory and leaves the published notebook outputs unchanged.
 
 Run the recommender tests with:
 
@@ -482,12 +362,9 @@ Run the recommender tests with:
 just test-recommender
 ```
 
-The chat Lambda tests, LocalStack and the OpenTofu module tests are described in
-[TESTING.md](TESTING.md). To try the chat on LocalStack, see
-[Try the chat locally](TESTING.md#try-the-chat-locally-and-see-its-traces).
-
-Setup tests use a tiny local dataset and stub model/network responses; they do not
-download the full dataset or model weights.
+They need neither AWS nor a model: the Bedrock calls go to a scripted transport, and the build
+tests use a tiny local dataset. The Lambda, LocalStack and OpenTofu module tests are described in
+[TESTING.md](TESTING.md).
 
 ### Team rules
 
@@ -504,8 +381,10 @@ download the full dataset or model weights.
   install it when you first trust the repository. To install it manually, run
   `/plugin install aws-core@claude-plugins-official`, then `/reload-plugins`.
 
-## Tracing with Phoenix
+## Tracing the local RAG with Phoenix
 
+The recommender's traces are described in [Debugging with traces](#debugging-with-traces). The separate
+local RAG over your own documents ([`src/local/`](src/local), `uv run rag`) is traced too:
 [Arize Phoenix](https://phoenix.arize.com/) shows a trace of every `ingest` and question: the
 retrieved chunks, the prompt sent to Ollama, and the answer.
 It runs in Docker next to LocalStack, so the compose file still needs `LOCALSTACK_AUTH_TOKEN` in

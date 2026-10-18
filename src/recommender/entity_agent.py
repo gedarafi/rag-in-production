@@ -19,27 +19,26 @@ from .feature_dictionary import feature_definitions
 from .sqlite_catalog import STOP
 from .request_resolution import interpret as interpret_catalog_request
 from .request_constraints import merge_planner_attributes
+from ..tracing import annotate, close_span, event, fail, open_span, stage, tracer
 
 
 @contextmanager
-def timed_stage(timings, name, debug=None):
-    if debug:
-        debug({'stage': name, 'status': 'running'})
+def timed_stage(timings, name):
+    """One pipeline stage: a child span in the trace, and its duration in timings."""
     started = perf_counter()
-    failure = None
     try:
-        yield
-    except Exception as error:
-        failure = str(error)
-        raise
+        with stage(name) as span:
+            yield span
     finally:
         timings[name] = round(perf_counter() - started, 6)
-        if debug:
-            event = {'stage': name, 'status': 'error' if failure is not None else 'completed',
-                     'elapsed_seconds': timings[name]}
-            if failure is not None:
-                event['error'] = failure
-            debug(event)
+
+
+def annotate_tool(span, arguments, summary, cached):
+    """A tool span's input and output, as Phoenix shows them."""
+    span.set_attributes({'input.value': json.dumps(arguments, ensure_ascii=False, default=str),
+                         'input.mime_type': 'application/json',
+                         'output.value': json.dumps(summary, ensure_ascii=False, default=str),
+                         'output.mime_type': 'application/json', 'recommender.cached': cached})
 
 
 def independent_recommendation(question):
@@ -735,8 +734,16 @@ class EntityAgent:
                 state['loaded_character_ids'].append(cid)
         return snapshot, state, evidence, current
 
-    def answer(self, question, history, *, debug=None):
+    @tracer.agent
+    def answer(self, question, history):
         """One plan; unrelated requests reply directly, library requests use tools."""
+        try:
+            return self._answer(question, history)
+        finally:
+            # The decisions behind the answer, for reading the trace.
+            annotate(**{'recommender.' + key: value for key, value in getattr(self, 'last_usage', {}).items()})
+
+    def _answer(self, question, history):
         original_history = history
         timings = {}
         self.last_trace, self.last_usage = [], {'llm_calls': 0, 'planned_tools': 0, 'executed_tools': 0,
@@ -745,19 +752,25 @@ class EntityAgent:
         request = None
         interpreter = getattr(self.models, 'interpret_request', None)
         if callable(interpreter):
-            with timed_stage(timings, 'interpret_request', debug):
+            with timed_stage(timings, 'interpret_request') as span:
                 self.store.ensure_dictionary()
-                request = interpret_catalog_request(self, question, history)
-                self.last_usage['request_constraints'] = request
+                try:
+                    request = interpret_catalog_request(self, question, history)
+                    self.last_usage['request_constraints'] = request
+                except ValueError as error:
+                    # The model couldn't produce a valid interpretation even after corrections.
+                    # The planner works without one (as for models with no interpreter), so a
+                    # question is never lost to this optional step.
+                    fail(span, error)
+                    event('interpretation_failed', error=str(error))
+                    self.last_usage['interpretation_error'] = str(error)
         independent = (request['intent'] == 'recommendation' and not request['use_previous_context']
                        if request else independent_recommendation(question))
         if independent:
             history = []
             self.last_usage['history_policy'] = 'independent_recommendation'
-        if debug:
-            debug({'stage': 'history_selection', 'status': 'completed',
-                   'policy': self.last_usage['history_policy'], 'messages_selected': len(history)})
-        with timed_stage(timings, 'prepare_context', debug):
+        event('history_selection', policy=self.last_usage['history_policy'], messages_selected=len(history))
+        with timed_stage(timings, 'prepare_context'):
             snapshot, state, evidence, current = self.prepare(question, history, request)
         clarification = ((request or {}).get('entity_resolution') or {}).get('clarification', '').strip()
         if clarification:
@@ -765,9 +778,9 @@ class EntityAgent:
             return self.remember(snapshot, original_history, question, clarification, state, [])
         state['request_question'] = question
         state['recommendation_query'] = question if independent else ''
-        with timed_stage(timings, 'retrieve_guides', debug):
+        with timed_stage(timings, 'retrieve_guides'):
             retrieved = self.guides(question)
-        with timed_stage(timings, 'feature_candidates', debug):
+        with timed_stage(timings, 'feature_candidates'):
             state['semantic_feature_candidates'] = self.feature_candidates(question)
         for item in state['semantic_feature_candidates']:
             self.register(item, state)
@@ -788,7 +801,7 @@ class EntityAgent:
         final_history = []
         try:
             self.last_usage['llm_calls'] += 1
-            with timed_stage(timings, 'planning', debug):
+            with timed_stage(timings, 'planning'):
                 raw_plan = self.models.plan_tools(self.plan_prompt(question, history, state, current, evidence, retrieved), schema)
             self.last_usage['router_output'] = raw_plan
             plan = validate_plan(raw_plan, schema)
@@ -825,8 +838,7 @@ class EntityAgent:
                                              or plan['steps'] or not direct_response):
                 scope = 'uncertain'
             self.last_usage['scope'] = scope
-            if debug:
-                debug({'stage': 'scope_decision', 'status': 'completed', 'scope': scope})
+            event('scope_decision', scope=scope)
             if scope == 'out_of_domain':
                 self.last_usage['use_previous_context'] = False
                 self.last_usage['selected_context'] = {'anime': [], 'characters': []}
@@ -854,16 +866,12 @@ class EntityAgent:
             state['clarification_needed'] = plan['clarification']
             self.last_usage['planned_tools'] = len(plan['steps'])
             steps, order = compile_steps(plan['steps'])
-            if debug:
-                debug({'stage': 'plan_ready', 'status': 'completed', 'router_plan': plan,
-                       'selected_context': self.last_usage['selected_context']})
+            event('plan_ready', router_plan=plan, selected_context=self.last_usage['selected_context'])
             results = [None] * len(steps)
             for index in order:
                 step = steps[index]
-                if debug:
-                    debug({'stage': 'tool', 'status': 'running', 'step': index,
-                           'tool': step['tool'], 'arguments': step['arguments']})
                 tool_started = perf_counter()
+                span, token = open_span(step['tool'], 'tool', **{'tool.name': step['tool'], 'recommender.step': index})
                 try:
                     args = resolve_references(step['arguments'], results)
                     signature = json.dumps([step['tool'], args], sort_keys=True)
@@ -884,6 +892,7 @@ class EntityAgent:
                                             for r in result['items']]
                     trace.append({'step': index, 'tool': step['tool'], 'arguments': args, 'cached': cached,
                                   'result': summary})
+                    annotate_tool(span, args, summary, cached)
                     if (step['tool'] in ('recommend_anime', 'popular') and not args.get('seed_anime_ids')
                             and not any(s['tool'] in ('get_anime', 'get_character', 'recommend_by_character',
                                                       'search_passages') for s in steps)):
@@ -903,16 +912,13 @@ class EntityAgent:
                     results[index] = failure
                     state['execution_issues'].append(failure)
                     trace.append(failure)
+                    fail(span, error)
                 finally:
                     elapsed = round(perf_counter() - tool_started, 6)
                     timings['tools'] = round(timings.get('tools', 0) + elapsed, 6)
                     if trace and trace[-1].get('step') == index:
                         trace[-1]['elapsed_seconds'] = elapsed
-                    if debug:
-                        entry = trace[-1] if trace and trace[-1].get('step') == index else {}
-                        debug({'stage': 'tool', 'step': index, 'tool': step['tool'],
-                               'status': 'error' if not entry or entry.get('status') == 'error' else 'completed',
-                               'elapsed_seconds': elapsed, **entry})
+                    close_span(span, token)
         except (ValueError, KeyError, TypeError, IndexError) as error:
             if 'use_previous_context' not in state:
                 for key, value in state['current_only'].items():
@@ -921,9 +927,8 @@ class EntityAgent:
                 evidence = [item for item in evidence if item.get('context_origin') != 'previous']
             state['execution_issues'].append({'status': 'invalid_plan', 'error': str(error)})
             trace.append({'validation_error': str(error)})
-            if debug:
-                debug({'stage': 'plan_validation', 'status': 'error', 'error': str(error)})
-        with timed_stage(timings, 'generate_answer', debug):
+            event('plan_validation_failed', error=str(error))
+        with timed_stage(timings, 'generate_answer'):
             text = self.finish(question, final_history, state, current, evidence, retrieved)
         return self.remember(snapshot, original_history, question, text, state, trace)
 

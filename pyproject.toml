@@ -16,14 +16,17 @@ dependencies = [
     "python-docx>=1.1",
     "requests>=2.32",
     "sentence-transformers>=3.0",
-    "torch>=2.10",
     "typer>=0.27",
+    # The anime recommender's CLI (src/recommender); its worker image installs the recommender group.
+    "boto3>=1.40",
+    "jsonschema>=4.26",
+    "onnxruntime>=1.23",
+    "tokenizers>=0.22",
 ]
 
 [project.scripts]
 rag = "src.local.cli:main"
 recommender = "src.recommender.cli:main"
-anilist-gui = "src.recommender.anilist_gui:main"
 
 [project.optional-dependencies]
 evaluation = [
@@ -41,19 +44,22 @@ build-backend = "uv_build"
 module-name = "src"
 module-root = ""
 
-[[tool.uv.index]]
-name = "pytorch-cu128"
-url = "https://download.pytorch.org/whl/cu128"
-explicit = true
-
-[tool.uv.sources]
-torch = [{ index = "pytorch-cu128", marker = "sys_platform == 'win32'" }]
-
 [dependency-groups]
 # Bundled into the chat Lambda's zip by infra/scripts/build_chat_lambda.sh (boto3 comes with the runtime).
 chat = [
     "openinference-instrumentation==0.1.71",
     "opentelemetry-exporter-otlp-proto-http==1.45.1",
+]
+# Installed into the recommender worker's container image (infra/docker/recommender.Dockerfile).
+recommender = [
+    "boto3>=1.40",
+    "jsonschema>=4.26",
+    "numpy>=1.26",
+    "onnxruntime>=1.23",
+    "openinference-instrumentation==0.1.71",
+    "opentelemetry-exporter-otlp-proto-http==1.45.1",
+    "requests>=2.32",
+    "tokenizers>=0.22",
 ]
 test = [
     "pytest>=9.1.1",

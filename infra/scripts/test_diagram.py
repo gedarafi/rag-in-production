@@ -1,5 +1,7 @@
 """Tests for diagram.build: which services and arrows a deployed state turns into (no rendering)."""
 
+import json
+
 import pytest
 
 from diagram import BEDROCK, USERS, build
@@ -100,3 +102,31 @@ def test_hides_the_account_id(graph):
 def test_nothing_deployed_draws_nothing():
     graph = build({"auth": {"values": {}}})
     assert (graph.nodes, graph.edges) == ({}, {})
+
+
+def test_the_worker_path():
+    queue_url = f"https://sqs.eu-north-1.amazonaws.com/{ACCOUNT}/rag-recommender-jobs"
+    queue_arn = f"arn:aws:sqs:eu-north-1:{ACCOUNT}:rag-recommender-jobs"
+    dlq_arn = f"arn:aws:sqs:eu-north-1:{ACCOUNT}:rag-recommender-dlq"
+    worker_arn = f"arn:aws:lambda:eu-north-1:{ACCOUNT}:function:rag-recommender"
+    units = {
+        "chat-api": state(resource("aws_lambda_function", "chat", id="rag-chat", arn=CHAT_ARN, function_name="rag-chat",
+                                   environment=[{"variables": {"QUEUE_URL": queue_url, "JOBS_TABLE": "rag-chat-jobs"}}])),
+        "recommender": state(
+            resource("aws_sqs_queue", "jobs", id=queue_url, arn=queue_arn, name="rag-recommender-jobs",
+                     redrive_policy=json.dumps({"deadLetterTargetArn": dlq_arn})),
+            resource("aws_sqs_queue", "dead_letters", id=dlq_arn.replace("arn:aws:sqs:eu-north-1:", "q-"), arn=dlq_arn,
+                     name="rag-recommender-dlq"),
+            resource("aws_dynamodb_table", "jobs", id="rag-chat-jobs", arn=f"arn:aws:dynamodb:eu-north-1:{ACCOUNT}:table/rag-chat-jobs",
+                     name="rag-chat-jobs"),
+            resource("aws_lambda_function", "worker", id="rag-recommender", arn=worker_arn, function_name="rag-recommender",
+                     environment=[{"variables": {"JOBS_TABLE": "rag-chat-jobs", "MODEL_ID": "stub", "MODEL_API": "stub"}}]),
+            resource("aws_lambda_event_source_mapping", "jobs", id="esm1", event_source_arn=queue_arn, function_name=worker_arn),
+        ),
+    }
+    graph = build(units, ACCOUNT)
+    assert edge(graph, "chat-api/aws_lambda_function.chat", "recommender/aws_sqs_queue.jobs") == "queues questions"
+    assert edge(graph, "recommender/aws_sqs_queue.jobs", "recommender/aws_lambda_function.worker") == "triggers"
+    assert edge(graph, "recommender/aws_sqs_queue.jobs", "recommender/aws_sqs_queue.dead_letters") == "dead letters"
+    assert edge(graph, "recommender/aws_lambda_function.worker", "recommender/aws_dynamodb_table.jobs") == "jobs, turns"
+    assert BEDROCK not in graph.nodes  # the stand-in calls no model

@@ -3,8 +3,6 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
-from docx import Document
-from pypdf import PdfReader
 from .progress import Progress
 from .anime_tools import AnimeTools
 
@@ -23,8 +21,10 @@ def read_document(path: Path) -> str:
     if suffix in {".txt", ".md"}:
         return path.read_text(encoding="utf-8")
     if suffix == ".pdf":
+        from pypdf import PdfReader
         return "\n".join(page.extract_text() or "" for page in PdfReader(path).pages)
     if suffix == ".docx":
+        from docx import Document
         return "\n".join(paragraph.text for paragraph in Document(path).paragraphs)
     raise ValueError(f"Unsupported document type: {path.suffix}")
 

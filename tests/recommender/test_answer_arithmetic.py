@@ -1,10 +1,9 @@
 import json
 import unittest
 from decimal import Decimal
-from unittest.mock import Mock, patch
 
 from src.recommender.answer_arithmetic import evaluate_quantity, render_quantities
-from src.recommender.providers import LocalModels
+from tests.recommender.bedrock_stub import scripted_models
 
 
 class AnswerArithmeticTests(unittest.TestCase):
@@ -43,15 +42,10 @@ class AnswerArithmeticTests(unittest.TestCase):
 
 
 class GroundedReplyTests(unittest.TestCase):
-    def setUp(self):
-        self.models = LocalModels('unused', 'http://example.test', 'test')
-
     def call_reply(self, result, subjects, measurements=None):
-        response = Mock()
-        response.json.return_value = {'message': {'content': json.dumps(result)}}
-        with patch('src.recommender.providers.requests.post', return_value=response) as post:
-            answer = self.models.agent_fact_reply('Source data', .5, 500, subjects, measurements)
-        return answer, post.call_args.kwargs['json']
+        self.models, transport = scripted_models(json.dumps(result))
+        answer = self.models.agent_fact_reply('Source data', .5, 500, subjects, measurements)
+        return answer, transport.calls[-1]
 
     def test_only_prose_is_displayed_and_calculation_is_evaluated(self):
         result = {'kind': 'quantities', 'supporting_facts': [{'subject': 'item:a', 'fact': '10 items'},
@@ -60,7 +54,8 @@ class GroundedReplyTests(unittest.TestCase):
         answer, request = self.call_reply(result, ['item:a', 'item:b'], {
             'q0': {'value': 10, 'units': {'item': 1}}, 'q1': {'value': 20, 'units': {'item': 1}}})
         self.assertEqual(answer, 'Combined count: 30 item.')
-        self.assertIn('format', request)
+        self.assertIsNotNone(request['schema'])
+        self.assertIn('JSON Schema', request['system'])
         self.assertEqual(self.models.last_fact_grounding['calculations'][0]['value'], '30')
 
     def test_missing_subject_or_invented_evidence_is_rejected(self):

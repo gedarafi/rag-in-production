@@ -197,6 +197,7 @@ async function resendCode() {
 async function signOut() {
   const s = loadSession();
   clearSession();
+  newConversation();
   if (s?.refreshToken) {
     // Revokes the refresh token and the tokens issued from it.
     await cognito("RevokeToken", { Token: s.refreshToken }).catch(() => {});
@@ -206,16 +207,44 @@ async function signOut() {
 
 // ---------- Chat ----------
 
-async function sendMessage(text) {
+// The recommender answers asynchronously: POST queues the question, GET polls its job until the worker
+// is done. A conversation ID keeps follow-ups in context; it lives in sessionStorage until "New conversation".
+const POLL_MS = 1000;
+// A cold start downloads the catalog bundle; a local model on CPU takes minutes per answer.
+const ANSWER_TIMEOUT_MS = 600000;
+const CONVERSATION_KEY = "rag.conversation";
+
+let memoryConversation = null;
+
+function conversationId() {
+  try { return sessionStorage.getItem(CONVERSATION_KEY); } catch { return memoryConversation; }
+}
+
+function rememberConversation(id) {
+  memoryConversation = id;
+  try {
+    if (id) sessionStorage.setItem(CONVERSATION_KEY, id);
+    else sessionStorage.removeItem(CONVERSATION_KEY);
+  } catch { /* storage blocked */ }
+}
+
+function newConversation() {
+  rememberConversation(null);
+  $("messages").replaceChildren();
+  $("chat-error").textContent = "";
+  $("message").focus();
+}
+
+async function api(method, path, body) {
   const token = await validAccessToken();
   if (!token) {
     show("email");
     throw new Error("Your session has ended. Sign in again.");
   }
-  const res = await fetch(`${cfg.apiBase}/api/chat`, {
-    method: "POST",
+  const res = await fetch(`${cfg.apiBase}${path}`, {
+    method,
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-    body: JSON.stringify({ message: text }),
+    body: body === undefined ? undefined : JSON.stringify(body),
   });
   const data = await res.json().catch(() => ({}));
   if (res.status === 401) {
@@ -225,13 +254,32 @@ async function sendMessage(text) {
   }
   if (res.status === 429) throw new Error("The assistant is busy. Try again in a moment.");
   if (!res.ok) throw new Error(data.error || "The assistant couldn't answer. Try again.");
-  return data.answer;
+  return data;
+}
+
+// The trace ID names the question's trace in Phoenix or Arize, for reporting a problem.
+function failure(message, traceId) {
+  return new Error(traceId ? `${message} (reference ${traceId.slice(0, 12)})` : message);
+}
+
+async function sendMessage(text) {
+  const conversation = conversationId();
+  const job = await api("POST", "/api/chat", conversation ? { message: text, conversation_id: conversation } : { message: text });
+  rememberConversation(job.conversation_id);
+  const deadline = Date.now() + ANSWER_TIMEOUT_MS;
+  while (Date.now() < deadline) {
+    await new Promise((resolve) => setTimeout(resolve, POLL_MS));
+    const result = await api("GET", `/api/chat/${encodeURIComponent(job.job_id)}`);
+    if (result.status === "done") return result.answer;
+    if (result.status === "failed") throw failure(result.error || "The assistant couldn't answer. Try again.", result.trace_id);
+  }
+  throw new Error("The assistant is taking too long. Try again in a moment.");
 }
 
 function addMessage(text, who, pending = false) {
   const li = document.createElement("li");
   li.className = `from-${who}${pending ? " pending" : ""}`;
-  li.textContent = text; // never innerHTML: answers will contain document text later
+  li.textContent = text; // never innerHTML: answers quote catalog text
   $("messages").append(li);
   li.scrollIntoView({ block: "end", behavior: "smooth" });
   return li;
@@ -308,6 +356,7 @@ function bind() {
 
   $("change-email").addEventListener("click", () => show("email"));
   $("sign-out").addEventListener("click", signOut);
+  $("new-conversation").addEventListener("click", newConversation);
 
   $("message").addEventListener("keydown", (e) => {
     if (e.key === "Enter" && !e.shiftKey) {

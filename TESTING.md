@@ -1,13 +1,24 @@
 # Testing
 
-## Try the chat locally and see its traces
+## Try the recommender locally and see its traces
 
 Needs the tools and the LocalStack auth token from [INFRA.md](INFRA.md#localstack-local-aws).
-One command starts LocalStack and Phoenix, deploys the stack to LocalStack, and registers the user
-if needed:
+Locally the recommender answers with a real model: LocalStack's Bedrock runs Llama 3.2 3B with
+Ollama. With an NVIDIA GPU that takes seconds per answer, once Docker can use the GPU:
 
 ```sh
-just local-up me@student.uu.se
+just gpu-setup   # once: installs the NVIDIA Container Toolkit, makes nvidia Docker's default runtime (asks for sudo)
+```
+
+LocalStack starts its model container itself and accepts no `--gpus` flag for it, hence the default
+runtime; containers that don't ask for a GPU are unaffected. `just up` then asks for the GPU in that
+container's environment by itself; without the toolkit the
+model runs on CPU, which works but takes minutes per answer. One command starts LocalStack and
+Phoenix, deploys the stack to LocalStack, publishes the full AniList catalog (the first time it
+builds it from `data/`, downloading the dataset if needed) and registers the user if needed:
+
+```sh
+just local-up me@student.uu.se           # `just local-up me@student.uu.se fixture` for ten invented anime
 ```
 
 It prints the page URL and a snippet for the browser console. Open the page, paste the snippet in
@@ -16,15 +27,24 @@ no email-code sign-in, so local users get a fixed password and this snippet stan
 screens; `just session me@student.uu.se` prints a fresh one. You can also ask from the terminal:
 
 ```sh
-just chat me@student.uu.se "What is in week 3?"
+just chat me@student.uu.se "What should I watch after Steins;Gate?"
+just chat me@student.uu.se "Something shorter?" --conversation <conversation_id>
 ```
 
-Open Phoenix at http://localhost:6006, project **rag-in-production**: every message is an `answer`
-trace with a `bedrock.converse` LLM span holding the system and user messages, the reply, the model
-and the token counts.
+The question is queued (POST `/api/chat`), the worker Lambda answers it, and the page (or `just chat`)
+polls `/api/chat/{job_id}` until the answer is there. Open Phoenix at http://localhost:6006, project
+**rag-in-production**: each question is one trace, from the api Lambda's `api.ask` through the worker's
+`recommender.job` down to every pipeline stage, model call, tool and retrieval (see
+[Debugging with traces](README.md#debugging-with-traces)). `just recommender-logs` follows the
+worker's log.
 
-LocalStack answers every request with the tiny `qwen2.5:0.5b`, whatever model is configured, so
-this checks the path and the traces, not the quality of the answers. When you're done:
+The first answer after a deploy also downloads the catalog bundle into the worker (about a minute).
+Llama 3.2 3B is a small model, so answers are weaker than on AWS (Qwen3 32B), but the whole solution
+runs: the same pipeline, prompts, tools and catalog.
+
+CI answers with a deterministic stand-in instead (`RAG_LOCAL_MODEL_API=stub`, see below). Set it in
+`infra/.env` (then `just apply`) for a quick local check of the plumbing; its answers are canned and
+say nothing about quality. When you're done:
 
 ```sh
 just destroy   # remove the local stack
@@ -33,27 +53,36 @@ just down      # stop LocalStack and Phoenix
 
 ## Automated tests
 
-The Python tests (pytest, in [`tests/`](tests) and [`infra/scripts/`](infra/scripts)) cover the
-chat and pre-sign-up Lambdas with fake AWS clients, so they need no AWS and no LocalStack. The
-OpenTofu modules have `tofu test` suites in `infra/modules/*/tests/`.
-
 ```sh
-just test-unit        # module tests with mocked providers, plus the Python tests
-just test-py          # only the Python tests, with coverage; extra args go to pytest
-just test-py -k chat  # for example, only the chat Lambda tests
-just lint             # formatting checks and validation of every module
+just test-unit         # module tests with mocked providers, plus both Python suites below
+just test-py           # the Lambdas (api, sign-up) and shared modules, with coverage; extra args go to pytest
+just test-recommender  # the recommender, with the worker image's dependencies (no PyTorch)
+just lint              # formatting checks and validation of every module
 ```
+
+The Python tests need no AWS, no LocalStack and no model: AWS clients are in-memory fakes
+([`tests/fakes.py`](tests/fakes.py)) and the recommender's Bedrock calls go to a scripted transport
+([`tests/recommender/bedrock_stub.py`](tests/recommender/bedrock_stub.py)). The OpenTofu modules have
+`tofu test` suites in `infra/modules/*/tests/`.
 
 These need a running stack:
 
 ```sh
-just phoenix-up && just test-phoenix  # the chat Lambda's traces reach Phoenix
+just phoenix-up && just test-phoenix  # a question's trace (api Lambda, then worker) reaches Phoenix
 just up && just test-localstack       # creates and destroys a test bucket on LocalStack
-just e2e                              # deploys to LocalStack, checks sign-in and chat, then destroys
+just e2e                              # deploys to LocalStack, publishes the fixture, checks sign-in,
+                                      # questions, a follow-up and isolation between users, then destroys
+RAG_LOCAL_MODEL_API=stub LOCALSTACK_BEDROCK_PREWARM=0 just restart e2e   # the same, as CI runs it
 ```
+
+`just e2e` asks about the fixture's invented titles with whatever model the local stack uses. CI
+sets `RAG_LOCAL_MODEL_API=stub`, so its answers are deterministic and no model is pulled.
 
 `just test` runs lint, the unit tests and the LocalStack test. `just ci` runs the same steps as
 CI from a fresh checkout's state: it runs `just clean` (deletes the OpenTofu and Terragrunt caches
 and the Lambda build), then lint and the unit tests, then starts a fresh LocalStack for the
 LocalStack test and `just e2e`, and stops it at the end. CI itself is described in
 [INFRA.md](INFRA.md#ci).
+
+Answer quality is measured with a real model by the evaluations (see the README) and on the
+deployed AWS stack.

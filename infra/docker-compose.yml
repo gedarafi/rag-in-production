@@ -14,10 +14,15 @@ services:
       - LOCALSTACK_AUTH_TOKEN=${LOCALSTACK_AUTH_TOKEN:?set LOCALSTACK_AUTH_TOKEN in .env (see .env.example)}
       - DEBUG=${LOCALSTACK_DEBUG:-0}
       - PERSISTENCE=${LOCALSTACK_PERSISTENCE:-0}
-      # Bedrock runs this Ollama model on CPU (keep it in sync with model_id in live/local/env.hcl).
-      # Pre-warming pulls and loads it at startup instead of on the first chat.
-      - DEFAULT_BEDROCK_MODEL=qwen2.5:0.5b
-      - BEDROCK_PREWARM=1
+      # LocalStack's Bedrock runs this Ollama model when the recommender uses it
+      # (RAG_LOCAL_MODEL_API=converse; by default it calls the ollama service below instead).
+      # LOCALSTACK_BEDROCK_PREWARM=1 pulls and loads it at startup instead of on the first question.
+      - DEFAULT_BEDROCK_MODEL=${LOCALSTACK_BEDROCK_MODEL:-llama3.2:3b}
+      - BEDROCK_PREWARM=${LOCALSTACK_BEDROCK_PREWARM:-0}
+      # Docker flags for LocalStack's Ollama container (it accepts only some, e.g. -e, -v, -m; no --gpus).
+      # `just up` asks for the GPU with -e NVIDIA_VISIBLE_DEVICES=all when nvidia is Docker's default
+      # runtime (`just gpu-setup`); empty runs it on CPU.
+      - BEDROCK_DOCKER_FLAGS=${LOCALSTACK_BEDROCK_DOCKER_FLAGS:-}
       # Lambda containers join this Compose network, so the chat Lambda can send traces to phoenix.
       - LAMBDA_DOCKER_NETWORK=rag-in-production_default
     volumes:
@@ -47,3 +52,22 @@ services:
       timeout: 5s
       retries: 20
       start_period: 10s
+
+  ollama:
+    # The recommender's local model (`just up`; live/local/env.hcl, MODEL_API=ollama): the worker Lambda
+    # reaches it as http://ollama:11434 on this network and asks for schema-constrained output, which
+    # LocalStack's Bedrock emulation can't pass on. docker-compose.gpu.yml gives it the NVIDIA GPU.
+    image: ollama/ollama:0.40.5
+    container_name: ollama
+    ports:
+      - "127.0.0.1:11435:11434"  # 11434 is often taken by an Ollama on the host
+    environment:
+      - OLLAMA_KEEP_ALIVE=30m
+    volumes:
+      - "./.ollama:/root/.ollama"  # pulled models survive restarts
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 5s

@@ -1,4 +1,7 @@
-"""Resumable setup and readiness checks for the dedicated AniList app."""
+"""Resumable build and readiness checks of the AniList catalog, index and dictionaries.
+
+`recommender build` runs it offline; artifacts.py then bundles the result for the worker Lambda.
+"""
 from __future__ import annotations
 
 import json
@@ -22,7 +25,7 @@ from .rag import RagPipeline
 from .sqlite_catalog import SCHEMA_VERSION
 
 STEPS = (
-    ('model', 'Generation model'), ('dataset', 'Dataset download'),
+    ('dataset', 'Dataset download'),
     ('documents', 'Prepare anime documents'), ('sql', 'SQL catalog and dictionaries'),
     ('embeddings', 'Document embeddings'), ('tools', 'Routing and feature embeddings'),
     ('verify', 'Verify workspace'),
@@ -41,7 +44,7 @@ class AniListWorkspace:
         self.steps = {key: {'label': label, 'status': 'ready' if self.ready else 'pending',
                             'message': '', 'elapsed_seconds': None} for key, label in STEPS}
         self.inspect_existing()
-        self.message = 'Workspace prepared. You can chat or run setup to verify it again.' if self.ready else 'Run setup to prepare your AniList library.'
+        self.message = 'Workspace prepared.' if self.ready else 'Run `recommender build` to prepare the AniList library.'
 
     def signature(self):
         s = self.settings
@@ -147,35 +150,6 @@ class AniListWorkspace:
             if vectors is not None and getattr(vectors, '_mmap', None) is not None:
                 vectors._mmap.close()
 
-    def ensure_model(self, progress):
-        url = self.settings.ollama_url
-        try:
-            response = requests.get(f'{url}/api/tags', timeout=10)
-            response.raise_for_status()
-        except requests.RequestException as error:
-            raise RuntimeError(f'Cannot connect to Ollama at {url}. Start the Ollama app or run ollama serve, then retry setup.') from error
-        model = self.settings.llm
-        canonical = lambda name: name if ':' in name.rsplit('/', 1)[-1] else name + ':latest'
-        names = [m.get('name', m.get('model', '')) for m in response.json().get('models', [])]
-        if canonical(model) in {canonical(name) for name in names}:
-            return f'{model} is already installed.'
-        with requests.post(f'{url}/api/pull', json={'name': model, 'stream': True},
-                           stream=True, timeout=(30, 600)) as response:
-            response.raise_for_status()
-            complete = False
-            for line in response.iter_lines():
-                if not line:
-                    continue
-                event = json.loads(line)
-                if event.get('error'):
-                    raise RuntimeError(event['error'])
-                progress('Ollama: ' + event.get('status', 'Downloading model'),
-                         int(event.get('completed', 0)), int(event.get('total', 0)))
-                complete = event.get('status') == 'success'
-            if not complete:
-                raise RuntimeError('Model download ended before Ollama reported success. Retry setup.')
-        return f'Downloaded {model}.'
-
     def acquire_dataset(self, source, rebuild, progress):
         if source:
             path = Path(source)
@@ -238,9 +212,7 @@ class AniListWorkspace:
                     raise RuntimeError('The embedding index contains invalid values. Select rebuild and retry.')
         finally:
             vectors._mmap.close()
-        if not p.models.answer('Reply with the single word READY.', 0, 8).strip():
-            raise RuntimeError('The generation model returned an empty response.')
-        return f'{count:,} anime and {len(chunks):,} embedded passages verified. Ready to chat.'
+        return f'{count:,} anime and {len(chunks):,} embedded passages verified.'
 
     def setup(self, source=None, rebuild=False, progress=None):
         """Yield stage snapshots; long-running operations also report byte/batch progress."""
@@ -268,9 +240,7 @@ class AniListWorkspace:
                 yield self.snapshot()
                 started = perf_counter()
                 try:
-                    if key == 'model':
-                        message = self.ensure_model(progress)
-                    elif key == 'dataset':
+                    if key == 'dataset':
                         dataset, message = self.acquire_dataset(source, rebuild, progress)
                     elif key == 'documents':
                         if source or rebuild or not (self.settings.documents / 'catalog.jsonl').is_file():
@@ -317,11 +287,11 @@ class AniListWorkspace:
         finally:
             self.lock.release()
 
-    def ask(self, question, history=None, *, debug=None):
+    def ask(self, question, history=None):
         with self.lock:
             if not self.ready or not self.is_prepared():
                 self.ready = False
-                raise RuntimeError('Run setup to prepare or verify the AniList workspace before chatting.')
+                raise RuntimeError('Run `recommender build` to prepare or verify the AniList workspace first.')
             if self.pipeline is None:
                 self.pipeline = RagPipeline(self.settings)
-            return self.pipeline.ask(question, history, debug=debug)
+            return self.pipeline.ask(question, history)

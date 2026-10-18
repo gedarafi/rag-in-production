@@ -12,13 +12,3 @@ output "chat_function_name" {
   description = "Name of the chat Lambda."
   value       = aws_lambda_function.chat.function_name
 }
-
-output "model_id" {
-  description = "Bedrock model or inference profile the chat Lambda calls."
-  value       = var.model_id
-}
-
-output "model_api" {
-  description = "How the chat Lambda calls the model: converse (bedrock-runtime) or openai (bedrock-mantle)."
-  value       = var.model_api
-}

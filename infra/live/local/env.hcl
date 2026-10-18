@@ -13,14 +13,28 @@ locals {
   deletion_protection   = "INACTIVE"
   cors_allow_origins    = ["http://localhost:8000"]
 
-  # Chat model. LocalStack runs ollama.<model> on CPU (see docker-compose.yml); a tiny model keeps
-  # CI fast, and short answers stay well inside API Gateway's 30-second limit. LocalStack emulates
-  # Converse on bedrock-runtime, not bedrock-mantle.
-  model_id   = "ollama.qwen2.5:0.5b"
-  model_api  = "converse"
-  max_tokens = 128
+  # Recommender model. By default the ollama service of docker-compose.yml (RAG_LOCAL_MODEL, on the GPU
+  # when Docker has the NVIDIA runtime), called with schema-constrained output, which a small local
+  # model needs and LocalStack's Bedrock emulation can't pass on. CI sets RAG_LOCAL_MODEL_API=stub: a
+  # deterministic stand-in (src/recommender/stub.py) that checks the whole path in seconds and says
+  # nothing about answer quality. RAG_LOCAL_MODEL_API=converse uses LocalStack's Bedrock instead.
+  model_api = get_env("RAG_LOCAL_MODEL_API", "ollama")
+  model_id = {
+    ollama   = get_env("RAG_LOCAL_MODEL", "llama3.2:3b")
+    converse = "ollama.${get_env("LOCALSTACK_BEDROCK_MODEL", "llama3.2:3b")}"
+    stub     = "stub"
+  }[local.model_api]
+  ollama_url             = "http://ollama:11434"
+  worker_timeout_seconds = local.model_api == "stub" ? 120 : 900
+  model_timeout_seconds  = 300
 
-  # The Lambda's traces go to Phoenix in docker-compose.yml (`just phoenix-up`, UI on :6006). The Lambda
+  # Artifact bundles (`just recommender-publish`), and what may be thrown away with the stack.
+  artifact_bucket_name   = "rag-local-recommender-artifacts"
+  force_destroy          = true
+  point_in_time_recovery = false
+  alarm_emails           = []
+
+  # The Lambdas' traces go to Phoenix in docker-compose.yml (`just phoenix-up`, UI on :6006). The Lambda
   # containers join the Compose network (LAMBDA_DOCKER_NETWORK), where Phoenix is reachable as phoenix.
   tracing_endpoint          = "http://phoenix:6006/v1/traces"
   tracing_project           = "rag-in-production"

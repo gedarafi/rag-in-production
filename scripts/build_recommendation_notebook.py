@@ -59,7 +59,7 @@ if not PYTHON.is_file():
 REFERENCE_AVAILABLE = (DATA / 'catalog_reference.jsonl').is_file()
 questions, catalog, manifest = load_dataset(DATA, require_catalog=REFERENCE_AVAILABLE)
 frame = pd.DataFrame(questions)
-SETTINGS = load_settings(ROOT / 'settings.toml', 'anilist')
+SETTINGS = load_settings(ROOT / 'recommender.toml', 'anilist')
 print(f'{len(questions)} questions | {frame.category.nunique()} categories')
 if REFERENCE_AVAILABLE:
     print(f'{len(catalog.records)} local catalog references; all reference hashes verified.')
@@ -217,7 +217,7 @@ if RUN_LIVE:
     if not REFERENCE_AVAILABLE or not (SETTINGS.documents / 'catalog.sqlite3').is_file():
         raise RuntimeError('Live scoring needs AniList setup and python scripts/build_recommendation_benchmark.py. Offline inspection works without those files.')
     command = [str(PYTHON), '-u', '-X', 'utf8', '-m', 'src.recommender.recommendation_evaluation',
-               '--settings', str(ROOT / 'settings.toml'), '--dataset', str(DATA),
+               '--settings', str(ROOT / 'recommender.toml'), '--dataset', str(DATA),
                '--output', str(OUTPUT), '--mode', MODE]
     if EXTRACTOR_MODEL:
         command += ['--extractor-model', EXTRACTOR_MODEL]

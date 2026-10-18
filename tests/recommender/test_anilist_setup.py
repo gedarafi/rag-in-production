@@ -10,7 +10,6 @@ from types import SimpleNamespace
 from unittest.mock import MagicMock, patch
 
 import numpy as np
-import requests
 
 from src.recommender.anilist_setup import AniListWorkspace, STEPS
 from src.recommender.config import load_settings
@@ -40,12 +39,9 @@ class AniListSetupTests(unittest.TestCase):
             embed=lambda texts, **kwargs: np.ones((len(texts), 2), dtype=np.float32),
             answer=lambda *args: 'READY', cache_revision='test', device='cpu')
         self.workspace = AniListWorkspace(self.settings)
-        self.tags = MagicMock()
-        self.tags.json.return_value = {'models': [{'name': self.settings.llm}]}
 
     def run_setup(self, source=None, rebuild=False):
-        with patch('src.recommender.anilist_setup.RagPipeline', return_value=self.pipeline), \
-             patch('src.recommender.anilist_setup.requests.get', return_value=self.tags):
+        with patch('src.recommender.anilist_setup.RagPipeline', return_value=self.pipeline):
             return list(self.workspace.setup(source, rebuild))
 
     def test_fresh_local_setup_builds_sql_all_embeddings_and_ready_manifest(self):
@@ -91,7 +87,7 @@ class AniListSetupTests(unittest.TestCase):
         self.assertFalse(changed.ready)
         (self.settings.index / 'chunks.json').write_text('[]', encoding='utf-8')
         self.assertFalse(self.workspace.is_prepared())
-        with self.assertRaisesRegex(RuntimeError, 'Run setup'):
+        with self.assertRaisesRegex(RuntimeError, 'recommender build'):
             self.workspace.ask('Hello')
 
     def test_generation_settings_do_not_invalidate_existing_library(self):
@@ -100,8 +96,7 @@ class AniListSetupTests(unittest.TestCase):
         manifest = self.workspace.signature()
         manifest.update(llm='old-model', ollama_url='http://localhost:11434')
         self.workspace.manifest.write_text(json.dumps(manifest), encoding='utf-8')
-        changed = AniListWorkspace(replace(self.settings, llm='new-model',
-                                           ollama_url='http://127.0.0.1:11434'))
+        changed = AniListWorkspace(self.settings)
         self.assertTrue(changed.ready)
         changed.pipeline = MagicMock()
         changed.pipeline.ask.return_value = 'An answer'
@@ -142,10 +137,9 @@ class AniListSetupTests(unittest.TestCase):
         self.assertTrue((self.settings.index / 'entity-tools.sqlite3').exists())
 
     def test_failed_final_verification_keeps_embedding_checkpoint_for_retry(self):
-        self.pipeline.models.answer = lambda *args: ''
-        self.assertFalse(self.run_setup(self.source)[-1]['ready'])
+        with patch.object(AniListWorkspace, 'verify', side_effect=RuntimeError('verification failed')):
+            self.assertFalse(self.run_setup(self.source)[-1]['ready'])
         self.assertTrue((self.settings.index / 'embedding-state.json').exists())
-        self.pipeline.models.answer = lambda *args: 'READY'
         with patch.object(self.pipeline, 'ingest', side_effect=AssertionError('resume after embeddings')):
             snapshots = self.run_setup()
         self.assertTrue(snapshots[-1]['ready'])
@@ -166,13 +160,6 @@ class AniListSetupTests(unittest.TestCase):
         self.workspace.pipeline = self.pipeline
         self.assertFalse(self.workspace.reusable_index())
 
-    def test_ollama_unavailable_reports_retry_and_keeps_chat_disabled(self):
-        with patch('src.recommender.anilist_setup.requests.get', side_effect=requests.ConnectionError('offline')):
-            snapshots = list(self.workspace.setup(self.source))
-        self.assertFalse(snapshots[-1]['ready'])
-        self.assertIn('ollama serve', snapshots[-1]['message'])
-        self.assertFalse(self.workspace.lock.locked())
-
     def test_interrupted_download_does_not_leave_a_complete_source(self):
         response = MagicMock()
         response.__enter__.return_value = response
@@ -184,21 +171,9 @@ class AniListSetupTests(unittest.TestCase):
         self.assertFalse((self.root / 'data/raw' / ANILIST_FILENAME).exists())
         self.assertFalse(list((self.root / 'data/raw').glob('*.part')))
 
-    def test_missing_generation_model_is_pulled_with_progress(self):
-        self.tags.json.return_value = {'models': []}
-        response = MagicMock()
-        response.__enter__.return_value = response
-        response.iter_lines.return_value = [b'{"status":"downloading","completed":2,"total":4}', b'{"status":"success"}']
-        progress = []
-        with patch('src.recommender.anilist_setup.requests.get', return_value=self.tags), \
-             patch('src.recommender.anilist_setup.requests.post', return_value=response) as pull:
-            self.workspace.ensure_model(lambda *event: progress.append(event))
-        self.assertEqual(progress[0], ('Ollama: downloading', 2, 4))
-        self.assertTrue(pull.call_args.kwargs['stream'])
-
-    def test_generation_failure_never_marks_workspace_ready(self):
-        self.pipeline.models.answer = lambda *args: ''
-        snapshots = self.run_setup(self.source)
+    def test_verification_failure_never_marks_workspace_ready(self):
+        with patch.object(AniListWorkspace, 'verify', side_effect=RuntimeError('verification failed')):
+            snapshots = self.run_setup(self.source)
         self.assertFalse(snapshots[-1]['ready'])
         self.assertEqual(snapshots[-1]['steps']['verify']['status'], 'error')
         self.assertFalse(self.workspace.manifest.exists())

@@ -1,6 +1,8 @@
-# HTTP API with a Cognito JWT authorizer in front of the chat Lambda.
-# The Lambda answers with a Bedrock model, through Converse on bedrock-runtime or OpenAI-compatible
-# Chat Completions on bedrock-mantle (var.model_api); retrieval from the course documents comes later.
+# HTTP API with a Cognito JWT authorizer in front of the chat API Lambda (src/chat/handler.py).
+# The Lambda only queues questions and reports their answers: the recommender worker (recommender
+# module) answers them, because an answer can take longer than API Gateway's 30 seconds.
+#   POST /api/chat           queue a question (202 with a job ID)
+#   GET  /api/chat/{job_id}  the job's status and answer
 
 data "aws_caller_identity" "current" {}
 
@@ -8,28 +10,6 @@ data "aws_region" "current" {}
 
 locals {
   function_name = "${var.name_prefix}-chat"
-
-  # A cross-region inference profile (us.amazon.nova-micro-v1:0) routes to the foundation model
-  # (amazon.nova-micro-v1:0) in any region of its geography; IAM must allow both.
-  base_model_id = try(regex("^(?:us|eu|apac|jp|au|ca|us-gov|global)\\.(.+)$", var.model_id)[0], var.model_id)
-
-  # Converse authorizes the model. bedrock-mantle authorizes the project the request runs in: the
-  # account's default project, since the Lambda names none.
-  bedrock_statement = {
-    converse = {
-      Effect = "Allow"
-      Action = "bedrock:InvokeModel" # also covers the Converse API
-      Resource = [
-        "arn:aws:bedrock:*::foundation-model/${local.base_model_id}",
-        "arn:aws:bedrock:${data.aws_region.current.region}:${data.aws_caller_identity.current.account_id}:inference-profile/${var.model_id}",
-      ]
-    }
-    openai = {
-      Effect   = "Allow"
-      Action   = "bedrock-mantle:CreateInference"
-      Resource = ["arn:aws:bedrock-mantle:${data.aws_region.current.region}:${data.aws_caller_identity.current.account_id}:project/default"]
-    }
-  }[var.model_api]
 }
 
 # ---------- Chat Lambda ----------
@@ -59,13 +39,26 @@ resource "aws_iam_role_policy_attachment" "chat_logs" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
-resource "aws_iam_role_policy" "chat_bedrock" {
-  name = "invoke-model"
+resource "aws_iam_role_policy" "chat_jobs" {
+  name = "queue-questions"
   role = aws_iam_role.chat.id
 
   policy = jsonencode({
-    Version   = "2012-10-17"
-    Statement = [local.bedrock_statement]
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Sid      = "Jobs"
+        Effect   = "Allow"
+        Action   = ["dynamodb:GetItem", "dynamodb:PutItem"]
+        Resource = var.jobs_table_arn
+      },
+      {
+        Sid      = "Queue"
+        Effect   = "Allow"
+        Action   = "sqs:SendMessage"
+        Resource = var.queue_arn
+      },
+    ]
   })
 }
 
@@ -96,18 +89,18 @@ resource "aws_lambda_function" "chat" {
   function_name    = local.function_name
   role             = aws_iam_role.chat.arn
   runtime          = "python3.13"
-  handler          = "handler.handler"
+  handler          = "src.chat.handler.handler"
   filename         = data.archive_file.chat.output_path
   source_code_hash = data.archive_file.chat.output_base64sha256
-  timeout          = 29 # API Gateway gives up after 30 seconds
+  timeout          = 10 # it only queues or reads a job; API Gateway gives up after 30 seconds
   memory_size      = 256
   tags             = var.tags
 
   environment {
     variables = {
-      MODEL_ID                  = var.model_id
-      MODEL_API                 = var.model_api
-      MAX_TOKENS                = tostring(var.max_tokens)
+      JOBS_TABLE                = var.jobs_table
+      CONVERSATIONS_TABLE       = var.conversations_table
+      QUEUE_URL                 = var.queue_url
       TRACING_ENDPOINT          = var.tracing_endpoint
       TRACING_PROJECT           = var.tracing_project
       TRACING_SPACE_ID          = var.tracing_space_id
@@ -129,7 +122,7 @@ resource "aws_apigatewayv2_api" "this" {
     for_each = length(var.cors_allow_origins) > 0 ? [1] : []
     content {
       allow_origins = var.cors_allow_origins
-      allow_methods = ["POST", "OPTIONS"]
+      allow_methods = ["GET", "POST", "OPTIONS"]
       allow_headers = ["authorization", "content-type"]
       max_age       = 3600
     }
@@ -160,6 +153,14 @@ resource "aws_apigatewayv2_integration" "chat" {
 resource "aws_apigatewayv2_route" "chat" {
   api_id             = aws_apigatewayv2_api.this.id
   route_key          = "POST /api/chat"
+  target             = "integrations/${aws_apigatewayv2_integration.chat.id}"
+  authorization_type = "JWT"
+  authorizer_id      = aws_apigatewayv2_authorizer.cognito.id
+}
+
+resource "aws_apigatewayv2_route" "job" {
+  api_id             = aws_apigatewayv2_api.this.id
+  route_key          = "GET /api/chat/{job_id}"
   target             = "integrations/${aws_apigatewayv2_integration.chat.id}"
   authorization_type = "JWT"
   authorizer_id      = aws_apigatewayv2_authorizer.cognito.id
@@ -201,5 +202,5 @@ resource "aws_lambda_permission" "api" {
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.chat.function_name
   principal     = "apigateway.amazonaws.com"
-  source_arn    = "${aws_apigatewayv2_api.this.execution_arn}/*/*/api/chat"
+  source_arn    = "${aws_apigatewayv2_api.this.execution_arn}/*/*/api/chat*"
 }

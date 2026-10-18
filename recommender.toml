@@ -1,0 +1,33 @@
+# Settings of the anime recommender (src/recommender): catalog paths, chunking, retrieval and generation.
+# The language model and tracing come from the environment (MODEL_ID, MODEL_API, TRACING_*), as in the
+# Lambdas; see INFRA.md.
+
+[paths]
+documents = "data/documents/custom"
+index = "data/index/custom"
+prompt = "prompts/answer.txt"
+
+[knowledge_base]
+default = "anilist"
+
+[models]
+embedding = "sentence-transformers/all-MiniLM-L6-v2" # run with ONNX Runtime (src/recommender/embedding.py)
+embedding_batch_size = 64
+embedding_cache = true # Reuse unchanged chunks and resume interrupted embedding
+embedding_cache_version = "1" # Change to force fresh embeddings for the same model
+
+[retrieval]
+chunk_size = 900
+chunk_overlap = 150
+top_k = 5
+detail_top_k = 6 # Maximum passages for questions needing explanation
+context_chars = 14000 # Total retrieved context budget
+router_top_k = 6 # Semantically retrieved tool descriptions for the routing model
+agent_max_steps = 8 # Maximum local functions in the single plan; chat uses two LLM calls
+
+[generation]
+temperature = 0.2
+max_tokens = 700
+
+[files]
+extensions = [".txt", ".md", ".pdf", ".docx"]

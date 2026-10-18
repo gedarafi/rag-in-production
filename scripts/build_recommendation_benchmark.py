@@ -163,7 +163,7 @@ def complete_date(search):
 
 def build():
     if not DATABASE.is_file():
-        raise SystemExit('AniList catalog is not prepared. Run uv run anilist-gui and Set up / resume first, then rerun this command. Offline notebook inspection does not need this export.')
+        raise SystemExit('AniList catalog is not prepared. Run `uv run recommender build` first, then rerun this command. Offline notebook inspection does not need this export.')
     DEST.mkdir(parents=True, exist_ok=True)
     policy = json.loads((ROOT / 'scripts/recommendation_semantic_policy.json').read_text(encoding='utf-8'))
     wanted_tags = {t for _, _, cs, _, _ in FAMILIES for item in cs if item['field'] == 'tags' for t in item['value']}

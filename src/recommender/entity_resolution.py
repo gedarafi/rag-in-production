@@ -233,8 +233,12 @@ def validate_resolution(result, packets):
         if candidate and item['kind'] in ('anime', 'character') and item['role'] in ('subject', 'reference'):
             if (item['kind'], item['id']) not in {(s['kind'], s['id']) for s in subjects}:
                 subjects.append(mention)
-    if any(m['role'] == 'ambiguous' for m in mentions) and not result['clarification'].strip():
-        raise ValueError('Ambiguous entity needs a clarification question')
+    if any(m['role'] == 'ambiguous' for m in mentions):
+        question = result['clarification'].strip()
+        # The clarification is shown to the person as it is: a bare label such as "ambiguous" is not one.
+        if '?' not in question or len(question.split()) < 3:
+            raise ValueError('Ambiguous entity needs a clarification question for the person, '
+                             'e.g. "Which anime or character do you mean by …?"')
     # A small model may fill a string field with commentary even after resolving
     # every identity. Only an explicitly ambiguous decision authorizes a question.
     clarification = result['clarification'] if any(m['role'] == 'ambiguous' for m in mentions) else ''

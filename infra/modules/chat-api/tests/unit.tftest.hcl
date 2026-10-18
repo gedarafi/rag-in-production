@@ -28,11 +28,15 @@ mock_provider "aws" {
 mock_provider "archive" {}
 
 variables {
-  name_prefix       = "rag-unit"
-  lambda_source_dir = "../../../src/chat"
-  jwt_issuer        = "https://cognito-idp.eu-north-1.amazonaws.com/eu-north-1_TEST"
-  jwt_audience      = ["client123"]
-  model_id          = "us.amazon.nova-micro-v1:0"
+  name_prefix         = "rag-unit"
+  lambda_source_dir   = "../../../src/chat"
+  jwt_issuer          = "https://cognito-idp.eu-north-1.amazonaws.com/eu-north-1_TEST"
+  jwt_audience        = ["client123"]
+  jobs_table          = "rag-unit-chat-jobs"
+  jobs_table_arn      = "arn:aws:dynamodb:eu-north-1:123456789012:table/rag-unit-chat-jobs"
+  conversations_table = "rag-unit-chat-conversations"
+  queue_url           = "https://sqs.eu-north-1.amazonaws.com/123456789012/rag-unit-recommender-jobs"
+  queue_arn           = "arn:aws:sqs:eu-north-1:123456789012:rag-unit-recommender-jobs"
 }
 
 run "protects_the_chat_route_with_cognito" {
@@ -44,8 +48,13 @@ run "protects_the_chat_route_with_cognito" {
   }
 
   assert {
-    condition     = aws_apigatewayv2_route.chat.authorization_type == "JWT"
-    error_message = "The chat route must require a Cognito token."
+    condition     = aws_apigatewayv2_route.chat.authorization_type == "JWT" && aws_apigatewayv2_route.job.authorization_type == "JWT"
+    error_message = "Both chat routes must require a Cognito token."
+  }
+
+  assert {
+    condition     = aws_apigatewayv2_route.job.route_key == "GET /api/chat/{job_id}"
+    error_message = "The page polls GET /api/chat/{job_id} for the answer."
   }
 
   assert {
@@ -113,22 +122,18 @@ run "outputs_a_bare_host_for_a_localstack_endpoint" {
   }
 }
 
-run "configures_the_model" {
+run "queues_questions_for_the_worker" {
   command = plan
 
   assert {
-    condition     = aws_lambda_function.chat.environment[0].variables.MODEL_ID == "us.amazon.nova-micro-v1:0"
-    error_message = "The Lambda must call the configured model."
-  }
-
-  assert {
-    condition     = aws_lambda_function.chat.environment[0].variables.MODEL_API == "converse"
-    error_message = "The Lambda must call Converse unless asked otherwise (LocalStack emulates nothing else)."
-  }
-
-  assert {
-    condition     = aws_lambda_function.chat.environment[0].variables.MAX_TOKENS == "512"
-    error_message = "Answers must be capped at max_tokens."
+    condition = {
+      for k, v in aws_lambda_function.chat.environment[0].variables : k => v if !startswith(k, "TRACING_")
+      } == {
+      JOBS_TABLE          = "rag-unit-chat-jobs"
+      CONVERSATIONS_TABLE = "rag-unit-chat-conversations"
+      QUEUE_URL           = "https://sqs.eu-north-1.amazonaws.com/123456789012/rag-unit-recommender-jobs"
+    }
+    error_message = "The Lambda must know the jobs table and the queue, and nothing about the model."
   }
 
   assert {
@@ -144,6 +149,28 @@ run "configures_the_model" {
   assert {
     condition     = aws_lambda_function.chat.timeout < 30
     error_message = "The Lambda must finish before API Gateway's 30-second limit."
+  }
+}
+
+run "may_only_queue_and_read_jobs" {
+  command = apply
+
+  assert {
+    condition = jsondecode(aws_iam_role_policy.chat_jobs.policy).Statement == [
+      {
+        Sid      = "Jobs"
+        Effect   = "Allow"
+        Action   = ["dynamodb:GetItem", "dynamodb:PutItem"]
+        Resource = "arn:aws:dynamodb:eu-north-1:123456789012:table/rag-unit-chat-jobs"
+      },
+      {
+        Sid      = "Queue"
+        Effect   = "Allow"
+        Action   = "sqs:SendMessage"
+        Resource = "arn:aws:sqs:eu-north-1:123456789012:rag-unit-recommender-jobs"
+      },
+    ]
+    error_message = "The Lambda may only create and read jobs and send them to the queue."
   }
 }
 
@@ -187,80 +214,4 @@ run "rejects_a_relative_key_parameter" {
   }
 
   expect_failures = [var.tracing_api_key_parameter]
-}
-
-run "may_invoke_only_the_configured_model" {
-  command = apply
-
-  assert {
-    condition = jsondecode(aws_iam_role_policy.chat_bedrock.policy).Statement[0].Resource == [
-      "arn:aws:bedrock:*::foundation-model/amazon.nova-micro-v1:0",
-      "arn:aws:bedrock:${data.aws_region.current.region}:${data.aws_caller_identity.current.account_id}:inference-profile/us.amazon.nova-micro-v1:0",
-    ]
-    error_message = "The Lambda may invoke the inference profile and its foundation model, nothing else."
-  }
-}
-
-run "allows_a_plain_foundation_model" {
-  command = apply
-
-  variables {
-    model_id = "amazon.nova-lite-v1:0"
-  }
-
-  assert {
-    condition     = contains(jsondecode(aws_iam_role_policy.chat_bedrock.policy).Statement[0].Resource, "arn:aws:bedrock:*::foundation-model/amazon.nova-lite-v1:0")
-    error_message = "A model ID without a geography prefix is the foundation model itself."
-  }
-}
-
-run "may_only_run_inference_in_the_default_mantle_project" {
-  command = apply
-
-  variables {
-    model_id  = "google.gemma-3-4b-it"
-    model_api = "openai"
-  }
-
-  assert {
-    condition     = aws_lambda_function.chat.environment[0].variables.MODEL_API == "openai"
-    error_message = "The Lambda must call the API it is configured for."
-  }
-
-  assert {
-    condition     = length(jsondecode(aws_iam_role_policy.chat_bedrock.policy).Statement) == 1
-    error_message = "In openai mode the Lambda needs bedrock-mantle and nothing else."
-  }
-
-  assert {
-    condition     = jsondecode(aws_iam_role_policy.chat_bedrock.policy).Statement[0].Action == "bedrock-mantle:CreateInference"
-    error_message = "In openai mode the Lambda may only run inference on bedrock-mantle."
-  }
-
-  assert {
-    condition = jsondecode(aws_iam_role_policy.chat_bedrock.policy).Statement[0].Resource == [
-      "arn:aws:bedrock-mantle:${data.aws_region.current.region}:${data.aws_caller_identity.current.account_id}:project/default",
-    ]
-    error_message = "In openai mode the Lambda may only use the account's default project."
-  }
-}
-
-run "rejects_an_unknown_model_api" {
-  command = plan
-
-  variables {
-    model_api = "invoke"
-  }
-
-  expect_failures = [var.model_api]
-}
-
-run "rejects_an_empty_model" {
-  command = plan
-
-  variables {
-    model_id = " "
-  }
-
-  expect_failures = [var.model_id]
 }

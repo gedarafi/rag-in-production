@@ -11,7 +11,9 @@ from pathlib import Path
 import re
 import time
 import unicodedata
-import urllib.request
+
+from . import evaluation_runtime
+from .evaluation_runtime import complete_json
 
 VERSION = '2'
 FIELDS = {'tags', 'genres', 'studios', 'year', 'start_date', 'format', 'source_material', 'episodes', 'duration'}
@@ -205,16 +207,11 @@ def validate_extraction(parsed):
     return parsed
 
 
-def extract_titles(question, answer, *, url, model, timeout=180):
-    payload = {'model': model, 'messages': extraction_messages(question, answer), 'stream': False,
-               'format': EXTRACTION_SCHEMA, 'options': {'temperature': 0, 'num_predict': 1400, 'num_ctx': 8192},
-               'keep_alive': '10m'}
+def extract_titles(question, answer, *, chat):
+    payload = {'messages': extraction_messages(question, answer)}
     errors = []
     for attempt in range(2):
-        request = urllib.request.Request(url.rstrip('/') + '/api/chat', data=json.dumps(payload).encode(),
-                                         headers={'Content-Type': 'application/json'})
-        with urllib.request.urlopen(request, timeout=timeout) as response:
-            content = json.load(response)['message']['content']
+        content = complete_json(chat, 'extract_titles', payload['messages'], EXTRACTION_SCHEMA)
         try:
             parsed = validate_extraction(json.loads(content))
             if any(key(title) not in key(answer) for title in parsed['titles']):
@@ -338,7 +335,8 @@ def run_evaluation(settings, dataset, output, *, extractor_model=None, mode='smo
             selected.setdefault(q['category'], q)
         questions = list(selected.values())
     output = Path(output)
-    model = extractor_model or settings.llm
+    model = evaluation_runtime.extractor_model(extractor_model)
+    chat = None
     configuration = {'settings': json.loads(json.dumps(asdict(settings), default=str)),
                      'dataset_files': dataset_manifest['files_sha256'], 'question_ids': [q['question_id'] for q in questions],
                      'extractor_model': model, 'evaluator_version': VERSION, 'mode': mode}
@@ -362,9 +360,10 @@ def run_evaluation(settings, dataset, output, *, extractor_model=None, mode='smo
                 pipeline = RagPipeline(settings)
             pipeline._agent = None
             events = []
+            chat = chat or evaluation_runtime.extractor_chat(model)
             print(f'[{len(rows) + 1}/{len(questions)}] {q["question_id"]}: {q["question"]}', flush=True)
-            row = evaluate_question(q, lambda text: pipeline.ask(text, history=[], debug=events.append),
-                                    lambda q, a: extract_titles(q, a, url=settings.ollama_url, model=model), catalog)
+            row = evaluate_question(q, evaluation_runtime.traced_asker(pipeline, events),
+                                    lambda q, a: extract_titles(q, a, chat=chat), catalog)
             row['debug_events'], row['rag_usage'] = events, pipeline.last_route
             temporary = checkpoint.with_suffix('.json.tmp')
             temporary.write_text(json.dumps(row, indent=2, ensure_ascii=False, default=str), encoding='utf-8')
@@ -421,7 +420,7 @@ def rescore_saved(dataset, source, output):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--settings', default='settings.toml')
+    parser.add_argument('--settings', default='recommender.toml')
     parser.add_argument('--dataset', default='data/evaluation/recommendations')
     parser.add_argument('--output', required=True)
     parser.add_argument('--mode', choices=['smoke', 'full'], default='smoke')

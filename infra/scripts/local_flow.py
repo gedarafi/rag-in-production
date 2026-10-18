@@ -7,8 +7,10 @@
 LocalStack's Cognito has no passwordless sign-in (SignUp without a password and the EMAIL_OTP
 challenge are not emulated), so locally every user gets LOCAL_PASSWORD and signs in with
 USER_AUTH + PASSWORD. Everything else is the real thing: the pre sign-up Lambda gates the
-domain, the confirmation code goes through SES, the API checks the Cognito token, and the chat
-Lambda answers through Bedrock, which LocalStack runs with a small Ollama model on CPU.
+domain, the confirmation code goes through SES, the API checks the Cognito token and queues the
+question, and the recommender worker answers it from the published catalog bundle through Bedrock,
+which LocalStack runs with a small Ollama model on CPU. A question is asynchronous: POST /api/chat
+returns a job, and GET /api/chat/{job_id} returns its answer once the worker is done.
 
 Only the standard library plus Typer for the command line: Cognito's sign-up and sign-in calls
 need no AWS signature, so this talks to the same JSON API the page does.
@@ -30,6 +32,9 @@ from pathlib import Path
 from typing import Annotated
 
 import typer
+
+# Asked about the fixture catalog that `just recommender-publish fixture` serves (tests/fixtures/).
+FIXTURE_QUESTION = "Recommend anime like Clockwork Lighthouse."
 
 ENDPOINT = os.environ.get("LOCALSTACK_ENDPOINT", "http://localhost:4566").rstrip("/")
 STATE_DIR = Path(__file__).resolve().parent.parent / "live" / ".state" / "local"
@@ -54,14 +59,16 @@ def gateway_url(url: str) -> str:
 
 
 def stack() -> dict:
-    auth, api, web = outputs("auth"), outputs("chat-api"), outputs("web")
+    auth, api, web, recommender = outputs("auth"), outputs("chat-api"), outputs("web"), outputs("recommender")
     return {
         "page": gateway_url(web["url"]),
         "api": gateway_url(api["api_endpoint"]),
         "user_pool_id": auth["user_pool_id"],
         "client_id": auth["user_pool_client_id"],
         "ses_identity": auth["ses_identity"],
-        "model_id": api["model_id"],
+        "model_id": recommender["model_id"],
+        "model_api": recommender["model_api"],
+        "dead_letters": recommender["dead_letter_queue_url"],
     }
 
 
@@ -204,6 +211,10 @@ def wait_for_model(timeout: int = 600):
     BEDROCK_PREWARM pulls and loads the model in the background after LocalStack reports healthy,
     so the first chat could otherwise outlast API Gateway's 30-second limit.
     """
+    if stack()["model_api"] == "stub":
+        return  # The worker's stand-in model needs no warm-up.
+    if stack()["model_api"] == "ollama":
+        return wait_for_ollama(stack()["model_id"], timeout)
     model_id = stack()["model_id"]
     url = f"{ENDPOINT}/model/{urllib.parse.quote(model_id, safe='')}/converse"
     body = json.dumps({"messages": [{"role": "user", "content": [{"text": "Say OK."}]}], "inferenceConfig": {"maxTokens": 5}})
@@ -220,15 +231,73 @@ def wait_for_model(timeout: int = 600):
         time.sleep(5)
 
 
-def chat(base: str, message: str, token: str | None) -> tuple[int, dict]:
+def wait_for_ollama(model: str, timeout: int):
+    """Load the model in the Compose ollama service (`just up` pulled it), so the first answer is quick."""
+    url = os.environ.get("RAG_OLLAMA_URL", "http://localhost:11435")
+    body = json.dumps({"model": model, "messages": [{"role": "user", "content": "Say OK."}], "stream": False,
+                       "options": {"num_predict": 5}})
+    deadline = time.monotonic() + timeout
+    while True:
+        try:
+            status, _, text = request("POST", f"{url}/api/chat", body, {"Content-Type": "application/json"})
+        except OSError as err:  # not listening yet
+            status, text = 0, str(err)
+        if status == 200:
+            return
+        if status == 404:
+            raise SystemExit(f"Ollama has no {model}: run `just up`, which pulls it ({text[:200]}).")
+        if time.monotonic() > deadline:
+            raise SystemExit(f"Ollama at {url} did not answer within {timeout}s: HTTP {status} {text[:200]}")
+        time.sleep(3)
+
+
+def api_call(method: str, url: str, token: str | None, body: dict | None = None) -> tuple[int, dict]:
     headers = {"Content-Type": "application/json"}
     if token:
         headers["Authorization"] = f"Bearer {token}"
-    status, _, text = request("POST", f"{base}/api/chat", json.dumps({"message": message}), headers)
+    status, _, text = request(method, url, json.dumps(body) if body is not None else None, headers)
     try:
         return status, json.loads(text)
     except json.JSONDecodeError:
         return status, {"raw": text}
+
+
+def chat(base: str, message: str, token: str | None, conversation_id: str | None = None) -> tuple[int, dict]:
+    """Queue a question: 202 with the job, or the error."""
+    body = {"message": message, **({"conversation_id": conversation_id} if conversation_id else {})}
+    return api_call("POST", f"{base}/api/chat", token, body)
+
+
+def answer_timeout() -> int:
+    """Seconds to wait for an answer: the stand-in needs seconds; a real model on CPU, minutes, and the
+    first answer after a deploy also downloads the full catalog bundle."""
+    return 180 if stack()["model_api"] == "stub" else 1200
+
+
+def wait_for_answer(base: str, job_id: str, token: str, timeout: int | None = None) -> dict:
+    """Poll the job until the worker is done with it (as the page does)."""
+    timeout = timeout or answer_timeout()
+    deadline = time.monotonic() + timeout
+    while True:
+        status, body = api_call("GET", f"{base}/api/chat/{job_id}", token)
+        if status != 200 or body.get("status") in ("done", "failed"):
+            return {"http_status": status, **body}
+        if time.monotonic() > deadline:
+            raise SystemExit(f"No answer to job {job_id} within {timeout}s: {body}")
+        time.sleep(3)
+
+
+def dead_letters() -> int:
+    """Messages in the recommender's dead-letter queue."""
+    status, _, text = request(
+        "POST",
+        f"{ENDPOINT}/",
+        json.dumps({"QueueUrl": stack()["dead_letters"], "AttributeNames": ["ApproximateNumberOfMessages"]}),
+        {**signed("sqs", "application/x-amz-json-1.0"), "X-Amz-Target": "AmazonSQS.GetQueueAttributes"},
+    )
+    if status != 200:
+        raise SystemExit(f"Cannot read the dead-letter queue: HTTP {status} {text[:200]}")
+    return int(json.loads(text)["Attributes"]["ApproximateNumberOfMessages"])
 
 
 def session_snippet(email: str) -> str:
@@ -287,25 +356,41 @@ def e2e():
 
     started = time.monotonic()
     wait_for_model()
-    check(True, f"Bedrock answers with {s['model_id']} (ready after {time.monotonic() - started:.0f}s)")
+    check(True, f"the model {s['model_id']} is ready (after {time.monotonic() - started:.0f}s)")
 
     for name, base in (("API", s["api"]), ("CloudFront /api", s["page"])):
         status, _ = chat(base, "hello", None)
         check(status == 401, f"{name}: no token is rejected", status)
         status, _ = chat(base, "hello", "not.a.token")
         check(status == 401, f"{name}: a bad token is rejected", status)
-        status, body = chat(base, "hello", token)
-        # The model's words vary from run to run; check that an answer came back, not what it says.
-        answer = body.get("answer")
-        check(
-            status == 200 and isinstance(answer, str) and answer.strip() != "",
-            f"{name}: a signed-in user gets an answer from the model",
-            (status, body),
-        )
-        print(f"     {answer[:100]!r}")
 
     status, body = chat(s["api"], "   ", token)
     check(status == 400, "an empty message is refused", (status, body))
+
+    # Through CloudFront, as the page asks: a question about the fixture catalog, then a follow-up.
+    status, job = chat(s["page"], FIXTURE_QUESTION, token)
+    check(status == 202 and job.get("status") == "pending", "a question is queued for the recommender", (status, job))
+    started = time.monotonic()
+    result = wait_for_answer(s["page"], job["job_id"], token)
+    # The model's words vary from run to run; check that an answer came back, not what it says.
+    check(result.get("status") == "done" and (result.get("answer") or "").strip() != "",
+          f"the worker answers it ({time.monotonic() - started:.0f}s)", result)
+    print(f"     {result['answer'][:160]!r}")
+    print(f"     trace {result.get('trace_id')} in Phoenix (http://localhost:6006)")
+
+    status, follow = chat(s["page"], "Tell me more about the first one.", token, job["conversation_id"])
+    check(status == 202 and follow["conversation_id"] == job["conversation_id"], "a follow-up joins the conversation",
+          (status, follow))
+    result = wait_for_answer(s["page"], follow["job_id"], token)
+    check(result.get("status") in ("done", "failed") and (result.get("answer") or result.get("error")),
+          f"the follow-up gets an answer or a reason ({result.get('status')})", result)
+
+    other = f"e2e-{uuid.uuid4().hex[:8]}@student.uu.se"
+    signup(other)
+    status, _ = api_call("GET", f"{s['page']}/api/chat/{job['job_id']}", sign_in(other)["AccessToken"])
+    check(status == 404, "another user can't read the answer", status)
+
+    check(dead_letters() == 0, "no question ended in the dead-letter queue")
 
     print("e2e: sign-in and chat flow passed")
 
@@ -323,7 +408,7 @@ Email = Annotated[str, typer.Argument(help="Address to use, e.g. me@student.uu.s
 
 @app.command("outputs")
 def show_outputs():
-    """Page URL, API URL, user pool and client IDs, and the chat model."""
+    """Page URL, API URL, user pool and client IDs, the recommender's model and dead-letter queue."""
     for key, value in stack().items():
         typer.echo(f"{key:13} {value}")
 
@@ -348,11 +433,22 @@ def token(email: Email):
 
 
 @app.command("chat")
-def chat_command(email: Email, message: Annotated[str, typer.Argument(help="Message for the chat")]):
-    """Sign in as EMAIL and send MESSAGE to the chat through CloudFront."""
+def chat_command(
+    email: Email,
+    message: Annotated[str, typer.Argument(help="Message for the chat")],
+    conversation: Annotated[str | None, typer.Option(help="Continue this conversation_id")] = None,
+):
+    """Sign in as EMAIL, ask MESSAGE through CloudFront and wait for the answer."""
     wait_for_model()
-    status, body = chat(stack()["page"], message, sign_in(email)["AccessToken"])
-    typer.echo(f"{status} {json.dumps(body, indent=2)}")
+    token = sign_in(email)["AccessToken"]
+    status, job = chat(stack()["page"], message, token, conversation)
+    if status != 202:
+        raise SystemExit(f"{status} {json.dumps(job)}")
+    typer.echo(f"Queued job {job['job_id']} in conversation {job['conversation_id']}; waiting for the worker...")
+    result = wait_for_answer(stack()["page"], job["job_id"], token)
+    typer.echo(result.get("answer") or f"{result.get('status')}: {result.get('error')}")
+    typer.echo(f"\nTrace {result.get('trace_id')} (Phoenix: http://localhost:6006). "
+               f"Follow up with --conversation {job['conversation_id']}")
 
 
 @app.command()

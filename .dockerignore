@@ -1,0 +1,9 @@
+# Context of infra/docker/recommender.Dockerfile: only what it copies (the repository has gigabytes of data).
+*
+!src/__init__.py
+!src/tracing.py
+!src/chat/__init__.py
+!src/chat/store.py
+!src/recommender/
+!infra/.build/recommender/requirements.txt
+**/__pycache__

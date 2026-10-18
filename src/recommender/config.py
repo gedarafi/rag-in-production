@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import os
 import re
 import tomllib
 from dataclasses import dataclass
@@ -9,30 +8,29 @@ from pathlib import Path
 
 @dataclass(frozen=True)
 class Settings:
+    """Catalog, index and retrieval settings from settings.toml.
+
+    The language model and tracing are configured by the environment instead (MODEL_ID, MODEL_API,
+    TRACING_*), the same way in the CLI and in the Lambdas.
+    """
+
     root: Path
     documents: Path
     index: Path
     prompt: Path
-    provider: str
-    llm: str
     embedding: str
-    ollama_url: str
     chunk_size: int
     chunk_overlap: int
     top_k: int
     temperature: float
     max_tokens: int
     extensions: tuple[str, ...]
-    tracing_endpoint: str
-    tracing_project: str
-    embedding_device: str = "auto"
     embedding_batch_size: int = 64
     embedding_cache: bool = True
     embedding_cache_version: str = "1"
     detail_top_k: int = 6
     context_chars: int = 14000
     router_top_k: int = 6
-    context_window: int = 8192
     agent_max_steps: int = 8
 
 
@@ -60,7 +58,7 @@ def select_knowledge_base(path: str | Path, name: str) -> None:
     config_path.write_text(text, encoding="utf-8")
 
 
-def load_settings(path: str | Path = "settings.toml", knowledge_base: str | None = None) -> Settings:
+def load_settings(path: str | Path = "recommender.toml", knowledge_base: str | None = None) -> Settings:
     config_path = Path(path).resolve()
     with config_path.open("rb") as file:
         raw = tomllib.load(file)
@@ -77,13 +75,7 @@ def load_settings(path: str | Path = "settings.toml", knowledge_base: str | None
     if int(retrieval.get("context_chars", 14000)) < 1000:
         raise ValueError("context_chars must be at least 1000")
     generation = raw["generation"]
-    tracing = raw.get("tracing", {})
-    if not 2048 <= int(generation.get('context_window', 8192)) <= 131072:
-        raise ValueError('context_window must be between 2048 and 131072 tokens')
-    device = models.get("embedding_device", "auto")
     batch_size = int(models.get("embedding_batch_size", 64))
-    if device not in ("auto", "cuda", "mps", "cpu"):
-        raise ValueError("embedding_device must be auto, cuda, mps or cpu")
     if batch_size < 1:
         raise ValueError("embedding_batch_size must be positive")
     root = config_path.parent
@@ -101,10 +93,7 @@ def load_settings(path: str | Path = "settings.toml", knowledge_base: str | None
         documents=(root / documents).resolve(),
         index=(root / index).resolve(),
         prompt=(root / paths["prompt"]).resolve(),
-        provider=models["provider"],
-        llm=os.getenv("RAG_LLM_MODEL", models["llm"]),
-        embedding=os.getenv("RAG_EMBEDDING_MODEL", models["embedding"]),
-        ollama_url=os.getenv("RAG_OLLAMA_URL", models["ollama_url"]).rstrip("/"),
+        embedding=models["embedding"],
         chunk_size=int(retrieval["chunk_size"]),
         chunk_overlap=int(retrieval["chunk_overlap"]),
         top_k=int(retrieval["top_k"]),
@@ -113,12 +102,8 @@ def load_settings(path: str | Path = "settings.toml", knowledge_base: str | None
         router_top_k=int(retrieval.get("router_top_k", 6)),
         temperature=float(generation["temperature"]),
         max_tokens=int(generation["max_tokens"]),
-        context_window=int(generation.get('context_window', 8192)),
         agent_max_steps=int(retrieval.get('agent_max_steps', 8)),
         extensions=tuple(extension.lower() for extension in raw["files"]["extensions"]),
-        tracing_endpoint=os.getenv("RAG_PHOENIX_ENDPOINT", tracing.get("endpoint", "")),
-        tracing_project=os.getenv("RAG_PHOENIX_PROJECT", tracing.get("project", "rag-in-production")),
-        embedding_device=device,
         embedding_batch_size=batch_size,
         embedding_cache=bool(models.get("embedding_cache", True)),
         embedding_cache_version=str(models.get("embedding_cache_version", "1")),

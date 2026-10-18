@@ -7,14 +7,14 @@ from types import SimpleNamespace
 import numpy as np
 
 from src.recommender.config import load_settings
-from src.recommender.providers import LocalModels
+from src.recommender.embedding import OnnxEmbedder
 from src.recommender.rag import RagPipeline
 
 
 class IngestProgressTests(unittest.TestCase):
     def test_embedding_batch_order_and_completion(self):
-        model = LocalModels.__new__(LocalModels)
-        model.embedder = SimpleNamespace(encode=lambda texts, **kwargs: np.array([[int(t), 1] for t in texts], dtype=np.float32))
+        model = OnnxEmbedder(batch_size=256)
+        model.encode = lambda texts: np.array([[int(t)] + [1] * 383 for t in texts], dtype=np.float32)
         events = []
         vectors = model.embed([str(i) for i in range(513)], progress=lambda *event: events.append(event))
         np.testing.assert_array_equal(vectors[:, 0], np.arange(513))

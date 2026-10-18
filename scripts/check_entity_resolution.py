@@ -1,4 +1,4 @@
-"""Run real local-model mention classification regressions without answer generation."""
+"""Run real-model mention classification regressions without answer generation (model from MODEL_ID/MODEL_API)."""
 import json
 import argparse
 from pathlib import Path
@@ -10,7 +10,7 @@ from src.recommender.anime_tools import AnimeTools
 from src.recommender.config import load_settings
 from src.recommender.entity_agent import EntityAgent
 from src.recommender.entity_resolution import resolve_mentions
-from src.recommender.providers import LocalModels
+from src.recommender.providers import Models
 from src.recommender.request_resolution import interpret
 
 parser = argparse.ArgumentParser(description=__doc__)
@@ -18,9 +18,8 @@ parser.add_argument('--only', help='Run only questions containing this text')
 parser.add_argument('--output', default='data/evaluation/hard_facts/diagnostics/entity_resolution_live.json')
 args = parser.parse_args()
 
-settings = load_settings(ROOT / 'settings.toml', 'anilist')
-models = LocalModels(settings.embedding, settings.ollama_url, settings.llm,
-                     settings.embedding_device, settings.embedding_batch_size, settings.context_window)
+settings = load_settings(ROOT / 'recommender.toml', 'anilist')
+models = Models()
 agent = EntityAgent(settings, models, AnimeTools.load(settings.documents))
 cases = [
     ('When did Cowboy Bebop first air?', {('anime', '1')}, None),

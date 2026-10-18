@@ -13,6 +13,7 @@
     <span class="brand">RAG in Production</span>
     <span class="user" id="user-box" hidden>
       <span id="user-email"></span>
+      <button type="button" class="link" id="new-conversation">New conversation</button>
       <button type="button" class="link" id="sign-out">Sign out</button>
     </span>
   </header>
@@ -52,7 +53,7 @@
       <ol class="messages" id="messages" aria-live="polite"></ol>
       <form class="composer" id="chat-form" novalidate>
         <label for="message" class="visually-hidden">Message</label>
-        <textarea id="message" rows="2" maxlength="4000" placeholder="Ask about the course documents" required></textarea>
+        <textarea id="message" rows="2" maxlength="4000" placeholder="Ask for anime recommendations, or about a title or character" required></textarea>
         <button type="submit" id="send">Send</button>
       </form>
       <p class="error" id="chat-error" role="alert"></p>

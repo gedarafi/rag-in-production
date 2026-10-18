@@ -13,11 +13,13 @@ import re
 import sqlite3
 import time
 import unicodedata
-import urllib.request
 from contextlib import closing
 from dataclasses import asdict
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
+
+from . import evaluation_runtime
+from .evaluation_runtime import complete_json
 
 FIELDS = {'year', 'episodes', 'duration', 'format', 'source_material',
           'main_animation_studios', 'main_characters'}
@@ -179,17 +181,11 @@ def validate_extraction(extraction, answer):
     return extraction
 
 
-def extract_facts(question, answer, *, url, model, timeout=180):
-    payload = {'model': model, 'messages': extraction_messages(question, answer), 'stream': False,
-               'format': EXTRACTION_SCHEMA, 'options': {'temperature': 0, 'num_predict': 1400, 'num_ctx': 8192},
-               'keep_alive': '10m'}
+def extract_facts(question, answer, *, chat):
+    payload = {'messages': extraction_messages(question, answer)}
     validation_errors = []
     for attempt in range(2):
-        request = urllib.request.Request(url.rstrip('/') + '/api/chat',
-                                         data=json.dumps(payload).encode(), headers={'Content-Type': 'application/json'})
-        with urllib.request.urlopen(request, timeout=timeout) as response:
-            raw = json.load(response)
-        content = raw['message']['content']
+        content = complete_json(chat, 'extract_facts', payload['messages'], EXTRACTION_SCHEMA)
         try:
             parsed = json.loads(content)
             values = parsed['values']
@@ -292,7 +288,8 @@ def run_evaluation(settings, questions_csv, output, *, extractor_model=None, lim
         questions = questions[:limit]
     if max_new_questions is not None and max_new_questions < 0:
         raise ValueError('max_new_questions must be nonnegative')
-    extractor_model = extractor_model or settings.llm
+    extractor_model = evaluation_runtime.extractor_model(extractor_model)
+    chat = None
     configuration = {'settings': json.loads(json.dumps(asdict(settings), default=str)),
                      'questions_sha256': hashlib.sha256(questions_csv.read_bytes()).hexdigest(),
                      'question_ids': [q['question_id'] for q in questions],
@@ -324,8 +321,9 @@ def run_evaluation(settings, questions_csv, output, *, extractor_model=None, lim
             # Independent benchmark questions must not inherit an earlier question's entity state.
             pipeline._agent = None
             events = []
-            row = evaluate_question(question, lambda text: pipeline.ask(text, history=[], debug=events.append),
-                                    lambda q, a: extract_facts(q, a, url=settings.ollama_url, model=extractor_model))
+            chat = chat or evaluation_runtime.extractor_chat(extractor_model)
+            row = evaluate_question(question, evaluation_runtime.traced_asker(pipeline, events),
+                                    lambda q, a: extract_facts(q, a, chat=chat))
             row['rag_usage'] = pipeline.last_route
             row['debug_events'] = events
             temporary = checkpoint.with_suffix('.json.tmp')
@@ -356,7 +354,8 @@ def reextract_saved(settings, questions_csv, source, output, *, extractor_model=
         if any(row[k] != q[k] for k in ('question', 'anime_id', 'field')) or row['expected_values'] != json.loads(q['expected_values']):
             raise ValueError('Saved answer does not match the current question/label')
     output.mkdir(parents=True, exist_ok=False)
-    model = extractor_model or settings.llm
+    model = evaluation_runtime.extractor_model(extractor_model)
+    chat = evaluation_runtime.extractor_chat(model)
     manifest = {**source_manifest, 'extractor_version': EXTRACTOR_VERSION, 'extractor_model': model,
                 'reextracted_from': str(source.resolve()),
                 'source_checkpoints': {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p, _ in snapshots}}
@@ -367,7 +366,7 @@ def reextract_saved(settings, questions_csv, source, output, *, extractor_model=
         if original.get('answer_text'):
             q = question_map[original['question_id']]
             row = evaluate_question(q, lambda _: original['answer_text'],
-                                    lambda q, a: extract_facts(q, a, url=settings.ollama_url, model=model))
+                                    lambda q, a: extract_facts(q, a, chat=chat))
             row['model_seconds'] = original['model_seconds']
             row['original_extraction'] = {k: original.get(k) for k in ('status', 'error', 'extraction', 'extraction_seconds', 'metrics')}
             for key in ('rag_usage', 'debug_events'):
@@ -382,7 +381,7 @@ def reextract_saved(settings, questions_csv, source, output, *, extractor_model=
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--settings', default='settings.toml')
+    parser.add_argument('--settings', default='recommender.toml')
     parser.add_argument('--questions', default='data/evaluation/factual/questions.csv')
     parser.add_argument('--output', required=True, help='New directory, or an identical existing run to resume')
     parser.add_argument('--extractor-model', help='Installed Ollama model; defaults to the RAG model')

@@ -6,11 +6,12 @@
 
 Every service on the diagram is a resource in a unit's state (`terragrunt ... show -json`), grouped
 by unit. An arrow from A to B means A's state refers to B (an ARN, ID or domain name): CloudFront's
-origins name the bucket and the API, the API's integration names the chat Lambda, and so on.
+origins name the bucket and the API, the API's integration names the api Lambda, the worker's
+environment names its queue, tables and bundle bucket, and so on.
 Helper resources such as routes, integrations and authorizers are not drawn; they only add arrows
 between the services they connect. Resource policies are ignored, since they point from a service
 back to whoever may call it. Bedrock and the people using the page are not in any state:
-they are drawn from the chat Lambda's MODEL_ID and MODEL_API, and from the Cognito app client.
+they are drawn from the worker Lambda's MODEL_ID and MODEL_API, and from the Cognito app client.
 
 Rendering needs Graphviz (`dot`); the diagrams library supplies the AWS icons.
 """
@@ -33,12 +34,16 @@ SERVICES = {
     "aws_cognito_user_pool": ("Cognito", "name"),
     "aws_sesv2_email_identity": ("SES", None),  # the identity is an email address: not shown
     "aws_budgets_budget": ("Budgets", "name"),
+    "aws_sqs_queue": ("SQS", "name"),
+    "aws_dynamodb_table": ("DynamoDB", "name"),
+    "aws_ecr_repository": ("ECR", "name"),
 }
 
 # Helper resources that connect the service named by `owner` to the services they refer to.
 CONNECTORS = {
     "aws_apigatewayv2_integration": "api_id",
     "aws_apigatewayv2_authorizer": "api_id",
+    "aws_lambda_event_source_mapping": "event_source_arn",  # the queue triggers the worker
 }
 
 EDGE_LABELS = {
@@ -48,6 +53,12 @@ EDGE_LABELS = {
     ("aws_apigatewayv2_api", "aws_cognito_user_pool"): "checks JWT",
     ("aws_cognito_user_pool", "aws_lambda_function"): "pre sign-up",
     ("aws_cognito_user_pool", "aws_sesv2_email_identity"): "sign-in codes",
+    ("aws_lambda_function", "aws_sqs_queue"): "queues questions",
+    ("aws_sqs_queue", "aws_lambda_function"): "triggers",
+    ("aws_sqs_queue", "aws_sqs_queue"): "dead letters",
+    ("aws_lambda_function", "aws_dynamodb_table"): "jobs, turns",
+    ("aws_lambda_function", "aws_s3_bucket"): "catalog bundle",
+    ("aws_lambda_function", "aws_ecr_repository"): "image",
 }
 
 USERS = "users"
@@ -143,8 +154,10 @@ def build(units: dict[str, dict], account_id: str = "") -> Graph:
                 if dst != owner and any(mentions(conn_texts, i) for i in ids):
                     graph.connect(owner, dst, label(owner, dst))
 
-    # Not in any state: the model the chat Lambda calls, and the people using the page.
+    # Not in any state: the model the worker calls, and the people using the page.
     for key, (model_id, api) in models.items():
+        if api == "stub":
+            continue  # the stand-in calls no model
         if api == "openai":
             graph.nodes[BEDROCK] = Node(BEDROCK, BEDROCK, f"Bedrock Mantle\n{model_id}")
             graph.connect(key, BEDROCK, "Chat Completions")
@@ -169,8 +182,10 @@ def build(units: dict[str, dict], account_id: str = "") -> Graph:
 def render(graph: Graph, out: Path, title: str):
     """Draw graph to out.png with the AWS icons, one cluster per unit."""
     from diagrams import Cluster, Diagram, Edge
-    from diagrams.aws.compute import Lambda
+    from diagrams.aws.compute import ECR, Lambda
     from diagrams.aws.cost import Budgets
+    from diagrams.aws.database import Dynamodb
+    from diagrams.aws.integration import SQS
     from diagrams.aws.engagement import SES
     from diagrams.aws.ml import Bedrock
     from diagrams.aws.network import APIGateway, CloudFront
@@ -186,6 +201,9 @@ def render(graph: Graph, out: Path, title: str):
         "aws_cognito_user_pool": Cognito,
         "aws_sesv2_email_identity": SES,
         "aws_budgets_budget": Budgets,
+        "aws_sqs_queue": SQS,
+        "aws_dynamodb_table": Dynamodb,
+        "aws_ecr_repository": ECR,
         BEDROCK: Bedrock,
         USERS: Users,
     }

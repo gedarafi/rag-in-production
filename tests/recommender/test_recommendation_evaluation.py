@@ -7,6 +7,8 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
+from src.recommender.bedrock import BedrockChat
+from tests.recommender.bedrock_stub import ScriptedTransport
 from src.recommender.recommendation_evaluation import (
     Catalog, constraint_score, evaluate_question, extract_titles, extraction_messages,
     load_dataset, rescore_saved, run_evaluation, score_recommendations, summarize, validate_constraint,
@@ -141,11 +143,9 @@ class RecommendationEvaluationTests(unittest.TestCase):
 
     def test_llm_extraction_retries_invalid_or_invented_titles(self):
         for first in ['bad JSON', json.dumps({'titles': ['Made Up'], 'unclear': False, 'note': ''})]:
-            values = [first, json.dumps({'titles': ['Ichi', 'Ni', 'Ichi'], 'unclear': False, 'note': ''})]
-            responses = [io.BytesIO(json.dumps({'message': {'content': v}}).encode()) for v in values]
-            with patch('urllib.request.urlopen', side_effect=responses) as call:
-                result = extract_titles(self.q, '1. Ichi\n2. Ni\n3. Ichi', url='http://localhost', model='test')
-            self.assertEqual(call.call_count, 2)
+            transport = ScriptedTransport(first, json.dumps({'titles': ['Ichi', 'Ni', 'Ichi'], 'unclear': False, 'note': ''}))
+            result = extract_titles(self.q, '1. Ichi\n2. Ni\n3. Ichi', chat=BedrockChat('test', transport))
+            self.assertEqual(len(transport.calls), 2)
             self.assertEqual(result['attempts'], 2)
             self.assertEqual(result['titles'], ['Ichi', 'Ni', 'Ichi'])
 
@@ -217,7 +217,7 @@ class DeliveredRecommendationDatasetTests(unittest.TestCase):
 
     def test_zero_budget_does_not_load_rag_and_config_changes_reject_resume(self):
         from src.recommender.config import load_settings
-        settings = load_settings(ROOT / 'settings.toml', 'anilist')
+        settings = load_settings(ROOT / 'recommender.toml', 'anilist')
         with tempfile.TemporaryDirectory() as folder:
             report = run_evaluation(settings, DATA, folder, max_new_questions=0)
             self.assertEqual(report['overall']['planned'], 11)

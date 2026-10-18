@@ -8,6 +8,10 @@ from unittest.mock import patch
 from tests.recommender import test_entity_agent as fixtures
 from src.recommender.entity_agent import EntityAgent, independent_recommendation
 from src.recommender.tool_plan import resolve_references
+from src.recommender.evaluation_runtime import span_summary
+from opentelemetry import trace
+
+from src.tracing import capture_spans
 
 
 def step(tool, **arguments):
@@ -149,16 +153,17 @@ class ToolPlanTests(unittest.TestCase):
 
     def test_unrelated_request_gets_llm_written_reply_without_tools_or_final_call(self):
         self.plan.update(scope='out_of_domain', direct_response='Slice the apple and simmer it with a little water until soft.')
-        events = []
         with patch.object(self.agent, 'execute', side_effect=AssertionError('must not run tools')), \
-             patch.object(self.agent, 'finish', side_effect=AssertionError('must not call final model')):
-            result = self.agent.answer('How to cook an apple?', [], debug=events.append)
+             patch.object(self.agent, 'finish', side_effect=AssertionError('must not call final model')), \
+             capture_spans() as spans:
+            result = self.agent.answer('How to cook an apple?', [])
         self.assertEqual(result, self.plan['direct_response'])
         self.assertEqual(self.calls, ['plan'])
         self.assertEqual(self.agent.last_usage['llm_calls'], 1)
         self.assertEqual(self.agent.last_usage['executed_tools'], 0)
         self.assertEqual(self.agent.last_usage['response_path'], 'planner_direct_response')
-        self.assertEqual(events[-1]['scope'], 'out_of_domain')
+        (decision,) = [e for span in spans for e in span.events if e.name == 'scope_decision']
+        self.assertEqual(decision.attributes['scope'], 'out_of_domain')
 
     def test_uncertain_request_keeps_normal_flow(self):
         self.plan.update(scope='uncertain', clarification='Ask what Apple refers to.')
@@ -225,34 +230,48 @@ class ToolPlanTests(unittest.TestCase):
                 self.agent.answer('What is Re:Zero?', [])
         self.assertEqual(self.agent.last_usage['timings_seconds']['planning'], 1)
 
-    def test_progress_arrives_before_tools_and_final_generation(self):
-        events = []
+    def test_tools_run_in_their_own_spans_before_final_generation(self):
         self.plan['steps'] = [step('get_anime', id='1')]
         original_execute = self.agent.execute
         def execute(*args):
-            self.assertTrue(any(e['stage'] == 'plan_ready' for e in events))
-            self.assertEqual(events[-1]['status'], 'running')
-            self.assertEqual(events[-1]['tool'], 'get_anime')
+            # The tool runs inside its TOOL span, after the plan was recorded.
+            self.assertEqual(trace.get_current_span().name, 'get_anime')
+            self.assertEqual(self.agent.last_usage['planned_tools'], 1)
             return original_execute(*args)
         def reply(*args):
-            tool_done = [e for e in events if e['stage'] == 'tool' and e['status'] == 'completed']
-            self.assertEqual(len(tool_done), 1)
+            tool_done = [span_summary(s) for s in spans if span_summary(s)['stage'] == 'tool']
+            self.assertEqual([(t['tool'], t['status']) for t in tool_done], [('get_anime', 'completed')])
             self.assertIn('elapsed_seconds', tool_done[0])
             return 'A natural sourced answer.'
         self.agent.execute = execute
         self.models.agent_reply = reply
-        self.agent.answer('What is Re:Zero?', [], debug=events.append)
-        self.assertEqual(events[-1]['stage'], 'generate_answer')
-        self.assertEqual(events[-1]['status'], 'completed')
+        with capture_spans() as spans:
+            self.agent.answer('What is Re:Zero?', [])
+        stages = [span_summary(span) for span in spans]
+        # The answer is the last stage; the agent span around all of them ends after it.
+        self.assertEqual(stages[-2]['stage'], 'generate_answer')
+        self.assertEqual(stages[-2]['status'], 'completed')
+        self.assertEqual(stages[-1]['kind'], 'agent')
 
-    def test_failed_planning_emits_progress_error_before_raising(self):
-        events = []
+    def test_a_failed_interpretation_falls_back_to_the_planner(self):
+        self.models.interpret_request = lambda *args: '{}'
+        with patch('src.recommender.entity_agent.interpret_catalog_request',
+                   side_effect=ValueError('reply did not match its schema')), capture_spans() as spans:
+            self.assertIn('A natural sourced answer', self.ask('What is Re:Zero?'))
+        self.assertEqual(self.agent.last_usage['interpretation_error'], 'reply did not match its schema')
+        (stage,) = [span_summary(s) for s in spans if s.name == 'interpret_request']
+        self.assertEqual(stage['status'], 'error')
+        self.assertTrue(any(e.name == 'interpretation_failed' for s in spans for e in s.events))
+
+    def test_failed_planning_is_an_error_span_before_raising(self):
         self.models.plan_tools = lambda *args: (_ for _ in ()).throw(RuntimeError('offline'))
-        with self.assertRaisesRegex(RuntimeError, 'offline'):
-            self.agent.answer('What is Re:Zero?', [], debug=events.append)
-        self.assertEqual(events[-1]['stage'], 'planning')
-        self.assertEqual(events[-1]['status'], 'error')
-        self.assertIn('elapsed_seconds', events[-1])
+        with self.assertRaisesRegex(RuntimeError, 'offline'), capture_spans() as spans:
+            self.agent.answer('What is Re:Zero?', [])
+        stages = [span_summary(span) for span in spans]
+        self.assertEqual(stages[-2]['stage'], 'planning')
+        self.assertEqual(stages[-2]['status'], 'error')
+        self.assertIn('elapsed_seconds', stages[-2])
+        self.assertEqual(stages[-1]['status'], 'error')
 
     def test_recommendations_keep_aliases_and_matching_features_per_work(self):
         bundle = self.store.anime('1')

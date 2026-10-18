@@ -55,7 +55,7 @@ from src.recommender.factual_evaluation import load_questions, read_csv, score_v
 
 DATA = ROOT / 'data/evaluation/hard_facts'
 QUESTIONS_CSV = DATA / 'questions.csv'
-SETTINGS = load_settings(ROOT / 'settings.toml', 'anilist')
+SETTINGS = load_settings(ROOT / 'recommender.toml', 'anilist')
 DATABASE = SETTINGS.documents / 'catalog.sqlite3'
 PROJECT_PYTHON = ROOT / '.venv' / ('Scripts/python.exe' if os.name == 'nt' else 'bin/python')
 if not PROJECT_PYTHON.is_file():
@@ -185,7 +185,7 @@ if RUN_LIVE:
     if not DATABASE.is_file():
         raise RuntimeError('Complete AniList setup before live evaluation. Offline dataset inspection works without it.')
     command = [str(PROJECT_PYTHON), '-u', '-X', 'utf8', '-m', 'src.recommender.factual_evaluation',
-               '--settings', str(ROOT / 'settings.toml'),
+               '--settings', str(ROOT / 'recommender.toml'),
                '--questions', str(RUN_QUESTIONS), '--output', str(OUTPUT)]
     if EXTRACTOR_MODEL:
         command.extend(['--extractor-model', EXTRACTOR_MODEL])

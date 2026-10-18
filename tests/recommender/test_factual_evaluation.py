@@ -4,53 +4,50 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
+from src.recommender.bedrock import BedrockChat
+from tests.recommender.bedrock_stub import ScriptedTransport
+
 from src.recommender.factual_evaluation import (
     evaluate_question, extract_facts, extraction_messages, load_questions, normalize_values,
     reextract_saved, run_evaluation, save_results, score_values, summarize, validate_extraction,
 )
 
 
+def scripted(*contents):
+    transport = ScriptedTransport(*contents)
+    return BedrockChat('test', transport), transport
+
+
+@patch.dict('os.environ', {'MODEL_ID': 'test-extractor'})
 class FactualEvaluationTests(unittest.TestCase):
     question = {'question_id': 'q1', 'anime_id': '20', 'field': 'episodes',
                 'question': 'How many episodes does Naruto have?', 'expected_values': '[220]'}
 
     def test_llm_parses_scalar_answers_without_generating_quotes(self):
-        import io
         for field, answer in [('episodes', '62'), ('format', 'MOVIE'),
                               ('source_material', 'Manga'), ('main_animation_studios', 'bones')]:
-            parsed = {'values': [answer], 'unclear': False, 'note': ''}
-            raw = json.dumps({'message': {'content': json.dumps(parsed)}}).encode()
-            with patch('urllib.request.urlopen', return_value=io.BytesIO(raw)) as call:
-                extracted = extract_facts({**self.question, 'field': field}, answer,
-                                          url='http://localhost', model='test')
-            self.assertEqual(call.call_count, 1)
+            chat, transport = scripted(json.dumps({'values': [answer], 'unclear': False, 'note': ''}))
+            extracted = extract_facts({**self.question, 'field': field}, answer, chat=chat)
+            self.assertEqual(len(transport.calls), 1)
             self.assertEqual(extracted['facts'], [{'value': answer, 'quote': answer}])
-            self.assertNotIn('220', json.dumps(json.loads(call.call_args.args[0].data)))
+            self.assertNotIn('220', json.dumps(transport.calls[0]['messages']))
 
     def test_parser_retries_invalid_json_and_preserves_wrong_answer(self):
-        import io
-        contents = ['invalid json', json.dumps({'values': ['12'], 'unclear': False, 'note': ''})]
-        responses = [io.BytesIO(json.dumps({'message': {'content': x}}).encode()) for x in contents]
-        with patch('urllib.request.urlopen', side_effect=responses):
-            row = evaluate_question(self.question, lambda _: '12 episodes.',
-                                    lambda q, a: extract_facts(q, a, url='http://localhost', model='test'))
+        chat, _ = scripted('invalid json', json.dumps({'values': ['12'], 'unclear': False, 'note': ''}))
+        row = evaluate_question(self.question, lambda _: '12 episodes.', lambda q, a: extract_facts(q, a, chat=chat))
         self.assertEqual(row['extraction']['attempts'], 2)
         self.assertEqual(row['metrics']['exact_match'], 0)
 
     def test_parser_empty_and_unclear_results(self):
-        import io
         for unclear, expected in [(False, 'unanswered'), (True, 'needs_review')]:
-            raw = json.dumps({'message': {'content': json.dumps(
-                {'values': [], 'unclear': unclear, 'note': ''})}}).encode()
-            with patch('urllib.request.urlopen', return_value=io.BytesIO(raw)):
-                row = evaluate_question(self.question, lambda _: 'ambiguous',
-                                        lambda q, a: extract_facts(q, a, url='http://localhost', model='test'))
+            chat, _ = scripted(json.dumps({'values': [], 'unclear': unclear, 'note': ''}))
+            row = evaluate_question(self.question, lambda _: 'ambiguous', lambda q, a: extract_facts(q, a, chat=chat))
             self.assertEqual(row['status'], expected)
 
     def test_reextract_preserves_generation_and_source_run(self):
         import hashlib
         from src.recommender.config import load_settings
-        settings = load_settings(Path(__file__).resolve().parents[2] / 'settings.toml', 'anilist')
+        settings = load_settings(Path(__file__).resolve().parents[2] / 'recommender.toml', 'anilist')
         original = {**self.question, 'expected_values': [220], 'answer_text': '62',
                     'model_seconds': 17.5, 'status': 'extraction_error', 'error': 'bad quote',
                     'extraction': None, 'extraction_seconds': 2, 'metrics': None}
@@ -151,7 +148,7 @@ class FactualEvaluationTests(unittest.TestCase):
         from types import SimpleNamespace
         from src.recommender.config import load_settings
 
-        settings = load_settings(Path(__file__).resolve().parents[2] / 'settings.toml', 'anilist')
+        settings = load_settings(Path(__file__).resolve().parents[2] / 'recommender.toml', 'anilist')
         pipeline = unittest.mock.Mock()
         pipeline.ask.return_value = '220 episodes.'
         pipeline.last_route = {'llm_calls': 2}
@@ -182,7 +179,7 @@ class FactualEvaluationTests(unittest.TestCase):
         import sys
         from types import SimpleNamespace
         from src.recommender.config import load_settings
-        settings = load_settings(Path(__file__).resolve().parents[2] / 'settings.toml', 'anilist')
+        settings = load_settings(Path(__file__).resolve().parents[2] / 'recommender.toml', 'anilist')
         questions = [dict(self.question, question_id=f'q{i}') for i in range(3)]
         pipeline = unittest.mock.Mock()
         pipeline.ask.return_value = '62'

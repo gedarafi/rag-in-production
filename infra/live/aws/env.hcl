@@ -23,13 +23,20 @@ locals {
   # Switch to ACTIVE once real users depend on the pool.
   deletion_protection = "INACTIVE"
 
-  # Chat model. "openai" calls Chat Completions on bedrock-mantle (bedrock-mantle.<region>.api.aws),
+  # Recommender model. "openai" calls Chat Completions on bedrock-mantle (bedrock-mantle.<region>.api.aws),
   # whose quotas are separate from bedrock-runtime's; the requests show up under the default project
-  # in the console. "converse" calls Converse on bedrock-runtime with a model or inference profile
-  # such as us.amazon.nova-micro-v1:0.
-  model_id   = get_env("RAG_BEDROCK_MODEL_ID", "google.gemma-3-4b-it")
-  model_api  = get_env("RAG_BEDROCK_MODEL_API", "openai")
-  max_tokens = 512
+  # in the console. Qwen3 32B follows the pipeline's JSON schemas strictly there (see INFRA.md).
+  # "converse" calls Converse on bedrock-runtime with a model or inference profile such as
+  # us.amazon.nova-micro-v1:0.
+  model_id               = get_env("RAG_BEDROCK_MODEL_ID", "qwen.qwen3-32b")
+  model_api              = get_env("RAG_BEDROCK_MODEL_API", "openai")
+  worker_timeout_seconds = 120
+  model_timeout_seconds  = 60
+
+  # Artifact bundles (`just aws-recommender-publish`). Bucket names are global, hence the account ID.
+  artifact_bucket_name   = "rag-aws-recommender-artifacts-${get_env("RAG_AWS_ACCOUNT_ID", "")}"
+  force_destroy          = false
+  point_in_time_recovery = true
 
   # Traces go to Arize AX (a Lambda in AWS can't reach the Phoenix on a developer's machine), but only
   # once RAG_ARIZE_SPACE_ID is set. The API key stays in SSM: store it with `just aws-arize-key`.
@@ -43,6 +50,9 @@ locals {
   # The emails default to RAG_SES_IDENTITY when that is an address (a domain is not); set RAG_BUDGET_EMAILS otherwise.
   budget_limit_usd = tonumber(get_env("RAG_BUDGET_LIMIT_USD", "10"))
   budget_emails    = compact(split(",", get_env("RAG_BUDGET_EMAILS", strcontains(get_env("RAG_SES_IDENTITY", ""), "@") ? get_env("RAG_SES_IDENTITY", "") : "")))
+
+  # The recommender's alarms (dead letters, errors, slow answers) go to the same addresses.
+  alarm_emails = local.budget_emails
 
   # Lets `just web-dev` (http://localhost:8000) call the API directly.
   cors_allow_origins = ["http://localhost:8000"]

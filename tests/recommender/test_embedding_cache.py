@@ -7,7 +7,6 @@ from unittest.mock import patch
 import numpy as np
 
 from src.recommender.embedding_cache import cached_embed
-from src.recommender.providers import select_device
 
 
 class EmbeddingCacheTests(unittest.TestCase):
@@ -50,13 +49,3 @@ class EmbeddingCacheTests(unittest.TestCase):
             vectors = cached_embed(texts, SimpleNamespace(embed=embed), path, 'model')
             self.assertEqual(resumed, texts[256:])
             self.assertEqual(vectors.shape, (300, 2))
-
-    def test_device_preference_and_unavailable_explicit_device(self):
-        with patch('torch.cuda.is_available', return_value=True), patch('torch.backends.mps.is_available', return_value=True):
-            self.assertEqual(select_device('auto'), 'cuda')
-        with patch('torch.cuda.is_available', return_value=False), patch('torch.backends.mps.is_available', return_value=True):
-            self.assertEqual(select_device('auto'), 'mps')
-        with patch('torch.cuda.is_available', return_value=False), patch('torch.backends.mps.is_available', return_value=False):
-            self.assertEqual(select_device('auto'), 'cpu')
-            with self.assertRaisesRegex(ValueError, 'unavailable'):
-                select_device('cuda')

@@ -6,7 +6,12 @@ on:
       - "infra/**"
       - "src/chat/**"
       - "src/auth/**"
+      - "src/recommender/**"
+      - "src/tracing.py"
       - "tests/**"
+      - "pyproject.toml"
+      - "uv.lock"
+      - ".dockerignore"
       - "justfile"
       - ".github/workflows/infra.yml"
       - ".github/actions/setup-infra/**"
@@ -16,7 +21,12 @@ on:
       - "infra/**"
       - "src/chat/**"
       - "src/auth/**"
+      - "src/recommender/**"
+      - "src/tracing.py"
       - "tests/**"
+      - "pyproject.toml"
+      - "uv.lock"
+      - ".dockerignore"
       - "justfile"
       - ".github/workflows/infra.yml"
       - ".github/actions/setup-infra/**"
@@ -51,6 +61,14 @@ jobs:
               - "infra/live/**"
               - "src/chat/**"
               - "src/auth/**"
+              - "src/recommender/**"
+              - "src/tracing.py"
+              - "tests/fixtures/**"
+              - "infra/docker/**"
+              - "infra/scripts/build_*.sh"
+              - "pyproject.toml"
+              - "uv.lock"
+              - ".dockerignore"
               - "infra/docker-compose.yml"
               - "infra/.opentofu-version"
               - "infra/.terragrunt-version"
@@ -83,6 +101,8 @@ jobs:
       needs.static.outputs.has_localstack_token == 'true' &&
       (needs.changes.outputs.infra == 'true' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-24.04
+    env:
+      RAG_LOCAL_MODEL_API: stub
     steps:
       - uses: actions/checkout@v7
       - uses: ./.github/actions/setup-infra
@@ -92,7 +112,10 @@ jobs:
           TOKEN: ${{ secrets.LOCALSTACK_AUTH_TOKEN }}
         run: echo "LOCALSTACK_AUTH_TOKEN=$TOKEN" > infra/.env
 
+      # Deterministic answers in CI: the stand-in model, so no model is pulled or run.
       - run: just up
+        env:
+          LOCALSTACK_BEDROCK_PREWARM: "0"
       - run: just status
       - run: just test-localstack
       - run: just e2e

@@ -1,0 +1,10 @@
+# Added by `just up` when Docker has the NVIDIA runtime (`just gpu-setup`): the local model on the GPU.
+services:
+  ollama:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
