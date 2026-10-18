@@ -33,7 +33,7 @@ services:
 
   phoenix:
     # Traces of the local RAG in src/local/ (set [tracing] endpoint in settings.toml); UI on :6006.
-    image: arizephoenix/phoenix:version-20.19.0
+    image: arizephoenix/phoenix:version-20.23.0
     container_name: phoenix
     ports:
       - "127.0.0.1:6006:6006"  # UI and OTLP/HTTP at /v1/traces
