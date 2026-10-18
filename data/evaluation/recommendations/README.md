@@ -191,10 +191,10 @@ AniList indexes and the configured Ollama model must already be available.
 
 ```powershell
 # All 72; use an unused run name.
-.venv/Scripts/python.exe -m src.recommendation_evaluation --mode full --output data/evaluation/recommendations/results/full_001
+.venv/Scripts/python.exe -m src.recommender.recommendation_evaluation --mode full --output data/evaluation/recommendations/results/full_001
 
 # Limit new work in an existing identical run without changing the selection.
-.venv/Scripts/python.exe -m src.recommendation_evaluation --mode full --max-new-questions 5 --output data/evaluation/recommendations/results/full_001
+.venv/Scripts/python.exe -m src.recommender.recommendation_evaluation --mode full --max-new-questions 5 --output data/evaluation/recommendations/results/full_001
 ```
 
 `--extractor-model <installed-name>` changes the extraction model; this requires a
@@ -220,7 +220,7 @@ subsequent code revision. A new live run is required to measure a new pipeline.
 To apply revised labels to saved answers without calling the RAG or extractor:
 
 ```powershell
-.venv/Scripts/python.exe -m src.recommendation_evaluation --rescore-from data/evaluation/recommendations/results/change --output data/evaluation/recommendations/results/my_semantic_rescore
+.venv/Scripts/python.exe -m src.recommender.recommendation_evaluation --rescore-from data/evaluation/recommendations/results/change --output data/evaluation/recommendations/results/my_semantic_rescore
 ```
 
 Use a new destination. Question text and desired counts must match. The new run

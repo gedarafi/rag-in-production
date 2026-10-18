@@ -92,7 +92,12 @@ test-unit:
 # Python tests with coverage (the Lambda's chat dependency group, without the local RAG's models); extra args go to pytest
 [working-directory: '..']
 test-py *args:
-    uv run --quiet --isolated --only-group test --only-group chat pytest --cov --cov-report=term-missing {{args}}
+    uv run --quiet --isolated --only-group test --only-group chat pytest --cov --cov-report=term-missing --ignore=tests/recommender {{args}}
+
+# Anime recommender tests (they need the project's own dependencies: NumPy, Gradio, PyTorch); extra args go to pytest
+[working-directory: '..']
+test-recommender *args:
+    uv run --quiet --group test pytest tests/recommender {{args}}
 
 # Check that the chat Lambda's traces reach the running Phoenix (run `just phoenix-up` first)
 [working-directory: '..']

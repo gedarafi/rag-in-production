@@ -5,9 +5,9 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 import latency_diagnostics as diagnostics
-from src.config import load_settings
-from src.rag import RagPipeline
-from src.entity_agent import EntityAgent
+from src.recommender.config import load_settings
+from src.recommender.rag import RagPipeline
+from src.recommender.entity_agent import EntityAgent
 
 diagnostics.OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path('data/latency-diagnostics/sad-recommendations')
 diagnostics.OUT.mkdir(parents=True, exist_ok=True)

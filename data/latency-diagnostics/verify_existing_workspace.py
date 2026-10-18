@@ -4,9 +4,9 @@ from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-from src.anilist_setup import AniListWorkspace
-from src.config import load_settings
-from src.rag import RagPipeline
+from src.recommender.anilist_setup import AniListWorkspace
+from src.recommender.config import load_settings
+from src.recommender.rag import RagPipeline
 
 workspace = AniListWorkspace(load_settings('settings.toml', 'anilist'))
 workspace.pipeline = RagPipeline(workspace.settings)

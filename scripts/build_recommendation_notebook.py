@@ -44,13 +44,13 @@ import pandas as pd
 from IPython.display import display, Image
 
 ROOT = next((p for p in [Path.cwd(), *Path.cwd().parents]
-             if (p / 'src/recommendation_evaluation.py').is_file()), None)
+             if (p / 'src/recommender/recommendation_evaluation.py').is_file()), None)
 if ROOT is None:
     raise RuntimeError('Open this notebook from the repository root or notebook folder.')
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
-from src.recommendation_evaluation import Catalog, load_dataset, METRICS
-from src.config import load_settings
+from src.recommender.recommendation_evaluation import Catalog, load_dataset, METRICS
+from src.recommender.config import load_settings
 
 DATA = ROOT / 'data/evaluation/recommendations'
 PYTHON = ROOT / '.venv' / ('Scripts/python.exe' if os.name == 'nt' else 'bin/python')
@@ -162,7 +162,7 @@ are pending and excluded from performance denominators.
 cell('code', '''
 def show_charts(results=None):
     output = Path(results) / 'charts' if results is not None else DATA / 'charts'
-    command = [str(PYTHON), '-X', 'utf8', '-m', 'src.recommendation_visualizations',
+    command = [str(PYTHON), '-X', 'utf8', '-m', 'src.recommender.recommendation_visualizations',
                '--dataset', str(DATA), '--output', str(output)]
     if results is not None:
         command += ['--results', str(results)]
@@ -216,7 +216,7 @@ cell('code', '''
 if RUN_LIVE:
     if not REFERENCE_AVAILABLE or not (SETTINGS.documents / 'catalog.sqlite3').is_file():
         raise RuntimeError('Live scoring needs AniList setup and python scripts/build_recommendation_benchmark.py. Offline inspection works without those files.')
-    command = [str(PYTHON), '-u', '-X', 'utf8', '-m', 'src.recommendation_evaluation',
+    command = [str(PYTHON), '-u', '-X', 'utf8', '-m', 'src.recommender.recommendation_evaluation',
                '--settings', str(ROOT / 'settings.toml'), '--dataset', str(DATA),
                '--output', str(OUTPUT), '--mode', MODE]
     if EXTRACTOR_MODEL:

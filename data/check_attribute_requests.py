@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
-from src.config import load_settings
-from src.rag import RagPipeline
+from src.recommender.config import load_settings
+from src.recommender.rag import RagPipeline
 
 pipeline = RagPipeline(load_settings(knowledge_base='anilist'))
 questions = ['When did One-Punch Man come out?', 'How many episodes does One-Punch Man have, and how long is each episode?',

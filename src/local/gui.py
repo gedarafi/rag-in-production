@@ -1,24 +1,14 @@
 from __future__ import annotations
 
 import argparse
-import json
 import shutil
 import socket
-import sys
-from copy import deepcopy
 from pathlib import Path
-from time import perf_counter
 
 import gradio as gr
 
-from .config import KNOWLEDGE_BASES, Settings, load_settings, select_knowledge_base
+from .config import Settings, load_settings
 from .rag import RagPipeline
-
-
-def print_debug(snapshot: dict) -> None:
-    """Mirror GUI request diagnostics to the launching terminal immediately."""
-    print(json.dumps({'gui_debug': snapshot}, ensure_ascii=False, indent=2),
-          file=sys.stderr, flush=True)
 
 
 GUI_CSS = """
@@ -42,7 +32,7 @@ GUI_CSS = """
   .gradio-container {padding: 14px !important;}
   #workspace {gap: 16px;}
   #documents-panel {flex-basis: 100% !important; width: 100% !important;}
-  #conversation {height: 65vh !important; min-height: 320px;}
+  #conversation {height: 50vh !important; min-height: 280px;}
 }
 """
 
@@ -64,57 +54,33 @@ def copy_uploaded_documents(files: list[str] | None, settings: Settings) -> str:
 
 def build_app(config_path: str = "settings.toml") -> gr.Blocks:
     settings = load_settings(config_path)
-    pipelines: dict[str, RagPipeline] = {}
-    default_base = next((name for name in KNOWLEDGE_BASES if name != "custom" and
-                         settings.documents == settings.root / "data/documents" / name), "custom")
+    pipeline = RagPipeline(settings)
 
-    def get_pipeline(name: str) -> RagPipeline:
-        if name not in pipelines:
-            pipelines[name] = RagPipeline(load_settings(config_path, name))
-        return pipelines[name]
-
-    def ask_question(question: str, history: list[dict] | None, knowledge_base: str, latest_debug: dict):
+    def ask_question(question: str, history: list[dict] | None):
         history = list(history or [])
         if not question.strip():
-            yield history, question, "Enter a question about your documents.", latest_debug, gr.update(value=latest_debug)
+            yield history, question, "Enter a question about your documents."
             return
-        previous_history = list(history)
         history.append({"role": "user", "content": question.strip()})
         history.append({"role": "assistant", "content": "Thinking..."})
-        pending = {'status': 'running', 'question': question.strip(), 'knowledge_base': knowledge_base}
-        print_debug(pending)
-        yield history, "", "Preparing documents and waiting for the model. The first answer can take longer.", pending, gr.update(value=pending)
-        pipeline = None
-        started = perf_counter()
+        yield history, "", "Preparing documents and waiting for the model. The first answer can take longer."
         try:
-            pipeline = get_pipeline(knowledge_base)
-            reply = pipeline.ask(question.strip(), history=previous_history,
-                                 debug=lambda event: print_debug({**pending, **event}))
+            reply = pipeline.ask(question.strip())
             if not reply.strip():
                 raise RuntimeError("The model returned an empty answer. Try asking again.")
             history[-1] = {"role": "assistant", "content": reply}
-            debug = {**pending, 'status': 'completed', **deepcopy(getattr(pipeline, 'last_route', {}))}
-            debug['elapsed_seconds'] = round(perf_counter() - started, 6)
-            print_debug({**pending, 'status': 'completed', 'elapsed_seconds': debug['elapsed_seconds'],
-                         'llm_calls': debug.get('llm_calls')})
-            yield history, "", "Ready.", debug, gr.update(value=debug)
+            yield history, "", "Ready."
         except (OSError, RuntimeError, ValueError) as error:
             history[-1] = {"role": "assistant", "content": f"Unable to answer: {error}"}
-            debug = {**pending, 'status': 'error', 'error': str(error), **deepcopy(getattr(pipeline, 'last_route', {}))}
-            debug['elapsed_seconds'] = round(perf_counter() - started, 6)
-            print_debug(debug)
-            yield history, "", "Unable to answer. See the message above.", debug, gr.update(value=debug)
+            yield history, "", "Unable to answer. See the message above."
 
-    def rebuild_index(knowledge_base: str, progress=gr.Progress()) -> str:
+    def rebuild_index() -> str:
         try:
-            progress(0, desc="Loading embedding model")
-            pipeline = get_pipeline(knowledge_base)
-            return f"Ready. Indexed {pipeline.ingest(progress=lambda stage, done, total: progress((done, max(total, 1)), desc=stage))} document chunks."
+            return f"Ready. Indexed {pipeline.ingest()} document chunks."
         except (OSError, RuntimeError, ValueError) as error:
             return f"Could not build the index: {error}"
 
     with gr.Blocks(title="Local RAG") as app:
-        debug_state = gr.State({})
         gr.Markdown(
             "# Local RAG\nYour documents. A conversation away.",
             elem_id="app-header",
@@ -131,18 +97,12 @@ def build_app(config_path: str = "settings.toml") -> gr.Blocks:
                 )
                 gr.Markdown("PDF, Word, Markdown, and text files")
                 add_button = gr.Button("Add to library", variant="primary")
-                with gr.Accordion("Advanced", open=False):
-                    knowledge_base = gr.Dropdown(
-                        choices=list(KNOWLEDGE_BASES), value=default_base, label="Knowledge base",
-                        info="Changing the knowledge base starts a new chat.",
-                    )
+                with gr.Accordion("Index & document settings", open=False):
                     gr.Markdown(
                         "The index is built on your first question. "
                         "After adding more files, rebuild it to include them."
                     )
                     ingest_button = gr.Button("Rebuild index", size="sm")
-                    show_debug = gr.Checkbox(value=False, label="Show router debug",
-                                             info="Inspect the latest query's plan, context choice, tools and LLM call count.")
                 status = gr.Markdown("Your library is ready for documents.", elem_id="document-status")
             with gr.Column(scale=1, min_width=320, elem_id="chat-panel"):
                 with gr.Row(elem_id="chat-header"):
@@ -151,7 +111,7 @@ def build_app(config_path: str = "settings.toml") -> gr.Blocks:
                 chat = gr.Chatbot(
                     label="Conversation",
                     show_label=False,
-                    height="max(600px, 75vh)",
+                    height="min(58vh, 620px)",
                     layout="bubble",
                     buttons=["copy"],
                     placeholder=(
@@ -177,44 +137,27 @@ def build_app(config_path: str = "settings.toml") -> gr.Blocks:
                 chat_status = gr.Markdown(
                     "Enter to send. Shift + Enter for a new line.", elem_id="chat-status"
                 )
-                debug_output = gr.JSON(label="Router debug", value={}, visible=False)
-
-        def add_documents(files, name):
-            return copy_uploaded_documents(files, load_settings(config_path, name))
-
-        def switch_knowledge_base(name):
-            select_knowledge_base(config_path, name)
-            return [], "", None, f"Using {name}. Uploads and index rebuilds apply to this library.", "Ready. Ask a question to begin.", {}, gr.update(value={})
 
         add_button.click(
-            add_documents,
-            inputs=[upload, knowledge_base],
+            lambda files: copy_uploaded_documents(files, settings),
+            inputs=upload,
             outputs=status,
-            concurrency_id="chat", concurrency_limit=1,
         )
-        knowledge_base.change(
-            switch_knowledge_base, inputs=knowledge_base,
-            outputs=[chat, question, upload, status, chat_status, debug_state, debug_output],
-            concurrency_id="chat", concurrency_limit=1,
-        )
-        ingest_button.click(rebuild_index, inputs=[knowledge_base], outputs=status,
-                            concurrency_id="chat", concurrency_limit=1)
+        ingest_button.click(rebuild_index, outputs=status)
         for event in (ask_button.click, question.submit):
             event(
                 ask_question,
-                inputs=[question, chat, knowledge_base, debug_state],
-                outputs=[chat, question, chat_status, debug_state, debug_output],
+                inputs=[question, chat],
+                outputs=[chat, question, chat_status],
                 concurrency_id="chat",
                 concurrency_limit=1,
             )
         clear_button.click(
-            lambda: ([], "", "Ready. Ask a question to begin.", {}, gr.update(value={})),
-            outputs=[chat, question, chat_status, debug_state, debug_output],
+            lambda: ([], "", "Ready. Ask a question to begin."),
+            outputs=[chat, question, chat_status],
             concurrency_id="chat",
             concurrency_limit=1,
         )
-        show_debug.change(lambda enabled, snapshot: gr.update(visible=enabled, value=snapshot),
-                          inputs=[show_debug, debug_state], outputs=debug_output, queue=False)
 
     return app
 

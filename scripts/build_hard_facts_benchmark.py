@@ -15,7 +15,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from src.factual_evaluation import database_values, load_questions
+from src.recommender.factual_evaluation import database_values, load_questions
 
 DEST = ROOT / 'data/evaluation/hard_facts'
 DATABASE = ROOT / 'data/documents/anilist/catalog.sqlite3'

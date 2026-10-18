@@ -39,7 +39,7 @@ def main():
     if args.tests:
         log = output / 'tests.log'
         with log.open('w', encoding='utf-8') as stream:
-            result = subprocess.run([sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-v'], cwd=root,
+            result = subprocess.run([sys.executable, '-m', 'unittest', 'discover', '-s', 'tests/recommender', '-t', '.', '-v'], cwd=root,
                                     stdout=stream, stderr=subprocess.STDOUT)
         print('\n'.join(log.read_text(encoding='utf-8', errors='replace').splitlines()[-5:]), flush=True)
         result.check_returncode()

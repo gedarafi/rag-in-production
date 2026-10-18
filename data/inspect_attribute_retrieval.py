@@ -3,11 +3,11 @@ import sys
 import argparse
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from src.rag import RagPipeline
-from src.config import load_settings
-from src.semantic_attributes import retrieve_attributes
-from src.request_resolution import PREFERENCE_STOP
-from src.anime_tools import normalize
+from src.recommender.rag import RagPipeline
+from src.recommender.config import load_settings
+from src.recommender.semantic_attributes import retrieve_attributes
+from src.recommender.request_resolution import PREFERENCE_STOP
+from src.recommender.anime_tools import normalize
 
 parser = argparse.ArgumentParser(description='Inspect semantic attribute retrieval; a previous capture is optional.')
 parser.add_argument('question', nargs='?', default='Recommend fantasy TV anime with at most 12 episodes since 2015')

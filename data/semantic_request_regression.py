@@ -1,8 +1,8 @@
 import json
 import sys
 from pathlib import Path
-from src.config import load_settings
-from src.rag import RagPipeline
+from src.recommender.config import load_settings
+from src.recommender.rag import RagPipeline
 
 p = RagPipeline(load_settings(knowledge_base='anilist'))
 cases = [
