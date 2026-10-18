@@ -1,6 +1,6 @@
 """Tests for diagram.build: which services and arrows a deployed state turns into (no rendering)."""
 
-import unittest
+import pytest
 
 from diagram import BEDROCK, USERS, build
 
@@ -43,54 +43,60 @@ UNITS = {
 }
 
 
-class BuildTest(unittest.TestCase):
-    def setUp(self):
-        self.graph = build(UNITS, ACCOUNT)
-
-    def edge(self, src, dst):
-        return self.graph.edges.get((src, dst))
-
-    def test_draws_services_but_not_helpers(self):
-        kinds = sorted(n.kind for n in self.graph.nodes.values())
-        self.assertEqual(kinds, sorted([
-            "aws_cognito_user_pool", "aws_apigatewayv2_api", "aws_lambda_function", "aws_lambda_function",
-            "aws_s3_bucket", "aws_cloudfront_distribution", BEDROCK, USERS,
-        ]))
-
-    def test_cloudfront_serves_the_bucket_and_the_api(self):
-        self.assertEqual(self.edge("web/aws_cloudfront_distribution.site", "web/aws_s3_bucket.site"), "static page")
-        self.assertEqual(self.edge("web/aws_cloudfront_distribution.site", "chat-api/aws_apigatewayv2_api.this"), "/api/*")
-
-    def test_a_bucket_policy_does_not_draw_an_arrow_back_to_cloudfront(self):
-        self.assertIsNone(self.edge("web/aws_s3_bucket.site", "web/aws_cloudfront_distribution.site"))
-
-    def test_connectors_link_the_api_to_the_lambda_and_cognito(self):
-        self.assertEqual(self.edge("chat-api/aws_apigatewayv2_api.this", "chat-api/aws_lambda_function.chat"), "invokes")
-        self.assertEqual(self.edge("chat-api/aws_apigatewayv2_api.this", "auth/aws_cognito_user_pool.this"), "checks JWT")
-        self.assertIsNone(self.edge("chat-api/aws_apigatewayv2_api.this", "chat-api/aws_lambda_function.chatbot"))
-
-    def test_the_lambda_calls_its_bedrock_model(self):
-        self.assertEqual(self.edge("chat-api/aws_lambda_function.chat", BEDROCK), "Converse")
-        self.assertIn("us.amazon.nova-micro-v1:0", self.graph.nodes[BEDROCK].label)
-
-    def test_the_lambda_calls_bedrock_mantle_in_openai_mode(self):
-        lam = resource("aws_lambda_function", "chat", id="rag-chat", arn=CHAT_ARN, function_name="rag-chat",
-                       environment=[{"variables": {"MODEL_ID": "google.gemma-3-4b-it", "MODEL_API": "openai"}}])
-        graph = build({"chat-api": state(lam)}, ACCOUNT)
-        self.assertEqual(graph.edges.get(("chat-api/aws_lambda_function.chat", BEDROCK)), "Chat Completions")
-        self.assertEqual(graph.nodes[BEDROCK].label, "Bedrock Mantle\ngoogle.gemma-3-4b-it")
-
-    def test_users_reach_cloudfront_and_cognito(self):
-        self.assertEqual(self.edge(USERS, "web/aws_cloudfront_distribution.site"), "HTTPS")
-        self.assertEqual(self.edge(USERS, "auth/aws_cognito_user_pool.this"), "sign in")
-
-    def test_hides_the_account_id(self):
-        self.assertEqual(self.graph.nodes["web/aws_s3_bucket.site"].label, "S3\nrag-web-<account>")
-
-    def test_nothing_deployed_draws_nothing(self):
-        graph = build({"auth": {"values": {}}})
-        self.assertEqual((graph.nodes, graph.edges), ({}, {}))
+@pytest.fixture(scope="module")
+def graph():
+    return build(UNITS, ACCOUNT)
 
 
-if __name__ == "__main__":
-    unittest.main()
+def edge(graph, src, dst):
+    return graph.edges.get((src, dst))
+
+
+def test_draws_services_but_not_helpers(graph):
+    kinds = sorted(n.kind for n in graph.nodes.values())
+    assert kinds == sorted([
+        "aws_cognito_user_pool", "aws_apigatewayv2_api", "aws_lambda_function", "aws_lambda_function",
+        "aws_s3_bucket", "aws_cloudfront_distribution", BEDROCK, USERS,
+    ])
+
+
+def test_cloudfront_serves_the_bucket_and_the_api(graph):
+    assert edge(graph, "web/aws_cloudfront_distribution.site", "web/aws_s3_bucket.site") == "static page"
+    assert edge(graph, "web/aws_cloudfront_distribution.site", "chat-api/aws_apigatewayv2_api.this") == "/api/*"
+
+
+def test_a_bucket_policy_does_not_draw_an_arrow_back_to_cloudfront(graph):
+    assert edge(graph, "web/aws_s3_bucket.site", "web/aws_cloudfront_distribution.site") is None
+
+
+def test_connectors_link_the_api_to_the_lambda_and_cognito(graph):
+    assert edge(graph, "chat-api/aws_apigatewayv2_api.this", "chat-api/aws_lambda_function.chat") == "invokes"
+    assert edge(graph, "chat-api/aws_apigatewayv2_api.this", "auth/aws_cognito_user_pool.this") == "checks JWT"
+    assert edge(graph, "chat-api/aws_apigatewayv2_api.this", "chat-api/aws_lambda_function.chatbot") is None
+
+
+def test_the_lambda_calls_its_bedrock_model(graph):
+    assert edge(graph, "chat-api/aws_lambda_function.chat", BEDROCK) == "Converse"
+    assert "us.amazon.nova-micro-v1:0" in graph.nodes[BEDROCK].label
+
+
+def test_the_lambda_calls_bedrock_mantle_in_openai_mode():
+    lam = resource("aws_lambda_function", "chat", id="rag-chat", arn=CHAT_ARN, function_name="rag-chat",
+                   environment=[{"variables": {"MODEL_ID": "google.gemma-3-4b-it", "MODEL_API": "openai"}}])
+    graph = build({"chat-api": state(lam)}, ACCOUNT)
+    assert graph.edges.get(("chat-api/aws_lambda_function.chat", BEDROCK)) == "Chat Completions"
+    assert graph.nodes[BEDROCK].label == "Bedrock Mantle\ngoogle.gemma-3-4b-it"
+
+
+def test_users_reach_cloudfront_and_cognito(graph):
+    assert edge(graph, USERS, "web/aws_cloudfront_distribution.site") == "HTTPS"
+    assert edge(graph, USERS, "auth/aws_cognito_user_pool.this") == "sign in"
+
+
+def test_hides_the_account_id(graph):
+    assert graph.nodes["web/aws_s3_bucket.site"].label == "S3\nrag-web-<account>"
+
+
+def test_nothing_deployed_draws_nothing():
+    graph = build({"auth": {"values": {}}})
+    assert (graph.nodes, graph.edges) == ({}, {})

@@ -14,10 +14,17 @@ import os
 import urllib.error
 import urllib.request
 
-from openinference.instrumentation import OITracer, TraceConfig
+from openinference.instrumentation import (
+    OITracer,
+    TraceConfig,
+    get_input_attributes,
+    get_llm_attributes,
+    get_output_attributes,
+)
 from opentelemetry import trace
 
 MAX_MESSAGE_CHARS = 4000
+TEMPERATURE = 0.2
 
 SYSTEM_PROMPT = (
     "You are the assistant of a university course. Answer the student's question briefly and "
@@ -31,17 +38,50 @@ BUSY_STATUSES = {429, 503}
 _client = None
 _mantle = None
 
-# On LocalStack the spans go to the local Phoenix (PHOENIX_ENDPOINT); without it the tracer records
-# nothing. Spans are sent as each one ends, before the Lambda is frozen.
-if os.environ.get("PHOENIX_ENDPOINT"):
+# The spans go to TRACING_ENDPOINT: the local Phoenix on LocalStack, Arize AX on AWS, which also needs
+# TRACING_SPACE_ID and the API key in the SSM parameter TRACING_API_KEY_PARAMETER. Without an endpoint
+# the tracer records nothing. Each request's spans are sent before the handler returns, since the
+# Lambda is frozen afterwards.
+_provider = None
+
+
+def tracing_headers(ssm=None) -> dict[str, str] | None:
+    """Arize's auth headers (none for Phoenix), or None if the API key can't be read."""
+    headers = {}
+    if space_id := os.environ.get("TRACING_SPACE_ID"):
+        headers["arize-space-id"] = space_id
+    if parameter := os.environ.get("TRACING_API_KEY_PARAMETER"):
+        try:
+            if ssm is None:
+                import boto3
+                from botocore.config import Config
+
+                ssm = boto3.client("ssm", config=Config(connect_timeout=2, read_timeout=2, retries={"max_attempts": 2}))
+            headers["authorization"] = ssm.get_parameter(Name=parameter, WithDecryption=True)["Parameter"]["Value"]
+        except Exception as err:
+            # Chat keeps working without traces.
+            print(f"Tracing off: could not read {parameter}: {type(err).__name__}: {err}")
+            return None
+    return headers
+
+
+def setup_tracing():
+    global _provider
+    endpoint = os.environ.get("TRACING_ENDPOINT")
+    if not endpoint or (headers := tracing_headers()) is None:
+        return
     from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
     from opentelemetry.sdk.resources import Resource
     from opentelemetry.sdk.trace import TracerProvider
-    from opentelemetry.sdk.trace.export import SimpleSpanProcessor
+    from opentelemetry.sdk.trace.export import BatchSpanProcessor
 
-    _provider = TracerProvider(resource=Resource({"openinference.project.name": "rag-in-production"}))
-    _provider.add_span_processor(SimpleSpanProcessor(OTLPSpanExporter(os.environ["PHOENIX_ENDPOINT"], timeout=2)))
+    project = os.environ.get("TRACING_PROJECT", "rag-in-production")
+    _provider = TracerProvider(resource=Resource({"openinference.project.name": project}))
+    _provider.add_span_processor(BatchSpanProcessor(OTLPSpanExporter(endpoint, headers=headers or None, timeout=3)))
     trace.set_tracer_provider(_provider)
+
+
+setup_tracing()
 tracer = OITracer(trace.get_tracer(__name__), config=TraceConfig())
 
 
@@ -97,28 +137,68 @@ def mantle():
     return _mantle
 
 
-@tracer.llm
+def request_attributes(message: str, max_tokens: int, **llm) -> dict:
+    """The LLM span's request side: model, parameters and the chat sent to it."""
+    return {
+        **get_llm_attributes(
+            provider="aws",
+            model_name=os.environ["MODEL_ID"],
+            invocation_parameters={"max_tokens": max_tokens, "temperature": TEMPERATURE},
+            input_messages=[{"role": "system", "content": SYSTEM_PROMPT}, {"role": "user", "content": message}],
+            **llm,
+        ),
+        **get_input_attributes(message),
+    }
+
+
+def reply_attributes(text: str, prompt=None, completion=None, total=None) -> dict:
+    """The LLM span's reply side, with the token counts the model reported."""
+    counts = {"prompt": prompt, "completion": completion, "total": total}
+    return {
+        **get_llm_attributes(
+            output_messages=[{"role": "assistant", "content": text}],
+            token_count={key: count for key, count in counts.items() if count is not None} or None,
+        ),
+        **get_output_attributes(text),
+    }
+
+
 def converse(message: str, max_tokens: int) -> str:
-    res = bedrock().converse(
-        modelId=os.environ["MODEL_ID"],
-        system=[{"text": SYSTEM_PROMPT}],
-        messages=[{"role": "user", "content": [{"text": message}]}],
-        inferenceConfig={"maxTokens": max_tokens, "temperature": 0.2},
-    )
-    return "".join(block.get("text", "") for block in res["output"]["message"]["content"])
+    with tracer.start_as_current_span("bedrock.converse", openinference_span_kind="llm") as span:
+        span.set_attributes(request_attributes(message, max_tokens))
+        res = bedrock().converse(
+            modelId=os.environ["MODEL_ID"],
+            system=[{"text": SYSTEM_PROMPT}],
+            messages=[{"role": "user", "content": [{"text": message}]}],
+            inferenceConfig={"maxTokens": max_tokens, "temperature": TEMPERATURE},
+        )
+        text = "".join(block.get("text", "") for block in res["output"]["message"]["content"])
+        usage = res.get("usage") or {}
+        span.set_attributes(
+            reply_attributes(text, usage.get("inputTokens"), usage.get("outputTokens"), usage.get("totalTokens"))
+        )
+        return text
 
 
-@tracer.llm
 def chat_completions(message: str, max_tokens: int) -> str:
-    res = mantle().chat_completions(
-        model=os.environ["MODEL_ID"],
-        messages=[{"role": "system", "content": SYSTEM_PROMPT}, {"role": "user", "content": message}],
-        max_tokens=max_tokens,
-        temperature=0.2,
-    )
-    # A reasoning model that runs out of tokens while thinking returns content null.
-    choices = res.get("choices") or [{}]
-    return choices[0].get("message", {}).get("content") or ""
+    with tracer.start_as_current_span("bedrock-mantle.chat_completions", openinference_span_kind="llm") as span:
+        span.set_attributes(request_attributes(message, max_tokens, system="openai"))
+        res = mantle().chat_completions(
+            model=os.environ["MODEL_ID"],
+            messages=[{"role": "system", "content": SYSTEM_PROMPT}, {"role": "user", "content": message}],
+            max_tokens=max_tokens,
+            temperature=TEMPERATURE,
+        )
+        # A reasoning model that runs out of tokens while thinking returns content null.
+        choices = res.get("choices") or [{}]
+        text = choices[0].get("message", {}).get("content") or ""
+        usage = res.get("usage") or {}
+        span.set_attributes(
+            reply_attributes(
+                text, usage.get("prompt_tokens"), usage.get("completion_tokens"), usage.get("total_tokens")
+            )
+        )
+        return text
 
 
 @tracer.chain
@@ -156,6 +236,15 @@ def response(status: int, body: dict) -> dict:
 
 
 def handler(event, context):
+    try:
+        return chat(event)
+    finally:
+        if _provider:
+            # One export per request; a slow collector costs at most a few seconds, never the answer.
+            _provider.force_flush(timeout_millis=3000)
+
+
+def chat(event) -> dict:
     claims = event.get("requestContext", {}).get("authorizer", {}).get("jwt", {}).get("claims", {})
     user_id = claims.get("sub")
     if not user_id:

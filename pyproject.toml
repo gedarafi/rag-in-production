@@ -29,3 +29,31 @@ build-backend = "uv_build"
 [tool.uv.build-backend]
 module-name = "src"
 module-root = ""
+
+[dependency-groups]
+# Bundled into the chat Lambda's zip by infra/scripts/build_chat_lambda.sh (boto3 comes with the runtime).
+chat = [
+    "openinference-instrumentation==0.1.71",
+    "opentelemetry-exporter-otlp-proto-http==1.45.1",
+]
+test = [
+    "pytest>=9.1.1",
+    "pytest-cov>=7.1.0",
+    "typer>=0.27",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "infra/scripts"]
+pythonpath = [".", "infra/scripts"]
+addopts = ["-m", "not phoenix", "--strict-markers"]
+markers = ["phoenix: needs a running Phoenix (`just phoenix-up`); run with `just test-phoenix`"]
+
+[tool.coverage.run]
+source = ["src", "infra/scripts"]
+omit = ["infra/scripts/test_*.py"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
+skip_empty = true

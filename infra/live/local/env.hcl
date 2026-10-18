@@ -22,7 +22,10 @@ locals {
 
   # The Lambda's traces go to Phoenix in docker-compose.yml (`just phoenix-up`, UI on :6006). The Lambda
   # containers join the Compose network (LAMBDA_DOCKER_NETWORK), where Phoenix is reachable as phoenix.
-  tracing_endpoint = "http://phoenix:6006/v1/traces"
+  tracing_endpoint          = "http://phoenix:6006/v1/traces"
+  tracing_project           = "rag-in-production"
+  tracing_space_id          = "" # Phoenix needs no space or API key
+  tracing_api_key_parameter = ""
 
   # LocalStack serves the HTTP API on its gateway port, over plain HTTP.
   api_origin_port            = 4566
