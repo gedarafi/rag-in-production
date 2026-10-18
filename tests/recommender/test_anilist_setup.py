@@ -54,6 +54,10 @@ class AniListSetupTests(unittest.TestCase):
         self.assertTrue((self.settings.index / 'embeddings.sqlite3').is_file())
         self.assertTrue((self.settings.index / 'entity-tools.sqlite3').is_file())
         self.assertTrue((self.settings.index / 'entity-features.sqlite3').is_file())
+        # One precomputed vector per anime, so recommendations embed only the request.
+        record = self.pipeline._agent.catalog.record('1')
+        with patch.object(self.pipeline.models, 'embed', side_effect=AssertionError('embedded at request time')):
+            self.assertEqual(self.pipeline._agent.anime_vectors([record]).shape, (1, 2))
         self.assertEqual(self.pipeline._agent.feature_candidates('friends')[0]['description'], 'Friends helping one another.')
         self.assertTrue(AniListWorkspace(self.settings).ready)
 
@@ -85,7 +89,7 @@ class AniListSetupTests(unittest.TestCase):
         self.run_setup(self.source)
         changed = AniListWorkspace(replace(self.settings, embedding='another-model'))
         self.assertFalse(changed.ready)
-        (self.settings.index / 'chunks.json').write_text('[]', encoding='utf-8')
+        (self.settings.index / 'chunk-vectors.npy').write_bytes(b'changed')
         self.assertFalse(self.workspace.is_prepared())
         with self.assertRaisesRegex(RuntimeError, 'recommender build'):
             self.workspace.ask('Hello')
@@ -117,15 +121,6 @@ class AniListSetupTests(unittest.TestCase):
         self.assertTrue(snapshots[-1]['ready'])
         self.assertIn('Reusing', snapshots[-1]['steps']['embeddings']['message'])
 
-    def test_legacy_index_without_any_markers_is_verified_against_cache(self):
-        self.run_setup(self.source)
-        self.workspace.manifest.unlink()
-        (self.settings.index / 'embedding-state.json').unlink()
-        with patch.object(self.pipeline, 'ingest', side_effect=AssertionError('must adopt verified legacy index')):
-            snapshots = self.run_setup()
-        self.assertTrue(snapshots[-1]['ready'], snapshots[-1]['message'])
-        self.assertTrue((self.settings.index / 'embedding-state.json').exists())
-
     def test_missing_tools_cache_reuses_document_index(self):
         self.run_setup(self.source)
         (self.settings.index / 'entity-tools.sqlite3').unlink()
@@ -146,7 +141,7 @@ class AniListSetupTests(unittest.TestCase):
 
     def test_corrupt_index_is_repaired_instead_of_reused(self):
         self.run_setup(self.source)
-        (self.settings.index / 'vectors.npy').write_bytes(b'incomplete index')
+        (self.settings.index / 'chunk-vectors.npy').write_bytes(b'incomplete index')
         with patch.object(self.pipeline, 'ingest', wraps=self.pipeline.ingest) as ingest:
             snapshots = self.run_setup()
         ingest.assert_called_once()

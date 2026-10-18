@@ -13,7 +13,8 @@ browser ─ CloudFront ─┬─ /       → S3 (web/)
                                      GET  /api/chat/{job_id} → status and answer (the page polls)
 SQS (+ dead-letter queue) → worker Lambda (container image, src/recommender/worker.py)
                               ├─ catalog bundle from S3 (the version named in SSM), cached in /tmp
-                              ├─ MiniLM embeddings in ONNX Runtime, SQLite catalog, vector index
+                              ├─ MiniLM embeddings in ONNX Runtime, SQLite catalog, per-anime vectors
+                              ├─ passage index: Aurora Serverless v2 + pgvector, through the RDS Data API
                               ├─ Bedrock: Qwen3 32B on bedrock-mantle (AWS), a stand-in or Ollama (LocalStack)
                               └─ answer and conversation turn → DynamoDB
 ```
@@ -48,11 +49,14 @@ MODEL_API=openai MODEL_ID=qwen.qwen3-32b AWS_PROFILE=... AWS_REGION=us-east-2 \
 
 ## Build and release the catalog
 
-The worker reads a versioned bundle: the SQLite catalog, the documents, the vector index and the
-tool and feature embeddings, with `recommender.toml` and `prompts/`. `recommender build` prepares them
-(download or local CSV/ZIP, documents, SQL catalog and dictionaries, embeddings, verification) and
-writes `build/recommender/<version>/` with a manifest of every file's SHA-256. Unchanged chunks reuse
-their cached embeddings, so a rebuild after a small change is quick.
+The worker reads a versioned bundle: the SQLite catalog, the documents, one precomputed vector per
+anime and the tool and feature embeddings, with `recommender.toml` and `prompts/`. `recommender build`
+prepares them (download or local CSV/ZIP, documents, SQL catalog and dictionaries, embeddings,
+verification) and writes `build/recommender/<version>/` with a manifest of every file's SHA-256. The
+passage index (chunk texts in SQLite, their float16 vectors sorted by anime) stays next to the bundle,
+in `passages/`: publishing loads it into the vector database. Unchanged chunks reuse their cached
+embeddings, so a rebuild after a small change is quick. The worker opens the bundle as built: it never
+rebuilds the catalog or embeds the catalog at request time.
 
 ```sh
 just recommender-build fixture       # ten invented anime, seconds
@@ -62,9 +66,12 @@ just aws-recommender-publish         # the same on AWS
 just aws-recommender-activate 20261018T120000Z   # serve an older version again (rollback)
 ```
 
-Publishing uploads the bundle, then points the SSM parameter `/<prefix>/recommender/artifact-version`
-at it. Workers check the parameter every five minutes and download the new version into `/tmp`,
-verifying its checksum, so a release needs no redeploy.
+Publishing uploads the bundle and loads its passages into the table `chunks_<version>` of the vector
+database (Aurora PostgreSQL with pgvector; LocalStack emulates it locally), then points the SSM
+parameter `/<prefix>/recommender/artifact-version` at it. Workers check the parameter every five
+minutes and download the new version into `/tmp`, verifying its checksum, so a release needs no
+redeploy. The vector database keeps the passages of the three newest versions and the active one, which
+is how far a rollback reaches.
 
 Try:
 
@@ -279,6 +286,7 @@ every bundle. The model and tracing come from the environment, as in the Lambdas
 | `BEDROCK_ENDPOINT_URL` | Converse endpoint for the CLI, e.g. `http://localhost:4566` for LocalStack |
 | `TRACING_ENDPOINT`, `TRACING_PROJECT` | OTLP endpoint (Phoenix or Arize) and project; empty turns tracing off |
 | `EMBEDDING_MODEL_DIR` | where the pinned ONNX MiniLM lives (downloaded on first use; baked into the image) |
+| `VECTOR_DB_CLUSTER_ARN`, `VECTOR_DB_SECRET_ARN`, `VECTOR_DB_NAME` | the passage index in Aurora (Data API); also `publish`'s `--vector-db-*` defaults |
 
 Structured steps validate the model's JSON against their schema and ask once more with the
 validation error, because LocalStack and several Bedrock models don't enforce schemas themselves.
@@ -289,12 +297,13 @@ validation error, because LocalStack and several Bedrock models don't enforce sc
 | --- | --- |
 | `data/raw/anilist_anime_data_complete.csv` | Downloaded or imported raw data; the payload may be ZIP-wrapped. |
 | `data/documents/anilist/anime-*.md` | Prepared documents. |
-| `data/documents/anilist/catalog.jsonl` | Structured source catalog. |
+| `data/documents/anilist/catalog.jsonl` | Structured source catalog (the build's input; not bundled). |
 | `data/documents/anilist/catalog.sqlite3` | SQL catalog, characters, relationships, dictionaries, and full-text passages. |
-| `data/index/anilist/chunks.json` and `vectors.npy` | Passage metadata and vector index. |
+| `data/index/anilist/chunks.sqlite3` and `chunk-vectors.npy` | Passage index: chunk texts by id and their float16 vectors, sorted by anime so a filter is a slice. |
+| `data/index/anilist/anime-texts.sqlite3` | One vector per anime, which recommendations rank by. |
 | `data/index/anilist/embeddings.sqlite3` | Reusable chunk-embedding cache (not bundled). |
 | `data/index/anilist/entity-tools.sqlite3`, `entity-features.sqlite3` | Tool-guide and genre/tag embeddings. |
-| `build/recommender/<version>/` | Release bundles: `bundle.tar.zst` and `manifest.json`. |
+| `build/recommender/<version>/` | Release bundles: `bundle.tar.zst`, `manifest.json` and `passages/` (loaded into the vector database). |
 
 ## Factual RAG evaluation
 

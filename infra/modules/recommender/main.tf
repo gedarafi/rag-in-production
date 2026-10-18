@@ -135,7 +135,7 @@ resource "aws_sqs_queue" "jobs" {
   name = "${local.worker_name}-jobs"
   # AWS recommends at least six times the function timeout, so a slow attempt is never delivered twice.
   visibility_timeout_seconds = 6 * var.timeout_seconds
-  message_retention_seconds  = 3600 # the page stops waiting long before
+  message_retention_seconds  = 24 * 3600 # a day, like the job (src/chat/store.py); at least the retries' visibility timeouts
   sqs_managed_sse_enabled    = true
   tags                       = var.tags
 
@@ -198,6 +198,20 @@ resource "aws_iam_role_policy" "worker" {
         Action   = "ssm:GetParameter"
         Resource = aws_ssm_parameter.artifact_version.arn
       },
+      ], var.vector_db == null ? [] : [
+      {
+        # The passage index (modules/vector-db), read through the RDS Data API.
+        Sid      = "QueryPassages"
+        Effect   = "Allow"
+        Action   = "rds-data:ExecuteStatement"
+        Resource = var.vector_db.cluster_arn
+      },
+      {
+        Sid      = "SignInToPassages"
+        Effect   = "Allow"
+        Action   = "secretsmanager:GetSecretValue"
+        Resource = var.vector_db.secret_arn
+      },
       ], var.tracing_api_key_parameter == "" ? [] : [{
         # The tracing API key (Arize AX) stays in SSM, out of the environment and the state.
         Sid      = "ReadTracingKey"
@@ -242,6 +256,9 @@ resource "aws_lambda_function" "worker" {
       ARTIFACT_BUCKET            = module.artifacts.bucket_name
       ARTIFACT_VERSION_PARAMETER = aws_ssm_parameter.artifact_version.name
       MAX_RECEIVES               = tostring(var.max_receives)
+      VECTOR_DB_CLUSTER_ARN      = var.vector_db == null ? "" : var.vector_db.cluster_arn
+      VECTOR_DB_SECRET_ARN       = var.vector_db == null ? "" : var.vector_db.secret_arn
+      VECTOR_DB_NAME             = var.vector_db == null ? "" : var.vector_db.database
       TRACING_ENDPOINT           = var.tracing_endpoint
       TRACING_PROJECT            = var.tracing_project
       TRACING_SPACE_ID           = var.tracing_space_id

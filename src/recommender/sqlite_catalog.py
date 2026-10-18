@@ -124,8 +124,6 @@ class SqliteAnimeTools(AnimeTools):
     def __init__(self, database: Path):
         self.database = database
         self.folder = database.parent
-        from .catalog_metadata import ensure_production_metadata
-        ensure_production_metadata(self.folder, database, BUILD_LOCK)
         self.terms = {row[0]: row[1] for row in self.query("SELECT DISTINCT term,label FROM features")}
 
     def query(self, sql, parameters=()):

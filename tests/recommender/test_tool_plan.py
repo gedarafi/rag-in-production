@@ -116,6 +116,24 @@ class ToolPlanTests(unittest.TestCase):
         self.assertIn('authorizes the spoilers needed', self.final_prompts[-1])
         self.assertIn('does not prove a good-to-evil transition', self.final_prompts[-1])
 
+    def test_preference_ranking_embeds_only_the_request_and_only_once(self):
+        # `recommender build` embeds every anime (anime_vectors); a request embeds just its own text.
+        self.agent.anime_vectors([self.catalog.record(i) for i in ('1', '2', '3')])
+        embedded = []
+        embed = self.models.embed
+        self.models.embed = lambda texts: embedded.extend(texts) or embed(texts)
+        self.plan['steps'] = [step('resolve_entity', kind='genre', query='Fantasy'),
+                              step('recommend_anime', genre_ids=['$0.matches.0.id'], query='a transported hero')]
+        self.ask('Recommend fantasy anime about a transported hero')
+        self.assertEqual(self.agent.last_usage['executed_tools'], 2)
+        self.assertEqual([item['id'] for item in self.agent.last_trace[1]['result']['items']], ['1', '2'])
+        self.assertIn('a transported hero', embedded)
+        self.assertFalse([text for text in embedded if text.startswith(('Re:Zero\n', 'Other World\n'))])
+        embedded.clear()
+        self.calls.clear()
+        self.ask('Recommend fantasy anime about a transported hero')
+        self.assertEqual(embedded, [])
+
     def test_semantic_tag_search_returns_only_existing_tags_and_expands_mc(self):
         captured = []
         embed = self.models.embed

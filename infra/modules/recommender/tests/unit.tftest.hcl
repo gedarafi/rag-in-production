@@ -110,6 +110,20 @@ run "queues_with_a_dead_letter_queue" {
   }
 }
 
+run "keeps_messages_until_their_last_attempt" {
+  command = plan
+
+  # The local stack's worker timeout: its visibility timeout is 90 minutes.
+  variables {
+    timeout_seconds = 900
+  }
+
+  assert {
+    condition     = aws_sqs_queue.jobs.message_retention_seconds >= aws_sqs_queue.jobs.visibility_timeout_seconds * 2
+    error_message = "A failed attempt must still be in the queue to be retried and then dead-lettered."
+  }
+}
+
 run "least_privilege" {
   command = plan
 
@@ -265,5 +279,43 @@ run "a_local_ollama_needs_no_bedrock" {
   assert {
     condition     = jsondecode(aws_iam_role_policy.worker.policy).Statement[0].Effect == "Deny"
     error_message = "With a local Ollama the worker may not call Bedrock at all."
+  }
+}
+
+run "queries_the_passage_index_only_when_given" {
+  command = plan
+
+  assert {
+    condition     = aws_lambda_function.worker.environment[0].variables.VECTOR_DB_CLUSTER_ARN == "" && !strcontains(aws_iam_role_policy.worker.policy, "rds-data")
+    error_message = "Without a vector database the worker gets neither its address nor access."
+  }
+}
+
+run "may_query_the_given_passage_index" {
+  command = plan
+
+  variables {
+    vector_db = {
+      cluster_arn = "arn:aws:rds:us-east-2:123456789012:cluster:rag-unit-vectors"
+      secret_arn  = "arn:aws:secretsmanager:us-east-2:123456789012:secret:rds-rag-unit-vectors"
+      database    = "vectors"
+    }
+  }
+
+  assert {
+    condition     = aws_lambda_function.worker.environment[0].variables.VECTOR_DB_CLUSTER_ARN == "arn:aws:rds:us-east-2:123456789012:cluster:rag-unit-vectors" && aws_lambda_function.worker.environment[0].variables.VECTOR_DB_NAME == "vectors"
+    error_message = "The worker needs the cluster, the secret and the database of the passage index."
+  }
+
+  assert {
+    condition = anytrue([for statement in jsondecode(aws_iam_role_policy.worker.policy).Statement :
+    statement.Action == "rds-data:ExecuteStatement" && statement.Resource == "arn:aws:rds:us-east-2:123456789012:cluster:rag-unit-vectors"])
+    error_message = "The worker may query only the given cluster."
+  }
+
+  assert {
+    condition = anytrue([for statement in jsondecode(aws_iam_role_policy.worker.policy).Statement :
+    statement.Action == "secretsmanager:GetSecretValue" && statement.Resource == "arn:aws:secretsmanager:us-east-2:123456789012:secret:rds-rag-unit-vectors"])
+    error_message = "The worker may read only the cluster's master secret."
   }
 }

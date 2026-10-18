@@ -70,8 +70,9 @@ test = [
 [tool.pytest.ini_options]
 testpaths = ["tests", "infra/scripts"]
 pythonpath = [".", "infra/scripts"]
-addopts = ["-m", "not phoenix", "--strict-markers"]
-markers = ["phoenix: needs a running Phoenix (`just phoenix-up`); run with `just test-phoenix`"]
+addopts = ["-m", "not phoenix and not localstack", "--strict-markers"]
+markers = ["phoenix: needs a running Phoenix (`just phoenix-up`); run with `just test-phoenix`",
+           "localstack: needs the local stack (`just up`, `just apply`); run with `just test-vector-db`"]
 
 [tool.coverage.run]
 source = ["src", "infra/scripts"]

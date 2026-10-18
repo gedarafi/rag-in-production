@@ -8,6 +8,7 @@
 
 ask sends its trace to TRACING_ENDPOINT (e.g. Phoenix from `just phoenix-up`) and prints the trace ID.
 publish and activate use the usual AWS environment (AWS_PROFILE, or AWS_ENDPOINT_URL for LocalStack).
+publish also loads the bundle's passages into the vector database (--vector-db-cluster/--vector-db-secret).
 """
 from __future__ import annotations
 
@@ -43,6 +44,11 @@ def parser() -> argparse.ArgumentParser:
         command = sub.add_parser(name, help=text)
         command.add_argument("target", help="Bundle folder (publish) or version (activate)")
         command.add_argument("--bucket", default=os.environ.get("ARTIFACT_BUCKET"), required=not os.environ.get("ARTIFACT_BUCKET"))
+        command.add_argument("--vector-db-cluster", default=os.environ.get("VECTOR_DB_CLUSTER_ARN"),
+                             help="Aurora cluster ARN of the passage index (modules/vector-db)")
+        command.add_argument("--vector-db-secret", default=os.environ.get("VECTOR_DB_SECRET_ARN"),
+                             help="ARN of the cluster's master secret, for the Data API")
+        command.add_argument("--vector-db-name", default=os.environ.get("VECTOR_DB_NAME") or "vectors")
         command.add_argument("--parameter", default=os.environ.get("ARTIFACT_VERSION_PARAMETER"),
                              required=not os.environ.get("ARTIFACT_VERSION_PARAMETER"))
     sub.choices["publish"].add_argument("--no-activate", action="store_true", help="Upload only")
@@ -110,11 +116,16 @@ def main(argv: list[str] | None = None) -> None:
             return
         if args.command in ("publish", "activate"):
             from .artifacts import activate_version, publish
+            from .vector_db import VectorDb
+            if bool(args.vector_db_cluster) != bool(args.vector_db_secret):
+                raise ValueError("Pass both --vector-db-cluster and --vector-db-secret, or neither.")
+            vector_db = VectorDb(args.vector_db_cluster, args.vector_db_secret, args.vector_db_name) if args.vector_db_cluster else None
             if args.command == "publish":
-                version = publish(Path(args.target), args.bucket, args.parameter, activate=not args.no_activate)
+                version = publish(Path(args.target), args.bucket, args.parameter, activate=not args.no_activate,
+                                  vector_db=vector_db, progress=TerminalProgress())
                 print(f"Published {version}" + ("" if args.no_activate else " and made it active."))
             else:
-                activate_version(args.target, args.bucket, args.parameter)
+                activate_version(args.target, args.bucket, args.parameter, vector_db=vector_db)
                 print(f"{args.target} is now active.")
             return
         if args.command == "select-kb":

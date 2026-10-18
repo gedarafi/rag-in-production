@@ -62,3 +62,18 @@ output "alarm_topic_arn" {
   description = "SNS topic of the worker's alarms."
   value       = aws_sns_topic.alarms.arn
 }
+
+output "vector_db_cluster_arn" {
+  description = "Aurora cluster with the passage index (`recommender publish` loads it), or empty."
+  value       = var.vector_db == null ? "" : var.vector_db.cluster_arn
+}
+
+output "vector_db_secret_arn" {
+  description = "Secret the Data API signs in to the passage index with, or empty."
+  value       = var.vector_db == null ? "" : var.vector_db.secret_arn
+}
+
+output "vector_db_name" {
+  description = "Database of the passage index, or empty."
+  value       = var.vector_db == null ? "" : var.vector_db.database
+}

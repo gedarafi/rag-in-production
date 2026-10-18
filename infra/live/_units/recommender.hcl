@@ -25,11 +25,23 @@ dependency "registry" {
   mock_outputs_allowed_terraform_commands = ["init", "validate", "plan", "destroy"]
 }
 
+dependency "vector_db" {
+  config_path = "${get_terragrunt_dir()}/../vector-db"
+
+  mock_outputs = {
+    cluster_arn = "arn:aws:rds:us-east-1:000000000000:cluster:mock-vectors"
+    secret_arn  = "arn:aws:secretsmanager:us-east-1:000000000000:secret:mock-vectors"
+    database    = "vectors"
+  }
+  mock_outputs_allowed_terraform_commands = ["init", "validate", "plan", "destroy"]
+}
+
 inputs = {
   name_prefix               = local.env.name_prefix
   repository_name           = dependency.registry.outputs.repository_name
   repository_url            = dependency.registry.outputs.repository_url
   artifact_bucket_name      = local.env.artifact_bucket_name
+  vector_db                 = dependency.vector_db.outputs
   model_id                  = local.env.model_id
   model_api                 = local.env.model_api
   timeout_seconds           = local.env.worker_timeout_seconds

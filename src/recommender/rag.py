@@ -4,9 +4,8 @@ import json
 import re
 from pathlib import Path
 
-import numpy as np
-
 from .config import Settings
+from .chunk_index import ChunkIndex, write_index
 from .documents import Chunk, load_chunks
 from .providers import Models
 from ..tracing import annotate, stage, tracer
@@ -33,8 +32,10 @@ def retrieval_attributes(chunks: list[Chunk], scores: list[float] | None = None)
 
 
 class RagPipeline:
-    def __init__(self, settings: Settings) -> None:
+    def __init__(self, settings: Settings, readonly: bool = False) -> None:
         self.settings = settings
+        # A published bundle is served as built: never rebuilt from catalog.jsonl or re-embedded.
+        self.readonly = readonly
         self._models = None
 
     @property
@@ -51,6 +52,12 @@ class RagPipeline:
     def anime_tools(self) -> AnimeTools | None:
         if self.settings.documents.name != "anilist":
             return None
+        if getattr(self, "readonly", False):
+            if getattr(self, "_catalog", None) is None:
+                from .sqlite_catalog import SqliteAnimeTools
+                database = self.settings.documents / "catalog.sqlite3"
+                self._catalog = SqliteAnimeTools(database) if database.is_file() else None
+            return self._catalog
         path = self.settings.documents / "catalog.jsonl"
         if not path.exists():
             # Upgrade old prepared exports without downloading or rebuilding embeddings.
@@ -89,25 +96,11 @@ class RagPipeline:
         else:
             vectors = self.models.embed(texts, progress=progress)
         if progress:
-            progress("Saving index", 0, 2)
-        self.settings.index.mkdir(parents=True, exist_ok=True)
-        vectors_temp = self.settings.index / "vectors.npy.tmp"
-        with vectors_temp.open("wb") as file:
-            np.save(file, vectors)
+            progress("Saving index", 0, 1)
+        write_index(self.settings.index, chunks, vectors)
+        self._chunk_index = None
         if progress:
-            progress("Saving index", 1, 2)
-        chunks_temp = self.settings.index / "chunks.json.tmp"
-        with chunks_temp.open("w", encoding="utf-8") as file:
-            file.write("[")
-            for number, chunk in enumerate(chunks):
-                if number:
-                    file.write(",")
-                json.dump(chunk.__dict__, file, ensure_ascii=True)
-            file.write("]")
-        vectors_temp.replace(self.settings.index / "vectors.npy")
-        chunks_temp.replace(self.settings.index / "chunks.json")
-        if progress:
-            progress("Saving index", 2, 2)
+            progress("Saving index", 1, 1)
         return len(chunks)
 
     @staticmethod
@@ -311,36 +304,28 @@ class RagPipeline:
             span.set_attributes(retrieval_attributes(found, getattr(self, "_last_scores", None)))
             return found
 
+    def chunk_index(self) -> ChunkIndex | None:
+        """The passage index, reopened when `recommender build` replaced it; None if there is none."""
+        folder = self.settings.index
+        if not ChunkIndex.exists(folder):
+            return None
+        stamp = ChunkIndex.stamp(folder)
+        if getattr(self, "_chunk_index", None) is None or self._chunk_index_stamp != stamp:
+            self._chunk_index, self._chunk_index_stamp = ChunkIndex(folder), stamp
+        return self._chunk_index
+
     def _vector_search(self, query: str, matches: list[dict]) -> list[Chunk]:
-        vectors_path = self.settings.index / "vectors.npy"
-        chunks_path = self.settings.index / "chunks.json"
-        if not vectors_path.exists() or not chunks_path.exists():
+        # The workspace's own index, else the published version's table in the vector database (service.py).
+        index = self.chunk_index() or getattr(self, "passage_table", None)
+        if index is None:
+            # A published bundle is never re-embedded: without an index there is no semantic fallback.
+            if getattr(self, "readonly", False):
+                return []
             self.ingest()
-        stamp = (vectors_path.stat().st_mtime_ns, chunks_path.stat().st_mtime_ns)
-        if getattr(self, "_vector_stamp", None) != stamp:
-            self._chunks = [Chunk(**item) for item in json.loads(chunks_path.read_text(encoding="utf-8"))]
-            self._vector_stamp = stamp
-        allowed = {r['id'] for r in matches}
-        sources = {r['source'] for r in matches}
-        indices = np.array([i for i, c in enumerate(self._chunks) if not allowed or
-                            c.anime_id in allowed or c.source in sources], dtype=int)
-        if not len(indices):
-            return []
+            index = self.chunk_index()
         with stage("embed_query", "embedding", **{"embedding.model_name": self.settings.embedding}):
             embedding = self.models.embed([query])[0]
-        # Score in blocks so selecting a knowledge base does not copy a large
-        # memory-mapped matrix into RAM on every detailed question.
-        scores = np.empty(len(indices), dtype=np.float32)
-        vectors = np.load(vectors_path, mmap_mode="r")
-        try:
-            for start in range(0, len(indices), 8192):
-                batch = indices[start:start + 8192]
-                scores[start:start + len(batch)] = vectors[batch] @ embedding
-        finally:
-            vectors._mmap.close()
-        selected = np.argsort(scores)[-self.settings.top_k:][::-1]
-        found = [self._chunks[indices[i]] for i in selected]
-        self._last_scores = [float(scores[i]) for i in selected]
+        found, self._last_scores = index.search(embedding, [str(r['id']) for r in matches] or None, self.settings.top_k)
         return found
 
     @staticmethod

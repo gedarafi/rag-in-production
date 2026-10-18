@@ -142,9 +142,9 @@ def interpret(agent, question, history):
     attributes = {}
     phrases = [phrase for key in ('entity_queries', 'required', 'excluded', 'preferred') for phrase in decomposition[key]
                if normalize(phrase) not in PREFERENCE_STOP and normalize(phrase) in normalize(question)]
-    retrieved = retrieve_attributes(agent.models.embed, question, phrases, fields, features)
+    retrieved = retrieve_attributes(agent.embed, question, phrases, fields, features)
     agent.last_usage['attribute_retrieval'] = retrieved
-    base['filters'] = attribute_filters(call, question, fields, agent._constraint_text_values, attributes, retrieved, agent.models.embed)
+    base['filters'] = attribute_filters(call, question, fields, agent._constraint_text_values, attributes, retrieved, agent.embed)
     base['limitations'].extend(attributes['limitations'])
     property_sources = attributes['sources']
     base['entity_queries'] = [phrase for phrase in base['entity_queries']
@@ -179,7 +179,7 @@ def interpret(agent, question, history):
         meaning = FIELD_MEANINGS.get(field, field.replace('_', ' ')) + (' ' + ' '.join(values) if values else '')
         metadata.append({'field': field, 'kind': kind, 'meaning': meaning, 'values': values})
     if not hasattr(agent, '_constraint_field_vectors'):
-        agent._constraint_field_vectors = agent.models.embed([row['meaning'] for row in metadata])
+        agent._constraint_field_vectors = agent.embed([row['meaning'] for row in metadata])
     soft, description_exclusions, hierarchy = [], [], []
     covered_terms = set()
     for constraint in base['filters']:
@@ -227,7 +227,7 @@ def interpret(agent, question, history):
                     options.append({'field': 'genres' if kind == 'genre' else 'tags',
                                     'value': row['name'], 'meaning': row.get('description', row['name']),
                                     'confidence': row.get('similarity', 0)})
-            scores = agent.models.embed([phrase])[0] @ agent._constraint_field_vectors.T
+            scores = agent.embed([phrase])[0] @ agent._constraint_field_vectors.T
             options += [metadata[i] for i in np.argsort(scores)[::-1][:3]]
             options.append({'field': 'description', 'meaning': 'Semantic description matching; no exact category'})
             choice_schema = {'type': 'object', 'additionalProperties': False,

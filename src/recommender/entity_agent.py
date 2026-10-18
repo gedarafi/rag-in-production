@@ -11,7 +11,7 @@ from time import perf_counter
 
 import numpy as np
 
-from .embedding_cache import cached_embed
+from .embedding_cache import EmbeddingMemo, cached_embed
 from .entity_store import EntityStore, KINDS
 from .anime_tools import contains, normalize
 from .tool_plan import plan_schema, validate_plan, resolve_references, compile_steps
@@ -135,6 +135,8 @@ class EntityAgent:
         self.settings, self.models, self.catalog = settings, models, catalog
         self.store = EntityStore(catalog)
         self.semantic_search = semantic_search
+        # Request-time embeddings; the catalog's own vectors are built once (anime_vectors, guides, features).
+        self.embed = EmbeddingMemo(models)
         self.memory = OrderedDict()
         self.guide_vectors = None
         self.last_trace = []
@@ -534,9 +536,16 @@ class EntityAgent:
             namespace = json.dumps(['entity-tools-v1', version, self.settings.embedding,
                                     self.settings.embedding_cache_version, getattr(self.models, 'cache_revision', None)])
             self.guide_vectors = cached_embed(texts, self.models, self.settings.index / 'entity-tools.sqlite3', namespace)
-        scores = self.models.embed([question])[0] @ self.guide_vectors.T
+        scores = self.embed([question])[0] @ self.guide_vectors.T
         names = list(GUIDES)
         return [{'name': names[i], 'guide': GUIDES[names[i]]} for i in np.argsort(scores)[-4:][::-1]]
+
+    def anime_vectors(self, records, progress=None):
+        """One vector per anime: `recommender build` embeds the whole catalog, so requests only look them up."""
+        namespace = json.dumps(['anime-text-v1', self.settings.embedding, self.settings.embedding_cache_version,
+                                getattr(self.models, 'cache_revision', None)])
+        return cached_embed([EntityStore.anime_text(r) for r in records], self.models,
+                            self.settings.index / 'anime-texts.sqlite3', namespace, progress)
 
     def feature_candidates(self, question, *, kind=None, limit=10):
         rows = self.catalog.query("SELECT kind,id,name FROM entity_dictionary WHERE kind IN ('genre','tag') ORDER BY kind,id")
@@ -564,7 +573,7 @@ class EntityAgent:
             self._feature_version = version
         expanded = re.sub(r'\bmc\b', 'main character protagonist', normalize(question))
         focused = ' '.join(word for word in expanded.split() if word not in STOP and word != 'some') or expanded
-        similarities = self.models.embed([focused])[0] @ self._feature_vectors.T
+        similarities = self.embed([focused])[0] @ self._feature_vectors.T
         scores = np.full(len(rows), -np.inf)
         for owner, score in zip(self._feature_owners, similarities):
             scores[owner] = max(scores[owner], float(score))
@@ -606,7 +615,6 @@ class EntityAgent:
         return matches[0] if len(matches) == 1 else None
 
     def prepare(self, question, history, request=None):
-        self.store.ensure_dictionary()
         snapshot = self.catalog.query("SELECT value FROM meta WHERE key='snapshot'")[0][0]
         previous = self.memory.get((snapshot, self.history_key(history)), {}) if history else {}
         state = {'active_anime_ids': previous.get('active_anime_ids', []),
@@ -753,7 +761,6 @@ class EntityAgent:
         interpreter = getattr(self.models, 'interpret_request', None)
         if callable(interpreter):
             with timed_stage(timings, 'interpret_request') as span:
-                self.store.ensure_dictionary()
                 try:
                     request = interpret_catalog_request(self, question, history)
                     self.last_usage['request_constraints'] = request
@@ -1339,16 +1346,15 @@ class EntityAgent:
                 result = self.store.recommendations(seeds, terms, min(limit * 8, 80) if preference and not ranked else min(limit, 20), constraints)
                 if preference and result['items'] and not ranked:
                     items = result['items']
-                    texts = [r['title'] + '\n' + r.get('description', '') + '\n' + ', '.join(r.get('genres', []) + r.get('tags', [])) for r in items]
-                    vectors = self.models.embed(texts)
+                    vectors = self.anime_vectors(items)
                     semantic_query = re.sub(r'\bmc\b', 'main character protagonist', preference, flags=re.I)
                     concepts = [search['query'] for search in state.get('feature_searches', [])
                                 if search['kind'] == 'tag' and set(search['ids']).intersection(tags)]
                     if concepts:
                         semantic_query += '\nDesired concept: ' + '; '.join(concepts)
-                    scores = self.models.embed([semantic_query])[0] @ vectors.T
+                    scores = self.embed([semantic_query])[0] @ vectors.T
                     if request and request.get('description_exclusions'):
-                        negatives = self.models.embed(request['description_exclusions']) @ vectors.T
+                        negatives = self.embed(request['description_exclusions']) @ vectors.T
                         scores = scores - .5 * negatives.mean(axis=0)
                     from .catalog_search import preference_key
                     order = sorted(range(len(items)), key=lambda i: (
@@ -1424,7 +1430,7 @@ class EntityAgent:
         vectors = cached_embed(texts, self.models, self.settings.index / 'character-comparison.sqlite3', namespace)
         # Compare real biographies, even when the planning model supplies a
         # name-only query rather than the requested personality traits.
-        scores = self.models.embed([profile_query + '\nRequested focus: ' + query])[0] @ vectors.T
+        scores = self.embed([profile_query + '\nRequested focus: ' + query])[0] @ vectors.T
         items, anime_seen = [], set()
         for index in np.argsort(scores)[::-1]:
             candidate, character = rows[index]

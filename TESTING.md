@@ -38,7 +38,9 @@ polls `/api/chat/{job_id}` until the answer is there. Open Phoenix at http://loc
 [Debugging with traces](README.md#debugging-with-traces)). `just recommender-logs` follows the
 worker's log.
 
-The first answer after a deploy also downloads the catalog bundle into the worker (about a minute).
+The first answer after a deploy also downloads the catalog bundle into the worker (about a minute for
+the full catalog). Publishing the full catalog loads its 215k passages into LocalStack's Aurora, which
+takes about ten minutes; the fixture loads in seconds.
 Llama 3.2 3B is a small model, so answers are weaker than on AWS (Qwen3 32B), but the whole solution
 runs: the same pipeline, prompts, tools and catalog.
 
@@ -70,8 +72,11 @@ These need a running stack:
 ```sh
 just phoenix-up && just test-phoenix  # a question's trace (api Lambda, then worker) reaches Phoenix
 just up && just test-localstack       # creates and destroys a test bucket on LocalStack
-just e2e                              # deploys to LocalStack, publishes the fixture, checks sign-in,
-                                      # questions, a follow-up and isolation between users, then destroys
+just apply && just test-vector-db     # the passage search in LocalStack's Aurora (pgvector, Data API)
+                                      # finds what the file index finds (pytest -m localstack)
+just e2e                              # deploys to LocalStack, publishes the fixture, checks the passage
+                                      # search, sign-in, questions, a follow-up and isolation between
+                                      # users, then destroys
 RAG_LOCAL_MODEL_API=stub LOCALSTACK_BEDROCK_PREWARM=0 just restart e2e   # the same, as CI runs it
 ```
 

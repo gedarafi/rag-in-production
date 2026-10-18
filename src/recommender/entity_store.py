@@ -17,9 +17,9 @@ class EntityStore:
     def __init__(self, catalog):
         self.catalog = catalog
         self.database = catalog.database
-        self.ensure_dictionary()
 
     def ensure_dictionary(self):
+        """Build the dictionaries for the catalog's snapshot (AnimeTools.load, at build time)."""
         with BUILD_LOCK, closing(sqlite3.connect(self.database, timeout=120)) as db:
             db.executescript('''
                 CREATE TABLE IF NOT EXISTS entity_dictionary(kind TEXT,id TEXT,name TEXT,aliases TEXT,
@@ -203,6 +203,12 @@ class EntityStore:
                 'description_characters': len(description), 'next_offset': offset+limit if offset+limit < len(description) else None,
                 'appears_in': links[:12], 'appearance_count': len(links),
                 'appearances_next_offset': 12 if len(links) > 12 else None}
+
+    @staticmethod
+    def anime_text(r):
+        """The text a recommendation preference is compared with; `recommender build` embeds it for every anime."""
+        return (r['title'] + '\n' + r.get('description', '')[:700] + '\n' +
+                ', '.join(r.get('genres', []) + r.get('tags', [])))
 
     @staticmethod
     def brief(r):

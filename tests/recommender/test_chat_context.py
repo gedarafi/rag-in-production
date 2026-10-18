@@ -1,4 +1,3 @@
-import json
 import tempfile
 import unittest
 from dataclasses import replace
@@ -7,7 +6,9 @@ from types import SimpleNamespace
 
 import numpy as np
 
+from src.recommender.chunk_index import write_index
 from src.recommender.config import load_settings
+from src.recommender.documents import Chunk
 from src.recommender.rag import RagPipeline
 
 
@@ -43,10 +44,7 @@ class ChatContextTests(unittest.TestCase):
     def test_follow_up_uses_history_and_next_chat_is_independent(self):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
-            np.save(root / "vectors.npy", np.ones((1, 2)))
-            (root / "chunks.json").write_text(json.dumps([
-                {"source": "anime.md", "text": "Cowboy Bebop follows bounty hunters."}
-            ]), encoding="utf-8")
+            write_index(root, [Chunk("Cowboy Bebop follows bounty hunters.", "anime.md")], np.ones((1, 2)))
             pipeline = RagPipeline.__new__(RagPipeline)
             pipeline.settings = replace(load_settings(), index=root, documents=root / "documents")
             queries, prompts = [], []

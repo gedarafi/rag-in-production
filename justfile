@@ -7,7 +7,7 @@ set dotenv-path := "infra/.env"
 compose := "docker compose"
 endpoint := env("LOCALSTACK_ENDPOINT", "http://localhost:4566")
 region := env("AWS_DEFAULT_REGION", "us-east-1")
-modules := "modules/s3-bucket modules/auth modules/chat-api modules/web modules/budget modules/container-registry modules/recommender"
+modules := "modules/s3-bucket modules/auth modules/chat-api modules/web modules/budget modules/container-registry modules/vector-db modules/recommender"
 live := "live/local"
 aws_live := env("RAG_AWS_LIVE", "live/aws") # `just aws-mantle` points the aws-* recipes at live/aws-mantle
 aws_region := env("AWS_REGION", "eu-north-1")
@@ -173,6 +173,7 @@ e2e:
     [ "$status" = "Enabled" ] || { echo "expected versioning Enabled, got '$status'" >&2; exit 1; }
     echo "e2e: bucket rag-documents-local exists with versioning enabled"
     just recommender-publish fixture
+    just test-vector-db
     just flow e2e
 
 # --- Recommender artifacts and worker ---
@@ -195,9 +196,11 @@ recommender-publish which="fixture":
     bundle="$(just recommender-build {{which}} | tail -1)"
     out() { terragrunt run --non-interactive --log-level error --working-dir {{live}}/recommender -- output -raw $1; }
     bucket="$(out artifact_bucket)" parameter="$(out artifact_version_parameter)"
+    cluster="$(out vector_db_cluster_arn)" secret="$(out vector_db_secret_arn)" database="$(out vector_db_name)"
     cd ..
     AWS_ENDPOINT_URL={{endpoint}} AWS_ACCESS_KEY_ID=test AWS_SECRET_ACCESS_KEY=test AWS_DEFAULT_REGION={{region}} \
-      {{recommender}} publish "$bundle" --bucket "$bucket" --parameter "$parameter"
+      {{recommender}} publish "$bundle" --bucket "$bucket" --parameter "$parameter" \
+      --vector-db-cluster "$cluster" --vector-db-secret "$secret" --vector-db-name "$database"
 
 # Serve an already published bundle version on the local stack (rollback), e.g. `just recommender-activate 20261018T120000Z`
 recommender-activate version:
@@ -205,9 +208,22 @@ recommender-activate version:
     set -euo pipefail
     out() { terragrunt run --non-interactive --log-level error --working-dir {{live}}/recommender -- output -raw $1; }
     bucket="$(out artifact_bucket)" parameter="$(out artifact_version_parameter)"
+    cluster="$(out vector_db_cluster_arn)" secret="$(out vector_db_secret_arn)" database="$(out vector_db_name)"
     cd ..
     AWS_ENDPOINT_URL={{endpoint}} AWS_ACCESS_KEY_ID=test AWS_SECRET_ACCESS_KEY=test AWS_DEFAULT_REGION={{region}} \
-      {{recommender}} activate {{quote(version)}} --bucket "$bucket" --parameter "$parameter"
+      {{recommender}} activate {{quote(version)}} --bucket "$bucket" --parameter "$parameter" \
+      --vector-db-cluster "$cluster" --vector-db-secret "$secret" --vector-db-name "$database"
+
+# Check the local stack's passage table against the file index (after `just apply`; `e2e` runs it)
+test-vector-db:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    out() { terragrunt run --non-interactive --log-level error --working-dir {{live}}/vector-db -- output -raw $1; }
+    cluster="$(out cluster_arn)" secret="$(out secret_arn)" database="$(out database)"
+    cd ..
+    AWS_ENDPOINT_URL={{endpoint}} AWS_ACCESS_KEY_ID=test AWS_SECRET_ACCESS_KEY=test AWS_DEFAULT_REGION={{region}} \
+      VECTOR_DB_CLUSTER_ARN="$cluster" VECTOR_DB_SECRET_ARN="$secret" VECTOR_DB_NAME="$database" \
+      uv run --quiet --isolated --only-group test --only-group recommender pytest -m localstack tests/recommender -q
 
 # Follow the local worker's log (`just recommender-logs --since 1h` to print and exit)
 recommender-logs *args="--follow":
@@ -284,8 +300,10 @@ aws-recommender-publish which="full": _aws-check
     bundle="$(just recommender-build {{which}} | tail -1)"
     out() { terragrunt run --non-interactive --log-level error --working-dir {{aws_live}}/recommender -- output -raw $1; }
     bucket="$(out artifact_bucket)" parameter="$(out artifact_version_parameter)"
+    cluster="$(out vector_db_cluster_arn)" secret="$(out vector_db_secret_arn)" database="$(out vector_db_name)"
     cd ..
-    AWS_REGION={{aws_region}} {{recommender}} publish "$bundle" --bucket "$bucket" --parameter "$parameter"
+    AWS_REGION={{aws_region}} {{recommender}} publish "$bundle" --bucket "$bucket" --parameter "$parameter" \
+      --vector-db-cluster "$cluster" --vector-db-secret "$secret" --vector-db-name "$database"
 
 # Serve an already published bundle version on real AWS (rollback)
 aws-recommender-activate version: _aws-check
@@ -293,8 +311,10 @@ aws-recommender-activate version: _aws-check
     set -euo pipefail
     out() { terragrunt run --non-interactive --log-level error --working-dir {{aws_live}}/recommender -- output -raw $1; }
     bucket="$(out artifact_bucket)" parameter="$(out artifact_version_parameter)"
+    cluster="$(out vector_db_cluster_arn)" secret="$(out vector_db_secret_arn)" database="$(out vector_db_name)"
     cd ..
-    AWS_REGION={{aws_region}} {{recommender}} activate {{quote(version)}} --bucket "$bucket" --parameter "$parameter"
+    AWS_REGION={{aws_region}} {{recommender}} activate {{quote(version)}} --bucket "$bucket" --parameter "$parameter" \
+      --vector-db-cluster "$cluster" --vector-db-secret "$secret" --vector-db-name "$database"
 
 # Draw docs/architecture.png from the services deployed to real AWS
 aws-diagram: _aws-check

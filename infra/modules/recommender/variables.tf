@@ -57,6 +57,16 @@ variable "ollama_url" {
   default     = ""
 }
 
+variable "vector_db" {
+  description = "The Aurora cluster with the passage index (modules/vector-db outputs); null leaves the worker without semantic passage search."
+  type = object({
+    cluster_arn = string
+    secret_arn  = string
+    database    = string
+  })
+  default = null
+}
+
 variable "model_timeout_seconds" {
   description = "How long one model call may take before it counts as failed."
   type        = number

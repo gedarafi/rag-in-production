@@ -5,11 +5,9 @@
 from __future__ import annotations
 
 import json
-import hashlib
 import shutil
 import sqlite3
 import threading
-from contextlib import closing
 from copy import deepcopy
 from pathlib import Path
 from time import perf_counter
@@ -17,10 +15,10 @@ from time import perf_counter
 import numpy as np
 import requests
 
+from .chunk_index import DATABASE, VECTORS, ChunkIndex
 from .config import Settings
 from .datasets import ANILIST_FILENAME, ANILIST_URL, prepare_anilist
 from .entity_agent import EntityAgent
-from .documents import load_chunks
 from .rag import RagPipeline
 from .sqlite_catalog import SCHEMA_VERSION
 
@@ -48,7 +46,7 @@ class AniListWorkspace:
 
     def signature(self):
         s = self.settings
-        paths = [s.documents / 'catalog.jsonl', s.index / 'vectors.npy', s.index / 'chunks.json']
+        paths = [s.documents / 'catalog.jsonl', s.index / DATABASE, s.index / VECTORS]
         return {'version': 1, 'sql_schema': SCHEMA_VERSION, 'embedding': s.embedding,
                 'embedding_cache_version': s.embedding_cache_version,
                 'chunk_size': s.chunk_size, 'chunk_overlap': s.chunk_overlap,
@@ -56,8 +54,8 @@ class AniListWorkspace:
 
     def is_prepared(self):
         try:
-            required = [self.settings.documents / 'catalog.sqlite3',
-                        self.settings.index / 'entity-tools.sqlite3', self.settings.index / 'entity-features.sqlite3']
+            required = [self.settings.documents / 'catalog.sqlite3', self.settings.index / 'entity-tools.sqlite3',
+                        self.settings.index / 'entity-features.sqlite3', self.settings.index / 'anime-texts.sqlite3']
             saved = json.loads(self.manifest.read_text(encoding='utf-8'))
             # Older manifests included generation settings. Neither changes the
             # local catalog or embedding index; connection errors surface at chat.
@@ -79,8 +77,8 @@ class AniListWorkspace:
             'dataset': [s.root / 'data/raw' / ANILIST_FILENAME, s.root / 'data-raw' / ANILIST_FILENAME],
             'documents': [s.documents / 'catalog.jsonl'],
             'sql': [s.documents / 'catalog.sqlite3'],
-            'embeddings': [s.index / 'chunks.json', s.index / 'vectors.npy'],
-            'tools': [s.index / 'entity-tools.sqlite3', s.index / 'entity-features.sqlite3'],
+            'embeddings': [s.index / DATABASE, s.index / VECTORS],
+            'tools': [s.index / 'entity-tools.sqlite3', s.index / 'entity-features.sqlite3', s.index / 'anime-texts.sqlite3'],
         }
         for key, paths in groups.items():
             found = [p.name for p in paths if p.is_file() and p.stat().st_size]
@@ -95,19 +93,16 @@ class AniListWorkspace:
         temporary.replace(target)
 
     def reusable_index(self):
-        """Validate the index independently of the final setup-ready marker."""
-        vectors = None
+        """Validate the index independently of the final setup-ready marker.
+
+        It is reused only with the signature it was built with: other chunks or another model need a new
+        index, which the content-addressed embeddings.sqlite3 makes a replay of unchanged vectors.
+        """
         try:
             s = self.settings
-            chunks = json.loads((s.index / 'chunks.json').read_text(encoding='utf-8'))
-            vectors = np.load(s.index / 'vectors.npy', mmap_mode='r', allow_pickle=False)
-            probe = self.pipeline.models.embed(['AniList workspace verification'])
-            if (not isinstance(chunks, list) or not chunks or vectors.ndim != 2
-                    or vectors.shape != (len(chunks), probe.shape[1])):
+            if not ChunkIndex.exists(s.index):
                 return False
-            if any(not np.isfinite(vectors[start:start + 8192]).all()
-                   for start in range(0, len(vectors), 8192)):
-                return False
+            self.check_index()
             signature = self.signature()
             # A successful embedding stage is reusable even if tools/verification
             # never finished and the final ready marker was deliberately removed.
@@ -119,36 +114,24 @@ class AniListWorkspace:
                         return True
                 except (OSError, ValueError, AttributeError):
                     pass
-            # Adopt older prepared libraries without trusting dimensions alone:
-            # compare their chunks with today's documents/settings, then prove
-            # each vector belongs to the current model's content-addressed cache.
-            if not s.embedding_cache or not (s.index / 'embeddings.sqlite3').is_file():
-                return False
-            expected = load_chunks(s.documents, s.extensions, s.chunk_size, s.chunk_overlap)
-            if len(expected) != len(chunks) or any(c.__dict__ != saved for c, saved in zip(expected, chunks)):
-                return False
-            models = self.pipeline.models
-            namespace = json.dumps([s.embedding, s.embedding_cache_version,
-                                    getattr(models, 'cache_revision', None),
-                                    getattr(getattr(models, 'embedder', None), 'max_seq_length', None),
-                                    'normalized-f32-v1'])
-            with closing(sqlite3.connect(s.index / 'embeddings.sqlite3')) as db:
-                for start in range(0, len(chunks), 256):
-                    keys = [hashlib.sha256(c['text'].encode('utf-8')).hexdigest()
-                            for c in chunks[start:start + 256]]
-                    placeholders = ','.join('?' for _ in keys)
-                    found = dict(db.execute(f'SELECT hash,vector FROM embeddings WHERE namespace=? '
-                                            f'AND hash IN ({placeholders})', [namespace, *keys]))
-                    if any(key not in found or not np.array_equal(
-                            vectors[start + i], np.frombuffer(found[key], dtype=np.float32))
-                           for i, key in enumerate(keys)):
-                        return False
-            return True
-        except (OSError, ValueError, KeyError, TypeError, AttributeError, IndexError, sqlite3.Error):
             return False
-        finally:
-            if vectors is not None and getattr(vectors, '_mmap', None) is not None:
-                vectors._mmap.close()
+        except (OSError, ValueError, KeyError, TypeError, AttributeError, IndexError, sqlite3.Error, RuntimeError):
+            return False
+
+    def check_index(self):
+        """The passage index's texts and vectors agree, match the embedding model and are finite."""
+        try:
+            index = ChunkIndex(self.settings.index)
+        except (OSError, ValueError, sqlite3.Error) as error:
+            raise RuntimeError(f'The embedding index is unreadable ({error}). Select rebuild and retry.') from error
+        vectors = index.vectors
+        probe = self.pipeline.models.embed(['AniList workspace verification'])
+        if not len(vectors) or vectors.shape[1] != probe.shape[1]:
+            raise RuntimeError('The embedding index does not match its chunks or embedding model. Select rebuild and retry.')
+        for start in range(0, len(vectors), 8192):
+            if not np.isfinite(vectors[start:start + 8192]).all():
+                raise RuntimeError('The embedding index contains invalid values. Select rebuild and retry.')
+        return len(vectors)
 
     def acquire_dataset(self, source, rebuild, progress):
         if source:
@@ -201,18 +184,7 @@ class AniListWorkspace:
             raise RuntimeError('The SQL anime catalog is empty.')
         if not catalog.query('SELECT COUNT(*) FROM entity_dictionary')[0][0]:
             raise RuntimeError('The entity dictionary is empty.')
-        chunks = json.loads((self.settings.index / 'chunks.json').read_text(encoding='utf-8'))
-        vectors = np.load(self.settings.index / 'vectors.npy', mmap_mode='r', allow_pickle=False)
-        try:
-            probe = p.models.embed(['AniList workspace verification'])
-            if vectors.ndim != 2 or len(vectors) != len(chunks) or not len(chunks) or vectors.shape[1] != probe.shape[1]:
-                raise RuntimeError('The embedding index does not match its chunks or embedding model. Select rebuild and retry.')
-            for start in range(0, len(vectors), 8192):
-                if not np.isfinite(vectors[start:start + 8192]).all():
-                    raise RuntimeError('The embedding index contains invalid values. Select rebuild and retry.')
-        finally:
-            vectors._mmap.close()
-        return f'{count:,} anime and {len(chunks):,} embedded passages verified.'
+        return f'{count:,} anime and {self.check_index():,} embedded passages verified.'
 
     def setup(self, source=None, rebuild=False, progress=None):
         """Yield stage snapshots; long-running operations also report byte/batch progress."""
@@ -263,9 +235,17 @@ class AniListWorkspace:
                             message = 'Reusing the verified document embedding index.'
                         self.save_index_checkpoint()
                     elif key == 'tools':
-                        self.pipeline._agent.guides('Recommend anime')
-                        self.pipeline._agent.feature_candidates('Anime genres and themes')
-                        message = 'Tool guides and genre/tag embeddings are warm; SQL search is ready.'
+                        agent = self.pipeline._agent
+                        agent.guides('Recommend anime')
+                        agent.feature_candidates('Anime genres and themes')
+                        # Only the fields of EntityStore.anime_text, not the whole records.
+                        records = [{'title': title, 'description': description or '',
+                                    'genres': json.loads(genres or '[]'), 'tags': json.loads(tags or '[]')}
+                                   for title, description, genres, tags in agent.catalog.query(
+                                       "SELECT json_extract(data,'$.title'), json_extract(data,'$.description'), "
+                                       "json_extract(data,'$.genres'), json_extract(data,'$.tags') FROM anime ORDER BY id")]
+                        agent.anime_vectors(records, progress)
+                        message = f'Tool guides, genre/tag and {len(records):,} anime embeddings are warm; SQL search is ready.'
                     else:
                         message = self.verify()
                         self.manifest.parent.mkdir(parents=True, exist_ok=True)

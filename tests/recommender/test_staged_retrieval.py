@@ -11,7 +11,8 @@ import numpy as np
 
 from src.recommender.anime_tools import AnimeTools, structured
 from src.recommender.config import load_settings
-from src.recommender.documents import load_chunks
+from src.recommender.chunk_index import write_index
+from src.recommender.documents import Chunk, load_chunks
 from src.recommender.bedrock import InvalidOutput
 from src.recommender.embedding import OnnxEmbedder
 from tests.recommender.bedrock_stub import scripted_models
@@ -221,10 +222,8 @@ class StagedRetrievalTests(unittest.TestCase):
         semantic.assert_called_once()
 
     def test_unmatched_questions_escalate_and_fuse_lexical_and_vector_evidence(self):
-        self.pipeline.settings.index.mkdir()
-        np.save(self.pipeline.settings.index / "vectors.npy", np.ones((1, 2)))
-        (self.pipeline.settings.index / "chunks.json").write_text(json.dumps([
-            {"text": "A young ninja trains to become a leader.", "source": "anime-20.md"}]), encoding="utf-8")
+        write_index(self.pipeline.settings.index, [Chunk("A young ninja trains to become a leader.", "anime-20.md")],
+                    np.ones((1, 2)))
         prompts, embeddings = [], []
         self.pipeline.models = SimpleNamespace(embed=lambda texts: embeddings.append(texts) or np.ones((1, 2)),
             answer=lambda prompt, *a: prompts.append(prompt) or "Answer")

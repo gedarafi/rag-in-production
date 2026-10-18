@@ -90,13 +90,23 @@ class AnimeTools:
 
     @classmethod
     def load(cls, folder: Path) -> AnimeTools | None:
+        """Build or refresh the SQLite catalog and its side tables from catalog.jsonl, then open it.
+
+        This is the build path. A published bundle is opened as built instead (RagPipeline readonly).
+        """
         path = folder / "catalog.jsonl"
         if not path.exists():
             return None
-        from .sqlite_catalog import SqliteAnimeTools, ensure_database
+        from .catalog_metadata import ensure_production_metadata
+        from .entity_store import EntityStore
+        from .sqlite_catalog import BUILD_LOCK, SqliteAnimeTools, ensure_database
         import sqlite3
         try:
-            return SqliteAnimeTools(ensure_database(folder))
+            database = ensure_database(folder)
+            ensure_production_metadata(folder, database, BUILD_LOCK)
+            tools = SqliteAnimeTools(database)
+            EntityStore(tools).ensure_dictionary()
+            return tools
         except sqlite3.Error as error:
             raise RuntimeError(f"Could not open or refresh the AniList SQLite catalog: {error}") from error
 

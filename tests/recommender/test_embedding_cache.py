@@ -6,7 +6,7 @@ from unittest.mock import patch
 
 import numpy as np
 
-from src.recommender.embedding_cache import cached_embed
+from src.recommender.embedding_cache import EmbeddingMemo, cached_embed
 
 
 class EmbeddingCacheTests(unittest.TestCase):
@@ -49,3 +49,41 @@ class EmbeddingCacheTests(unittest.TestCase):
             vectors = cached_embed(texts, SimpleNamespace(embed=embed), path, 'model')
             self.assertEqual(resumed, texts[256:])
             self.assertEqual(vectors.shape, (300, 2))
+
+
+class EmbeddingMemoTests(unittest.TestCase):
+    def setUp(self):
+        self.calls = []
+        def embed(texts):
+            self.calls.append(list(texts))
+            return np.array([[len(t), 1] for t in texts], dtype=np.float32)
+        self.models = SimpleNamespace(embed=embed)
+
+    def test_each_text_is_embedded_once_in_one_batch(self):
+        memo = EmbeddingMemo(self.models)
+        np.testing.assert_array_equal(memo(['one', 'three', 'one']), [[3, 1], [5, 1], [3, 1]])
+        np.testing.assert_array_equal(memo(['three', 'four']), [[5, 1], [4, 1]])
+        self.assertEqual(self.calls, [['one', 'three'], ['four']])
+
+    def test_least_recently_used_texts_are_forgotten(self):
+        memo = EmbeddingMemo(self.models, size=2)
+        memo(['a', 'b'])
+        memo(['a'])  # now b is the oldest
+        memo(['c'])
+        self.calls.clear()
+        memo(['a', 'c'])
+        self.assertEqual(self.calls, [])
+        memo(['b'])
+        self.assertEqual(self.calls, [['b']])
+
+    def test_a_replaced_embed_method_is_used(self):
+        memo = EmbeddingMemo(self.models)
+        self.models.embed = lambda texts: np.zeros((len(texts), 2), dtype=np.float32)
+        np.testing.assert_array_equal(memo(['x']), [[0, 0]])
+
+    def test_empty_input_and_invalid_vectors(self):
+        self.models.embed = lambda texts: np.empty((0, 2), dtype=np.float32) if not texts else np.ones((1, 2))
+        memo = EmbeddingMemo(self.models)
+        self.assertEqual(memo([]).shape, (0, 2))
+        with self.assertRaisesRegex(ValueError, 'invalid vectors'):
+            memo(['one', 'two'])

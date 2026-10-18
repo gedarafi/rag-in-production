@@ -1,8 +1,9 @@
-"""Content-addressed embeddings with committed batch checkpoints in SQLite."""
+"""Content-addressed embeddings with committed batch checkpoints in SQLite, and an in-memory memo."""
 from __future__ import annotations
 
 import hashlib
 import sqlite3
+from collections import OrderedDict
 from contextlib import closing
 from pathlib import Path
 
@@ -50,3 +51,29 @@ def cached_embed(texts: list[str], models, path: Path, namespace: str, progress:
         if progress:
             progress("Cached chunks reused", reused, len(texts))
     return vectors
+
+
+class EmbeddingMemo:
+    """Embeds each text once per process: the constant attribute, operator and field descriptions,
+    and a question that several stages of one request compare. Least recently used texts go first."""
+
+    def __init__(self, models, size: int = 4096):
+        # models.embed is looked up on each call, so a replaced embed method takes effect.
+        self.models, self.size = models, size
+        self.vectors: OrderedDict[str, np.ndarray] = OrderedDict()
+
+    def __call__(self, texts: list[str]) -> np.ndarray:
+        if not texts:
+            return self.models.embed([])
+        missing = [text for text in dict.fromkeys(texts) if text not in self.vectors]
+        if missing:
+            encoded = np.asarray(self.models.embed(missing), dtype=np.float32)
+            if encoded.ndim != 2 or len(encoded) != len(missing):
+                raise ValueError("Embedding model returned invalid vectors")
+            self.vectors.update(zip(missing, encoded))
+        for text in texts:
+            self.vectors.move_to_end(text)
+        vectors = np.stack([self.vectors[text] for text in texts])
+        while len(self.vectors) > self.size:
+            self.vectors.popitem(last=False)
+        return vectors

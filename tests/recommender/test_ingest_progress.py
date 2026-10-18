@@ -6,6 +6,7 @@ from types import SimpleNamespace
 
 import numpy as np
 
+from src.recommender.chunk_index import ChunkIndex
 from src.recommender.config import load_settings
 from src.recommender.embedding import OnnxEmbedder
 from src.recommender.rag import RagPipeline
@@ -40,6 +41,7 @@ class IngestProgressTests(unittest.TestCase):
             events = []
             self.assertEqual(pipeline.ingest(progress=lambda *event: events.append(event)), 1)
             self.assertIn(("Loading documents", 2, 2), events)
-            self.assertEqual(events[-1], ("Saving index", 2, 2))
-            self.assertEqual(np.load(root / "index/vectors.npy").shape, (1, 2))
-            self.assertTrue((root / "index/chunks.json").exists())
+            self.assertEqual(events[-1], ("Saving index", 1, 1))
+            index = ChunkIndex(root / "index")
+            self.assertEqual(index.vectors.shape, (1, 2))
+            self.assertEqual(index.search(np.ones(2), k=1)[0][0].text, "Example knowledge")

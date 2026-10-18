@@ -13,6 +13,7 @@ The infrastructure lives in [`infra/`](infra); the Lambdas' code lives in [`src/
 | `infra/modules/chat-api/` | HTTP API with a Cognito JWT authorizer and the api Lambda that queues questions and returns their answers; its code is in `src/chat/` |
 | `infra/modules/container-registry/` | ECR repository for the recommender worker's image (scanned, encrypted, old builds expire) |
 | `infra/modules/recommender/` | The worker Lambda (container image) fed by SQS with a dead-letter queue, the DynamoDB jobs and conversations tables, the bundle bucket and its version parameter, and alarms; its code is in `src/recommender/` |
+| `infra/modules/vector-db/` | Aurora Serverless v2 PostgreSQL with pgvector (scales to 0 ACU when idle) holding the recommender's passage index, read through the RDS Data API; in its own private VPC |
 | `infra/docker/recommender.Dockerfile` | The worker image: the recommender, its runtime dependencies and the ONNX MiniLM model |
 | `infra/modules/web/` | Private S3 bucket and CloudFront for the page in [`web/`](web); `/api/*` is forwarded to the chat API |
 | `infra/modules/budget/` | Monthly cost budget for the AWS account, emailing at 80 % actual and 100 % forecasted spend (real AWS only) |
@@ -50,7 +51,8 @@ just lint             # formatting checks and validation of every module
 just test-unit        # module tests with mocked providers, plus the Lambda unit tests (no LocalStack)
 just test-localstack  # creates and destroys a test bucket on LocalStack
 just plan             # plan infra/live/local
-just apply            # deploy the whole stack (bucket, sign-in, chat API, page) on LocalStack
+just apply            # deploy the whole stack (bucket, sign-in, recommender, vector database, chat API, page) on LocalStack
+just test-vector-db   # check the local Aurora's passage search against the file index (after apply)
 just e2e              # apply, run the sign-in and chat checks, then destroy
 just destroy          # remove everything from infra/live/local
 ```
@@ -62,15 +64,17 @@ Run `just` to see all recipes.
 For the quickest start (one command, plus tracing in Phoenix), see
 [Try the chat locally](TESTING.md#try-the-chat-locally-and-see-its-traces) in TESTING.md.
 
-`infra/live/local/` deploys the same `auth`, `recommender-registry`, `recommender`, `chat-api` and
-`web` units as `infra/live/aws/` (both share `infra/live/_units/`). The recommender unit builds the
+`infra/live/local/` deploys the same `auth`, `recommender-registry`, `vector-db`, `recommender`,
+`chat-api` and `web` units as `infra/live/aws/` (both share `infra/live/_units/`). LocalStack emulates
+the Aurora cluster with a real PostgreSQL and pgvector, and its RDS Data API, so the same module and
+the same boto3 calls run locally and on AWS (RDS needs a LocalStack token with the Base plan or above). The recommender unit builds the
 worker image and pushes it to the registry before every plan and apply; publish a catalog bundle with
 `just recommender-publish` (the fixture by default) before asking. LocalStack's Cognito has no passwordless sign-in, so locally
 users get a fixed password ([`infra/scripts/local_flow.py`](infra/scripts/local_flow.py)) and the
 email-code screens can only be tried on real AWS. Everything else is exercised: the pre sign-up
 Lambda's domain check, the confirmation code sent through SES, the JWT authorizer, the queue, the
-worker's container image, its bundle download from S3 and its version from SSM, DynamoDB, the alarms
-and CloudFront's `/api/*` forwarding.
+worker's container image, its bundle download from S3 and its version from SSM, the passage search in
+Aurora, DynamoDB, the alarms and CloudFront's `/api/*` forwarding.
 
 Locally the worker calls LocalStack's Bedrock (Converse), which runs `LOCALSTACK_BEDROCK_MODEL`
 (default Llama 3.2 3B) with Ollama in its own container. `just up` gives that container the GPU once
@@ -160,8 +164,20 @@ Why it is built this way, and what the spikes before building it found:
   30 seconds. So the api Lambda queues the question and returns at once, and the page polls.
 - **Lambda, not a container service.** The worker runs only while there are questions, which fits the
   monthly budget; SQS's `maximum_concurrency` (2) caps parallel answers and Bedrock spend without
-  reserving account concurrency. A cold start costs the image start, the bundle download (about
-  2 GB for the full catalog, checksum-verified) and loading the catalog; warm containers keep it.
+  reserving account concurrency. A cold start costs the image start and the bundle download (about
+  1.2 GB extracted for the full catalog, checksum-verified); the worker opens the bundle as built and
+  never rebuilds the catalog from its source, and warm containers keep it.
+- **Nothing static is embedded per request.** The build embeds one vector per anime, which
+  recommendations rank by, and the worker remembers the embeddings of the constant attribute,
+  operator and field descriptions, so a request embeds only its own text.
+- **Passages in Aurora Serverless v2 with pgvector, through the Data API.** The 215k passage vectors
+  (float16, `halfvec`) and texts live in a table per bundle version, loaded by `recommender publish`.
+  The Data API is HTTPS signed with IAM and the cluster's secret, so the worker stays out of a VPC and
+  needs no NAT gateway or endpoints, which would cost more than the budget. The cluster scales to
+  0 ACU after five idle minutes: idle it costs its storage (under 1 GB) and the secret ($0.40 a
+  month); active about $0.06 an hour per 0.5 ACU. The first query after a pause waits about 15 s for
+  it to resume; passage search is only the fallback when the full-text search finds nothing, and if
+  the database fails the answer goes on without it.
 - **Embeddings in ONNX Runtime.** MiniLM's ONNX export gives the same vectors as
   sentence-transformers (cosine ≥ 0.9999999 on 1,000 AniList chunks), so the index built with
   either stays valid and the image needs no PyTorch.

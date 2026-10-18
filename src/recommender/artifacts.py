@@ -1,13 +1,17 @@
 """Release the prepared catalog and index as one versioned bundle, and fetch it in the worker.
 
 A bundle is one zstd-compressed tar of everything the pipeline reads at runtime: recommender.toml,
-prompts/, data/documents/anilist/ (catalog, SQLite database, documents) and data/index/anilist/
-(vectors, chunks, tool and feature embeddings). Next to it, manifest.json records the version, the
+prompts/, data/documents/anilist/ (the SQLite catalog and the documents) and data/index/anilist/
+(vectors, chunks, tool and feature embeddings). The worker opens it as built (RagPipeline readonly),
+so build inputs such as catalog.jsonl stay out. Next to it, manifest.json records the version, the
 bundle's SHA-256 and each file's size and SHA-256.
+
+The passage index (chunk_index.py) is not in the tar: bundle() puts it next to it, in passages/, and
+publishing loads it into the vector database (vector_db.py) as that version's table.
 
 In S3 a version is the prefix recommender/<version>/. The SSM parameter named by
 ARTIFACT_VERSION_PARAMETER says which version the worker serves: publishing a version writes the
-bundle first and then points the parameter at it; pointing it back is the rollback.
+bundle and its passages first and then points the parameter at it; pointing it back is the rollback.
 """
 from __future__ import annotations
 
@@ -16,18 +20,30 @@ import io
 import json
 import os
 import shutil
+import sqlite3
 import tarfile
 import time
+from contextlib import closing
 from datetime import datetime, timezone
 from pathlib import Path
 
 from ..tracing import stage
+from .chunk_index import DATABASE as CHUNKS_DATABASE, LEGACY as LEGACY_INDEX, VECTORS as CHUNK_VECTORS
 
 FORMAT = 1
 BUNDLE = "bundle.tar.zst"
 MANIFEST = "manifest.json"
-# Built and used at runtime only: the full chunk embedding cache isn't needed to answer.
-EXCLUDED = {"embeddings.sqlite3", "embeddings.sqlite3-journal", "routing.sqlite3", "character-comparison.sqlite3"}
+# Not needed to answer: the build's inputs and records (the catalog.sqlite3 built from catalog.jsonl
+# is bundled instead), the full chunk embedding cache, and caches that the worker fills itself.
+EXCLUDED = {"catalog.jsonl", "setup.json", "embedding-state.json", "embeddings.sqlite3",
+            "routing.sqlite3", "character-comparison.sqlite3", *LEGACY_INDEX}
+# SQLite's side files; bundle() checkpoints the databases first, so their content is in the main file.
+SQLITE_SIDE_FILES = ("-wal", "-shm", "-journal")
+# The passage index goes to the vector database instead: next to the bundle, in this folder.
+PASSAGES = "passages"
+PASSAGE_FILES = (CHUNKS_DATABASE, CHUNK_VECTORS)
+# Passage tables kept in the vector database besides the active one: the reach of a rollback.
+KEEP_VERSIONS = 3
 
 
 def runtime_files(root: Path) -> list[Path]:
@@ -36,8 +52,15 @@ def runtime_files(root: Path) -> list[Path]:
     files += sorted(p.relative_to(root) for p in (root / "prompts").rglob("*") if p.is_file())
     for folder in ("data/documents/anilist", "data/index/anilist"):
         files += sorted(p.relative_to(root) for p in (root / folder).rglob("*")
-                        if p.is_file() and p.name not in EXCLUDED and not p.name.endswith((".tmp", ".part")))
+                        if p.is_file() and p.name not in EXCLUDED and p.name not in PASSAGE_FILES
+                        and not p.name.endswith((".tmp", ".part", *SQLITE_SIDE_FILES)))
     return files
+
+
+def checkpoint(path: Path) -> None:
+    """Move a WAL database's committed pages into the main file, so the file alone is complete."""
+    with closing(sqlite3.connect(path)) as db:
+        db.execute("PRAGMA wal_checkpoint(TRUNCATE)")
 
 
 def sha256(path: Path) -> str:
@@ -58,6 +81,9 @@ def bundle(root: Path, out: Path, version: str | None = None, *, settings_text: 
     target = out / version
     target.mkdir(parents=True, exist_ok=False)
     files = runtime_files(root)
+    for relative in files:
+        if relative.suffix == ".sqlite3":
+            checkpoint(root / relative)
     entries = {}
     with tarfile.open(target / BUNDLE, "w:zst") as archive:
         for relative in files:
@@ -75,6 +101,15 @@ def bundle(root: Path, out: Path, version: str | None = None, *, settings_text: 
     manifest = {"format": FORMAT, "version": version, "created": datetime.now(timezone.utc).isoformat(),
                 "bundle": {"name": BUNDLE, "size": (target / BUNDLE).stat().st_size, "sha256": sha256(target / BUNDLE)},
                 "files": entries}
+    index = root / "data/index/anilist"
+    if all((index / name).is_file() for name in PASSAGE_FILES):
+        (target / PASSAGES).mkdir()
+        for name in PASSAGE_FILES:
+            try:
+                os.link(index / name, target / PASSAGES / name)  # a snapshot: rebuilds replace the files
+            except OSError:
+                shutil.copy2(index / name, target / PASSAGES / name)
+        manifest["passages"] = "vector-db"
     (target / MANIFEST).write_text(json.dumps(manifest, indent=2), encoding="utf-8")
     return target
 
@@ -87,31 +122,54 @@ def verify(folder: Path, manifest: dict) -> None:
             raise ValueError(f"Artifact file {name} is missing or differs from manifest {manifest['version']}.")
 
 
-def publish(bundle_dir: Path, bucket: str, parameter: str, *, s3=None, ssm=None, activate: bool = True) -> str:
-    """Upload a bundle to s3://bucket/recommender/<version>/, then point the SSM parameter at it."""
-    import boto3
-
-    s3 = s3 or boto3.client("s3")
-    manifest = json.loads((bundle_dir / MANIFEST).read_text(encoding="utf-8"))
-    version = manifest["version"]
-    prefix = f"recommender/{version}/"
-    s3.upload_file(str(bundle_dir / BUNDLE), bucket, prefix + BUNDLE,
-                   ExtraArgs={"Metadata": {"sha256": manifest["bundle"]["sha256"]}})
-    # The manifest goes last: a version is complete once its manifest exists.
-    s3.upload_file(str(bundle_dir / MANIFEST), bucket, prefix + MANIFEST,
-                   ExtraArgs={"ContentType": "application/json"})
-    if activate:
-        activate_version(version, bucket, parameter, s3=s3, ssm=ssm)
-    return version
-
-
-def activate_version(version: str, bucket: str, parameter: str, *, s3=None, ssm=None) -> None:
-    """Serve version from now on (also the rollback); refuses a version that isn't fully uploaded."""
+def publish(bundle_dir: Path, bucket: str, parameter: str, *, s3=None, ssm=None, activate: bool = True,
+            vector_db=None, progress=None) -> str:
+    """Upload a bundle to s3://bucket/recommender/<version>/ and load its passages into the vector
+    database, then point the SSM parameter at it."""
     import boto3
 
     s3 = s3 or boto3.client("s3")
     ssm = ssm or boto3.client("ssm")
-    s3.head_object(Bucket=bucket, Key=f"recommender/{version}/{MANIFEST}")
+    manifest = json.loads((bundle_dir / MANIFEST).read_text(encoding="utf-8"))
+    version = manifest["version"]
+    if manifest.get("passages") == "vector-db" and vector_db is None:
+        raise ValueError(f"Bundle {version} keeps its passages for the vector database: pass --vector-db-cluster "
+                         "and --vector-db-secret (or set VECTOR_DB_CLUSTER_ARN and VECTOR_DB_SECRET_ARN).")
+    prefix = f"recommender/{version}/"
+    s3.upload_file(str(bundle_dir / BUNDLE), bucket, prefix + BUNDLE,
+                   ExtraArgs={"Metadata": {"sha256": manifest["bundle"]["sha256"]}})
+    if manifest.get("passages") == "vector-db":
+        vector_db.table(version).load(bundle_dir / PASSAGES, progress)
+    # The manifest goes last: a version is complete once its manifest exists.
+    s3.upload_file(str(bundle_dir / MANIFEST), bucket, prefix + MANIFEST,
+                   ExtraArgs={"ContentType": "application/json"})
+    if activate:
+        activate_version(version, bucket, parameter, s3=s3, ssm=ssm, vector_db=vector_db)
+    if vector_db is not None:
+        try:
+            active = ssm.get_parameter(Name=parameter)["Parameter"]["Value"]
+        except Exception:  # noqa: BLE001 - no active version yet: keep the newest tables only
+            active = None
+        vector_db.prune(KEEP_VERSIONS, active=active)
+    return version
+
+
+def activate_version(version: str, bucket: str, parameter: str, *, s3=None, ssm=None, vector_db=None) -> None:
+    """Serve version from now on (also the rollback); refuses a version that isn't fully uploaded,
+    including its passages in the vector database."""
+    import boto3
+
+    s3 = s3 or boto3.client("s3")
+    ssm = ssm or boto3.client("ssm")
+    key = f"recommender/{version}/{MANIFEST}"
+    s3.head_object(Bucket=bucket, Key=key)
+    if json.loads(s3.get_object(Bucket=bucket, Key=key)["Body"].read()).get("passages") == "vector-db":
+        if vector_db is None:
+            raise ValueError(f"Version {version} keeps its passages in the vector database: pass --vector-db-cluster "
+                             "and --vector-db-secret (or set VECTOR_DB_CLUSTER_ARN and VECTOR_DB_SECRET_ARN).")
+        if not vector_db.table(version).ready():
+            raise ValueError(f"The passages of {version} aren't in the vector database (pruned or never loaded); "
+                             "publish the bundle again.")
     ssm.put_parameter(Name=parameter, Value=version, Type="String", Overwrite=True)
 
 
