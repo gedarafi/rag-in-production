@@ -1,0 +1,141 @@
+{
+  "benchmark_questions": 180,
+  "overall": {
+    "attempted": 180,
+    "automatically_scored": 140,
+    "status_counts": {
+      "answered": 140,
+      "extraction_error": 6,
+      "model_error": 13,
+      "needs_review": 21
+    },
+    "end_to_end_exact_accuracy": 0.5,
+    "scoring_coverage": 0.7777777777777778,
+    "scored_exact_accuracy": 0.6428571428571429,
+    "macro_precision": 0.6811054421768707,
+    "macro_recall": 0.7571428571428571,
+    "macro_f1": 0.6981640047323276,
+    "mean_model_seconds": 15.003914666166656,
+    "mean_extraction_seconds": 2.109637152116668
+  },
+  "by_field": {
+    "duration": {
+      "attempted": 26,
+      "automatically_scored": 13,
+      "status_counts": {
+        "answered": 13,
+        "extraction_error": 3,
+        "needs_review": 10
+      },
+      "end_to_end_exact_accuracy": 0.038461538461538464,
+      "scoring_coverage": 0.5,
+      "scored_exact_accuracy": 0.07692307692307693,
+      "macro_precision": 0.07692307692307693,
+      "macro_recall": 0.07692307692307693,
+      "macro_f1": 0.07692307692307693,
+      "mean_model_seconds": 12.19403998076924,
+      "mean_extraction_seconds": 5.141270900692216
+    },
+    "episodes": {
+      "attempted": 26,
+      "automatically_scored": 10,
+      "status_counts": {
+        "answered": 10,
+        "extraction_error": 1,
+        "model_error": 5,
+        "needs_review": 10
+      },
+      "end_to_end_exact_accuracy": 0.11538461538461539,
+      "scoring_coverage": 0.38461538461538464,
+      "scored_exact_accuracy": 0.3,
+      "macro_precision": 0.4,
+      "macro_recall": 0.5,
+      "macro_f1": 0.4333333333333333,
+      "mean_model_seconds": 13.961933011230773,
+      "mean_extraction_seconds": 2.1047771891538263
+    },
+    "format": {
+      "attempted": 26,
+      "automatically_scored": 20,
+      "status_counts": {
+        "answered": 20,
+        "extraction_error": 1,
+        "model_error": 4,
+        "needs_review": 1
+      },
+      "end_to_end_exact_accuracy": 0.3076923076923077,
+      "scoring_coverage": 0.7692307692307693,
+      "scored_exact_accuracy": 0.4,
+      "macro_precision": 0.4988095238095238,
+      "macro_recall": 0.7,
+      "macro_f1": 0.5434523809523809,
+      "mean_model_seconds": 14.478518413499982,
+      "mean_extraction_seconds": 2.2624766699615555
+    },
+    "main_animation_studios": {
+      "attempted": 25,
+      "automatically_scored": 23,
+      "status_counts": {
+        "answered": 23,
+        "extraction_error": 1,
+        "model_error": 1
+      },
+      "end_to_end_exact_accuracy": 0.72,
+      "scoring_coverage": 0.92,
+      "scored_exact_accuracy": 0.782608695652174,
+      "macro_precision": 0.7867494824016563,
+      "macro_recall": 0.8260869565217391,
+      "macro_f1": 0.7901701323251418,
+      "mean_model_seconds": 14.956289384879929,
+      "mean_extraction_seconds": 2.9439889300800313
+    },
+    "main_characters": {
+      "attempted": 25,
+      "automatically_scored": 23,
+      "status_counts": {
+        "answered": 23,
+        "model_error": 2
+      },
+      "end_to_end_exact_accuracy": 0.68,
+      "scoring_coverage": 0.92,
+      "scored_exact_accuracy": 0.7391304347826086,
+      "macro_precision": 0.7478260869565218,
+      "macro_recall": 0.782608695652174,
+      "macro_f1": 0.753623188405797,
+      "mean_model_seconds": 16.966733259839984,
+      "mean_extraction_seconds": 1.0437647317200571
+    },
+    "source_material": {
+      "attempted": 26,
+      "automatically_scored": 26,
+      "status_counts": {
+        "answered": 26
+      },
+      "end_to_end_exact_accuracy": 0.6923076923076923,
+      "scoring_coverage": 1.0,
+      "scored_exact_accuracy": 0.6923076923076923,
+      "macro_precision": 0.7724358974358974,
+      "macro_recall": 0.9230769230769231,
+      "macro_f1": 0.808974358974359,
+      "mean_model_seconds": 16.257591507923088,
+      "mean_extraction_seconds": 0.6498436794230691
+    },
+    "year": {
+      "attempted": 26,
+      "automatically_scored": 25,
+      "status_counts": {
+        "answered": 25,
+        "model_error": 1
+      },
+      "end_to_end_exact_accuracy": 0.9615384615384616,
+      "scoring_coverage": 0.9615384615384616,
+      "scored_exact_accuracy": 1.0,
+      "macro_precision": 1.0,
+      "macro_recall": 1.0,
+      "macro_f1": 1.0,
+      "mean_model_seconds": 16.28595838626923,
+      "mean_extraction_seconds": 0.6124333236923314
+    }
+  },
+  "warning": "Automatic extraction is model-dependent; review quotes and extraction errors. No human validation implied."
+}
