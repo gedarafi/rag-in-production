@@ -75,6 +75,11 @@ lint:
     for m in {{modules}}; do tofu -chdir=$m init -backend=false -input=false >/dev/null && tofu -chdir=$m validate || exit 1; done
     terragrunt hcl validate --working-dir live
 
+# Delete the OpenTofu and Terragrunt caches and the Lambda build, as on a fresh checkout; the next init downloads the providers again
+clean:
+    find . \( -name .terragrunt-cache -o -name .terraform \) -type d -prune -exec rm -rf {} +
+    rm -rf .build
+
 # Refresh the provider lock files for Linux, macOS and Windows
 lock:
     for m in {{modules}}; do tofu -chdir=$m providers lock -platform=linux_amd64 -platform=linux_arm64 -platform=darwin_amd64 -platform=darwin_arm64 -platform=windows_amd64 || exit 1; done
@@ -102,8 +107,8 @@ test-localstack:
 # Run lint and every test
 test: lint test-unit test-localstack
 
-# Run the same steps as CI: lint and unit tests, then LocalStack tests and e2e on a fresh LocalStack
-ci: lint test-unit
+# Run the same steps as CI from a fresh checkout's state: lint and unit tests, then LocalStack tests and e2e on a fresh LocalStack
+ci: clean lint test-unit
     #!/usr/bin/env bash
     set -euo pipefail
     trap 'rc=$?; [ $rc -eq 0 ] || just logs --tail=all; just down; exit $rc' EXIT
