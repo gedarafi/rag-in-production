@@ -86,28 +86,39 @@ Our contributions are this agent; a deployment on Amazon Web Services (AWS), int
 \begin{table}[H]
     \centering
     \footnotesize
-    \caption{Evaluation results. \emph{Agent}: interpretation, planner, catalogue tools and answer model; \emph{no tools}: the same model asked directly for a numbered list of titles. Set (iii) reports explicit / vague / seed requests. --: not evaluated.}
+    \caption{Agent results on the factual and natural-request benchmarks, sets (i) and (ii).}
     \label{tab:results}
+    \begin{tabular}{@{}lcc@{}}
+        \hline
+         & \texttt{llama3.2:3b} & Gemma~3~4B \\
+        \hline
+        \multicolumn{3}{@{}l}{\emph{(i) Factual questions, $n=180$}} \\
+        Exact accuracy, end-to-end (\%) & 72.8 & 50.0 \\
+        Value F1, scored answers (macro) & 0.82 & 0.70 \\
+        Scored answers & 171 & 140 \\
+        Mean seconds per answer & 10.6 & 15.0 \\
+        \hline
+        \multicolumn{3}{@{}l}{\emph{(ii) Natural recommendation requests, $n=72$}} \\
+        Strict P@$k$, end-to-end (\%) & 52.6 & 42.2 \\
+        \quad explicit / indirect wording (\%) & 83.3 / 37.2 & 52.8 / 36.9 \\
+        nDCG@$k$, scored answers & 0.63 & 0.60 \\
+        Constraint coverage, scored (\%) & 82.0 & 80.2 \\
+        Exactly $k$ titles, scored (\%) & 34.9 & 37.7 \\
+        Scored answers & 63 & 53 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \footnotesize
+    \caption{Agent against the same model without tools (asked directly for a numbered list of titles) on the catalogue-sampled requests, set (iii); values are explicit / vague / seed requests, $n=30$ each.}
+    \label{tab:baseline}
     \begin{tabular}{@{}lcccc@{}}
         \hline
          & \multicolumn{2}{c}{\texttt{llama3.2:3b}} & \multicolumn{2}{c}{Gemma~3~4B} \\
          & agent & no tools & agent & no tools \\
         \hline
-        \multicolumn{5}{@{}l}{\emph{(i) Factual questions, $n=180$}} \\
-        Exact accuracy, end-to-end (\%) & 72.8 & -- & 50.0 & -- \\
-        Value F1, scored answers (macro) & 0.82 & -- & 0.70 & -- \\
-        Scored answers & 171 & -- & 140 & -- \\
-        Mean seconds per answer & 10.6 & -- & 15.0 & -- \\
-        \hline
-        \multicolumn{5}{@{}l}{\emph{(ii) Natural recommendation requests, $n=72$}} \\
-        Strict P@$k$, end-to-end (\%) & 52.6 & -- & 42.2 & -- \\
-        \quad explicit / indirect wording (\%) & 83.3 / 37.2 & -- & 52.8 / 36.9 & -- \\
-        nDCG@$k$, scored answers & 0.63 & -- & 0.60 & -- \\
-        Constraint coverage, scored (\%) & 82.0 & -- & 80.2 & -- \\
-        Exactly $k$ titles, scored (\%) & 34.9 & -- & 37.7 & -- \\
-        Scored answers & 63 & -- & 53 & -- \\
-        \hline
-        \multicolumn{5}{@{}l}{\emph{(iii) Catalogue-sampled requests, $n=30$ each}} \\
         Exactly five titles (\%) & 100 / 90 / 90 & 97 / 70 / 23 & 97 / 93 / 87 & 100 / 83 / 0 \\
         Hallucination rate (\%) & 0 / 0 / 0 & 16 / 16 / 4 & 0 / 0 / 0 & 26 / 28 / 15 \\
         Constraint precision (\%) & 99 / 43 / 99 & 19 / 22 / 95 & 72 / 38 / 100 & 21 / 17 / 84 \\
@@ -116,7 +127,7 @@ Our contributions are this agent; a deployment on Amazon Web Services (AWS), int
     \end{tabular}
 \end{table}
 
-\textbf{Results.} On factual questions, the agent answered 72.8\% exactly with \texttt{llama3.2:3b} and 50.0\% with Gemma~3~4B; release year was almost always correct (100\% and 96\%) and minutes per episode rarely (27\% and 4\%). On natural recommendation requests, end-to-end strict P@$k$ was 52.6\% and 42.2\%; explicitly worded requests reached 83.3\% and 52.8\%, indirect ones 37.2\% and 36.9\%. On catalogue-sampled requests, none of the titles listed by the agent was missing from the catalogue, whereas 4--28\% of those listed by the models without tools were; constraint precision rose from 17--22\% without tools to 99\% and 72\% for explicit and to 43\% and 38\% for vague requests. The agent identified the seed title in 29 of 30 seed requests with both models. A tool-backed answer took a median of 6--8\,s with \texttt{llama3.2:3b} and 10--13\,s with Gemma~3~4B, against at most 3.1\,s without tools. Failed answers were raised by the agent's own validation (an invalid grounded answer, no supported recommendation retrieved, or an unsupported reading of the request). With Gemma~3~4B, 57 of the 180 factual answers were the same popularity-ranked recommendation list, because its planner added a recommendation step to factual questions; this never happened with \texttt{llama3.2:3b}.
+\textbf{Results.} Tables~\ref{tab:results} and~\ref{tab:baseline} report all measures. On factual questions, the agent answered 72.8\% exactly with \texttt{llama3.2:3b} and 50.0\% with Gemma~3~4B; release year was almost always correct (100\% and 96\%) and minutes per episode rarely (27\% and 4\%). On natural recommendation requests, end-to-end strict P@$k$ was 52.6\% and 42.2\%; explicitly worded requests reached 83.3\% and 52.8\%, indirect ones 37.2\% and 36.9\%. On catalogue-sampled requests, none of the titles listed by the agent was missing from the catalogue, whereas 4--28\% of those listed by the models without tools were; constraint precision rose from 17--22\% without tools to 99\% and 72\% for explicit and to 43\% and 38\% for vague requests. The agent identified the seed title in 29 of 30 seed requests with both models. A tool-backed answer took a median of 6--8\,s with \texttt{llama3.2:3b} and 10--13\,s with Gemma~3~4B, against at most 3.1\,s without tools. Failed answers were raised by the agent's own validation (an invalid grounded answer, no supported recommendation retrieved, or an unsupported reading of the request). With Gemma~3~4B, 57 of the 180 factual answers were the same popularity-ranked recommendation list, because its planner added a recommendation step to factual questions; this never happened with \texttt{llama3.2:3b}.
 
 \textbf{Discussion and limitations.} The catalogue tools remove hallucinated titles, largely by construction, since recommendation lists are rendered from catalogue records, and they raise constraint precision several-fold, at the cost of roughly ten times the latency. The agent works best with the model it was developed with: Gemma~3~4B recommends almost as well once an answer is scored (strict P@$k$ 57.3\% against 60.1\%), but it fails validation more often and misroutes factual questions, which suggests that prompts and checks tuned on one model do not transfer unchanged to another. The scores measure adherence to catalogue facts and constraints, not whether a recommendation is enjoyable. Each question was asked once, although model outputs vary between runs; the 95\% confidence interval spans about $\pm$7 percentage points for 180 questions and $\pm$18 for 30. A 3B model extracts the values and titles in (i) and (ii) and can misread them; in (iii), titles in prose or under another alias count as hallucinated. In (ii), explicit and indirect requests also differ in the requested count (three versus four or five); in (iii), some tag descriptions contain the tag name, and seed requests are scored leniently because AniList user recommendations cannot serve as ground truth, as the agent ranks candidates by those same votes. Finally, we evaluated the quantized models served by Ollama rather than the Bedrock deployment.
 
