@@ -20,10 +20,10 @@ figure, axes = new_figure(16.0, 8.8)
 user_message = draw_box(axes, COLUMNS[0], PLANNING_ROW, ROW_WIDTH, ROW_HEIGHT,
                         "User message", "with up to 12 recent\nmessages (8,000 characters)")
 interpretation = draw_box(axes, COLUMNS[1], PLANNING_ROW, ROW_WIDTH, ROW_HEIGHT,
-                          "Interpretation LLM", "names typed and matched to\ncatalogue IDs; criteria to\nfilters or preferences",
+                          "Interpretation (LLM)", "names typed and matched to\ncatalogue IDs; criteria to\nfilters or preferences",
                           kind="llm")
 planner = draw_box(axes, COLUMNS[2], PLANNING_ROW, ROW_WIDTH, ROW_HEIGHT,
-                   "Planner LLM", "one JSON plan, up to 8\ntool steps, from all tools\nand 10 nearest genres/tags",
+                   "Planning (LLM)", "one JSON plan, up to 8\ntool steps, from all tools\nand 10 nearest genres/tags",
                    kind="llm")
 validation = draw_box(axes, COLUMNS[3], PLANNING_ROW, ROW_WIDTH, ROW_HEIGHT,
                       "Schema validation", "invalid plan: tools skipped,\nreported as missing evidence")
@@ -47,7 +47,7 @@ draw_group(axes, 0.15, tools_bottom, 15.85, tools_top,
 evidence = draw_box(axes, COLUMNS[0], ANSWER_ROW, ROW_WIDTH, ROW_HEIGHT,
                     "Evidence", "tool results, capped\nat 14,000 characters")
 answer = draw_box(axes, COLUMNS[1], ANSWER_ROW, ROW_WIDTH, ROW_HEIGHT,
-                  "Answer LLM", "facts for each subject,\nexpressions for numbers,\nor a clarifying question",
+                  "Answer (LLM)", "facts for each subject,\nexpressions for numbers,\nor a clarifying question",
                   kind="llm")
 checks = draw_box(axes, COLUMNS[2], ANSWER_ROW, ROW_WIDTH, ROW_HEIGHT,
                   "Answer checks", "a fact for every subject,\narithmetic run by code,\nnames match retrieved IDs")
