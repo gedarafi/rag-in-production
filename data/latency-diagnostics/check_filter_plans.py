@@ -3,10 +3,10 @@ import json
 from pathlib import Path
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-from src.config import load_settings
-from src.rag import RagPipeline
-from src.entity_agent import EntityAgent
-from src.tool_plan import plan_schema, validate_plan
+from src.recommender.config import load_settings
+from src.recommender.rag import RagPipeline
+from src.recommender.entity_agent import EntityAgent
+from src.recommender.tool_plan import plan_schema, validate_plan
 
 p = RagPipeline(load_settings('settings.toml', 'anilist'))
 agent = EntityAgent(p.settings, p.models, p.anime_tools())

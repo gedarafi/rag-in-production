@@ -4,8 +4,8 @@ from pathlib import Path
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 import latency_diagnostics as diagnostics
-from src.config import load_settings
-from src.rag import RagPipeline
+from src.recommender.config import load_settings
+from src.recommender.rag import RagPipeline
 
 diagnostics.OUT = Path('data/latency-diagnostics/open-ended-tags')
 diagnostics.OUT.mkdir(parents=True, exist_ok=True)

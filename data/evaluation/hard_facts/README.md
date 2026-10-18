@@ -43,7 +43,7 @@ To intentionally create refreshed labels, run from the root:
 
 ## Evaluation
 
-The notebook uses `src.factual_evaluation.run_evaluation`: actual `RagPipeline.ask`
+The notebook uses `src.recommender.factual_evaluation.run_evaluation`: actual `RagPipeline.ask`
 responses, empty history and fresh agent state per question, followed by automatic
 claim extraction and deterministic value comparisons. Only question text is sent as
 the user request; expected values, entity IDs, and requested-field annotations are
@@ -76,7 +76,7 @@ Extractor version 3 uses a schema-constrained LLM request for every answer. It r
 rerunning the RAG or modifying the original run:
 
 ```powershell
-.venv/Scripts/python.exe -m src.factual_evaluation --questions data/evaluation/hard_facts/questions.csv --reextract-from data/evaluation/hard_facts/results/full_001 --output data/evaluation/hard_facts/results/full_001_parser_v3
+.venv/Scripts/python.exe -m src.recommender.factual_evaluation --questions data/evaluation/hard_facts/questions.csv --reextract-from data/evaluation/hard_facts/results/full_001 --output data/evaluation/hard_facts/results/full_001_parser_v3
 ```
 
 Use a new output directory. The repaired run preserves the original answers,

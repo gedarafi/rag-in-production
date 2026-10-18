@@ -50,8 +50,8 @@ if __name__ == '__main__':
                                 'version': response.json()})
     (OUT / 'connections.json').write_text(json.dumps(connections, indent=2), encoding='utf-8')
     print('CONNECTIONS ' + json.dumps(connections), flush=True)
-    from src.config import load_settings
-    from src.rag import RagPipeline
+    from src.recommender.config import load_settings
+    from src.recommender.rag import RagPipeline
     settings = load_settings('settings.toml', 'anilist')
     pipeline = RagPipeline(settings)
     requests.post = post

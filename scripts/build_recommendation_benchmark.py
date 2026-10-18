@@ -15,8 +15,8 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from src.recommendation_evaluation import Catalog, digest, load_dataset
-from src.factual_evaluation import write_csv
+from src.recommender.recommendation_evaluation import Catalog, digest, load_dataset
+from src.recommender.factual_evaluation import write_csv
 
 DEST = ROOT / 'data/evaluation/recommendations'
 DATABASE = ROOT / 'data/documents/anilist/catalog.sqlite3'

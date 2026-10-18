@@ -9,9 +9,9 @@ import time
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from src.config import load_settings
-from src.rag import RagPipeline
-from src.entity_agent import EntityAgent
+from src.recommender.config import load_settings
+from src.recommender.rag import RagPipeline
+from src.recommender.entity_agent import EntityAgent
 from capture_support import ensure_captures
 
 out = ensure_captures(['answer-request.json', 'metrics.json', 'answer-compact-request.json'])

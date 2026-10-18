@@ -56,7 +56,7 @@ From the repository root, install Python and dependencies, download the model, a
 uv python install 3.14
 uv sync
 ollama pull llama3.2:3b
-uv run python -m src.gui
+uv run python -m src.recommender.gui
 ```
 
 If Ollama is installed but its server is not running, run `ollama serve` in a separate Terminal
@@ -68,8 +68,8 @@ Put `.txt`, `.md`, `.pdf`, or `.docx` files in `data/documents/custom`, then bui
 question:
 
 ```sh
-uv run rag ingest --kb custom
-uv run rag ask "What is in my documents?" --kb custom
+uv run recommender ingest --kb custom
+uv run recommender ask "What is in my documents?" --kb custom
 ```
 
 Ingestion reports document-loading and embedding progress with counts, percentages,
@@ -109,7 +109,7 @@ Index JSON is written incrementally to avoid a second large JSON string in memor
 To launch the browser interface:
 
 ```sh
-uv run python -m src.gui
+uv run python -m src.recommender.gui
 ```
 
 Open the URL printed in the terminal (normally `http://127.0.0.1:7860`). If the port is occupied,
@@ -122,7 +122,7 @@ answers. The prompt keeps up to 12 messages (8,000 characters total, at most 2,0
 per message); retrieval also includes the last two retained user questions to help
 resolve references. **New chat** or switching knowledge bases clears this context.
 History stays in the browser session and is not saved across restarts. Separate
-CLI `rag ask` commands remain independent.
+CLI `recommender ask` commands remain independent.
 
 ### Configuration
 
@@ -136,24 +136,24 @@ so future launches open the most recently selected knowledge base.
 You can also save a selection through the CLI:
 
 ```sh
-uv run rag select-kb vndb
-uv run python -m src.gui
+uv run recommender select-kb vndb
+uv run python -m src.recommender.gui
 ```
 
 `select-kb` saves `[knowledge_base] default` in the settings file without rebuilding
-the index. A successful `rag ingest --kb NAME` also saves that selection. Restart a
+the index. A successful `recommender ingest --kb NAME` also saves that selection. Restart a
 running GUI after changing it. Use `rag --config path/to/settings.toml select-kb NAME`
 for another settings file. `ask --kb NAME` is a one-command override and does not
 change the saved selection.
 
 ```sh
-uv run rag prepare-multidoc2dial
-uv run rag ingest --kb multidoc2dial
-uv run rag ask "How do VA education benefits work?" --kb multidoc2dial
+uv run recommender prepare-multidoc2dial
+uv run recommender ingest --kb multidoc2dial
+uv run recommender ask "How do VA education benefits work?" --kb multidoc2dial
 
-uv run rag prepare-anilist
-uv run rag ingest --kb anilist
-uv run rag ask "What is Cowboy Bebop about?" --kb anilist
+uv run recommender prepare-anilist
+uv run recommender ingest --kb anilist
+uv run recommender ask "What is Cowboy Bebop about?" --kb anilist
 ```
 
 `prepare-multidoc2dial` uses existing prepared documents when available; otherwise it
@@ -170,7 +170,7 @@ No pickle or dataset scripts are needed. If Kaggle requires authentication,
 download only the CSV in your browser and run:
 
 ```sh
-uv run rag prepare-anilist --source path/to/anilist_anime_data_complete.csv
+uv run recommender prepare-anilist --source path/to/anilist_anime_data_complete.csv
 ```
 
 Preparation does not build embeddings. After importing updated data, rebuild the selected index.
@@ -182,27 +182,27 @@ use, it is imported into an indexed SQLite database beside the export. Subsequen
 requests query SQLite without loading the whole catalog. The chat automatically
 uses this catalog for popularity rankings, genre/tag recommendations,
 recommendations based on another anime, character descriptions, and title/synopsis
-lookups. Explicit `rag tool` commands execute directly without a routing or answer
+lookups. Explicit `recommender tool` commands execute directly without a routing or answer
 model. Chat uses the semantic routing process described below.
 Examples:
 
 ```sh
-uv run rag ask "What are the top 10 most popular anime?" --kb anilist
-uv run rag ask "Recommend horror anime with the Time Loop tag" --kb anilist
-uv run rag ask "Recommend anime like Higurashi" --kb anilist
-uv run rag ask "Who is Naruto?" --kb anilist
-uv run rag ask "What is ひぐらしのなく頃に?" --kb anilist
+uv run recommender ask "What are the top 10 most popular anime?" --kb anilist
+uv run recommender ask "Recommend horror anime with the Time Loop tag" --kb anilist
+uv run recommender ask "Recommend anime like Higurashi" --kb anilist
+uv run recommender ask "Who is Naruto?" --kb anilist
+uv run recommender ask "What is ひぐらしのなく頃に?" --kb anilist
 ```
 
 Explicit tools are also available for scripts and debugging:
 
 ```sh
-uv run rag tool popular --limit 10
-uv run rag tool popular "Sci-Fi 2020" --limit 5
-uv run rag tool recommend "Horror Time Loop"
-uv run rag tool recommend "similar to Naruto"
-uv run rag tool character "Naruto Uzumaki"
-uv run rag tool title "Higurashi"
+uv run recommender tool popular --limit 10
+uv run recommender tool popular "Sci-Fi 2020" --limit 5
+uv run recommender tool recommend "Horror Time Loop"
+uv run recommender tool recommend "similar to Naruto"
+uv run recommender tool character "Naruto Uzumaki"
+uv run recommender tool title "Higurashi"
 ```
 
 Popularity is sorted numerically across the imported snapshot; it is not a live
@@ -223,7 +223,7 @@ such as `I mean from Re:Zero` retain the person from the prior user request and
 replace the anime scope. Earlier assistant answers do not authorize character
 identities, because those answers may themselves be incorrect.
 
-AniList chat normally uses two LLM calls per question (`src/entity_agent.py`): one to plan
+AniList chat normally uses two LLM calls per question (`src/recommender/entity_agent.py`): one to plan
 all retrieval functions, and one to write the final answer. Function descriptions
 are retrieved semantically, and the LLM chooses the complete plan and arguments.
 The application executes the plan locally without additional LLM calls between
@@ -303,7 +303,7 @@ tool trace entry reports its own `elapsed_seconds`, including failed or cached s
 The conversation panel uses 75% of the viewport height (at least 600px) on desktop
 and 65% on mobile to show more of the chat at once.
 
-For CLI diagnostics, run `uv run rag ask "Recommend sad anime" --kb anilist --debug`.
+For CLI diagnostics, run `uv run recommender ask "Recommend sad anime" --kb anilist --debug`.
 The router plan, context choice, executed tools, LLM call count and elapsed time
 are printed as JSON to stderr, including available diagnostics when a query fails.
 The answer remains on stdout; omit `--debug` to disable these logs.
@@ -334,13 +334,13 @@ The dump contains PostgreSQL COPY text tables and matching `.header` files;
 Python 3.14 handles Zstandard decompression without extra dependencies or PostgreSQL.
 
 ```sh
-uv run rag prepare-vndb
+uv run recommender prepare-vndb
 # Or select another extracted dump:
-uv run rag prepare-vndb --source path/to/vndb-dump
+uv run recommender prepare-vndb --source path/to/vndb-dump
 # Or download a snapshot from the official site and prepare it directly:
-uv run rag prepare-vndb --source path/to/vndb-db-YYYY-MM-DD.tar.zst
-uv run rag ingest --kb vndb
-uv run rag ask "Who developed Kana -Little Sister-?" --kb vndb
+uv run recommender prepare-vndb --source path/to/vndb-db-YYYY-MM-DD.tar.zst
+uv run recommender ingest --kb vndb
+uv run recommender ask "Who developed Kana -Little Sister-?" --kb vndb
 ```
 
 Archive contents are extracted into a temporary directory with safe path filtering,
@@ -348,7 +348,7 @@ then removed after preparation; the downloaded archive is retained. The manifest
 records the archive path and dump timestamp. To update an existing local dump, pass
 a newer archive with `--source`, then rebuild with `ingest --kb vndb`.
 
-`src/vndb.py` joins novels with multilingual titles, aliases, release dates,
+`src/recommender/vndb.py` joins novels with multilingual titles, aliases, release dates,
 platforms, developers/publishers, staff credits, and related works. It writes one
 UTF-8 Markdown document per visual novel under `data/documents/vndb`, plus a JSON
 manifest recording the snapshot and exclusions. Source URLs and the dump timestamp
@@ -384,7 +384,7 @@ JSON object per line):
 ```
 
 ```sh
-uv run rag prepare-vndb --reviews data-raw/reviews.jsonl --spoiler-level 0
+uv run recommender prepare-vndb --reviews data-raw/reviews.jsonl --spoiler-level 0
 ```
 
 All shown fields are required. Review IDs must be unique and contain only letters,
@@ -414,5 +414,5 @@ generation settings. The environment variables `RAG_LLM_MODEL`, `RAG_EMBEDDING_M
 `RAG_OLLAMA_URL` temporarily override model settings.
 
 Use another TOML file with `--config path/to/settings.toml`. The provider boundary is
-`src/providers.py`, so another local generation server can be integrated without
+`src/recommender/providers.py`, so another local generation server can be integrated without
 changing document loading, indexing, prompting, or the CLI.

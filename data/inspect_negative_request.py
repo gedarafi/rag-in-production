@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
-from src.anime_tools import AnimeTools
-from src.entity_store import EntityStore
+from src.recommender.anime_tools import AnimeTools
+from src.recommender.entity_store import EntityStore
 
 question = "I'd like an Action Anime that doesn't have romance"
 catalog = AnimeTools.load(Path('data/documents/anilist'))

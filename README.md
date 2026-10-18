@@ -2,7 +2,8 @@
 
 A local anime assistant with a dedicated Gradio interface for setup and chat.
 Prepare the AniList dataset, SQL search, entity dictionaries, and embeddings from
-one screen, then ask about anime, characters, and recommendations.
+one screen, then ask about anime, characters, and recommendations. Its code is in
+[`src/recommender/`](src/recommender) and its tests in [`tests/recommender/`](tests/recommender).
 
 The original multi-library GUI remains available. The previous README is preserved
 in [README.backup-2026-10-14.md](README.backup-2026-10-14.md), including its custom
@@ -18,7 +19,7 @@ From the repository root, on Windows PowerShell, macOS, or Linux:
 
 ```sh
 uv sync
-uv run python -m src.anilist_gui
+uv run python -m src.recommender.anilist_gui
 ```
 
 Open **http://127.0.0.1:7861**. If that port is busy, the app selects the next
@@ -290,10 +291,10 @@ expressions. A contradictory context flag cannot erase a previous subject group
 explicitly selected by ID or a clear referential follow-up; assistant prose is
 never used as source data. Missing source evidence cannot support a guessed count.
 
-The implementation follows [anilist_setup.py](src/anilist_setup.py),
-[rag.py](src/rag.py), [entity_agent.py](src/entity_agent.py), and
-[tool_plan.py](src/tool_plan.py). The separate `SemanticRouter` in
-`src/semantic_router.py` belongs to the retained legacy retrieval backend; it is
+The implementation follows [anilist_setup.py](src/recommender/anilist_setup.py),
+[rag.py](src/recommender/rag.py), [entity_agent.py](src/recommender/entity_agent.py), and
+[tool_plan.py](src/recommender/tool_plan.py). The separate `SemanticRouter` in
+`src/recommender/semantic_router.py` belongs to the retained legacy retrieval backend; it is
 not an extra routing-model call in this AniList path. Stage timings and tool
 results stream to the terminal as this flow progresses.
 
@@ -352,7 +353,7 @@ saved readiness signature; run setup again to verify or rebuild the affected ass
 Launch options:
 
 ```sh
-uv run python -m src.anilist_gui --config settings.toml --host 127.0.0.1 --port 7861
+uv run python -m src.recommender.anilist_gui --config settings.toml --host 127.0.0.1 --port 7861
 ```
 
 The default server is local. The optional `--share` flag requests a public Gradio
@@ -405,10 +406,10 @@ uv run python -m src.local.gui
 The existing AniList CLI remains available:
 
 ```sh
-uv run rag prepare-anilist
-uv run rag ingest --kb anilist
-uv run rag ask "What should I watch after Steins;Gate?" --kb anilist --debug
-uv run rag tool popular --kb anilist --limit 5
+uv run recommender prepare-anilist
+uv run recommender ingest --kb anilist
+uv run recommender ask "What should I watch after Steins;Gate?" --kb anilist --debug
+uv run recommender tool popular --kb anilist --limit 5
 ```
 
 See the [backed-up README](README.backup-2026-10-14.md) for the original multi-library
@@ -421,7 +422,7 @@ Open [the hard-facts notebook](notebook/hard_facts_evaluation.ipynb) to inspect 
 CLI dataset across six titles and seven fields is also provided:
 
 ```sh
-uv run python -m src.factual_evaluation --output data/evaluation/factual/results/my_run
+uv run python -m src.recommender.factual_evaluation --output data/evaluation/factual/results/my_run
 ```
 
 Add `--limit 3` for a smoke test. Each final response is independently extracted
@@ -440,7 +441,7 @@ Metrics include strict P@k, graded fit, nDCG, constraint coverage, duplicates, a
 count adherence, with inline charts and per-item audits.
 
 ```sh
-uv run python -m src.recommendation_evaluation --mode full --output data/evaluation/recommendations/results/full_001
+uv run python -m src.recommender.recommendation_evaluation --mode full --output data/evaluation/recommendations/results/full_001
 ```
 
 The notebook selects the full 72-request benchmark and displays completed real-model
@@ -475,8 +476,10 @@ directory and leaves the published notebook outputs unchanged. Local diagnostic
 replay tools capture a fresh baseline when old captures are absent; these live
 diagnostics require the same model/setup as chat.
 
+Run the recommender tests with:
+
 ```sh
-uv run pytest
+just test-recommender
 ```
 
 The chat Lambda tests, LocalStack and the OpenTofu module tests are described in

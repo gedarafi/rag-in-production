@@ -22,7 +22,8 @@ dependencies = [
 
 [project.scripts]
 rag = "src.local.cli:main"
-anilist-gui = "src.anilist_gui:main"
+recommender = "src.recommender.cli:main"
+anilist-gui = "src.recommender.anilist_gui:main"
 
 [project.optional-dependencies]
 evaluation = [

@@ -7,9 +7,9 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from src.config import load_settings
-from src.rag import RagPipeline
-from src.recommendation_evaluation import VERSION, evaluate_question, extract_titles, load_dataset, save_results
+from src.recommender.config import load_settings
+from src.recommender.rag import RagPipeline
+from src.recommender.recommendation_evaluation import VERSION, evaluate_question, extract_titles, load_dataset, save_results
 
 DATA = ROOT / 'data/evaluation/recommendations'
 OUTPUT = DATA / 'results/date_fix_validation'

@@ -39,7 +39,7 @@ import subprocess
 import sys
 
 ROOT = next((p for p in [Path.cwd(), *Path.cwd().parents]
-             if (p / 'src/factual_evaluation.py').is_file()), None)
+             if (p / 'src/recommender/factual_evaluation.py').is_file()), None)
 if ROOT is None:
     raise RuntimeError('Open the notebook from the repository root or notebook directory.')
 if str(ROOT) not in sys.path:
@@ -50,8 +50,8 @@ try:
 except ImportError:
     def display(value):
         print(value.to_string(index=False) if hasattr(value, 'to_string') else value)
-from src.config import load_settings
-from src.factual_evaluation import load_questions, read_csv, score_values
+from src.recommender.config import load_settings
+from src.recommender.factual_evaluation import load_questions, read_csv, score_values
 
 DATA = ROOT / 'data/evaluation/hard_facts'
 QUESTIONS_CSV = DATA / 'questions.csv'
@@ -104,7 +104,7 @@ matplotlib. Install the chart dependencies once with `uv sync --extra evaluation
 cell('code', '''
 def show_evaluation_charts(results=None):
     chart_output = (Path(results) / 'charts') if results is not None else DATA / 'charts'
-    command = [str(PROJECT_PYTHON), '-X', 'utf8', '-m', 'src.hard_facts_visualizations',
+    command = [str(PROJECT_PYTHON), '-X', 'utf8', '-m', 'src.recommender.hard_facts_visualizations',
                '--questions', str(QUESTIONS_CSV), '--output', str(chart_output)]
     if results is not None:
         command.extend(['--results', str(results)])
@@ -184,7 +184,7 @@ report, answers = None, []
 if RUN_LIVE:
     if not DATABASE.is_file():
         raise RuntimeError('Complete AniList setup before live evaluation. Offline dataset inspection works without it.')
-    command = [str(PROJECT_PYTHON), '-u', '-X', 'utf8', '-m', 'src.factual_evaluation',
+    command = [str(PROJECT_PYTHON), '-u', '-X', 'utf8', '-m', 'src.recommender.factual_evaluation',
                '--settings', str(ROOT / 'settings.toml'),
                '--questions', str(RUN_QUESTIONS), '--output', str(OUTPUT)]
     if EXTRACTOR_MODEL:
@@ -292,7 +292,7 @@ manifest does not fingerprint all source files. Never silently refresh benchmark
 From the repository root, alternatively run all 180 prompts with:
 
 ```powershell
-.venv/Scripts/python.exe -m src.factual_evaluation --questions data/evaluation/hard_facts/questions.csv --output data/evaluation/hard_facts/results/full_001
+.venv/Scripts/python.exe -m src.recommender.factual_evaluation --questions data/evaluation/hard_facts/questions.csv --output data/evaluation/hard_facts/results/full_001
 ```
 ''')
 

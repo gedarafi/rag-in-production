@@ -6,12 +6,12 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from src.anime_tools import AnimeTools
-from src.config import load_settings
-from src.entity_agent import EntityAgent
-from src.entity_resolution import resolve_mentions
-from src.providers import LocalModels
-from src.request_resolution import interpret
+from src.recommender.anime_tools import AnimeTools
+from src.recommender.config import load_settings
+from src.recommender.entity_agent import EntityAgent
+from src.recommender.entity_resolution import resolve_mentions
+from src.recommender.providers import LocalModels
+from src.recommender.request_resolution import interpret
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--only', help='Run only questions containing this text')
@@ -47,7 +47,7 @@ for question, expected, feature in cases:
             resolution = request['entity_resolution']
             decomposition = {k: request[k] for k in ('intent', 'use_previous_context', 'entity_queries')}
         else:
-            from src.mention_interpreter import classify
+            from src.recommender.mention_interpreter import classify
             decomposition, mentions = classify(agent, question, [])
             resolution = resolve_mentions(agent, question, [], decomposition, typed_mentions=mentions)
         selected = {(s['kind'], s['id']) for s in resolution['subjects']}

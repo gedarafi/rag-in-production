@@ -30,7 +30,7 @@ of performance over the full benchmark. It used `llama3.2:3b` for both RAG gener
 For this 42-question dataset, use the CLI from the repository root:
 
 ```powershell
-.venv/Scripts/python.exe -m src.factual_evaluation --output data/evaluation/factual/results/my_run
+.venv/Scripts/python.exe -m src.recommender.factual_evaluation --output data/evaluation/factual/results/my_run
 ```
 
 For a short smoke test, add `--limit 3`. An optional `--extractor-model MODEL` selects an installed
