@@ -23,7 +23,7 @@
   install it when you first trust the repository. To install it manually, run
   `/plugin install aws-core@claude-plugins-official`, then `/reload-plugins`.
 * Claude Code
-* Claude for VsCode Plugging
+* Claude for VS Code plugin
 
 # Testing
 
