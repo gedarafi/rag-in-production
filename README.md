@@ -15,13 +15,34 @@
 
 * Pull request review.
 
-## Claude
+## Claude - Anthropic
 
 * `/code-review --fix`
 * [AWS Agent Toolkit](https://docs.aws.amazon.com/agent-toolkit/latest/userguide/plugins.html)
   (`aws-core` plugin): enabled for everyone in `.claude/settings.json`. Claude Code offers to
   install it when you first trust the repository. To install it manually, run
   `/plugin install aws-core@claude-plugins-official`, then `/reload-plugins`.
+* Claude Code
+* Claude for VS Code plugin
+
+# Testing
+
+## Try the chat locally
+
+Needs the tools and the LocalStack auth token from [INFRA.md](INFRA.md#localstack-local-aws).
+One command starts LocalStack and Phoenix, deploys the stack to LocalStack, and registers the user
+if needed:
+
+```sh
+just local-up me@student.uu.se
+```
+
+How to sign in, where to see the traces, how to clean up and how to run the automated tests are
+in [TESTING.md](TESTING.md).
+
+
+---
+# To Review
 
 ## Local RAG
 
@@ -112,7 +133,7 @@ just phoenix-down                                            # stop it; traces s
 ```
 
 Tracing is off while the endpoint is empty. The chat Lambda on LocalStack is traced too (see
-[below](#try-the-chat-locally-and-see-its-traces)); on AWS it sends its traces to Arize AX
+[TESTING.md](TESTING.md#try-the-chat-locally-and-see-its-traces)); on AWS it sends its traces to Arize AX
 (see [INFRA.md](INFRA.md#traces-in-arize-ax)).
 
 ## Infrastructure
@@ -120,36 +141,6 @@ Tracing is off while the endpoint is empty. The chat Lambda on LocalStack is tra
 The sign-in page, the chat API and their deployment to LocalStack and real AWS are described in
 [INFRA.md](INFRA.md).
 
-### Try the chat locally and see its traces
-
-Needs the tools and the LocalStack auth token from [INFRA.md](INFRA.md#localstack-local-aws).
-One command starts LocalStack and Phoenix, deploys the stack to LocalStack, and registers the user
-if needed:
-
-```sh
-just local-up me@student.uu.se
-```
-
-It prints the page URL and a snippet for the browser console. Open the page, paste the snippet in
-the DevTools console (F12) to sign the page in, then use the chat box. LocalStack's Cognito has
-no email-code sign-in, so local users get a fixed password and this snippet stands in for the code
-screens; `just session me@student.uu.se` prints a fresh one. You can also ask from the terminal:
-
-```sh
-just chat me@student.uu.se "What is in week 3?"
-```
-
-Open Phoenix at http://localhost:6006, project **rag-in-production**: every message is an `answer`
-trace with a `bedrock.converse` LLM span holding the system and user messages, the reply, the model
-and the token counts.
-
-LocalStack answers every request with the tiny `qwen2.5:0.5b`, whatever model is configured, so
-this checks the path and the traces, not the quality of the answers. When you're done:
-
-```sh
-just destroy   # remove the local stack
-just down      # stop LocalStack and Phoenix
-```
 
 ## Ethical considerations
 

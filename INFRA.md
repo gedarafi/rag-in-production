@@ -57,7 +57,7 @@ Run `just` to see all recipes.
 ## Trying the whole flow locally
 
 For the quickest start (one command, plus tracing in Phoenix), see
-[Try the chat locally](README.md#try-the-chat-locally-and-see-its-traces) in the README.
+[Try the chat locally](TESTING.md#try-the-chat-locally-and-see-its-traces) in TESTING.md.
 
 `infra/live/local/` deploys the same `auth`, `chat-api` and `web` modules as `infra/live/aws/`
 (both share `infra/live/_units/`). LocalStack's Cognito has no passwordless sign-in, so locally
