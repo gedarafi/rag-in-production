@@ -15,14 +15,15 @@
 
 * Pull request review.
 
-## Claude
+## Claude - Anthropic
 
 * `/code-review --fix`
 * [AWS Agent Toolkit](https://docs.aws.amazon.com/agent-toolkit/latest/userguide/plugins.html)
   (`aws-core` plugin): enabled for everyone in `.claude/settings.json`. Claude Code offers to
   install it when you first trust the repository. To install it manually, run
   `/plugin install aws-core@claude-plugins-official`, then `/reload-plugins`.
-
+* Claude Code
+* Claude for VsCode Plugging
 
 # Testing
 
