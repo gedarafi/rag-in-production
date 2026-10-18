@@ -21,6 +21,7 @@ What the project uses today, and what is planned. Versions and settings come fro
 | `requests` | Calling the Ollama API |
 | `arize-phoenix-otel`, `openinference-instrumentation` | Sending traces of the RAG to Phoenix ([`src/local/tracing.py`](src/local/tracing.py)) |
 | `gradio` | Browser interface (`uv run python -m src.local.gui`) |
+| `pytest`, `pytest-cov` | Python tests with a coverage report (`just test-py`; the `test` dependency group); `just test-phoenix` checks the chat Lambda's traces against a running Phoenix |
 | `typer` | Command-line interfaces: the `rag` command ([`src/local/cli.py`](src/local/cli.py)) and the LocalStack flow script ([`infra/scripts/local_flow.py`](infra/scripts/local_flow.py), run with `uv run --script`) |
 
 ## Local
@@ -40,6 +41,7 @@ What the project uses today, and what is planned. Versions and settings come fro
 | Amazon SES | Sends the sign-in codes | In use (sandbox until production access) |
 | API Gateway (HTTP API) + Lambda | Chat endpoint behind a Cognito JWT authorizer; answers with a Bedrock model | In use |
 | S3 + CloudFront | Hosts the page in [`web/`](web) and forwards `/api/*` to the API | In use |
+| [Arize AX](https://app.arize.com) | Traces of the chat Lambda on AWS (project `rag-aws`); the API key is an SSM SecureString | Ready (opt-in via `RAG_ARIZE_SPACE_ID`) |
 | Amazon Bedrock | Model that answers the chat (Gemma 3 4B through Chat Completions on the OpenAI-compatible bedrock-mantle endpoint by default; LocalStack runs `qwen2.5:0.5b` through Converse instead); knowledge base for RAG | Model in use; knowledge base planned |
 | [LocalStack](https://www.localstack.cloud/) | Emulates AWS locally for development and tests, with no AWS cost; needs a free auth token in `infra/.env` | In use |
 | [OpenTofu](https://opentofu.org/) | Infrastructure as code (open-source Terraform fork); modules in [`infra/modules/`](infra/modules), tested with `tofu test` | In use (version in `infra/.opentofu-version`) |

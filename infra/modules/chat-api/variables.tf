@@ -56,9 +56,32 @@ variable "max_tokens" {
 }
 
 variable "tracing_endpoint" {
-  description = "OTLP/HTTP endpoint the Lambda sends its traces to, e.g. a Phoenix at http://phoenix:6006/v1/traces. Empty turns tracing off."
+  description = "OTLP/HTTP endpoint the Lambda sends its traces to, e.g. a Phoenix at http://phoenix:6006/v1/traces or Arize AX at https://otlp.arize.com/v1/traces. Empty turns tracing off."
   type        = string
   default     = ""
+}
+
+variable "tracing_project" {
+  description = "Project the traces are filed under in Phoenix or Arize."
+  type        = string
+  default     = "rag-in-production"
+}
+
+variable "tracing_space_id" {
+  description = "Arize space ID, sent as the arize-space-id header. Empty for Phoenix."
+  type        = string
+  default     = ""
+}
+
+variable "tracing_api_key_parameter" {
+  description = "Name of the SSM SecureString holding the Arize API key, e.g. /rag-aws/arize-api-key. The Lambda may read only this parameter. Empty for Phoenix."
+  type        = string
+  default     = ""
+
+  validation {
+    condition     = var.tracing_api_key_parameter == "" || startswith(var.tracing_api_key_parameter, "/")
+    error_message = "tracing_api_key_parameter must be a full SSM name starting with /."
+  }
 }
 
 variable "throttling_rate_limit" {

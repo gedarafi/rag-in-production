@@ -69,6 +69,23 @@ resource "aws_iam_role_policy" "chat_bedrock" {
   })
 }
 
+# The tracing API key (Arize AX) stays in SSM, out of the Lambda's environment and the state; the
+# Lambda reads it at cold start. The default aws/ssm key needs no KMS grant.
+resource "aws_iam_role_policy" "chat_tracing_key" {
+  count = var.tracing_api_key_parameter == "" ? 0 : 1
+  name  = "read-tracing-key"
+  role  = aws_iam_role.chat.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Effect   = "Allow"
+      Action   = "ssm:GetParameter"
+      Resource = "arn:aws:ssm:${data.aws_region.current.region}:${data.aws_caller_identity.current.account_id}:parameter/${trimprefix(var.tracing_api_key_parameter, "/")}"
+    }]
+  })
+}
+
 resource "aws_cloudwatch_log_group" "chat" {
   name              = "/aws/lambda/${local.function_name}"
   retention_in_days = var.log_retention_days
@@ -88,10 +105,13 @@ resource "aws_lambda_function" "chat" {
 
   environment {
     variables = {
-      MODEL_ID         = var.model_id
-      MODEL_API        = var.model_api
-      MAX_TOKENS       = tostring(var.max_tokens)
-      PHOENIX_ENDPOINT = var.tracing_endpoint
+      MODEL_ID                  = var.model_id
+      MODEL_API                 = var.model_api
+      MAX_TOKENS                = tostring(var.max_tokens)
+      TRACING_ENDPOINT          = var.tracing_endpoint
+      TRACING_PROJECT           = var.tracing_project
+      TRACING_SPACE_ID          = var.tracing_space_id
+      TRACING_API_KEY_PARAMETER = var.tracing_api_key_parameter
     }
   }
 

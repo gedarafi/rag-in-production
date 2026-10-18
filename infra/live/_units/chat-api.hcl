@@ -25,13 +25,16 @@ dependency "auth" {
 }
 
 inputs = {
-  name_prefix        = local.env.name_prefix
-  lambda_source_dir  = "${get_repo_root()}/infra/.build/chat"
-  jwt_issuer         = dependency.auth.outputs.issuer
-  jwt_audience       = [dependency.auth.outputs.user_pool_client_id]
-  cors_allow_origins = local.env.cors_allow_origins
-  model_id           = local.env.model_id
-  model_api          = local.env.model_api
-  max_tokens         = local.env.max_tokens
-  tracing_endpoint   = local.env.tracing_endpoint
+  name_prefix               = local.env.name_prefix
+  lambda_source_dir         = "${get_repo_root()}/infra/.build/chat"
+  jwt_issuer                = dependency.auth.outputs.issuer
+  jwt_audience              = [dependency.auth.outputs.user_pool_client_id]
+  cors_allow_origins        = local.env.cors_allow_origins
+  model_id                  = local.env.model_id
+  model_api                 = local.env.model_api
+  max_tokens                = local.env.max_tokens
+  tracing_endpoint          = local.env.tracing_endpoint
+  tracing_project           = local.env.tracing_project
+  tracing_space_id          = local.env.tracing_space_id
+  tracing_api_key_parameter = local.env.tracing_api_key_parameter
 }

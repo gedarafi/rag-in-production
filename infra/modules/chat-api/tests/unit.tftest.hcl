@@ -132,14 +132,61 @@ run "configures_the_model" {
   }
 
   assert {
-    condition     = aws_lambda_function.chat.environment[0].variables.PHOENIX_ENDPOINT == ""
+    condition     = aws_lambda_function.chat.environment[0].variables.TRACING_ENDPOINT == ""
     error_message = "Tracing must be off unless a tracing_endpoint is given."
+  }
+
+  assert {
+    condition     = length(aws_iam_role_policy.chat_tracing_key) == 0
+    error_message = "The Lambda must not read SSM unless a tracing API key parameter is given."
   }
 
   assert {
     condition     = aws_lambda_function.chat.timeout < 30
     error_message = "The Lambda must finish before API Gateway's 30-second limit."
   }
+}
+
+run "traces_to_arize_with_the_key_from_ssm" {
+  command = apply
+
+  variables {
+    tracing_endpoint          = "https://otlp.arize.com/v1/traces"
+    tracing_project           = "rag-aws"
+    tracing_space_id          = "space-123"
+    tracing_api_key_parameter = "/rag-aws/arize-api-key"
+  }
+
+  assert {
+    condition = {
+      for k, v in aws_lambda_function.chat.environment[0].variables : k => v if startswith(k, "TRACING_")
+      } == {
+      TRACING_ENDPOINT          = "https://otlp.arize.com/v1/traces"
+      TRACING_PROJECT           = "rag-aws"
+      TRACING_SPACE_ID          = "space-123"
+      TRACING_API_KEY_PARAMETER = "/rag-aws/arize-api-key"
+    }
+    error_message = "The Lambda must get the endpoint, project, space and the key's parameter name (never the key)."
+  }
+
+  assert {
+    condition = jsondecode(aws_iam_role_policy.chat_tracing_key[0].policy).Statement == [{
+      Effect   = "Allow"
+      Action   = "ssm:GetParameter"
+      Resource = "arn:aws:ssm:${data.aws_region.current.region}:${data.aws_caller_identity.current.account_id}:parameter/rag-aws/arize-api-key"
+    }]
+    error_message = "The Lambda may read only the tracing key's parameter."
+  }
+}
+
+run "rejects_a_relative_key_parameter" {
+  command = plan
+
+  variables {
+    tracing_api_key_parameter = "rag-aws/arize-api-key"
+  }
+
+  expect_failures = [var.tracing_api_key_parameter]
 }
 
 run "may_invoke_only_the_configured_model" {

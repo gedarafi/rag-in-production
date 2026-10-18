@@ -39,3 +39,7 @@ aux/
 data/documents/anilist/
 data/index/anilist/
 data/raw/
+
+# Coverage data (just test-py)
+.coverage
+.coverage.*

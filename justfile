@@ -82,8 +82,17 @@ lock:
 # Unit tests with mocked providers, plus the Lambda unit tests (no LocalStack needed)
 test-unit:
     for m in {{modules}}; do tofu -chdir=$m init -backend=false -input=false >/dev/null && tofu -chdir=$m test -filter=tests/unit.tftest.hcl || exit 1; done
-    uv run --quiet --no-project --with-requirements ../src/chat/requirements.txt python -m unittest discover -s ../tests -t ..
-    uv run --quiet --no-project --with 'typer>=0.27' python -m unittest discover -s scripts -p 'test_*.py'
+    just test-py
+
+# Python tests with coverage (the Lambda's chat dependency group, without the local RAG's models); extra args go to pytest
+[working-directory: '..']
+test-py *args:
+    uv run --quiet --isolated --only-group test --only-group chat pytest --cov --cov-report=term-missing {{args}}
+
+# Check that the chat Lambda's traces reach the running Phoenix (run `just phoenix-up` first)
+[working-directory: '..']
+test-phoenix:
+    uv run --quiet --isolated --only-group test --only-group chat pytest -m phoenix -v
 
 # Integration test that creates and destroys a bucket on LocalStack (run `just up` first)
 test-localstack:
@@ -140,6 +149,18 @@ _aws-check:
       || { echo "Not signed in to AWS: run 'aws sso login --profile $AWS_PROFILE'." >&2; exit 1; }
     [ "$account" = "$RAG_AWS_ACCOUNT_ID" ] \
       || { echo "AWS_PROFILE $AWS_PROFILE is account $account, not RAG_AWS_ACCOUNT_ID $RAG_AWS_ACCOUNT_ID." >&2; exit 1; }
+
+# Store (or rotate) the Arize API key the chat Lambda traces with, as an SSM SecureString; the Lambda reads it at cold start
+aws-arize-key: _aws-check
+    #!/usr/bin/env bash
+    set -euo pipefail
+    read -rsp "Arize API key (Space Settings > API Keys): " key; echo
+    [ -n "$key" ] || { echo "No key given." >&2; exit 1; }
+    # On stdin, so the key never appears in the process list or the shell history.
+    printf '%s' "$key" | aws ssm put-parameter --region {{aws_region}} --name /rag-aws/arize-api-key \
+      --type SecureString --overwrite --value file:///dev/stdin --query Version --output text \
+      | sed 's/^/Stored \/rag-aws\/arize-api-key, version /'
+    echo "Running Lambdas pick up a new key on their next cold start."
 
 # Create the S3 bucket for the OpenTofu state (safe to run again)
 aws-bootstrap: _aws-check

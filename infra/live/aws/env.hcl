@@ -31,8 +31,13 @@ locals {
   model_api  = get_env("RAG_BEDROCK_MODEL_API", "openai")
   max_tokens = 512
 
-  # Off: a Lambda in AWS can't reach the Phoenix on a developer's machine.
-  tracing_endpoint = ""
+  # Traces go to Arize AX (a Lambda in AWS can't reach the Phoenix on a developer's machine), but only
+  # once RAG_ARIZE_SPACE_ID is set. The API key stays in SSM: store it with `just aws-arize-key`.
+  arize_space_id            = get_env("RAG_ARIZE_SPACE_ID", "")
+  tracing_endpoint          = local.arize_space_id == "" ? "" : get_env("RAG_TRACING_ENDPOINT", "https://otlp.arize.com/v1/traces")
+  tracing_project           = get_env("RAG_TRACING_PROJECT", "rag-aws")
+  tracing_space_id          = local.arize_space_id
+  tracing_api_key_parameter = local.arize_space_id == "" ? "" : "/${local.name_prefix}/arize-api-key"
 
   # Monthly cost budget for the whole account: emails at 80 % actual and 100 % forecasted spend.
   # The emails default to RAG_SES_IDENTITY when that is an address (a domain is not); set RAG_BUDGET_EMAILS otherwise.
