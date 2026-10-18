@@ -25,7 +25,7 @@
 
 \title{\textbf{1RT730 Project Report}
 	\\ Anime Watching Companion: a tool-planning LLM agent in production \TODO{confirm title}}
-\author{Tommi Bimbato, Muhammad Aufa Helfiandri, German David \TODO{full names}}
+\author{Tommi Bimbato, Muhammad Aufa Helfiandri, German David Ramirez Figueroa}
 \date{\today}
 
 \begin{document}
@@ -39,7 +39,7 @@ Asked what to watch or who a character is, general-purpose chatbots answer from 
 
 We present the \emph{Anime Watching Companion}, an assistant that answers questions about anime and characters and recommends titles from a structured snapshot of the AniList catalogue~\cite{anilist_kaggle}. A bounded number of LLM calls, typically four, identify the titles and characters a message names, plan catalogue tool calls (SQL look-ups, attribute filters and semantic search) and write the answer from the retrieved evidence alone. The same pattern could serve library or public-service catalogues.
 
-Our contributions are this agent; a deployment on Amazon Web Services (AWS), into which the agent is being integrated \TODO{update once the agent runs behind the chat Lambda}; an evaluation against the catalogue that compares the agent with the same models without tools, Gemma~3~4B~\cite{gemma3} (used locally and on Amazon Bedrock) and \texttt{llama3.2:3b}~\cite{llama32}; and an analysis of societal impact.
+Our contributions are this agent; a deployment on Amazon Web Services (AWS) that serves a chat model to university users; an evaluation against the catalogue that compares the agent with the same models without tools, Gemma~3~4B~\cite{gemma3} (used locally and on Amazon Bedrock) and \texttt{llama3.2:3b}~\cite{llama32}; and an analysis of societal impact.
 
 	
 \section{Dataset}
@@ -82,7 +82,7 @@ Our contributions are this agent; a deployment on Amazon Web Services (AWS), int
     \label{fig:aws}
 \end{figure}
 
-\textbf{Deployment.} Sign-in is passwordless (Figure~\ref{fig:aws}): Amazon Cognito sends a one-time code through Amazon SES, and a pre-sign-up Lambda function rejects addresses outside \texttt{uu.se} and \texttt{student.uu.se}. CloudFront serves a static page from a private S3 bucket and forwards \texttt{/api/*} to an API Gateway HTTP API, whose JWT authorizer validates the Cognito token before a chat Lambda function calls Gemma~3~4B on Amazon Bedrock via the OpenAI-compatible Chat Completions endpoint (\texttt{bedrock-mantle}) with IAM-signed requests instead of an API key. This Lambda does not yet run the agent, which runs locally behind a browser interface. \TODO{German: describe how the agent runs behind the chat Lambda in the final demo, or state that the demo uses the local agent} An AWS budget e-mails alerts when actual spend exceeds 80\% or forecast spend 100\% of the monthly limit. The infrastructure is defined as code with OpenTofu and Terragrunt, tested in GitHub Actions and emulated without AWS cost on LocalStack, with \texttt{qwen2.5:0.5b} in place of Bedrock. OpenTelemetry traces in the OpenInference format go from the chat Lambda to a local Arize Phoenix under LocalStack or, opt-in, to Arize AX on AWS; Phoenix can also trace the project's initial retrieve-then-generate pipeline, while the agent only logs its plan, tool calls and stage timings. Serverless components cost almost nothing when idle and need no maintenance, suiting the low, irregular load of a demonstration; university-only sign-in also limits the audience (Section~\ref{sec:societal}).
+\textbf{Deployment.} Sign-in is passwordless (Figure~\ref{fig:aws}): Amazon Cognito sends a one-time code through Amazon SES, and a pre-sign-up Lambda function rejects addresses outside \texttt{uu.se} and \texttt{student.uu.se}. CloudFront serves a static page from a private S3 bucket and forwards \texttt{/api/*} to an API Gateway HTTP API, whose JWT authorizer validates the Cognito token before a chat Lambda function calls Gemma~3~4B on Amazon Bedrock via the OpenAI-compatible Chat Completions endpoint (\texttt{bedrock-mantle}) with IAM-signed requests instead of an API key. This Lambda does not run the agent: hosting its catalogue, indexes and several model calls per answer on AWS proved too expensive for this project, so the agent runs locally behind a browser interface. An AWS budget e-mails alerts when actual spend exceeds 80\% or forecast spend 100\% of the monthly limit. The infrastructure is defined as code with OpenTofu and Terragrunt, tested in GitHub Actions and emulated without AWS cost on LocalStack, with \texttt{qwen2.5:0.5b} in place of Bedrock. OpenTelemetry traces in the OpenInference format go from the chat Lambda to a local Arize Phoenix under LocalStack or, opt-in, to Arize AX on AWS; Phoenix can also trace the project's initial retrieve-then-generate pipeline, while the agent only logs its plan, tool calls and stage timings. Serverless components cost almost nothing when idle and need no maintenance, suiting the low, irregular load of a demonstration; university-only sign-in also limits the audience (Section~\ref{sec:societal}).
 
 
 \section{Results}
@@ -157,7 +157,7 @@ Our contributions are this agent; a deployment on Amazon Web Services (AWS), int
 
 \textbf{Benefits.} The assistant makes a large catalogue searchable in natural language. In our evaluation, grounding removed hallucinated titles (none with tools against 4--28\% without; Section~\ref{sec:results}), and small open-weight models let the agent run entirely on a user's computer.
 
-\textbf{Privacy.} The deployment processes personal data of students and staff, such as e-mail addresses, IP addresses and user identifiers, and is subject to the GDPR~\cite{gdpr}. Messages reach Bedrock through the stateless Chat Completions API; the optional Arize AX tracing would also store messages and replies, by default through a non-EU endpoint, which our GDPR checklist does not yet cover. Use beyond the course demonstration would call for a data processing agreement with the university (Art.~28), a record of processing activities (Art.~30), retention limits for logs and traces (Art.~5(1)(e)) and disabled model invocation logging; we would also move the stack from \texttt{us-east-2} to an EU region, avoiding transfers outside the EU (Arts.~44--49). \TODO{check with German which of these are done by the demo}
+\textbf{Privacy.} The deployment processes personal data of students and staff, such as e-mail addresses, IP addresses and user identifiers, and is subject to the GDPR~\cite{gdpr}. Messages reach Bedrock through the stateless Chat Completions API; the optional Arize AX tracing would also store messages and replies, by default through a non-EU endpoint, which our GDPR checklist does not yet cover. Use beyond the course demonstration would call for a data processing agreement with the university (Art.~28), a record of processing activities (Art.~30), retention limits for logs and traces (Art.~5(1)(e)) and disabled model invocation logging; we would also move the stack from \texttt{us-east-2} to an EU region, avoiding transfers outside the EU (Arts.~44--49). None of these measures is in place yet.
 
 \textbf{Bias and fairness.} The ranking favours popular titles: recommendations based on a reference title follow AniList users' votes, then shared genres and tags, then popularity, and requests without one default to popularity order, which may reinforce a feedback loop that hides lesser-known works~\cite{chaney2018confounding}.
 
@@ -173,7 +173,7 @@ Our contributions are this agent; a deployment on Amazon Web Services (AWS), int
 
 \instructions{Write a few sentences if you have or have not used any generative AI, and if so how.}
 
-We used generative AI assistants (Claude Code, OpenAI Codex and GitHub Copilot) for writing and debugging code, reviewing pull requests, analysing the code and the evaluation logs, drafting and editing this report, writing the diagram scripts and checking references. \TODO{teammates: confirm the tools you used}
+We used generative AI assistants (Claude Code with Claude skills, OpenAI Codex and GitHub Copilot) for writing and debugging code, reviewing pull requests, analysing the code and the evaluation logs, drafting and editing this report, writing the diagram scripts and checking references. \TODO{teammates: confirm the tools you used}
 
 
 \hfill \break
