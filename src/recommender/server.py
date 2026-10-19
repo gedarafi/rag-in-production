@@ -15,6 +15,9 @@ Configuration comes from the environment (on EC2, /etc/recommender.env):
   COGNITO_JWKS_URL                         the issuer's keys, when not at <issuer>/.well-known/jwks.json
   RECOMMENDER_WORKERS                      questions answered at once (default 8)
   RECOMMENDER_CORS_ORIGINS                 comma-separated origins for a page on another origin
+  RAG_PHOENIX_ENDPOINT, RAG_PHOENIX_PROJECT where the traces go (Phoenix locally, Arize AX on EC2)
+  RAG_TRACING_SPACE_ID                     Arize space, with the API key in the SSM parameter
+  RAG_TRACING_API_KEY_PARAMETER            (src/tracing.py); both empty for Phoenix
 """
 from __future__ import annotations
 

@@ -2,7 +2,7 @@
 
 import pytest
 
-from diagram import BEDROCK, USERS, build
+from diagram import BEDROCK, USERS, bedrock_key, build
 
 ACCOUNT = "123456789012"
 POOL_ID = "eu-north-1_AbCdEf"
@@ -76,16 +76,49 @@ def test_connectors_link_the_api_to_the_lambda_and_cognito(graph):
 
 
 def test_the_lambda_calls_its_bedrock_model(graph):
-    assert edge(graph, "chat-api/aws_lambda_function.chat", BEDROCK) == "Converse"
-    assert "us.amazon.nova-micro-v1:0" in graph.nodes[BEDROCK].label
+    nova = bedrock_key("us.amazon.nova-micro-v1:0")
+    assert edge(graph, "chat-api/aws_lambda_function.chat", nova) == "Converse"
+    assert graph.nodes[nova].label == "Bedrock\nus.amazon.nova-micro-v1:0"
 
 
 def test_the_lambda_calls_bedrock_mantle_in_openai_mode():
     lam = resource("aws_lambda_function", "chat", id="rag-chat", arn=CHAT_ARN, function_name="rag-chat",
                    environment=[{"variables": {"MODEL_ID": "google.gemma-3-4b-it", "MODEL_API": "openai"}}])
     graph = build({"chat-api": state(lam)}, ACCOUNT)
-    assert graph.edges.get(("chat-api/aws_lambda_function.chat", BEDROCK)) == "Chat Completions"
-    assert graph.nodes[BEDROCK].label == "Bedrock Mantle\ngoogle.gemma-3-4b-it"
+    gemma = bedrock_key("google.gemma-3-4b-it")
+    assert graph.edges.get(("chat-api/aws_lambda_function.chat", gemma)) == "Chat Completions"
+    assert graph.nodes[gemma].label == "Bedrock Mantle\ngoogle.gemma-3-4b-it"
+
+
+RECOMMENDER_BUCKET = f"rag-recommender-{ACCOUNT}"
+EIP_DNS = "ec2-3-128-128-76.eu-north-1.compute.amazonaws.com"
+RECOMMENDER = state(
+    resource("aws_s3_bucket", "this", id=RECOMMENDER_BUCKET, arn=f"arn:aws:s3:::{RECOMMENDER_BUCKET}", bucket=RECOMMENDER_BUCKET),
+    resource("aws_instance", "host", id="i-0123456789abcdef0", arn=f"arn:aws:ec2:eu-north-1:{ACCOUNT}:instance/i-0123456789abcdef0",
+             public_dns="ec2-13-48-1-2.eu-north-1.compute.amazonaws.com", tags={"Name": "rag-recommender"},
+             user_data=(f"cat > /etc/recommender.env <<'ENV'\nRECOMMENDER_BUCKET={RECOMMENDER_BUCKET}\n"
+                        f"COGNITO_ISSUER=https://cognito-idp.eu-north-1.amazonaws.com/{POOL_ID}\n"
+                        "RAG_PROVIDER=bedrock\nRAG_BEDROCK_MODEL=qwen.qwen3-32b\nENV\n")),
+    resource("aws_eip", "host", id="eipalloc-0123456789", instance="i-0123456789abcdef0", public_dns=EIP_DNS, public_ip="3.128.128.76"),
+)
+
+
+def test_cloudfront_reaches_the_recommender_through_its_elastic_ip():
+    web = resource("aws_cloudfront_distribution", "site", id="E1ABCDEF", comment="rag web", origin=[{"domain_name": EIP_DNS}])
+    graph = build({"auth": UNITS["auth"], "recommender-host": RECOMMENDER, "web": state(web)}, ACCOUNT)
+    host = "recommender-host/aws_instance.host"
+    assert graph.nodes[host].label == "EC2\nrag-recommender"
+    assert edge(graph, "web/aws_cloudfront_distribution.site", host) == "/recommend/*"
+    assert edge(graph, host, "recommender-host/aws_s3_bucket.this") == "pulls library"
+    assert edge(graph, host, "auth/aws_cognito_user_pool.this") == "checks JWT"
+    assert edge(graph, host, bedrock_key("qwen.qwen3-32b")) == "Chat Completions"
+    assert not any("aws_eip" in key for key in graph.nodes)
+
+
+def test_each_model_gets_its_own_bedrock_node():
+    graph = build({**UNITS, "recommender-host": RECOMMENDER}, ACCOUNT)
+    models = sorted(n.label for n in graph.nodes.values() if n.kind == BEDROCK)
+    assert models == ["Bedrock\nus.amazon.nova-micro-v1:0", "Bedrock Mantle\nqwen.qwen3-32b"]
 
 
 def test_users_reach_cloudfront_and_cognito(graph):

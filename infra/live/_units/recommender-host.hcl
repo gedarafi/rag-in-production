@@ -28,4 +28,9 @@ inputs = {
   bedrock_model       = local.env.recommender_model_id
   ingress_cidr_blocks = try(local.env.recommender_ingress_cidr_blocks, [])
   force_destroy       = local.env.target == "localstack"
+  # Same traces as the chat Lambda: Arize AX on AWS (the local service sets its own Phoenix endpoint).
+  tracing_endpoint          = local.env.tracing_endpoint
+  tracing_project           = local.env.tracing_project
+  tracing_space_id          = local.env.tracing_space_id
+  tracing_api_key_parameter = local.env.tracing_api_key_parameter
 }

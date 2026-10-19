@@ -9,6 +9,40 @@ def test_no_endpoint_means_no_export():
     assert tracing.setup_tracing("") is False
 
 
+class FakeSsm:
+    def __init__(self, error=None):
+        self.error, self.calls = error, []
+
+    def get_parameter(self, **kwargs):
+        self.calls.append(kwargs)
+        if self.error:
+            raise self.error
+        return {"Parameter": {"Value": "secret-key"}}
+
+
+def test_phoenix_needs_no_headers(monkeypatch):
+    monkeypatch.delenv("RAG_TRACING_SPACE_ID", raising=False)
+    monkeypatch.delenv("RAG_TRACING_API_KEY_PARAMETER", raising=False)
+    ssm = FakeSsm()
+    assert tracing.export_headers(ssm) == {}
+    assert ssm.calls == []
+
+
+def test_arize_headers_come_from_the_env_and_ssm(monkeypatch):
+    monkeypatch.setenv("RAG_TRACING_SPACE_ID", "space-123")
+    monkeypatch.setenv("RAG_TRACING_API_KEY_PARAMETER", "/rag-aws/arize-api-key")
+    ssm = FakeSsm()
+    assert tracing.export_headers(ssm) == {"arize-space-id": "space-123", "authorization": "secret-key"}
+    assert ssm.calls == [{"Name": "/rag-aws/arize-api-key", "WithDecryption": True}]
+
+
+def test_unreadable_api_key_turns_tracing_off(monkeypatch, capsys):
+    monkeypatch.setenv("RAG_TRACING_SPACE_ID", "space-123")
+    monkeypatch.setenv("RAG_TRACING_API_KEY_PARAMETER", "/rag-aws/arize-api-key")
+    assert tracing.export_headers(FakeSsm(error=PermissionError("AccessDenied"))) is None
+    assert "Tracing off" in capsys.readouterr().out
+
+
 def test_stages_events_and_attributes_are_captured():
     with tracing.capture_spans() as spans:
         with tracing.stage("outer", plan={"steps": [1, 2]}):
