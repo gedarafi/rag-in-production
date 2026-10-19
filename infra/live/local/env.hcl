@@ -27,6 +27,14 @@ locals {
   tracing_space_id          = "" # Phoenix needs no space or API key
   tracing_api_key_parameter = ""
 
+  # Anime recommender: LocalStack holds its data bucket (and the role and security group), but the
+  # service itself runs on this machine (`just recommender-serve`), with Ollama instead of Bedrock:
+  # LocalStack's Bedrock doesn't enforce the JSON schemas the pipeline needs.
+  recommender_instance            = false
+  recommender_instance_type       = "t4g.medium"
+  recommender_model_id            = "qwen.qwen3-32b"
+  recommender_ingress_cidr_blocks = ["127.0.0.1/32"]
+
   # LocalStack serves the HTTP API on its gateway port, over plain HTTP.
   api_origin_port            = 4566
   api_origin_protocol_policy = "http-only"

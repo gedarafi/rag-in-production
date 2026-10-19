@@ -34,6 +34,8 @@ class Settings:
     router_top_k: int = 6
     context_window: int = 8192
     agent_max_steps: int = 8
+    bedrock_region: str = "us-east-2"
+    bedrock_model: str = "qwen.qwen3-32b"
 
 
 KNOWLEDGE_BASES = ("custom", "multidoc2dial", "anilist", "vndb")
@@ -86,6 +88,10 @@ def load_settings(path: str | Path = "settings.toml", knowledge_base: str | None
         raise ValueError("embedding_device must be auto, cuda, mps or cpu")
     if batch_size < 1:
         raise ValueError("embedding_batch_size must be positive")
+    provider = os.getenv("RAG_PROVIDER", models["provider"])
+    if provider not in ("ollama", "bedrock"):
+        raise ValueError("provider must be ollama or bedrock")
+    bedrock = raw.get("bedrock", {})
     root = config_path.parent
     selected = knowledge_base or raw.get("knowledge_base", {}).get("default", "custom")
     if selected not in KNOWLEDGE_BASES:
@@ -101,7 +107,7 @@ def load_settings(path: str | Path = "settings.toml", knowledge_base: str | None
         documents=(root / documents).resolve(),
         index=(root / index).resolve(),
         prompt=(root / paths["prompt"]).resolve(),
-        provider=models["provider"],
+        provider=provider,
         llm=os.getenv("RAG_LLM_MODEL", models["llm"]),
         embedding=os.getenv("RAG_EMBEDDING_MODEL", models["embedding"]),
         ollama_url=os.getenv("RAG_OLLAMA_URL", models["ollama_url"]).rstrip("/"),
@@ -122,4 +128,6 @@ def load_settings(path: str | Path = "settings.toml", knowledge_base: str | None
         embedding_batch_size=batch_size,
         embedding_cache=bool(models.get("embedding_cache", True)),
         embedding_cache_version=str(models.get("embedding_cache_version", "1")),
+        bedrock_region=os.getenv("RAG_BEDROCK_REGION", os.getenv("AWS_REGION", bedrock.get("region", "us-east-2"))),
+        bedrock_model=os.getenv("RAG_BEDROCK_MODEL", bedrock.get("model_id", "qwen.qwen3-32b")),
     )

@@ -81,3 +81,5 @@ data/raw/
 /notebook/*
 !/notebook/hard_facts_evaluation.ipynb
 !/notebook/recommendation_evaluation.ipynb
+# Library pulled from S3 by `just recommender-serve`
+/data/serve/

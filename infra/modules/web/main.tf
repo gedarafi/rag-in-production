@@ -77,6 +77,7 @@ resource "aws_s3_object" "config" {
     userPoolClientId    = var.user_pool_client_id
     allowedEmailDomains = var.allowed_email_domains
     apiBase             = ""
+    recommender         = var.recommender_origin_domain != ""
   })};\n"
 }
 
@@ -164,6 +165,25 @@ resource "aws_cloudfront_distribution" "site" {
     }
   }
 
+  # The recommender instance accepts only CloudFront (security group) and checks the user's token
+  # itself. Its replies stream keepalive lines, so the 60-second read timeout covers long answers.
+  dynamic "origin" {
+    for_each = var.recommender_origin_domain == "" ? [] : [1]
+    content {
+      origin_id   = "recommender"
+      domain_name = var.recommender_origin_domain
+
+      custom_origin_config {
+        http_port                = var.recommender_origin_port
+        https_port               = 443
+        origin_protocol_policy   = "http-only"
+        origin_ssl_protocols     = ["TLSv1.2"]
+        origin_read_timeout      = 60
+        origin_keepalive_timeout = 5
+      }
+    }
+  }
+
   default_cache_behavior {
     target_origin_id           = "site"
     viewer_protocol_policy     = "redirect-to-https"
@@ -184,6 +204,20 @@ resource "aws_cloudfront_distribution" "site" {
     compress                 = true
     cache_policy_id          = local.cache_policy_caching_disabled
     origin_request_policy_id = local.origin_request_policy_all_viewer_except_host
+  }
+
+  dynamic "ordered_cache_behavior" {
+    for_each = var.recommender_origin_domain == "" ? [] : [1]
+    content {
+      path_pattern             = "/recommend/*"
+      target_origin_id         = "recommender"
+      viewer_protocol_policy   = "https-only"
+      allowed_methods          = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
+      cached_methods           = ["GET", "HEAD"]
+      compress                 = false # compression would buffer the keepalive lines
+      cache_policy_id          = local.cache_policy_caching_disabled
+      origin_request_policy_id = local.origin_request_policy_all_viewer_except_host
+    }
   }
 
   restrictions {

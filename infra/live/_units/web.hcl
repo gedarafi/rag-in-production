@@ -26,6 +26,16 @@ dependency "chat_api" {
   mock_outputs_allowed_terraform_commands = ["init", "validate", "plan"]
 }
 
+dependency "recommender_host" {
+  config_path = "${get_terragrunt_dir()}/../recommender-host"
+
+  mock_outputs = {
+    origin_domain = ""
+    origin_port   = 8080
+  }
+  mock_outputs_allowed_terraform_commands = ["init", "validate", "plan"]
+}
+
 inputs = {
   name_prefix           = local.env.name_prefix
   site_dir              = "${get_repo_root()}/web"
@@ -36,4 +46,7 @@ inputs = {
   # LocalStack serves the API over plain HTTP on its gateway port.
   api_origin_port            = try(local.env.api_origin_port, 443)
   api_origin_protocol_policy = try(local.env.api_origin_protocol_policy, "https-only")
+  # /recommend/* goes to the recommender instance, when the environment runs one.
+  recommender_origin_domain = dependency.recommender_host.outputs.origin_domain
+  recommender_origin_port   = dependency.recommender_host.outputs.origin_port
 }

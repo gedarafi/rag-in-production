@@ -85,6 +85,7 @@ function loadSession() {
 
 function clearSession() {
   memorySession = null;
+  history = [];
   try { sessionStorage.removeItem(STORE_KEY); } catch { /* storage blocked */ }
 }
 
@@ -206,12 +207,19 @@ async function signOut() {
 
 // ---------- Chat ----------
 
+// The anime recommender (on EC2, under /recommend/*) answers when config.js enables it: `recommender`
+// when CloudFront routes it, `recommenderBase` when the page calls it directly in local development.
+const useRecommender = Boolean(cfg && (cfg.recommender || cfg.recommenderBase));
+// Earlier turns of this conversation, so follow-ups like "something shorter" have context.
+let history = [];
+
 async function sendMessage(text) {
   const token = await validAccessToken();
   if (!token) {
     show("email");
     throw new Error("Your session has ended. Sign in again.");
   }
+  if (useRecommender) return askRecommender(text, token);
   const res = await fetch(`${cfg.apiBase}/api/chat`, {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
@@ -226,6 +234,30 @@ async function sendMessage(text) {
   if (res.status === 429) throw new Error("The assistant is busy. Try again in a moment.");
   if (!res.ok) throw new Error(data.error || "The assistant couldn't answer. Try again.");
   return data.answer;
+}
+
+async function askRecommender(text, token) {
+  const res = await fetch(`${cfg.recommenderBase || cfg.apiBase}/recommend/chat`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+    body: JSON.stringify({ message: text, history }),
+  });
+  if (res.status === 401) {
+    clearSession();
+    show("email");
+    throw new Error("Your session has ended. Sign in again.");
+  }
+  if (!res.ok) {
+    const data = await res.json().catch(() => ({}));
+    if (res.status === 429) throw new Error("The assistant is busy. Try again in a moment.");
+    throw new Error(data.error || "The assistant couldn't answer. Try again.");
+  }
+  // NDJSON: {"type":"wait"} lines while the models work, then one answer or error line.
+  const lines = (await res.text()).trim().split("\n");
+  const last = JSON.parse(lines[lines.length - 1] || "{}");
+  if (last.type !== "answer") throw new Error(last.error || "The assistant couldn't answer. Try again.");
+  history = [...history, { role: "user", content: text }, { role: "assistant", content: last.answer }].slice(-20);
+  return last.answer;
 }
 
 function addMessage(text, who, pending = false) {

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 import time
 from pathlib import Path
@@ -27,6 +28,17 @@ def main() -> None:
     setup_parser = subparsers.add_parser("setup", help="Build the AniList library once (what the GUI setup button does)")
     setup_parser.add_argument("--source", type=Path, help="Local AniList CSV or ZIP instead of downloading it")
     setup_parser.add_argument("--rebuild", action="store_true", help="Rebuild prepared data and indexes")
+    publish_parser = subparsers.add_parser("publish", help="Upload the built AniList library to S3 as the current version")
+    pull_parser = subparsers.add_parser("pull", help="Download the current published library from S3")
+    for command_parser in (publish_parser, pull_parser):
+        command_parser.add_argument("--bucket", default=os.environ.get("RECOMMENDER_BUCKET"),
+                                    help="S3 bucket (default: RECOMMENDER_BUCKET)")
+        command_parser.add_argument("--prefix", default=os.environ.get("RECOMMENDER_PREFIX", "recommender"))
+    pull_parser.add_argument("--target", type=Path, default=Path(os.environ.get("RECOMMENDER_DATA_DIR", "/var/lib/recommender")))
+    pull_parser.add_argument("--version", help="A published version instead of the current one")
+    serve_parser = subparsers.add_parser("serve", help="Serve signed-in web users (needs the server extra)")
+    serve_parser.add_argument("--host", default="0.0.0.0")
+    serve_parser.add_argument("--port", type=int, default=8080)
     tool_parser = subparsers.add_parser("tool", help="Run a local AniList catalog tool without an LLM")
     tool_parser.add_argument("tool", choices=("popular", "recommend", "title", "character"))
     tool_parser.add_argument("query", nargs="?", default="")
@@ -56,6 +68,23 @@ def main() -> None:
             return
         if args.command == "setup":
             setup(args.config, args.source, args.rebuild)
+            return
+        if args.command in ("publish", "pull"):
+            from . import bundle
+            if not args.bucket:
+                raise ValueError("Pass --bucket or set RECOMMENDER_BUCKET.")
+            if args.command == "publish":
+                print("Packing and uploading the library; this takes a few minutes.", file=sys.stderr, flush=True)
+                manifest = bundle.publish(load_settings(args.config, "anilist"), Path(args.config), args.bucket, args.prefix)
+                print(f"Published {manifest['version']} ({manifest['bundle_size'] / 1e6:,.0f} MB) to "
+                      f"s3://{args.bucket}/{args.prefix}/ and made it current.")
+            else:
+                release = bundle.pull(args.bucket, args.target, args.prefix, args.version)
+                print(f"Serving {release.name} from {args.target / bundle.CURRENT}.")
+            return
+        if args.command == "serve":
+            from .server import serve
+            serve(args.host, args.port)
             return
         from .rag import RagPipeline
         if args.command == "ingest":
