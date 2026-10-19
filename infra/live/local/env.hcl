@@ -32,7 +32,7 @@ locals {
   # LocalStack's Bedrock doesn't enforce the JSON schemas the pipeline needs.
   recommender_instance            = false
   recommender_instance_type       = "t4g.medium"
-  recommender_model_id            = "qwen.qwen3-32b"
+  recommender_model_id            = "qwen.qwen3-32b" # unused while no instance runs; the local service uses settings.toml's llm
   recommender_ingress_cidr_blocks = ["127.0.0.1/32"]
 
   # LocalStack serves the HTTP API on its gateway port, over plain HTTP.

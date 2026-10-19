@@ -40,9 +40,10 @@ What the project uses today, and what is planned. Versions and settings come fro
 | Amazon Cognito | Passwordless sign-in with an email code, limited to university domains | In use |
 | Amazon SES | Sends the sign-in codes | In use (sandbox until production access) |
 | API Gateway (HTTP API) + Lambda | Chat endpoint behind a Cognito JWT authorizer; answers with a Bedrock model | In use |
-| S3 + CloudFront | Hosts the page in [`web/`](web) and forwards `/api/*` to the API | In use |
-| [Arize AX](https://app.arize.com) | Traces of the chat Lambda on AWS (project `rag-aws`); the API key is an SSM SecureString | Ready (opt-in via `RAG_ARIZE_SPACE_ID`) |
-| Amazon Bedrock | Model that answers the chat (Gemma 3 4B through Chat Completions on the OpenAI-compatible bedrock-mantle endpoint by default; LocalStack runs `qwen2.5:0.5b` through Converse instead); knowledge base for RAG | Model in use; knowledge base planned |
+| S3 + CloudFront | Hosts the page in [`web/`](web), forwards `/api/*` to the API and `/recommend/*` to the recommender on EC2 | In use |
+| EC2 | Runs the anime recommender service ([`src/recommender/server.py`](src/recommender/server.py)); the page sends every message there when it runs | In use |
+| [Arize AX](https://app.arize.com) | Traces of the chat Lambda and the recommender on AWS (project `rag-aws`); the API key is an SSM SecureString | Ready (opt-in via `RAG_ARIZE_SPACE_ID`) |
+| Amazon Bedrock | Two models, both through Chat Completions on the OpenAI-compatible bedrock-mantle endpoint: the chat Lambda answers with Gemma 3 4B (`RAG_BEDROCK_MODEL_ID`), the recommender with Qwen3 32B (`RAG_RECOMMENDER_MODEL_ID`), which follows the JSON schemas its pipeline needs. Locally, LocalStack runs `qwen2.5:0.5b` through Converse for the chat Lambda, and the recommender uses Ollama (`llama3.2:3b`); knowledge base for RAG | Models in use; knowledge base planned |
 | [LocalStack](https://www.localstack.cloud/) | Emulates AWS locally for development and tests, with no AWS cost; needs a free auth token in `infra/.env` | In use |
 | [OpenTofu](https://opentofu.org/) | Infrastructure as code (open-source Terraform fork); modules in [`infra/modules/`](infra/modules), tested with `tofu test` | In use (version in `infra/.opentofu-version`) |
 | [Terragrunt](https://terragrunt.gruntwork.io/) | Wraps OpenTofu per environment; config in [`infra/live/`](infra/live) | In use (version in `infra/.terragrunt-version`) |

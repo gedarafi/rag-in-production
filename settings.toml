@@ -21,7 +21,9 @@ ollama_url = "http://127.0.0.1:11434"
 [bedrock]
 # Used when provider = "bedrock": OpenAI-compatible Chat Completions on bedrock-mantle. The pipeline
 # needs schema-valid JSON, and qwen3-32b follows strict JSON schemas there.
-# RAG_BEDROCK_REGION (or AWS_REGION) and RAG_BEDROCK_MODEL override these.
+# RAG_BEDROCK_REGION (or AWS_REGION) and RAG_BEDROCK_MODEL override these; on EC2 the instance sets
+# RAG_BEDROCK_MODEL from RAG_RECOMMENDER_MODEL_ID in infra/.env. (The chat Lambda's model is separate:
+# RAG_BEDROCK_MODEL_ID.)
 region = "us-east-2"
 model_id = "qwen.qwen3-32b"
 
