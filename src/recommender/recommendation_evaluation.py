@@ -329,6 +329,7 @@ def save_results(output, questions, rows):
 
 
 def run_evaluation(settings, dataset, output, *, extractor_model=None, mode='smoke', max_new_questions=None):
+    from .evaluation_runtime import traced_asker
     questions, catalog, dataset_manifest = load_dataset(dataset)
     if mode not in {'smoke', 'full'} or (max_new_questions is not None and max_new_questions < 0):
         raise ValueError('Invalid mode or attempt budget')
@@ -363,7 +364,7 @@ def run_evaluation(settings, dataset, output, *, extractor_model=None, mode='smo
             pipeline._agent = None
             events = []
             print(f'[{len(rows) + 1}/{len(questions)}] {q["question_id"]}: {q["question"]}', flush=True)
-            row = evaluate_question(q, lambda text: pipeline.ask(text, history=[], debug=events.append),
+            row = evaluate_question(q, traced_asker(pipeline, events),
                                     lambda q, a: extract_titles(q, a, url=settings.ollama_url, model=model), catalog)
             row['debug_events'], row['rag_usage'] = events, pipeline.last_route
             temporary = checkpoint.with_suffix('.json.tmp')

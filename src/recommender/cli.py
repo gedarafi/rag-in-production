@@ -22,7 +22,8 @@ def main() -> None:
     ask_parser = subparsers.add_parser("ask", help="Ask a question against the indexed documents")
     ask_parser.add_argument("question")
     ask_parser.add_argument("--debug", action="store_true",
-                            help="Print router plan, context choice, tool trace and timing to stderr")
+                            help="Print router plan, context choice, tool trace and timing to stderr "
+                                 "(the stage-by-stage trace goes to Phoenix)")
     tool_parser = subparsers.add_parser("tool", help="Run a local AniList catalog tool without an LLM")
     tool_parser.add_argument("tool", choices=("popular", "recommend", "title", "character"))
     tool_parser.add_argument("query", nargs="?", default="")
@@ -53,7 +54,8 @@ def main() -> None:
         from .rag import RagPipeline
         if args.command == "ingest":
             print("Loading embedding model...", file=sys.stderr, flush=True)
-        pipeline = RagPipeline(load_settings(args.config, args.knowledge_base))
+        settings = load_settings(args.config, args.knowledge_base)
+        pipeline = RagPipeline(settings)
         if args.command == "tool":
             tools = pipeline.anime_tools()
             if tools is None:
@@ -78,19 +80,31 @@ def main() -> None:
                 select_knowledge_base(args.config, args.knowledge_base)
                 print(f"Selected {args.knowledge_base} as the default knowledge base. Restart the GUI to apply.")
         else:
-            started = time.perf_counter()
-            try:
-                print(pipeline.ask(args.question))
-            finally:
-                if args.debug:
-                    debug = {"question": args.question,
-                             "elapsed_seconds": round(time.perf_counter() - started, 3),
-                             "routing": getattr(pipeline, "last_route", {}),
-                             "retrieval": getattr(pipeline, "last_retrieval", {})}
-                    print(json.dumps(debug, ensure_ascii=False, indent=2), file=sys.stderr, flush=True)
+            ask(pipeline, settings, args.question, args.debug)
     except (OSError, RuntimeError, ValueError, KeyError) as error:
         print(f"Error: {error}", file=sys.stderr)
         raise SystemExit(1) from error
+
+
+def ask(pipeline, settings, question: str, debug: bool) -> None:
+    """Print the answer on stdout; the trace ID (and with --debug, the routing) on stderr."""
+    from ..tracing import flush, setup_tracing, trace_id, tracer
+
+    exporting = setup_tracing(settings.tracing_endpoint, settings.tracing_project)
+    started = time.perf_counter()
+    with tracer.start_as_current_span("recommender.cli", openinference_span_kind="chain") as span:
+        try:
+            print(pipeline.ask(question))
+        finally:
+            if debug:
+                details = {"question": question,
+                           "elapsed_seconds": round(time.perf_counter() - started, 3),
+                           "routing": getattr(pipeline, "last_route", {}),
+                           "retrieval": getattr(pipeline, "last_retrieval", {})}
+                print(json.dumps(details, ensure_ascii=False, indent=2), file=sys.stderr, flush=True)
+            if exporting:
+                print(f"Trace {trace_id(span)} in Phoenix project {settings.tracing_project}", file=sys.stderr)
+            flush()
 
 
 if __name__ == "__main__":

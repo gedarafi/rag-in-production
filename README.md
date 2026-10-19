@@ -295,14 +295,15 @@ The implementation follows [anilist_setup.py](src/recommender/anilist_setup.py),
 [rag.py](src/recommender/rag.py), [entity_agent.py](src/recommender/entity_agent.py), and
 [tool_plan.py](src/recommender/tool_plan.py). The separate `SemanticRouter` in
 `src/recommender/semantic_router.py` belongs to the retained legacy retrieval backend; it is
-not an extra routing-model call in this AniList path. Stage timings and tool
-results stream to the terminal as this flow progresses.
+not an extra routing-model call in this AniList path. Each stage, tool and model
+call of this flow is a span in its Phoenix trace (see [Tracing with Phoenix](#tracing-with-phoenix)).
 
 ## Debug output
 
-Keep the launching terminal open. Diagnostics print immediately as stages start
-and finish, including the validated plan, individual tool arguments/results,
-failures, and elapsed seconds. The final terminal message gives a request summary.
+The launching terminal prints a summary when a request starts and when it
+finishes, with its `trace_id`. The stage-by-stage detail (the validated plan,
+each tool's arguments, results and failures, every model call, and elapsed
+seconds) is in that request's trace in Phoenix.
 
 Expand **Processing debug** in the GUI to inspect the latest full request snapshot:
 
@@ -313,6 +314,7 @@ Expand **Processing debug** in the GUI to inspect the latest full request snapsh
 - `agent_trace`: executed tools, result summaries, and each tool's elapsed time.
 - `timings_seconds`: context preparation, guide/feature lookup, planning, tools, and answer generation.
 - `llm_calls`, `planned_tools`, `executed_tools`, and total `elapsed_seconds`.
+- `trace_id`: the request's trace in Phoenix, empty while tracing is off.
 
 The normal entity-agent path uses one planning call and one answer call. Identity
 validation can request an additional correction. Setup also makes a small model
@@ -515,8 +517,24 @@ It runs in Docker next to LocalStack, so the compose file still needs `LOCALSTAC
 just phoenix-up                                              # UI on http://localhost:6006
 export RAG_PHOENIX_ENDPOINT=http://localhost:6006/v1/traces  # or set [tracing] endpoint in settings.toml
 uv run rag ask "What is in my documents?"                    # the CLI and the GUI both send traces
+uv run recommender ask "Who is Subaru?" --kb anilist         # prints the trace ID on stderr
 just phoenix-down                                            # stop it; traces stay in infra/.phoenix/
 ```
+
+To try the recommender yourself, these start Phoenix, check that Ollama has the model from
+`settings.toml`, and send the traces to the Phoenix project `recommender`:
+
+```sh
+just recommender-ask "Who is the main character of Re:Zero?"   # one question; --debug adds the routing summary
+just recommender-gui                                          # the chat GUI on http://127.0.0.1:7861
+```
+
+A recommender trace (`recommender.cli` → `recommender.ask` → `EntityAgent.answer`) has a span per
+pipeline stage (`interpret_request`, `prepare_context`, `planning`, `generate_answer`, ...), a TOOL
+span per catalog tool, an LLM span per Ollama call named after its step (`plan_tools`,
+`agent_reply`, ...) with its messages and token counts, and a RETRIEVER span for passage search.
+Decisions such as the history policy, scope and plan are span events. The evaluations
+(`debug_events` in their checkpoints) summarize the same spans.
 
 Tracing is off while the endpoint is empty. The chat Lambda on LocalStack is traced too (see
 [TESTING.md](TESTING.md#try-the-chat-locally-and-see-its-traces)); on AWS it sends its traces to Arize AX

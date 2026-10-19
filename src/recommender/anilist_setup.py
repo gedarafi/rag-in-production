@@ -317,11 +317,11 @@ class AniListWorkspace:
         finally:
             self.lock.release()
 
-    def ask(self, question, history=None, *, debug=None):
+    def ask(self, question, history=None):
         with self.lock:
             if not self.ready or not self.is_prepared():
                 self.ready = False
                 raise RuntimeError('Run setup to prepare or verify the AniList workspace before chatting.')
             if self.pipeline is None:
                 self.pipeline = RagPipeline(self.settings)
-            return self.pipeline.ask(question, history, debug=debug)
+            return self.pipeline.ask(question, history)

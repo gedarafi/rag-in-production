@@ -71,19 +71,21 @@ def build_app(config_path='settings.toml'):
         yield history, '', 'Thinking…', pending, gr.update(value=pending)
         started = perf_counter()
         try:
-            reply = workspace.ask(question, previous, debug=lambda event: print_debug({**pending, **event}))
+            reply = workspace.ask(question, previous)
             if not reply.strip():
                 raise RuntimeError('The model returned an empty response. Please try again.')
             history[-1] = {'role': 'assistant', 'content': reply}
             debug = {**pending, **deepcopy(getattr(workspace.pipeline, 'last_route', {})), 'status': 'completed',
-                     'elapsed_seconds': round(perf_counter() - started, 6)}
+                     'elapsed_seconds': round(perf_counter() - started, 6),
+                     'trace_id': getattr(workspace.pipeline, 'last_trace_id', '')}
             print_debug({**pending, 'status': 'completed', 'elapsed_seconds': debug['elapsed_seconds'],
-                         'llm_calls': debug.get('llm_calls')})
+                         'llm_calls': debug.get('llm_calls'), 'trace_id': debug['trace_id']})
             yield history, '', 'Ready.', debug, gr.update(value=debug)
         except (OSError, RuntimeError, ValueError) as error:
             history[-1] = {'role': 'assistant', 'content': f'Unable to answer: {error}'}
             debug = {**pending, **deepcopy(getattr(workspace.pipeline, 'last_route', {})), 'status': 'error',
-                     'error': str(error), 'elapsed_seconds': round(perf_counter() - started, 6)}
+                     'error': str(error), 'elapsed_seconds': round(perf_counter() - started, 6),
+                     'trace_id': getattr(workspace.pipeline, 'last_trace_id', '')}
             print_debug(debug)
             yield history, '', 'Unable to answer. Check setup or the message above.', debug, gr.update(value=debug)
 

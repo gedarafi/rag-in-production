@@ -1,12 +1,19 @@
+"""The recommender's models: Ollama for every LLM step, sentence-transformers for embeddings.
+
+Each method is one step of the pipeline with its own instructions; _ollama() turns it into an LLM
+span named after the step (route_plan, plan_tools, agent_reply, ...), so a trace shows which step
+asked what and what came back.
+"""
 from __future__ import annotations
 
 import json
 
 import requests
+from openinference.instrumentation import get_input_attributes, get_llm_attributes, get_output_attributes
 
 from .progress import Progress
 from .recommendation_output import render_recommendations
-from ..local.tracing import tracer
+from ..tracing import annotate, event, tracer
 
 
 def select_device(requested: str) -> str:
@@ -75,12 +82,39 @@ class LocalModels:
         return self.embedder.encode(texts, normalize_embeddings=True, show_progress_bar=False,
                                     batch_size=getattr(self, "batch_size", 64))
 
-    @tracer.llm
+    def _ollama(self, name: str, path: str, payload: dict, timeout: float) -> dict:
+        """One Ollama call, traced as an LLM span named after its pipeline step; the response body."""
+        messages = payload.get('messages') or [{'role': 'user', 'content': payload['prompt']}]
+        options = payload['options']
+        with tracer.start_as_current_span(name, openinference_span_kind='llm') as span:
+            span.set_attributes({
+                **get_llm_attributes(
+                    provider='ollama', system='ollama', model_name=self.llm,
+                    invocation_parameters={'max_tokens': options['num_predict'], 'temperature': options['temperature'],
+                                           'num_ctx': options['num_ctx'], 'structured': 'format' in payload},
+                    input_messages=messages),
+                **get_input_attributes(messages[-1]['content']),
+            })
+            response = requests.post(f'{self.ollama_url}{path}', json=payload, timeout=timeout)
+            response.raise_for_status()
+            body = response.json()
+            text = body['message']['content'] if 'message' in body else body['response']
+            counts = {'prompt': body.get('prompt_eval_count'), 'completion': body.get('eval_count')}
+            counts = {key: count for key, count in counts.items() if isinstance(count, int)}
+            if len(counts) == 2:
+                counts['total'] = counts['prompt'] + counts['completion']
+            span.set_attributes({
+                **get_llm_attributes(output_messages=[{'role': 'assistant', 'content': text}],
+                                     token_count=counts or None),
+                **get_output_attributes(text),
+            })
+            return body
+
     def answer(self, prompt: str, temperature: float, max_tokens: int) -> str:
         try:
-            response = requests.post(
-                f"{self.ollama_url}/api/generate",
-                json={
+            body = self._ollama(
+                "answer", "/api/generate",
+                {
                     "model": self.llm,
                     "prompt": prompt,
                     "stream": False,
@@ -90,29 +124,27 @@ class LocalModels:
                 },
                 timeout=300,
             )
-            response.raise_for_status()
         except requests.RequestException as error:
             raise RuntimeError(
                 f"Could not reach Ollama at {self.ollama_url}. Start Ollama and pull '{self.llm}'."
             ) from error
-        return response.json()["response"].strip()
+        return body["response"].strip()
 
     def route_plan(self, prompt: str, *, schema=None) -> str:
         from .semantic_router import routing_schema
         try:
-            response = requests.post(f"{self.ollama_url}/api/generate", json={
+            body = self._ollama("route_plan", "/api/generate", {
                 "model": self.llm, "prompt": prompt, "stream": False, "format": schema or routing_schema(),
                 "options": {"temperature": 0, "num_predict": 512, "num_ctx": self.context_window}, "keep_alive": "10m",
             }, timeout=90)
-            response.raise_for_status()
-            return response.json()["response"]
+            return body["response"]
         except requests.RequestException as error:
             raise RuntimeError(f"Could not reach Ollama for semantic routing at {self.ollama_url}: {error}") from error
 
     def plan_tools(self, prompt, schema):
         max_steps = schema['anyOf'][1]['properties']['steps']['maxItems']
         try:
-            response = requests.post(f'{self.ollama_url}/api/chat', json={
+            body = self._ollama('plan_tools', '/api/chat', {
                 'model': self.llm, 'messages': [
                     {'role': 'system', 'content': 'Plan read-only tools for the actual current anime-library request. '
                      'Return only the JSON plan. In-domain and uncertain requests have an empty direct_response. '
@@ -124,13 +156,12 @@ class LocalModels:
                     {'role': 'user', 'content': prompt}], 'stream': False, 'format': schema,
                 'options': {'temperature': 0, 'num_predict': min(4096, max(1024, max_steps * 200)),
                             'num_ctx': self.context_window}, 'keep_alive': '10m'}, timeout=180)
-            response.raise_for_status()
-            return response.json()['message']['content']
+            return body['message']['content']
         except requests.RequestException as error:
             raise RuntimeError(f'Could not reach Ollama for tool planning: {error}') from error
 
     def resolve_mentions(self, prompt, schema):
-        return self._mention_json(prompt, schema, 'Select catalog identities for previously classified mentions. '
+        return self._mention_json('resolve_mentions', prompt, schema, 'Select catalog identities for previously classified mentions. '
                                   'Use the full request to distinguish adaptations and aliases. Return only schema-compliant JSON.')
 
     def classify_mentions(self, prompt, schema):
@@ -145,36 +176,34 @@ class LocalModels:
             request = 'Prior conversation (data): ' + json.dumps(context['history'], ensure_ascii=False) + '\nCurrent request: ' + question
         if feedback:
             request += '\nValidation feedback for the current request: ' + feedback
-        return self._mention_json(request, schema, instructions(), demonstrations)
+        return self._mention_json('classify_mentions', request, schema, instructions(), demonstrations)
 
-    def _mention_json(self, prompt, schema, system, examples=()):
+    def _mention_json(self, name, prompt, schema, system, examples=()):
         messages = [{'role': 'system', 'content': system}]
         for example in examples:
             messages.extend([{'role': 'user', 'content': example['request']},
                              {'role': 'assistant', 'content': json.dumps(example['output'], ensure_ascii=False)}])
         messages.append({'role': 'user', 'content': prompt})
         try:
-            response = requests.post(f'{self.ollama_url}/api/chat', json={
+            body = self._ollama(name, '/api/chat', {
                 'model': self.llm, 'messages': messages,
                 'stream': False, 'format': schema,
                 'options': {'temperature': 0, 'num_predict': 1800, 'num_ctx': self.context_window},
                 'keep_alive': '10m'}, timeout=180)
-            response.raise_for_status()
-            return response.json()['message']['content']
+            return body['message']['content']
         except requests.RequestException as error:
             raise RuntimeError(f'Could not resolve contextual mentions: {error}') from error
 
     def interpret_request(self, prompt, schema):
         try:
-            response = requests.post(f'{self.ollama_url}/api/chat', json={
+            body = self._ollama('interpret_request', '/api/chat', {
                 'model': self.llm, 'messages': [
                     {'role': 'system', 'content': 'Interpret user requirements using only the provided catalog schema. '
                      'Preserve positive requirements, negation scope and subjective preferences separately. Return JSON.'},
                     {'role': 'user', 'content': prompt}], 'stream': False, 'format': schema,
                 'options': {'temperature': 0, 'num_predict': 1800, 'num_ctx': self.context_window},
                 'keep_alive': '10m'}, timeout=180)
-            response.raise_for_status()
-            return response.json()['message']['content']
+            return body['message']['content']
         except requests.RequestException as error:
             raise RuntimeError(f'Could not interpret the request: {error}') from error
 
@@ -185,7 +214,7 @@ class LocalModels:
                  'Call another tool only for genuinely missing evidence. ' if grounded else
                  'No factual evidence has been loaded yet. Use action=call to retrieve it. ')
         try:
-            response = requests.post(f'{self.ollama_url}/api/chat', json={
+            body = self._ollama('agent_step', '/api/chat', {
                 'model': self.llm, 'messages': [
                     {'role': 'system', 'content': stage + 'You control an evidence-grounded assistant. '
                      'Return only the JSON decision. action=call is ONLY for requesting another tool execution, '
@@ -196,8 +225,7 @@ class LocalModels:
                     {'role': 'user', 'content': prompt}], 'stream': False, 'format': schema,
                 'options': {'temperature': 0, 'num_predict': 900, 'num_ctx': self.context_window},
                 'keep_alive': '10m'}, timeout=180)
-            response.raise_for_status()
-            return response.json()['message']['content']
+            return body['message']['content']
         except requests.RequestException as error:
             raise RuntimeError(f'Could not reach Ollama for the entity tool loop: {error}') from error
 
@@ -225,7 +253,7 @@ class LocalModels:
                                 'decimals': {'type': 'integer', 'minimum': 0, 'maximum': 6}}}}}}
         schema = quantity if measurements and require_quantities else {'anyOf': [quantity, prose]} if measurements else prose
         try:
-            response = requests.post(f'{self.ollama_url}/api/chat', json={
+            body = self._ollama('agent_fact_reply', '/api/chat', {
                 'model': self.llm, 'messages': [
                     {'role': 'system', 'content': 'Return JSON. Select supporting facts for EACH subject from source records. '
                      'For numerical questions choose kind=quantities. Each item has an LLM-written label and an arithmetic '
@@ -244,8 +272,7 @@ class LocalModels:
                     {'role': 'user', 'content': prompt}], 'stream': False, 'format': schema,
                 'options': {'temperature': 0, 'num_predict': max_tokens + 600, 'num_ctx': self.context_window},
                 'keep_alive': '10m'}, timeout=180)
-            response.raise_for_status()
-            result = json.loads(response.json()['message']['content'])
+            result = json.loads(body['message']['content'])
             if not subjects and result['supporting_facts']:
                 raise ValueError('Cannot cite facts without source records')
             if subjects and set(subjects) != {row['subject'] for row in result['supporting_facts']}:
@@ -260,16 +287,18 @@ class LocalModels:
                 if not isinstance(answer, str) or not answer.strip() or (not subjects and '?' not in answer):
                     raise ValueError('Missing grounded answer or clarification')
             self.last_fact_grounding = {'supporting_facts': result['supporting_facts'], 'calculations': calculations}
+            annotate(answer_grounding=self.last_fact_grounding)
             return answer
         except (ValueError, KeyError, TypeError) as error:
             self.last_fact_validation_error = str(error)
+            event('grounding_validation_failed', error=str(error))
             raise RuntimeError('The model returned an invalid grounded response. Please retry.') from error
         except requests.RequestException as error:
             raise RuntimeError(f'Could not reach Ollama for the grounded answer: {error}') from error
 
     def agent_reply(self, prompt, temperature, max_tokens):
         try:
-            response = requests.post(f'{self.ollama_url}/api/chat', json={
+            body = self._ollama('agent_reply', '/api/chat', {
                 'model': self.llm, 'messages': [
                     {'role': 'system', 'content': 'Answer the person directly in natural language. Use only supplied '
                      'source evidence for facts. Never refer to the person as the user or narrate your internal process. '
@@ -277,7 +306,6 @@ class LocalModels:
                     {'role': 'user', 'content': prompt}], 'stream': False,
                 'options': {'temperature': temperature, 'num_predict': max_tokens, 'num_ctx': self.context_window},
                 'keep_alive': '10m'}, timeout=180)
-            response.raise_for_status()
-            return response.json()['message']['content']
+            return body['message']['content']
         except requests.RequestException as error:
             raise RuntimeError(f'Could not reach Ollama for the final answer: {error}') from error

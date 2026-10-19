@@ -282,6 +282,7 @@ def save_results(output, questions, rows):
 
 def run_evaluation(settings, questions_csv, output, *, extractor_model=None, limit=None, resume=True,
                    max_new_questions=None):
+    from .evaluation_runtime import traced_asker
     from .rag import RagPipeline
 
     questions_csv, output = Path(questions_csv), Path(output)
@@ -324,7 +325,7 @@ def run_evaluation(settings, questions_csv, output, *, extractor_model=None, lim
             # Independent benchmark questions must not inherit an earlier question's entity state.
             pipeline._agent = None
             events = []
-            row = evaluate_question(question, lambda text: pipeline.ask(text, history=[], debug=events.append),
+            row = evaluate_question(question, traced_asker(pipeline, events),
                                     lambda q, a: extract_facts(q, a, url=settings.ollama_url, model=extractor_model))
             row['rag_usage'] = pipeline.last_route
             row['debug_events'] = events
