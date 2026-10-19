@@ -1,22 +1,24 @@
 # Infrastructure
 
-How the sign-in page and chat are deployed, on LocalStack and on real AWS. The local RAG is in
+How the sign-in page, the chat and the anime recommender are deployed, on LocalStack and on real AWS. The local RAG is in
 [README.md](README.md).
 
 The infrastructure lives in [`infra/`](infra); the Lambdas' code lives in [`src/`](src):
 
 | Path | Contents |
 | --- | --- |
-| `infra/docker-compose.yml` | LocalStack, which emulates AWS locally, and Phoenix, which traces the local RAG and the chat Lambda on LocalStack (on AWS the traces go to Arize AX) |
+| `infra/docker-compose.yml` | LocalStack, which emulates AWS locally, and Phoenix, which traces the local RAG, the local recommender service and the chat Lambda on LocalStack (on AWS the traces go to Arize AX) |
 | `infra/modules/s3-bucket/` | OpenTofu module for a private, versioned, encrypted S3 bucket, with tests in `tests/` |
 | `infra/modules/auth/` | Cognito user pool with passwordless email-code sign-in, limited to allowed email domains; the pre sign-up Lambda's code is in `src/auth/` |
 | `infra/modules/chat-api/` | HTTP API with a Cognito JWT authorizer and a chat Lambda that answers with a Bedrock model; its code is in `src/chat/` |
-| `infra/modules/web/` | Private S3 bucket and CloudFront for the page in [`web/`](web); `/api/*` is forwarded to the chat API |
+| `infra/modules/web/` | Private S3 bucket and CloudFront for the page in [`web/`](web); `/api/*` is forwarded to the chat API and, when an instance runs, `/recommend/*` to the recommender |
+| `infra/modules/recommender-host/` | EC2 instance (with an Elastic IP) that serves the anime recommender, its S3 data bucket, an instance role (read the bucket, call bedrock-mantle, SSM) and a security group open to CloudFront only; its code is in `src/recommender/` |
 | `infra/modules/budget/` | Monthly cost budget for the AWS account, emailing at 80 % actual and 100 % forecasted spend (real AWS only) |
 | `infra/scripts/` | `local_flow.py` drives the local sign-in and chat flow; `diagram.py` draws the architecture diagram |
 | `infra/live/` | Terragrunt config; `live/local/` deploys to LocalStack, `live/aws/` to your real AWS account |
 | `web/` | Static sign-in and chat page (plain HTML, CSS and JavaScript; no build step) |
 | `src/chat/`, `src/auth/` | Code of the chat Lambda and the pre sign-up Lambda, zipped by the modules above |
+| `src/recommender/` | The anime recommender; `server.py` is the FastAPI service the instance runs, `bundle.py` publishes its library to the data bucket |
 | `tests/` | Unit tests of the Lambdas (`just test-unit`) |
 
 Requires [Docker](https://www.docker.com/), [just](https://just.systems/), the
@@ -47,7 +49,7 @@ just lint             # formatting checks and validation of every module
 just test-unit        # module tests with mocked providers, plus the Lambda unit tests (no LocalStack)
 just test-localstack  # creates and destroys a test bucket on LocalStack
 just plan             # plan infra/live/local
-just apply            # deploy the whole stack (bucket, sign-in, chat API, page) on LocalStack
+just apply            # deploy the whole stack (bucket, sign-in, chat API, recommender bucket, page) on LocalStack
 just e2e              # apply, run the sign-in and chat checks, then destroy
 just destroy          # remove everything from infra/live/local
 ```
@@ -100,8 +102,9 @@ so there is no API key to store. `RAG_BEDROCK_MODEL_ID` in `infra/.env` picks an
 emulates. It doesn't search the course documents yet; retrieval comes with the RAG backend.
 
 ```text
-browser ── CloudFront ──┬── /        → S3 (web/)
-   │                    └── /api/*   → API Gateway (JWT authorizer) → chat Lambda → Bedrock
+browser ── CloudFront ──┬── /            → S3 (web/)
+   │                    ├── /api/*       → API Gateway (JWT authorizer) → chat Lambda → Bedrock
+   │                    └── /recommend/* → EC2 recommender (checks the JWT) → Bedrock; library from S3
    └── Cognito (email code; pre sign-up Lambda rejects other domains; codes sent through SES)
 ```
 
@@ -110,7 +113,8 @@ browser ── CloudFront ──┬── /        → S3 (web/)
 [`docs/architecture.png`](docs/architecture.png) is drawn by `just aws-diagram` from what is
 deployed: each icon is a service in a unit's OpenTofu state, and each arrow means that service's
 state refers to the other one (CloudFront's origins, the API's integration and authorizer,
-Cognito's pre sign-up trigger, the chat Lambda's model). Run it again after `just aws-apply`
+Cognito's pre sign-up trigger, the chat Lambda's model, and the bucket, user pool and model named
+in the recommender instance's boot script). Run it again after `just aws-apply`
 changes the services, and commit the new image.
 
 One-time setup:
@@ -136,6 +140,47 @@ just aws-outputs    # page URL, user pool and client IDs
 just aws-destroy    # remove everything, including registered users
 just web-dev        # serve web/ locally on http://localhost:8000 against the deployed API
 just aws-diagram    # redraw docs/architecture.png from the deployed services
+```
+
+### The anime recommender on EC2
+
+`infra/live/aws/recommender-host/` runs the recommender ([`src/recommender/`](src/recommender)) on one
+EC2 instance, `t4g.medium` by default (2 vCPU, 4 GB, about $25 a month on demand; it serves about
+30 chatting users, since the models run on Bedrock). systemd runs `recommender serve`, a FastAPI
+service that checks the user's Cognito access token itself and answers under `/recommend/*`;
+CloudFront forwards that path to the instance's Elastic IP over HTTP on port 8080, and the security
+group lets only CloudFront's origin-facing addresses in. Replies stream keepalive lines so long
+answers fit CloudFront's 60-second read timeout. Every LLM step goes to `qwen.qwen3-32b` through
+Chat Completions on bedrock-mantle (it must follow JSON schemas); the embeddings run on the
+instance. There is no SSH: the instance is reached through SSM Session Manager.
+
+At boot the instance installs the package wheel from `releases/` in its data bucket and pulls the
+library (about 1 GB) from `recommender/`, so publish both before or right after the first apply:
+
+```sh
+just recommender-setup        # build the library locally (once; reused while its inputs don't change)
+just aws-apply                # deploys the recommender-host unit with the rest
+just aws-recommender-publish  # upload the wheel and the library to the data bucket
+just aws-recommender-deploy   # install the latest wheel on the instance and restart it (through SSM)
+just aws-recommender-stop     # stop the instance between sessions (it then costs only its disk and IP)
+just aws-recommender-start
+```
+
+`infra/.env` tunes it: `RAG_RECOMMENDER_INSTANCE=false` keeps the bucket, role and security group
+but runs no instance (and leaves `/recommend/*` out of CloudFront), `RAG_RECOMMENDER_INSTANCE_TYPE`
+and `RAG_RECOMMENDER_MODEL_ID` pick the instance and the model. The page asks the recommender
+instead of the chat API when its `config.js` enables it, which the `web` module does whenever an
+instance runs.
+
+Locally, LocalStack holds only the data bucket (and the role and security group): its Bedrock
+doesn't enforce JSON schemas, so the service runs on your machine with Ollama and is traced in
+Phoenix:
+
+```sh
+just recommender-local-up              # start LocalStack, apply, build and publish the library
+just signup me@student.uu.se           # once
+just recommender-serve                 # the service on http://localhost:8080, traces in Phoenix
+just recommender-web me@student.uu.se  # the signed-in page on http://localhost:8000
 ```
 
 ### Traces in Arize AX

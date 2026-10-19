@@ -100,6 +100,41 @@ run "role_reads_only_its_bucket_and_calls_mantle" {
   }
 }
 
+run "tracing_off_by_default" {
+  command = plan
+
+  assert {
+    condition     = length(aws_iam_role_policy.tracing_key) == 0 && strcontains(aws_instance.host[0].user_data, "RAG_PHOENIX_ENDPOINT=\n")
+    error_message = "Without a tracing endpoint the instance must send no traces and read no key."
+  }
+}
+
+run "arize_tracing_reads_only_its_key" {
+  command = plan
+
+  variables {
+    tracing_endpoint          = "https://otlp.arize.com/v1/traces"
+    tracing_project           = "rag-aws"
+    tracing_space_id          = "space-123"
+    tracing_api_key_parameter = "/rag-aws/arize-api-key"
+  }
+
+  assert {
+    condition = alltrue([for line in [
+      "RAG_PHOENIX_ENDPOINT=https://otlp.arize.com/v1/traces",
+      "RAG_PHOENIX_PROJECT=rag-aws",
+      "RAG_TRACING_SPACE_ID=space-123",
+      "RAG_TRACING_API_KEY_PARAMETER=/rag-aws/arize-api-key",
+    ] : strcontains(aws_instance.host[0].user_data, line)])
+    error_message = "The instance must be configured to send its traces to Arize."
+  }
+
+  assert {
+    condition     = jsondecode(aws_iam_role_policy.tracing_key[0].policy).Statement[0].Resource == "arn:aws:ssm:us-east-2:123456789012:parameter/rag-aws/arize-api-key"
+    error_message = "The instance may read only the tracing key parameter."
+  }
+}
+
 run "without_instance_only_bucket_role_and_network" {
   command = plan
 

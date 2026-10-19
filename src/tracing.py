@@ -2,6 +2,8 @@
 
 The spans go to the Phoenix OTLP endpoint from settings.toml [tracing] (or RAG_PHOENIX_ENDPOINT).
 Without an endpoint the tracer records nothing, except inside capture_spans() (tests and evaluations).
+On EC2 the endpoint is Arize AX, which also needs RAG_TRACING_SPACE_ID and the API key in the SSM
+parameter RAG_TRACING_API_KEY_PARAMETER.
 
 Traces replace debug output: each pipeline stage is a span (stage()), notable decisions are span
 events (event()) and structured results are span attributes (annotate()).
@@ -10,6 +12,7 @@ events (event()) and structured results are span attributes (annotate()).
 from __future__ import annotations
 
 import json
+import os
 from contextlib import contextmanager
 
 from openinference.instrumentation import OITracer, TraceConfig
@@ -47,17 +50,42 @@ def _sdk_provider(project: str):
     return _provider
 
 
+def export_headers(ssm=None) -> dict[str, str] | None:
+    """Arize's auth headers (none for Phoenix), or None if the API key can't be read."""
+    headers = {}
+    if space_id := os.environ.get("RAG_TRACING_SPACE_ID"):
+        headers["arize-space-id"] = space_id
+    if parameter := os.environ.get("RAG_TRACING_API_KEY_PARAMETER"):
+        try:
+            if ssm is None:
+                import boto3
+                from botocore.config import Config
+
+                # EC2 sets only AWS_REGION, which boto3 doesn't read as its default region.
+                ssm = boto3.client("ssm", region_name=os.environ.get("AWS_REGION") or None,
+                                   config=Config(connect_timeout=2, read_timeout=2, retries={"max_attempts": 2}))
+            headers["authorization"] = ssm.get_parameter(Name=parameter, WithDecryption=True)["Parameter"]["Value"]
+        except Exception as err:
+            # The recommender keeps answering without traces.
+            print(f"Tracing off: could not read {parameter}: {type(err).__name__}: {err}", flush=True)
+            return None
+    return headers
+
+
 def setup_tracing(endpoint: str, project: str = "rag-in-production") -> bool:
-    """Export spans to the Phoenix endpoint, if set; True if spans are exported."""
+    """Export spans to the Phoenix (or Arize) endpoint, if set; True if spans are exported."""
     if not endpoint:
         return False
     if endpoint in _endpoints:
         # Each pipeline calls this; one exporter per endpoint, or every span would be sent twice.
         return True
+    if (headers := export_headers()) is None:
+        return False
     from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
     from opentelemetry.sdk.trace.export import BatchSpanProcessor
 
-    _sdk_provider(project).add_span_processor(BatchSpanProcessor(OTLPSpanExporter(endpoint, timeout=3)))
+    exporter = OTLPSpanExporter(endpoint, headers=headers or None, timeout=3)
+    _sdk_provider(project).add_span_processor(BatchSpanProcessor(exporter))
     _endpoints.add(endpoint)
     return True
 

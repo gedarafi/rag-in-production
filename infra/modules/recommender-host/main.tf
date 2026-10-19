@@ -68,6 +68,23 @@ resource "aws_iam_role_policy" "host" {
   })
 }
 
+# The tracing API key (Arize AX) stays in SSM, out of the user data and the state; the service reads
+# it at start. The default aws/ssm key needs no KMS grant.
+resource "aws_iam_role_policy" "tracing_key" {
+  count = var.tracing_api_key_parameter == "" ? 0 : 1
+  name  = "read-tracing-key"
+  role  = aws_iam_role.host.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Effect   = "Allow"
+      Action   = "ssm:GetParameter"
+      Resource = "arn:aws:ssm:${data.aws_region.current.region}:${data.aws_caller_identity.current.account_id}:parameter/${trimprefix(var.tracing_api_key_parameter, "/")}"
+    }]
+  })
+}
+
 resource "aws_iam_role_policy_attachment" "ssm" {
   role       = aws_iam_role.host.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
@@ -141,14 +158,18 @@ resource "aws_instance" "host" {
 
   user_data_replace_on_change = true
   user_data = templatefile("${path.module}/user_data.sh.tftpl", {
-    bucket         = local.bucket
-    region         = data.aws_region.current.region
-    wheel          = var.wheel
-    port           = var.port
-    workers        = var.workers
-    cognito_issuer = var.cognito_issuer
-    cognito_client = var.cognito_client_id
-    bedrock_model  = var.bedrock_model
+    bucket                    = local.bucket
+    region                    = data.aws_region.current.region
+    wheel                     = var.wheel
+    port                      = var.port
+    workers                   = var.workers
+    cognito_issuer            = var.cognito_issuer
+    cognito_client            = var.cognito_client_id
+    bedrock_model             = var.bedrock_model
+    tracing_endpoint          = var.tracing_endpoint
+    tracing_project           = var.tracing_project
+    tracing_space_id          = var.tracing_space_id
+    tracing_api_key_parameter = var.tracing_api_key_parameter
   })
 
   metadata_options {

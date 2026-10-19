@@ -6,11 +6,13 @@
 
 Every service on the diagram is a resource in a unit's state (`terragrunt ... show -json`), grouped
 by unit. An arrow from A to B means A's state refers to B (an ARN, ID or domain name): CloudFront's
-origins name the bucket and the API, the API's integration names the chat Lambda, and so on.
-Helper resources such as routes, integrations and authorizers are not drawn; they only add arrows
-between the services they connect. Resource policies are ignored, since they point from a service
-back to whoever may call it. Bedrock and the people using the page are not in any state:
-they are drawn from the chat Lambda's MODEL_ID and MODEL_API, and from the Cognito app client.
+origins name the bucket, the API and the recommender instance, the API's integration names the chat
+Lambda, and so on. Helper resources such as routes, integrations and authorizers are not drawn; they
+only add arrows between the services they connect, and an Elastic IP's addresses stand for its
+instance. Resource policies are ignored, since they point from a service back to whoever may call it.
+Bedrock and the people using the page are not in any state: Bedrock is drawn from the chat Lambda's
+MODEL_ID and MODEL_API and from the recommender instance's RAG_BEDROCK_MODEL (in its boot script),
+the people from the Cognito app client.
 
 Rendering needs Graphviz (`dot`); the diagrams library supplies the AWS icons.
 """
@@ -30,6 +32,7 @@ SERVICES = {
     "aws_s3_bucket": ("S3", "bucket"),
     "aws_apigatewayv2_api": ("API Gateway", "name"),
     "aws_lambda_function": ("Lambda", "function_name"),
+    "aws_instance": ("EC2", "tags.Name"),
     "aws_cognito_user_pool": ("Cognito", "name"),
     "aws_sesv2_email_identity": ("SES", None),  # the identity is an email address: not shown
     "aws_budgets_budget": ("Budgets", "name"),
@@ -41,6 +44,12 @@ CONNECTORS = {
     "aws_apigatewayv2_authorizer": "api_id",
 }
 
+# Helper resources whose addresses stand for the service named by `owner`: CloudFront's origin is
+# the Elastic IP's DNS name, not the instance's own.
+ALIASES = {
+    "aws_eip": ("instance", ("public_dns", "public_ip")),
+}
+
 EDGE_LABELS = {
     ("aws_cloudfront_distribution", "aws_s3_bucket"): "static page",
     ("aws_cloudfront_distribution", "aws_apigatewayv2_api"): "/api/*",
@@ -48,7 +57,12 @@ EDGE_LABELS = {
     ("aws_apigatewayv2_api", "aws_cognito_user_pool"): "checks JWT",
     ("aws_cognito_user_pool", "aws_lambda_function"): "pre sign-up",
     ("aws_cognito_user_pool", "aws_sesv2_email_identity"): "sign-in codes",
+    ("aws_cloudfront_distribution", "aws_instance"): "/recommend/*",
+    ("aws_instance", "aws_s3_bucket"): "pulls library",
+    ("aws_instance", "aws_cognito_user_pool"): "checks JWT",
 }
+
+API_LABELS = {"openai": "Chat Completions", "converse": "Converse"}
 
 USERS = "users"
 BEDROCK = "bedrock"
@@ -56,7 +70,7 @@ BEDROCK = "bedrock"
 
 @dataclass(frozen=True)
 class Node:
-    key: str  # unit/address, or USERS / BEDROCK for the nodes that are not in any state
+    key: str  # unit/address, or USERS / bedrock:<model> for the nodes that are not in any state
     kind: str  # resource type, or USERS / BEDROCK
     label: str
     unit: str | None = None
@@ -99,10 +113,26 @@ def mentions(texts: list[str], ref: str) -> bool:
     return any(pattern.search(t) for t in texts)
 
 
+def attribute(values: dict, path: str):
+    """values[a][b] for path "a.b"; None when a step is missing."""
+    for step in path.split("."):
+        values = values.get(step) if isinstance(values, dict) else None
+    return values
+
+
+def boot_env(user_data: str | None) -> dict[str, str]:
+    """KEY=value lines of an instance's boot script, such as the env file it writes."""
+    return dict(re.findall(r"^([A-Z][A-Z0-9_]*)=(\S+)$", user_data or "", re.MULTILINE))
+
+
+def bedrock_key(model_id: str) -> str:
+    return f"{BEDROCK}:{model_id}"
+
+
 def build(units: dict[str, dict], account_id: str = "") -> Graph:
     """Turn {unit name: `show -json` state} into the services and the arrows between them."""
     graph, refs, texts, kinds = Graph(), {}, {}, {}
-    connectors, models = [], {}
+    connectors, aliases, models = [], [], {}
 
     for unit, state in sorted(units.items()):
         for r in resources(state):
@@ -111,10 +141,14 @@ def build(units: dict[str, dict], account_id: str = "") -> Graph:
             if kind in CONNECTORS:
                 connectors.append((values.get(CONNECTORS[kind]), strings(values)))
                 continue
+            if kind in ALIASES:
+                owner_attr, attrs = ALIASES[kind]
+                aliases.append((values.get(owner_attr), [v for a in attrs if isinstance(v := values.get(a), str) and v]))
+                continue
             if kind not in SERVICES:
                 continue
             service, name_attr = SERVICES[kind]
-            name = str(values.get(name_attr) or r["name"]) if name_attr else r["name"]
+            name = str(attribute(values, name_attr) or r["name"]) if name_attr else r["name"]
             if account_id:
                 name = name.replace(account_id, "<account>")
             graph.nodes[key] = Node(key, kind, f"{service}\n{name}", unit)
@@ -125,6 +159,14 @@ def build(units: dict[str, dict], account_id: str = "") -> Graph:
             env = (values.get("environment") or [{}])[0].get("variables") or {}
             if kind == "aws_lambda_function" and env.get("MODEL_ID"):
                 models[key] = (env["MODEL_ID"], env.get("MODEL_API", "converse"))
+            boot = boot_env(values.get("user_data"))
+            if kind == "aws_instance" and boot.get("RAG_PROVIDER") == "bedrock" and boot.get("RAG_BEDROCK_MODEL"):
+                models[key] = (boot["RAG_BEDROCK_MODEL"], "openai")  # the recommender calls bedrock-mantle
+
+    for owner_id, addresses in aliases:
+        for key, ids in refs.items():
+            if owner_id in ids:
+                ids += addresses
 
     def label(src, dst):
         return EDGE_LABELS.get((kinds[src], kinds[dst]), "")
@@ -143,14 +185,11 @@ def build(units: dict[str, dict], account_id: str = "") -> Graph:
                 if dst != owner and any(mentions(conn_texts, i) for i in ids):
                     graph.connect(owner, dst, label(owner, dst))
 
-    # Not in any state: the model the chat Lambda calls, and the people using the page.
+    # Not in any state: the models the chat Lambda and the recommender call, and the people using the page.
     for key, (model_id, api) in models.items():
-        if api == "openai":
-            graph.nodes[BEDROCK] = Node(BEDROCK, BEDROCK, f"Bedrock Mantle\n{model_id}")
-            graph.connect(key, BEDROCK, "Chat Completions")
-        else:
-            graph.nodes[BEDROCK] = Node(BEDROCK, BEDROCK, f"Bedrock\n{model_id}")
-            graph.connect(key, BEDROCK, "Converse")
+        service = "Bedrock Mantle" if api == "openai" else "Bedrock"
+        graph.nodes[bedrock_key(model_id)] = Node(bedrock_key(model_id), BEDROCK, f"{service}\n{model_id}")
+        graph.connect(key, bedrock_key(model_id), API_LABELS.get(api, "Converse"))
 
     has_client = any(r["type"] == "aws_cognito_user_pool_client" for s in units.values() for r in resources(s))
     for key, kind in kinds.items():
@@ -169,7 +208,7 @@ def build(units: dict[str, dict], account_id: str = "") -> Graph:
 def render(graph: Graph, out: Path, title: str):
     """Draw graph to out.png with the AWS icons, one cluster per unit."""
     from diagrams import Cluster, Diagram, Edge
-    from diagrams.aws.compute import Lambda
+    from diagrams.aws.compute import EC2, Lambda
     from diagrams.aws.cost import Budgets
     from diagrams.aws.engagement import SES
     from diagrams.aws.ml import Bedrock
@@ -183,6 +222,7 @@ def render(graph: Graph, out: Path, title: str):
         "aws_s3_bucket": S3,
         "aws_apigatewayv2_api": APIGateway,
         "aws_lambda_function": Lambda,
+        "aws_instance": EC2,
         "aws_cognito_user_pool": Cognito,
         "aws_sesv2_email_identity": SES,
         "aws_budgets_budget": Budgets,
@@ -201,8 +241,9 @@ def render(graph: Graph, out: Path, title: str):
                     for node in graph.nodes.values():
                         if node.unit == unit:
                             drawn[node.key] = icons[node.kind](node.label)
-            if BEDROCK in graph.nodes:
-                drawn[BEDROCK] = Bedrock(graph.nodes[BEDROCK].label)
+            for node in graph.nodes.values():
+                if node.kind == BEDROCK:
+                    drawn[node.key] = Bedrock(node.label)
         for (src, dst), text in graph.edges.items():
             style = "dashed" if USERS in (src, dst) else "solid"
             drawn[src] >> Edge(label=text, style=style) >> drawn[dst]
