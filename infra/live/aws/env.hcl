@@ -44,6 +44,14 @@ locals {
   budget_limit_usd = tonumber(get_env("RAG_BUDGET_LIMIT_USD", "10"))
   budget_emails    = compact(split(",", get_env("RAG_BUDGET_EMAILS", strcontains(get_env("RAG_SES_IDENTITY", ""), "@") ? get_env("RAG_SES_IDENTITY", "") : "")))
 
+  # Anime recommender on EC2 (modules/recommender-host). Its models run on Bedrock, so the instance only
+  # needs memory for the library: t4g.medium (2 vCPU, 4 GB, about $25/month on-demand) serves about 30
+  # chatting users. RAG_RECOMMENDER_INSTANCE=false keeps the bucket but runs no instance;
+  # `just aws-recommender-stop` stops it between sessions.
+  recommender_instance      = get_env("RAG_RECOMMENDER_INSTANCE", "true") == "true"
+  recommender_instance_type = get_env("RAG_RECOMMENDER_INSTANCE_TYPE", "t4g.medium")
+  recommender_model_id      = get_env("RAG_RECOMMENDER_MODEL_ID", "qwen.qwen3-32b")
+
   # Lets `just web-dev` (http://localhost:8000) call the API directly.
   cors_allow_origins = ["http://localhost:8000"]
 }

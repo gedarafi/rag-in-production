@@ -6,4 +6,6 @@ window.APP_CONFIG = {
   allowedEmailDomains: ["uu.se", "student.uu.se"],
   // Locally the page calls the API directly; the chat-api allows http://localhost:8000 via CORS.
   apiBase: "https://REPLACE_WITH_api_domain",
+  // Ask the anime recommender instead of the chat API; locally `just recommender-serve` runs it here.
+  // recommenderBase: "http://localhost:8080",
 };

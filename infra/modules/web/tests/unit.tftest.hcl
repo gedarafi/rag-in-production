@@ -103,3 +103,35 @@ run "reaches_a_localstack_api_over_http" {
     error_message = "The API origin must use the given port over HTTP."
   }
 }
+
+run "leaves_out_the_recommender_route_by_default" {
+  command = plan
+
+  assert {
+    condition     = length([for b in aws_cloudfront_distribution.site.ordered_cache_behavior : b if b.path_pattern == "/recommend/*"]) == 0
+    error_message = "Without a recommender origin there must be no /recommend/* route."
+  }
+}
+
+run "routes_recommender_calls_to_the_instance_without_caching" {
+  command = plan
+
+  variables {
+    recommender_origin_domain = "ec2-3-1-2-3.us-east-2.compute.amazonaws.com"
+  }
+
+  assert {
+    condition     = one([for b in aws_cloudfront_distribution.site.ordered_cache_behavior : b if b.path_pattern == "/recommend/*"]).target_origin_id == "recommender" && one([for b in aws_cloudfront_distribution.site.ordered_cache_behavior : b if b.path_pattern == "/recommend/*"]).cache_policy_id == "4135ea2d-6df8-44a3-9df3-4b5a84be39ad"
+    error_message = "/recommend/* must go to the recommender origin, uncached."
+  }
+
+  assert {
+    condition     = one([for o in aws_cloudfront_distribution.site.origin : o if o.origin_id == "recommender"]).custom_origin_config[0].http_port == 8080
+    error_message = "CloudFront must reach the service on its port."
+  }
+
+  assert {
+    condition     = strcontains(aws_s3_object.config.content, "\"recommender\":true")
+    error_message = "The page must know the recommender is available."
+  }
+}

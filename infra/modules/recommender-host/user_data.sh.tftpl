@@ -1,0 +1,68 @@
+#!/bin/bash
+# Boot script: install the recommender from the data bucket and run it under systemd.
+# /usr/local/sbin/recommender-install also redeploys a new wheel later (`just aws-recommender-deploy`).
+set -euxo pipefail
+
+# Swap absorbs a startup peak (loading the library and PyTorch) on a small instance.
+if [ ! -f /swapfile ]; then
+  fallocate -l 2G /swapfile && chmod 600 /swapfile && mkswap /swapfile
+  echo '/swapfile none swap defaults 0 0' >> /etc/fstab
+fi
+swapon -a || true
+
+id recommender || useradd --system --create-home --home-dir /var/lib/recommender --shell /sbin/nologin recommender
+curl -LsSf https://astral.sh/uv/install.sh | env UV_INSTALL_DIR=/usr/local/bin INSTALLER_NO_MODIFY_PATH=1 sh
+
+cat > /etc/recommender.env <<'ENV'
+AWS_REGION=${region}
+RECOMMENDER_BUCKET=${bucket}
+RECOMMENDER_PREFIX=recommender
+RECOMMENDER_DATA_DIR=/var/lib/recommender/library
+RECOMMENDER_WORKERS=${workers}
+COGNITO_ISSUER=${cognito_issuer}
+COGNITO_CLIENT_ID=${cognito_client}
+RAG_PROVIDER=bedrock
+RAG_BEDROCK_MODEL=${bedrock_model}
+HF_HOME=/var/lib/recommender/huggingface
+ENV
+
+cat > /usr/local/sbin/recommender-install <<'INSTALL'
+#!/bin/bash
+# Install the wheel in releases/ (CPU-only PyTorch) and restart the service on it.
+set -euxo pipefail
+mkdir -p /opt/recommender
+# At first boot the wheel may not be published yet (`just aws-recommender-deploy` uploads it): wait for it.
+for attempt in $(seq 1 120); do
+  aws s3api head-object --bucket ${bucket} --key "releases/${wheel}" --region ${region} >/dev/null 2>&1 && break
+  sleep 30
+done
+aws s3 cp "s3://${bucket}/releases/${wheel}" /opt/recommender/${wheel} --region ${region}
+export UV_TOOL_DIR=/opt/recommender/tools UV_TOOL_BIN_DIR=/usr/local/bin UV_PYTHON_INSTALL_DIR=/opt/recommender/python
+uv tool install --force --python 3.14 \
+  --index https://download.pytorch.org/whl/cpu --index-strategy unsafe-best-match \
+  "/opt/recommender/${wheel}[server]"
+systemctl restart recommender
+INSTALL
+chmod 755 /usr/local/sbin/recommender-install
+
+cat > /etc/systemd/system/recommender.service <<'UNIT'
+[Unit]
+Description=AniList recommender
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=recommender
+EnvironmentFile=/etc/recommender.env
+# Pulls the current library from S3 (skipped when already here), then serves.
+ExecStart=/usr/local/bin/recommender serve --host 0.0.0.0 --port ${port}
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+UNIT
+
+systemctl daemon-reload
+systemctl enable recommender
+/usr/local/sbin/recommender-install

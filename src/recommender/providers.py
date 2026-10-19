@@ -309,3 +309,79 @@ class LocalModels:
             return body['message']['content']
         except requests.RequestException as error:
             raise RuntimeError(f'Could not reach Ollama for the final answer: {error}') from error
+
+
+class BedrockModels(LocalModels):
+    """Every LLM step on Amazon Bedrock (bedrock-mantle Chat Completions); embeddings stay local.
+
+    The pipeline steps above build Ollama payloads. _ollama() is the one place that sends them, so this
+    class translates each payload to an OpenAI-compatible request instead: messages and options map
+    one to one, and an Ollama `format` schema becomes `response_format: json_schema`. Not every
+    Bedrock model enforces that schema, so a structured reply that isn't JSON is asked for once more.
+    Errors are requests exceptions, as with Ollama, so the steps' error handling stays the same.
+    """
+
+    def __init__(self, embedding_model: str, region: str, llm: str, device: str = "auto", batch_size: int = 64,
+                 context_window: int = 8192, timeout: float = 120) -> None:
+        super().__init__(embedding_model, "", llm, device, batch_size, context_window)
+        self.region = region
+        self.url = f"https://bedrock-mantle.{region}.api.aws/v1/chat/completions"
+        self.timeout = timeout
+        self._credentials = None
+
+    def chat_completions(self, body: dict) -> dict:
+        """One SigV4-signed call; boto3 has no bedrock-mantle client, so botocore signs and requests sends."""
+        from botocore.auth import SigV4Auth
+        from botocore.awsrequest import AWSRequest
+        if self._credentials is None:
+            import botocore.session
+            self._credentials = botocore.session.get_session().get_credentials()
+            if self._credentials is None:
+                raise requests.ConnectionError("No AWS credentials for Bedrock (instance role, profile or environment).")
+        data = json.dumps(body).encode()
+        signed = AWSRequest(method="POST", url=self.url, data=data, headers={"content-type": "application/json"})
+        SigV4Auth(self._credentials.get_frozen_credentials(), "bedrock-mantle", self.region).add_auth(signed)
+        response = requests.post(self.url, data=data, headers=dict(signed.headers.items()), timeout=self.timeout)
+        response.raise_for_status()
+        return response.json()
+
+    def _ollama(self, name: str, path: str, payload: dict, timeout: float) -> dict:
+        messages = payload.get('messages') or [{'role': 'user', 'content': payload['prompt']}]
+        options = payload['options']
+        body = {'model': self.llm, 'messages': messages, 'temperature': options['temperature'],
+                'max_tokens': options['num_predict']}
+        if 'format' in payload:
+            body['response_format'] = {'type': 'json_schema',
+                                       'json_schema': {'name': name, 'schema': payload['format'], 'strict': True}}
+        with tracer.start_as_current_span(name, openinference_span_kind='llm') as span:
+            span.set_attributes({
+                **get_llm_attributes(
+                    provider='aws', system='openai', model_name=self.llm,
+                    invocation_parameters={'max_tokens': body['max_tokens'], 'temperature': body['temperature'],
+                                           'structured': 'format' in payload},
+                    input_messages=messages),
+                **get_input_attributes(messages[-1]['content']),
+            })
+            result = self.chat_completions(body)
+            text = ((result.get('choices') or [{}])[0].get('message') or {}).get('content') or ''
+            if 'format' in payload:
+                try:
+                    json.loads(text)
+                except ValueError as error:
+                    event('structured_output_retry', error=str(error))
+                    retry = {**body, 'messages': [*messages, {'role': 'assistant', 'content': text},
+                                                  {'role': 'user', 'content': 'That was not valid JSON for the schema '
+                                                   f'({error}). Return only the JSON object.'}]}
+                    result = self.chat_completions(retry)
+                    text = ((result.get('choices') or [{}])[0].get('message') or {}).get('content') or ''
+            usage = result.get('usage') or {}
+            counts = {'prompt': usage.get('prompt_tokens'), 'completion': usage.get('completion_tokens'),
+                      'total': usage.get('total_tokens')}
+            counts = {key: count for key, count in counts.items() if isinstance(count, int)}
+            span.set_attributes({
+                **get_llm_attributes(output_messages=[{'role': 'assistant', 'content': text}],
+                                     token_count=counts or None),
+                **get_output_attributes(text),
+            })
+        # The shape the pipeline steps read: /api/chat's message and /api/generate's response.
+        return {'message': {'content': text}, 'response': text}

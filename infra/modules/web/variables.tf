@@ -45,6 +45,18 @@ variable "api_origin_protocol_policy" {
   }
 }
 
+variable "recommender_origin_domain" {
+  description = "Public DNS name of the recommender instance (the recommender-host module's origin_domain). Served under /recommend/*; empty leaves the route out."
+  type        = string
+  default     = ""
+}
+
+variable "recommender_origin_port" {
+  description = "Port of the recommender service on its origin (plain HTTP)."
+  type        = number
+  default     = 8080
+}
+
 variable "price_class" {
   description = "CloudFront price class. PriceClass_100 serves from Europe and North America, the cheapest."
   type        = string

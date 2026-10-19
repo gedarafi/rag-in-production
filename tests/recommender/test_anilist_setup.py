@@ -120,6 +120,15 @@ class AniListSetupTests(unittest.TestCase):
         upgraded = json.loads(self.workspace.manifest.read_text(encoding='utf-8'))
         self.assertTrue(all('sha256' in entry for entry in upgraded['files'].values()))
 
+    def test_published_catalog_without_its_source_is_served_as_built(self):
+        self.run_setup(self.source)
+        (self.settings.documents / 'catalog.jsonl').unlink()
+        database = self.settings.documents / 'catalog.sqlite3'
+        built = database.stat().st_mtime_ns
+        catalog = RagPipeline(self.settings).anime_tools()
+        self.assertEqual(catalog.query('SELECT COUNT(*) FROM anime')[0][0], 1)
+        self.assertEqual(database.stat().st_mtime_ns, built)
+
     def test_generation_settings_do_not_invalidate_existing_library(self):
         self.run_setup(self.source)
         # Existing installations may still have these fields in their manifest.

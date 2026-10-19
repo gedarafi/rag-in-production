@@ -7,7 +7,7 @@ set dotenv-path := "infra/.env"
 compose := "docker compose"
 endpoint := env("LOCALSTACK_ENDPOINT", "http://localhost:4566")
 region := env("AWS_DEFAULT_REGION", "us-east-1")
-modules := "modules/s3-bucket modules/auth modules/chat-api modules/web modules/budget"
+modules := "modules/s3-bucket modules/auth modules/chat-api modules/web modules/budget modules/recommender-host"
 live := "live/local"
 aws_live := env("RAG_AWS_LIVE", "live/aws") # `just aws-mantle` points the aws-* recipes at live/aws-mantle
 aws_region := env("AWS_REGION", "eu-north-1")
@@ -84,6 +84,89 @@ recommender-gui *args: phoenix-up _ollama-check
     @echo "Traces: {{phoenix_url}}, project {{recommender_project}}"
     {{recommender_env}} uv run anilist-gui {{args}}
 
+# --- Recommender service: library in S3, web users signed in with Cognito (src/recommender/server.py) ---
+
+# Build the Python package the EC2 instance installs (dist/*.whl)
+[working-directory: '..']
+recommender-wheel:
+    rm -f dist/rag_in_production-*.whl
+    uv build --wheel --quiet
+    @ls dist/*.whl
+
+# Upload the built library to the LocalStack data bucket (after `just apply` and `just recommender-setup`)
+[working-directory: '..']
+recommender-publish:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    bucket="$(terragrunt run --non-interactive --log-level error --working-dir infra/{{live}}/recommender-host -- output -raw bucket_name)"
+    AWS_ENDPOINT_URL={{endpoint}} AWS_ACCESS_KEY_ID=test AWS_SECRET_ACCESS_KEY=test AWS_DEFAULT_REGION={{region}} \
+      uv run --quiet --extra server recommender publish --bucket "$bucket"
+
+# One-time local setup: start LocalStack, deploy, build the library (reused if built) and publish it to S3
+recommender-local-up: up apply recommender-setup recommender-publish
+    @echo "Done. Sign up once with \`just signup you@student.uu.se\`, then run \`just recommender-serve\` and \`just recommender-web you@student.uu.se\`."
+
+# Serve the published library on http://localhost:8080 for the local page, with Ollama for the models
+[working-directory: '..']
+recommender-serve: _ollama-check
+    #!/usr/bin/env bash
+    set -euo pipefail
+    out() { terragrunt run --non-interactive --log-level error --working-dir infra/{{live}}/$1 -- output -raw $2; }
+    pool="$(out auth user_pool_id)"
+    export AWS_ENDPOINT_URL={{endpoint}} AWS_ACCESS_KEY_ID=test AWS_SECRET_ACCESS_KEY=test AWS_DEFAULT_REGION={{region}}
+    export RECOMMENDER_BUCKET="$(out recommender-host bucket_name)" RECOMMENDER_DATA_DIR=data/serve
+    # LocalStack signs tokens as its own issuer and serves the keys there.
+    export COGNITO_ISSUER="${RECOMMENDER_LOCAL_ISSUER:-http://localhost.localstack.cloud:4566/$pool}"
+    export COGNITO_JWKS_URL="{{endpoint}}/$pool/.well-known/jwks.json"
+    export COGNITO_CLIENT_ID="$(out auth user_pool_client_id)" RECOMMENDER_CORS_ORIGINS=http://localhost:8000,http://127.0.0.1:8000
+    export RECOMMENDER_WORKERS="${RECOMMENDER_WORKERS:-2}"
+    uv run --quiet --extra server recommender serve --host 127.0.0.1 --port 8080
+
+# Serve the page on http://localhost:8000 against `just recommender-serve`, e.g. `just recommender-web me@student.uu.se`
+recommender-web email:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    client_id="$(terragrunt run --non-interactive --log-level error --working-dir {{live}}/auth -- output -raw user_pool_client_id)"
+    domains="$(python3 -c 'import json, sys; print(json.dumps(sys.argv[1].split(",")))' "${RAG_ALLOWED_EMAIL_DOMAINS:-uu.se,student.uu.se}")"
+    if ss -ltn | grep -q '127.0.0.1:8000 '; then echo "Port 8000 is in use; stop the other server first." >&2; exit 1; fi
+    printf 'window.APP_CONFIG = {"region":"%s","userPoolClientId":"%s","allowedEmailDomains":%s,"apiBase":"","recommenderBase":"http://127.0.0.1:8080"};\n' \
+      "{{region}}" "$client_id" "$domains" > ../web/config.js
+    # LocalStack's Cognito has no email-code sign-in, so config.js signs the page in (for an hour).
+    just session {{quote(email)}} | sed 's/ location.reload();$//' >> ../web/config.js
+    echo "Open http://localhost:8000 (signed in as {{email}}; rerun this after an hour)"
+    python3 -m http.server 8000 --bind 127.0.0.1 --directory ../web
+
+# Upload the library and the package wheel to the AWS data bucket; the instance serves the new library on restart
+[confirm("Upload the recommender library (about 1 GB) to your real AWS account? (y/N)")]
+[working-directory: '..']
+aws-recommender-publish: _aws-check recommender-wheel
+    #!/usr/bin/env bash
+    set -euo pipefail
+    bucket="$(terragrunt run --non-interactive --log-level error --working-dir infra/{{aws_live}}/recommender-host -- output -raw bucket_name)"
+    aws s3 cp dist/rag_in_production-0.1.0-py3-none-any.whl "s3://$bucket/releases/" --region {{aws_region}}
+    AWS_REGION={{aws_region}} uv run --quiet --extra server recommender publish --bucket "$bucket"
+
+# Install the latest wheel on the instance and restart it on the current library (through SSM, no SSH)
+[working-directory: '..']
+aws-recommender-deploy: _aws-check recommender-wheel
+    #!/usr/bin/env bash
+    set -euo pipefail
+    out() { terragrunt run --non-interactive --log-level error --working-dir infra/{{aws_live}}/recommender-host -- output -raw $1; }
+    aws s3 cp dist/rag_in_production-0.1.0-py3-none-any.whl "s3://$(out bucket_name)/releases/" --region {{aws_region}}
+    aws ssm send-command --region {{aws_region}} --instance-ids "$(out instance_id)" --document-name AWS-RunShellScript \
+      --parameters commands=/usr/local/sbin/recommender-install --query Command.CommandId --output text
+
+# Start or stop the recommender instance (stopped, it costs only its disk and Elastic IP)
+aws-recommender-start: (_aws-recommender-power "start")
+aws-recommender-stop: (_aws-recommender-power "stop")
+
+_aws-recommender-power action: _aws-check
+    #!/usr/bin/env bash
+    set -euo pipefail
+    id="$(terragrunt run --non-interactive --log-level error --working-dir {{aws_live}}/recommender-host -- output -raw instance_id)"
+    aws ec2 {{action}}-instances --region {{aws_region}} --instance-ids "$id" --output text >/dev/null
+    echo "Requested {{action}} of $id."
+
 # Fail early when Ollama is down or the model in settings.toml isn't pulled
 [working-directory: '..']
 _ollama-check:
@@ -130,7 +213,7 @@ test-py *args:
 # Anime recommender tests (they need the project's own dependencies: NumPy, Gradio, PyTorch); extra args go to pytest
 [working-directory: '..']
 test-recommender *args:
-    uv run --quiet --group test pytest tests/recommender {{args}}
+    uv run --quiet --extra server --group test pytest tests/recommender {{args}}
 
 # Check that the chat Lambda's traces reach the running Phoenix (run `just phoenix-up` first)
 [working-directory: '..']

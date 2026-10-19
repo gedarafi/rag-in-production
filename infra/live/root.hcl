@@ -62,12 +62,14 @@ generate "provider" {
         apigatewayv2 = "${local.localstack_endpoint}"
         cloudfront   = "${local.localstack_endpoint}"
         cognitoidp   = "${local.localstack_endpoint}"
+        ec2          = "${local.localstack_endpoint}"
         iam          = "${local.localstack_endpoint}"
         lambda       = "${local.localstack_endpoint}"
         logs         = "${local.localstack_endpoint}"
         route53      = "${local.localstack_endpoint}"
         s3           = "${local.localstack_endpoint}"
         sesv2        = "${local.localstack_endpoint}"
+        ssm          = "${local.localstack_endpoint}"
         sts          = "${local.localstack_endpoint}"
       }
 

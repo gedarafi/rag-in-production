@@ -8,7 +8,7 @@ import numpy as np
 
 from .config import Settings
 from .documents import Chunk, load_chunks
-from .providers import LocalModels
+from .providers import BedrockModels, LocalModels
 from ..tracing import annotate, setup_tracing, stage, trace_id, tracer
 from .progress import Progress
 from .embedding_cache import cached_embed
@@ -42,19 +42,47 @@ class RagPipeline:
     def models(self):
         if getattr(self, "_models", None) is None:
             settings = self.settings
-            self._models = LocalModels(settings.embedding, settings.ollama_url, settings.llm,
-                                       device=settings.embedding_device, batch_size=settings.embedding_batch_size,
-                                       context_window=settings.context_window)
+            if settings.provider == "bedrock":
+                self._models = BedrockModels(settings.embedding, settings.bedrock_region, settings.bedrock_model,
+                                             device=settings.embedding_device, batch_size=settings.embedding_batch_size,
+                                             context_window=settings.context_window)
+            else:
+                self._models = LocalModels(settings.embedding, settings.ollama_url, settings.llm,
+                                           device=settings.embedding_device, batch_size=settings.embedding_batch_size,
+                                           context_window=settings.context_window)
         return self._models
 
     @models.setter
     def models(self, value):
         self._models = value
 
+    def clone(self) -> "RagPipeline":
+        """Another pipeline for a concurrent request, sharing this one's read-only data.
+
+        The catalog, the loaded chunks and the embedding model are shared. The models object is copied
+        because its steps record per-request results on it; the agent is per pipeline for the same reason.
+        """
+        import copy
+        other = RagPipeline.__new__(RagPipeline)
+        other.settings = self.settings
+        other._models = copy.copy(self.models)
+        for name in ("_catalog", "_catalog_stamp", "_chunks", "_vector_stamp"):
+            if hasattr(self, name):
+                setattr(other, name, getattr(self, name))
+        return other
+
     def anime_tools(self) -> AnimeTools | None:
         if self.settings.documents.name != "anilist":
             return None
         path = self.settings.documents / "catalog.jsonl"
+        database = self.settings.documents / "catalog.sqlite3"
+        if not path.exists() and database.is_file():
+            # A published bundle (bundle.py) ships the built catalog without its source, so it is
+            # served as built: nothing to compare, nothing to rebuild.
+            if getattr(self, "_catalog", None) is None:
+                from .sqlite_catalog import SqliteAnimeTools
+                self._catalog = SqliteAnimeTools(database)
+            return self._catalog
         if not path.exists():
             # Upgrade old prepared exports without downloading or rebuilding embeddings.
             from .datasets import ANILIST_FILENAME, prepare_anilist

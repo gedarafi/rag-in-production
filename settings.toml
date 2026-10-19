@@ -9,7 +9,7 @@ prompt = "prompts/answer.txt"
 default = "anilist"
 
 [models]
-provider = "ollama"
+provider = "ollama" # ollama (local) or bedrock (bedrock-mantle, see [bedrock]); RAG_PROVIDER overrides it
 llm = "llama3.2:3b"
 embedding = "sentence-transformers/all-MiniLM-L6-v2"
 embedding_device = "auto" # auto prefers CUDA, then MPS, then CPU
@@ -17,6 +17,13 @@ embedding_batch_size = 64 # Lower if GPU memory is insufficient
 embedding_cache = true # Reuse unchanged chunks and resume interrupted embedding
 embedding_cache_version = "1" # Change to force fresh embeddings for the same model
 ollama_url = "http://127.0.0.1:11434"
+
+[bedrock]
+# Used when provider = "bedrock": OpenAI-compatible Chat Completions on bedrock-mantle. The pipeline
+# needs schema-valid JSON, and qwen3-32b follows strict JSON schemas there.
+# RAG_BEDROCK_REGION (or AWS_REGION) and RAG_BEDROCK_MODEL override these.
+region = "us-east-2"
+model_id = "qwen.qwen3-32b"
 
 [retrieval]
 chunk_size = 900

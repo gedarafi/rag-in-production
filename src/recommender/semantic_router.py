@@ -47,7 +47,11 @@ def routing_schema(seed_options=None):
 class SemanticRouter:
     def __init__(self, settings, models):
         self.settings, self.models = settings, models
-        self.examples = json.loads((Path(__file__).resolve().parents[2] / "prompts/routes.json").read_text(encoding="utf-8"))
+        # Next to the configured prompt (a published bundle ships prompts/), else the repository's.
+        path = settings.prompt.with_name("routes.json")
+        if not path.is_file():
+            path = Path(__file__).resolve().parents[2] / "prompts/routes.json"
+        self.examples = json.loads(path.read_text(encoding="utf-8"))
         self.vectors = None
         self.cache = OrderedDict()
         self.last_decision = {}

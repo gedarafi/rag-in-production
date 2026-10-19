@@ -32,6 +32,12 @@ evaluation = [
     "nbclient>=0.11.0",
     "pandas>=3.0.6",
 ]
+server = [
+    "boto3>=1.40",
+    "fastapi>=0.120",
+    "pyjwt[crypto]>=2.10",
+    "uvicorn>=0.38",
+]
 
 [build-system]
 requires = ["uv_build>=0.9.21,<0.10.0"]
@@ -56,6 +62,7 @@ chat = [
     "opentelemetry-exporter-otlp-proto-http==1.45.1",
 ]
 test = [
+    "moto[s3]>=5.1",
     "pytest>=9.1.1",
     "pytest-cov>=7.1.0",
     "typer>=0.27",
