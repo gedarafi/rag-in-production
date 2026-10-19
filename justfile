@@ -102,10 +102,11 @@ lint:
     for m in {{modules}}; do tofu -chdir=$m init -backend=false -input=false >/dev/null && tofu -chdir=$m validate || exit 1; done
     terragrunt hcl validate --working-dir live
 
-# Delete the OpenTofu and Terragrunt caches and the Lambda build, as on a fresh checkout; the next init downloads the providers again
+# Delete the OpenTofu and Terragrunt caches, the Lambda build and LocalStack's stopped Lambda containers (which can keep a deleted network and break `just up`), as on a fresh checkout; the next init downloads the providers again
 clean:
-    find . \( -name .terragrunt-cache -o -name .terraform \) -type d -prune -exec rm -rf {} +
+    find . \( -name .localstack -o -name .ollama \) -prune -o \( -name .terragrunt-cache -o -name .terraform \) -type d -prune -exec rm -rf {} +
     rm -rf .build
+    docker ps -aq --filter name=localstack-lambda- --filter status=exited | xargs -r docker rm >/dev/null
 
 # Refresh the provider lock files for Linux, macOS and Windows
 lock:
@@ -370,7 +371,8 @@ chat email message *args:
 # Print a snippet to paste in the browser console on the local page to sign in as email
 session email: (flow "session" email)
 
-# Start LocalStack, deploy, publish the AniList catalog (`fixture` for the ten invented anime), register email (once) and print how to chat, e.g. `just local-up me@student.uu.se`
+# Start LocalStack, deploy, publish the AniList catalog (`fixture` for the ten invented anime), 
+# register email (once) and print how to chat, e.g. `just local-up me@student.uu.se`
 local-up email catalog="full": up phoenix-up apply
     #!/usr/bin/env bash
     set -euo pipefail

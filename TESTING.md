@@ -28,6 +28,9 @@ screens; `just session me@student.uu.se` prints a fresh one. You can also ask fr
 
 ```sh
 just chat me@student.uu.se "What should I watch after Steins;Gate?"
+```
+
+```sh
 just chat me@student.uu.se "Something shorter?" --conversation <conversation_id>
 ```
 
