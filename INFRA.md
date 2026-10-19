@@ -187,7 +187,8 @@ just recommender-web me@student.uu.se  # the signed-in page on http://localhost:
 
 A Lambda in AWS can't reach the Phoenix on your machine, so on AWS the chat Lambda sends its traces
 to [Arize AX](https://app.arize.com) instead: the same `answer` and LLM spans as on LocalStack, under
-the project **rag-aws**. The Arize API key is kept in SSM Parameter Store as a SecureString
+the project **rag-aws**. The recommender instance sends its `recommender.ask` traces there too, with
+the same space ID and key. The Arize API key is kept in SSM Parameter Store as a SecureString
 (`/rag-aws/arize-api-key`), never in `infra/.env`, the OpenTofu state or the Lambda's environment;
 the Lambda reads it when it starts and may read no other parameter.
 
