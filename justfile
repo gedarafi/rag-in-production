@@ -106,9 +106,9 @@ recommender-publish:
 recommender-local-up: up apply recommender-setup recommender-publish
     @echo "Done. Sign up once with \`just signup you@student.uu.se\`, then run \`just recommender-serve\` and \`just recommender-web you@student.uu.se\`."
 
-# Serve the published library on http://localhost:8080 for the local page, with Ollama for the models
+# Serve the published library on http://localhost:8080 for the local page, with Ollama for the models, traced in Phoenix
 [working-directory: '..']
-recommender-serve: _ollama-check
+recommender-serve: phoenix-up _ollama-check
     #!/usr/bin/env bash
     set -euo pipefail
     out() { terragrunt run --non-interactive --log-level error --working-dir infra/{{live}}/$1 -- output -raw $2; }
@@ -119,7 +119,8 @@ recommender-serve: _ollama-check
     export COGNITO_ISSUER="${RECOMMENDER_LOCAL_ISSUER:-http://localhost.localstack.cloud:4566/$pool}"
     export COGNITO_JWKS_URL="{{endpoint}}/$pool/.well-known/jwks.json"
     export COGNITO_CLIENT_ID="$(out auth user_pool_client_id)" RECOMMENDER_CORS_ORIGINS=http://localhost:8000,http://127.0.0.1:8000
-    export RECOMMENDER_WORKERS="${RECOMMENDER_WORKERS:-2}"
+    export RECOMMENDER_WORKERS="${RECOMMENDER_WORKERS:-2}" {{recommender_env}}
+    echo "Traces: {{phoenix_url}}, project {{recommender_project}}"
     uv run --quiet --extra server recommender serve --host 127.0.0.1 --port 8080
 
 # Serve the page on http://localhost:8000 against `just recommender-serve`, e.g. `just recommender-web me@student.uu.se`
