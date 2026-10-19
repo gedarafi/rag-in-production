@@ -34,11 +34,20 @@ runs:
     # Runs infra/scripts/local_flow.py with its inline dependencies (`uv run --script`).
     - uses: astral-sh/setup-uv@v7
 
+    # Hash the lock files now rather than with hashFiles() in the cache key: the cache's post step
+    # re-evaluates its key at job end, when hashFiles() walks the whole workspace and fails on the
+    # root-owned files LocalStack's RDS writes under infra/.localstack/.
+    - name: Hash provider lock files
+      id: locks
+      shell: bash
+      run: |
+        echo "hash=$(git ls-files -z -- 'infra/**/.terraform.lock.hcl' | sort -z | xargs -0 sha256sum | sha256sum | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
+
     - name: Cache provider plugins
       uses: actions/cache@v6
       with:
         path: ~/.terraform.d/plugin-cache
-        key: tofu-plugins-${{ runner.os }}-${{ hashFiles('infra/**/.terraform.lock.hcl') }}
+        key: tofu-plugins-${{ runner.os }}-${{ steps.locks.outputs.hash }}
 
     - name: Enable plugin cache
       shell: bash
