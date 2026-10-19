@@ -77,7 +77,7 @@ lint:
 
 # Delete the OpenTofu and Terragrunt caches and the Lambda build, as on a fresh checkout; the next init downloads the providers again
 clean:
-    find . \( -name .terragrunt-cache -o -name .terraform \) -type d -prune -exec rm -rf {} +
+    find . \( -name .localstack -o -name .ollama \) -prune -o \( -name .terragrunt-cache -o -name .terraform \) -type d -prune -exec rm -rf {} +
     rm -rf .build
 
 # Refresh the provider lock files for Linux, macOS and Windows
