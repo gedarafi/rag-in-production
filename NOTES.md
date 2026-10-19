@@ -23,9 +23,13 @@ EC2 on Demand t4g.medium
 # Next steps
 
 * Refactor app, change the way information is consume.
-* Move embeddings from S3,EC2 to Bedrock Titan embeddings.
-* Move index+text.md from EC2(memory) to pgvector.
+* Move embeddings from S3,EC2 to Amazon Bedrock Titan embeddings.
+* Move index+text.md from EC2(memory) to Amazon RDS for PostgreSQL with pgvector extension.
 * Move catalog.sqlite3 to postgres.
 * Move EC2 to Lambda streaming.
 
 Aprox 60 USD for 30 Users.
+
+# To research
+
+* Serverless postgresql - Neon.
