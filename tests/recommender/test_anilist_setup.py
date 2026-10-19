@@ -1,6 +1,7 @@
 import csv
 import io
 import json
+import os
 import tempfile
 import unittest
 import zipfile
@@ -93,6 +94,31 @@ class AniListSetupTests(unittest.TestCase):
         self.assertFalse(self.workspace.is_prepared())
         with self.assertRaisesRegex(RuntimeError, 'Run setup'):
             self.workspace.ask('Hello')
+
+    def test_copied_index_with_new_mtimes_stays_ready_and_refreshes_marker(self):
+        self.run_setup(self.source)
+        vectors = self.settings.index / 'vectors.npy'
+        os.utime(vectors, ns=(1, 1))
+        self.assertTrue(AniListWorkspace(self.settings).ready)
+        saved = json.loads(self.workspace.manifest.read_text(encoding='utf-8'))
+        self.assertEqual(saved['files']['data/index/anilist/vectors.npy']['mtime_ns'], 1)
+
+    def test_same_size_content_change_invalidates_readiness(self):
+        self.run_setup(self.source)
+        chunks = self.settings.index / 'chunks.json'
+        data = bytearray(chunks.read_bytes())
+        data[-2:-1] = b' ' if data[-2:-1] != b' ' else b'\t'
+        chunks.write_bytes(bytes(data))
+        self.assertFalse(AniListWorkspace(self.settings).ready)
+
+    def test_size_and_mtime_manifest_from_before_hashes_is_upgraded(self):
+        self.run_setup(self.source)
+        manifest = json.loads(self.workspace.manifest.read_text(encoding='utf-8'))
+        manifest['files'] = {name: [entry['size'], entry['mtime_ns']] for name, entry in manifest['files'].items()}
+        self.workspace.manifest.write_text(json.dumps(manifest), encoding='utf-8')
+        self.assertTrue(AniListWorkspace(self.settings).ready)
+        upgraded = json.loads(self.workspace.manifest.read_text(encoding='utf-8'))
+        self.assertTrue(all('sha256' in entry for entry in upgraded['files'].values()))
 
     def test_generation_settings_do_not_invalidate_existing_library(self):
         self.run_setup(self.source)

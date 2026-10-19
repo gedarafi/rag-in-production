@@ -24,6 +24,9 @@ def main() -> None:
     ask_parser.add_argument("--debug", action="store_true",
                             help="Print router plan, context choice, tool trace and timing to stderr "
                                  "(the stage-by-stage trace goes to Phoenix)")
+    setup_parser = subparsers.add_parser("setup", help="Build the AniList library once (what the GUI setup button does)")
+    setup_parser.add_argument("--source", type=Path, help="Local AniList CSV or ZIP instead of downloading it")
+    setup_parser.add_argument("--rebuild", action="store_true", help="Rebuild prepared data and indexes")
     tool_parser = subparsers.add_parser("tool", help="Run a local AniList catalog tool without an LLM")
     tool_parser.add_argument("tool", choices=("popular", "recommend", "title", "character"))
     tool_parser.add_argument("query", nargs="?", default="")
@@ -50,6 +53,9 @@ def main() -> None:
             options = {"spoiler_level": args.spoiler_level, "reviews": args.reviews} if args.command == "prepare-vndb" else {}
             count = prepare(load_settings(args.config).root, args.source, **options)
             print(f"Prepared {count} documents. Run recommender ingest --kb {args.command.removeprefix('prepare-')} to rebuild its index.")
+            return
+        if args.command == "setup":
+            setup(args.config, args.source, args.rebuild)
             return
         from .rag import RagPipeline
         if args.command == "ingest":
@@ -84,6 +90,22 @@ def main() -> None:
     except (OSError, RuntimeError, ValueError, KeyError) as error:
         print(f"Error: {error}", file=sys.stderr)
         raise SystemExit(1) from error
+
+
+def setup(config: str, source: Path | None, rebuild: bool) -> None:
+    """Run every AniList setup stage in the terminal; later launches reuse the result."""
+    from .anilist_setup import AniListWorkspace
+
+    workspace = AniListWorkspace(load_settings(config, "anilist"))
+    snapshot, printed = None, set()
+    for snapshot in workspace.setup(str(source) if source else None, rebuild, progress=TerminalProgress()):
+        for key, step in snapshot["steps"].items():
+            if step["status"] in ("completed", "error") and key not in printed:
+                printed.add(key)
+                print(f"{'✓' if step['status'] == 'completed' else '✕'} {step['label']}: {step['message']}", flush=True)
+    if snapshot is None or not snapshot["ready"]:
+        raise RuntimeError(snapshot["message"] if snapshot else "Setup did not run.")
+    print("Library ready. Start chatting with `just recommender-gui` or `just recommender-ask`.")
 
 
 def ask(pipeline, settings, question: str, debug: bool) -> None:

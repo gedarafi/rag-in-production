@@ -17,6 +17,8 @@ class AniListGuiTests(unittest.TestCase):
             self.assertFalse(any(c['type'] == 'dropdown' for c in components))
             send = next(c for c in components if c['type'] == 'button' and c['props'].get('value') == 'Send')
             self.assertFalse(send['props']['interactive'])
+            setup = next(c for c in components if c['type'] == 'accordion' and c['props'].get('label') == 'Library setup')
+            self.assertTrue(setup['props']['open'])
             self.assertEqual(config.read_bytes(), original)
             ask = next(f.fn for f in app.fns.values() if f.fn and f.fn.__name__ == 'ask_question')
             with patch('src.recommender.anilist_gui.print_debug'):
