@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import threading
 from copy import deepcopy
 from time import perf_counter
 
@@ -40,6 +41,9 @@ def build_app(config_path='settings.toml'):
     # This selection is explicit and does not change the multi-library app's default.
     settings = load_settings(config_path, 'anilist')
     workspace = AniListWorkspace(settings)
+    if workspace.ready:
+        # Load models and the catalog while the page opens, not on the first question.
+        threading.Thread(target=workspace.warm, daemon=True).start()
 
     def setup_workspace(source, rebuild, progress=gr.Progress()):
         terminal = TerminalProgress()
@@ -94,21 +98,23 @@ def build_app(config_path='settings.toml'):
         gr.Markdown('# AniList Library\nBuild your local anime library. Discover your next watch.', elem_id='anilist-header')
         with gr.Row():
             with gr.Column(scale=0, min_width=340, elem_id='setup-panel'):
-                gr.Markdown('### Library setup\nSet up once, then chat. Existing downloads and embedding caches are reused.')
-                steps = gr.Markdown(render_steps(workspace.snapshot()))
-                setup_status = gr.Markdown(workspace.message)
-                setup_button = gr.Button('Set up / resume', variant='primary')
-                with gr.Accordion('Setup options', open=False):
-                    source = gr.File(label='Optional local AniList CSV or ZIP', file_types=['.csv', '.zip'], type='filepath')
-                    rebuild = gr.Checkbox(label='Rebuild prepared data and indexes', value=False,
-                                          info='Reuses the raw dataset and cached embeddings. Starts a new chat.')
-                    gr.Markdown(f'**Chat model:** `{settings.llm}`\n\n**Embeddings:** `{settings.embedding}`\n\n'
-                                f'**Device:** `{settings.embedding_device}`\n\n'
-                                'Model and device settings come from your TOML configuration. '
-                                'Ollama must be installed and running. Setup downloads a missing chat model '
-                                'and the embedding model automatically.')
-                gr.Markdown('Dataset: the [AniList anime snapshot on Kaggle](https://www.kaggle.com/datasets/calebmwelsh/anilist-anime-dataset). '
-                            'If downloading fails, supply the CSV or ZIP above and retry.')
+                with gr.Accordion('Library setup', open=not workspace.ready):
+                    gr.Markdown('Set up once (here or with `just recommender-setup`), then chat. '
+                                'Existing downloads and embedding caches are reused.')
+                    steps = gr.Markdown(render_steps(workspace.snapshot()))
+                    setup_status = gr.Markdown(workspace.message)
+                    setup_button = gr.Button('Set up / resume', variant='primary')
+                    with gr.Accordion('Setup options', open=False):
+                        source = gr.File(label='Optional local AniList CSV or ZIP', file_types=['.csv', '.zip'], type='filepath')
+                        rebuild = gr.Checkbox(label='Rebuild prepared data and indexes', value=False,
+                                              info='Reuses the raw dataset and cached embeddings. Starts a new chat.')
+                        gr.Markdown(f'**Chat model:** `{settings.llm}`\n\n**Embeddings:** `{settings.embedding}`\n\n'
+                                    f'**Device:** `{settings.embedding_device}`\n\n'
+                                    'Model and device settings come from your TOML configuration. '
+                                    'Ollama must be installed and running. Setup downloads a missing chat model '
+                                    'and the embedding model automatically.')
+                    gr.Markdown('Dataset: the [AniList anime snapshot on Kaggle](https://www.kaggle.com/datasets/calebmwelsh/anilist-anime-dataset). '
+                                'If downloading fails, supply the CSV or ZIP above and retry.')
             with gr.Column(scale=1, min_width=360):
                 with gr.Row():
                     gr.Markdown('### Ask your anime library', scale=1)

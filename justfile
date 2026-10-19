@@ -73,6 +73,11 @@ recommender-ask question *args: phoenix-up _ollama-check
     {{recommender_env}} uv run recommender ask {{quote(question)}} --kb anilist {{args}}
     @echo "See the trace at {{phoenix_url}}, project {{recommender_project}}"
 
+# Build the AniList library once (dataset, SQL catalog, embeddings); later GUI/ask runs reuse it. Pass --rebuild to redo it
+[working-directory: '..']
+recommender-setup *args: _ollama-check
+    uv run recommender setup {{args}}
+
 # Chat with the recommender in its GUI (http://127.0.0.1:7861), every question traced in Phoenix
 [working-directory: '..']
 recommender-gui *args: phoenix-up _ollama-check

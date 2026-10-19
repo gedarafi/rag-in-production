@@ -41,29 +41,82 @@ class AniListWorkspace:
         self.steps = {key: {'label': label, 'status': 'ready' if self.ready else 'pending',
                             'message': '', 'elapsed_seconds': None} for key, label in STEPS}
         self.inspect_existing()
-        self.message = 'Workspace prepared. You can chat or run setup to verify it again.' if self.ready else 'Run setup to prepare your AniList library.'
+        self.message = 'Workspace prepared. You can chat or run setup to verify it again.' if self.ready else 'Run setup (or `just recommender-setup`) to prepare your AniList library.'
 
-    def signature(self):
+    def signature(self, known=None):
+        """Settings plus each index file's size, mtime and content hash.
+
+        Hashes from ``known`` (a saved signature) are reused while size and mtime
+        still match, so only copied or restored files are hashed again.
+        """
         s = self.settings
         paths = [s.documents / 'catalog.jsonl', s.index / 'vectors.npy', s.index / 'chunks.json']
+        known = (known or {}).get('files', {}) if isinstance(known, dict) else {}
+        files = {}
+        for p in paths:
+            name, stat = str(p.relative_to(s.root)), p.stat()
+            saved = known.get(name)
+            if (isinstance(saved, dict) and saved.get('sha256')
+                    and [saved.get('size'), saved.get('mtime_ns')] == [stat.st_size, stat.st_mtime_ns]):
+                digest = saved['sha256']
+            else:
+                with p.open('rb') as file:
+                    digest = hashlib.file_digest(file, 'sha256').hexdigest()
+            files[name] = {'size': stat.st_size, 'mtime_ns': stat.st_mtime_ns, 'sha256': digest}
         return {'version': 1, 'sql_schema': SCHEMA_VERSION, 'embedding': s.embedding,
                 'embedding_cache_version': s.embedding_cache_version,
-                'chunk_size': s.chunk_size, 'chunk_overlap': s.chunk_overlap,
-                'files': {str(p.relative_to(s.root)): [p.stat().st_size, p.stat().st_mtime_ns] for p in paths}}
+                'chunk_size': s.chunk_size, 'chunk_overlap': s.chunk_overlap, 'files': files}
+
+    def matches(self, saved):
+        """Compare a saved signature by content; mtimes only skip rehashing.
+
+        Returns the current signature on a match (so callers can refresh stale
+        mtimes in the marker) and None otherwise.
+        """
+        if not isinstance(saved, dict) or not isinstance(saved.get('files'), dict):
+            return None
+        # Older manifests included generation settings. Neither changes the
+        # local catalog or embedding index; connection errors surface at chat.
+        saved = {k: v for k, v in saved.items() if k not in ('llm', 'ollama_url')}
+        s = self.settings
+        for name, entry in saved['files'].items():
+            # Before content hashes, files were recorded as [size, mtime_ns].
+            if isinstance(entry, list) and entry != [(s.root / name).stat().st_size,
+                                                     (s.root / name).stat().st_mtime_ns]:
+                return None
+            if isinstance(entry, dict) and entry.get('size') != (s.root / name).stat().st_size:
+                return None
+        current = self.signature(saved)
+        settings = lambda sig: {k: v for k, v in sig.items() if k != 'files'}
+        if settings(saved) != settings(current) or set(saved['files']) != set(current['files']):
+            return None
+        for name, entry in saved['files'].items():
+            if isinstance(entry, dict) and entry.get('sha256') != current['files'][name]['sha256']:
+                return None
+        return current
+
+    def write_marker(self, target, signature):
+        target.parent.mkdir(parents=True, exist_ok=True)
+        temporary = target.with_suffix('.json.tmp')
+        temporary.write_text(json.dumps(signature, indent=2), encoding='utf-8')
+        temporary.replace(target)
 
     def is_prepared(self):
         try:
             required = [self.settings.documents / 'catalog.sqlite3',
                         self.settings.index / 'entity-tools.sqlite3', self.settings.index / 'entity-features.sqlite3']
-            saved = json.loads(self.manifest.read_text(encoding='utf-8'))
-            # Older manifests included generation settings. Neither changes the
-            # local catalog or embedding index; connection errors surface at chat.
-            if not isinstance(saved, dict):
+            if not all(p.is_file() and p.stat().st_size for p in required):
                 return False
-            saved = {k: v for k, v in saved.items() if k not in ('llm', 'ollama_url')}
-            return (all(p.is_file() and p.stat().st_size for p in required)
-                    and saved == self.signature())
-        except (OSError, ValueError, KeyError):
+            saved = json.loads(self.manifest.read_text(encoding='utf-8'))
+            current = self.matches(saved)
+            if current is None:
+                return False
+            # Same content but copied/restored files (new mtimes) or an older
+            # manifest format: refresh the marker so the next launch is instant.
+            if current['files'] != saved['files']:
+                self.write_marker(self.manifest, current)
+            return True
+        except (OSError, ValueError, KeyError, TypeError, AttributeError):
             return False
 
     def snapshot(self):
@@ -87,9 +140,14 @@ class AniListWorkspace:
     def save_index_checkpoint(self):
         """Keep index provenance even if a later setup stage is interrupted."""
         target = self.settings.index / 'embedding-state.json'
-        temporary = target.with_suffix('.json.tmp')
-        temporary.write_text(json.dumps(self.signature()), encoding='utf-8')
-        temporary.replace(target)
+        known = None
+        for path in (target, self.manifest):
+            try:
+                known = json.loads(path.read_text(encoding='utf-8'))
+                break
+            except (OSError, ValueError):
+                pass
+        self.write_marker(target, self.signature(known))
 
     def reusable_index(self):
         """Validate the index independently of the final setup-ready marker."""
@@ -105,14 +163,11 @@ class AniListWorkspace:
             if any(not np.isfinite(vectors[start:start + 8192]).all()
                    for start in range(0, len(vectors), 8192)):
                 return False
-            signature = self.signature()
             # A successful embedding stage is reusable even if tools/verification
             # never finished and the final ready marker was deliberately removed.
             for path in (s.index / 'embedding-state.json', self.manifest):
                 try:
-                    saved = json.loads(path.read_text(encoding='utf-8'))
-                    saved = {k: v for k, v in saved.items() if k not in ('llm', 'ollama_url')}
-                    if saved == signature:
+                    if self.matches(json.loads(path.read_text(encoding='utf-8'))):
                         return True
                 except (OSError, ValueError, AttributeError):
                     pass
@@ -298,10 +353,11 @@ class AniListWorkspace:
                         message = 'Tool guides and genre/tag embeddings are warm; SQL search is ready.'
                     else:
                         message = self.verify()
-                        self.manifest.parent.mkdir(parents=True, exist_ok=True)
-                        temporary = self.manifest.with_suffix('.json.tmp')
-                        temporary.write_text(json.dumps(self.signature(), indent=2), encoding='utf-8')
-                        temporary.replace(self.manifest)
+                        try:
+                            known = json.loads((self.settings.index / 'embedding-state.json').read_text(encoding='utf-8'))
+                        except (OSError, ValueError):
+                            known = None
+                        self.write_marker(self.manifest, self.signature(known))
                         if not self.is_prepared():
                             self.manifest.unlink(missing_ok=True)
                             raise RuntimeError('Setup artifacts are incomplete. Retry setup to finish building them.')
@@ -316,6 +372,13 @@ class AniListWorkspace:
                     return
         finally:
             self.lock.release()
+
+    def warm(self):
+        """Load the pipeline of a prepared workspace before the first question."""
+        with self.lock:
+            if self.ready and self.pipeline is None:
+                self.pipeline = RagPipeline(self.settings)
+                self.pipeline.anime_tools()
 
     def ask(self, question, history=None):
         with self.lock:
