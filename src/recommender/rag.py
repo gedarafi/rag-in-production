@@ -9,7 +9,7 @@ import numpy as np
 from .config import Settings
 from .documents import Chunk, load_chunks
 from .providers import LocalModels
-from ..local.tracing import setup_tracing, tracer
+from ..tracing import annotate, setup_tracing, stage, trace_id, tracer
 from .progress import Progress
 from .embedding_cache import cached_embed
 from .anime_tools import AnimeTools, normalize, contains
@@ -18,10 +18,24 @@ from .semantic_router import SemanticRouter, RoutingPlanError
 from .entity_agent import EntityAgent, strip_source_citations, timed_stage
 
 
+def retrieval_attributes(chunks: list[Chunk], scores: list[float] | None = None) -> dict:
+    """OpenInference retrieval.documents.* attributes, so Phoenix lists the retrieved chunks."""
+    attributes = {}
+    for i, chunk in enumerate(chunks):
+        prefix = f"retrieval.documents.{i}.document."
+        attributes[prefix + "id"] = f"{chunk.source}#{chunk.entity_type or 'text'}"
+        attributes[prefix + "content"] = chunk.text[:2000]
+        attributes[prefix + "metadata"] = json.dumps({k: v for k, v in (("source", chunk.source), ("anime_id", chunk.anime_id),
+                                                     ("entity_type", chunk.entity_type), ("character_id", chunk.character_id)) if v})
+        if scores and i < len(scores):
+            attributes[prefix + "score"] = scores[i]
+    return attributes
+
+
 class RagPipeline:
     def __init__(self, settings: Settings) -> None:
         self.settings = settings
-        setup_tracing(settings)
+        setup_tracing(settings.tracing_endpoint, settings.tracing_project)
         self._models = None
 
     @property
@@ -125,23 +139,26 @@ class RagPipeline:
                 break
         return list(reversed(recent))
 
-    @tracer.chain
-    def ask(self, question: str, history: list[dict] | None = None, *, debug=None) -> str:
+    @tracer.chain(name="recommender.ask")
+    def ask(self, question: str, history: list[dict] | None = None) -> str:
         self.last_route = {}
+        # Where to find this answer in Phoenix; "" when nothing records spans.
+        self.last_trace_id = trace_id()
         history = self.recent_history(history)
-        with timed_stage({}, 'load_catalog', debug):
+        annotate(**{"recommender.history_messages": len(history)})
+        with timed_stage({}, 'load_catalog'):
             catalog = self.anime_tools()
         if catalog:
             if getattr(self, '_agent', None) is None:
-                with timed_stage({}, 'initialize_agent', debug):
+                with timed_stage({}, 'initialize_agent'):
                     self._agent = EntityAgent(self.settings, self.models, catalog, self.vector_search)
             try:
-                reply = self._agent.answer(question, history, **({'debug': debug} if debug else {}))
+                reply = self._agent.answer(question, history)
             finally:
                 self.last_route = {'agent_trace': getattr(self._agent, 'last_trace', []),
                                    **getattr(self._agent, 'last_usage', {})}
             return strip_source_citations(reply)
-        with timed_stage({}, 'retrieval_and_answer', debug):
+        with timed_stage({}, 'retrieval_and_answer'):
             return strip_source_citations(self._ask_retrieval(question, history))
 
     def _ask_retrieval(self, question: str, history: list[dict] | None = None) -> str:
@@ -292,8 +309,14 @@ class RagPipeline:
         words = set(normalize(" ".join(c.text for c in passages)).split())
         return not topical or len(topical & words) / len(topical) >= .5
 
-    @tracer.retriever
     def vector_search(self, query: str, matches: list[dict]) -> list[Chunk]:
+        """Top chunks by cosine similarity, within matches' anime when given; a RETRIEVER span."""
+        with stage("vector_search", "retriever", **{"input.value": query}) as span:
+            found, scores = self._vector_search(query, matches)
+            span.set_attributes(retrieval_attributes(found, scores))
+            return found
+
+    def _vector_search(self, query: str, matches: list[dict]) -> tuple[list[Chunk], list[float]]:
         vectors_path = self.settings.index / "vectors.npy"
         chunks_path = self.settings.index / "chunks.json"
         if not vectors_path.exists() or not chunks_path.exists():
@@ -307,8 +330,9 @@ class RagPipeline:
         indices = np.array([i for i, c in enumerate(self._chunks) if not allowed or
                             c.anime_id in allowed or c.source in sources], dtype=int)
         if not len(indices):
-            return []
-        embedding = self.models.embed([query])[0]
+            return [], []
+        with stage("embed_query", "embedding", **{"embedding.model_name": self.settings.embedding}):
+            embedding = self.models.embed([query])[0]
         # Score in blocks so selecting a knowledge base does not copy a large
         # memory-mapped matrix into RAM on every detailed question.
         scores = np.empty(len(indices), dtype=np.float32)
@@ -320,7 +344,7 @@ class RagPipeline:
         finally:
             vectors._mmap.close()
         selected = np.argsort(scores)[-self.settings.top_k:][::-1]
-        return [self._chunks[indices[i]] for i in selected]
+        return [self._chunks[indices[i]] for i in selected], [float(scores[i]) for i in selected]
 
     @staticmethod
     def fuse(*rankings: list[Chunk]) -> list[Chunk]:

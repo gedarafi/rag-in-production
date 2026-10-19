@@ -61,6 +61,34 @@ phoenix-down:
 phoenix-logs *args="-f":
     {{compose}} logs {{args}} phoenix
 
+# --- Anime recommender (local Ollama, traced in Phoenix) ---
+
+phoenix_url := env("PHOENIX_URL", "http://localhost:6006")
+recommender_project := env("RAG_PHOENIX_PROJECT", "recommender")
+recommender_env := "RAG_PHOENIX_ENDPOINT=" + phoenix_url + "/v1/traces RAG_PHOENIX_PROJECT=" + recommender_project
+
+# Ask the recommender one question and trace it in Phoenix, e.g. `just recommender-ask "Who is Subaru?" --debug`
+[working-directory: '..']
+recommender-ask question *args: phoenix-up _ollama-check
+    {{recommender_env}} uv run recommender ask {{quote(question)}} --kb anilist {{args}}
+    @echo "See the trace at {{phoenix_url}}, project {{recommender_project}}"
+
+# Chat with the recommender in its GUI (http://127.0.0.1:7861), every question traced in Phoenix
+[working-directory: '..']
+recommender-gui *args: phoenix-up _ollama-check
+    @echo "Traces: {{phoenix_url}}, project {{recommender_project}}"
+    {{recommender_env}} uv run anilist-gui {{args}}
+
+# Fail early when Ollama is down or the model in settings.toml isn't pulled
+[working-directory: '..']
+_ollama-check:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    url=$(sed -n 's/^ollama_url = "\(.*\)"/\1/p' settings.toml)
+    model=$(sed -n 's/^llm = "\(.*\)"/\1/p' settings.toml)
+    tags=$(curl -sf "$url/api/tags") || { echo "Ollama is not reachable at $url: start it with 'ollama serve'." >&2; exit 1; }
+    grep -q "\"$model\"" <<<"$tags" || { echo "Ollama has no $model: run 'ollama pull $model'." >&2; exit 1; }
+
 # --- OpenTofu / Terragrunt ---
 
 # Format all OpenTofu and Terragrunt files

@@ -88,20 +88,21 @@ def build_app(config_path: str = "settings.toml") -> gr.Blocks:
         started = perf_counter()
         try:
             pipeline = get_pipeline(knowledge_base)
-            reply = pipeline.ask(question.strip(), history=previous_history,
-                                 debug=lambda event: print_debug({**pending, **event}))
+            reply = pipeline.ask(question.strip(), history=previous_history)
             if not reply.strip():
                 raise RuntimeError("The model returned an empty answer. Try asking again.")
             history[-1] = {"role": "assistant", "content": reply}
             debug = {**pending, 'status': 'completed', **deepcopy(getattr(pipeline, 'last_route', {}))}
             debug['elapsed_seconds'] = round(perf_counter() - started, 6)
+            debug['trace_id'] = getattr(pipeline, 'last_trace_id', '')
             print_debug({**pending, 'status': 'completed', 'elapsed_seconds': debug['elapsed_seconds'],
-                         'llm_calls': debug.get('llm_calls')})
+                         'llm_calls': debug.get('llm_calls'), 'trace_id': debug['trace_id']})
             yield history, "", "Ready.", debug, gr.update(value=debug)
         except (OSError, RuntimeError, ValueError) as error:
             history[-1] = {"role": "assistant", "content": f"Unable to answer: {error}"}
             debug = {**pending, 'status': 'error', 'error': str(error), **deepcopy(getattr(pipeline, 'last_route', {}))}
             debug['elapsed_seconds'] = round(perf_counter() - started, 6)
+            debug['trace_id'] = getattr(pipeline, 'last_trace_id', '')
             print_debug(debug)
             yield history, "", "Unable to answer. See the message above.", debug, gr.update(value=debug)
 

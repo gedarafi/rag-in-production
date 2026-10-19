@@ -57,18 +57,13 @@ class GuiDebugTests(unittest.TestCase):
         self.assertIn('"status": "completed"', output)
         self.assertIn('"llm_calls": 2', output)
 
-    def test_progress_is_printed_before_answer_returns(self):
+    def test_snapshot_names_the_phoenix_trace(self):
+        self.pipeline.last_trace_id = 'a' * 32
         terminal = io.StringIO()
-        def answer(*args, debug, **kwargs):
-            debug({'stage': 'planning', 'status': 'completed', 'elapsed_seconds': 1.25})
-            self.assertIn('"stage": "planning"', terminal.getvalue())
-            self.assertNotIn('"llm_calls": 2', terminal.getvalue())
-            return 'A natural answer.'
-        self.pipeline.ask = answer
         with redirect_stderr(terminal):
-            list(self.ask('A question', [], 'anilist', {}))
-        self.assertIn('"llm_calls": 2', terminal.getvalue())
-
+            result = list(self.ask('A question', [], 'anilist', {}))[-1]
+        self.assertEqual(result[3]['trace_id'], 'a' * 32)
+        self.assertIn('"trace_id": "' + 'a' * 32, terminal.getvalue())
 
 if __name__ == '__main__':
     unittest.main()

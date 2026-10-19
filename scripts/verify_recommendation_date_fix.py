@@ -8,6 +8,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from src.recommender.config import load_settings
+from src.recommender.evaluation_runtime import traced_asker
 from src.recommender.rag import RagPipeline
 from src.recommender.recommendation_evaluation import VERSION, evaluate_question, extract_titles, load_dataset, save_results
 
@@ -35,7 +36,7 @@ def main():
         pipeline._agent = None
         events = []
         print(q['question_id'], q['question'], flush=True)
-        row = evaluate_question(q, lambda text: pipeline.ask(text, history=[], debug=events.append),
+        row = evaluate_question(q, traced_asker(pipeline, events),
                                 lambda q, a: extract_titles(q, a, url=settings.ollama_url, model=settings.llm), catalog)
         row.update(debug_events=events, rag_usage=pipeline.last_route)
         (output / (q['question_id'] + '.json')).write_text(json.dumps(row, indent=2, ensure_ascii=False, default=str), encoding='utf-8')
