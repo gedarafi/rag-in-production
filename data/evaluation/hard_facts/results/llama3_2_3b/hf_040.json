@@ -1,0 +1,397 @@
+{
+  "question_id": "hf_040",
+  "anime_id": "105333",
+  "title": "Dr. STONE",
+  "field": "episodes",
+  "question": "What's the episode total for Dr. STONE season one?",
+  "expected_values": [
+    24.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Episode total for Dr. STONE season one: 24 episodes.",
+  "extracted_values": [
+    "24"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 11.317613375000292,
+  "extraction_seconds": 0.5085487500000454,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "24",
+        "quote": "Episode total for Dr. STONE season one: 24 episodes."
+      }
+    ],
+    "note": "units: episodes",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "105333",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "105333",
+          "title": "Dr. STONE"
+        },
+        "elapsed_seconds": 0.016995
+      },
+      {
+        "step": 1,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "105333",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "105333",
+          "title": "Dr. STONE"
+        },
+        "elapsed_seconds": 0.000152
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 4.071654,
+      "prepare_context": 0.020692,
+      "retrieve_guides": 0.027644,
+      "feature_candidates": 0.014722,
+      "planning": 4.11304,
+      "tools": 0.017147,
+      "generate_answer": 3.050156
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Dr. STONE\", \"query\": \"Dr. STONE season 1\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Episode count for season 1\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Dr. STONE",
+        "query": "Dr. STONE season 1",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Episode count for season 1"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"What is the episode total for Dr. STONE season one?\", \"decisions\": {\"p0\": {\"meaning\": \"Episode count for season 1\", \"role\": \"subject\", \"selection\": \"Dr. STONE | anime:105333\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "105333",
+          "role": "subject",
+          "text": "Dr. STONE",
+          "name": "Dr. STONE",
+          "meaning": "Episode count for season 1"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "105333",
+          "role": "subject",
+          "text": "Dr. STONE",
+          "name": "Dr. STONE",
+          "meaning": "Episode count for season 1"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Dr. STONE"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "105333",
+            "role": "subject",
+            "text": "Dr. STONE",
+            "name": "Dr. STONE",
+            "meaning": "Episode count for season 1"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "105333",
+            "role": "subject",
+            "text": "Dr. STONE",
+            "name": "Dr. STONE",
+            "meaning": "Episode count for season 1"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Get episode total for Dr. STONE season one",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "105333",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "105333",
+            "section": "overview"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "105333",
+          "name": "Dr. STONE"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:105333",
+          "fact": "episodes"
+        }
+      ],
+      "calculations": [
+        {
+          "expression": "q0",
+          "value": "24",
+          "unit": "episodes"
+        }
+      ]
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.1e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000788
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.071654
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.020692
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.027644
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014722
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.11304
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Get episode total for Dr. STONE season one",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "105333",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "105333",
+              "section": "overview"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "105333",
+            "name": "Dr. STONE"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "105333",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.016995,
+      "arguments": {
+        "id": "105333",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "105333",
+        "title": "Dr. STONE"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "105333",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000152,
+      "arguments": {
+        "id": "105333",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "105333",
+        "title": "Dr. STONE"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.050156
+    }
+  ]
+}

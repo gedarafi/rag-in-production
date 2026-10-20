@@ -1,0 +1,756 @@
+{
+  "question_id": "found_family_01",
+  "category": "tags",
+  "intent_family": "found_family",
+  "wording": "explicit",
+  "question_origin": "authored_naturalistic",
+  "question": "Recommend three anime with a found family theme.",
+  "k": 3,
+  "constraints": [
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Found Family"
+      ],
+      "alternatives": [
+        {
+          "reason": "Adoption directly supports unrelated people becoming a family; Ensemble Cast by itself does not.",
+          "constraints": [
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Adoption"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "Unrelated people forming a family-like bond map to Found Family.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 470,
+  "reference_examples": [
+    {
+      "id": "10162",
+      "title": "Bunny Drop"
+    },
+    {
+      "id": "107956",
+      "title": "If It's for My Daughter, I'd Even Defeat a Demon Lord"
+    },
+    {
+      "id": "108617",
+      "title": "Somali and the Forest Spirit"
+    }
+  ],
+  "answer_text": "Catalog matches — Found Family.\n\n1. **ONE PIECE** — Gold Roger was known as the Pirate King, the strongest and most infamous being to have sailed the Grand Line. The capture and death of Roger by the World Government brought a change throughout the world. His last words before his death revealed the location of the greatest treasure in the world, One Piece. It was this revelation that brought about the Grand Age of Pirates, men who dreamed of finding One Piece (which promises an unlimited amount…\n\n2. **Naruto** — Naruto Uzumaki, a hyperactive and knuckle-headed ninja, lives in Konohagakure, the Hidden Leaf village. Moments prior to his birth, a huge demon known as the Kyuubi, the Nine-tailed Fox, attacked Konohagakure and wreaked havoc. In order to put an end to the Kyuubi's rampage, the leader of the village, the 4th Hokage, sacrificed his life and sealed the monstrous beast inside the newborn Naruto. Shunned because of the presence of the Kyuubi inside…\n\n3. **Sword Art Online** — In the near future, a Virtual Reality Massive Multiplayer Online Role-Playing Game (VRMMORPG) called Sword Art Online has been released where players control their avatars with their bodies using a piece of technology called Nerve Gear. One day, players discover they cannot log out, as the game creator is holding them captive unless they reach the 100th floor of the game's tower and defeat the final boss. However, if they die in the game, they…\n\n4. **Chainsaw Man** — Denji is a teenage boy living with a Chainsaw Devil named Pochita. Due to the debt his father left behind, he has been living a rock-bottom life while repaying his debt by harvesting devil corpses with Pochita. One day, Denji is betrayed and killed. As his consciousness fades, he makes a contract with Pochita and gets revived as \"Chainsaw Man\" — a man with a devil's heart. (Source: Crunchyroll)\n\n5. **The Promised Neverland** — Emma, Norman and Ray are the brightest kids at the Grace Field House orphanage. And under the care of the woman they refer to as “Mom,” all the kids have enjoyed a comfortable life. Good food, clean clothes and the perfect environment to learn—what more could an orphan ask for? One day, though, Emma and Norman uncover the dark truth of the outside world they are forbidden from seeing. (Source: VIZ Media)",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "ONE PIECE",
+      "Naruto",
+      "Sword Art Online",
+      "Chainsaw Man",
+      "The Promised Neverland"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "ONE PIECE",
+      "anime_id": "21",
+      "canonical_title": "ONE PIECE",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.88
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.88,
+          "met": true,
+          "literal_score": 0.88,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.88,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Adoption directly supports unrelated people becoming a family; Ensemble Cast by itself does not.",
+              "score": 0.52,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Adoption"
+                    ]
+                  },
+                  "score": 0.52
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.88,
+      "gain": 0.88,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Naruto",
+      "anime_id": "20",
+      "canonical_title": "Naruto",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.8
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.8,
+          "met": true,
+          "literal_score": 0.8,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.8,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Adoption directly supports unrelated people becoming a family; Ensemble Cast by itself does not.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Adoption"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.8,
+      "gain": 0.8,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Sword Art Online",
+      "anime_id": "11757",
+      "canonical_title": "Sword Art Online",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "11757"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.6
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.6,
+          "met": true,
+          "literal_score": 0.6,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.6,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Adoption directly supports unrelated people becoming a family; Ensemble Cast by itself does not.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Adoption"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.6,
+      "gain": 0.6,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Chainsaw Man",
+      "anime_id": "127230",
+      "canonical_title": "Chainsaw Man",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "127230"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.7
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.7,
+          "met": true,
+          "literal_score": 0.7,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.7,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Adoption directly supports unrelated people becoming a family; Ensemble Cast by itself does not.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Adoption"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.7,
+      "gain": 0.7,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 5,
+      "extracted_title": "The Promised Neverland",
+      "anime_id": "101759",
+      "canonical_title": "The Promised Neverland",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "101759"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.83
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.83,
+          "met": true,
+          "literal_score": 0.83,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.83,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Adoption directly supports unrelated people becoming a family; Ensemble Cast by itself does not.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Adoption"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.83,
+      "gain": 0.83,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 1.0,
+    "graded_fit_at_k": 0.7600000000000001,
+    "ndcg_at_k": 0.7906144254795447,
+    "constraint_coverage": 1.0,
+    "count_compliance": 0,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "extra_count": 2,
+    "literal_precision_at_k": 1.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 12.233288458000061,
+  "extraction_seconds": 1.357879457999843,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.5e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000774
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 5.61625
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.002583
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.011382
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.019781
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 5.743764
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "tags",
+                  "operator": "eq",
+                  "value": "Found Family"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Found Family"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.83632,
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Found Family"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Found Family"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Found Family",
+              "source_text": "Recommend three anime with a found family theme.",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "21",
+            "title": "ONE PIECE",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Found Family'}]"
+          },
+          {
+            "id": "20",
+            "title": "Naruto",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Found Family'}]"
+          },
+          {
+            "id": "11757",
+            "title": "Sword Art Online",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Found Family'}]"
+          },
+          {
+            "id": "127230",
+            "title": "Chainsaw Man",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Found Family'}]"
+          },
+          {
+            "id": "101759",
+            "title": "The Promised Neverland",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Found Family'}]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000349
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Found Family"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Found Family"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Found Family",
+                "source_text": "Recommend three anime with a found family theme.",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "21",
+              "title": "ONE PIECE",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Found Family'}]"
+            },
+            {
+              "id": "20",
+              "title": "Naruto",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Found Family'}]"
+            },
+            {
+              "id": "11757",
+              "title": "Sword Art Online",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Found Family'}]"
+            },
+            {
+              "id": "127230",
+              "title": "Chainsaw Man",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Found Family'}]"
+            },
+            {
+              "id": "101759",
+              "title": "The Promised Neverland",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Found Family'}]"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.83632
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 5.61625,
+      "prepare_context": 0.002583,
+      "retrieve_guides": 0.011382,
+      "feature_candidates": 0.019781,
+      "planning": 5.743764,
+      "tools": 0.83632,
+      "generate_answer": 0.000349
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"found family\", \"query\": \"found family\", \"kind\": \"tag\", \"role\": \"required\", \"meaning\": \"Desired theme\"}]}",
+      "{\"role\": \"required\"}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "found family",
+        "query": "found family",
+        "kind": "tag",
+        "role": "required",
+        "meaning": "Desired theme"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify which anime you would like recommendations for.\", \"decisions\": {\"p0\": {\"meaning\": \"found family\", \"role\": \"required\", \"selection\": \"Found Family | tag:found family\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "tag",
+          "id": "found family",
+          "role": "required",
+          "text": "found family",
+          "name": "Found Family",
+          "meaning": "found family"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [
+        "found family"
+      ],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "tags",
+          "operator": "eq",
+          "value": "Found Family"
+        }
+      ],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "tags",
+          "operator": "eq",
+          "value": "Found Family",
+          "source_text": "Recommend three anime with a found family theme.",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "found family",
+          "candidate": {
+            "field": "tags",
+            "value": "Found Family",
+            "meaning": "Found Family"
+          },
+          "role": "required",
+          "mapping": "exact"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "tag",
+            "id": "found family",
+            "role": "required",
+            "text": "found family",
+            "name": "Found Family",
+            "meaning": "found family"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Found Family"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

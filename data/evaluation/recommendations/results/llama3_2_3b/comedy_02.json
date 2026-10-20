@@ -1,0 +1,827 @@
+{
+  "question_id": "comedy_02",
+  "category": "genres",
+  "intent_family": "comedy",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "What are four anime where making the audience laugh is the main point?",
+  "k": 4,
+  "constraints": [
+    {
+      "field": "genres",
+      "op": "any",
+      "value": [
+        "Comedy"
+      ],
+      "alternatives": [
+        {
+          "reason": "Prominent slapstick, surreal comedy, or parody supports a general request for funny viewing without requiring the broad Comedy genre.",
+          "constraints": [
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Slapstick",
+                "Surreal Comedy",
+                "Parody"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "The broad request to laugh maps to Comedy rather than a specific joke style.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 7022,
+  "reference_examples": [
+    {
+      "id": "100",
+      "title": "Prétear: The New Legend of Snow White"
+    },
+    {
+      "id": "10000",
+      "title": "Esper Mami Special: My Angel Mami-chan"
+    },
+    {
+      "id": "100009",
+      "title": "Space Battleship Tiramisu"
+    }
+  ],
+  "answer_text": "Catalog matches. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **One-Punch Man** — Saitama has a rather peculiar hobby, being a superhero, but despite his heroic deeds and superhuman abilities, a shadow looms over his life. He's become much too powerful, to the point that every opponent ends up defeated with a single punch. The lack of challenge has driven him into a state of apathy, as he watches his life pass by having lost all enthusiasm, at least until he's unwillingly thrust in the role of being a mentor to the young and…\n\n2. **No Game, No Life** — Bored with life and considering the real world to be just a “crappy game,” savvy sibling shut-ins Sora and Shiro have withdrawn into their own fantasy world filled with video games. However, one day they find themselves summoned to another world by a boy who calls himself “God,” their abilities are about to be put to the ultimate test! Now not only their fates — but the fate of all of humanity — will be decided by a series of games that may just…\n\n3. **A Silent Voice** — After transferring into a new school, a deaf girl, Shouko Nishimiya, is bullied by the popular Shouya Ishida. As Shouya continues to bully Shouko, the class turns its back on him. Shouko transfers and Shouya grows up as an outcast. Alone and depressed, the regretful Shouya finds Shouko to make amends. (Source: Eleven Arts)\n\n4. **Kaguya-sama: Love is War** — Known for being both brilliant and powerful, Miyuki Shirogane and Kaguya Shinomiya lead the illustrious Shuchiin Academy as near equals. And everyone thinks they’d make a great couple. Pride and arrogance are in ample supply, so the only logical move is to trick the other into instigating a date! Who will come out on top in this psychological war where the first move is the only one that matters? (Source: Aniplex)\n\n5. **My Hero Academia Season 3** — Summer is here, and the heroes of Class 1-A and 1-B are in for the toughest training camp of their lives! A group of seasoned pros pushes everyone's Quirks to new heights as the students face one overwhelming challenge after another. Braving the elements in this secret location becomes the least of their worries when routine training turns into a critical struggle for survival. (Source: Crunchyroll)",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "One-Punch Man",
+      "No Game, No Life",
+      "A Silent Voice",
+      "Kaguya-sama: Love is War",
+      "My Hero Academia Season 3"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "One-Punch Man",
+      "anime_id": "21087",
+      "canonical_title": "One-Punch Man",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21087"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Prominent slapstick, surreal comedy, or parody supports a general request for funny viewing without requiring the broad Comedy genre.",
+              "score": 0.91,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Slapstick",
+                      "Surreal Comedy",
+                      "Parody"
+                    ]
+                  },
+                  "score": 0.91
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 2,
+      "extracted_title": "No Game, No Life",
+      "anime_id": "19815",
+      "canonical_title": "No Game, No Life",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "19815"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Prominent slapstick, surreal comedy, or parody supports a general request for funny viewing without requiring the broad Comedy genre.",
+              "score": 0.68,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Slapstick",
+                      "Surreal Comedy",
+                      "Parody"
+                    ]
+                  },
+                  "score": 0.68
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 3,
+      "extracted_title": "A Silent Voice",
+      "anime_id": "20954",
+      "canonical_title": "A Silent Voice",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20954"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Prominent slapstick, surreal comedy, or parody supports a general request for funny viewing without requiring the broad Comedy genre.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Slapstick",
+                      "Surreal Comedy",
+                      "Parody"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Kaguya-sama: Love is War",
+      "anime_id": null,
+      "canonical_title": null,
+      "resolution": "ambiguous",
+      "candidate_ids": [
+        "101921",
+        "112641"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 5,
+      "extracted_title": "My Hero Academia Season 3",
+      "anime_id": "100166",
+      "canonical_title": "My Hero Academia Season 3",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "100166"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Prominent slapstick, surreal comedy, or parody supports a general request for funny viewing without requiring the broad Comedy genre.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Slapstick",
+                      "Surreal Comedy",
+                      "Parody"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.5,
+    "graded_fit_at_k": 0.5,
+    "ndcg_at_k": 0.6366824387328317,
+    "constraint_coverage": 1.0,
+    "count_compliance": 0,
+    "resolution_rate": 0.8,
+    "duplicate_rate": 0.0,
+    "extra_count": 1,
+    "literal_precision_at_k": 0.5,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 8.23083670899905,
+  "extraction_seconds": 1.6800883750001958,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.1e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000788
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.955864
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.001789
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.011726
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014317
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.017071
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "laugh Comedy",
+              "kind": "tag",
+              "limit": 4
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "genres",
+                  "operator": "eq",
+                  "value": "Comedy"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "laugh Comedy",
+        "kind": "tag",
+        "limit": 4
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.036256,
+      "arguments": {
+        "query": "laugh Comedy",
+        "kind": "tag",
+        "limit": 4
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "surreal comedy",
+            "name": "Surreal Comedy",
+            "description": "Prominently features comedic moments that defy casual reasoning, resulting in illogical events.",
+            "category": "Theme-Comedy",
+            "similarity": 0.6702
+          },
+          {
+            "kind": "tag",
+            "id": "slapstick",
+            "name": "Slapstick",
+            "description": "Prominently features comedy based on deliberately clumsy actions or embarrassing events.",
+            "category": "Theme-Comedy",
+            "similarity": 0.6315
+          },
+          {
+            "kind": "tag",
+            "id": "parody",
+            "name": "Parody",
+            "description": "Features deliberate exaggeration of popular tropes or a particular genre to comedic effect.",
+            "category": "Theme-Comedy",
+            "similarity": 0.6005
+          },
+          {
+            "kind": "tag",
+            "id": "satire",
+            "name": "Satire",
+            "description": "Prominently features the use of comedy or ridicule to expose and criticise social phenomena.",
+            "category": "Theme-Comedy",
+            "similarity": 0.5945
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "eq",
+            "value": "Comedy"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.190877,
+      "arguments": {
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "eq",
+            "value": "Comedy"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": []
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": []
+        },
+        "items": [
+          {
+            "id": "21087",
+            "title": "One-Punch Man",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.318
+          },
+          {
+            "id": "19815",
+            "title": "No Game, No Life",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.2626
+          },
+          {
+            "id": "20954",
+            "title": "A Silent Voice",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.2483
+          },
+          {
+            "id": "101921",
+            "title": "Kaguya-sama: Love is War",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.2378
+          },
+          {
+            "id": "100166",
+            "title": "My Hero Academia Season 3",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.2179
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000462
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "laugh Comedy",
+          "kind": "tag",
+          "limit": 4
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "surreal comedy",
+              "name": "Surreal Comedy",
+              "description": "Prominently features comedic moments that defy casual reasoning, resulting in illogical events.",
+              "category": "Theme-Comedy",
+              "similarity": 0.6702
+            },
+            {
+              "kind": "tag",
+              "id": "slapstick",
+              "name": "Slapstick",
+              "description": "Prominently features comedy based on deliberately clumsy actions or embarrassing events.",
+              "category": "Theme-Comedy",
+              "similarity": 0.6315
+            },
+            {
+              "kind": "tag",
+              "id": "parody",
+              "name": "Parody",
+              "description": "Features deliberate exaggeration of popular tropes or a particular genre to comedic effect.",
+              "category": "Theme-Comedy",
+              "similarity": 0.6005
+            },
+            {
+              "kind": "tag",
+              "id": "satire",
+              "name": "Satire",
+              "description": "Prominently features the use of comedy or ridicule to expose and criticise social phenomena.",
+              "category": "Theme-Comedy",
+              "similarity": 0.5945
+            }
+          ]
+        },
+        "elapsed_seconds": 0.036256
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "genres",
+              "operator": "eq",
+              "value": "Comedy"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": []
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": []
+          },
+          "items": [
+            {
+              "id": "21087",
+              "title": "One-Punch Man",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.318
+            },
+            {
+              "id": "19815",
+              "title": "No Game, No Life",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.2626
+            },
+            {
+              "id": "20954",
+              "title": "A Silent Voice",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.2483
+            },
+            {
+              "id": "101921",
+              "title": "Kaguya-sama: Love is War",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.2378
+            },
+            {
+              "id": "100166",
+              "title": "My Hero Academia Season 3",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.2179
+            }
+          ]
+        },
+        "elapsed_seconds": 0.190877
+      }
+    ],
+    "llm_calls": 3,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 3.955864,
+      "prepare_context": 0.001789,
+      "retrieve_guides": 0.011726,
+      "feature_candidates": 0.014317,
+      "planning": 4.017071,
+      "tools": 0.227133,
+      "generate_answer": 0.000462
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"laugh\", \"query\": \"laugh\", \"kind\": \"tag\", \"role\": \"preferred\", \"meaning\": \"Comedy focus\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "laugh",
+        "query": "laugh",
+        "kind": "tag",
+        "role": "preferred",
+        "meaning": "Comedy focus"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Comedy focus\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "laugh",
+          "name": "",
+          "meaning": "Comedy focus"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [],
+      "preferred": [
+        "laugh"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [],
+      "soft_query": "laugh Comedy",
+      "limitations": [],
+      "mappings": [],
+      "preference_hierarchy": [
+        {
+          "phrase": "laugh",
+          "candidate": {
+            "field": "genres",
+            "value": "Comedy",
+            "meaning": "Comedy",
+            "coverage": 1.0
+          },
+          "role": "preferred",
+          "mapping": "broader"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "laugh",
+            "name": "",
+            "meaning": "Comedy focus"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "laugh Comedy",
+            "kind": "tag",
+            "limit": 4
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "genres",
+                "operator": "eq",
+                "value": "Comedy"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

@@ -1,0 +1,437 @@
+{
+  "question_id": "hf_126",
+  "anime_id": "20931",
+  "title": "Death Parade",
+  "field": "source_material",
+  "question": "Is Death Parade an original anime, a manga adaptation, or a novel adaptation?",
+  "expected_values": [
+    "ORIGINAL"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Death Parade is an original anime.",
+  "extracted_values": [
+    "original"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 8.695489167001142,
+  "extraction_seconds": 0.5437926669983426,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "original",
+        "quote": "Death Parade is an original anime."
+      }
+    ],
+    "note": "assertion about source material type",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20931",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20931",
+          "title": "Death Parade"
+        },
+        "elapsed_seconds": 0.013915
+      },
+      {
+        "step": 1,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "anime",
+          "query": "original anime"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "anime",
+          "matches": [
+            {
+              "kind": "anime",
+              "id": "145705",
+              "name": "dTV Original Anime: Youkai Watch ♪",
+              "aliases": [
+                "dTV Original Anime: Youkai Watch ♪",
+                "dTVオリジナルアニメ 妖怪ウォッチ♪"
+              ],
+              "match": "fuzzy",
+              "similarity": 0.92
+            },
+            {
+              "kind": "anime",
+              "id": "9242",
+              "name": "Nine: Original-ban",
+              "aliases": [
+                "Nine: Original-ban",
+                "ナイン",
+                "Nine: Original-han"
+              ],
+              "match": "fuzzy",
+              "similarity": 0.8387
+            }
+          ]
+        },
+        "elapsed_seconds": 0.069396
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 1.771362,
+      "prepare_context": 0.023178,
+      "retrieve_guides": 0.027654,
+      "feature_candidates": 0.013473,
+      "planning": 4.217112,
+      "tools": 0.083311,
+      "generate_answer": 2.556846
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Death Parade\", \"query\": \"Death Parade\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Original anime\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Death Parade",
+        "query": "Death Parade",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Original anime"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Original anime\", \"role\": \"subject\", \"selection\": \"Death Parade | anime:20931\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20931",
+          "role": "subject",
+          "text": "Death Parade",
+          "name": "Death Parade",
+          "meaning": "Original anime"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20931",
+          "role": "subject",
+          "text": "Death Parade",
+          "name": "Death Parade",
+          "meaning": "Original anime"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Death Parade"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20931",
+            "role": "subject",
+            "text": "Death Parade",
+            "name": "Death Parade",
+            "meaning": "Original anime"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20931",
+            "role": "subject",
+            "text": "Death Parade",
+            "name": "Death Parade",
+            "meaning": "Original anime"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine if Death Parade is an original anime, a manga adaptation, or a novel adaptation",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20931",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "anime",
+            "query": "original anime"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "20931",
+          "name": "Death Parade"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:20931",
+          "fact": "Death Parade is an original anime."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 9.5e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000884
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 1.771362
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.023178
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.027654
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013473
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.217112
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine if Death Parade is an original anime, a manga adaptation, or a novel adaptation",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20931",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "anime",
+              "query": "original anime"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "20931",
+            "name": "Death Parade"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20931",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.013915,
+      "arguments": {
+        "id": "20931",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20931",
+        "title": "Death Parade"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "anime",
+        "query": "original anime"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.069396,
+      "arguments": {
+        "kind": "anime",
+        "query": "original anime"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "anime",
+        "matches": [
+          {
+            "kind": "anime",
+            "id": "145705",
+            "name": "dTV Original Anime: Youkai Watch ♪",
+            "aliases": [
+              "dTV Original Anime: Youkai Watch ♪",
+              "dTVオリジナルアニメ 妖怪ウォッチ♪"
+            ],
+            "match": "fuzzy",
+            "similarity": 0.92
+          },
+          {
+            "kind": "anime",
+            "id": "9242",
+            "name": "Nine: Original-ban",
+            "aliases": [
+              "Nine: Original-ban",
+              "ナイン",
+              "Nine: Original-han"
+            ],
+            "match": "fuzzy",
+            "similarity": 0.8387
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 2.556846
+    }
+  ]
+}

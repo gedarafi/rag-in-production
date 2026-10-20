@@ -1,0 +1,331 @@
+{
+  "question_id": "hf_138",
+  "anime_id": "20605",
+  "title": "Tokyo Ghoul",
+  "field": "main_animation_studios",
+  "question": "Which main animation studio is listed for the first Tokyo Ghoul season?",
+  "expected_values": [
+    "Studio Pierrot"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Studio Pierrot",
+  "extracted_values": [
+    "Studio Pierrot"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 8.253519500000039,
+  "extraction_seconds": 0.6417595829989295,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Studio Pierrot",
+        "quote": "Studio Pierrot"
+      }
+    ],
+    "note": "assertion for main animation studio for first Tokyo Ghoul season",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20605",
+          "section": "studios"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "20605",
+          "title": "Tokyo Ghoul"
+        },
+        "elapsed_seconds": 0.006042
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 2.100123,
+      "prepare_context": 0.01992,
+      "retrieve_guides": 0.029345,
+      "feature_candidates": 0.0138,
+      "planning": 3.681585,
+      "tools": 0.006042,
+      "generate_answer": 2.399052
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Tokyo Ghoul\", \"query\": \"Tokyo Ghoul\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; studio is a noun\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Tokyo Ghoul",
+        "query": "Tokyo Ghoul",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; studio is a noun"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"TV series; studio is a noun\", \"role\": \"subject\", \"selection\": \"Tokyo Ghoul | anime:20605\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20605",
+          "role": "subject",
+          "text": "Tokyo Ghoul",
+          "name": "Tokyo Ghoul",
+          "meaning": "TV series; studio is a noun"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20605",
+          "role": "subject",
+          "text": "Tokyo Ghoul",
+          "name": "Tokyo Ghoul",
+          "meaning": "TV series; studio is a noun"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Tokyo Ghoul"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20605",
+            "role": "subject",
+            "text": "Tokyo Ghoul",
+            "name": "Tokyo Ghoul",
+            "meaning": "TV series; studio is a noun"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20605",
+            "role": "subject",
+            "text": "Tokyo Ghoul",
+            "name": "Tokyo Ghoul",
+            "meaning": "TV series; studio is a noun"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Find the main animation studio for the first Tokyo Ghoul season",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20605",
+            "section": "studios"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "20605",
+          "name": "Tokyo Ghoul"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:20605",
+          "fact": "The main animation studio for the first Tokyo Ghoul season is Studio Pierrot."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 0.00012
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001754
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.100123
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.01992
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.029345
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.0138
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.681585
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Find the main animation studio for the first Tokyo Ghoul season",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20605",
+              "section": "studios"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "20605",
+            "name": "Tokyo Ghoul"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20605",
+        "section": "studios"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.006042,
+      "arguments": {
+        "id": "20605",
+        "section": "studios"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "20605",
+        "title": "Tokyo Ghoul"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 2.399052
+    }
+  ]
+}

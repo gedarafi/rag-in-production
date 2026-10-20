@@ -1,0 +1,735 @@
+{
+  "question_id": "hf_067",
+  "anime_id": "21355",
+  "title": "Re:ZERO -Starting Life in Another World-",
+  "field": "duration",
+  "question": "What is the listed length of an episode of the first Re:ZERO season?",
+  "expected_values": [
+    25.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "25.0 minutes per episode",
+  "extracted_values": [
+    "25.0 minutes"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 15.150453707999986,
+  "extraction_seconds": 0.5365408750003553,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "25.0 minutes",
+        "quote": "25.0 minutes per episode"
+      }
+    ],
+    "note": "per episode",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "missing_values": [
+      "25"
+    ],
+    "extra_values": [
+      "invalid-number:25.0 minutes"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21355",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21355",
+          "title": "Re:ZERO -Starting Life in Another World-"
+        },
+        "elapsed_seconds": 0.020595
+      },
+      {
+        "step": 1,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21355",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21355",
+          "title": "Re:ZERO -Starting Life in Another World-"
+        },
+        "elapsed_seconds": 0.000169
+      },
+      {
+        "step": 2,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21355",
+          "section": "cast"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "21355",
+          "title": "Re:ZERO -Starting Life in Another World-"
+        },
+        "elapsed_seconds": 0.003716
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21355",
+          "section": "cast"
+        },
+        "cached": true,
+        "result": {
+          "kind": "anime",
+          "id": "21355",
+          "title": "Re:ZERO -Starting Life in Another World-"
+        },
+        "elapsed_seconds": 2.4e-05
+      },
+      {
+        "step": 4,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21355",
+          "section": "cast"
+        },
+        "cached": true,
+        "result": {
+          "kind": "anime",
+          "id": "21355",
+          "title": "Re:ZERO -Starting Life in Another World-"
+        },
+        "elapsed_seconds": 1.6e-05
+      },
+      {
+        "step": 5,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21355",
+          "section": "cast"
+        },
+        "cached": true,
+        "result": {
+          "kind": "anime",
+          "id": "21355",
+          "title": "Re:ZERO -Starting Life in Another World-"
+        },
+        "elapsed_seconds": 1.4e-05
+      },
+      {
+        "step": 6,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21355",
+          "section": "cast"
+        },
+        "cached": true,
+        "result": {
+          "kind": "anime",
+          "id": "21355",
+          "title": "Re:ZERO -Starting Life in Another World-"
+        },
+        "elapsed_seconds": 1.3e-05
+      },
+      {
+        "step": 7,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21355",
+          "section": "cast"
+        },
+        "cached": true,
+        "result": {
+          "kind": "anime",
+          "id": "21355",
+          "title": "Re:ZERO -Starting Life in Another World-"
+        },
+        "elapsed_seconds": 1.3e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 8,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 3.558979,
+      "prepare_context": 0.019251,
+      "retrieve_guides": 0.027807,
+      "feature_candidates": 0.013728,
+      "planning": 7.15476,
+      "tools": 0.02456,
+      "generate_answer": 4.347539
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Re:ZERO\", \"query\": \"Re:ZERO\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; episode length\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Re:ZERO",
+        "query": "Re:ZERO",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; episode length"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"TV series; episode length\", \"role\": \"subject\", \"selection\": \"Re:ZERO -Starting Life in Another World- | anime:21355\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21355",
+          "role": "subject",
+          "text": "Re:ZERO",
+          "name": "Re:ZERO -Starting Life in Another World-",
+          "meaning": "TV series; episode length"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21355",
+          "role": "subject",
+          "text": "Re:ZERO",
+          "name": "Re:ZERO -Starting Life in Another World-",
+          "meaning": "TV series; episode length"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Re:ZERO -Starting Life in Another World-"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21355",
+            "role": "subject",
+            "text": "Re:ZERO",
+            "name": "Re:ZERO -Starting Life in Another World-",
+            "meaning": "TV series; episode length"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21355",
+            "role": "subject",
+            "text": "Re:ZERO",
+            "name": "Re:ZERO -Starting Life in Another World-",
+            "meaning": "TV series; episode length"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Get the length of an episode of the first Re:ZERO season",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21355",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21355",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21355",
+            "section": "cast"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21355",
+            "section": "cast"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21355",
+            "section": "cast"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21355",
+            "section": "cast"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21355",
+            "section": "cast"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21355",
+            "section": "cast"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21355",
+          "name": "Re:ZERO -Starting Life in Another World-"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:21355",
+          "fact": "episodes"
+        },
+        {
+          "subject": "anime:21355",
+          "fact": "duration"
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 0.000104
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001941
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.558979
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.019251
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.027807
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013728
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 7.15476
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Get the length of an episode of the first Re:ZERO season",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21355",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21355",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21355",
+              "section": "cast"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21355",
+              "section": "cast"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21355",
+              "section": "cast"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21355",
+              "section": "cast"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21355",
+              "section": "cast"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21355",
+              "section": "cast"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21355",
+            "name": "Re:ZERO -Starting Life in Another World-"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21355",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.020595,
+      "arguments": {
+        "id": "21355",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21355",
+        "title": "Re:ZERO -Starting Life in Another World-"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21355",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000169,
+      "arguments": {
+        "id": "21355",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21355",
+        "title": "Re:ZERO -Starting Life in Another World-"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21355",
+        "section": "cast"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.003716,
+      "arguments": {
+        "id": "21355",
+        "section": "cast"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "21355",
+        "title": "Re:ZERO -Starting Life in Another World-"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21355",
+        "section": "cast"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 2.4e-05,
+      "arguments": {
+        "id": "21355",
+        "section": "cast"
+      },
+      "cached": true,
+      "result": {
+        "kind": "anime",
+        "id": "21355",
+        "title": "Re:ZERO -Starting Life in Another World-"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21355",
+        "section": "cast"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 1.6e-05,
+      "arguments": {
+        "id": "21355",
+        "section": "cast"
+      },
+      "cached": true,
+      "result": {
+        "kind": "anime",
+        "id": "21355",
+        "title": "Re:ZERO -Starting Life in Another World-"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21355",
+        "section": "cast"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 1.4e-05,
+      "arguments": {
+        "id": "21355",
+        "section": "cast"
+      },
+      "cached": true,
+      "result": {
+        "kind": "anime",
+        "id": "21355",
+        "title": "Re:ZERO -Starting Life in Another World-"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 6,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21355",
+        "section": "cast"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 6,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 1.3e-05,
+      "arguments": {
+        "id": "21355",
+        "section": "cast"
+      },
+      "cached": true,
+      "result": {
+        "kind": "anime",
+        "id": "21355",
+        "title": "Re:ZERO -Starting Life in Another World-"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 7,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21355",
+        "section": "cast"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 7,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 1.3e-05,
+      "arguments": {
+        "id": "21355",
+        "section": "cast"
+      },
+      "cached": true,
+      "result": {
+        "kind": "anime",
+        "id": "21355",
+        "title": "Re:ZERO -Starting Life in Another World-"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.347539
+    }
+  ]
+}

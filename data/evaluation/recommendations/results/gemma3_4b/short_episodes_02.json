@@ -1,0 +1,164 @@
+{
+  "question_id": "short_episodes_02",
+  "category": "length",
+  "intent_family": "short_episodes",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "My break is only a quarter of an hour. What are four television anime with episodes that fit into it?",
+  "k": 4,
+  "constraints": [
+    {
+      "field": "format",
+      "op": "any",
+      "value": [
+        "TV",
+        "TV_SHORT"
+      ]
+    },
+    {
+      "field": "duration",
+      "op": "lte",
+      "value": 15
+    }
+  ],
+  "label_rationale": "Duration is minutes per episode, not total series runtime.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 1310,
+  "reference_examples": [
+    {
+      "id": "100009",
+      "title": "Space Battleship Tiramisu"
+    },
+    {
+      "id": "100093",
+      "title": "Skull-face Bookseller Honda-san"
+    },
+    {
+      "id": "100133",
+      "title": "One Room SECOND SEASON"
+    }
+  ],
+  "answer_text": "",
+  "status": "model_error",
+  "error": "ValueError: Cannot interpret measurable requirement: episodes",
+  "extraction": null,
+  "recommendations": [],
+  "metrics": null,
+  "model_seconds": 8.718419208000341,
+  "extraction_seconds": 0.0,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 6.2e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001035
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "error",
+      "elapsed_seconds": 8.717082,
+      "error": "Cannot interpret measurable requirement: episodes"
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [],
+    "llm_calls": 3,
+    "planned_tools": 0,
+    "executed_tools": 0,
+    "timings_seconds": {
+      "interpret_request": 8.717082
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"quarter of an hour\", \"query\": \"15 minutes\", \"kind\": \"character\", \"role\": \"required\", \"meaning\": \"Episode length constraint\"}, {\"text\": \"television anime\", \"query\": \"television anime\", \"kind\": \"genre\", \"role\": \"required\", \"meaning\": \"Desired media type\"}, {\"text\": \"Naruto\", \"query\": \"Naruto\", \"kind\": \"anime\", \"role\": \"preferred\", \"meaning\": \"Preferred series\"}, {\"text\": \"Attack on Titan\", \"query\": \"Attack on Titan\", \"kind\": \"anime\", \"role\": \"preferred\", \"meaning\": \"Preferred series\"}]}",
+      "{\"min\": null, \"max\": null}"
+    ],
+    "unsupported_mentions": [
+      {
+        "text": "Naruto",
+        "query": "Naruto",
+        "kind": "anime",
+        "role": "preferred",
+        "meaning": "Preferred series"
+      },
+      {
+        "text": "Attack on Titan",
+        "query": "Attack on Titan",
+        "kind": "anime",
+        "role": "preferred",
+        "meaning": "Preferred series"
+      }
+    ],
+    "typed_mentions": [
+      {
+        "text": "quarter of an hour",
+        "query": "15 minutes",
+        "kind": "character",
+        "role": "required",
+        "meaning": "Episode length constraint"
+      },
+      {
+        "text": "television anime",
+        "query": "television anime",
+        "kind": "genre",
+        "role": "required",
+        "meaning": "Desired media type"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify the anime titles you would like recommendations for.\", \"decisions\": {\"p0\": {\"meaning\": \"quarter of an hour\", \"role\": \"required\", \"selection\": \"Minutes | character:224649\"}, \"p1\": {\"meaning\": \"television anime\", \"role\": \"required\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "character",
+          "id": "224649",
+          "role": "required",
+          "text": "quarter of an hour",
+          "name": "Minutes",
+          "meaning": "quarter of an hour"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "television anime",
+          "name": "",
+          "meaning": "television anime"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {
+      "episodes": {
+        "sources": [
+          "My break is only a quarter of an hour. What are four television anime with episodes that fit into it?",
+          "episodes"
+        ],
+        "interpretations": [
+          "brief",
+          "range"
+        ]
+      }
+    }
+  }
+}

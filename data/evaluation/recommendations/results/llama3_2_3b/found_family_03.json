@@ -1,0 +1,869 @@
+{
+  "question_id": "found_family_03",
+  "category": "tags",
+  "intent_family": "found_family",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "I want five shows where a group of outsiders end up treating one another like family. Any ideas?",
+  "k": 5,
+  "constraints": [
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Found Family"
+      ],
+      "alternatives": [
+        {
+          "reason": "Adoption directly supports unrelated people becoming a family; Ensemble Cast by itself does not.",
+          "constraints": [
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Adoption"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "Unrelated people forming a family-like bond map to Found Family.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 470,
+  "reference_examples": [
+    {
+      "id": "10162",
+      "title": "Bunny Drop"
+    },
+    {
+      "id": "107956",
+      "title": "If It's for My Daughter, I'd Even Defeat a Demon Lord"
+    },
+    {
+      "id": "108617",
+      "title": "Somali and the Forest Spirit"
+    }
+  ],
+  "answer_text": "Catalog matches — episode count: at least 5. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **No Game, No Life** (12 episodes) — Bored with life and considering the real world to be just a “crappy game,” savvy sibling shut-ins Sora and Shiro have withdrawn into their own fantasy world filled with video games. However, one day they find themselves summoned to another world by a boy who calls himself “God,” their abilities are about to be put to the ultimate test! Now not only their fates — but the fate of all of humanity — will be decided by a series of games that may just…\n\n2. **The Promised Neverland** (12 episodes) — Emma, Norman and Ray are the brightest kids at the Grace Field House orphanage. And under the care of the woman they refer to as “Mom,” all the kids have enjoyed a comfortable life. Good food, clean clothes and the perfect environment to learn—what more could an orphan ask for? One day, though, Emma and Norman uncover the dark truth of the outside world they are forbidden from seeing. (Source: VIZ Media)\n\n3. **Kaguya-sama: Love is War** (12 episodes) — Known for being both brilliant and powerful, Miyuki Shirogane and Kaguya Shinomiya lead the illustrious Shuchiin Academy as near equals. And everyone thinks they’d make a great couple. Pride and arrogance are in ample supply, so the only logical move is to trick the other into instigating a date! Who will come out on top in this psychological war where the first move is the only one that matters? (Source: Aniplex)\n\n4. **Mob Psycho 100** (12 episodes) — The story revolves around \"Mob,\" a boy who will explode if his emotional capacity reaches 100%. This boy with psychic powers earned his nickname \"Mob\" because he does not stand out among other people. He keeps his psychic powers bottled up so he can live normally, but if his emotional level reaches 100, something will overwhelm his entire body. (Source: Anime News Network)\n\n5. **SPY x FAMILY** (12 episodes) — Everyone has a part of themselves they cannot show to anyone else. At a time when all nations of the world were involved in a fierce war of information happening behind closed doors, Ostania and Westalis had been in a state of cold war against one another for decades. The Westalis Intelligence Services' Eastern-Focused Division (WISE) sends their most talented spy, \"Twilight,\" on a top-secret mission to investigate the movements of Donovan…",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "No Game, No Life",
+      "The Promised Neverland",
+      "Kaguya-sama: Love is War",
+      "Mob Psycho 100",
+      "SPY x FAMILY"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "No Game, No Life",
+      "anime_id": "19815",
+      "canonical_title": "No Game, No Life",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "19815"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Adoption directly supports unrelated people becoming a family; Ensemble Cast by itself does not.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Adoption"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 2,
+      "extracted_title": "The Promised Neverland",
+      "anime_id": "101759",
+      "canonical_title": "The Promised Neverland",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "101759"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.83
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.83,
+          "met": true,
+          "literal_score": 0.83,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.83,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Adoption directly supports unrelated people becoming a family; Ensemble Cast by itself does not.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Adoption"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.83,
+      "gain": 0.83,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Kaguya-sama: Love is War",
+      "anime_id": null,
+      "canonical_title": null,
+      "resolution": "ambiguous",
+      "candidate_ids": [
+        "101921",
+        "112641"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Mob Psycho 100",
+      "anime_id": "21507",
+      "canonical_title": "Mob Psycho 100",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21507"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Adoption directly supports unrelated people becoming a family; Ensemble Cast by itself does not.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Adoption"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 5,
+      "extracted_title": "SPY x FAMILY",
+      "anime_id": "140960",
+      "canonical_title": "SPY x FAMILY",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "140960"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.92
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.92,
+          "met": true,
+          "literal_score": 0.92,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.92,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Adoption directly supports unrelated people becoming a family; Ensemble Cast by itself does not.",
+              "score": 0.79,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Adoption"
+                    ]
+                  },
+                  "score": 0.79
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.92,
+      "gain": 0.92,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.4,
+    "graded_fit_at_k": 0.35,
+    "ndcg_at_k": 0.2987091926687899,
+    "constraint_coverage": 1.0,
+    "count_compliance": 1,
+    "resolution_rate": 0.8,
+    "duplicate_rate": 0.0,
+    "extra_count": 0,
+    "literal_precision_at_k": 0.4,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 9.130669583000781,
+  "extraction_seconds": 1.629458875000637,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 3.9e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000725
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.472953
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.001519
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.007841
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.010104
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.402444
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "group of outsiders treating one another like family",
+              "kind": "tag",
+              "limit": 5
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "query": "family",
+              "filters": [
+                {
+                  "field": "genres",
+                  "operator": "contains",
+                  "value": "family"
+                },
+                {
+                  "field": "tags",
+                  "operator": "contains",
+                  "value": "found family"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "group of outsiders treating one another like family",
+        "kind": "tag",
+        "limit": 5
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.041058,
+      "arguments": {
+        "query": "group of outsiders treating one another like family",
+        "kind": "tag",
+        "limit": 5
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "found family",
+            "name": "Found Family",
+            "description": "Features a group of characters with no biological relations that are united in a group providing social support.",
+            "category": "Theme-Other",
+            "similarity": 0.649
+          },
+          {
+            "kind": "tag",
+            "id": "estranged family",
+            "name": "Estranged Family",
+            "description": "At least one family member of the MC intentionally distances themselves or a family distances themselves from a person related to the MC.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.5086
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "query": "family",
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "family"
+          },
+          {
+            "field": "tags",
+            "operator": "contains",
+            "value": "found family"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.192045,
+      "arguments": {
+        "query": "family",
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "family"
+          },
+          {
+            "field": "tags",
+            "operator": "contains",
+            "value": "found family"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "episodes",
+              "operator": "gte",
+              "value": "5"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "episodes",
+              "operator": "gte",
+              "value": "5",
+              "source_text": "shows",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "19815",
+            "title": "No Game, No Life",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '5'}]",
+            "preference_similarity": 0.3655
+          },
+          {
+            "id": "101759",
+            "title": "The Promised Neverland",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '5'}]",
+            "preference_similarity": 0.3372
+          },
+          {
+            "id": "101921",
+            "title": "Kaguya-sama: Love is War",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '5'}]",
+            "preference_similarity": 0.3322
+          },
+          {
+            "id": "21507",
+            "title": "Mob Psycho 100",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '5'}]",
+            "preference_similarity": 0.3312
+          },
+          {
+            "id": "140960",
+            "title": "SPY x FAMILY",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '5'}]",
+            "preference_similarity": 0.3069
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000432
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "group of outsiders treating one another like family",
+          "kind": "tag",
+          "limit": 5
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "found family",
+              "name": "Found Family",
+              "description": "Features a group of characters with no biological relations that are united in a group providing social support.",
+              "category": "Theme-Other",
+              "similarity": 0.649
+            },
+            {
+              "kind": "tag",
+              "id": "estranged family",
+              "name": "Estranged Family",
+              "description": "At least one family member of the MC intentionally distances themselves or a family distances themselves from a person related to the MC.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.5086
+            }
+          ]
+        },
+        "elapsed_seconds": 0.041058
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "query": "family",
+          "filters": [
+            {
+              "field": "genres",
+              "operator": "contains",
+              "value": "family"
+            },
+            {
+              "field": "tags",
+              "operator": "contains",
+              "value": "found family"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "episodes",
+                "operator": "gte",
+                "value": "5"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "episodes",
+                "operator": "gte",
+                "value": "5",
+                "source_text": "shows",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "19815",
+              "title": "No Game, No Life",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '5'}]",
+              "preference_similarity": 0.3655
+            },
+            {
+              "id": "101759",
+              "title": "The Promised Neverland",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '5'}]",
+              "preference_similarity": 0.3372
+            },
+            {
+              "id": "101921",
+              "title": "Kaguya-sama: Love is War",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '5'}]",
+              "preference_similarity": 0.3322
+            },
+            {
+              "id": "21507",
+              "title": "Mob Psycho 100",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '5'}]",
+              "preference_similarity": 0.3312
+            },
+            {
+              "id": "140960",
+              "title": "SPY x FAMILY",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '5'}]",
+              "preference_similarity": 0.3069
+            }
+          ]
+        },
+        "elapsed_seconds": 0.192045
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 4.472953,
+      "prepare_context": 0.001519,
+      "retrieve_guides": 0.007841,
+      "feature_candidates": 0.010104,
+      "planning": 4.402444,
+      "tools": 0.233103,
+      "generate_answer": 0.000432
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"family\", \"query\": \"family\", \"kind\": \"description\", \"role\": \"preferred\", \"meaning\": \"Relationship\"}]}",
+      "{\n  \"min\": 5,\n  \"max\": null\n}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "family",
+        "query": "family",
+        "kind": "description",
+        "role": "preferred",
+        "meaning": "Relationship"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Relationship\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "family",
+          "name": "",
+          "meaning": "Relationship"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {
+      "episodes": {
+        "sources": [
+          "I want five shows where a group of outsiders end up treating one another like family. Any ideas?",
+          "shows"
+        ],
+        "interpretations": [
+          "range",
+          "range"
+        ]
+      }
+    },
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [],
+      "preferred": [
+        "family"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "episodes",
+          "operator": "gte",
+          "value": "5"
+        }
+      ],
+      "soft_query": "family Drama",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "episodes",
+          "operator": "gte",
+          "value": "5",
+          "source_text": "shows",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "family",
+          "candidate": {
+            "field": "genres",
+            "value": "Drama",
+            "meaning": "Drama",
+            "coverage": 1.0
+          },
+          "role": "preferred",
+          "mapping": "broader"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "family",
+            "name": "",
+            "meaning": "Relationship"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "group of outsiders treating one another like family",
+            "kind": "tag",
+            "limit": 5
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "query": "family",
+            "filters": [
+              {
+                "field": "genres",
+                "operator": "contains",
+                "value": "family"
+              },
+              {
+                "field": "tags",
+                "operator": "contains",
+                "value": "found family"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

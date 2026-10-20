@@ -1,0 +1,449 @@
+{
+  "question_id": "hf_120",
+  "anime_id": "21202",
+  "title": "KONOSUBA -God's blessing on this wonderful world!",
+  "field": "source_material",
+  "question": "What is the catalog's source-material label for KONOSUBA's first season?",
+  "expected_values": [
+    "LIGHT_NOVEL"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "LIGHT_NOVEL",
+  "extracted_values": [
+    "LIGHT_NOVEL"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 12.260118874999534,
+  "extraction_seconds": 0.5102431249997608,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "LIGHT_NOVEL",
+        "quote": "LIGHT_NOVEL"
+      }
+    ],
+    "note": "",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21202",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21202",
+          "title": "KONOSUBA -God's blessing on this wonderful world!"
+        },
+        "elapsed_seconds": 0.015888
+      },
+      {
+        "step": 1,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21202",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21202",
+          "title": "KONOSUBA -God's blessing on this wonderful world!"
+        },
+        "elapsed_seconds": 0.000144
+      },
+      {
+        "step": 2,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21202",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21202",
+          "title": "KONOSUBA -God's blessing on this wonderful world!"
+        },
+        "elapsed_seconds": 0.000128
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 4.626891,
+      "prepare_context": 0.017299,
+      "retrieve_guides": 0.027774,
+      "feature_candidates": 0.014054,
+      "planning": 4.754099,
+      "tools": 0.01616,
+      "generate_answer": 2.800961
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"KONOSUBA\", \"query\": \"KONOSUBA\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; source-material label is needed for cataloging\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "KONOSUBA",
+        "query": "KONOSUBA",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; source-material label is needed for cataloging"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"What is the catalog's source-material label for KONOSUBA's first season?\", \"decisions\": {\"p0\": {\"meaning\": \"TV series; source-material label is needed for cataloging\", \"role\": \"subject\", \"selection\": \"KONOSUBA -God's blessing on this wonderful world! | anime:21202\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21202",
+          "role": "subject",
+          "text": "KONOSUBA",
+          "name": "KONOSUBA -God's blessing on this wonderful world!",
+          "meaning": "TV series; source-material label is needed for cataloging"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21202",
+          "role": "subject",
+          "text": "KONOSUBA",
+          "name": "KONOSUBA -God's blessing on this wonderful world!",
+          "meaning": "TV series; source-material label is needed for cataloging"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "KONOSUBA -God's blessing on this wonderful world!"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21202",
+            "role": "subject",
+            "text": "KONOSUBA",
+            "name": "KONOSUBA -God's blessing on this wonderful world!",
+            "meaning": "TV series; source-material label is needed for cataloging"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21202",
+            "role": "subject",
+            "text": "KONOSUBA",
+            "name": "KONOSUBA -God's blessing on this wonderful world!",
+            "meaning": "TV series; source-material label is needed for cataloging"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Get source-material label for KONOSUBA's first season",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21202",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21202",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21202",
+            "section": "overview"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21202",
+          "name": "KONOSUBA -God's blessing on this wonderful world!"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:21202",
+          "fact": "The source-material label for KONOSUBA's first season is LIGHT_NOVEL."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 6.9e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001319
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.626891
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.017299
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.027774
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014054
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.754099
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Get source-material label for KONOSUBA's first season",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21202",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21202",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21202",
+              "section": "overview"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21202",
+            "name": "KONOSUBA -God's blessing on this wonderful world!"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21202",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.015888,
+      "arguments": {
+        "id": "21202",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21202",
+        "title": "KONOSUBA -God's blessing on this wonderful world!"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21202",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000144,
+      "arguments": {
+        "id": "21202",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21202",
+        "title": "KONOSUBA -God's blessing on this wonderful world!"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21202",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000128,
+      "arguments": {
+        "id": "21202",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21202",
+        "title": "KONOSUBA -God's blessing on this wonderful world!"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 2.800961
+    }
+  ]
+}

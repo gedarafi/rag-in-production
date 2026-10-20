@@ -1,0 +1,391 @@
+{
+  "question_id": "hf_123",
+  "anime_id": "30",
+  "title": "Neon Genesis Evangelion",
+  "field": "source_material",
+  "question": "What source-material category is recorded for Neon Genesis Evangelion?",
+  "expected_values": [
+    "ORIGINAL"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The source-material category recorded for Neon Genesis Evangelion is ORIGINAL.",
+  "extracted_values": [
+    "ORIGINAL"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 9.21572895799909,
+  "extraction_seconds": 0.6180026250003721,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "ORIGINAL",
+        "quote": "The source-material category recorded for Neon Genesis Evangelion is ORIGINAL."
+      }
+    ],
+    "note": "The source-material category recorded for Neon Genesis Evangelion is ORIGINAL.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "30",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "30",
+          "title": "Neon Genesis Evangelion"
+        },
+        "elapsed_seconds": 0.013215
+      },
+      {
+        "step": 1,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "30",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "30",
+          "title": "Neon Genesis Evangelion"
+        },
+        "elapsed_seconds": 9.5e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 1.939835,
+      "prepare_context": 0.020104,
+      "retrieve_guides": 0.028591,
+      "feature_candidates": 0.013731,
+      "planning": 4.176447,
+      "tools": 0.01331,
+      "generate_answer": 3.021259
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Neon Genesis Evangelion\", \"query\": \"Neon Genesis Evangelion\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Source-material category\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Neon Genesis Evangelion",
+        "query": "Neon Genesis Evangelion",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Source-material category"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Source-material category\", \"role\": \"subject\", \"selection\": \"Neon Genesis Evangelion | anime:30\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "30",
+          "role": "subject",
+          "text": "Neon Genesis Evangelion",
+          "name": "Neon Genesis Evangelion",
+          "meaning": "Source-material category"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "30",
+          "role": "subject",
+          "text": "Neon Genesis Evangelion",
+          "name": "Neon Genesis Evangelion",
+          "meaning": "Source-material category"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Neon Genesis Evangelion"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "30",
+            "role": "subject",
+            "text": "Neon Genesis Evangelion",
+            "name": "Neon Genesis Evangelion",
+            "meaning": "Source-material category"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "30",
+            "role": "subject",
+            "text": "Neon Genesis Evangelion",
+            "name": "Neon Genesis Evangelion",
+            "meaning": "Source-material category"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Find the source-material category for Neon Genesis Evangelion",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "30",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "30",
+            "section": "overview"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "30",
+          "name": "Neon Genesis Evangelion"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:30",
+          "fact": "source-material: ORIGINAL"
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.4e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000816
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 1.939835
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.020104
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.028591
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013731
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.176447
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Find the source-material category for Neon Genesis Evangelion",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "30",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "30",
+              "section": "overview"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "30",
+            "name": "Neon Genesis Evangelion"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "30",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.013215,
+      "arguments": {
+        "id": "30",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "30",
+        "title": "Neon Genesis Evangelion"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "30",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 9.5e-05,
+      "arguments": {
+        "id": "30",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "30",
+        "title": "Neon Genesis Evangelion"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.021259
+    }
+  ]
+}

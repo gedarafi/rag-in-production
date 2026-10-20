@@ -1,0 +1,156 @@
+{
+  "question_id": "found_family_03",
+  "category": "tags",
+  "intent_family": "found_family",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "I want five shows where a group of outsiders end up treating one another like family. Any ideas?",
+  "k": 5,
+  "constraints": [
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Found Family"
+      ],
+      "alternatives": [
+        {
+          "reason": "Adoption directly supports unrelated people becoming a family; Ensemble Cast by itself does not.",
+          "constraints": [
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Adoption"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "Unrelated people forming a family-like bond map to Found Family.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 470,
+  "reference_examples": [
+    {
+      "id": "10162",
+      "title": "Bunny Drop"
+    },
+    {
+      "id": "107956",
+      "title": "If It's for My Daughter, I'd Even Defeat a Demon Lord"
+    },
+    {
+      "id": "108617",
+      "title": "Somali and the Forest Spirit"
+    }
+  ],
+  "answer_text": "",
+  "status": "model_error",
+  "error": "ValueError: Cannot interpret measurable requirement: shows",
+  "extraction": null,
+  "recommendations": [],
+  "metrics": null,
+  "model_seconds": 7.128156083000249,
+  "extraction_seconds": 0.0,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.1e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000783
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "error",
+      "elapsed_seconds": 7.127176,
+      "error": "Cannot interpret measurable requirement: shows"
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [],
+    "llm_calls": 3,
+    "planned_tools": 0,
+    "executed_tools": 0,
+    "timings_seconds": {
+      "interpret_request": 7.127176
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"group of outsiders\", \"query\": \"group of outsiders\", \"kind\": \"genre\", \"role\": \"preferred\", \"meaning\": \"Group dynamic\"}, {\"text\": \"treating one another like family\", \"query\": \"treating one another like family\", \"kind\": \"description\", \"role\": \"preferred\", \"meaning\": \"Relationship dynamic\"}]}",
+      "{\"min\": null, \"max\": null}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "group of outsiders",
+        "query": "group of outsiders",
+        "kind": "genre",
+        "role": "preferred",
+        "meaning": "Group dynamic"
+      },
+      {
+        "text": "treating one another like family",
+        "query": "treating one another like family",
+        "kind": "description",
+        "role": "preferred",
+        "meaning": "Relationship dynamic"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"To clarify, you are requesting recommendations for television shows where a group of unfamiliar individuals develop a familial bond.\",\"decisions\": {\"p0\": {\"meaning\": \"Group dynamic\", \"role\": \"preferred\", \"selection\": \"unmapped description\" }, \"p1\": {\"meaning\": \"Relationship dynamic\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "group of outsiders",
+          "name": "",
+          "meaning": "Group dynamic"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "treating one another like family",
+          "name": "",
+          "meaning": "Relationship dynamic"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {
+      "episodes": {
+        "sources": [
+          "I want five shows where a group of outsiders end up treating one another like family. Any ideas?",
+          "shows"
+        ],
+        "interpretations": [
+          "range",
+          "range"
+        ]
+      }
+    }
+  }
+}

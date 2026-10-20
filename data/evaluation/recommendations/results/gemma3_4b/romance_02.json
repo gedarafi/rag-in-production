@@ -1,0 +1,673 @@
+{
+  "question_id": "romance_02",
+  "category": "genres",
+  "intent_family": "romance",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "I want four anime where falling in love is the main reason to watch. What should I start with?",
+  "k": 4,
+  "constraints": [
+    {
+      "field": "genres",
+      "op": "any",
+      "value": [
+        "Romance"
+      ],
+      "alternatives": [
+        {
+          "reason": "Prominent love-triangle or unrequited-love themes are acceptable evidence for the requested focus on developing romantic feelings. A demographic or cast-gender tag alone is insufficient.",
+          "constraints": [
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Love Triangle",
+                "Unrequited Love"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "A central falling-in-love story maps to Romance.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 2881,
+  "reference_examples": [
+    {
+      "id": "100",
+      "title": "Prétear: The New Legend of Snow White"
+    },
+    {
+      "id": "100004",
+      "title": "Demoness of Dreams"
+    },
+    {
+      "id": "100085",
+      "title": "Seven Senses of the Re'Union"
+    }
+  ],
+  "answer_text": "",
+  "status": "model_error",
+  "error": "RuntimeError: No supported recommendations were retrieved. Please rephrase your preferences and retry.",
+  "extraction": null,
+  "recommendations": [],
+  "metrics": null,
+  "model_seconds": 35.36132316699968,
+  "extraction_seconds": 0.0,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 7.3e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001157
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 12.591236
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.002457
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.033861
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.012213
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.875331
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "I need four anime where falling in love is a central theme.",
+        "steps": [
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "falling in love"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "falling in love",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "tag_details",
+                  "operator": "contains",
+                  "value": "falling in love"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "falling in love"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.020585,
+      "arguments": {
+        "kind": "tag",
+        "query": "falling in love"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "falling in love",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.031507,
+      "arguments": {
+        "query": "falling in love",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "unrequited love",
+            "name": "Unrequited Love",
+            "description": "One or more characters are experiencing an unrequited love that may or may not be reciprocated.",
+            "category": "Theme-Romance",
+            "similarity": 0.5178
+          },
+          {
+            "kind": "tag",
+            "id": "boys love",
+            "name": "Boys' Love",
+            "description": "Prominently features romance between two males, not inherently sexual.",
+            "category": "Theme-Romance",
+            "similarity": 0.5082
+          },
+          {
+            "kind": "tag",
+            "id": "love triangle",
+            "name": "Love Triangle",
+            "description": "Centered around romantic feelings between more than two people. Includes all love polygons.",
+            "category": "Theme-Romance",
+            "similarity": 0.5046
+          },
+          {
+            "kind": "tag",
+            "id": "cheating",
+            "name": "Cheating",
+            "description": "Features a character with a partner shown being intimate with someone else consensually.",
+            "category": "Theme-Romance",
+            "similarity": 0.4868
+          },
+          {
+            "kind": "tag",
+            "id": "teens love",
+            "name": "Teens' Love",
+            "description": "Sexually explicit love-story between individuals of the opposite sex, specifically targeting females of teens and young adult age.",
+            "category": "Theme-Romance",
+            "similarity": 0.4583
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "tag_details",
+            "operator": "contains",
+            "value": "falling in love"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 7.437083,
+      "arguments": {
+        "filters": [
+          {
+            "field": "tag_details",
+            "operator": "contains",
+            "value": "falling in love"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "falling in love"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 0,
+          "retained": 0,
+          "limitations": [
+            "The exact requirement 'four anime' is assessed semantically from descriptions, not verified by a catalog category.",
+            "The exact requirement 'start with' is assessed semantically from descriptions, not verified by a catalog category."
+          ],
+          "mappings": [
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "falling in love",
+              "source_text": "I want four anime where falling in love is the main reason to watch. What should I start with?",
+              "mapping": "exact",
+              "origin": "structured_attribute_plan"
+            }
+          ]
+        },
+        "items": []
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "error",
+      "elapsed_seconds": 8.35393,
+      "error": "No supported recommendations were retrieved. Please rephrase your preferences and retry."
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "falling in love"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.020585
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "falling in love",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "unrequited love",
+              "name": "Unrequited Love",
+              "description": "One or more characters are experiencing an unrequited love that may or may not be reciprocated.",
+              "category": "Theme-Romance",
+              "similarity": 0.5178
+            },
+            {
+              "kind": "tag",
+              "id": "boys love",
+              "name": "Boys' Love",
+              "description": "Prominently features romance between two males, not inherently sexual.",
+              "category": "Theme-Romance",
+              "similarity": 0.5082
+            },
+            {
+              "kind": "tag",
+              "id": "love triangle",
+              "name": "Love Triangle",
+              "description": "Centered around romantic feelings between more than two people. Includes all love polygons.",
+              "category": "Theme-Romance",
+              "similarity": 0.5046
+            },
+            {
+              "kind": "tag",
+              "id": "cheating",
+              "name": "Cheating",
+              "description": "Features a character with a partner shown being intimate with someone else consensually.",
+              "category": "Theme-Romance",
+              "similarity": 0.4868
+            },
+            {
+              "kind": "tag",
+              "id": "teens love",
+              "name": "Teens' Love",
+              "description": "Sexually explicit love-story between individuals of the opposite sex, specifically targeting females of teens and young adult age.",
+              "category": "Theme-Romance",
+              "similarity": 0.4583
+            }
+          ]
+        },
+        "elapsed_seconds": 0.031507
+      },
+      {
+        "step": 2,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "falling in love"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "falling in love"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 0,
+            "retained": 0,
+            "limitations": [
+              "The exact requirement 'four anime' is assessed semantically from descriptions, not verified by a catalog category.",
+              "The exact requirement 'start with' is assessed semantically from descriptions, not verified by a catalog category."
+            ],
+            "mappings": [
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "falling in love",
+                "source_text": "I want four anime where falling in love is the main reason to watch. What should I start with?",
+                "mapping": "exact",
+                "origin": "structured_attribute_plan"
+              }
+            ]
+          },
+          "items": []
+        },
+        "elapsed_seconds": 7.437083
+      }
+    ],
+    "llm_calls": 8,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 12.591236,
+      "prepare_context": 0.002457,
+      "retrieve_guides": 0.033861,
+      "feature_candidates": 0.012213,
+      "planning": 6.875331,
+      "tools": 7.489175,
+      "generate_answer": 8.35393
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"falling in love\", \"query\": \"falling in love\", \"kind\": \"tag\", \"role\": \"subject\", \"meaning\": \"Primary theme\"}, {\"text\": \"four anime\", \"query\": \"four anime\", \"kind\": \"genre\", \"role\": \"required\", \"meaning\": \"Quantity\"}, {\"text\": \"start with\", \"query\": \"start with\", \"kind\": \"genre\", \"role\": \"required\", \"meaning\": \"Order\"}]}",
+      "{\"choice\": 1, \"role\": \"required\", \"operator\": \"eq\", \"value\": \"Fruits Basket\", \"mapping\": \"exact\"}",
+      "{\"role\": \"required\"}",
+      "{\"choice\": 1, \"role\": \"required\", \"operator\": \"eq\", \"value\": \"4\", \"mapping\": \"exact\"}",
+      "{\"role\": \"required\"}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "falling in love",
+        "query": "falling in love",
+        "kind": "tag",
+        "role": "subject",
+        "meaning": "Primary theme"
+      },
+      {
+        "text": "four anime",
+        "query": "four anime",
+        "kind": "genre",
+        "role": "required",
+        "meaning": "Quantity"
+      },
+      {
+        "text": "start with",
+        "query": "start with",
+        "kind": "genre",
+        "role": "required",
+        "meaning": "Order"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify the anime titles you would like recommendations for.\", \"decisions\": {\"p0\": {\"meaning\": \"falling in love\", \"role\": \"subject\", \"selection\": \"unmapped description\"}, \"p1\": {\"meaning\": \"four anime\", \"role\": \"required\", \"selection\": \"unmapped description\"}, \"p2\": {\"meaning\": \"start with\", \"role\": \"required\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "subject",
+          "text": "falling in love",
+          "name": "",
+          "meaning": "falling in love"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "four anime",
+          "name": "",
+          "meaning": "four anime"
+        },
+        {
+          "phrase_index": 2,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "start with",
+          "name": "",
+          "meaning": "start with"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [
+        "four anime",
+        "start with"
+      ],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "tag_details",
+          "operator": "contains",
+          "value": "falling in love"
+        }
+      ],
+      "soft_query": "four anime start with",
+      "limitations": [
+        "The exact requirement 'four anime' is assessed semantically from descriptions, not verified by a catalog category.",
+        "The exact requirement 'start with' is assessed semantically from descriptions, not verified by a catalog category."
+      ],
+      "mappings": [
+        {
+          "field": "tag_details",
+          "operator": "contains",
+          "value": "falling in love",
+          "source_text": "I want four anime where falling in love is the main reason to watch. What should I start with?",
+          "mapping": "exact",
+          "origin": "structured_attribute_plan"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "four anime",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "exact"
+        },
+        {
+          "phrase": "start with",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "exact"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "subject",
+            "text": "falling in love",
+            "name": "",
+            "meaning": "falling in love"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "four anime",
+            "name": "",
+            "meaning": "four anime"
+          },
+          {
+            "phrase_index": 2,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "start with",
+            "name": "",
+            "meaning": "start with"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "I need four anime where falling in love is a central theme.",
+      "steps": [
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "falling in love"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "falling in love",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "falling in love"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

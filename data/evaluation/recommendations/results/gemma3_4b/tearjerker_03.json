@@ -1,0 +1,565 @@
+{
+  "question_id": "tearjerker_03",
+  "category": "tags",
+  "intent_family": "tearjerker",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "What are five anime that will leave me emotionally wrecked rather than wrapping everything up happily?",
+  "k": 5,
+  "constraints": [
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Tragedy"
+      ]
+    }
+  ],
+  "label_rationale": "An emotionally devastating or unhappy story is approximated by Tragedy, not by a nonexistent Sad tag.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 1356,
+  "reference_examples": [
+    {
+      "id": "1130",
+      "title": "Once Upon A Time"
+    },
+    {
+      "id": "136400",
+      "title": "Faithful Dog \"Hachi\""
+    },
+    {
+      "id": "1488",
+      "title": "Area 88"
+    }
+  ],
+  "answer_text": "",
+  "status": "model_error",
+  "error": "RuntimeError: No supported recommendations were retrieved. Please rephrase your preferences and retry.",
+  "extraction": null,
+  "recommendations": [],
+  "metrics": null,
+  "model_seconds": 40.230815291999534,
+  "extraction_seconds": 0.0,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 3.8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000747
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 12.298928
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.01322
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.007365
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.009147
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 7.209919
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend anime based on user preference for emotionally wrecked themes",
+        "clarification": "The user wants anime recommendations that evoke a sense of emotional devastation rather than a happy ending. This suggests a preference for tragic or melancholic stories.",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "emotionally wrecked",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "tag_details",
+                  "operator": "contains",
+                  "value": "emotionally wrecked"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "1689",
+            "name": "5 Centimeters per Second"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "emotionally wrecked",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.038924,
+      "arguments": {
+        "query": "emotionally wrecked",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "tragedy",
+            "name": "Tragedy",
+            "description": "Centers around tragic events and unhappy endings.",
+            "category": "Theme-Drama",
+            "similarity": 0.5404
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "tag_details",
+            "operator": "contains",
+            "value": "emotionally wrecked"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 7.230799,
+      "arguments": {
+        "filters": [
+          {
+            "field": "tag_details",
+            "operator": "contains",
+            "value": "emotionally wrecked"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "emotionally wrecked"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 0,
+          "retained": 0,
+          "limitations": [
+            "Description matching can downrank 'wrapping everything up happily', but the catalog cannot verify its complete absence."
+          ],
+          "mappings": [
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "emotionally wrecked",
+              "source_text": "What are five anime that will leave me emotionally wrecked rather than wrapping everything up happily?",
+              "mapping": "exact",
+              "origin": "structured_attribute_plan"
+            }
+          ]
+        },
+        "items": []
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "error",
+      "elapsed_seconds": 13.420375,
+      "error": "No supported recommendations were retrieved. Please rephrase your preferences and retry."
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "emotionally wrecked",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "tragedy",
+              "name": "Tragedy",
+              "description": "Centers around tragic events and unhappy endings.",
+              "category": "Theme-Drama",
+              "similarity": 0.5404
+            }
+          ]
+        },
+        "elapsed_seconds": 0.038924
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "emotionally wrecked"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "emotionally wrecked"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 0,
+            "retained": 0,
+            "limitations": [
+              "Description matching can downrank 'wrapping everything up happily', but the catalog cannot verify its complete absence."
+            ],
+            "mappings": [
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "emotionally wrecked",
+                "source_text": "What are five anime that will leave me emotionally wrecked rather than wrapping everything up happily?",
+                "mapping": "exact",
+                "origin": "structured_attribute_plan"
+              }
+            ]
+          },
+          "items": []
+        },
+        "elapsed_seconds": 7.230799
+      }
+    ],
+    "llm_calls": 6,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 12.298928,
+      "prepare_context": 0.01322,
+      "retrieve_guides": 0.007365,
+      "feature_candidates": 0.009147,
+      "planning": 7.209919,
+      "tools": 7.269723,
+      "generate_answer": 13.420375
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"five anime\", \"query\": \"five anime\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested anime list\"}, {\"text\": \"emotionally wrecked\", \"query\": \"emotionally wrecked\", \"kind\": \"description\", \"role\": \"preferred\", \"meaning\": \"Desired emotional impact\"}, {\"text\": \"wrapping everything up happily\", \"query\": \"wrapping everything up happily\", \"kind\": \"description\", \"role\": \"excluded\", \"meaning\": \"Excluded narrative resolution\"}]}",
+      "{\"choice\": 1, \"role\": \"preferred\", \"operator\": \"eq\", \"value\": \"5 Centimeters per Second\", \"mapping\": \"exact\"}",
+      "{\"role\": \"excluded\"}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "five anime",
+        "query": "five anime",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested anime list"
+      },
+      {
+        "text": "emotionally wrecked",
+        "query": "emotionally wrecked",
+        "kind": "description",
+        "role": "preferred",
+        "meaning": "Desired emotional impact"
+      },
+      {
+        "text": "wrapping everything up happily",
+        "query": "wrapping everything up happily",
+        "kind": "description",
+        "role": "excluded",
+        "meaning": "Excluded narrative resolution"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"To ensure accurate recommendations, could you elaborate on what aspects of 'emotionally wrecked' and 'wrapping everything up happily' you're looking for in an anime? For example, are you interested in themes like loss, trauma, or existential dread, or conversely, stories with optimistic or fulfilling endings?\",\"decisions\": {\"p0\": {\"meaning\": \"five anime\", \"role\": \"subject\", \"selection\": \"5 Centimeters per Second | anime:1689\"}, \"p1\": {\"meaning\": \"emotionally wrecked\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}, \"p2\": {\"meaning\": \"wrapping everything up happily\", \"role\": \"excluded\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "1689",
+          "role": "subject",
+          "text": "five anime",
+          "name": "5 Centimeters per Second",
+          "meaning": "five anime"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "emotionally wrecked",
+          "name": "",
+          "meaning": "emotionally wrecked"
+        },
+        {
+          "phrase_index": 2,
+          "kind": "description",
+          "id": "",
+          "role": "excluded",
+          "text": "wrapping everything up happily",
+          "name": "",
+          "meaning": "wrapping everything up happily"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "1689",
+          "role": "subject",
+          "text": "five anime",
+          "name": "5 Centimeters per Second",
+          "meaning": "five anime"
+        }
+      ],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [
+        "5 Centimeters per Second"
+      ],
+      "required": [],
+      "excluded": [
+        "wrapping everything up happily"
+      ],
+      "preferred": [
+        "emotionally wrecked"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [
+        "5 Centimeters per Second"
+      ],
+      "filters": [
+        {
+          "field": "tag_details",
+          "operator": "contains",
+          "value": "emotionally wrecked"
+        }
+      ],
+      "soft_query": "emotionally wrecked",
+      "limitations": [
+        "Description matching can downrank 'wrapping everything up happily', but the catalog cannot verify its complete absence."
+      ],
+      "mappings": [
+        {
+          "field": "tag_details",
+          "operator": "contains",
+          "value": "emotionally wrecked",
+          "source_text": "What are five anime that will leave me emotionally wrecked rather than wrapping everything up happily?",
+          "mapping": "exact",
+          "origin": "structured_attribute_plan"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "wrapping everything up happily",
+          "candidate": null,
+          "role": "irrelevant",
+          "mapping": "exact"
+        },
+        {
+          "phrase": "emotionally wrecked",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        }
+      ],
+      "description_exclusions": [
+        "wrapping everything up happily"
+      ],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "1689",
+            "role": "subject",
+            "text": "five anime",
+            "name": "5 Centimeters per Second",
+            "meaning": "five anime"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "emotionally wrecked",
+            "name": "",
+            "meaning": "emotionally wrecked"
+          },
+          {
+            "phrase_index": 2,
+            "kind": "description",
+            "id": "",
+            "role": "excluded",
+            "text": "wrapping everything up happily",
+            "name": "",
+            "meaning": "wrapping everything up happily"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "1689",
+            "role": "subject",
+            "text": "five anime",
+            "name": "5 Centimeters per Second",
+            "meaning": "five anime"
+          }
+        ],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend anime based on user preference for emotionally wrecked themes",
+      "clarification": "The user wants anime recommendations that evoke a sense of emotional devastation rather than a happy ending. This suggests a preference for tragic or melancholic stories.",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "emotionally wrecked",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "emotionally wrecked"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

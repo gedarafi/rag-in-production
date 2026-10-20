@@ -1,0 +1,503 @@
+{
+  "question_id": "hf_171",
+  "anime_id": "21507",
+  "title": "Mob Psycho 100",
+  "field": "main_characters",
+  "question": "List everyone assigned a main character role in Mob Psycho 100 season one.",
+  "expected_values": [
+    "Arataka Reigen",
+    "Shigeo Kageyama",
+    "Ekubo",
+    "Ritsu Kageyama"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Arataka Reigen, Shigeo Kageyama, Ekubo, and Ritsu Kageyama",
+  "extracted_values": [
+    "Arataka Reigen",
+    "Shigeo Kageyama",
+    "Ekubo",
+    "Ritsu Kageyama"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 10.830500624999331,
+  "extraction_seconds": 0.7944579169998178,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Arataka Reigen",
+        "quote": "Arataka Reigen, Shigeo Kageyama, Ekubo, and Ritsu Kageyama"
+      },
+      {
+        "value": "Shigeo Kageyama",
+        "quote": "Arataka Reigen, Shigeo Kageyama, Ekubo, and Ritsu Kageyama"
+      },
+      {
+        "value": "Ekubo",
+        "quote": "Arataka Reigen, Shigeo Kageyama, Ekubo, and Ritsu Kageyama"
+      },
+      {
+        "value": "Ritsu Kageyama",
+        "quote": "Arataka Reigen, Shigeo Kageyama, Ekubo, and Ritsu Kageyama"
+      }
+    ],
+    "note": "No source material specified",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 4,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "status": "error",
+        "step": 0,
+        "tool": "get_character",
+        "error": "Use character IDs from dictionary or tool results first",
+        "elapsed_seconds": 6.8e-05
+      },
+      {
+        "status": "error",
+        "step": 1,
+        "tool": "get_character",
+        "error": "Use character IDs from dictionary or tool results first",
+        "elapsed_seconds": 4e-05
+      },
+      {
+        "status": "error",
+        "step": 2,
+        "tool": "get_character",
+        "error": "Use character IDs from dictionary or tool results first",
+        "elapsed_seconds": 3.3e-05
+      },
+      {
+        "status": "error",
+        "step": 3,
+        "tool": "get_character",
+        "error": "Use character IDs from dictionary or tool results first",
+        "elapsed_seconds": 3.2e-05
+      },
+      {
+        "status": "error",
+        "step": 4,
+        "tool": "get_character",
+        "error": "Use character IDs from dictionary or tool results first",
+        "elapsed_seconds": 3.1e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 5,
+    "executed_tools": 0,
+    "timings_seconds": {
+      "interpret_request": 2.026558,
+      "prepare_context": 0.018478,
+      "retrieve_guides": 0.02829,
+      "feature_candidates": 0.013552,
+      "planning": 6.120533,
+      "tools": 0.000204,
+      "generate_answer": 2.619251
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Mob Psycho 100\", \"query\": \"Mob Psycho 100\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Season one\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Mob Psycho 100",
+        "query": "Mob Psycho 100",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Season one"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Season one\", \"role\": \"subject\", \"selection\": \"Mob Psycho 100 | anime:21507\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21507",
+          "role": "subject",
+          "text": "Mob Psycho 100",
+          "name": "Mob Psycho 100",
+          "meaning": "Season one"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21507",
+          "role": "subject",
+          "text": "Mob Psycho 100",
+          "name": "Mob Psycho 100",
+          "meaning": "Season one"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Mob Psycho 100"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21507",
+            "role": "subject",
+            "text": "Mob Psycho 100",
+            "name": "Mob Psycho 100",
+            "meaning": "Season one"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21507",
+            "role": "subject",
+            "text": "Mob Psycho 100",
+            "name": "Mob Psycho 100",
+            "meaning": "Season one"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "List everyone assigned a main character role in Mob Psycho 100 season one",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "21507",
+            "section": "cast",
+            "offset": 0
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "21507",
+            "section": "cast",
+            "offset": 1
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "21507",
+            "section": "cast",
+            "offset": 2
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "21507",
+            "section": "cast",
+            "offset": 3
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "21507",
+            "section": "cast",
+            "offset": 4
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21507",
+          "name": "Mob Psycho 100"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:21507",
+          "fact": "The main characters in Mob Psycho 100 season one are Arataka Reigen, Shigeo Kageyama, Ekubo, and Ritsu Kageyama."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 9.6e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001675
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.026558
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.018478
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.02829
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013552
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.120533
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "List everyone assigned a main character role in Mob Psycho 100 season one",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "21507",
+              "section": "cast",
+              "offset": 0
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "21507",
+              "section": "cast",
+              "offset": 1
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "21507",
+              "section": "cast",
+              "offset": 2
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "21507",
+              "section": "cast",
+              "offset": 3
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "21507",
+              "section": "cast",
+              "offset": 4
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21507",
+            "name": "Mob Psycho 100"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_character",
+      "arguments": {
+        "id": "21507",
+        "section": "cast",
+        "offset": 0
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_character",
+      "status": "error",
+      "elapsed_seconds": 6.8e-05,
+      "error": "Use character IDs from dictionary or tool results first"
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_character",
+      "arguments": {
+        "id": "21507",
+        "section": "cast",
+        "offset": 1
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_character",
+      "status": "error",
+      "elapsed_seconds": 4e-05,
+      "error": "Use character IDs from dictionary or tool results first"
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "get_character",
+      "arguments": {
+        "id": "21507",
+        "section": "cast",
+        "offset": 2
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "get_character",
+      "status": "error",
+      "elapsed_seconds": 3.3e-05,
+      "error": "Use character IDs from dictionary or tool results first"
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_character",
+      "arguments": {
+        "id": "21507",
+        "section": "cast",
+        "offset": 3
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_character",
+      "status": "error",
+      "elapsed_seconds": 3.2e-05,
+      "error": "Use character IDs from dictionary or tool results first"
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "get_character",
+      "arguments": {
+        "id": "21507",
+        "section": "cast",
+        "offset": 4
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "get_character",
+      "status": "error",
+      "elapsed_seconds": 3.1e-05,
+      "error": "Use character IDs from dictionary or tool results first"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 2.619251
+    }
+  ]
+}

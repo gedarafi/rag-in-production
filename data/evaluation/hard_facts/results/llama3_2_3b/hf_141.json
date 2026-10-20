@@ -1,0 +1,335 @@
+{
+  "question_id": "hf_141",
+  "anime_id": "20954",
+  "title": "A Silent Voice",
+  "field": "main_animation_studios",
+  "question": "Who animated the A Silent Voice film? I mean the animation studio.",
+  "expected_values": [
+    "Kyoto Animation"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Kyoto Animation",
+  "extracted_values": [
+    "Kyoto Animation"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 8.493050250001033,
+  "extraction_seconds": 0.5732733749991894,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Kyoto Animation",
+        "quote": "Kyoto Animation"
+      }
+    ],
+    "note": "assertion for main_animation_studios",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20954",
+          "section": "studios"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "20954",
+          "title": "A Silent Voice"
+        },
+        "elapsed_seconds": 0.005745
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 2.084251,
+      "prepare_context": 0.015527,
+      "retrieve_guides": 0.021412,
+      "feature_candidates": 0.011796,
+      "planning": 3.598888,
+      "tools": 0.005745,
+      "generate_answer": 2.75261
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"A Silent Voice\", \"query\": \"A Silent Voice\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Film; animation studio is a role\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "A Silent Voice",
+        "query": "A Silent Voice",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Film; animation studio is a role"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Who animated the A Silent Voice film?\", \"decisions\": {\"p0\": {\"meaning\": \"Animation studio\", \"role\": \"subject\", \"selection\": \"A Silent Voice | anime:20954\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20954",
+          "role": "subject",
+          "text": "A Silent Voice",
+          "name": "A Silent Voice",
+          "meaning": "Animation studio"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20954",
+          "role": "subject",
+          "text": "A Silent Voice",
+          "name": "A Silent Voice",
+          "meaning": "Animation studio"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "A Silent Voice"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20954",
+            "role": "subject",
+            "text": "A Silent Voice",
+            "name": "A Silent Voice",
+            "meaning": "Animation studio"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20954",
+            "role": "subject",
+            "text": "A Silent Voice",
+            "name": "A Silent Voice",
+            "meaning": "Animation studio"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "find animation studio for A Silent Voice",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20954",
+            "section": "studios"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "20954",
+          "name": "A Silent Voice"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:20954",
+          "fact": "The animation studio for A Silent Voice is Kyoto Animation."
+        },
+        {
+          "subject": "anime:20954",
+          "fact": "Kyoto Animation is the primary animation studio for this anime."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.9e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00141
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.084251
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.015527
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.021412
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.011796
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.598888
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "find animation studio for A Silent Voice",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20954",
+              "section": "studios"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "20954",
+            "name": "A Silent Voice"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20954",
+        "section": "studios"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.005745,
+      "arguments": {
+        "id": "20954",
+        "section": "studios"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "20954",
+        "title": "A Silent Voice"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 2.75261
+    }
+  ]
+}

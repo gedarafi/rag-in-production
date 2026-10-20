@@ -1,0 +1,395 @@
+{
+  "question_id": "hf_102",
+  "anime_id": "132405",
+  "title": "My Dress-Up Darling",
+  "field": "format",
+  "question": "Is the first My Dress-Up Darling anime a TV production or a film?",
+  "expected_values": [
+    "TV"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The first My Dress-Up Darling anime is a TV production.",
+  "extracted_values": [
+    "TV production"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 10.510655250000127,
+  "extraction_seconds": 0.6429134579993843,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "TV production",
+        "quote": "The first My Dress-Up Darling anime is a TV production."
+      }
+    ],
+    "note": "assertion about the format of the first My Dress-Up Darling anime",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "missing_values": [
+      "tv"
+    ],
+    "extra_values": [
+      "tv production"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "132405",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "132405",
+          "title": "My Dress-Up Darling"
+        },
+        "elapsed_seconds": 0.019205
+      },
+      {
+        "step": 1,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "production type My Dress-Up Darling",
+          "anime_ids": [
+            "132405"
+          ]
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.041015
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 2.171505,
+      "prepare_context": 0.014368,
+      "retrieve_guides": 0.028628,
+      "feature_candidates": 0.013851,
+      "planning": 4.28155,
+      "tools": 0.06022,
+      "generate_answer": 3.937308
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"My Dress-Up Darling\", \"query\": \"My Dress-Up Darling\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Production type\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "My Dress-Up Darling",
+        "query": "My Dress-Up Darling",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Production type"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"What is the production type of the first My Dress-Up Darling anime?\", \"decisions\": {\"p0\": {\"meaning\": \"Production type\", \"role\": \"subject\", \"selection\": \"My Dress-Up Darling | anime:132405\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "132405",
+          "role": "subject",
+          "text": "My Dress-Up Darling",
+          "name": "My Dress-Up Darling",
+          "meaning": "Production type"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "132405",
+          "role": "subject",
+          "text": "My Dress-Up Darling",
+          "name": "My Dress-Up Darling",
+          "meaning": "Production type"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "My Dress-Up Darling"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "132405",
+            "role": "subject",
+            "text": "My Dress-Up Darling",
+            "name": "My Dress-Up Darling",
+            "meaning": "Production type"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "132405",
+            "role": "subject",
+            "text": "My Dress-Up Darling",
+            "name": "My Dress-Up Darling",
+            "meaning": "Production type"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine if My Dress-Up Darling is a TV production or a film",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "132405",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "production type My Dress-Up Darling",
+            "anime_ids": [
+              "132405"
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "132405",
+          "name": "My Dress-Up Darling"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:132405",
+          "fact": "format: TV"
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.2e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001484
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.171505
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.014368
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.028628
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013851
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.28155
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine if My Dress-Up Darling is a TV production or a film",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "132405",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "production type My Dress-Up Darling",
+              "anime_ids": [
+                "132405"
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "132405",
+            "name": "My Dress-Up Darling"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "132405",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.019205,
+      "arguments": {
+        "id": "132405",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "132405",
+        "title": "My Dress-Up Darling"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "production type My Dress-Up Darling",
+        "anime_ids": [
+          "132405"
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.041015,
+      "arguments": {
+        "query": "production type My Dress-Up Darling",
+        "anime_ids": [
+          "132405"
+        ]
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.937308
+    }
+  ]
+}

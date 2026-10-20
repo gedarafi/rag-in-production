@@ -1,0 +1,960 @@
+{
+  "question_id": "hf_128",
+  "anime_id": "99263",
+  "title": "The Rising of the Shield Hero",
+  "field": "source_material",
+  "question": "Which kind of source work did The Rising of the Shield Hero adapt?",
+  "expected_values": [
+    "LIGHT_NOVEL"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The Rising of the Shield Hero adapts from a LIGHT_NOVEL source.",
+  "extracted_values": [
+    "LIGHT_NOVEL"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 17.021837457999936,
+  "extraction_seconds": 0.6703234579999844,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "LIGHT_NOVEL",
+        "quote": "The Rising of the Shield Hero adapts from a LIGHT_NOVEL source."
+      }
+    ],
+    "note": "The Rising of the Shield Hero adapts from a LIGHT_NOVEL source.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "99263"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "99263",
+          "title": "The Rising of the Shield Hero"
+        },
+        "elapsed_seconds": 0.015655
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "source material",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "anthology",
+              "name": "Anthology",
+              "description": "A collection of separate works collated into a single release.",
+              "category": "Technical",
+              "similarity": 0.4049
+            },
+            {
+              "kind": "tag",
+              "id": "makeup",
+              "name": "Makeup",
+              "description": "Centers around the makeup industry.",
+              "category": "Theme-Arts",
+              "similarity": 0.3508
+            },
+            {
+              "kind": "tag",
+              "id": "advertisement",
+              "name": "Advertisement",
+              "description": "Produced in order to promote the products of a certain company.",
+              "category": "Technical",
+              "similarity": 0.3332
+            },
+            {
+              "kind": "tag",
+              "id": "achromatic",
+              "name": "Achromatic",
+              "description": "Contains animation that is primarily done in black and white.",
+              "category": "Technical",
+              "similarity": 0.327
+            },
+            {
+              "kind": "tag",
+              "id": "educational",
+              "name": "Educational",
+              "description": "Primary aim is to educate the audience.",
+              "category": "Theme-Other",
+              "similarity": 0.3118
+            }
+          ]
+        },
+        "elapsed_seconds": 0.035725
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "source material"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.017923
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "99263"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "99263",
+          "title": "The Rising of the Shield Hero"
+        },
+        "elapsed_seconds": 0.000126
+      },
+      {
+        "step": 4,
+        "tool": "search_features",
+        "arguments": {
+          "query": "adaptation",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "shapeshifting",
+              "name": "Shapeshifting",
+              "description": "Features character(s) who changes one's appearance or form.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.3995
+            },
+            {
+              "kind": "tag",
+              "id": "isekai",
+              "name": "Isekai",
+              "description": "Features a character from a modern-day setting being transported into an alternate world and has to adapt to their new surroundings.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.3822
+            },
+            {
+              "kind": "tag",
+              "id": "clone",
+              "name": "Clone",
+              "description": "Prominently features a character who is an artificial exact copy of another organism.",
+              "category": "Cast-Traits",
+              "similarity": 0.3722
+            },
+            {
+              "kind": "tag",
+              "id": "body swapping",
+              "name": "Body Swapping",
+              "description": "Centers around individuals swapping bodies with one another.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.345
+            },
+            {
+              "kind": "tag",
+              "id": "memory manipulation",
+              "name": "Memory Manipulation",
+              "description": "Prominently features a character(s) who has had their memories altered.",
+              "category": "Theme-Other",
+              "similarity": 0.3448
+            }
+          ]
+        },
+        "elapsed_seconds": 0.010689
+      },
+      {
+        "step": 5,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "adaptation"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.009345
+      },
+      {
+        "step": 6,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "99263"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "99263",
+          "title": "The Rising of the Shield Hero"
+        },
+        "elapsed_seconds": 0.000122
+      },
+      {
+        "step": 7,
+        "tool": "search_features",
+        "arguments": {
+          "query": "manga",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "drawing",
+              "name": "Drawing",
+              "description": "Centers around the art of drawing, including manga and doujinshi.",
+              "category": "Theme-Arts",
+              "similarity": 0.6073
+            },
+            {
+              "kind": "tag",
+              "id": "4 koma",
+              "name": "4-koma",
+              "description": "A manga in the 'yonkoma' format, which consists of four equal-sized panels arranged in a vertical strip.",
+              "category": "Technical",
+              "similarity": 0.5747
+            },
+            {
+              "kind": "tag",
+              "id": "rakugo",
+              "name": "Rakugo",
+              "description": "Rakugo is the traditional Japanese performance art of comic storytelling.",
+              "category": "Theme-Arts",
+              "similarity": 0.558
+            },
+            {
+              "kind": "tag",
+              "id": "iyashikei",
+              "name": "Iyashikei",
+              "description": "Primary aim is to heal the audience through serene depictions of characters' daily lives.",
+              "category": "Theme-Slice of Life",
+              "similarity": 0.4796
+            },
+            {
+              "kind": "tag",
+              "id": "ero guro",
+              "name": "Ero Guro",
+              "description": "Japanese literary and artistic movement originating in the 1930's. Works have a focus on grotesque eroticism, sexual corruption, and decadence.",
+              "category": "Theme-Other",
+              "similarity": 0.4794
+            }
+          ]
+        },
+        "elapsed_seconds": 0.010386
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 8,
+    "executed_tools": 6,
+    "timings_seconds": {
+      "interpret_request": 3.936403,
+      "prepare_context": 0.013654,
+      "retrieve_guides": 0.032382,
+      "feature_candidates": 0.014082,
+      "planning": 8.998513,
+      "tools": 0.099971,
+      "generate_answer": 3.924225
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"The Rising of the Shield Hero\", \"query\": \"The Rising of the Shield Hero\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Source material\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "The Rising of the Shield Hero",
+        "query": "The Rising of the Shield Hero",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Source material"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify the source work that The Rising of the Shield Hero adapted.\", \"decisions\": {\"p0\": {\"meaning\": \"The Rising of the Shield Hero\", \"role\": \"subject\", \"selection\": \"The Rising of the Shield Hero | anime:99263\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "99263",
+          "role": "subject",
+          "text": "The Rising of the Shield Hero",
+          "name": "The Rising of the Shield Hero",
+          "meaning": "The Rising of the Shield Hero"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "99263",
+          "role": "subject",
+          "text": "The Rising of the Shield Hero",
+          "name": "The Rising of the Shield Hero",
+          "meaning": "The Rising of the Shield Hero"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "The Rising of the Shield Hero"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "99263",
+            "role": "subject",
+            "text": "The Rising of the Shield Hero",
+            "name": "The Rising of the Shield Hero",
+            "meaning": "The Rising of the Shield Hero"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "99263",
+            "role": "subject",
+            "text": "The Rising of the Shield Hero",
+            "name": "The Rising of the Shield Hero",
+            "meaning": "The Rising of the Shield Hero"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "uncertain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine source material for The Rising of the Shield Hero",
+      "clarification": "Confirm if the request is about the source material of the anime or the anime itself.",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "99263"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "source material",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "source material"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "99263"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "adaptation",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "adaptation"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "99263"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "manga",
+            "kind": "tag"
+          }
+        }
+      ]
+    },
+    "scope": "uncertain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "99263",
+          "name": "The Rising of the Shield Hero"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:99263",
+          "fact": "The Rising of the Shield Hero is based on a LIGHT_NOVEL source material."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.9e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000873
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.936403
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.013654
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.032382
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014082
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 8.998513
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "uncertain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "uncertain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine source material for The Rising of the Shield Hero",
+        "clarification": "Confirm if the request is about the source material of the anime or the anime itself.",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "99263"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "source material",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "source material"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "99263"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "adaptation",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "adaptation"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "99263"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "manga",
+              "kind": "tag"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "99263",
+            "name": "The Rising of the Shield Hero"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "99263"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.015655,
+      "arguments": {
+        "id": "99263"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "99263",
+        "title": "The Rising of the Shield Hero"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "source material",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.035725,
+      "arguments": {
+        "query": "source material",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "anthology",
+            "name": "Anthology",
+            "description": "A collection of separate works collated into a single release.",
+            "category": "Technical",
+            "similarity": 0.4049
+          },
+          {
+            "kind": "tag",
+            "id": "makeup",
+            "name": "Makeup",
+            "description": "Centers around the makeup industry.",
+            "category": "Theme-Arts",
+            "similarity": 0.3508
+          },
+          {
+            "kind": "tag",
+            "id": "advertisement",
+            "name": "Advertisement",
+            "description": "Produced in order to promote the products of a certain company.",
+            "category": "Technical",
+            "similarity": 0.3332
+          },
+          {
+            "kind": "tag",
+            "id": "achromatic",
+            "name": "Achromatic",
+            "description": "Contains animation that is primarily done in black and white.",
+            "category": "Technical",
+            "similarity": 0.327
+          },
+          {
+            "kind": "tag",
+            "id": "educational",
+            "name": "Educational",
+            "description": "Primary aim is to educate the audience.",
+            "category": "Theme-Other",
+            "similarity": 0.3118
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "source material"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.017923,
+      "arguments": {
+        "kind": "tag",
+        "query": "source material"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "99263"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000126,
+      "arguments": {
+        "id": "99263"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "99263",
+        "title": "The Rising of the Shield Hero"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "search_features",
+      "arguments": {
+        "query": "adaptation",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.010689,
+      "arguments": {
+        "query": "adaptation",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "shapeshifting",
+            "name": "Shapeshifting",
+            "description": "Features character(s) who changes one's appearance or form.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.3995
+          },
+          {
+            "kind": "tag",
+            "id": "isekai",
+            "name": "Isekai",
+            "description": "Features a character from a modern-day setting being transported into an alternate world and has to adapt to their new surroundings.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.3822
+          },
+          {
+            "kind": "tag",
+            "id": "clone",
+            "name": "Clone",
+            "description": "Prominently features a character who is an artificial exact copy of another organism.",
+            "category": "Cast-Traits",
+            "similarity": 0.3722
+          },
+          {
+            "kind": "tag",
+            "id": "body swapping",
+            "name": "Body Swapping",
+            "description": "Centers around individuals swapping bodies with one another.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.345
+          },
+          {
+            "kind": "tag",
+            "id": "memory manipulation",
+            "name": "Memory Manipulation",
+            "description": "Prominently features a character(s) who has had their memories altered.",
+            "category": "Theme-Other",
+            "similarity": 0.3448
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "adaptation"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.009345,
+      "arguments": {
+        "kind": "tag",
+        "query": "adaptation"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 6,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "99263"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 6,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000122,
+      "arguments": {
+        "id": "99263"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "99263",
+        "title": "The Rising of the Shield Hero"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 7,
+      "tool": "search_features",
+      "arguments": {
+        "query": "manga",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 7,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.010386,
+      "arguments": {
+        "query": "manga",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "drawing",
+            "name": "Drawing",
+            "description": "Centers around the art of drawing, including manga and doujinshi.",
+            "category": "Theme-Arts",
+            "similarity": 0.6073
+          },
+          {
+            "kind": "tag",
+            "id": "4 koma",
+            "name": "4-koma",
+            "description": "A manga in the 'yonkoma' format, which consists of four equal-sized panels arranged in a vertical strip.",
+            "category": "Technical",
+            "similarity": 0.5747
+          },
+          {
+            "kind": "tag",
+            "id": "rakugo",
+            "name": "Rakugo",
+            "description": "Rakugo is the traditional Japanese performance art of comic storytelling.",
+            "category": "Theme-Arts",
+            "similarity": 0.558
+          },
+          {
+            "kind": "tag",
+            "id": "iyashikei",
+            "name": "Iyashikei",
+            "description": "Primary aim is to heal the audience through serene depictions of characters' daily lives.",
+            "category": "Theme-Slice of Life",
+            "similarity": 0.4796
+          },
+          {
+            "kind": "tag",
+            "id": "ero guro",
+            "name": "Ero Guro",
+            "description": "Japanese literary and artistic movement originating in the 1930's. Works have a focus on grotesque eroticism, sexual corruption, and decadence.",
+            "category": "Theme-Other",
+            "similarity": 0.4794
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.924225
+    }
+  ]
+}

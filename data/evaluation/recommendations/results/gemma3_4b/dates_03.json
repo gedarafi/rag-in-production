@@ -1,0 +1,590 @@
+{
+  "question_id": "dates_03",
+  "category": "release_date",
+  "intent_family": "dates",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "I missed two whole years of releases before 2020. Give me five anime that first arrived in 2018 or 2019.",
+  "k": 5,
+  "constraints": [
+    {
+      "field": "start_date",
+      "op": "gte",
+      "value": "2018-01-01"
+    },
+    {
+      "field": "start_date",
+      "op": "lte",
+      "value": "2019-12-31"
+    }
+  ],
+  "label_rationale": "Uses complete known start dates, inclusive; partial dates are unknown and fail.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 1505,
+  "reference_examples": [
+    {
+      "id": "100009",
+      "title": "Space Battleship Tiramisu"
+    },
+    {
+      "id": "100010",
+      "title": "MAGICAL GIRL SITE"
+    },
+    {
+      "id": "100049",
+      "title": "Re:ZERO -Starting Life in Another World- OVAs"
+    }
+  ],
+  "answer_text": "",
+  "status": "model_error",
+  "error": "RuntimeError: No supported recommendations were retrieved. Please rephrase your preferences and retry.",
+  "extraction": null,
+  "recommendations": [],
+  "metrics": null,
+  "model_seconds": 18.601227374999326,
+  "extraction_seconds": 0.0,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 3.9e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000815
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 8.726339
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.002443
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.008964
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.017302
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.52916
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend anime based on year constraints",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "2018 2019 anime releases",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "year",
+                  "operator": "gt",
+                  "value": "2018"
+                },
+                {
+                  "field": "year",
+                  "operator": "lt",
+                  "value": "2019"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "2018 2019 anime releases",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.032585,
+      "arguments": {
+        "query": "2018 2019 anime releases",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "anthology",
+            "name": "Anthology",
+            "description": "A collection of separate works collated into a single release.",
+            "category": "Technical",
+            "similarity": 0.3236
+          },
+          {
+            "kind": "tag",
+            "id": "shoujo",
+            "name": "Shoujo",
+            "description": "Target demographic is teenage and young adult females.",
+            "category": "Demographic",
+            "similarity": 0.2706
+          },
+          {
+            "kind": "tag",
+            "id": "coming of age",
+            "name": "Coming of Age",
+            "description": "Centers around a character's transition from childhood to adulthood.",
+            "category": "Theme-Drama",
+            "similarity": 0.259
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "year",
+            "operator": "gt",
+            "value": "2018"
+          },
+          {
+            "field": "year",
+            "operator": "lt",
+            "value": "2019"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.044951,
+      "arguments": {
+        "filters": [
+          {
+            "field": "year",
+            "operator": "gt",
+            "value": "2018"
+          },
+          {
+            "field": "year",
+            "operator": "lt",
+            "value": "2019"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "year",
+              "operator": "gt",
+              "value": "2018"
+            },
+            {
+              "field": "year",
+              "operator": "lt",
+              "value": "2019"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 0,
+          "retained": 0,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "year",
+              "operator": "gt",
+              "value": "2018",
+              "source_text": "releases",
+              "mapping": "exact"
+            },
+            {
+              "field": "year",
+              "operator": "lt",
+              "value": "2019",
+              "source_text": "releases",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": []
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "error",
+      "elapsed_seconds": 3.236755,
+      "error": "No supported recommendations were retrieved. Please rephrase your preferences and retry."
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "2018 2019 anime releases",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "anthology",
+              "name": "Anthology",
+              "description": "A collection of separate works collated into a single release.",
+              "category": "Technical",
+              "similarity": 0.3236
+            },
+            {
+              "kind": "tag",
+              "id": "shoujo",
+              "name": "Shoujo",
+              "description": "Target demographic is teenage and young adult females.",
+              "category": "Demographic",
+              "similarity": 0.2706
+            },
+            {
+              "kind": "tag",
+              "id": "coming of age",
+              "name": "Coming of Age",
+              "description": "Centers around a character's transition from childhood to adulthood.",
+              "category": "Theme-Drama",
+              "similarity": 0.259
+            }
+          ]
+        },
+        "elapsed_seconds": 0.032585
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "year",
+              "operator": "gt",
+              "value": "2018"
+            },
+            {
+              "field": "year",
+              "operator": "lt",
+              "value": "2019"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "year",
+                "operator": "gt",
+                "value": "2018"
+              },
+              {
+                "field": "year",
+                "operator": "lt",
+                "value": "2019"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 0,
+            "retained": 0,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "year",
+                "operator": "gt",
+                "value": "2018",
+                "source_text": "releases",
+                "mapping": "exact"
+              },
+              {
+                "field": "year",
+                "operator": "lt",
+                "value": "2019",
+                "source_text": "releases",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": []
+        },
+        "elapsed_seconds": 0.044951
+      }
+    ],
+    "llm_calls": 5,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 8.726339,
+      "prepare_context": 0.002443,
+      "retrieve_guides": 0.008964,
+      "feature_candidates": 0.017302,
+      "planning": 6.52916,
+      "tools": 0.077536,
+      "generate_answer": 3.236755
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"2018\", \"query\": \"2018\", \"kind\": \"genre\", \"role\": \"preferred\", \"meaning\": \"Year criteria\"}, {\"text\": \"2019\", \"query\": \"2019\", \"kind\": \"genre\", \"role\": \"preferred\", \"meaning\": \"Year criteria\"}]}",
+      "{\"min\": 2018, \"max\": 2019}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "2018",
+        "query": "2018",
+        "kind": "genre",
+        "role": "preferred",
+        "meaning": "Year criteria"
+      },
+      {
+        "text": "2019",
+        "query": "2019",
+        "kind": "genre",
+        "role": "preferred",
+        "meaning": "Year criteria"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please clarify if you are looking for anime released in 2018 or 2019, or if you want a list of five anime that first arrived in 2018 or 2019.\", \"decisions\": {\"p0\": {\"meaning\": \"Year criteria\", \"role\": \"preferred\", \"selection\": \"unmapped description\" },\"p1\": {\"meaning\": \"Year criteria\", \"role\": \"preferred\", \"selection\": \"unmapped description\" }}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "2018",
+          "name": "",
+          "meaning": "Year criteria"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "2019",
+          "name": "",
+          "meaning": "Year criteria"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {
+      "year": {
+        "sources": [
+          "releases"
+        ],
+        "interpretations": [
+          "range"
+        ]
+      }
+    },
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [],
+      "preferred": [
+        "2018",
+        "2019"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "year",
+          "operator": "gt",
+          "value": "2018"
+        },
+        {
+          "field": "year",
+          "operator": "lt",
+          "value": "2019"
+        }
+      ],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "year",
+          "operator": "gt",
+          "value": "2018",
+          "source_text": "releases",
+          "mapping": "exact"
+        },
+        {
+          "field": "year",
+          "operator": "lt",
+          "value": "2019",
+          "source_text": "releases",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "2018",
+            "name": "",
+            "meaning": "Year criteria"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "2019",
+            "name": "",
+            "meaning": "Year criteria"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend anime based on year constraints",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "2018 2019 anime releases",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "year",
+                "operator": "gt",
+                "value": "2018"
+              },
+              {
+                "field": "year",
+                "operator": "lt",
+                "value": "2019"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

@@ -1,0 +1,862 @@
+{
+  "question_id": "horror_01",
+  "category": "genres",
+  "intent_family": "horror",
+  "wording": "explicit",
+  "question_origin": "authored_naturalistic",
+  "question": "Give me three anime from the horror genre.",
+  "k": 3,
+  "constraints": [
+    {
+      "field": "genres",
+      "op": "any",
+      "value": [
+        "Horror"
+      ],
+      "alternatives": [
+        {
+          "reason": "Body Horror and Cosmic Horror are specific horror themes and valid alternatives to a missing broad Horror genre. Gore alone is not evidence that a show aims to scare.",
+          "constraints": [
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Body Horror",
+                "Cosmic Horror"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "Frightening viewing maps to Horror, not every dark or sad story.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 836,
+  "reference_examples": [
+    {
+      "id": "100010",
+      "title": "MAGICAL GIRL SITE"
+    },
+    {
+      "id": "100226",
+      "title": "EVIL OR LIVE"
+    },
+    {
+      "id": "100240",
+      "title": "Tokyo Ghoul:re"
+    }
+  ],
+  "answer_text": "Catalog matches — Horror.\n\n1. **Tokyo Ghoul** — The suspense horror/dark fantasy story is set in Tokyo, which is haunted by mysterious \"ghouls\" who are devouring humans. People are gripped by the fear of these ghouls whose identities are masked in mystery. An ordinary college student named Kaneki encounters Rize, a girl who is an avid reader like him, at the café he frequents. Little does he realize that his fate will change overnight. (Source: Anime News Network)\n\n2. **Chainsaw Man** — Denji is a teenage boy living with a Chainsaw Devil named Pochita. Due to the debt his father left behind, he has been living a rock-bottom life while repaying his debt by harvesting devil corpses with Pochita. One day, Denji is betrayed and killed. As his consciousness fades, he makes a contract with Pochita and gets revived as \"Chainsaw Man\" — a man with a devil's heart. (Source: Crunchyroll)\n\n3. **The Promised Neverland** — Emma, Norman and Ray are the brightest kids at the Grace Field House orphanage. And under the care of the woman they refer to as “Mom,” all the kids have enjoyed a comfortable life. Good food, clean clothes and the perfect environment to learn—what more could an orphan ask for? One day, though, Emma and Norman uncover the dark truth of the outside world they are forbidden from seeing. (Source: VIZ Media)\n\n4. **Akame ga Kill!** — In a land where corruption rules and a ruthless Prime Minister has turned the puppet Emperor's armies of soldiers, assassins and secret police against the people, only one force dares to stand against them: Night Raid, an elite team of relentless killers, each equipped with an Imperial Arm - legendary weapons with unique and incredible powers created in the distant past. Rescued from a fate worse than death by Night Raid, young Tatsumi is…\n\n5. **Parasyte -the maxim-** — They arrive in silence and darkness. They descend from the skies. They have a hunger for human flesh. They are everywhere. They are parasites, alien creatures who must invade–and take control of–a human host to survive. And once they have infected their victims, they can assume any deadly form they choose: monsters with giant teeth, winged demons, creatures with blades for hands. But most have chosen to conceal their lethal purpose behind…",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Tokyo Ghoul",
+      "Chainsaw Man",
+      "The Promised Neverland",
+      "Akame ga Kill!",
+      "Parasyte -the maxim-"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 2,
+    "validation_errors": [
+      "Extracted title is not present in the answer; transcribe a written alias only"
+    ]
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Tokyo Ghoul",
+      "anime_id": "20605",
+      "canonical_title": "Tokyo Ghoul",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20605"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Body Horror and Cosmic Horror are specific horror themes and valid alternatives to a missing broad Horror genre. Gore alone is not evidence that a show aims to scare.",
+              "score": 0.79,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Body Horror",
+                      "Cosmic Horror"
+                    ]
+                  },
+                  "score": 0.79
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Chainsaw Man",
+      "anime_id": "127230",
+      "canonical_title": "Chainsaw Man",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "127230"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Body Horror and Cosmic Horror are specific horror themes and valid alternatives to a missing broad Horror genre. Gore alone is not evidence that a show aims to scare.",
+              "score": 0.85,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Body Horror",
+                      "Cosmic Horror"
+                    ]
+                  },
+                  "score": 0.85
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 3,
+      "extracted_title": "The Promised Neverland",
+      "anime_id": "101759",
+      "canonical_title": "The Promised Neverland",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "101759"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Body Horror and Cosmic Horror are specific horror themes and valid alternatives to a missing broad Horror genre. Gore alone is not evidence that a show aims to scare.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Body Horror",
+                      "Cosmic Horror"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Akame ga Kill!",
+      "anime_id": "20613",
+      "canonical_title": "Akame ga Kill!",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20613"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Body Horror and Cosmic Horror are specific horror themes and valid alternatives to a missing broad Horror genre. Gore alone is not evidence that a show aims to scare.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Body Horror",
+                      "Cosmic Horror"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Parasyte -the maxim-",
+      "anime_id": "20623",
+      "canonical_title": "Parasyte -the maxim-",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20623"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Body Horror and Cosmic Horror are specific horror themes and valid alternatives to a missing broad Horror genre. Gore alone is not evidence that a show aims to scare.",
+              "score": 0.92,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Body Horror",
+                      "Cosmic Horror"
+                    ]
+                  },
+                  "score": 0.92
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 1.0,
+    "graded_fit_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "constraint_coverage": 1.0,
+    "count_compliance": 0,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "extra_count": 2,
+    "literal_precision_at_k": 1.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 9.908597540999835,
+  "extraction_seconds": 3.05357258299955,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 3.6e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000693
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 5.769562
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.002292
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.010163
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.017241
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.821823
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "horror",
+              "kind": "genre",
+              "limit": 3
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "genres",
+                  "operator": "eq",
+                  "value": "Horror"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "horror",
+        "kind": "genre",
+        "limit": 3
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.036757,
+      "arguments": {
+        "query": "horror",
+        "kind": "genre",
+        "limit": 3
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "genre",
+        "matches": [
+          {
+            "kind": "genre",
+            "id": "horror",
+            "name": "Horror",
+            "similarity": 0.8623
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "eq",
+            "value": "Horror"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.247824,
+      "arguments": {
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "eq",
+            "value": "Horror"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "genres",
+              "operator": "eq",
+              "value": "Horror"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "genres",
+              "operator": "eq",
+              "value": "Horror",
+              "source_text": "Give me three anime from the horror genre.",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "20605",
+            "title": "Tokyo Ghoul",
+            "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Horror'}]"
+          },
+          {
+            "id": "127230",
+            "title": "Chainsaw Man",
+            "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Horror'}]"
+          },
+          {
+            "id": "101759",
+            "title": "The Promised Neverland",
+            "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Horror'}]"
+          },
+          {
+            "id": "20613",
+            "title": "Akame ga Kill!",
+            "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Horror'}]"
+          },
+          {
+            "id": "20623",
+            "title": "Parasyte -the maxim-",
+            "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Horror'}]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000362
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "horror",
+          "kind": "genre",
+          "limit": 3
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "genre",
+          "matches": [
+            {
+              "kind": "genre",
+              "id": "horror",
+              "name": "Horror",
+              "similarity": 0.8623
+            }
+          ]
+        },
+        "elapsed_seconds": 0.036757
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "genres",
+              "operator": "eq",
+              "value": "Horror"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "genres",
+                "operator": "eq",
+                "value": "Horror"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "genres",
+                "operator": "eq",
+                "value": "Horror",
+                "source_text": "Give me three anime from the horror genre.",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "20605",
+              "title": "Tokyo Ghoul",
+              "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Horror'}]"
+            },
+            {
+              "id": "127230",
+              "title": "Chainsaw Man",
+              "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Horror'}]"
+            },
+            {
+              "id": "101759",
+              "title": "The Promised Neverland",
+              "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Horror'}]"
+            },
+            {
+              "id": "20613",
+              "title": "Akame ga Kill!",
+              "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Horror'}]"
+            },
+            {
+              "id": "20623",
+              "title": "Parasyte -the maxim-",
+              "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Horror'}]"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.247824
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 5.769562,
+      "prepare_context": 0.002292,
+      "retrieve_guides": 0.010163,
+      "feature_candidates": 0.017241,
+      "planning": 3.821823,
+      "tools": 0.284581,
+      "generate_answer": 0.000362
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"horror\", \"query\": \"horror\", \"kind\": \"genre\", \"role\": \"required\", \"meaning\": \"Desired genre\"}, {\"text\": \"Tokyo Ghoul\", \"query\": \"Tokyo Ghoul\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Horror anime\"}, {\"text\": \"Parasyte\", \"query\": \"Parasyte\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Horror anime\"}, {\"text\": \"Boogiepop Phantom\", \"query\": \"Boogiepop Phantom\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Horror anime\"}]}",
+      "{\n  \"role\": \"required\"\n}"
+    ],
+    "unsupported_mentions": [
+      {
+        "text": "Tokyo Ghoul",
+        "query": "Tokyo Ghoul",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Horror anime"
+      },
+      {
+        "text": "Parasyte",
+        "query": "Parasyte",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Horror anime"
+      },
+      {
+        "text": "Boogiepop Phantom",
+        "query": "Boogiepop Phantom",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Horror anime"
+      }
+    ],
+    "typed_mentions": [
+      {
+        "text": "horror",
+        "query": "horror",
+        "kind": "genre",
+        "role": "required",
+        "meaning": "Desired genre"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Desired genre\", \"role\": \"required\", \"selection\": \"Horror | genre:horror\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "genre",
+          "id": "horror",
+          "role": "required",
+          "text": "horror",
+          "name": "Horror",
+          "meaning": "Desired genre"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [
+        "horror"
+      ],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "genres",
+          "operator": "eq",
+          "value": "Horror"
+        }
+      ],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "genres",
+          "operator": "eq",
+          "value": "Horror",
+          "source_text": "Give me three anime from the horror genre.",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "horror",
+          "candidate": {
+            "field": "genres",
+            "value": "Horror",
+            "meaning": "Horror"
+          },
+          "role": "required",
+          "mapping": "exact"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "genre",
+            "id": "horror",
+            "role": "required",
+            "text": "horror",
+            "name": "Horror",
+            "meaning": "Desired genre"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "horror",
+            "kind": "genre",
+            "limit": 3
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "genres",
+                "operator": "eq",
+                "value": "Horror"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

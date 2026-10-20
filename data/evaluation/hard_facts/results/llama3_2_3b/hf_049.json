@@ -1,0 +1,565 @@
+{
+  "question_id": "hf_049",
+  "anime_id": "1575",
+  "title": "Code Geass: Lelouch of the Rebellion",
+  "field": "episodes",
+  "question": "What is the number of episodes in Code Geass: Lelouch of the Rebellion's first season?",
+  "expected_values": [
+    25.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The number of episodes in Code Geass: Lelouch of the Rebellion's first season is 25.",
+  "extracted_values": [
+    "25"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 12.05170329199973,
+  "extraction_seconds": 0.6025383329997567,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "25",
+        "quote": "The number of episodes in Code Geass: Lelouch of the Rebellion's first season is 25."
+      }
+    ],
+    "note": "set unclear=true when requested assertions cannot be interpreted reliably",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1575",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "1575",
+          "title": "Code Geass: Lelouch of the Rebellion"
+        },
+        "elapsed_seconds": 0.014793
+      },
+      {
+        "step": 1,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1575",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "1575",
+          "title": "Code Geass: Lelouch of the Rebellion"
+        },
+        "elapsed_seconds": 8.5e-05
+      },
+      {
+        "step": 2,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1575",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "1575",
+          "title": "Code Geass: Lelouch of the Rebellion"
+        },
+        "elapsed_seconds": 7.6e-05
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1575",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "1575",
+          "title": "Code Geass: Lelouch of the Rebellion"
+        },
+        "elapsed_seconds": 7.4e-05
+      },
+      {
+        "step": 4,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1575",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "1575",
+          "title": "Code Geass: Lelouch of the Rebellion"
+        },
+        "elapsed_seconds": 7.3e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 5,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 3.142215,
+      "prepare_context": 0.021786,
+      "retrieve_guides": 0.028431,
+      "feature_candidates": 0.013291,
+      "planning": 5.818537,
+      "tools": 0.015101,
+      "generate_answer": 3.008777
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Code Geass: Lelouch of the Rebellion\", \"query\": \"Code Geass: Lelouch of the Rebellion\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; first season; episodes count\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Code Geass: Lelouch of the Rebellion",
+        "query": "Code Geass: Lelouch of the Rebellion",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; first season; episodes count"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"TV series; first season; episodes count\", \"role\": \"subject\", \"selection\": \"Code Geass: Lelouch of the Rebellion | anime:1575\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "1575",
+          "role": "subject",
+          "text": "Code Geass: Lelouch of the Rebellion",
+          "name": "Code Geass: Lelouch of the Rebellion",
+          "meaning": "TV series; first season; episodes count"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "1575",
+          "role": "subject",
+          "text": "Code Geass: Lelouch of the Rebellion",
+          "name": "Code Geass: Lelouch of the Rebellion",
+          "meaning": "TV series; first season; episodes count"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Code Geass: Lelouch of the Rebellion"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "1575",
+            "role": "subject",
+            "text": "Code Geass: Lelouch of the Rebellion",
+            "name": "Code Geass: Lelouch of the Rebellion",
+            "meaning": "TV series; first season; episodes count"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "1575",
+            "role": "subject",
+            "text": "Code Geass: Lelouch of the Rebellion",
+            "name": "Code Geass: Lelouch of the Rebellion",
+            "meaning": "TV series; first season; episodes count"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Get the number of episodes in Code Geass: Lelouch of the Rebellion's first season",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1575",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1575",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1575",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1575",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1575",
+            "section": "overview"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "1575",
+          "name": "Code Geass: Lelouch of the Rebellion"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:1575",
+          "fact": "episodes = 25.0"
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 9.6e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001215
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.142215
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.021786
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.028431
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013291
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 5.818537
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Get the number of episodes in Code Geass: Lelouch of the Rebellion's first season",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1575",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1575",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1575",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1575",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1575",
+              "section": "overview"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "1575",
+            "name": "Code Geass: Lelouch of the Rebellion"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1575",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.014793,
+      "arguments": {
+        "id": "1575",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "1575",
+        "title": "Code Geass: Lelouch of the Rebellion"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1575",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 8.5e-05,
+      "arguments": {
+        "id": "1575",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "1575",
+        "title": "Code Geass: Lelouch of the Rebellion"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1575",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 7.6e-05,
+      "arguments": {
+        "id": "1575",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "1575",
+        "title": "Code Geass: Lelouch of the Rebellion"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1575",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 7.4e-05,
+      "arguments": {
+        "id": "1575",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "1575",
+        "title": "Code Geass: Lelouch of the Rebellion"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1575",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 7.3e-05,
+      "arguments": {
+        "id": "1575",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "1575",
+        "title": "Code Geass: Lelouch of the Rebellion"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.008777
+    }
+  ]
+}

@@ -1,0 +1,545 @@
+{
+  "question_id": "hf_123",
+  "anime_id": "30",
+  "title": "Neon Genesis Evangelion",
+  "field": "source_material",
+  "question": "What source-material category is recorded for Neon Genesis Evangelion?",
+  "expected_values": [
+    "ORIGINAL"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Neon Genesis Evangelion is categorized as an Action, Drama, Mecha, Mystery, Psychological, Sci-Fi anime. It also includes tags such as Philosophy, Coming of Age, Tragedy, Super Robot, Meta, Cosmic Horror, Dystopian, Denpa, Post-Apocalyptic, Angels, Primarily Teen Cast, Kaiju, Psychosexual, Male Protagonist, Conspiracy, Aliens, Mythology, Body Horror, Suicide, Religion, Military, Estranged Family, Kuudere, Clone, Tokusatsu, Tsundere, Politics, Spearplay, Foreign, Heterosexual, Gore, Trains, Espionage, Masturbation, Found Family, Office Lady, Episodic, Nudity, Family Life, Hikikomori, Artificial Intelligence, Real Robot.",
+  "extracted_values": [
+    "manga",
+    "visual novel",
+    "light novel",
+    "original"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 18.899285082999995,
+  "extraction_seconds": 0.9548044170001049,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "manga",
+        "quote": "Neon Genesis Evangelion is categorized as an Action, Drama, Mecha, Mystery, Psychological, Sci-Fi anime. It also includes tags such as Philosophy, Coming of Age, Tragedy, Super Robot, Meta, Cosmic Horror, Dystopian, Denpa, Post-Apocalyptic, Angels, Primarily Teen Cast, Kaiju, Psychosexual, Male Protagonist, Conspiracy, Aliens, Mythology, Body Horror, Suicide, Religion, Military, Estranged Family, Kuudere, Clone, Tokusatsu, Tsundere, Politics, Spearplay, Foreign, Heterosexual, Gore, Trains, Espionage, Masturbation, Found Family, Office Lady, Episodic, Nudity, Family Life, Hikikomori, Artificial Intelligence, Real Robot."
+      },
+      {
+        "value": "visual novel",
+        "quote": "Neon Genesis Evangelion is categorized as an Action, Drama, Mecha, Mystery, Psychological, Sci-Fi anime. It also includes tags such as Philosophy, Coming of Age, Tragedy, Super Robot, Meta, Cosmic Horror, Dystopian, Denpa, Post-Apocalyptic, Angels, Primarily Teen Cast, Kaiju, Psychosexual, Male Protagonist, Conspiracy, Aliens, Mythology, Body Horror, Suicide, Religion, Military, Estranged Family, Kuudere, Clone, Tokusatsu, Tsundere, Politics, Spearplay, Foreign, Heterosexual, Gore, Trains, Espionage, Masturbation, Found Family, Office Lady, Episodic, Nudity, Family Life, Hikikomori, Artificial Intelligence, Real Robot."
+      },
+      {
+        "value": "light novel",
+        "quote": "Neon Genesis Evangelion is categorized as an Action, Drama, Mecha, Mystery, Psychological, Sci-Fi anime. It also includes tags such as Philosophy, Coming of Age, Tragedy, Super Robot, Meta, Cosmic Horror, Dystopian, Denpa, Post-Apocalyptic, Angels, Primarily Teen Cast, Kaiju, Psychosexual, Male Protagonist, Conspiracy, Aliens, Mythology, Body Horror, Suicide, Religion, Military, Estranged Family, Kuudere, Clone, Tokusatsu, Tsundere, Politics, Spearplay, Foreign, Heterosexual, Gore, Trains, Espionage, Masturbation, Found Family, Office Lady, Episodic, Nudity, Family Life, Hikikomori, Artificial Intelligence, Real Robot."
+      },
+      {
+        "value": "original",
+        "quote": "Neon Genesis Evangelion is categorized as an Action, Drama, Mecha, Mystery, Psychological, Sci-Fi anime. It also includes tags such as Philosophy, Coming of Age, Tragedy, Super Robot, Meta, Cosmic Horror, Dystopian, Denpa, Post-Apocalyptic, Angels, Primarily Teen Cast, Kaiju, Psychosexual, Male Protagonist, Conspiracy, Aliens, Mythology, Body Horror, Suicide, Religion, Military, Estranged Family, Kuudere, Clone, Tokusatsu, Tsundere, Politics, Spearplay, Foreign, Heterosexual, Gore, Trains, Espionage, Masturbation, Found Family, Office Lady, Episodic, Nudity, Family Life, Hikikomori, Artificial Intelligence, Real Robot."
+      }
+    ],
+    "note": "Multiple categories are mentioned, but not explicitly stated as the primary source material.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.25,
+    "recall": 1.0,
+    "f1": 0.4,
+    "tp": 1,
+    "fp": 3,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": [
+      "light novel",
+      "manga",
+      "visual novel"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "30"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "30",
+          "title": "Neon Genesis Evangelion"
+        },
+        "elapsed_seconds": 0.016971
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "source material category",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "anthology",
+              "name": "Anthology",
+              "description": "A collection of separate works collated into a single release.",
+              "category": "Technical",
+              "similarity": 0.3139
+            },
+            {
+              "kind": "tag",
+              "id": "makeup",
+              "name": "Makeup",
+              "description": "Centers around the makeup industry.",
+              "category": "Theme-Arts",
+              "similarity": 0.2996
+            },
+            {
+              "kind": "tag",
+              "id": "achromatic",
+              "name": "Achromatic",
+              "description": "Contains animation that is primarily done in black and white.",
+              "category": "Technical",
+              "similarity": 0.291
+            },
+            {
+              "kind": "tag",
+              "id": "meta",
+              "name": "Meta",
+              "description": "Features fourth wall-breaking references to itself or genre tropes.",
+              "category": "Theme-Other",
+              "similarity": 0.2555
+            },
+            {
+              "kind": "tag",
+              "id": "metal music",
+              "name": "Metal Music",
+              "description": "Centers on the musical style of metal, not to be applied to anime that use metal in its soundtrack.",
+              "category": "Theme-Arts-Music",
+              "similarity": 0.2526
+            }
+          ]
+        },
+        "elapsed_seconds": 0.035631
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "source material category"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.023486
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 3.875078,
+      "prepare_context": 0.018181,
+      "retrieve_guides": 0.030508,
+      "feature_candidates": 0.013601,
+      "planning": 6.635956,
+      "tools": 0.076088,
+      "generate_answer": 8.246614
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Neon Genesis Evangelion\", \"query\": \"Neon Genesis Evangelion\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Neon Genesis Evangelion",
+        "query": "Neon Genesis Evangelion",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify if you are asking about the original manga, the original anime series, or a specific adaptation.\", \"decisions\": {\"p0\": {\"meaning\": \"Neon Genesis Evangelion\", \"role\": \"subject\", \"selection\": \"Neon Genesis Evangelion | anime:30\"} }}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "30",
+          "role": "subject",
+          "text": "Neon Genesis Evangelion",
+          "name": "Neon Genesis Evangelion",
+          "meaning": "Neon Genesis Evangelion"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "30",
+          "role": "subject",
+          "text": "Neon Genesis Evangelion",
+          "name": "Neon Genesis Evangelion",
+          "meaning": "Neon Genesis Evangelion"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Neon Genesis Evangelion"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "30",
+            "role": "subject",
+            "text": "Neon Genesis Evangelion",
+            "name": "Neon Genesis Evangelion",
+            "meaning": "Neon Genesis Evangelion"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "30",
+            "role": "subject",
+            "text": "Neon Genesis Evangelion",
+            "name": "Neon Genesis Evangelion",
+            "meaning": "Neon Genesis Evangelion"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Retrieve source material category for Neon Genesis Evangelion",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "30"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "source material category",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "source material category"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "30",
+          "name": "Neon Genesis Evangelion"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:30",
+          "fact": "Neon Genesis Evangelion is categorized as an Action, Drama, Mecha, Mystery, Psychological, Sci-Fi anime. It also includes tags such as Philosophy, Coming of Age, Tragedy, Super Robot, Meta, Cosmic Horror, Dystopian, Denpa, Post-Apocalyptic, Angels, Primarily Teen Cast, Kaiju, Psychosexual, Male Protagonist, Conspiracy, Aliens, Mythology, Body Horror, Suicide, Religion, Military, Estranged Family, Kuudere, Clone, Tokusatsu, Tsundere, Politics, Spearplay, Foreign, Heterosexual, Gore, Trains, Espi-"
+        },
+        {
+          "subject": "anime:30",
+          "fact": "The source material is described as 'ORIGINAL'."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 7.7e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001459
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.875078
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.018181
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.030508
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013601
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.635956
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Retrieve source material category for Neon Genesis Evangelion",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "30"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "source material category",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "source material category"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "30",
+            "name": "Neon Genesis Evangelion"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "30"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.016971,
+      "arguments": {
+        "id": "30"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "30",
+        "title": "Neon Genesis Evangelion"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "source material category",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.035631,
+      "arguments": {
+        "query": "source material category",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "anthology",
+            "name": "Anthology",
+            "description": "A collection of separate works collated into a single release.",
+            "category": "Technical",
+            "similarity": 0.3139
+          },
+          {
+            "kind": "tag",
+            "id": "makeup",
+            "name": "Makeup",
+            "description": "Centers around the makeup industry.",
+            "category": "Theme-Arts",
+            "similarity": 0.2996
+          },
+          {
+            "kind": "tag",
+            "id": "achromatic",
+            "name": "Achromatic",
+            "description": "Contains animation that is primarily done in black and white.",
+            "category": "Technical",
+            "similarity": 0.291
+          },
+          {
+            "kind": "tag",
+            "id": "meta",
+            "name": "Meta",
+            "description": "Features fourth wall-breaking references to itself or genre tropes.",
+            "category": "Theme-Other",
+            "similarity": 0.2555
+          },
+          {
+            "kind": "tag",
+            "id": "metal music",
+            "name": "Metal Music",
+            "description": "Centers on the musical style of metal, not to be applied to anime that use metal in its soundtrack.",
+            "category": "Theme-Arts-Music",
+            "similarity": 0.2526
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "source material category"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.023486,
+      "arguments": {
+        "kind": "tag",
+        "query": "source material category"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 8.246614
+    }
+  ]
+}

@@ -1,0 +1,644 @@
+{
+  "question_id": "hf_163",
+  "anime_id": "20605",
+  "title": "Tokyo Ghoul",
+  "field": "main_characters",
+  "question": "Which characters are classified as main in the first Tokyo Ghoul season?",
+  "expected_values": [
+    "Ken Kaneki",
+    "Touka Kirishima"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "According to the source records, Ken Kaneki and Touka Kirishima are classified as main characters in the first season of Tokyo Ghoul.",
+  "extracted_values": [
+    "Ken Kaneki",
+    "Touka Kirishima"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 14.192419250000057,
+  "extraction_seconds": 0.5909601250004926,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Ken Kaneki",
+        "quote": "According to the source records, Ken Kaneki and Touka Kirishima are classified as main characters in the first season of Tokyo Ghoul."
+      },
+      {
+        "value": "Touka Kirishima",
+        "quote": "According to the source records, Ken Kaneki and Touka Kirishima are classified as main characters in the first season of Tokyo Ghoul."
+      }
+    ],
+    "note": "",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 2,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20605"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20605",
+          "title": "Tokyo Ghoul"
+        },
+        "elapsed_seconds": 0.023965
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "main characters",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "male protagonist",
+              "name": "Male Protagonist",
+              "description": "Main character is male.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.3698
+            },
+            {
+              "kind": "tag",
+              "id": "female protagonist",
+              "name": "Female Protagonist",
+              "description": "Main character is female.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.3356
+            },
+            {
+              "kind": "tag",
+              "id": "battle royale",
+              "name": "Battle Royale",
+              "description": "Centers around a fierce group competition, often violent and with only one winner.",
+              "category": "Theme-Action",
+              "similarity": 0.3306
+            },
+            {
+              "kind": "tag",
+              "id": "primarily male cast",
+              "name": "Primarily Male Cast",
+              "description": "Main cast is mostly composed of male characters.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.3235
+            },
+            {
+              "kind": "tag",
+              "id": "revenge",
+              "name": "Revenge",
+              "description": "Prominently features a character who aims to exact punishment in a resentful or vindictive manner.",
+              "category": "Theme-Drama",
+              "similarity": 0.3089
+            }
+          ]
+        },
+        "elapsed_seconds": 0.038879
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "character",
+          "query": "Ken Kaneki"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "character",
+          "matches": [
+            {
+              "kind": "character",
+              "id": "87275",
+              "name": "Ken Kaneki",
+              "aliases": [
+                "Ken Kaneki",
+                "金木研",
+                "Eyepatch",
+                "Kane-yan",
+                "Kanekichi"
+              ],
+              "match": "exact_or_name_order",
+              "similarity": 1.0
+            }
+          ]
+        },
+        "elapsed_seconds": 0.074865
+      },
+      {
+        "step": 3,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "character",
+          "query": "Touka Kirishima"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "character",
+          "matches": [
+            {
+              "kind": "character",
+              "id": "87277",
+              "name": "Touka Kirishima",
+              "aliases": [
+                "Touka Kirishima",
+                "霧嶋董香",
+                "Rabbit"
+              ],
+              "match": "exact_or_name_order",
+              "similarity": 1.0
+            }
+          ]
+        },
+        "elapsed_seconds": 0.020613
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 4,
+    "executed_tools": 4,
+    "timings_seconds": {
+      "interpret_request": 3.243299,
+      "prepare_context": 0.019255,
+      "retrieve_guides": 0.041639,
+      "feature_candidates": 0.013083,
+      "planning": 7.004459,
+      "tools": 0.158322,
+      "generate_answer": 3.709645
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Tokyo Ghoul\", \"query\": \"Tokyo Ghoul\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"First season\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Tokyo Ghoul",
+        "query": "Tokyo Ghoul",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "First season"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify which characters you are referring to within the first Tokyo Ghoul season.\", \"decisions\": {\"p0\": {\"meaning\": \"Tokyo Ghoul\", \"role\": \"subject\", \"selection\": \"Tokyo Ghoul | anime:20605\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20605",
+          "role": "subject",
+          "text": "Tokyo Ghoul",
+          "name": "Tokyo Ghoul",
+          "meaning": "Tokyo Ghoul"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20605",
+          "role": "subject",
+          "text": "Tokyo Ghoul",
+          "name": "Tokyo Ghoul",
+          "meaning": "Tokyo Ghoul"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Tokyo Ghoul"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20605",
+            "role": "subject",
+            "text": "Tokyo Ghoul",
+            "name": "Tokyo Ghoul",
+            "meaning": "Tokyo Ghoul"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20605",
+            "role": "subject",
+            "text": "Tokyo Ghoul",
+            "name": "Tokyo Ghoul",
+            "meaning": "Tokyo Ghoul"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Identify main characters in the first season of Tokyo Ghoul.",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20605"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "main characters",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "character",
+            "query": "Ken Kaneki"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "character",
+            "query": "Touka Kirishima"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "20605",
+          "name": "Tokyo Ghoul"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:20605",
+          "fact": "The primary anime:20605 source records identify Ken Kaneki and Touka Kirishima as MAIN characters."
+        },
+        {
+          "subject": "anime:20605",
+          "fact": "The source records state that Ken Kaneki is a MAIN character and Touka Kirishima is a MAIN character."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 6e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001221
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.243299
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.019255
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.041639
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013083
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 7.004459
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Identify main characters in the first season of Tokyo Ghoul.",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20605"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "main characters",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "character",
+              "query": "Ken Kaneki"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "character",
+              "query": "Touka Kirishima"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "20605",
+            "name": "Tokyo Ghoul"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20605"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.023965,
+      "arguments": {
+        "id": "20605"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20605",
+        "title": "Tokyo Ghoul"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "main characters",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.038879,
+      "arguments": {
+        "query": "main characters",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "male protagonist",
+            "name": "Male Protagonist",
+            "description": "Main character is male.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.3698
+          },
+          {
+            "kind": "tag",
+            "id": "female protagonist",
+            "name": "Female Protagonist",
+            "description": "Main character is female.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.3356
+          },
+          {
+            "kind": "tag",
+            "id": "battle royale",
+            "name": "Battle Royale",
+            "description": "Centers around a fierce group competition, often violent and with only one winner.",
+            "category": "Theme-Action",
+            "similarity": 0.3306
+          },
+          {
+            "kind": "tag",
+            "id": "primarily male cast",
+            "name": "Primarily Male Cast",
+            "description": "Main cast is mostly composed of male characters.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.3235
+          },
+          {
+            "kind": "tag",
+            "id": "revenge",
+            "name": "Revenge",
+            "description": "Prominently features a character who aims to exact punishment in a resentful or vindictive manner.",
+            "category": "Theme-Drama",
+            "similarity": 0.3089
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "character",
+        "query": "Ken Kaneki"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.074865,
+      "arguments": {
+        "kind": "character",
+        "query": "Ken Kaneki"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "character",
+        "matches": [
+          {
+            "kind": "character",
+            "id": "87275",
+            "name": "Ken Kaneki",
+            "aliases": [
+              "Ken Kaneki",
+              "金木研",
+              "Eyepatch",
+              "Kane-yan",
+              "Kanekichi"
+            ],
+            "match": "exact_or_name_order",
+            "similarity": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "character",
+        "query": "Touka Kirishima"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.020613,
+      "arguments": {
+        "kind": "character",
+        "query": "Touka Kirishima"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "character",
+        "matches": [
+          {
+            "kind": "character",
+            "id": "87277",
+            "name": "Touka Kirishima",
+            "aliases": [
+              "Touka Kirishima",
+              "霧嶋董香",
+              "Rabbit"
+            ],
+            "match": "exact_or_name_order",
+            "similarity": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.709645
+    }
+  ]
+}

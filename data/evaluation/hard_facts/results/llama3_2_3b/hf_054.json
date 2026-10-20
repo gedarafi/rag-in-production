@@ -1,0 +1,419 @@
+{
+  "question_id": "hf_054",
+  "anime_id": "113415",
+  "title": "JUJUTSU KAISEN",
+  "field": "duration",
+  "question": "What's the listed runtime per episode of JUJUTSU KAISEN season one?",
+  "expected_values": [
+    24.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "",
+  "extracted_values": [],
+  "status": "model_error",
+  "error": "RuntimeError: The model returned an invalid grounded response. Please retry.",
+  "model_seconds": 12.446967667001445,
+  "extraction_seconds": 0.0,
+  "extraction": null,
+  "metrics": null,
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "113415",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "113415",
+          "title": "JUJUTSU KAISEN"
+        },
+        "elapsed_seconds": 0.018778
+      },
+      {
+        "step": 1,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "113415",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "113415",
+          "title": "JUJUTSU KAISEN"
+        },
+        "elapsed_seconds": 0.000174
+      },
+      {
+        "step": 2,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "113415",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "113415",
+          "title": "JUJUTSU KAISEN"
+        },
+        "elapsed_seconds": 0.000158
+      }
+    ],
+    "llm_calls": 5,
+    "planned_tools": 3,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 2.927759,
+      "prepare_context": 0.014773,
+      "retrieve_guides": 0.029471,
+      "feature_candidates": 0.013912,
+      "planning": 4.781667,
+      "tools": 0.01911,
+      "generate_answer": 4.656438
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"JUJUTSU KAISEN\", \"query\": \"JUJUTSU KAISEN season 1\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV episode runtime\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "JUJUTSU KAISEN",
+        "query": "JUJUTSU KAISEN season 1",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV episode runtime"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"What is JUJUTSU KAISEN season one about?\", \"decisions\": {\"p0\": {\"meaning\": \"TV episode runtime\", \"role\": \"subject\", \"selection\": \"JUJUTSU KAISEN | anime:113415\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "113415",
+          "role": "subject",
+          "text": "JUJUTSU KAISEN",
+          "name": "JUJUTSU KAISEN",
+          "meaning": "TV episode runtime"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "113415",
+          "role": "subject",
+          "text": "JUJUTSU KAISEN",
+          "name": "JUJUTSU KAISEN",
+          "meaning": "TV episode runtime"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "JUJUTSU KAISEN"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "113415",
+            "role": "subject",
+            "text": "JUJUTSU KAISEN",
+            "name": "JUJUTSU KAISEN",
+            "meaning": "TV episode runtime"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "113415",
+            "role": "subject",
+            "text": "JUJUTSU KAISEN",
+            "name": "JUJUTSU KAISEN",
+            "meaning": "TV episode runtime"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Get the runtime per episode of JUJUTSU KAISEN season one",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "113415",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "113415",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "113415",
+            "section": "overview"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "113415",
+          "name": "JUJUTSU KAISEN"
+        }
+      ],
+      "characters": []
+    },
+    "grounding_corrections": [
+      "Unknown quantity variable"
+    ]
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 0.000103
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001259
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.927759
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.014773
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.029471
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013912
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.781667
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Get the runtime per episode of JUJUTSU KAISEN season one",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "113415",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "113415",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "113415",
+              "section": "overview"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "113415",
+            "name": "JUJUTSU KAISEN"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "113415",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.018778,
+      "arguments": {
+        "id": "113415",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "113415",
+        "title": "JUJUTSU KAISEN"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "113415",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000174,
+      "arguments": {
+        "id": "113415",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "113415",
+        "title": "JUJUTSU KAISEN"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "113415",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000158,
+      "arguments": {
+        "id": "113415",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "113415",
+        "title": "JUJUTSU KAISEN"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "error",
+      "elapsed_seconds": 4.656438,
+      "error": "The model returned an invalid grounded response. Please retry."
+    }
+  ]
+}

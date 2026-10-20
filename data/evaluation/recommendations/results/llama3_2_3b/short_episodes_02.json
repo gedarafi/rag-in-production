@@ -1,0 +1,96 @@
+{
+  "question_id": "short_episodes_02",
+  "category": "length",
+  "intent_family": "short_episodes",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "My break is only a quarter of an hour. What are four television anime with episodes that fit into it?",
+  "k": 4,
+  "constraints": [
+    {
+      "field": "format",
+      "op": "any",
+      "value": [
+        "TV",
+        "TV_SHORT"
+      ]
+    },
+    {
+      "field": "duration",
+      "op": "lte",
+      "value": 15
+    }
+  ],
+  "label_rationale": "Duration is minutes per episode, not total series runtime.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 1310,
+  "reference_examples": [
+    {
+      "id": "100009",
+      "title": "Space Battleship Tiramisu"
+    },
+    {
+      "id": "100093",
+      "title": "Skull-face Bookseller Honda-san"
+    },
+    {
+      "id": "100133",
+      "title": "One Room SECOND SEASON"
+    }
+  ],
+  "answer_text": "",
+  "status": "model_error",
+  "error": "ValueError: Mention must be supported by the user request or selected user history: ['quarter hour']",
+  "extraction": null,
+  "recommendations": [],
+  "metrics": null,
+  "model_seconds": 1.6603355839997676,
+  "extraction_seconds": 0.0,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 3.7e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000713
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "error",
+      "elapsed_seconds": 1.65952,
+      "error": "Mention must be supported by the user request or selected user history: ['quarter hour']"
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [],
+    "llm_calls": 2,
+    "planned_tools": 0,
+    "executed_tools": 0,
+    "timings_seconds": {
+      "interpret_request": 1.65952
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"quarter hour\", \"query\": \"quarter hour\", \"kind\": \"genre\", \"role\": \"required\", \"meaning\": \"Episode length\"}]}",
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"quarter hour\", \"query\": \"quarter hour\", \"kind\": \"genre\", \"role\": \"required\", \"meaning\": \"Episode length\"}]}"
+    ],
+    "mention_classification_corrections": [
+      "Mention must be supported by the user request or selected user history: ['quarter hour']"
+    ]
+  }
+}

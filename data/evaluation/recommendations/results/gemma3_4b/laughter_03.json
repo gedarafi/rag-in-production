@@ -1,0 +1,738 @@
+{
+  "question_id": "laughter_03",
+  "category": "tags",
+  "intent_family": "laughter",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "Give me five anime where the joke is often something completely absurd happening on screen.",
+  "k": 5,
+  "constraints": [
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Surreal Comedy",
+        "Slapstick"
+      ],
+      "alternatives": [
+        {
+          "reason": "Comedy with Parody or Meta humor is another reasonable interpretation of an absurd, ridiculous watch; unrelated comedy subtypes are not automatically equivalent.",
+          "constraints": [
+            {
+              "field": "genres",
+              "op": "any",
+              "value": [
+                "Comedy"
+              ]
+            },
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Parody",
+                "Meta"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "Absurd and physical comedy are alternative acceptable routes to the requested laughter.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 1622,
+  "reference_examples": [
+    {
+      "id": "10012",
+      "title": "Carnival Phantasm"
+    },
+    {
+      "id": "10191",
+      "title": "Katte ni Kaizou"
+    },
+    {
+      "id": "102010",
+      "title": "Docchi mo Maid"
+    }
+  ],
+  "answer_text": "Catalog matches. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **No Game, No Life** — Bored with life and considering the real world to be just a “crappy game,” savvy sibling shut-ins Sora and Shiro have withdrawn into their own fantasy world filled with video games. However, one day they find themselves summoned to another world by a boy who calls himself “God,” their abilities are about to be put to the ultimate test! Now not only their fates — but the fate of all of humanity — will be decided by a series of games that may just…\n\n2. **Black Clover** — In a world where magic is everything, Asta and Yuno are both found abandoned at a church on the same day. While Yuno is gifted with exceptional magical powers, Asta is the only one in this world without any. At the age of fifteen, both receive grimoires, magic books that amplify their holder’s magic. Asta’s is a rare Grimoire of Anti-Magic that negates and repels his opponent’s spells. Being opposite but good rivals, Yuno and Asta are ready for…\n\n3. **My Hero Academia** — What would the world be like if 80 percent of the population manifested extraordinary superpowers called “Quirks” at age four? Heroes and villains would be battling it out everywhere! Becoming a hero would mean learning to use your power, but where would you go to study? U.A. High's Hero Program of course! But what would you do if you were one of the 20 percent who were born Quirkless? Middle school student Izuku Midoriya wants to be a hero more…\n\n4. **Tokyo Ghoul** — The suspense horror/dark fantasy story is set in Tokyo, which is haunted by mysterious \"ghouls\" who are devouring humans. People are gripped by the fear of these ghouls whose identities are masked in mystery. An ordinary college student named Kaneki encounters Rize, a girl who is an avid reader like him, at the café he frequents. Little does he realize that his fate will change overnight. (Source: Anime News Network)\n\n5. **Death Note** — Light Yagami is a genius high school student who is about to learn about life through a book of death. When a bored shinigami, a God of Death, named Ryuk drops a black notepad called a Death Note, Light receives power over life and death with the stroke of a pen. Determined to use this dark gift for the best, Light sets out to rid the world of evil… namely, the people he believes to be evil. Should anyone hold such power? The consequences of…",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "No Game, No Life",
+      "Black Clover",
+      "My Hero Academia",
+      "Tokyo Ghoul",
+      "Death Note"
+    ],
+    "unclear": false,
+    "note": "No Game, No Life, Black Clover, My Hero Academia, Tokyo Ghoul, Death Note",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "No Game, No Life",
+      "anime_id": "19815",
+      "canonical_title": "No Game, No Life",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "19815"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.68
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.68,
+          "met": true,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "alternative_1",
+          "graded_path": "alternative_1",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Comedy with Parody or Meta humor is another reasonable interpretation of an absurd, ridiculous watch; unrelated comedy subtypes are not automatically equivalent.",
+              "score": 0.68,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Comedy"
+                    ]
+                  },
+                  "score": 1.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Parody",
+                      "Meta"
+                    ]
+                  },
+                  "score": 0.68
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.68,
+      "gain": 0.68,
+      "strict_match": 1,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Black Clover",
+      "anime_id": null,
+      "canonical_title": null,
+      "resolution": "ambiguous",
+      "candidate_ids": [
+        "155017",
+        "97940"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 3,
+      "extracted_title": "My Hero Academia",
+      "anime_id": "21459",
+      "canonical_title": "My Hero Academia",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21459"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Comedy with Parody or Meta humor is another reasonable interpretation of an absurd, ridiculous watch; unrelated comedy subtypes are not automatically equivalent.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Comedy"
+                    ]
+                  },
+                  "score": 1.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Parody",
+                      "Meta"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Tokyo Ghoul",
+      "anime_id": "20605",
+      "canonical_title": "Tokyo Ghoul",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20605"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Comedy with Parody or Meta humor is another reasonable interpretation of an absurd, ridiculous watch; unrelated comedy subtypes are not automatically equivalent.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Comedy"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Parody",
+                      "Meta"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Death Note",
+      "anime_id": "1535",
+      "canonical_title": "Death Note",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "1535"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Comedy with Parody or Meta humor is another reasonable interpretation of an absurd, ridiculous watch; unrelated comedy subtypes are not automatically equivalent.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Comedy"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Parody",
+                      "Meta"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.2,
+    "graded_fit_at_k": 0.136,
+    "ndcg_at_k": 0.23062893958605898,
+    "constraint_coverage": 1.0,
+    "count_compliance": 1,
+    "resolution_rate": 0.8,
+    "duplicate_rate": 0.0,
+    "extra_count": 0,
+    "literal_precision_at_k": 0.0,
+    "semantic_credit_at_k": 0.2
+  },
+  "model_seconds": 12.112015416999384,
+  "extraction_seconds": 1.7223392920004699,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.1e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.0008
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 6.147345
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.001312
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.007097
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.008682
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 5.656822
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend anime based on user preference for absurd humor",
+        "clarification": "The user wants anime where the jokes are consistently absurd. This suggests a preference for comedic styles that defy logic and reason.",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "query": "absurd",
+              "limit": 5
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "query": "absurd",
+        "limit": 5
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.288171,
+      "arguments": {
+        "query": "absurd",
+        "limit": 5
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": []
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": []
+        },
+        "items": [
+          {
+            "id": "19815",
+            "title": "No Game, No Life",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.2448
+          },
+          {
+            "id": "97940",
+            "title": "Black Clover",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.1925
+          },
+          {
+            "id": "21459",
+            "title": "My Hero Academia",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.1881
+          },
+          {
+            "id": "20605",
+            "title": "Tokyo Ghoul",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.1776
+          },
+          {
+            "id": "1535",
+            "title": "Death Note",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.1694
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000469
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "query": "absurd",
+          "limit": 5
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": []
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": []
+          },
+          "items": [
+            {
+              "id": "19815",
+              "title": "No Game, No Life",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.2448
+            },
+            {
+              "id": "97940",
+              "title": "Black Clover",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.1925
+            },
+            {
+              "id": "21459",
+              "title": "My Hero Academia",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.1881
+            },
+            {
+              "id": "20605",
+              "title": "Tokyo Ghoul",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.1776
+            },
+            {
+              "id": "1535",
+              "title": "Death Note",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.1694
+            }
+          ]
+        },
+        "elapsed_seconds": 0.288171
+      }
+    ],
+    "llm_calls": 3,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 6.147345,
+      "prepare_context": 0.001312,
+      "retrieve_guides": 0.007097,
+      "feature_candidates": 0.008682,
+      "planning": 5.656822,
+      "tools": 0.288171,
+      "generate_answer": 0.000469
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"absurd\", \"query\": \"absurd\", \"kind\": \"tag\", \"role\": \"preferred\", \"meaning\": \"Content criteria\"}, {\"text\": \"anime\", \"query\": \"anime\", \"kind\": \"genre\", \"role\": \"subject\", \"meaning\": \"Genre\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "absurd",
+        "query": "absurd",
+        "kind": "tag",
+        "role": "preferred",
+        "meaning": "Content criteria"
+      },
+      {
+        "text": "anime",
+        "query": "anime",
+        "kind": "genre",
+        "role": "subject",
+        "meaning": "Genre"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify which anime you would like recommendations for.\", \"decisions\": {\"p0\": {\"meaning\": \"absurd\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}, \"p1\": {\"meaning\": \"anime\", \"role\": \"subject\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "absurd",
+          "name": "",
+          "meaning": "absurd"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "subject",
+          "text": "anime",
+          "name": "",
+          "meaning": "anime"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [],
+      "preferred": [
+        "absurd"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [],
+      "soft_query": "absurd",
+      "limitations": [],
+      "mappings": [],
+      "preference_hierarchy": [
+        {
+          "phrase": "absurd",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "absurd",
+            "name": "",
+            "meaning": "absurd"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "subject",
+            "text": "anime",
+            "name": "",
+            "meaning": "anime"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend anime based on user preference for absurd humor",
+      "clarification": "The user wants anime where the jokes are consistently absurd. This suggests a preference for comedic styles that defy logic and reason.",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "query": "absurd",
+            "limit": 5
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

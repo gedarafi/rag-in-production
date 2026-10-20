@@ -1,0 +1,398 @@
+{
+  "question_id": "hf_057",
+  "anime_id": "11061",
+  "title": "Hunter x Hunter (2011)",
+  "field": "duration",
+  "question": "How much time should I set aside for one episode of Hunter x Hunter (2011)? Give minutes.",
+  "expected_values": [
+    24.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Catalog matches.\n\n1. **In This Corner (and Other Corners) of the World** — Suzu is a quiet and ordinary -- if not a bit of clumsy and daydreaming -- girl growing up in the outskirts of the city of Hiroshima in mid-1930s. She loves drawing sketches with pencils -- a hobby she is really good at. Following her parents' arrangement in 1943, 18-year-old Suzu is married to a young man living in Kure, a neighboring city with a large naval base, in which he works as a civilian secretary for the military tribunal. There she…",
+  "extracted_values": [
+    "minutes PER EPISODE"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 10.28697187500029,
+  "extraction_seconds": 0.7520771249996869,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "minutes PER EPISODE",
+        "quote": "Catalog matches.\n\n1. **In This Corner (and Other Corners) of the World** — Suzu is a quiet and ordinary -- if not a bit of clumsy and daydreaming -- girl growing up in the outskirts of the city of Hiroshima in mid-1930s. She loves drawing sketches with pencils -- a hobby she is really good at. Following her parents' arrangement in 1943, 18-year-old Suzu is married to a young man living in Kure, a neighboring city with a large naval base, in which he works as a civilian secretary for the military tribunal. There she…"
+      }
+    ],
+    "note": "No duration value was provided in the answer.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "missing_values": [
+      "24"
+    ],
+    "extra_values": [
+      "invalid-number:minutes per episode"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "query": "Hunter x Hunter (2011)",
+          "limit": 1,
+          "sort_by": "duration"
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "sort_by": "duration"
+          },
+          "items": [
+            {
+              "id": "112135",
+              "title": "In This Corner (and Other Corners) of the World",
+              "reason": "Matches: sort_by=duration"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.057836
+      },
+      {
+        "step": 1,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "11061"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "11061",
+          "title": "Hunter x Hunter (2011)"
+        },
+        "elapsed_seconds": 0.012341
+      }
+    ],
+    "llm_calls": 3,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 3.688198,
+      "prepare_context": 0.015989,
+      "retrieve_guides": 0.031579,
+      "feature_candidates": 0.013895,
+      "planning": 6.463547,
+      "tools": 0.070177,
+      "generate_answer": 0.000519
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Hunter x Hunter (2011)\", \"query\": \"Hunter x Hunter (2011)\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Hunter x Hunter (2011)",
+        "query": "Hunter x Hunter (2011)",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Do you mean the average length of an episode?\", \"decisions\": {\"p0\": {\"meaning\": \"Hunter x Hunter (2011)\", \"role\": \"subject\", \"selection\": \"Hunter x Hunter (2011) | anime:11061\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "11061",
+          "role": "subject",
+          "text": "Hunter x Hunter (2011)",
+          "name": "Hunter x Hunter (2011)",
+          "meaning": "Hunter x Hunter (2011)"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "11061",
+          "role": "subject",
+          "text": "Hunter x Hunter (2011)",
+          "name": "Hunter x Hunter (2011)",
+          "meaning": "Hunter x Hunter (2011)"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Hunter x Hunter (2011)"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "11061",
+            "role": "subject",
+            "text": "Hunter x Hunter (2011)",
+            "name": "Hunter x Hunter (2011)",
+            "meaning": "Hunter x Hunter (2011)"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "11061",
+            "role": "subject",
+            "text": "Hunter x Hunter (2011)",
+            "name": "Hunter x Hunter (2011)",
+            "meaning": "Hunter x Hunter (2011)"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "query": "Hunter x Hunter (2011)",
+            "limit": 1,
+            "sort_by": "duration"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "11061"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "11061",
+          "name": "Hunter x Hunter (2011)"
+        }
+      ],
+      "characters": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 9.3e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001479
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.688198
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.015989
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.031579
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013895
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.463547
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "query": "Hunter x Hunter (2011)",
+              "limit": 1,
+              "sort_by": "duration"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "11061"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "11061",
+            "name": "Hunter x Hunter (2011)"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "query": "Hunter x Hunter (2011)",
+        "limit": 1,
+        "sort_by": "duration"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.057836,
+      "arguments": {
+        "query": "Hunter x Hunter (2011)",
+        "limit": 1,
+        "sort_by": "duration"
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "sort_by": "duration"
+        },
+        "items": [
+          {
+            "id": "112135",
+            "title": "In This Corner (and Other Corners) of the World",
+            "reason": "Matches: sort_by=duration"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "11061"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.012341,
+      "arguments": {
+        "id": "11061"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "11061",
+        "title": "Hunter x Hunter (2011)"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000519
+    }
+  ]
+}

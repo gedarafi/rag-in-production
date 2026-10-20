@@ -1,0 +1,1082 @@
+{
+  "question_id": "romance_03",
+  "category": "genres",
+  "intent_family": "romance",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "Can you suggest five anime centered on two people developing feelings for each other?",
+  "k": 5,
+  "constraints": [
+    {
+      "field": "genres",
+      "op": "any",
+      "value": [
+        "Romance"
+      ],
+      "alternatives": [
+        {
+          "reason": "Prominent love-triangle or unrequited-love themes are acceptable evidence for the requested focus on developing romantic feelings. A demographic or cast-gender tag alone is insufficient.",
+          "constraints": [
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Love Triangle",
+                "Unrequited Love"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "A central falling-in-love story maps to Romance.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 2881,
+  "reference_examples": [
+    {
+      "id": "100",
+      "title": "Prétear: The New Legend of Snow White"
+    },
+    {
+      "id": "100004",
+      "title": "Demoness of Dreams"
+    },
+    {
+      "id": "100085",
+      "title": "Seven Senses of the Re'Union"
+    }
+  ],
+  "answer_text": "Catalog matches — source material: OTHER.\n\n1. **Solo Leveling** — They say whatever doesn’t kill you makes you stronger, but that’s not the case for the world’s weakest hunter Seong Jin-U. After being brutally slaughtered by monsters in a high-ranking dungeon, Jin-U came back with the System, a program only he could see, that’s leveling him up in every way. Now, he’s inspired to discover the secrets behind his powers and the dungeon that spawned them. (Source: Crunchyroll)\n\n2. **I Want to Eat Your Pancreas** — Spring time in April and the last of the cherry blossoms are still in bloom. The usually aloof bookworm with no interest in others comes across a book in a hospital waiting room. Handwritten on the cover are the words: \"Living with Dying.\" He soon discovers that it is a diary kept by his very popular and genuinely cheerful classmate, Sakura Yamauchi, who reveals to him that she is secretly suffering from a pancreatic illness and only has a…\n\n3. **Howl‘s Moving Castle** — Sophie, a quiet girl working in a hat shop, finds her life thrown into turmoil when she is literally swept off her feet by a handsome but mysterious wizard named Howl. The vain and vengeful Witch of the Waste, jealous of their friendship, puts a spell on Sophie. In a life-changing adventure, Sophie climbs aboard Howl's magnificent flying castle and enters a magical world on a quest to break the spell. (Source: Disney)\n\n4. **Solo Leveling Season 2 -Arise from the Shadow-** — Mastering his new abilities in secret, Jin-U must battle humanity's toughest foes to save his mother. (Source: Crunchyroll News)\n\n5. **Perfect Blue** — Rising pop star Mima has quit singing to pursue a career as an actress and model, but her fans aren’t ready to see her go... Encouraged by her managers, Mima takes on a recurring role on a popular TV show, when suddenly her handlers and collaborators begin turning up murdered. Harboring feelings of guilt and haunted by visions of her former self, Mima’s reality and fantasy meld into a frenzied paranoia. As her stalker closes in, in person and…",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Solo Leveling",
+      "I Want to Eat Your Pancreas",
+      "Howl's Moving Castle",
+      "Solo Leveling Season 2 -Arise from the Shadow-",
+      "Perfect Blue"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Solo Leveling",
+      "anime_id": "151807",
+      "canonical_title": "Solo Leveling",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "151807"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Prominent love-triangle or unrequited-love themes are acceptable evidence for the requested focus on developing romantic feelings. A demographic or cast-gender tag alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Love Triangle",
+                      "Unrequited Love"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 2,
+      "extracted_title": "I Want to Eat Your Pancreas",
+      "anime_id": "99750",
+      "canonical_title": "I Want to Eat Your Pancreas",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "99750"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Prominent love-triangle or unrequited-love themes are acceptable evidence for the requested focus on developing romantic feelings. A demographic or cast-gender tag alone is insufficient.",
+              "score": 0.61,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Love Triangle",
+                      "Unrequited Love"
+                    ]
+                  },
+                  "score": 0.61
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Howl's Moving Castle",
+      "anime_id": "431",
+      "canonical_title": "Howl‘s Moving Castle",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "431"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Prominent love-triangle or unrequited-love themes are acceptable evidence for the requested focus on developing romantic feelings. A demographic or cast-gender tag alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Love Triangle",
+                      "Unrequited Love"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Solo Leveling Season 2 -Arise from the Shadow-",
+      "anime_id": "176496",
+      "canonical_title": "Solo Leveling Season 2 -Arise from the Shadow-",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "176496"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Prominent love-triangle or unrequited-love themes are acceptable evidence for the requested focus on developing romantic feelings. A demographic or cast-gender tag alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Love Triangle",
+                      "Unrequited Love"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Perfect Blue",
+      "anime_id": "437",
+      "canonical_title": "Perfect Blue",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "437"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Prominent love-triangle or unrequited-love themes are acceptable evidence for the requested focus on developing romantic feelings. A demographic or cast-gender tag alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Love Triangle",
+                      "Unrequited Love"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.4,
+    "graded_fit_at_k": 0.4,
+    "ndcg_at_k": 0.38356636737133565,
+    "constraint_coverage": 1.0,
+    "count_compliance": 1,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "extra_count": 0,
+    "literal_precision_at_k": 0.4,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 15.10471779099953,
+  "extraction_seconds": 1.4660079160003079,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.1e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000893
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 8.128196
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.003172
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.009347
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.016908
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.337998
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "source_material",
+                  "operator": "eq",
+                  "value": "OTHER"
+                }
+              ]
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "two people developing feelings for each other"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "source_material",
+                  "operator": "eq",
+                  "value": "OTHER"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "source_material",
+            "operator": "eq",
+            "value": "OTHER"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.575722,
+      "arguments": {
+        "filters": [
+          {
+            "field": "source_material",
+            "operator": "eq",
+            "value": "OTHER"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "source_material",
+              "operator": "eq",
+              "value": "OTHER"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "source_material",
+              "operator": "eq",
+              "value": "OTHER",
+              "source_text": "Can you suggest five anime centered on two people developing feelings for each other?",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "151807",
+            "title": "Solo Leveling",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]"
+          },
+          {
+            "id": "99750",
+            "title": "I Want to Eat Your Pancreas",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]"
+          },
+          {
+            "id": "431",
+            "title": "Howl‘s Moving Castle",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]"
+          },
+          {
+            "id": "176496",
+            "title": "Solo Leveling Season 2 -Arise from the Shadow-",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]"
+          },
+          {
+            "id": "437",
+            "title": "Perfect Blue",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "two people developing feelings for each other"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.027845,
+      "arguments": {
+        "query": "two people developing feelings for each other"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "fake relationship",
+            "name": "Fake Relationship",
+            "description": "When two characters enter a fake relationship that mutually benefits one or both involved.",
+            "category": "Theme-Drama",
+            "similarity": 0.4412
+          },
+          {
+            "kind": "tag",
+            "id": "dissociative identities",
+            "name": "Dissociative Identities",
+            "description": "A case where one or more people share the same body.",
+            "category": "Cast-Traits",
+            "similarity": 0.4244
+          },
+          {
+            "kind": "tag",
+            "id": "interspecies",
+            "name": "Interspecies",
+            "description": "Romance between characters of different species.",
+            "category": "Theme-Romance",
+            "similarity": 0.4157
+          },
+          {
+            "kind": "tag",
+            "id": "group sex",
+            "name": "Group Sex",
+            "description": "Features more than two participants engaged in sex simultaneously.",
+            "category": "Sexual Content",
+            "similarity": 0.414
+          },
+          {
+            "kind": "tag",
+            "id": "swapping",
+            "name": "Swapping",
+            "description": "Features consensual partner swapping between couples during sexual activities.",
+            "category": "Sexual Content",
+            "similarity": 0.411
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "source_material",
+            "operator": "eq",
+            "value": "OTHER"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.002144,
+      "arguments": {
+        "filters": [
+          {
+            "field": "source_material",
+            "operator": "eq",
+            "value": "OTHER"
+          }
+        ]
+      },
+      "cached": true,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "source_material",
+              "operator": "eq",
+              "value": "OTHER"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "source_material",
+              "operator": "eq",
+              "value": "OTHER",
+              "source_text": "Can you suggest five anime centered on two people developing feelings for each other?",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "151807",
+            "title": "Solo Leveling",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]"
+          },
+          {
+            "id": "99750",
+            "title": "I Want to Eat Your Pancreas",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]"
+          },
+          {
+            "id": "431",
+            "title": "Howl‘s Moving Castle",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]"
+          },
+          {
+            "id": "176496",
+            "title": "Solo Leveling Season 2 -Arise from the Shadow-",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]"
+          },
+          {
+            "id": "437",
+            "title": "Perfect Blue",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000514
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "source_material",
+              "operator": "eq",
+              "value": "OTHER"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "source_material",
+                "operator": "eq",
+                "value": "OTHER"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "source_material",
+                "operator": "eq",
+                "value": "OTHER",
+                "source_text": "Can you suggest five anime centered on two people developing feelings for each other?",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "151807",
+              "title": "Solo Leveling",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]"
+            },
+            {
+              "id": "99750",
+              "title": "I Want to Eat Your Pancreas",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]"
+            },
+            {
+              "id": "431",
+              "title": "Howl‘s Moving Castle",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]"
+            },
+            {
+              "id": "176496",
+              "title": "Solo Leveling Season 2 -Arise from the Shadow-",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]"
+            },
+            {
+              "id": "437",
+              "title": "Perfect Blue",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.575722
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "two people developing feelings for each other"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "fake relationship",
+              "name": "Fake Relationship",
+              "description": "When two characters enter a fake relationship that mutually benefits one or both involved.",
+              "category": "Theme-Drama",
+              "similarity": 0.4412
+            },
+            {
+              "kind": "tag",
+              "id": "dissociative identities",
+              "name": "Dissociative Identities",
+              "description": "A case where one or more people share the same body.",
+              "category": "Cast-Traits",
+              "similarity": 0.4244
+            },
+            {
+              "kind": "tag",
+              "id": "interspecies",
+              "name": "Interspecies",
+              "description": "Romance between characters of different species.",
+              "category": "Theme-Romance",
+              "similarity": 0.4157
+            },
+            {
+              "kind": "tag",
+              "id": "group sex",
+              "name": "Group Sex",
+              "description": "Features more than two participants engaged in sex simultaneously.",
+              "category": "Sexual Content",
+              "similarity": 0.414
+            },
+            {
+              "kind": "tag",
+              "id": "swapping",
+              "name": "Swapping",
+              "description": "Features consensual partner swapping between couples during sexual activities.",
+              "category": "Sexual Content",
+              "similarity": 0.411
+            }
+          ]
+        },
+        "elapsed_seconds": 0.027845
+      },
+      {
+        "step": 2,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "source_material",
+              "operator": "eq",
+              "value": "OTHER"
+            }
+          ]
+        },
+        "cached": true,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "source_material",
+                "operator": "eq",
+                "value": "OTHER"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "source_material",
+                "operator": "eq",
+                "value": "OTHER",
+                "source_text": "Can you suggest five anime centered on two people developing feelings for each other?",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "151807",
+              "title": "Solo Leveling",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]"
+            },
+            {
+              "id": "99750",
+              "title": "I Want to Eat Your Pancreas",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]"
+            },
+            {
+              "id": "431",
+              "title": "Howl‘s Moving Castle",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]"
+            },
+            {
+              "id": "176496",
+              "title": "Solo Leveling Season 2 -Arise from the Shadow-",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]"
+            },
+            {
+              "id": "437",
+              "title": "Perfect Blue",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.002144
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 8.128196,
+      "prepare_context": 0.003172,
+      "retrieve_guides": 0.009347,
+      "feature_candidates": 0.016908,
+      "planning": 6.337998,
+      "tools": 0.605711,
+      "generate_answer": 0.000514
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"two people\", \"query\": \"two people\", \"kind\": \"tag\", \"role\": \"subject\", \"meaning\": \"Relationship dynamic\"}, {\"text\": \"developing feelings for each other\", \"query\": \"developing feelings for each other\", \"kind\": \"tag\", \"role\": \"subject\", \"meaning\": \"Relationship dynamic\"}]}",
+      "{\"applies\": true, \"operator\": \"eq\", \"value\": \"OTHER\"}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "two people",
+        "query": "two people",
+        "kind": "tag",
+        "role": "subject",
+        "meaning": "Relationship dynamic"
+      },
+      {
+        "text": "developing feelings for each other",
+        "query": "developing feelings for each other",
+        "kind": "tag",
+        "role": "subject",
+        "meaning": "Relationship dynamic"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please clarify if you are looking for a specific genre or type of anime centered on two people developing feelings for each other.\",\"decisions\": {\"p0\": {\"meaning\": \"two people\", \"role\": \"subject\", \"selection\": \"unmapped description\" }, \"p1\": {\"meaning\": \"developing feelings for each other\", \"role\": \"subject\", \"selection\": \"unmapped description\" }}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "subject",
+          "text": "two people",
+          "name": "",
+          "meaning": "two people"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "subject",
+          "text": "developing feelings for each other",
+          "name": "",
+          "meaning": "developing feelings for each other"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "source_material",
+          "operator": "eq",
+          "value": "OTHER"
+        }
+      ],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "source_material",
+          "operator": "eq",
+          "value": "OTHER",
+          "source_text": "Can you suggest five anime centered on two people developing feelings for each other?",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "subject",
+            "text": "two people",
+            "name": "",
+            "meaning": "two people"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "subject",
+            "text": "developing feelings for each other",
+            "name": "",
+            "meaning": "developing feelings for each other"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "source_material",
+                "operator": "eq",
+                "value": "OTHER"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "two people developing feelings for each other"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "source_material",
+                "operator": "eq",
+                "value": "OTHER"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

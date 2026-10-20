@@ -1,0 +1,396 @@
+{
+  "question_id": "hf_111",
+  "anime_id": "9253",
+  "title": "Steins;Gate",
+  "field": "source_material",
+  "question": "What kind of work was Steins;Gate adapted from?",
+  "expected_values": [
+    "VISUAL_NOVEL"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The visual novel",
+  "extracted_values": [
+    "The visual novel",
+    "a light novel",
+    "an original work",
+    "a manga",
+    "a visual novel",
+    "a light novel adaptation",
+    "a manga adaptation",
+    "a visual novel adaptation"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 11.173177750000832,
+  "extraction_seconds": 0.9126201249982842,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "The visual novel",
+        "quote": "The visual novel"
+      },
+      {
+        "value": "a light novel",
+        "quote": "The visual novel"
+      },
+      {
+        "value": "an original work",
+        "quote": "The visual novel"
+      },
+      {
+        "value": "a manga",
+        "quote": "The visual novel"
+      },
+      {
+        "value": "a visual novel",
+        "quote": "The visual novel"
+      },
+      {
+        "value": "a light novel adaptation",
+        "quote": "The visual novel"
+      },
+      {
+        "value": "a manga adaptation",
+        "quote": "The visual novel"
+      },
+      {
+        "value": "a visual novel adaptation",
+        "quote": "The visual novel"
+      }
+    ],
+    "note": "The answer is unclear because it contains multiple sources of adaptation.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 8,
+    "fn": 1,
+    "missing_values": [
+      "visual novel"
+    ],
+    "extra_values": [
+      "a light novel",
+      "a light novel adaptation",
+      "a manga",
+      "a manga adaptation",
+      "a visual novel",
+      "a visual novel adaptation",
+      "an original work",
+      "the visual novel"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "Steins;Gate adaptation origin",
+          "anime_ids": [
+            "9253"
+          ]
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.013608
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 2.388246,
+      "prepare_context": 0.019633,
+      "retrieve_guides": 0.027588,
+      "feature_candidates": 0.014624,
+      "planning": 3.775847,
+      "tools": 0.013608,
+      "generate_answer": 4.930952
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Steins;Gate\", \"query\": \"Steins;Gate\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}, {\"text\": \"light novel\", \"query\": \"light novel\", \"kind\": \"genre\", \"role\": \"reference\", \"meaning\": \"Source material\"}]}"
+    ],
+    "unsupported_mentions": [
+      {
+        "text": "light novel",
+        "query": "light novel",
+        "kind": "genre",
+        "role": "reference",
+        "meaning": "Source material"
+      }
+    ],
+    "typed_mentions": [
+      {
+        "text": "Steins;Gate",
+        "query": "Steins;Gate",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Requested title\", \"role\": \"subject\", \"selection\": \"Steins;Gate | anime:9253\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "9253",
+          "role": "subject",
+          "text": "Steins;Gate",
+          "name": "Steins;Gate",
+          "meaning": "Requested title"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "9253",
+          "role": "subject",
+          "text": "Steins;Gate",
+          "name": "Steins;Gate",
+          "meaning": "Requested title"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Steins;Gate"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "9253",
+            "role": "subject",
+            "text": "Steins;Gate",
+            "name": "Steins;Gate",
+            "meaning": "Requested title"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "9253",
+            "role": "subject",
+            "text": "Steins;Gate",
+            "name": "Steins;Gate",
+            "meaning": "Requested title"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "What kind of work was Steins;Gate adapted from?",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "Steins;Gate adaptation origin",
+            "anime_ids": [
+              "9253"
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "9253",
+          "name": "Steins;Gate"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:9253",
+          "fact": "Steins;Gate was adapted from the critically acclaimed visual novel by 5pb. and Nitroplus."
+        },
+        {
+          "subject": "anime:9253",
+          "fact": "The visual novel was the original source material for the anime adaptation."
+        },
+        {
+          "subject": "anime:9253",
+          "fact": "The anime takes Okabe to the depths of scientific theory and human despair as he faces the dire consequences of changing the past."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 0.00011
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001049
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.388246
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.019633
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.027588
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014624
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.775847
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "What kind of work was Steins;Gate adapted from?",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "Steins;Gate adaptation origin",
+              "anime_ids": [
+                "9253"
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "9253",
+            "name": "Steins;Gate"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "Steins;Gate adaptation origin",
+        "anime_ids": [
+          "9253"
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.013608,
+      "arguments": {
+        "query": "Steins;Gate adaptation origin",
+        "anime_ids": [
+          "9253"
+        ]
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.930952
+    }
+  ]
+}

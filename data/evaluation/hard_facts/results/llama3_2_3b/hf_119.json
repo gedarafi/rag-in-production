@@ -1,0 +1,449 @@
+{
+  "question_id": "hf_119",
+  "anime_id": "19815",
+  "title": "No Game, No Life",
+  "field": "source_material",
+  "question": "Was No Game, No Life adapted from a light novel or a manga?",
+  "expected_values": [
+    "LIGHT_NOVEL"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The anime No Game, No Life is based on a light novel series, but it also has a manga adaptation of the prequel light novel series Owari no Chronicle.",
+  "extracted_values": [
+    "light novel",
+    "manga",
+    "light novel series",
+    "prequel light novel series Owari no Chronicle"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 12.41403229199932,
+  "extraction_seconds": 1.151643207998859,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "light novel",
+        "quote": "The anime No Game, No Life is based on a light novel series, but it also has a manga adaptation of the prequel light novel series Owari no Chronicle."
+      },
+      {
+        "value": "manga",
+        "quote": "The anime No Game, No Life is based on a light novel series, but it also has a manga adaptation of the prequel light novel series Owari no Chronicle."
+      },
+      {
+        "value": "light novel series",
+        "quote": "The anime No Game, No Life is based on a light novel series, but it also has a manga adaptation of the prequel light novel series Owari no Chronicle."
+      },
+      {
+        "value": "prequel light novel series Owari no Chronicle",
+        "quote": "The anime No Game, No Life is based on a light novel series, but it also has a manga adaptation of the prequel light novel series Owari no Chronicle."
+      }
+    ],
+    "note": "The anime No Game, No Life is based on a light novel series, but it also has a manga adaptation of the prequel light novel series Owari no Chronicle.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.25,
+    "recall": 1.0,
+    "f1": 0.4,
+    "tp": 1,
+    "fp": 3,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": [
+      "light novel series",
+      "manga",
+      "prequel light novel series owari no chronicle"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "19815",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "19815",
+          "title": "No Game, No Life"
+        },
+        "elapsed_seconds": 0.013351
+      },
+      {
+        "step": 1,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "light novel or manga adaptation of No Game, No Life"
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.06744
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 3.427817,
+      "prepare_context": 0.017522,
+      "retrieve_guides": 0.028307,
+      "feature_candidates": 0.013251,
+      "planning": 4.464499,
+      "tools": 0.080791,
+      "generate_answer": 4.379414
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"No Game, No Life\", \"query\": \"No Game, No Life\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Original title\"}, {\"text\": \"light novel\", \"query\": \"light novel\", \"kind\": \"genre\", \"role\": \"reference\", \"meaning\": \"Source material\"}, {\"text\": \"manga\", \"query\": \"manga\", \"kind\": \"genre\", \"role\": \"reference\", \"meaning\": \"Source material\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "No Game, No Life",
+        "query": "No Game, No Life",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Original title"
+      },
+      {
+        "text": "light novel",
+        "query": "light novel",
+        "kind": "genre",
+        "role": "reference",
+        "meaning": "Source material"
+      },
+      {
+        "text": "manga",
+        "query": "manga",
+        "kind": "genre",
+        "role": "reference",
+        "meaning": "Source material"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Original title\", \"role\": \"subject\", \"selection\": \"No Game, No Life | anime:19815\"}, \"p1\": {\"meaning\": \"Source material\", \"role\": \"reference\", \"selection\": \"unmapped description\"}, \"p2\": {\"meaning\": \"Source material\", \"role\": \"reference\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "19815",
+          "role": "subject",
+          "text": "No Game, No Life",
+          "name": "No Game, No Life",
+          "meaning": "Original title"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "reference",
+          "text": "light novel",
+          "name": "",
+          "meaning": "Source material"
+        },
+        {
+          "phrase_index": 2,
+          "kind": "description",
+          "id": "",
+          "role": "reference",
+          "text": "manga",
+          "name": "",
+          "meaning": "Source material"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "19815",
+          "role": "subject",
+          "text": "No Game, No Life",
+          "name": "No Game, No Life",
+          "meaning": "Original title"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "No Game, No Life"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "19815",
+            "role": "subject",
+            "text": "No Game, No Life",
+            "name": "No Game, No Life",
+            "meaning": "Original title"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "reference",
+            "text": "light novel",
+            "name": "",
+            "meaning": "Source material"
+          },
+          {
+            "phrase_index": 2,
+            "kind": "description",
+            "id": "",
+            "role": "reference",
+            "text": "manga",
+            "name": "",
+            "meaning": "Source material"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "19815",
+            "role": "subject",
+            "text": "No Game, No Life",
+            "name": "No Game, No Life",
+            "meaning": "Original title"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine if No Game, No Life was adapted from a light novel or a manga",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "19815",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "light novel or manga adaptation of No Game, No Life"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "19815",
+          "name": "No Game, No Life"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:19815",
+          "fact": "The anime is based on a light novel series."
+        },
+        {
+          "subject": "anime:19815",
+          "fact": "The anime is also based on a manga adaptation of the prequel light novel series Owari no Chronicle."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.3e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00072
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.427817
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.017522
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.028307
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013251
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.464499
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine if No Game, No Life was adapted from a light novel or a manga",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "19815",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "light novel or manga adaptation of No Game, No Life"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "19815",
+            "name": "No Game, No Life"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "19815",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.013351,
+      "arguments": {
+        "id": "19815",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "19815",
+        "title": "No Game, No Life"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "light novel or manga adaptation of No Game, No Life"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.06744,
+      "arguments": {
+        "query": "light novel or manga adaptation of No Game, No Life"
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.379414
+    }
+  ]
+}

@@ -1,0 +1,377 @@
+{
+  "question_id": "hf_175",
+  "anime_id": "21234",
+  "title": "ERASED",
+  "field": "main_characters",
+  "question": "Who has a main character role in ERASED?",
+  "expected_values": [
+    "Satoru Fujinuma",
+    "Kayo Hinazuki"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Kayo Hinazuki and Satoru Fujinuma",
+  "extracted_values": [
+    "Kayo Hinazuki",
+    "Satoru Fujinuma"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 8.886008250001396,
+  "extraction_seconds": 0.6537240830002702,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Kayo Hinazuki",
+        "quote": "Kayo Hinazuki and Satoru Fujinuma"
+      },
+      {
+        "value": "Satoru Fujinuma",
+        "quote": "Kayo Hinazuki and Satoru Fujinuma"
+      }
+    ],
+    "note": "assertion",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 2,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "status": "error",
+        "step": 0,
+        "tool": "get_character",
+        "error": "Use character IDs from dictionary or tool results first",
+        "elapsed_seconds": 5.5e-05
+      },
+      {
+        "step": 1,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "character",
+          "query": "main character role in ERASED"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "character",
+          "matches": []
+        },
+        "elapsed_seconds": 0.074855
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 2.053179,
+      "prepare_context": 0.014507,
+      "retrieve_guides": 0.028819,
+      "feature_candidates": 0.014933,
+      "planning": 4.097329,
+      "tools": 0.07491,
+      "generate_answer": 2.599375
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"ERASED\", \"query\": \"ERASED\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; main character is a role\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "ERASED",
+        "query": "ERASED",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; main character is a role"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"TV series; main character is a role\", \"role\": \"subject\", \"selection\": \"ERASED | anime:21234\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21234",
+          "role": "subject",
+          "text": "ERASED",
+          "name": "ERASED",
+          "meaning": "TV series; main character is a role"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21234",
+          "role": "subject",
+          "text": "ERASED",
+          "name": "ERASED",
+          "meaning": "TV series; main character is a role"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "ERASED"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21234",
+            "role": "subject",
+            "text": "ERASED",
+            "name": "ERASED",
+            "meaning": "TV series; main character is a role"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21234",
+            "role": "subject",
+            "text": "ERASED",
+            "name": "ERASED",
+            "meaning": "TV series; main character is a role"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Who has a main character role in ERASED?",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "21234"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "character",
+            "query": "main character role in ERASED"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21234",
+          "name": "ERASED"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:21234",
+          "fact": "Kayo Hinazuki has a main character role in ERASED."
+        },
+        {
+          "subject": "anime:21234",
+          "fact": "Satoru Fujinuma has a main character role in ERASED."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 0.00011
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001322
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.053179
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.014507
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.028819
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014933
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.097329
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Who has a main character role in ERASED?",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "21234"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "character",
+              "query": "main character role in ERASED"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21234",
+            "name": "ERASED"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_character",
+      "arguments": {
+        "id": "21234"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_character",
+      "status": "error",
+      "elapsed_seconds": 5.5e-05,
+      "error": "Use character IDs from dictionary or tool results first"
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "character",
+        "query": "main character role in ERASED"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.074855,
+      "arguments": {
+        "kind": "character",
+        "query": "main character role in ERASED"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "character",
+        "matches": []
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 2.599375
+    }
+  ]
+}

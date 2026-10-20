@@ -1,0 +1,851 @@
+{
+  "question_id": "comfort_01",
+  "category": "tags",
+  "intent_family": "comfort",
+  "wording": "explicit",
+  "question_origin": "authored_naturalistic",
+  "question": "Can you recommend three iyashikei anime for winding down?",
+  "k": 3,
+  "constraints": [
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Iyashikei"
+      ],
+      "alternatives": [
+        {
+          "reason": "Gentle everyday-life viewing can be supported by Slice of Life plus domestic/rural/cute-girl daily-life themes, with no strong tragic theme. Slice of Life alone is insufficient.",
+          "constraints": [
+            {
+              "field": "genres",
+              "op": "any",
+              "value": [
+                "Slice of Life"
+              ]
+            },
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Cute Girls Doing Cute Things",
+                "Family Life",
+                "Rural"
+              ]
+            },
+            {
+              "field": "tags",
+              "op": "none",
+              "value": [
+                "Tragedy"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "Comfort and low-stress daily life are operationalized using the Iyashikei tag; this cannot guarantee a viewer mood.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 867,
+  "reference_examples": [
+    {
+      "id": "10162",
+      "title": "Bunny Drop"
+    },
+    {
+      "id": "103048",
+      "title": "Re:Stage! Dream Days"
+    },
+    {
+      "id": "10379",
+      "title": "Natsume's Book of Friends Season 3"
+    }
+  ],
+  "answer_text": "Catalog matches. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **Your lie in April** — Piano prodigy Arima Kousei dominated the competition and all child musicians knew his name. But after his mother, who was also his instructor, passed away, he had a mental breakdown while performing at a recital. This resulted in him no longer being able to hear the sound of his piano playing. Two years later, Kousei hasn’t touched the piano and views the world without any flair or color. He was content at living out his life with his good…\n\n2. **A Silent Voice** — After transferring into a new school, a deaf girl, Shouko Nishimiya, is bullied by the popular Shouya Ishida. As Shouya continues to bully Shouko, the class turns its back on him. Shouko transfers and Shouya grows up as an outcast. Alone and depressed, the regretful Shouya finds Shouko to make amends. (Source: Eleven Arts)\n\n3. **Your Name.** — Mitsuha Miyamizu, a high school girl, yearns to live the life of a boy in the bustling city of Tokyo—a dream that stands in stark contrast to her present life in the countryside. Meanwhile in the city, Taki Tachibana lives a busy life as a high school student while juggling his part-time job and hopes for a future in architecture. One day, Mitsuha awakens in a room that is not her own and suddenly finds herself living the dream life in Tokyo—but…\n\n4. **JUJUTSU KAISEN** — A boy fights... for \"the right death.\" Hardship, regret, shame: the negative feelings that humans feel become Curses that lurk in our everyday lives. The Curses run rampant throughout the world, capable of leading people to terrible misfortune and even death. What's more, the Curses can only be exorcised by another Curse. Itadori Yuji is a boy with tremendous physical strength, though he lives a completely ordinary high school life. One day, to…\n\n5. **ERASED** — Satoru Fujinuma is a 29 year old manga artist struggling to make a name for himself following his debut. But, that was not the only thing in his life that Satoru was feeling frustrated about… He has a unique supernatural ability of being forced to prevent deaths and catastrophes by being sent back in time before the incident occurred, repeating time until the accident is prevented. One day, he gets involved in an accident that has him framed as…",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Your lie in April",
+      "A Silent Voice",
+      "Your Name.",
+      "JUJUTSU KAISEN",
+      "ERASED"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Your lie in April",
+      "anime_id": "20665",
+      "canonical_title": "Your lie in April",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20665"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Gentle everyday-life viewing can be supported by Slice of Life plus domestic/rural/cute-girl daily-life themes, with no strong tragic theme. Slice of Life alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Slice of Life"
+                    ]
+                  },
+                  "score": 1.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cute Girls Doing Cute Things",
+                      "Family Life",
+                      "Rural"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "none",
+                    "value": [
+                      "Tragedy"
+                    ]
+                  },
+                  "score": 0.07999999999999996
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 2,
+      "extracted_title": "A Silent Voice",
+      "anime_id": "20954",
+      "canonical_title": "A Silent Voice",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20954"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Gentle everyday-life viewing can be supported by Slice of Life plus domestic/rural/cute-girl daily-life themes, with no strong tragic theme. Slice of Life alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Slice of Life"
+                    ]
+                  },
+                  "score": 1.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cute Girls Doing Cute Things",
+                      "Family Life",
+                      "Rural"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "none",
+                    "value": [
+                      "Tragedy"
+                    ]
+                  },
+                  "score": 0.24
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Your Name.",
+      "anime_id": null,
+      "canonical_title": null,
+      "resolution": "ambiguous",
+      "candidate_ids": [
+        "21519",
+        "97962"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 4,
+      "extracted_title": "JUJUTSU KAISEN",
+      "anime_id": "113415",
+      "canonical_title": "JUJUTSU KAISEN",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "113415"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Gentle everyday-life viewing can be supported by Slice of Life plus domestic/rural/cute-girl daily-life themes, with no strong tragic theme. Slice of Life alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Slice of Life"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cute Girls Doing Cute Things",
+                      "Family Life",
+                      "Rural"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "none",
+                    "value": [
+                      "Tragedy"
+                    ]
+                  },
+                  "score": 0.36
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 5,
+      "extracted_title": "ERASED",
+      "anime_id": "21234",
+      "canonical_title": "ERASED",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21234"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Gentle everyday-life viewing can be supported by Slice of Life plus domestic/rural/cute-girl daily-life themes, with no strong tragic theme. Slice of Life alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Slice of Life"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cute Girls Doing Cute Things",
+                      "Family Life",
+                      "Rural"
+                    ]
+                  },
+                  "score": 0.6
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "none",
+                    "value": [
+                      "Tragedy"
+                    ]
+                  },
+                  "score": 0.10999999999999999
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.0,
+    "graded_fit_at_k": 0.0,
+    "ndcg_at_k": 0.0,
+    "constraint_coverage": 0.0,
+    "count_compliance": 0,
+    "resolution_rate": 0.8,
+    "duplicate_rate": 0.0,
+    "extra_count": 2,
+    "literal_precision_at_k": 0.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 20.72256608399948,
+  "extraction_seconds": 1.6409652920001463,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 0.296845
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000699
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 13.77115
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.001545
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.00848
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.011035
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.371376
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "Recommend three iyashikei anime for winding down.",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "tags",
+                  "operator": "contains",
+                  "value": "Iyashikei"
+                },
+                {
+                  "field": "description",
+                  "operator": "contains",
+                  "value": "winding down"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "contains",
+            "value": "Iyashikei"
+          },
+          {
+            "field": "description",
+            "operator": "contains",
+            "value": "winding down"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.257765,
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "contains",
+            "value": "Iyashikei"
+          },
+          {
+            "field": "description",
+            "operator": "contains",
+            "value": "winding down"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": []
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": []
+        },
+        "items": [
+          {
+            "id": "20665",
+            "title": "Your lie in April",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.3264
+          },
+          {
+            "id": "20954",
+            "title": "A Silent Voice",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.3238
+          },
+          {
+            "id": "21519",
+            "title": "Your Name.",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.3009
+          },
+          {
+            "id": "113415",
+            "title": "JUJUTSU KAISEN",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.274
+          },
+          {
+            "id": "21234",
+            "title": "ERASED",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.2707
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000702
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "tags",
+              "operator": "contains",
+              "value": "Iyashikei"
+            },
+            {
+              "field": "description",
+              "operator": "contains",
+              "value": "winding down"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": []
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": []
+          },
+          "items": [
+            {
+              "id": "20665",
+              "title": "Your lie in April",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.3264
+            },
+            {
+              "id": "20954",
+              "title": "A Silent Voice",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.3238
+            },
+            {
+              "id": "21519",
+              "title": "Your Name.",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.3009
+            },
+            {
+              "id": "113415",
+              "title": "JUJUTSU KAISEN",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.274
+            },
+            {
+              "id": "21234",
+              "title": "ERASED",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.2707
+            }
+          ]
+        },
+        "elapsed_seconds": 0.257765
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 13.77115,
+      "prepare_context": 0.001545,
+      "retrieve_guides": 0.00848,
+      "feature_candidates": 0.011035,
+      "planning": 6.371376,
+      "tools": 0.257765,
+      "generate_answer": 0.000702
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"iyashikei\", \"query\": \"iyashikei\", \"kind\": \"genre\", \"role\": \"preferred\", \"meaning\": \"Desired genre\"}, {\"text\": \"winding down\", \"query\": \"winding down\", \"kind\": \"description\", \"role\": \"preferred\", \"meaning\": \"Desired effect\"}]}",
+      "{\"role\": \"preferred\"}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "iyashikei",
+        "query": "iyashikei",
+        "kind": "genre",
+        "role": "preferred",
+        "meaning": "Desired genre"
+      },
+      {
+        "text": "winding down",
+        "query": "winding down",
+        "kind": "description",
+        "role": "preferred",
+        "meaning": "Desired effect"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify if you have any preferred anime titles or studios for iyashikei anime.\", \"decisions\": {\"p0\": {\"meaning\": \"iyashikei\", \"role\": \"preferred\", \"selection\": \"unmapped description\" }, \"p1\": {\"meaning\": \"winding down\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "iyashikei",
+          "name": "",
+          "meaning": "iyashikei"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "winding down",
+          "name": "",
+          "meaning": "winding down"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [],
+      "preferred": [
+        "iyashikei",
+        "winding down"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [],
+      "soft_query": "iyashikei Iyashikei winding down",
+      "limitations": [],
+      "mappings": [],
+      "preference_hierarchy": [
+        {
+          "phrase": "iyashikei",
+          "candidate": {
+            "field": "tags",
+            "value": "Iyashikei",
+            "meaning": "Iyashikei"
+          },
+          "role": "preferred",
+          "mapping": "exact"
+        },
+        {
+          "phrase": "winding down",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "iyashikei",
+            "name": "",
+            "meaning": "iyashikei"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "winding down",
+            "name": "",
+            "meaning": "winding down"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "Recommend three iyashikei anime for winding down.",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "tags",
+                "operator": "contains",
+                "value": "Iyashikei"
+              },
+              {
+                "field": "description",
+                "operator": "contains",
+                "value": "winding down"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

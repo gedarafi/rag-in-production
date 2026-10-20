@@ -1,0 +1,753 @@
+{
+  "question_id": "romance_02",
+  "category": "genres",
+  "intent_family": "romance",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "I want four anime where falling in love is the main reason to watch. What should I start with?",
+  "k": 4,
+  "constraints": [
+    {
+      "field": "genres",
+      "op": "any",
+      "value": [
+        "Romance"
+      ],
+      "alternatives": [
+        {
+          "reason": "Prominent love-triangle or unrequited-love themes are acceptable evidence for the requested focus on developing romantic feelings. A demographic or cast-gender tag alone is insufficient.",
+          "constraints": [
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Love Triangle",
+                "Unrequited Love"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "A central falling-in-love story maps to Romance.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 2881,
+  "reference_examples": [
+    {
+      "id": "100",
+      "title": "Prétear: The New Legend of Snow White"
+    },
+    {
+      "id": "100004",
+      "title": "Demoness of Dreams"
+    },
+    {
+      "id": "100085",
+      "title": "Seven Senses of the Re'Union"
+    }
+  ],
+  "answer_text": "Catalog matches — Romance.\n\n1. **Sword Art Online** — In the near future, a Virtual Reality Massive Multiplayer Online Role-Playing Game (VRMMORPG) called Sword Art Online has been released where players control their avatars with their bodies using a piece of technology called Nerve Gear. One day, players discover they cannot log out, as the game creator is holding them captive unless they reach the 100th floor of the game's tower and defeat the final boss. However, if they die in the game, they…\n\n2. **A Silent Voice** — After transferring into a new school, a deaf girl, Shouko Nishimiya, is bullied by the popular Shouya Ishida. As Shouya continues to bully Shouko, the class turns its back on him. Shouko transfers and Shouya grows up as an outcast. Alone and depressed, the regretful Shouya finds Shouko to make amends. (Source: Eleven Arts)\n\n3. **Your Name.** — Mitsuha Miyamizu, a high school girl, yearns to live the life of a boy in the bustling city of Tokyo—a dream that stands in stark contrast to her present life in the countryside. Meanwhile in the city, Taki Tachibana lives a busy life as a high school student while juggling his part-time job and hopes for a future in architecture. One day, Mitsuha awakens in a room that is not her own and suddenly finds herself living the dream life in Tokyo—but…\n\n4. **Re:ZERO -Starting Life in Another World-** — In the story, Subaru Natsuki is an ordinary high school student who is lost in an alternate world, where he is rescued by a beautiful, silver-haired girl. He stays near her to return the favor, but the destiny she is burdened with is more than Subaru can imagine. Enemies attack one by one, and both of them are killed. He then finds out he has the power to rewind death, back to the time he first came to this world. But only he remembers what has…\n\n5. **Your lie in April** — Piano prodigy Arima Kousei dominated the competition and all child musicians knew his name. But after his mother, who was also his instructor, passed away, he had a mental breakdown while performing at a recital. This resulted in him no longer being able to hear the sound of his piano playing. Two years later, Kousei hasn’t touched the piano and views the world without any flair or color. He was content at living out his life with his good…\n\nA broader catalog category was used: Romance.",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Sword Art Online",
+      "A Silent Voice",
+      "Your Name.",
+      "Re:ZERO -Starting Life in Another World-",
+      "Your lie in April"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Sword Art Online",
+      "anime_id": "11757",
+      "canonical_title": "Sword Art Online",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "11757"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Prominent love-triangle or unrequited-love themes are acceptable evidence for the requested focus on developing romantic feelings. A demographic or cast-gender tag alone is insufficient.",
+              "score": 0.67,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Love Triangle",
+                      "Unrequited Love"
+                    ]
+                  },
+                  "score": 0.67
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 2,
+      "extracted_title": "A Silent Voice",
+      "anime_id": "20954",
+      "canonical_title": "A Silent Voice",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20954"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Prominent love-triangle or unrequited-love themes are acceptable evidence for the requested focus on developing romantic feelings. A demographic or cast-gender tag alone is insufficient.",
+              "score": 0.45,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Love Triangle",
+                      "Unrequited Love"
+                    ]
+                  },
+                  "score": 0.45
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Your Name.",
+      "anime_id": null,
+      "canonical_title": null,
+      "resolution": "ambiguous",
+      "candidate_ids": [
+        "21519",
+        "97962"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Re:ZERO -Starting Life in Another World-",
+      "anime_id": "21355",
+      "canonical_title": "Re:ZERO -Starting Life in Another World-",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21355"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Prominent love-triangle or unrequited-love themes are acceptable evidence for the requested focus on developing romantic feelings. A demographic or cast-gender tag alone is insufficient.",
+              "score": 0.66,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Love Triangle",
+                      "Unrequited Love"
+                    ]
+                  },
+                  "score": 0.66
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Your lie in April",
+      "anime_id": "20665",
+      "canonical_title": "Your lie in April",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20665"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Prominent love-triangle or unrequited-love themes are acceptable evidence for the requested focus on developing romantic feelings. A demographic or cast-gender tag alone is insufficient.",
+              "score": 0.78,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Love Triangle",
+                      "Unrequited Love"
+                    ]
+                  },
+                  "score": 0.78
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.75,
+    "graded_fit_at_k": 0.75,
+    "ndcg_at_k": 0.8048099750039491,
+    "constraint_coverage": 1.0,
+    "count_compliance": 0,
+    "resolution_rate": 0.8,
+    "duplicate_rate": 0.0,
+    "extra_count": 1,
+    "literal_precision_at_k": 0.75,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 8.351663499999631,
+  "extraction_seconds": 1.681645082999239,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 3.2e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00069
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.44089
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.002052
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.009023
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.01643
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.634983
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "genres",
+                  "operator": "eq",
+                  "value": "Romance"
+                },
+                {
+                  "field": "description",
+                  "operator": "contains",
+                  "value": "falling in love"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "eq",
+            "value": "Romance"
+          },
+          {
+            "field": "description",
+            "operator": "contains",
+            "value": "falling in love"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.24576,
+      "arguments": {
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "eq",
+            "value": "Romance"
+          },
+          {
+            "field": "description",
+            "operator": "contains",
+            "value": "falling in love"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "genres",
+              "operator": "eq",
+              "value": "Romance"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "genres",
+              "operator": "eq",
+              "value": "Romance",
+              "source_text": "I want four anime where falling in love is the main reason to watch. What should I start with?",
+              "mapping": "broader"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "11757",
+            "title": "Sword Art Online",
+            "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Romance'}]"
+          },
+          {
+            "id": "20954",
+            "title": "A Silent Voice",
+            "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Romance'}]"
+          },
+          {
+            "id": "21519",
+            "title": "Your Name.",
+            "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Romance'}]"
+          },
+          {
+            "id": "21355",
+            "title": "Re:ZERO -Starting Life in Another World-",
+            "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Romance'}]"
+          },
+          {
+            "id": "20665",
+            "title": "Your lie in April",
+            "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Romance'}]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000389
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "genres",
+              "operator": "eq",
+              "value": "Romance"
+            },
+            {
+              "field": "description",
+              "operator": "contains",
+              "value": "falling in love"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "genres",
+                "operator": "eq",
+                "value": "Romance"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "genres",
+                "operator": "eq",
+                "value": "Romance",
+                "source_text": "I want four anime where falling in love is the main reason to watch. What should I start with?",
+                "mapping": "broader"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "11757",
+              "title": "Sword Art Online",
+              "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Romance'}]"
+            },
+            {
+              "id": "20954",
+              "title": "A Silent Voice",
+              "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Romance'}]"
+            },
+            {
+              "id": "21519",
+              "title": "Your Name.",
+              "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Romance'}]"
+            },
+            {
+              "id": "21355",
+              "title": "Re:ZERO -Starting Life in Another World-",
+              "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Romance'}]"
+            },
+            {
+              "id": "20665",
+              "title": "Your lie in April",
+              "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Romance'}]"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.24576
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 4.44089,
+      "prepare_context": 0.002052,
+      "retrieve_guides": 0.009023,
+      "feature_candidates": 0.01643,
+      "planning": 3.634983,
+      "tools": 0.24576,
+      "generate_answer": 0.000389
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"falling in love\", \"query\": \"falling in love\", \"kind\": \"tag\", \"role\": \"required\", \"meaning\": \"Main theme\"}]}",
+      "{\n  \"role\": \"required\"\n}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "falling in love",
+        "query": "falling in love",
+        "kind": "tag",
+        "role": "required",
+        "meaning": "Main theme"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Main theme\", \"role\": \"required\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "falling in love",
+          "name": "",
+          "meaning": "Main theme"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [
+        "falling in love"
+      ],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "genres",
+          "operator": "eq",
+          "value": "Romance"
+        }
+      ],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "genres",
+          "operator": "eq",
+          "value": "Romance",
+          "source_text": "I want four anime where falling in love is the main reason to watch. What should I start with?",
+          "mapping": "broader"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "falling in love",
+          "candidate": {
+            "field": "genres",
+            "value": "Romance",
+            "meaning": "Romance",
+            "coverage": 1.0
+          },
+          "role": "required",
+          "mapping": "broader"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "falling in love",
+            "name": "",
+            "meaning": "Main theme"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "genres",
+                "operator": "eq",
+                "value": "Romance"
+              },
+              {
+                "field": "description",
+                "operator": "contains",
+                "value": "falling in love"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

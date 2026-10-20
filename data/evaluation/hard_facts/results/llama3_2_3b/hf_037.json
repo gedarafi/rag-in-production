@@ -1,0 +1,449 @@
+{
+  "question_id": "hf_037",
+  "anime_id": "101291",
+  "title": "Rascal Does Not Dream of Bunny Girl Senpai",
+  "field": "episodes",
+  "question": "What's the length of Rascal Does Not Dream of Bunny Girl Senpai in episodes?",
+  "expected_values": [
+    13.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "13 episodes",
+  "extracted_values": [
+    "13"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 10.342434541998955,
+  "extraction_seconds": 0.517845499998657,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "13",
+        "quote": "13 episodes"
+      }
+    ],
+    "note": "Duration per episode",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101291",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101291",
+          "title": "Rascal Does Not Dream of Bunny Girl Senpai"
+        },
+        "elapsed_seconds": 0.013269
+      },
+      {
+        "step": 1,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101291",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101291",
+          "title": "Rascal Does Not Dream of Bunny Girl Senpai"
+        },
+        "elapsed_seconds": 8.7e-05
+      },
+      {
+        "step": 2,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101291",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101291",
+          "title": "Rascal Does Not Dream of Bunny Girl Senpai"
+        },
+        "elapsed_seconds": 7.5e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 2.509026,
+      "prepare_context": 0.022328,
+      "retrieve_guides": 0.027161,
+      "feature_candidates": 0.013875,
+      "planning": 4.938311,
+      "tools": 0.013431,
+      "generate_answer": 2.81566
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Rascal Does Not Dream of Bunny Girl Senpai\", \"query\": \"Rascal Does Not Dream of Bunny Girl Senpai\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; episode length\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Rascal Does Not Dream of Bunny Girl Senpai",
+        "query": "Rascal Does Not Dream of Bunny Girl Senpai",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; episode length"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\n  \"clarification\": \"ambiguous\",\n  \"decisions\": {\n    \"p0\": {\n      \"meaning\": \"TV series; episode length\",\n      \"role\": \"subject\",\n      \"selection\": \"Rascal Does Not Dream of Bunny Girl Senpai | anime:101291\"\n    }\n  }\n}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101291",
+          "role": "subject",
+          "text": "Rascal Does Not Dream of Bunny Girl Senpai",
+          "name": "Rascal Does Not Dream of Bunny Girl Senpai",
+          "meaning": "TV series; episode length"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101291",
+          "role": "subject",
+          "text": "Rascal Does Not Dream of Bunny Girl Senpai",
+          "name": "Rascal Does Not Dream of Bunny Girl Senpai",
+          "meaning": "TV series; episode length"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Rascal Does Not Dream of Bunny Girl Senpai"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101291",
+            "role": "subject",
+            "text": "Rascal Does Not Dream of Bunny Girl Senpai",
+            "name": "Rascal Does Not Dream of Bunny Girl Senpai",
+            "meaning": "TV series; episode length"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101291",
+            "role": "subject",
+            "text": "Rascal Does Not Dream of Bunny Girl Senpai",
+            "name": "Rascal Does Not Dream of Bunny Girl Senpai",
+            "meaning": "TV series; episode length"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Get the number of episodes in Rascal Does Not Dream of Bunny Girl Senpai",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101291",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101291",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101291",
+            "section": "overview"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "101291",
+          "name": "Rascal Does Not Dream of Bunny Girl Senpai"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:101291",
+          "fact": "episodes"
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 9.1e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001058
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.509026
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.022328
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.027161
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013875
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.938311
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Get the number of episodes in Rascal Does Not Dream of Bunny Girl Senpai",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101291",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101291",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101291",
+              "section": "overview"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "101291",
+            "name": "Rascal Does Not Dream of Bunny Girl Senpai"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101291",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.013269,
+      "arguments": {
+        "id": "101291",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101291",
+        "title": "Rascal Does Not Dream of Bunny Girl Senpai"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101291",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 8.7e-05,
+      "arguments": {
+        "id": "101291",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101291",
+        "title": "Rascal Does Not Dream of Bunny Girl Senpai"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101291",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 7.5e-05,
+      "arguments": {
+        "id": "101291",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101291",
+        "title": "Rascal Does Not Dream of Bunny Girl Senpai"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 2.81566
+    }
+  ]
+}

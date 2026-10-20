@@ -1,0 +1,528 @@
+{
+  "question_id": "hf_092",
+  "anime_id": "9919",
+  "title": "Blue Exorcist",
+  "field": "format",
+  "question": "How does the catalog categorize the original Blue Exorcist anime's format?",
+  "expected_values": [
+    "TV"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The catalog categorizes the format of the original Blue Exorcist anime as TV.",
+  "extracted_values": [
+    "TV"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 16.14429941699973,
+  "extraction_seconds": 0.529522709000048,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "TV",
+        "quote": "The catalog categorizes the format of the original Blue Exorcist anime as TV."
+      }
+    ],
+    "note": "Source_material: anime",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "anime format",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "4 koma",
+              "name": "4-koma",
+              "description": "A manga in the 'yonkoma' format, which consists of four equal-sized panels arranged in a vertical strip.",
+              "category": "Technical",
+              "similarity": 0.2536
+            },
+            {
+              "kind": "tag",
+              "id": "flash",
+              "name": "Flash",
+              "description": "Created using Flash animation techniques.",
+              "category": "Technical",
+              "similarity": 0.2534
+            },
+            {
+              "kind": "tag",
+              "id": "advertisement",
+              "name": "Advertisement",
+              "description": "Produced in order to promote the products of a certain company.",
+              "category": "Technical",
+              "similarity": 0.2336
+            },
+            {
+              "kind": "tag",
+              "id": "no dialogue",
+              "name": "No Dialogue",
+              "description": "This work contains no dialogue.",
+              "category": "Technical",
+              "similarity": 0.2188
+            },
+            {
+              "kind": "tag",
+              "id": "anthology",
+              "name": "Anthology",
+              "description": "A collection of separate works collated into a single release.",
+              "category": "Technical",
+              "similarity": 0.2117
+            }
+          ]
+        },
+        "elapsed_seconds": 0.042927
+      },
+      {
+        "step": 1,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "9919"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "9919",
+          "title": "Blue Exorcist"
+        },
+        "elapsed_seconds": 0.013334
+      },
+      {
+        "step": 2,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "Blue Exorcist format",
+          "anime_ids": [
+            "9919"
+          ]
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.207371
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 3.44227,
+      "prepare_context": 0.02017,
+      "retrieve_guides": 0.031717,
+      "feature_candidates": 0.01335,
+      "planning": 6.754467,
+      "tools": 0.263632,
+      "generate_answer": 5.615521
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Blue Exorcist\", \"query\": \"Blue Exorcist\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Original TV adaptation\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Blue Exorcist",
+        "query": "Blue Exorcist",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Original TV adaptation"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"The question asks about the format of the original Blue Exorcist anime.\", \"decisions\": {\"p0\": {\"meaning\": \"Blue Exorcist\", \"role\": \"subject\", \"selection\": \"Blue Exorcist | anime:9919\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "9919",
+          "role": "subject",
+          "text": "Blue Exorcist",
+          "name": "Blue Exorcist",
+          "meaning": "Blue Exorcist"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "9919",
+          "role": "subject",
+          "text": "Blue Exorcist",
+          "name": "Blue Exorcist",
+          "meaning": "Blue Exorcist"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Blue Exorcist"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "9919",
+            "role": "subject",
+            "text": "Blue Exorcist",
+            "name": "Blue Exorcist",
+            "meaning": "Blue Exorcist"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "9919",
+            "role": "subject",
+            "text": "Blue Exorcist",
+            "name": "Blue Exorcist",
+            "meaning": "Blue Exorcist"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Retrieve the catalog's categorization of Blue Exorcist's format.",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "anime format",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "9919"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "Blue Exorcist format",
+            "anime_ids": [
+              "9919"
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "9919",
+          "name": "Blue Exorcist"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:9919",
+          "fact": "The anime's format is categorized as TV."
+        },
+        {
+          "subject": "anime:9919",
+          "fact": "The anime's aliases are Blue Exorcist, Ao no Exorcist, 青の祓魔師, Ao no Futsumashi, اللهب الأزرق, Ο Γαλάζιος Εξορκιστής."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 7.3e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001685
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.44227
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.02017
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.031717
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.01335
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.754467
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Retrieve the catalog's categorization of Blue Exorcist's format.",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "anime format",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "9919"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "Blue Exorcist format",
+              "anime_ids": [
+                "9919"
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "9919",
+            "name": "Blue Exorcist"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "anime format",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.042927,
+      "arguments": {
+        "query": "anime format",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "4 koma",
+            "name": "4-koma",
+            "description": "A manga in the 'yonkoma' format, which consists of four equal-sized panels arranged in a vertical strip.",
+            "category": "Technical",
+            "similarity": 0.2536
+          },
+          {
+            "kind": "tag",
+            "id": "flash",
+            "name": "Flash",
+            "description": "Created using Flash animation techniques.",
+            "category": "Technical",
+            "similarity": 0.2534
+          },
+          {
+            "kind": "tag",
+            "id": "advertisement",
+            "name": "Advertisement",
+            "description": "Produced in order to promote the products of a certain company.",
+            "category": "Technical",
+            "similarity": 0.2336
+          },
+          {
+            "kind": "tag",
+            "id": "no dialogue",
+            "name": "No Dialogue",
+            "description": "This work contains no dialogue.",
+            "category": "Technical",
+            "similarity": 0.2188
+          },
+          {
+            "kind": "tag",
+            "id": "anthology",
+            "name": "Anthology",
+            "description": "A collection of separate works collated into a single release.",
+            "category": "Technical",
+            "similarity": 0.2117
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "9919"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.013334,
+      "arguments": {
+        "id": "9919"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "9919",
+        "title": "Blue Exorcist"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "Blue Exorcist format",
+        "anime_ids": [
+          "9919"
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.207371,
+      "arguments": {
+        "query": "Blue Exorcist format",
+        "anime_ids": [
+          "9919"
+        ]
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 5.615521
+    }
+  ]
+}

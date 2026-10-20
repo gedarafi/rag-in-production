@@ -1,0 +1,876 @@
+{
+  "question_id": "hf_146",
+  "anime_id": "20665",
+  "title": "Your lie in April",
+  "field": "main_animation_studios",
+  "question": "What is the main animation studio for Your Lie in April?",
+  "expected_values": [
+    "A-1 Pictures"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "A-1 Pictures is the main animation studio for Your Lie in April.",
+  "extracted_values": [
+    "A-1 Pictures"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 16.722156207999888,
+  "extraction_seconds": 0.5826681250000547,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "A-1 Pictures",
+        "quote": "A-1 Pictures is the main animation studio for Your Lie in April."
+      }
+    ],
+    "note": "assertion about main animation studio",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20665"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20665",
+          "title": "Your lie in April"
+        },
+        "elapsed_seconds": 0.021608
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "animation studio",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "flash",
+              "name": "Flash",
+              "description": "Created using Flash animation techniques.",
+              "category": "Technical",
+              "similarity": 0.4938
+            },
+            {
+              "kind": "tag",
+              "id": "achromatic",
+              "name": "Achromatic",
+              "description": "Contains animation that is primarily done in black and white.",
+              "category": "Technical",
+              "similarity": 0.4916
+            },
+            {
+              "kind": "tag",
+              "id": "puppetry",
+              "name": "Puppetry",
+              "description": "Animation style involving the manipulation of puppets to act out scenes.",
+              "category": "Technical",
+              "similarity": 0.4621
+            },
+            {
+              "kind": "tag",
+              "id": "tokusatsu",
+              "name": "Tokusatsu",
+              "description": "Prominently features elements that resemble special effects in Japanese live-action shows",
+              "category": "Theme-Sci-Fi",
+              "similarity": 0.4025
+            },
+            {
+              "kind": "tag",
+              "id": "software development",
+              "name": "Software Development",
+              "description": "Centers around characters developing or programming a piece of technology, software, gaming, etc.",
+              "category": "Theme-Other",
+              "similarity": 0.3775
+            }
+          ]
+        },
+        "elapsed_seconds": 0.030434
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "animation studio"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.01549
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20665"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20665",
+          "title": "Your lie in April"
+        },
+        "elapsed_seconds": 0.000122
+      },
+      {
+        "step": 4,
+        "tool": "search_features",
+        "arguments": {
+          "query": "animation studio",
+          "kind": "tag"
+        },
+        "cached": true,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "flash",
+              "name": "Flash",
+              "description": "Created using Flash animation techniques.",
+              "category": "Technical",
+              "similarity": 0.4938
+            },
+            {
+              "kind": "tag",
+              "id": "achromatic",
+              "name": "Achromatic",
+              "description": "Contains animation that is primarily done in black and white.",
+              "category": "Technical",
+              "similarity": 0.4916
+            },
+            {
+              "kind": "tag",
+              "id": "puppetry",
+              "name": "Puppetry",
+              "description": "Animation style involving the manipulation of puppets to act out scenes.",
+              "category": "Technical",
+              "similarity": 0.4621
+            },
+            {
+              "kind": "tag",
+              "id": "tokusatsu",
+              "name": "Tokusatsu",
+              "description": "Prominently features elements that resemble special effects in Japanese live-action shows",
+              "category": "Theme-Sci-Fi",
+              "similarity": 0.4025
+            },
+            {
+              "kind": "tag",
+              "id": "software development",
+              "name": "Software Development",
+              "description": "Centers around characters developing or programming a piece of technology, software, gaming, etc.",
+              "category": "Theme-Other",
+              "similarity": 0.3775
+            }
+          ]
+        },
+        "elapsed_seconds": 1.5e-05
+      },
+      {
+        "step": 5,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20665"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20665",
+          "title": "Your lie in April"
+        },
+        "elapsed_seconds": 7.2e-05
+      },
+      {
+        "step": 6,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20665"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20665",
+          "title": "Your lie in April"
+        },
+        "elapsed_seconds": 7.1e-05
+      },
+      {
+        "step": 7,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20665"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20665",
+          "title": "Your lie in April"
+        },
+        "elapsed_seconds": 7e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 8,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 3.875364,
+      "prepare_context": 0.015187,
+      "retrieve_guides": 0.031947,
+      "feature_candidates": 0.015214,
+      "planning": 8.544106,
+      "tools": 0.067882,
+      "generate_answer": 4.16926
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Your Lie in April\", \"query\": \"Your Lie in April\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Your Lie in April",
+        "query": "Your Lie in April",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"No clarification needed. The question is straightforward and the provided phrase clearly identifies the anime.\", \"decisions\": {\"p0\": {\"meaning\": \"Your Lie in April\", \"role\": \"subject\", \"selection\": \"Your lie in April | anime:20665\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20665",
+          "role": "subject",
+          "text": "Your Lie in April",
+          "name": "Your lie in April",
+          "meaning": "Your Lie in April"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20665",
+          "role": "subject",
+          "text": "Your Lie in April",
+          "name": "Your lie in April",
+          "meaning": "Your Lie in April"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Your lie in April"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20665",
+            "role": "subject",
+            "text": "Your Lie in April",
+            "name": "Your lie in April",
+            "meaning": "Your Lie in April"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20665",
+            "role": "subject",
+            "text": "Your Lie in April",
+            "name": "Your lie in April",
+            "meaning": "Your Lie in April"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "retrieve animation studio for Your Lie in April",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20665"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "animation studio",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "animation studio"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20665"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "animation studio",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20665"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20665"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20665"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "20665",
+          "name": "Your lie in April"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:20665",
+          "fact": "A-1 Pictures is the main animation studio for Your Lie in April."
+        },
+        {
+          "subject": "anime:20665",
+          "fact": "The anime was produced by A-1 Pictures."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 7.7e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001466
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.875364
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.015187
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.031947
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.015214
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 8.544106
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "retrieve animation studio for Your Lie in April",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20665"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "animation studio",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "animation studio"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20665"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "animation studio",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20665"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20665"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20665"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "20665",
+            "name": "Your lie in April"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20665"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.021608,
+      "arguments": {
+        "id": "20665"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20665",
+        "title": "Your lie in April"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "animation studio",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.030434,
+      "arguments": {
+        "query": "animation studio",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "flash",
+            "name": "Flash",
+            "description": "Created using Flash animation techniques.",
+            "category": "Technical",
+            "similarity": 0.4938
+          },
+          {
+            "kind": "tag",
+            "id": "achromatic",
+            "name": "Achromatic",
+            "description": "Contains animation that is primarily done in black and white.",
+            "category": "Technical",
+            "similarity": 0.4916
+          },
+          {
+            "kind": "tag",
+            "id": "puppetry",
+            "name": "Puppetry",
+            "description": "Animation style involving the manipulation of puppets to act out scenes.",
+            "category": "Technical",
+            "similarity": 0.4621
+          },
+          {
+            "kind": "tag",
+            "id": "tokusatsu",
+            "name": "Tokusatsu",
+            "description": "Prominently features elements that resemble special effects in Japanese live-action shows",
+            "category": "Theme-Sci-Fi",
+            "similarity": 0.4025
+          },
+          {
+            "kind": "tag",
+            "id": "software development",
+            "name": "Software Development",
+            "description": "Centers around characters developing or programming a piece of technology, software, gaming, etc.",
+            "category": "Theme-Other",
+            "similarity": 0.3775
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "animation studio"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.01549,
+      "arguments": {
+        "kind": "tag",
+        "query": "animation studio"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20665"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000122,
+      "arguments": {
+        "id": "20665"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20665",
+        "title": "Your lie in April"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "search_features",
+      "arguments": {
+        "query": "animation studio",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 1.5e-05,
+      "arguments": {
+        "query": "animation studio",
+        "kind": "tag"
+      },
+      "cached": true,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "flash",
+            "name": "Flash",
+            "description": "Created using Flash animation techniques.",
+            "category": "Technical",
+            "similarity": 0.4938
+          },
+          {
+            "kind": "tag",
+            "id": "achromatic",
+            "name": "Achromatic",
+            "description": "Contains animation that is primarily done in black and white.",
+            "category": "Technical",
+            "similarity": 0.4916
+          },
+          {
+            "kind": "tag",
+            "id": "puppetry",
+            "name": "Puppetry",
+            "description": "Animation style involving the manipulation of puppets to act out scenes.",
+            "category": "Technical",
+            "similarity": 0.4621
+          },
+          {
+            "kind": "tag",
+            "id": "tokusatsu",
+            "name": "Tokusatsu",
+            "description": "Prominently features elements that resemble special effects in Japanese live-action shows",
+            "category": "Theme-Sci-Fi",
+            "similarity": 0.4025
+          },
+          {
+            "kind": "tag",
+            "id": "software development",
+            "name": "Software Development",
+            "description": "Centers around characters developing or programming a piece of technology, software, gaming, etc.",
+            "category": "Theme-Other",
+            "similarity": 0.3775
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20665"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 7.2e-05,
+      "arguments": {
+        "id": "20665"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20665",
+        "title": "Your lie in April"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 6,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20665"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 6,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 7.1e-05,
+      "arguments": {
+        "id": "20665"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20665",
+        "title": "Your lie in April"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 7,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20665"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 7,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 7e-05,
+      "arguments": {
+        "id": "20665"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20665",
+        "title": "Your lie in April"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.16926
+    }
+  ]
+}

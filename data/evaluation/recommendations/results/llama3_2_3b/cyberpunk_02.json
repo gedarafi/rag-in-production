@@ -1,0 +1,1092 @@
+{
+  "question_id": "cyberpunk_02",
+  "category": "tags",
+  "intent_family": "cyberpunk",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "Which four anime have grimy high-tech cities, body upgrades, and a future that feels pretty broken?",
+  "k": 4,
+  "constraints": [
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Cyberpunk"
+      ],
+      "alternatives": [
+        {
+          "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+          "constraints": [
+            {
+              "field": "genres",
+              "op": "any",
+              "value": [
+                "Sci-Fi"
+              ]
+            },
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Dystopian"
+              ]
+            },
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Cyborg",
+                "Artificial Intelligence"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "High technology and a gritty unequal future are a Cyberpunk proxy.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 239,
+  "reference_examples": [
+    {
+      "id": "100168",
+      "title": "Blade Runner: Black Out 2022"
+    },
+    {
+      "id": "1079",
+      "title": "Armitage III"
+    },
+    {
+      "id": "1095",
+      "title": "Patlabor: The Movie"
+    }
+  ],
+  "answer_text": "Catalog matches. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **My Hero Academia** — What would the world be like if 80 percent of the population manifested extraordinary superpowers called “Quirks” at age four? Heroes and villains would be battling it out everywhere! Becoming a hero would mean learning to use your power, but where would you go to study? U.A. High's Hero Program of course! But what would you do if you were one of the 20 percent who were born Quirkless? Middle school student Izuku Midoriya wants to be a hero more…\n\n2. **My Hero Academia Season 3** — Summer is here, and the heroes of Class 1-A and 1-B are in for the toughest training camp of their lives! A group of seasoned pros pushes everyone's Quirks to new heights as the students face one overwhelming challenge after another. Braving the elements in this secret location becomes the least of their worries when routine training turns into a critical struggle for survival. (Source: Crunchyroll)\n\n3. **My Hero Academia Season 2** — Taking off right after the last episode of the first season. The school is temporarily closed due to security. When U.A. restarts, it is announced that the highly anticipated School Sports Festival will soon be taking place. All classes: Hero, Support, General and Business will be participating. Tournaments all round will decide who is the top Hero in training. (Source: Anime News Network)\n\n4. **Attack on Titan** — Several hundred years ago, humans were nearly exterminated by titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest of titans. Flash forward to the present and the city has not seen a…\n\n5. **Tokyo Ghoul** — The suspense horror/dark fantasy story is set in Tokyo, which is haunted by mysterious \"ghouls\" who are devouring humans. People are gripped by the fear of these ghouls whose identities are masked in mystery. An ordinary college student named Kaneki encounters Rize, a girl who is an avid reader like him, at the café he frequents. Little does he realize that his fate will change overnight. (Source: Anime News Network)",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "My Hero Academia",
+      "My Hero Academia Season 2",
+      "My Hero Academia Season 3",
+      "Attack on Titan",
+      "Tokyo Ghoul"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "My Hero Academia",
+      "anime_id": "21459",
+      "canonical_title": "My Hero Academia",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21459"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Sci-Fi"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Dystopian"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cyborg",
+                      "Artificial Intelligence"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 2,
+      "extracted_title": "My Hero Academia Season 2",
+      "anime_id": "21856",
+      "canonical_title": "My Hero Academia Season 2",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21856"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Sci-Fi"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Dystopian"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cyborg",
+                      "Artificial Intelligence"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 3,
+      "extracted_title": "My Hero Academia Season 3",
+      "anime_id": "100166",
+      "canonical_title": "My Hero Academia Season 3",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "100166"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Sci-Fi"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Dystopian"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cyborg",
+                      "Artificial Intelligence"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Attack on Titan",
+      "anime_id": "16498",
+      "canonical_title": "Attack on Titan",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "16498"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Sci-Fi"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Dystopian"
+                    ]
+                  },
+                  "score": 0.77
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cyborg",
+                      "Artificial Intelligence"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Tokyo Ghoul",
+      "anime_id": "20605",
+      "canonical_title": "Tokyo Ghoul",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20605"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Sci-Fi"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Dystopian"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cyborg",
+                      "Artificial Intelligence"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.0,
+    "graded_fit_at_k": 0.0,
+    "ndcg_at_k": 0.0,
+    "constraint_coverage": 0.0,
+    "count_compliance": 0,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "extra_count": 1,
+    "literal_precision_at_k": 0.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 12.621909292000055,
+  "extraction_seconds": 1.6324313750010333,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.2e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000709
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 7.605863
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.001277
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.008732
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.010753
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.753313
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "grimy high-tech cities body upgrades future broken",
+              "kind": "tag",
+              "limit": 10
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "genres",
+                  "operator": "contains",
+                  "value": "grimy high-tech cities"
+                },
+                {
+                  "field": "tags",
+                  "operator": "contains",
+                  "value": "body upgrades"
+                },
+                {
+                  "field": "year",
+                  "operator": "gt",
+                  "value": "2025"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "grimy high-tech cities body upgrades future broken",
+        "kind": "tag",
+        "limit": 10
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.04125,
+      "arguments": {
+        "query": "grimy high-tech cities body upgrades future broken",
+        "kind": "tag",
+        "limit": 10
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "body horror",
+            "name": "Body Horror",
+            "description": "Features characters who undergo horrific transformations or disfigurement, often to their own detriment.",
+            "category": "Theme-Other",
+            "similarity": 0.2988
+          },
+          {
+            "kind": "tag",
+            "id": "body swapping",
+            "name": "Body Swapping",
+            "description": "Centers around individuals swapping bodies with one another.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.2665
+          },
+          {
+            "kind": "tag",
+            "id": "body image",
+            "name": "Body Image",
+            "description": "Features themes of self-esteem concerning perceived defects or flaws in appearance, such as body weight or disfigurement, and may discuss topics such as eating disorders, fatphobia, and body dysmorphia.",
+            "category": "Theme-Other",
+            "similarity": 0.2392
+          },
+          {
+            "kind": "tag",
+            "id": "urban",
+            "name": "Urban",
+            "description": "Partly or completely set in a city.",
+            "category": "Setting-Scene",
+            "similarity": 0.2278
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "grimy high-tech cities"
+          },
+          {
+            "field": "tags",
+            "operator": "contains",
+            "value": "body upgrades"
+          },
+          {
+            "field": "year",
+            "operator": "gt",
+            "value": "2025"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.198224,
+      "arguments": {
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "grimy high-tech cities"
+          },
+          {
+            "field": "tags",
+            "operator": "contains",
+            "value": "body upgrades"
+          },
+          {
+            "field": "year",
+            "operator": "gt",
+            "value": "2025"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": []
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": []
+        },
+        "items": [
+          {
+            "id": "21459",
+            "title": "My Hero Academia",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.1837
+          },
+          {
+            "id": "100166",
+            "title": "My Hero Academia Season 3",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.1584
+          },
+          {
+            "id": "21856",
+            "title": "My Hero Academia Season 2",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.1571
+          },
+          {
+            "id": "16498",
+            "title": "Attack on Titan",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.1381
+          },
+          {
+            "id": "20605",
+            "title": "Tokyo Ghoul",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.1281
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000475
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "grimy high-tech cities body upgrades future broken",
+          "kind": "tag",
+          "limit": 10
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "body horror",
+              "name": "Body Horror",
+              "description": "Features characters who undergo horrific transformations or disfigurement, often to their own detriment.",
+              "category": "Theme-Other",
+              "similarity": 0.2988
+            },
+            {
+              "kind": "tag",
+              "id": "body swapping",
+              "name": "Body Swapping",
+              "description": "Centers around individuals swapping bodies with one another.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.2665
+            },
+            {
+              "kind": "tag",
+              "id": "body image",
+              "name": "Body Image",
+              "description": "Features themes of self-esteem concerning perceived defects or flaws in appearance, such as body weight or disfigurement, and may discuss topics such as eating disorders, fatphobia, and body dysmorphia.",
+              "category": "Theme-Other",
+              "similarity": 0.2392
+            },
+            {
+              "kind": "tag",
+              "id": "urban",
+              "name": "Urban",
+              "description": "Partly or completely set in a city.",
+              "category": "Setting-Scene",
+              "similarity": 0.2278
+            }
+          ]
+        },
+        "elapsed_seconds": 0.04125
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "genres",
+              "operator": "contains",
+              "value": "grimy high-tech cities"
+            },
+            {
+              "field": "tags",
+              "operator": "contains",
+              "value": "body upgrades"
+            },
+            {
+              "field": "year",
+              "operator": "gt",
+              "value": "2025"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": []
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": []
+          },
+          "items": [
+            {
+              "id": "21459",
+              "title": "My Hero Academia",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.1837
+            },
+            {
+              "id": "100166",
+              "title": "My Hero Academia Season 3",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.1584
+            },
+            {
+              "id": "21856",
+              "title": "My Hero Academia Season 2",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.1571
+            },
+            {
+              "id": "16498",
+              "title": "Attack on Titan",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.1381
+            },
+            {
+              "id": "20605",
+              "title": "Tokyo Ghoul",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.1281
+            }
+          ]
+        },
+        "elapsed_seconds": 0.198224
+      }
+    ],
+    "llm_calls": 3,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 7.605863,
+      "prepare_context": 0.001277,
+      "retrieve_guides": 0.008732,
+      "feature_candidates": 0.010753,
+      "planning": 4.753313,
+      "tools": 0.239474,
+      "generate_answer": 0.000475
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"grimy high-tech cities\", \"query\": \"grimy high-tech cities\", \"kind\": \"description\", \"role\": \"preferred\", \"meaning\": \"Setting\"}, {\"text\": \"body upgrades\", \"query\": \"body upgrades\", \"kind\": \"description\", \"role\": \"preferred\", \"meaning\": \"Plot element\"}, {\"text\": \"broken future\", \"query\": \"broken future\", \"kind\": \"description\", \"role\": \"preferred\", \"meaning\": \"Setting\"}, {\"text\": \"Gantz\", \"query\": \"Gantz\", \"kind\": \"anime\", \"role\": \"reference\", \"meaning\": \"Reference title\"}, {\"text\": \"Psycho-Pass\", \"query\": \"Psycho-Pass\", \"kind\": \"anime\", \"role\": \"reference\", \"meaning\": \"Reference title\"}, {\"text\": \"Serial Experiments Lain\", \"query\": \"Serial Experiments Lain\", \"kind\": \"anime\", \"role\": \"reference\", \"meaning\": \"Reference title\"}, {\"text\": \"Texhnolyze\", \"query\": \"Texhnolyze\", \"kind\": \"anime\", \"role\": \"reference\", \"meaning\": \"Reference title\"}, {\"text\": \"Ghost in the Shell: Stand Alone Complex\", \"query\": \"Ghost in the Shell: Stand Alone Complex\", \"kind\": \"anime\", \"role\": \"reference\", \"meaning\": \"Reference title\"}]}"
+    ],
+    "unsupported_mentions": [
+      {
+        "text": "broken future",
+        "query": "broken future",
+        "kind": "description",
+        "role": "preferred",
+        "meaning": "Setting"
+      },
+      {
+        "text": "Gantz",
+        "query": "Gantz",
+        "kind": "anime",
+        "role": "reference",
+        "meaning": "Reference title"
+      },
+      {
+        "text": "Psycho-Pass",
+        "query": "Psycho-Pass",
+        "kind": "anime",
+        "role": "reference",
+        "meaning": "Reference title"
+      },
+      {
+        "text": "Serial Experiments Lain",
+        "query": "Serial Experiments Lain",
+        "kind": "anime",
+        "role": "reference",
+        "meaning": "Reference title"
+      },
+      {
+        "text": "Texhnolyze",
+        "query": "Texhnolyze",
+        "kind": "anime",
+        "role": "reference",
+        "meaning": "Reference title"
+      },
+      {
+        "text": "Ghost in the Shell: Stand Alone Complex",
+        "query": "Ghost in the Shell: Stand Alone Complex",
+        "kind": "anime",
+        "role": "reference",
+        "meaning": "Reference title"
+      }
+    ],
+    "typed_mentions": [
+      {
+        "text": "grimy high-tech cities",
+        "query": "grimy high-tech cities",
+        "kind": "description",
+        "role": "preferred",
+        "meaning": "Setting"
+      },
+      {
+        "text": "body upgrades",
+        "query": "body upgrades",
+        "kind": "description",
+        "role": "preferred",
+        "meaning": "Plot element"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Setting\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}, \"p1\": {\"meaning\": \"Plot element\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "grimy high-tech cities",
+          "name": "",
+          "meaning": "Setting"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "body upgrades",
+          "name": "",
+          "meaning": "Plot element"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [],
+      "preferred": [
+        "grimy high-tech cities",
+        "body upgrades"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [],
+      "soft_query": "grimy high-tech cities body upgrades",
+      "limitations": [],
+      "mappings": [],
+      "preference_hierarchy": [
+        {
+          "phrase": "grimy high-tech cities",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        },
+        {
+          "phrase": "body upgrades",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "grimy high-tech cities",
+            "name": "",
+            "meaning": "Setting"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "body upgrades",
+            "name": "",
+            "meaning": "Plot element"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "grimy high-tech cities body upgrades future broken",
+            "kind": "tag",
+            "limit": 10
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "genres",
+                "operator": "contains",
+                "value": "grimy high-tech cities"
+              },
+              {
+                "field": "tags",
+                "operator": "contains",
+                "value": "body upgrades"
+              },
+              {
+                "field": "year",
+                "operator": "gt",
+                "value": "2025"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

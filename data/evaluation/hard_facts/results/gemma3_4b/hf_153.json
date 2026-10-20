@@ -1,0 +1,660 @@
+{
+  "question_id": "hf_153",
+  "anime_id": "199",
+  "title": "Spirited Away",
+  "field": "main_animation_studios",
+  "question": "What animation studio made Spirited Away?",
+  "expected_values": [
+    "Studio Ghibli"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Catalog matches.\n\n1. **Spirited Away** — On the way to their new home, 10-year-old Chihiro Ogino's family stumbles upon a deserted theme park. Intrigued, the family investigates the park, though unbeknownst to them, it is secretly inhabited by spirits who sleep by day and appear at night. When Chihiro's mother and father eat food from a restaurant in the street, angry spirits turn them into pigs. Furthermore, a wide sea has appeared between the spirit world and the human one, trapping…\n\n2. **Howl‘s Moving Castle** — Sophie, a quiet girl working in a hat shop, finds her life thrown into turmoil when she is literally swept off her feet by a handsome but mysterious wizard named Howl. The vain and vengeful Witch of the Waste, jealous of their friendship, puts a spell on Sophie. In a life-changing adventure, Sophie climbs aboard Howl's magnificent flying castle and enters a magical world on a quest to break the spell. (Source: Disney)\n\n3. **Princess Mononoke** — A calm village residing in the mountains comes under attack from a demon-possessed boar one day. Ashitaka, a young man and prince of the tribe, engages the creature in an attempt to save his village. During the battle, the boar bites him on the arm, leaving it blackened and cursed. Following his village's traditions, Ashitaka is exiled and becomes a wanderer, looking for a solution to the curse before it engulfs him. Iron Town is a fortress…\n\n4. **My Neighbor Totoro** — Follow the adventures of Satsuki and her four-year-old sister Mei when they move into a new home in the countryside. To their delight they discover that their new neighbor is a mysterious forest spirit called Totoro who can be seen only through the eyes of a child. Totoro introduces them to extraordinary characters, including a cat that doubles as a bus, takes them on a journey through the wonders of nature. (Source: Disney)\n\n5. **Grave of the Fireflies** — In the aftermath of a World War II bombing, two orphaned children struggle to survive in the Japanese countryside. To Seita and his four-year-old sister, the helplessness and indifference of their countrymen is even more painful than the enemy raids. Through desperation, hunger and grief, these children's lives are as heartbreakingly fragile as their spirit and love is inspiring. (Source: Sentai Filmworks)",
+  "extracted_values": [
+    "Studio Ghibli"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 12.633775374999914,
+  "extraction_seconds": 1.4150108750000072,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Studio Ghibli",
+        "quote": "Catalog matches.\n\n1. **Spirited Away** — On the way to their new home, 10-year-old Chihiro Ogino's family stumbles upon a deserted theme park. Intrigued, the family investigates the park, though unbeknownst to them, it is secretly inhabited by spirits who sleep by day and appear at night. When Chihiro's mother and father eat food from a restaurant in the street, angry spirits turn them into pigs. Furthermore, a wide sea has appeared between the spirit world and the human one, trapping…\n\n2. **Howl‘s Moving Castle** — Sophie, a quiet girl working in a hat shop, finds her life thrown into turmoil when she is literally swept off her feet by a handsome but mysterious wizard named Howl. The vain and vengeful Witch of the Waste, jealous of their friendship, puts a spell on Sophie. In a life-changing adventure, Sophie climbs aboard Howl's magnificent flying castle and enters a magical world on a quest to break the spell. (Source: Disney)\n\n3. **Princess Mononoke** — A calm village residing in the mountains comes under attack from a demon-possessed boar one day. Ashitaka, a young man and prince of the tribe, engages the creature in an attempt to save his village. During the battle, the boar bites him on the arm, leaving it blackened and cursed. Following his village's traditions, Ashitaka is exiled and becomes a wanderer, looking for a solution to the curse before it engulfs him. Iron Town is a fortress…\n\n4. **My Neighbor Totoro** — Follow the adventures of Satsuki and her four-year-old sister Mei when they move into a new home in the countryside. To their delight they discover that their new neighbor is a mysterious forest spirit called Totoro who can be seen only through the eyes of a child. Totoro introduces them to extraordinary characters, including a cat that doubles as a bus, takes them on a journey through the wonders of nature. (Source: Disney)\n\n5. **Grave of the Fireflies** — In the aftermath of a World War II bombing, two orphaned children struggle to survive in the Japanese countryside. To Seita and his four-year-old sister, the helplessness and indifference of their countrymen is even more painful than the enemy raids. Through desperation, hunger and grief, these children's lives are as heartbreakingly fragile as their spirit and love is inspiring. (Source: Sentai Filmworks)"
+      }
+    ],
+    "note": "The main animation studio for Spirited Away is Studio Ghibli.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "199"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "199",
+          "title": "Spirited Away"
+        },
+        "elapsed_seconds": 0.0112
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "studio",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "office",
+              "name": "Office",
+              "description": "Features people who work in a business office.",
+              "category": "Setting-Scene",
+              "similarity": 0.4473
+            },
+            {
+              "kind": "tag",
+              "id": "dungeon",
+              "name": "Dungeon",
+              "description": "Prominently features a dungeon environment.",
+              "category": "Setting-Scene",
+              "similarity": 0.4212
+            },
+            {
+              "kind": "tag",
+              "id": "software development",
+              "name": "Software Development",
+              "description": "Centers around characters developing or programming a piece of technology, software, gaming, etc.",
+              "category": "Theme-Other",
+              "similarity": 0.4137
+            },
+            {
+              "kind": "tag",
+              "id": "photography",
+              "name": "Photography",
+              "description": "Centers around the use of cameras to capture photos.",
+              "category": "Theme-Arts",
+              "similarity": 0.4031
+            },
+            {
+              "kind": "tag",
+              "id": "makeup",
+              "name": "Makeup",
+              "description": "Centers around the makeup industry.",
+              "category": "Theme-Arts",
+              "similarity": 0.4025
+            }
+          ]
+        },
+        "elapsed_seconds": 0.054021
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "studio"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.057752
+      },
+      {
+        "step": 3,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "studios",
+              "operator": "eq",
+              "value": "Studio Ghibli"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "studios",
+                "operator": "eq",
+                "value": "Studio Ghibli"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "199",
+              "title": "Spirited Away",
+              "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Studio Ghibli'}]"
+            },
+            {
+              "id": "431",
+              "title": "Howl‘s Moving Castle",
+              "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Studio Ghibli'}]"
+            },
+            {
+              "id": "164",
+              "title": "Princess Mononoke",
+              "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Studio Ghibli'}]"
+            },
+            {
+              "id": "523",
+              "title": "My Neighbor Totoro",
+              "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Studio Ghibli'}]"
+            },
+            {
+              "id": "578",
+              "title": "Grave of the Fireflies",
+              "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Studio Ghibli'}]"
+            }
+          ]
+        },
+        "elapsed_seconds": 1.974658
+      }
+    ],
+    "llm_calls": 3,
+    "planned_tools": 4,
+    "executed_tools": 4,
+    "timings_seconds": {
+      "interpret_request": 3.248479,
+      "prepare_context": 0.030908,
+      "retrieve_guides": 0.043601,
+      "feature_candidates": 0.019164,
+      "planning": 7.18977,
+      "tools": 2.097631,
+      "generate_answer": 0.00079
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Spirited Away\", \"query\": \"Spirited Away\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Spirited Away",
+        "query": "Spirited Away",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Which animation studio produced Spirited Away?\", \"decisions\": {\"p0\": {\"meaning\": \"Spirited Away\", \"role\": \"subject\", \"selection\": \"Spirited Away | anime:199\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "199",
+          "role": "subject",
+          "text": "Spirited Away",
+          "name": "Spirited Away",
+          "meaning": "Spirited Away"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "199",
+          "role": "subject",
+          "text": "Spirited Away",
+          "name": "Spirited Away",
+          "meaning": "Spirited Away"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Spirited Away"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "199",
+            "role": "subject",
+            "text": "Spirited Away",
+            "name": "Spirited Away",
+            "meaning": "Spirited Away"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "199",
+            "role": "subject",
+            "text": "Spirited Away",
+            "name": "Spirited Away",
+            "meaning": "Spirited Away"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "find_studio_for_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "199"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "studio",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "studio"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "studios",
+                "operator": "eq",
+                "value": "Studio Ghibli"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "199",
+          "name": "Spirited Away"
+        }
+      ],
+      "characters": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.4e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.002013
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.248479
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.030908
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.043601
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.019164
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 7.18977
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "find_studio_for_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "199"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "studio",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "studio"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "studios",
+                  "operator": "eq",
+                  "value": "Studio Ghibli"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "199",
+            "name": "Spirited Away"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "199"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.0112,
+      "arguments": {
+        "id": "199"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "199",
+        "title": "Spirited Away"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "studio",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.054021,
+      "arguments": {
+        "query": "studio",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "office",
+            "name": "Office",
+            "description": "Features people who work in a business office.",
+            "category": "Setting-Scene",
+            "similarity": 0.4473
+          },
+          {
+            "kind": "tag",
+            "id": "dungeon",
+            "name": "Dungeon",
+            "description": "Prominently features a dungeon environment.",
+            "category": "Setting-Scene",
+            "similarity": 0.4212
+          },
+          {
+            "kind": "tag",
+            "id": "software development",
+            "name": "Software Development",
+            "description": "Centers around characters developing or programming a piece of technology, software, gaming, etc.",
+            "category": "Theme-Other",
+            "similarity": 0.4137
+          },
+          {
+            "kind": "tag",
+            "id": "photography",
+            "name": "Photography",
+            "description": "Centers around the use of cameras to capture photos.",
+            "category": "Theme-Arts",
+            "similarity": 0.4031
+          },
+          {
+            "kind": "tag",
+            "id": "makeup",
+            "name": "Makeup",
+            "description": "Centers around the makeup industry.",
+            "category": "Theme-Arts",
+            "similarity": 0.4025
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "studio"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.057752,
+      "arguments": {
+        "kind": "tag",
+        "query": "studio"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "studios",
+            "operator": "eq",
+            "value": "Studio Ghibli"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 1.974658,
+      "arguments": {
+        "filters": [
+          {
+            "field": "studios",
+            "operator": "eq",
+            "value": "Studio Ghibli"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "studios",
+              "operator": "eq",
+              "value": "Studio Ghibli"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "199",
+            "title": "Spirited Away",
+            "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Studio Ghibli'}]"
+          },
+          {
+            "id": "431",
+            "title": "Howl‘s Moving Castle",
+            "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Studio Ghibli'}]"
+          },
+          {
+            "id": "164",
+            "title": "Princess Mononoke",
+            "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Studio Ghibli'}]"
+          },
+          {
+            "id": "523",
+            "title": "My Neighbor Totoro",
+            "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Studio Ghibli'}]"
+          },
+          {
+            "id": "578",
+            "title": "Grave of the Fireflies",
+            "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Studio Ghibli'}]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.00079
+    }
+  ]
+}

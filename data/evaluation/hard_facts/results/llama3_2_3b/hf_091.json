@@ -1,0 +1,333 @@
+{
+  "question_id": "hf_091",
+  "anime_id": "108465",
+  "title": "Mushoku Tensei: Jobless Reincarnation",
+  "field": "format",
+  "question": "Is the first Mushoku Tensei: Jobless Reincarnation entry a TV series or a special?",
+  "expected_values": [
+    "TV"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The first Mushoku Tensei: Jobless Reincarnation entry is a TV series.",
+  "extracted_values": [
+    "TV series"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 10.043942333000814,
+  "extraction_seconds": 0.5346274160001485,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "TV series",
+        "quote": "The first Mushoku Tensei: Jobless Reincarnation entry is a TV series."
+      }
+    ],
+    "note": "assertion matches question",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "108465",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "108465",
+          "title": "Mushoku Tensei: Jobless Reincarnation"
+        },
+        "elapsed_seconds": 0.018903
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 2.791723,
+      "prepare_context": 0.0217,
+      "retrieve_guides": 0.028889,
+      "feature_candidates": 0.014034,
+      "planning": 4.155831,
+      "tools": 0.018903,
+      "generate_answer": 3.010381
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Mushoku Tensei: Jobless Reincarnation\", \"query\": \"Mushoku Tensei: Jobless Reincarnation\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"First entry; TV series or special\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Mushoku Tensei: Jobless Reincarnation",
+        "query": "Mushoku Tensei: Jobless Reincarnation",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "First entry; TV series or special"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Is the first Mushoku Tensei: Jobless Reincarnation entry a TV series or a special?\", \"decisions\": {\"p0\": {\"meaning\": \"First entry; TV series or special\", \"role\": \"subject\", \"selection\": \"Mushoku Tensei: Jobless Reincarnation | anime:108465\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "108465",
+          "role": "subject",
+          "text": "Mushoku Tensei: Jobless Reincarnation",
+          "name": "Mushoku Tensei: Jobless Reincarnation",
+          "meaning": "First entry; TV series or special"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "108465",
+          "role": "subject",
+          "text": "Mushoku Tensei: Jobless Reincarnation",
+          "name": "Mushoku Tensei: Jobless Reincarnation",
+          "meaning": "First entry; TV series or special"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Mushoku Tensei: Jobless Reincarnation"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "108465",
+            "role": "subject",
+            "text": "Mushoku Tensei: Jobless Reincarnation",
+            "name": "Mushoku Tensei: Jobless Reincarnation",
+            "meaning": "First entry; TV series or special"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "108465",
+            "role": "subject",
+            "text": "Mushoku Tensei: Jobless Reincarnation",
+            "name": "Mushoku Tensei: Jobless Reincarnation",
+            "meaning": "First entry; TV series or special"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine if Mushoku Tensei: Jobless Reincarnation entry is a TV series or a special",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "108465",
+            "section": "overview"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "108465",
+          "name": "Mushoku Tensei: Jobless Reincarnation"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:108465",
+          "fact": "format: TV"
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.1e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000786
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.791723
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.0217
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.028889
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014034
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.155831
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine if Mushoku Tensei: Jobless Reincarnation entry is a TV series or a special",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "108465",
+              "section": "overview"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "108465",
+            "name": "Mushoku Tensei: Jobless Reincarnation"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "108465",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.018903,
+      "arguments": {
+        "id": "108465",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "108465",
+        "title": "Mushoku Tensei: Jobless Reincarnation"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.010381
+    }
+  ]
+}

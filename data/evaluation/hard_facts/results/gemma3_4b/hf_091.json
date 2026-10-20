@@ -1,0 +1,527 @@
+{
+  "question_id": "hf_091",
+  "anime_id": "108465",
+  "title": "Mushoku Tensei: Jobless Reincarnation",
+  "field": "format",
+  "question": "Is the first Mushoku Tensei: Jobless Reincarnation entry a TV series or a special?",
+  "expected_values": [
+    "TV"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Catalog matches.\n\n1. **Attack on Titan** — Several hundred years ago, humans were nearly exterminated by titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest of titans. Flash forward to the present and the city has not seen a…",
+  "extracted_values": [
+    "TV series"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 11.391436917000192,
+  "extraction_seconds": 0.8453363329999775,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "TV series",
+        "quote": "Catalog matches.\n\n1. **Attack on Titan** — Several hundred years ago, humans were nearly exterminated by titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest of titans. Flash forward to the present and the city has not seen a…"
+      }
+    ],
+    "note": "No information about the format of the first Mushoku Tensei: Jobless Reincarnation entry",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "108465"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "108465",
+          "title": "Mushoku Tensei: Jobless Reincarnation"
+        },
+        "elapsed_seconds": 0.017821
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "anime type",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "robots",
+              "name": "Robots",
+              "description": "Prominently features humanoid machines.",
+              "category": "Cast-Traits",
+              "similarity": 0.3131
+            },
+            {
+              "kind": "tag",
+              "id": "seinen",
+              "name": "Seinen",
+              "description": "Target demographic is adult males.",
+              "category": "Demographic",
+              "similarity": 0.2908
+            },
+            {
+              "kind": "tag",
+              "id": "asexual",
+              "name": "Asexual",
+              "description": "Features a character who isn't sexually attracted to people of any sex or gender.",
+              "category": "Cast-Traits",
+              "similarity": 0.2891
+            },
+            {
+              "kind": "tag",
+              "id": "artificial intelligence",
+              "name": "Artificial Intelligence",
+              "description": "Intelligent non-organic machines that work and react similarly to humans.",
+              "category": "Cast-Traits",
+              "similarity": 0.2843
+            },
+            {
+              "kind": "tag",
+              "id": "ojou sama",
+              "name": "Ojou-sama",
+              "description": "Features a wealthy, high-class, oftentimes stuck up and demanding female character.",
+              "category": "Cast-Traits",
+              "similarity": 0.2816
+            }
+          ]
+        },
+        "elapsed_seconds": 0.033665
+      },
+      {
+        "step": 2,
+        "tool": "recommend_anime",
+        "arguments": {
+          "query": "anime type",
+          "limit": 1
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "sort_by": "popularity"
+          },
+          "items": [
+            {
+              "id": "16498",
+              "title": "Attack on Titan",
+              "reason": "Matches: sort_by=popularity"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.042878
+      }
+    ],
+    "llm_calls": 3,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 4.07427,
+      "prepare_context": 0.018721,
+      "retrieve_guides": 0.027431,
+      "feature_candidates": 0.01153,
+      "planning": 7.162528,
+      "tools": 0.094364,
+      "generate_answer": 0.000548
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Mushoku Tensei: Jobless Reincarnation\", \"query\": \"Mushoku Tensei: Jobless Reincarnation\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"First entry\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Mushoku Tensei: Jobless Reincarnation",
+        "query": "Mushoku Tensei: Jobless Reincarnation",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "First entry"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"The question asks about the entry's format, TV series or special. The provided phrase 'first entry' refers to the initial TV series.\", \"decisions\": {\"p0\": {\"meaning\": \"First entry\", \"role\": \"subject\", \"selection\": \"Mushoku Tensei: Jobless Reincarnation | anime:108465\"} }}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "108465",
+          "role": "subject",
+          "text": "Mushoku Tensei: Jobless Reincarnation",
+          "name": "Mushoku Tensei: Jobless Reincarnation",
+          "meaning": "First entry"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "108465",
+          "role": "subject",
+          "text": "Mushoku Tensei: Jobless Reincarnation",
+          "name": "Mushoku Tensei: Jobless Reincarnation",
+          "meaning": "First entry"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Mushoku Tensei: Jobless Reincarnation"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "108465",
+            "role": "subject",
+            "text": "Mushoku Tensei: Jobless Reincarnation",
+            "name": "Mushoku Tensei: Jobless Reincarnation",
+            "meaning": "First entry"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "108465",
+            "role": "subject",
+            "text": "Mushoku Tensei: Jobless Reincarnation",
+            "name": "Mushoku Tensei: Jobless Reincarnation",
+            "meaning": "First entry"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine anime type",
+      "clarification": "Confirm if 'Mushoku Tensei: Jobless Reincarnation' is a TV series or a special.",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "108465"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "anime type",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "query": "anime type",
+            "limit": 1
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "108465",
+          "name": "Mushoku Tensei: Jobless Reincarnation"
+        }
+      ],
+      "characters": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.7e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000827
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.07427
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.018721
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.027431
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.01153
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 7.162528
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine anime type",
+        "clarification": "Confirm if 'Mushoku Tensei: Jobless Reincarnation' is a TV series or a special.",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "108465"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "anime type",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "query": "anime type",
+              "limit": 1
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "108465",
+            "name": "Mushoku Tensei: Jobless Reincarnation"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "108465"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.017821,
+      "arguments": {
+        "id": "108465"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "108465",
+        "title": "Mushoku Tensei: Jobless Reincarnation"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "anime type",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.033665,
+      "arguments": {
+        "query": "anime type",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "robots",
+            "name": "Robots",
+            "description": "Prominently features humanoid machines.",
+            "category": "Cast-Traits",
+            "similarity": 0.3131
+          },
+          {
+            "kind": "tag",
+            "id": "seinen",
+            "name": "Seinen",
+            "description": "Target demographic is adult males.",
+            "category": "Demographic",
+            "similarity": 0.2908
+          },
+          {
+            "kind": "tag",
+            "id": "asexual",
+            "name": "Asexual",
+            "description": "Features a character who isn't sexually attracted to people of any sex or gender.",
+            "category": "Cast-Traits",
+            "similarity": 0.2891
+          },
+          {
+            "kind": "tag",
+            "id": "artificial intelligence",
+            "name": "Artificial Intelligence",
+            "description": "Intelligent non-organic machines that work and react similarly to humans.",
+            "category": "Cast-Traits",
+            "similarity": 0.2843
+          },
+          {
+            "kind": "tag",
+            "id": "ojou sama",
+            "name": "Ojou-sama",
+            "description": "Features a wealthy, high-class, oftentimes stuck up and demanding female character.",
+            "category": "Cast-Traits",
+            "similarity": 0.2816
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "recommend_anime",
+      "arguments": {
+        "query": "anime type",
+        "limit": 1
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.042878,
+      "arguments": {
+        "query": "anime type",
+        "limit": 1
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "sort_by": "popularity"
+        },
+        "items": [
+          {
+            "id": "16498",
+            "title": "Attack on Titan",
+            "reason": "Matches: sort_by=popularity"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000548
+    }
+  ]
+}

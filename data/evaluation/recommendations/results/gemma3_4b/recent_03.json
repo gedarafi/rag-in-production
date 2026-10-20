@@ -1,0 +1,835 @@
+{
+  "question_id": "recent_03",
+  "category": "release_year",
+  "intent_family": "recent",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "Give me five anime that first came out no earlier than 2020. I want something from the newer wave.",
+  "k": 5,
+  "constraints": [
+    {
+      "field": "year",
+      "op": "gte",
+      "value": 2020
+    }
+  ],
+  "label_rationale": "First release year of the specific catalog entry, inclusive from 2020.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 5100,
+  "reference_examples": [
+    {
+      "id": "100643",
+      "title": "Made in Abyss: Dawn of the Deep Soul"
+    },
+    {
+      "id": "101168",
+      "title": "Plunderer"
+    },
+    {
+      "id": "101216",
+      "title": "Etotama: Nyankyaku Banrai"
+    }
+  ],
+  "answer_text": "",
+  "status": "model_error",
+  "error": "RuntimeError: No supported recommendations were retrieved. Please rephrase your preferences and retry.",
+  "extraction": null,
+  "recommendations": [],
+  "metrics": null,
+  "model_seconds": 24.23433529199974,
+  "extraction_seconds": 0.0,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000973
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 7.630001
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.001581
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.008427
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.010323
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 8.095456
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "User wants anime released since 2020 and prefers \"newer wave\".",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "startDate_year",
+                  "operator": "gte",
+                  "value": "2020"
+                },
+                {
+                  "field": "season",
+                  "operator": "eq",
+                  "value": "2020"
+                }
+              ]
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "newer wave",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "tag_details",
+                  "operator": "contains",
+                  "value": "newer wave"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "startDate_year",
+            "operator": "gte",
+            "value": "2020"
+          },
+          {
+            "field": "season",
+            "operator": "eq",
+            "value": "2020"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.470254,
+      "arguments": {
+        "filters": [
+          {
+            "field": "startDate_year",
+            "operator": "gte",
+            "value": "2020"
+          },
+          {
+            "field": "season",
+            "operator": "eq",
+            "value": "2020"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "startDate_year",
+              "operator": "gte",
+              "value": "2020"
+            },
+            {
+              "field": "season",
+              "operator": "eq",
+              "value": "2020"
+            },
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "newer wave"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 0,
+          "retained": 0,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "startDate_year",
+              "operator": "gte",
+              "value": "2020",
+              "source_text": "Give me five anime that first came out no earlier than 2020. I want something from the newer wave.",
+              "mapping": "exact",
+              "origin": "structured_attribute_plan"
+            },
+            {
+              "field": "season",
+              "operator": "eq",
+              "value": "2020",
+              "source_text": "Give me five anime that first came out no earlier than 2020. I want something from the newer wave.",
+              "mapping": "exact",
+              "origin": "structured_attribute_plan"
+            },
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "newer wave",
+              "source_text": "Give me five anime that first came out no earlier than 2020. I want something from the newer wave.",
+              "mapping": "exact",
+              "origin": "structured_attribute_plan"
+            }
+          ]
+        },
+        "items": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "newer wave",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.02788,
+      "arguments": {
+        "query": "newer wave",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "surfing",
+            "name": "Surfing",
+            "description": "Centers around surfing as a sport.",
+            "category": "Theme-Game-Sport",
+            "similarity": 0.2547
+          },
+          {
+            "kind": "tag",
+            "id": "coming of age",
+            "name": "Coming of Age",
+            "description": "Centers around a character's transition from childhood to adulthood.",
+            "category": "Theme-Drama",
+            "similarity": 0.2316
+          },
+          {
+            "kind": "tag",
+            "id": "age gap",
+            "name": "Age Gap",
+            "description": "Prominently features romantic relations between people with a significant age difference.",
+            "category": "Theme-Romance",
+            "similarity": 0.2287
+          },
+          {
+            "kind": "tag",
+            "id": "omegaverse",
+            "name": "Omegaverse",
+            "description": "Alternative universe that prominently features dynamics modeled after wolves in which there are alphas, betas, and omegas and heat cycles as well as impregnation, regardless of gender.",
+            "category": "Setting-Universe",
+            "similarity": 0.2252
+          },
+          {
+            "kind": "tag",
+            "id": "time manipulation",
+            "name": "Time Manipulation",
+            "description": "Prominently features time-traveling or other time-warping phenomena.",
+            "category": "Theme-Sci-Fi",
+            "similarity": 0.2131
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "tag_details",
+            "operator": "contains",
+            "value": "newer wave"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.453404,
+      "arguments": {
+        "filters": [
+          {
+            "field": "tag_details",
+            "operator": "contains",
+            "value": "newer wave"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "startDate_year",
+              "operator": "gte",
+              "value": "2020"
+            },
+            {
+              "field": "season",
+              "operator": "eq",
+              "value": "2020"
+            },
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "newer wave"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 0,
+          "retained": 0,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "startDate_year",
+              "operator": "gte",
+              "value": "2020",
+              "source_text": "Give me five anime that first came out no earlier than 2020. I want something from the newer wave.",
+              "mapping": "exact",
+              "origin": "structured_attribute_plan"
+            },
+            {
+              "field": "season",
+              "operator": "eq",
+              "value": "2020",
+              "source_text": "Give me five anime that first came out no earlier than 2020. I want something from the newer wave.",
+              "mapping": "exact",
+              "origin": "structured_attribute_plan"
+            },
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "newer wave",
+              "source_text": "Give me five anime that first came out no earlier than 2020. I want something from the newer wave.",
+              "mapping": "exact",
+              "origin": "structured_attribute_plan"
+            }
+          ]
+        },
+        "items": []
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "error",
+      "elapsed_seconds": 7.534612,
+      "error": "No supported recommendations were retrieved. Please rephrase your preferences and retry."
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "startDate_year",
+              "operator": "gte",
+              "value": "2020"
+            },
+            {
+              "field": "season",
+              "operator": "eq",
+              "value": "2020"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "startDate_year",
+                "operator": "gte",
+                "value": "2020"
+              },
+              {
+                "field": "season",
+                "operator": "eq",
+                "value": "2020"
+              },
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "newer wave"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 0,
+            "retained": 0,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "startDate_year",
+                "operator": "gte",
+                "value": "2020",
+                "source_text": "Give me five anime that first came out no earlier than 2020. I want something from the newer wave.",
+                "mapping": "exact",
+                "origin": "structured_attribute_plan"
+              },
+              {
+                "field": "season",
+                "operator": "eq",
+                "value": "2020",
+                "source_text": "Give me five anime that first came out no earlier than 2020. I want something from the newer wave.",
+                "mapping": "exact",
+                "origin": "structured_attribute_plan"
+              },
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "newer wave",
+                "source_text": "Give me five anime that first came out no earlier than 2020. I want something from the newer wave.",
+                "mapping": "exact",
+                "origin": "structured_attribute_plan"
+              }
+            ]
+          },
+          "items": []
+        },
+        "elapsed_seconds": 0.470254
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "newer wave",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "surfing",
+              "name": "Surfing",
+              "description": "Centers around surfing as a sport.",
+              "category": "Theme-Game-Sport",
+              "similarity": 0.2547
+            },
+            {
+              "kind": "tag",
+              "id": "coming of age",
+              "name": "Coming of Age",
+              "description": "Centers around a character's transition from childhood to adulthood.",
+              "category": "Theme-Drama",
+              "similarity": 0.2316
+            },
+            {
+              "kind": "tag",
+              "id": "age gap",
+              "name": "Age Gap",
+              "description": "Prominently features romantic relations between people with a significant age difference.",
+              "category": "Theme-Romance",
+              "similarity": 0.2287
+            },
+            {
+              "kind": "tag",
+              "id": "omegaverse",
+              "name": "Omegaverse",
+              "description": "Alternative universe that prominently features dynamics modeled after wolves in which there are alphas, betas, and omegas and heat cycles as well as impregnation, regardless of gender.",
+              "category": "Setting-Universe",
+              "similarity": 0.2252
+            },
+            {
+              "kind": "tag",
+              "id": "time manipulation",
+              "name": "Time Manipulation",
+              "description": "Prominently features time-traveling or other time-warping phenomena.",
+              "category": "Theme-Sci-Fi",
+              "similarity": 0.2131
+            }
+          ]
+        },
+        "elapsed_seconds": 0.02788
+      },
+      {
+        "step": 2,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "newer wave"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "startDate_year",
+                "operator": "gte",
+                "value": "2020"
+              },
+              {
+                "field": "season",
+                "operator": "eq",
+                "value": "2020"
+              },
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "newer wave"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 0,
+            "retained": 0,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "startDate_year",
+                "operator": "gte",
+                "value": "2020",
+                "source_text": "Give me five anime that first came out no earlier than 2020. I want something from the newer wave.",
+                "mapping": "exact",
+                "origin": "structured_attribute_plan"
+              },
+              {
+                "field": "season",
+                "operator": "eq",
+                "value": "2020",
+                "source_text": "Give me five anime that first came out no earlier than 2020. I want something from the newer wave.",
+                "mapping": "exact",
+                "origin": "structured_attribute_plan"
+              },
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "newer wave",
+                "source_text": "Give me five anime that first came out no earlier than 2020. I want something from the newer wave.",
+                "mapping": "exact",
+                "origin": "structured_attribute_plan"
+              }
+            ]
+          },
+          "items": []
+        },
+        "elapsed_seconds": 0.453404
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 7.630001,
+      "prepare_context": 0.001581,
+      "retrieve_guides": 0.008427,
+      "feature_candidates": 0.010323,
+      "planning": 8.095456,
+      "tools": 0.951538,
+      "generate_answer": 7.534612
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"newer wave\", \"query\": \"newer wave\", \"kind\": \"genre\", \"role\": \"preferred\", \"meaning\": \"Time period\"}, {\"text\": \"2020\", \"query\": \"2020\", \"kind\": \"genre\", \"role\": \"reference\", \"meaning\": \"Minimum release year\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "newer wave",
+        "query": "newer wave",
+        "kind": "genre",
+        "role": "preferred",
+        "meaning": "Time period"
+      },
+      {
+        "text": "2020",
+        "query": "2020",
+        "kind": "genre",
+        "role": "reference",
+        "meaning": "Minimum release year"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify which anime you are referring to by 'newer wave'.\", \"decisions\": {\"p0\": {\"meaning\": \"Time period\", \"role\": \"preferred\", \"selection\": \"unmapped description\" }, \"p1\": {\"meaning\": \"Minimum release year\", \"role\": \"reference\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "newer wave",
+          "name": "",
+          "meaning": "Time period"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "reference",
+          "text": "2020",
+          "name": "",
+          "meaning": "Minimum release year"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [],
+      "preferred": [
+        "newer wave"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "startDate_year",
+          "operator": "gte",
+          "value": "2020"
+        },
+        {
+          "field": "season",
+          "operator": "eq",
+          "value": "2020"
+        },
+        {
+          "field": "tag_details",
+          "operator": "contains",
+          "value": "newer wave"
+        }
+      ],
+      "soft_query": "newer wave",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "startDate_year",
+          "operator": "gte",
+          "value": "2020",
+          "source_text": "Give me five anime that first came out no earlier than 2020. I want something from the newer wave.",
+          "mapping": "exact",
+          "origin": "structured_attribute_plan"
+        },
+        {
+          "field": "season",
+          "operator": "eq",
+          "value": "2020",
+          "source_text": "Give me five anime that first came out no earlier than 2020. I want something from the newer wave.",
+          "mapping": "exact",
+          "origin": "structured_attribute_plan"
+        },
+        {
+          "field": "tag_details",
+          "operator": "contains",
+          "value": "newer wave",
+          "source_text": "Give me five anime that first came out no earlier than 2020. I want something from the newer wave.",
+          "mapping": "exact",
+          "origin": "structured_attribute_plan"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "newer wave",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "newer wave",
+            "name": "",
+            "meaning": "Time period"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "reference",
+            "text": "2020",
+            "name": "",
+            "meaning": "Minimum release year"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "User wants anime released since 2020 and prefers \"newer wave\".",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "startDate_year",
+                "operator": "gte",
+                "value": "2020"
+              },
+              {
+                "field": "season",
+                "operator": "eq",
+                "value": "2020"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "newer wave",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "newer wave"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

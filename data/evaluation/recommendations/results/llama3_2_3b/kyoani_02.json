@@ -1,0 +1,753 @@
+{
+  "question_id": "kyoani_02",
+  "category": "studios",
+  "intent_family": "kyoani",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "I loved the animation in Violet Evergarden. Suggest four anime from the same animation studio.",
+  "k": 4,
+  "constraints": [
+    {
+      "field": "studios",
+      "op": "any",
+      "value": [
+        "Kyoto Animation"
+      ]
+    }
+  ],
+  "label_rationale": "Only studios marked main=true AND animation=true in the local export count.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 119,
+  "reference_examples": [
+    {
+      "id": "100178",
+      "title": "Liz and the Blue Bird"
+    },
+    {
+      "id": "100402",
+      "title": "Tsurune"
+    },
+    {
+      "id": "101",
+      "title": "Air"
+    }
+  ],
+  "answer_text": "Catalog matches.\n\n1. **Attack on Titan** — Several hundred years ago, humans were nearly exterminated by titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest of titans. Flash forward to the present and the city has not seen a…\n\n2. **Demon Slayer: Kimetsu no Yaiba** — It is the Taisho Period in Japan. Tanjiro, a kindhearted boy who sells charcoal for a living, finds his family slaughtered by a demon. To make matters worse, his younger sister Nezuko, the sole survivor, has been transformed into a demon herself. Though devastated by this grim reality, Tanjiro resolves to become a “demon slayer” so that he can turn his sister back into a human, and kill the demon that massacred his family. (Source: Crunchyroll)\n\n3. **JUJUTSU KAISEN** — A boy fights... for \"the right death.\" Hardship, regret, shame: the negative feelings that humans feel become Curses that lurk in our everyday lives. The Curses run rampant throughout the world, capable of leading people to terrible misfortune and even death. What's more, the Curses can only be exorcised by another Curse. Itadori Yuji is a boy with tremendous physical strength, though he lives a completely ordinary high school life. One day, to…\n\n4. **Death Note** — Light Yagami is a genius high school student who is about to learn about life through a book of death. When a bored shinigami, a God of Death, named Ryuk drops a black notepad called a Death Note, Light receives power over life and death with the stroke of a pen. Determined to use this dark gift for the best, Light sets out to rid the world of evil… namely, the people he believes to be evil. Should anyone hold such power? The consequences of…\n\n5. **My Hero Academia** — What would the world be like if 80 percent of the population manifested extraordinary superpowers called “Quirks” at age four? Heroes and villains would be battling it out everywhere! Becoming a hero would mean learning to use your power, but where would you go to study? U.A. High's Hero Program of course! But what would you do if you were one of the 20 percent who were born Quirkless? Middle school student Izuku Midoriya wants to be a hero more…",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Attack on Titan",
+      "Demon Slayer: Kimetsu no Yaiba",
+      "JUJUTSU KAISEN",
+      "Death Note",
+      "My Hero Academia"
+    ],
+    "unclear": false,
+    "note": "Violet Evergarden is produced by White Fox.",
+    "method": "llm",
+    "attempts": 2,
+    "validation_errors": [
+      "Extracted title is not present in the answer; transcribe a written alias only"
+    ]
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Attack on Titan",
+      "anime_id": "16498",
+      "canonical_title": "Attack on Titan",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "16498"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Demon Slayer: Kimetsu no Yaiba",
+      "anime_id": "101922",
+      "canonical_title": "Demon Slayer: Kimetsu no Yaiba",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "101922"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 3,
+      "extracted_title": "JUJUTSU KAISEN",
+      "anime_id": "113415",
+      "canonical_title": "JUJUTSU KAISEN",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "113415"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Death Note",
+      "anime_id": "1535",
+      "canonical_title": "Death Note",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "1535"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 5,
+      "extracted_title": "My Hero Academia",
+      "anime_id": "21459",
+      "canonical_title": "My Hero Academia",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21459"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.0,
+    "graded_fit_at_k": 0.0,
+    "ndcg_at_k": 0.0,
+    "constraint_coverage": 0.0,
+    "count_compliance": 0,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "extra_count": 1,
+    "literal_precision_at_k": 0.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 10.506379915999787,
+  "extraction_seconds": 2.7608970000001136,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000709
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.592726
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.011895
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.00788
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.012075
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.975444
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21827"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "Studio Ishihara",
+              "anime_ids": [
+                "21827"
+              ]
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "query": "",
+              "studio": "Studio Ishihara",
+              "filters": [
+                {
+                  "field": "studios",
+                  "operator": "eq",
+                  "value": "Studio Ishihara"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21827",
+            "name": "Violet Evergarden"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21827"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.018647,
+      "arguments": {
+        "id": "21827"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21827",
+        "title": "Violet Evergarden"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "Studio Ishihara",
+        "anime_ids": [
+          "21827"
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.837121,
+      "arguments": {
+        "query": "Studio Ishihara",
+        "anime_ids": [
+          "21827"
+        ]
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "recommend_anime",
+      "arguments": {
+        "query": "",
+        "studio": "Studio Ishihara",
+        "filters": [
+          {
+            "field": "studios",
+            "operator": "eq",
+            "value": "Studio Ishihara"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.047696,
+      "arguments": {
+        "query": "",
+        "studio": "Studio Ishihara",
+        "filters": [
+          {
+            "field": "studios",
+            "operator": "eq",
+            "value": "Studio Ishihara"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": []
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": []
+        },
+        "items": [
+          {
+            "id": "16498",
+            "title": "Attack on Titan",
+            "reason": "Matches: filters=[]"
+          },
+          {
+            "id": "101922",
+            "title": "Demon Slayer: Kimetsu no Yaiba",
+            "reason": "Matches: filters=[]"
+          },
+          {
+            "id": "113415",
+            "title": "JUJUTSU KAISEN",
+            "reason": "Matches: filters=[]"
+          },
+          {
+            "id": "1535",
+            "title": "Death Note",
+            "reason": "Matches: filters=[]"
+          },
+          {
+            "id": "21459",
+            "title": "My Hero Academia",
+            "reason": "Matches: filters=[]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.00075
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21827"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21827",
+          "title": "Violet Evergarden"
+        },
+        "elapsed_seconds": 0.018647
+      },
+      {
+        "step": 1,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "Studio Ishihara",
+          "anime_ids": [
+            "21827"
+          ]
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.837121
+      },
+      {
+        "step": 2,
+        "tool": "recommend_anime",
+        "arguments": {
+          "query": "",
+          "studio": "Studio Ishihara",
+          "filters": [
+            {
+              "field": "studios",
+              "operator": "eq",
+              "value": "Studio Ishihara"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": []
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": []
+          },
+          "items": [
+            {
+              "id": "16498",
+              "title": "Attack on Titan",
+              "reason": "Matches: filters=[]"
+            },
+            {
+              "id": "101922",
+              "title": "Demon Slayer: Kimetsu no Yaiba",
+              "reason": "Matches: filters=[]"
+            },
+            {
+              "id": "113415",
+              "title": "JUJUTSU KAISEN",
+              "reason": "Matches: filters=[]"
+            },
+            {
+              "id": "1535",
+              "title": "Death Note",
+              "reason": "Matches: filters=[]"
+            },
+            {
+              "id": "21459",
+              "title": "My Hero Academia",
+              "reason": "Matches: filters=[]"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.047696
+      }
+    ],
+    "llm_calls": 3,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 4.592726,
+      "prepare_context": 0.011895,
+      "retrieve_guides": 0.00788,
+      "feature_candidates": 0.012075,
+      "planning": 4.975444,
+      "tools": 0.903464,
+      "generate_answer": 0.00075
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": true, \"mentions\": [{\"text\": \"Violet Evergarden\", \"query\": \"Violet Evergarden\", \"kind\": \"anime\", \"role\": \"reference\", \"meaning\": \"Studio Ishihara, same studio as Violet Evergarden\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Violet Evergarden",
+        "query": "Violet Evergarden",
+        "kind": "anime",
+        "role": "reference",
+        "meaning": "Studio Ishihara, same studio as Violet Evergarden"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Studio Ishihara\", \"role\": \"reference\", \"selection\": \"Violet Evergarden | anime:21827\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21827",
+          "role": "reference",
+          "text": "Violet Evergarden",
+          "name": "Violet Evergarden",
+          "meaning": "Studio Ishihara"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21827",
+          "role": "reference",
+          "text": "Violet Evergarden",
+          "name": "Violet Evergarden",
+          "meaning": "Studio Ishihara"
+        }
+      ],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Violet Evergarden"
+      ],
+      "required": [],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Violet Evergarden"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "preference_hierarchy": [],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21827",
+            "role": "reference",
+            "text": "Violet Evergarden",
+            "name": "Violet Evergarden",
+            "meaning": "Studio Ishihara"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21827",
+            "role": "reference",
+            "text": "Violet Evergarden",
+            "name": "Violet Evergarden",
+            "meaning": "Studio Ishihara"
+          }
+        ],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21827"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "Studio Ishihara",
+            "anime_ids": [
+              "21827"
+            ]
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "query": "",
+            "studio": "Studio Ishihara",
+            "filters": [
+              {
+                "field": "studios",
+                "operator": "eq",
+                "value": "Studio Ishihara"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21827",
+          "name": "Violet Evergarden"
+        }
+      ],
+      "characters": []
+    }
+  }
+}

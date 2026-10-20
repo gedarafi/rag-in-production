@@ -1,0 +1,834 @@
+{
+  "question_id": "hf_007",
+  "anime_id": "20605",
+  "title": "Tokyo Ghoul",
+  "field": "year",
+  "question": "I'm trying to place Tokyo Ghoul on a timeline. What year did its original TV anime begin?",
+  "expected_values": [
+    2014.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The Tokyo Ghoul anime TV series began in 2014.",
+  "extracted_values": [
+    "2014"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 16.085018624999975,
+  "extraction_seconds": 0.5856884170000285,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "2014",
+        "quote": "The Tokyo Ghoul anime TV series began in 2014."
+      }
+    ],
+    "note": "assertion for year of original TV anime",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20605"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20605",
+          "title": "Tokyo Ghoul"
+        },
+        "elapsed_seconds": 0.012012
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "start year",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "coming of age",
+              "name": "Coming of Age",
+              "description": "Centers around a character's transition from childhood to adulthood.",
+              "category": "Theme-Drama",
+              "similarity": 0.2385
+            },
+            {
+              "kind": "tag",
+              "id": "baseball",
+              "name": "Baseball",
+              "description": "Centers around the sport of baseball.",
+              "category": "Theme-Game-Sport",
+              "similarity": 0.211
+            },
+            {
+              "kind": "tag",
+              "id": "ice sports",
+              "name": "Ice Sports",
+              "description": "Centers around Ice Sports.",
+              "category": "Theme-Game-Sport",
+              "similarity": 0.2088
+            },
+            {
+              "kind": "tag",
+              "id": "basketball",
+              "name": "Basketball",
+              "description": "Centers around the sport of basketball.",
+              "category": "Theme-Game-Sport",
+              "similarity": 0.202
+            },
+            {
+              "kind": "tag",
+              "id": "american football",
+              "name": "American Football",
+              "description": "Centers around the sport of American football.",
+              "category": "Theme-Game-Sport",
+              "similarity": 0.2015
+            }
+          ]
+        },
+        "elapsed_seconds": 0.030766
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "start year"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.009687
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20605"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20605",
+          "title": "Tokyo Ghoul"
+        },
+        "elapsed_seconds": 0.000118
+      },
+      {
+        "step": 4,
+        "tool": "search_features",
+        "arguments": {
+          "query": "year",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "age gap",
+              "name": "Age Gap",
+              "description": "Prominently features romantic relations between people with a significant age difference.",
+              "category": "Theme-Romance",
+              "similarity": 0.2377
+            },
+            {
+              "kind": "tag",
+              "id": "coming of age",
+              "name": "Coming of Age",
+              "description": "Centers around a character's transition from childhood to adulthood.",
+              "category": "Theme-Drama",
+              "similarity": 0.2334
+            },
+            {
+              "kind": "tag",
+              "id": "historical",
+              "name": "Historical",
+              "description": "Partly or completely set during a real period of world history.",
+              "category": "Setting-Time",
+              "similarity": 0.2276
+            },
+            {
+              "kind": "tag",
+              "id": "cycling",
+              "name": "Cycling",
+              "description": "Centers around the sport of cycling.",
+              "category": "Theme-Game-Sport",
+              "similarity": 0.1924
+            },
+            {
+              "kind": "tag",
+              "id": "graduation project",
+              "name": "Graduation Project",
+              "description": "A work made by students in place of an exam, typically at higher levels of education, either as a work for the entire course or as a work for a specific year of a course.",
+              "category": "Technical",
+              "similarity": 0.1907
+            }
+          ]
+        },
+        "elapsed_seconds": 0.012386
+      },
+      {
+        "step": 5,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20605",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20605",
+          "title": "Tokyo Ghoul"
+        },
+        "elapsed_seconds": 0.012023
+      },
+      {
+        "step": 6,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20605",
+          "section": "overview",
+          "offset": 1
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20605",
+          "title": "Tokyo Ghoul"
+        },
+        "elapsed_seconds": 0.01001
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 7,
+    "executed_tools": 6,
+    "timings_seconds": {
+      "interpret_request": 3.947162,
+      "prepare_context": 0.019248,
+      "retrieve_guides": 0.031068,
+      "feature_candidates": 0.013867,
+      "planning": 8.399328,
+      "tools": 0.087002,
+      "generate_answer": 3.582969
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Tokyo Ghoul\", \"query\": \"Tokyo Ghoul\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Original TV adaptation\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Tokyo Ghoul",
+        "query": "Tokyo Ghoul",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Original TV adaptation"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"The question asks for the year the original TV anime began, not a description of the anime.\", \"decisions\": {\"p0\": {\"meaning\": \"Tokyo Ghoul\", \"role\": \"subject\", \"selection\": \"Tokyo Ghoul | anime:20605\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20605",
+          "role": "subject",
+          "text": "Tokyo Ghoul",
+          "name": "Tokyo Ghoul",
+          "meaning": "Tokyo Ghoul"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20605",
+          "role": "subject",
+          "text": "Tokyo Ghoul",
+          "name": "Tokyo Ghoul",
+          "meaning": "Tokyo Ghoul"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Tokyo Ghoul"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20605",
+            "role": "subject",
+            "text": "Tokyo Ghoul",
+            "name": "Tokyo Ghoul",
+            "meaning": "Tokyo Ghoul"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20605",
+            "role": "subject",
+            "text": "Tokyo Ghoul",
+            "name": "Tokyo Ghoul",
+            "meaning": "Tokyo Ghoul"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine the start year of the Tokyo Ghoul anime TV series",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20605"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "start year",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "start year"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20605"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "year",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20605",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20605",
+            "section": "overview",
+            "offset": 1
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "20605",
+          "name": "Tokyo Ghoul"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:20605",
+          "fact": "The year the Tokyo Ghoul anime TV series began is 2014.0"
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 0.000104
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001985
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.947162
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.019248
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.031068
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013867
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 8.399328
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine the start year of the Tokyo Ghoul anime TV series",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20605"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "start year",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "start year"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20605"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "year",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20605",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20605",
+              "section": "overview",
+              "offset": 1
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "20605",
+            "name": "Tokyo Ghoul"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20605"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.012012,
+      "arguments": {
+        "id": "20605"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20605",
+        "title": "Tokyo Ghoul"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "start year",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.030766,
+      "arguments": {
+        "query": "start year",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "coming of age",
+            "name": "Coming of Age",
+            "description": "Centers around a character's transition from childhood to adulthood.",
+            "category": "Theme-Drama",
+            "similarity": 0.2385
+          },
+          {
+            "kind": "tag",
+            "id": "baseball",
+            "name": "Baseball",
+            "description": "Centers around the sport of baseball.",
+            "category": "Theme-Game-Sport",
+            "similarity": 0.211
+          },
+          {
+            "kind": "tag",
+            "id": "ice sports",
+            "name": "Ice Sports",
+            "description": "Centers around Ice Sports.",
+            "category": "Theme-Game-Sport",
+            "similarity": 0.2088
+          },
+          {
+            "kind": "tag",
+            "id": "basketball",
+            "name": "Basketball",
+            "description": "Centers around the sport of basketball.",
+            "category": "Theme-Game-Sport",
+            "similarity": 0.202
+          },
+          {
+            "kind": "tag",
+            "id": "american football",
+            "name": "American Football",
+            "description": "Centers around the sport of American football.",
+            "category": "Theme-Game-Sport",
+            "similarity": 0.2015
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "start year"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.009687,
+      "arguments": {
+        "kind": "tag",
+        "query": "start year"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20605"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000118,
+      "arguments": {
+        "id": "20605"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20605",
+        "title": "Tokyo Ghoul"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "search_features",
+      "arguments": {
+        "query": "year",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.012386,
+      "arguments": {
+        "query": "year",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "age gap",
+            "name": "Age Gap",
+            "description": "Prominently features romantic relations between people with a significant age difference.",
+            "category": "Theme-Romance",
+            "similarity": 0.2377
+          },
+          {
+            "kind": "tag",
+            "id": "coming of age",
+            "name": "Coming of Age",
+            "description": "Centers around a character's transition from childhood to adulthood.",
+            "category": "Theme-Drama",
+            "similarity": 0.2334
+          },
+          {
+            "kind": "tag",
+            "id": "historical",
+            "name": "Historical",
+            "description": "Partly or completely set during a real period of world history.",
+            "category": "Setting-Time",
+            "similarity": 0.2276
+          },
+          {
+            "kind": "tag",
+            "id": "cycling",
+            "name": "Cycling",
+            "description": "Centers around the sport of cycling.",
+            "category": "Theme-Game-Sport",
+            "similarity": 0.1924
+          },
+          {
+            "kind": "tag",
+            "id": "graduation project",
+            "name": "Graduation Project",
+            "description": "A work made by students in place of an exam, typically at higher levels of education, either as a work for the entire course or as a work for a specific year of a course.",
+            "category": "Technical",
+            "similarity": 0.1907
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20605",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.012023,
+      "arguments": {
+        "id": "20605",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20605",
+        "title": "Tokyo Ghoul"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 6,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20605",
+        "section": "overview",
+        "offset": 1
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 6,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.01001,
+      "arguments": {
+        "id": "20605",
+        "section": "overview",
+        "offset": 1
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20605",
+        "title": "Tokyo Ghoul"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.582969
+    }
+  ]
+}

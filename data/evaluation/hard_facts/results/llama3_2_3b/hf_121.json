@@ -1,0 +1,520 @@
+{
+  "question_id": "hf_121",
+  "anime_id": "1575",
+  "title": "Code Geass: Lelouch of the Rebellion",
+  "field": "source_material",
+  "question": "Is Code Geass: Lelouch of the Rebellion an original anime or an adaptation?",
+  "expected_values": [
+    "ORIGINAL"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Code Geass: Lelouch of the Rebellion is an original anime, but it is also based on the manga of the same name by Ichirō Ōkouchi.",
+  "extracted_values": [
+    "original",
+    "adaptation",
+    "manga",
+    "original anime"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 12.705741874999148,
+  "extraction_seconds": 0.7134320420009317,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "original",
+        "quote": "Code Geass: Lelouch of the Rebellion is an original anime, but it is also based on the manga of the same name by Ichirō Ōkouchi."
+      },
+      {
+        "value": "adaptation",
+        "quote": "Code Geass: Lelouch of the Rebellion is an original anime, but it is also based on the manga of the same name by Ichirō Ōkouchi."
+      },
+      {
+        "value": "manga",
+        "quote": "Code Geass: Lelouch of the Rebellion is an original anime, but it is also based on the manga of the same name by Ichirō Ōkouchi."
+      },
+      {
+        "value": "original anime",
+        "quote": "Code Geass: Lelouch of the Rebellion is an original anime, but it is also based on the manga of the same name by Ichirō Ōkouchi."
+      }
+    ],
+    "note": "Multiple assertions for source_material",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.25,
+    "recall": 1.0,
+    "f1": 0.4,
+    "tp": 1,
+    "fp": 3,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": [
+      "adaptation",
+      "manga",
+      "original anime"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "anime",
+          "query": "Code Geass: Lelouch of the Rebellion",
+          "limit": 1
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "anime",
+          "matches": [
+            {
+              "kind": "anime",
+              "id": "1575",
+              "name": "Code Geass: Lelouch of the Rebellion",
+              "aliases": [
+                "Code Geass: Lelouch of the Rebellion",
+                "Code Geass: Hangyaku no Lelouch",
+                "コードギアス 反逆のルルーシュ",
+                "Code Geass: Lelouch de la Rebelión",
+                "קוד גיאס: המהפכה של ללוש"
+              ],
+              "match": "exact_or_name_order",
+              "similarity": 1.0
+            }
+          ]
+        },
+        "elapsed_seconds": 0.003315
+      },
+      {
+        "step": 1,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1575"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "1575",
+          "title": "Code Geass: Lelouch of the Rebellion"
+        },
+        "elapsed_seconds": 0.011383
+      },
+      {
+        "step": 2,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1575"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "1575",
+          "title": "Code Geass: Lelouch of the Rebellion"
+        },
+        "elapsed_seconds": 0.00016
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 3.85075,
+      "prepare_context": 0.018075,
+      "retrieve_guides": 0.028424,
+      "feature_candidates": 0.013809,
+      "planning": 4.939023,
+      "tools": 0.014858,
+      "generate_answer": 3.837498
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Code Geass: Lelouch of the Rebellion\", \"query\": \"Code Geass: Lelouch of the Rebellion\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Original anime or adaptation?\"}, {\"text\": \"original\", \"query\": \"original\", \"kind\": \"tag\", \"role\": \"excluded\", \"meaning\": \"Not an original anime\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Code Geass: Lelouch of the Rebellion",
+        "query": "Code Geass: Lelouch of the Rebellion",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Original anime or adaptation?"
+      },
+      {
+        "text": "original",
+        "query": "original",
+        "kind": "tag",
+        "role": "excluded",
+        "meaning": "Not an original anime"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Original anime or adaptation?\", \"role\": \"subject\", \"selection\": \"Code Geass: Lelouch of the Rebellion | anime:1575\"},\"p1\": {\"meaning\": \"Not an original anime\", \"role\": \"excluded\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "1575",
+          "role": "subject",
+          "text": "Code Geass: Lelouch of the Rebellion",
+          "name": "Code Geass: Lelouch of the Rebellion",
+          "meaning": "Original anime or adaptation?"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "excluded",
+          "text": "original",
+          "name": "",
+          "meaning": "Not an original anime"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "1575",
+          "role": "subject",
+          "text": "Code Geass: Lelouch of the Rebellion",
+          "name": "Code Geass: Lelouch of the Rebellion",
+          "meaning": "Original anime or adaptation?"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Code Geass: Lelouch of the Rebellion"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "1575",
+            "role": "subject",
+            "text": "Code Geass: Lelouch of the Rebellion",
+            "name": "Code Geass: Lelouch of the Rebellion",
+            "meaning": "Original anime or adaptation?"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "excluded",
+            "text": "original",
+            "name": "",
+            "meaning": "Not an original anime"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "1575",
+            "role": "subject",
+            "text": "Code Geass: Lelouch of the Rebellion",
+            "name": "Code Geass: Lelouch of the Rebellion",
+            "meaning": "Original anime or adaptation?"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine if Code Geass: Lelouch of the Rebellion is an original anime or an adaptation",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "anime",
+            "query": "Code Geass: Lelouch of the Rebellion",
+            "limit": 1
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1575"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1575"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "1575",
+          "name": "Code Geass: Lelouch of the Rebellion"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:1575",
+          "fact": "Code Geass: Lelouch of the Rebellion is an original anime."
+        },
+        {
+          "subject": "anime:1575",
+          "fact": "Code Geass: Lelouch of the Rebellion is based on the manga of the same name by Ichirō Ōkouchi."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.7e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001365
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.85075
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.018075
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.028424
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013809
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.939023
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine if Code Geass: Lelouch of the Rebellion is an original anime or an adaptation",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "anime",
+              "query": "Code Geass: Lelouch of the Rebellion",
+              "limit": 1
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1575"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1575"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "1575",
+            "name": "Code Geass: Lelouch of the Rebellion"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "anime",
+        "query": "Code Geass: Lelouch of the Rebellion",
+        "limit": 1
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.003315,
+      "arguments": {
+        "kind": "anime",
+        "query": "Code Geass: Lelouch of the Rebellion",
+        "limit": 1
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "anime",
+        "matches": [
+          {
+            "kind": "anime",
+            "id": "1575",
+            "name": "Code Geass: Lelouch of the Rebellion",
+            "aliases": [
+              "Code Geass: Lelouch of the Rebellion",
+              "Code Geass: Hangyaku no Lelouch",
+              "コードギアス 反逆のルルーシュ",
+              "Code Geass: Lelouch de la Rebelión",
+              "קוד גיאס: המהפכה של ללוש"
+            ],
+            "match": "exact_or_name_order",
+            "similarity": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1575"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.011383,
+      "arguments": {
+        "id": "1575"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "1575",
+        "title": "Code Geass: Lelouch of the Rebellion"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1575"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.00016,
+      "arguments": {
+        "id": "1575"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "1575",
+        "title": "Code Geass: Lelouch of the Rebellion"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.837498
+    }
+  ]
+}

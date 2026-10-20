@@ -1,0 +1,889 @@
+{
+  "question_id": "hf_148",
+  "anime_id": "9253",
+  "title": "Steins;Gate",
+  "field": "main_animation_studios",
+  "question": "Which studio made the animation for the original Steins;Gate series?",
+  "expected_values": [
+    "WHITE FOX"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Frontier Works",
+  "extracted_values": [
+    "Frontier Works"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 16.837569541999983,
+  "extraction_seconds": 0.4806570000000647,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Frontier Works",
+        "quote": "Frontier Works"
+      }
+    ],
+    "note": "",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "missing_values": [
+      "white fox"
+    ],
+    "extra_values": [
+      "frontier works"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "9253"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "9253",
+          "title": "Steins;Gate"
+        },
+        "elapsed_seconds": 0.016493
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "studio",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "office",
+              "name": "Office",
+              "description": "Features people who work in a business office.",
+              "category": "Setting-Scene",
+              "similarity": 0.4473
+            },
+            {
+              "kind": "tag",
+              "id": "dungeon",
+              "name": "Dungeon",
+              "description": "Prominently features a dungeon environment.",
+              "category": "Setting-Scene",
+              "similarity": 0.4212
+            },
+            {
+              "kind": "tag",
+              "id": "software development",
+              "name": "Software Development",
+              "description": "Centers around characters developing or programming a piece of technology, software, gaming, etc.",
+              "category": "Theme-Other",
+              "similarity": 0.4137
+            },
+            {
+              "kind": "tag",
+              "id": "photography",
+              "name": "Photography",
+              "description": "Centers around the use of cameras to capture photos.",
+              "category": "Theme-Arts",
+              "similarity": 0.4031
+            },
+            {
+              "kind": "tag",
+              "id": "makeup",
+              "name": "Makeup",
+              "description": "Centers around the makeup industry.",
+              "category": "Theme-Arts",
+              "similarity": 0.4025
+            }
+          ]
+        },
+        "elapsed_seconds": 0.036926
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "studio"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.004114
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "9253"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "9253",
+          "title": "Steins;Gate"
+        },
+        "elapsed_seconds": 0.000124
+      },
+      {
+        "step": 4,
+        "tool": "search_features",
+        "arguments": {
+          "query": "studio",
+          "kind": "tag"
+        },
+        "cached": true,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "office",
+              "name": "Office",
+              "description": "Features people who work in a business office.",
+              "category": "Setting-Scene",
+              "similarity": 0.4473
+            },
+            {
+              "kind": "tag",
+              "id": "dungeon",
+              "name": "Dungeon",
+              "description": "Prominently features a dungeon environment.",
+              "category": "Setting-Scene",
+              "similarity": 0.4212
+            },
+            {
+              "kind": "tag",
+              "id": "software development",
+              "name": "Software Development",
+              "description": "Centers around characters developing or programming a piece of technology, software, gaming, etc.",
+              "category": "Theme-Other",
+              "similarity": 0.4137
+            },
+            {
+              "kind": "tag",
+              "id": "photography",
+              "name": "Photography",
+              "description": "Centers around the use of cameras to capture photos.",
+              "category": "Theme-Arts",
+              "similarity": 0.4031
+            },
+            {
+              "kind": "tag",
+              "id": "makeup",
+              "name": "Makeup",
+              "description": "Centers around the makeup industry.",
+              "category": "Theme-Arts",
+              "similarity": 0.4025
+            }
+          ]
+        },
+        "elapsed_seconds": 1.5e-05
+      },
+      {
+        "step": 5,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "9253",
+          "section": "studios"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "9253",
+          "title": "Steins;Gate"
+        },
+        "elapsed_seconds": 0.002269
+      },
+      {
+        "step": 6,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "9253",
+          "section": "staff"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "9253",
+          "title": "Steins;Gate"
+        },
+        "elapsed_seconds": 0.0022
+      },
+      {
+        "step": 7,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "9253",
+          "section": "studios"
+        },
+        "cached": true,
+        "result": {
+          "kind": "anime",
+          "id": "9253",
+          "title": "Steins;Gate"
+        },
+        "elapsed_seconds": 1.9e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 8,
+    "executed_tools": 5,
+    "timings_seconds": {
+      "interpret_request": 3.891467,
+      "prepare_context": 0.018431,
+      "retrieve_guides": 0.030809,
+      "feature_candidates": 0.014383,
+      "planning": 8.761931,
+      "tools": 0.06216,
+      "generate_answer": 4.055698
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Steins;Gate\", \"query\": \"Steins;Gate\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Steins;Gate",
+        "query": "Steins;Gate",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"The question asks about the animation studio for the original Steins;Gate series.\", \"decisions\": {\"p0\": {\"meaning\": \"Steins;Gate\", \"role\": \"subject\", \"selection\": \"Steins;Gate | anime:9253\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "9253",
+          "role": "subject",
+          "text": "Steins;Gate",
+          "name": "Steins;Gate",
+          "meaning": "Steins;Gate"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "9253",
+          "role": "subject",
+          "text": "Steins;Gate",
+          "name": "Steins;Gate",
+          "meaning": "Steins;Gate"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Steins;Gate"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "9253",
+            "role": "subject",
+            "text": "Steins;Gate",
+            "name": "Steins;Gate",
+            "meaning": "Steins;Gate"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "9253",
+            "role": "subject",
+            "text": "Steins;Gate",
+            "name": "Steins;Gate",
+            "meaning": "Steins;Gate"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Retrieve the studio responsible for animating Steins;Gate.",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "9253"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "studio",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "studio"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "9253"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "studio",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "9253",
+            "section": "studios"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "9253",
+            "section": "staff"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "9253",
+            "section": "studios"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "9253",
+          "name": "Steins;Gate"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:9253",
+          "fact": "Frontier Works was the studio responsible for animating Steins;Gate."
+        },
+        {
+          "subject": "anime:9253",
+          "fact": "The anime is based on the visual novel by 5pb. and Nitroplus."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001035
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.891467
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.018431
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.030809
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014383
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 8.761931
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Retrieve the studio responsible for animating Steins;Gate.",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "9253"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "studio",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "studio"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "9253"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "studio",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "9253",
+              "section": "studios"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "9253",
+              "section": "staff"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "9253",
+              "section": "studios"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "9253",
+            "name": "Steins;Gate"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "9253"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.016493,
+      "arguments": {
+        "id": "9253"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "9253",
+        "title": "Steins;Gate"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "studio",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.036926,
+      "arguments": {
+        "query": "studio",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "office",
+            "name": "Office",
+            "description": "Features people who work in a business office.",
+            "category": "Setting-Scene",
+            "similarity": 0.4473
+          },
+          {
+            "kind": "tag",
+            "id": "dungeon",
+            "name": "Dungeon",
+            "description": "Prominently features a dungeon environment.",
+            "category": "Setting-Scene",
+            "similarity": 0.4212
+          },
+          {
+            "kind": "tag",
+            "id": "software development",
+            "name": "Software Development",
+            "description": "Centers around characters developing or programming a piece of technology, software, gaming, etc.",
+            "category": "Theme-Other",
+            "similarity": 0.4137
+          },
+          {
+            "kind": "tag",
+            "id": "photography",
+            "name": "Photography",
+            "description": "Centers around the use of cameras to capture photos.",
+            "category": "Theme-Arts",
+            "similarity": 0.4031
+          },
+          {
+            "kind": "tag",
+            "id": "makeup",
+            "name": "Makeup",
+            "description": "Centers around the makeup industry.",
+            "category": "Theme-Arts",
+            "similarity": 0.4025
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "studio"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.004114,
+      "arguments": {
+        "kind": "tag",
+        "query": "studio"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "9253"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000124,
+      "arguments": {
+        "id": "9253"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "9253",
+        "title": "Steins;Gate"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "search_features",
+      "arguments": {
+        "query": "studio",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 1.5e-05,
+      "arguments": {
+        "query": "studio",
+        "kind": "tag"
+      },
+      "cached": true,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "office",
+            "name": "Office",
+            "description": "Features people who work in a business office.",
+            "category": "Setting-Scene",
+            "similarity": 0.4473
+          },
+          {
+            "kind": "tag",
+            "id": "dungeon",
+            "name": "Dungeon",
+            "description": "Prominently features a dungeon environment.",
+            "category": "Setting-Scene",
+            "similarity": 0.4212
+          },
+          {
+            "kind": "tag",
+            "id": "software development",
+            "name": "Software Development",
+            "description": "Centers around characters developing or programming a piece of technology, software, gaming, etc.",
+            "category": "Theme-Other",
+            "similarity": 0.4137
+          },
+          {
+            "kind": "tag",
+            "id": "photography",
+            "name": "Photography",
+            "description": "Centers around the use of cameras to capture photos.",
+            "category": "Theme-Arts",
+            "similarity": 0.4031
+          },
+          {
+            "kind": "tag",
+            "id": "makeup",
+            "name": "Makeup",
+            "description": "Centers around the makeup industry.",
+            "category": "Theme-Arts",
+            "similarity": 0.4025
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "9253",
+        "section": "studios"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.002269,
+      "arguments": {
+        "id": "9253",
+        "section": "studios"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "9253",
+        "title": "Steins;Gate"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 6,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "9253",
+        "section": "staff"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 6,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.0022,
+      "arguments": {
+        "id": "9253",
+        "section": "staff"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "9253",
+        "title": "Steins;Gate"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 7,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "9253",
+        "section": "studios"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 7,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 1.9e-05,
+      "arguments": {
+        "id": "9253",
+        "section": "studios"
+      },
+      "cached": true,
+      "result": {
+        "kind": "anime",
+        "id": "9253",
+        "title": "Steins;Gate"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.055698
+    }
+  ]
+}

@@ -1,0 +1,751 @@
+{
+  "question_id": "trigger_02",
+  "category": "studios",
+  "intent_family": "trigger",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "I like the studio behind Kill la Kill. What are four anime from that animation studio that I could watch?",
+  "k": 4,
+  "constraints": [
+    {
+      "field": "studios",
+      "op": "any",
+      "value": [
+        "Trigger"
+      ]
+    }
+  ],
+  "label_rationale": "Trigger must be a main animation studio; perceived visual similarity is insufficient.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 38,
+  "reference_examples": [
+    {
+      "id": "101817",
+      "title": "Inferno Cop Specials"
+    },
+    {
+      "id": "102337",
+      "title": "Hacka Doll"
+    },
+    {
+      "id": "102406",
+      "title": "Bishoujo Mobage: Mobami-chan"
+    }
+  ],
+  "answer_text": "Catalog matches.\n\n1. **Attack on Titan** — Several hundred years ago, humans were nearly exterminated by titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest of titans. Flash forward to the present and the city has not seen a…\n\n2. **Demon Slayer: Kimetsu no Yaiba** — It is the Taisho Period in Japan. Tanjiro, a kindhearted boy who sells charcoal for a living, finds his family slaughtered by a demon. To make matters worse, his younger sister Nezuko, the sole survivor, has been transformed into a demon herself. Though devastated by this grim reality, Tanjiro resolves to become a “demon slayer” so that he can turn his sister back into a human, and kill the demon that massacred his family. (Source: Crunchyroll)\n\n3. **JUJUTSU KAISEN** — A boy fights... for \"the right death.\" Hardship, regret, shame: the negative feelings that humans feel become Curses that lurk in our everyday lives. The Curses run rampant throughout the world, capable of leading people to terrible misfortune and even death. What's more, the Curses can only be exorcised by another Curse. Itadori Yuji is a boy with tremendous physical strength, though he lives a completely ordinary high school life. One day, to…\n\n4. **Death Note** — Light Yagami is a genius high school student who is about to learn about life through a book of death. When a bored shinigami, a God of Death, named Ryuk drops a black notepad called a Death Note, Light receives power over life and death with the stroke of a pen. Determined to use this dark gift for the best, Light sets out to rid the world of evil… namely, the people he believes to be evil. Should anyone hold such power? The consequences of…\n\n5. **My Hero Academia** — What would the world be like if 80 percent of the population manifested extraordinary superpowers called “Quirks” at age four? Heroes and villains would be battling it out everywhere! Becoming a hero would mean learning to use your power, but where would you go to study? U.A. High's Hero Program of course! But what would you do if you were one of the 20 percent who were born Quirkless? Middle school student Izuku Midoriya wants to be a hero more…",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Attack on Titan",
+      "Demon Slayer: Kimetsu no Yaiba",
+      "JUJUTSU KAISEN",
+      "Death Note",
+      "My Hero Academia"
+    ],
+    "unclear": false,
+    "note": "catalog matches",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Attack on Titan",
+      "anime_id": "16498",
+      "canonical_title": "Attack on Titan",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "16498"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Demon Slayer: Kimetsu no Yaiba",
+      "anime_id": "101922",
+      "canonical_title": "Demon Slayer: Kimetsu no Yaiba",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "101922"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 3,
+      "extracted_title": "JUJUTSU KAISEN",
+      "anime_id": "113415",
+      "canonical_title": "JUJUTSU KAISEN",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "113415"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Death Note",
+      "anime_id": "1535",
+      "canonical_title": "Death Note",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "1535"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 5,
+      "extracted_title": "My Hero Academia",
+      "anime_id": "21459",
+      "canonical_title": "My Hero Academia",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21459"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.0,
+    "graded_fit_at_k": 0.0,
+    "ndcg_at_k": 0.0,
+    "constraint_coverage": 0.0,
+    "count_compliance": 0,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "extra_count": 1,
+    "literal_precision_at_k": 0.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 9.493365042000733,
+  "extraction_seconds": 1.6961111250002432,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.1e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000819
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.329023
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.013479
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.007921
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.01214
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 5.038081
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "18679"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "studio behind Kill la Kill",
+              "anime_ids": [
+                "18679"
+              ]
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "query": "studio behind Kill la Kill",
+              "studio": "null",
+              "filters": [
+                {
+                  "field": "studios",
+                  "operator": "eq",
+                  "value": "null"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "18679",
+            "name": "Kill la Kill"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "18679"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.014415,
+      "arguments": {
+        "id": "18679"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "18679",
+        "title": "Kill la Kill"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "studio behind Kill la Kill",
+        "anime_ids": [
+          "18679"
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.020086,
+      "arguments": {
+        "query": "studio behind Kill la Kill",
+        "anime_ids": [
+          "18679"
+        ]
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "recommend_anime",
+      "arguments": {
+        "query": "studio behind Kill la Kill",
+        "studio": "null",
+        "filters": [
+          {
+            "field": "studios",
+            "operator": "eq",
+            "value": "null"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.054926,
+      "arguments": {
+        "query": "studio behind Kill la Kill",
+        "studio": "null",
+        "filters": [
+          {
+            "field": "studios",
+            "operator": "eq",
+            "value": "null"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": []
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": []
+        },
+        "items": [
+          {
+            "id": "16498",
+            "title": "Attack on Titan",
+            "reason": "Matches: filters=[]"
+          },
+          {
+            "id": "101922",
+            "title": "Demon Slayer: Kimetsu no Yaiba",
+            "reason": "Matches: filters=[]"
+          },
+          {
+            "id": "113415",
+            "title": "JUJUTSU KAISEN",
+            "reason": "Matches: filters=[]"
+          },
+          {
+            "id": "1535",
+            "title": "Death Note",
+            "reason": "Matches: filters=[]"
+          },
+          {
+            "id": "21459",
+            "title": "My Hero Academia",
+            "reason": "Matches: filters=[]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.00073
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "18679"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "18679",
+          "title": "Kill la Kill"
+        },
+        "elapsed_seconds": 0.014415
+      },
+      {
+        "step": 1,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "studio behind Kill la Kill",
+          "anime_ids": [
+            "18679"
+          ]
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.020086
+      },
+      {
+        "step": 2,
+        "tool": "recommend_anime",
+        "arguments": {
+          "query": "studio behind Kill la Kill",
+          "studio": "null",
+          "filters": [
+            {
+              "field": "studios",
+              "operator": "eq",
+              "value": "null"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": []
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": []
+          },
+          "items": [
+            {
+              "id": "16498",
+              "title": "Attack on Titan",
+              "reason": "Matches: filters=[]"
+            },
+            {
+              "id": "101922",
+              "title": "Demon Slayer: Kimetsu no Yaiba",
+              "reason": "Matches: filters=[]"
+            },
+            {
+              "id": "113415",
+              "title": "JUJUTSU KAISEN",
+              "reason": "Matches: filters=[]"
+            },
+            {
+              "id": "1535",
+              "title": "Death Note",
+              "reason": "Matches: filters=[]"
+            },
+            {
+              "id": "21459",
+              "title": "My Hero Academia",
+              "reason": "Matches: filters=[]"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.054926
+      }
+    ],
+    "llm_calls": 3,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 4.329023,
+      "prepare_context": 0.013479,
+      "retrieve_guides": 0.007921,
+      "feature_candidates": 0.01214,
+      "planning": 5.038081,
+      "tools": 0.089427,
+      "generate_answer": 0.00073
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Kill la Kill\", \"query\": \"Kill la Kill\", \"kind\": \"anime\", \"role\": \"reference\", \"meaning\": \"Studio behind Kill la Kill\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Kill la Kill",
+        "query": "Kill la Kill",
+        "kind": "anime",
+        "role": "reference",
+        "meaning": "Studio behind Kill la Kill"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Studio behind Kill la Kill\", \"role\": \"reference\", \"selection\": \"Kill la Kill | anime:18679\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "18679",
+          "role": "reference",
+          "text": "Kill la Kill",
+          "name": "Kill la Kill",
+          "meaning": "Studio behind Kill la Kill"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "18679",
+          "role": "reference",
+          "text": "Kill la Kill",
+          "name": "Kill la Kill",
+          "meaning": "Studio behind Kill la Kill"
+        }
+      ],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Kill la Kill"
+      ],
+      "required": [],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Kill la Kill"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "preference_hierarchy": [],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "18679",
+            "role": "reference",
+            "text": "Kill la Kill",
+            "name": "Kill la Kill",
+            "meaning": "Studio behind Kill la Kill"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "18679",
+            "role": "reference",
+            "text": "Kill la Kill",
+            "name": "Kill la Kill",
+            "meaning": "Studio behind Kill la Kill"
+          }
+        ],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "18679"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "studio behind Kill la Kill",
+            "anime_ids": [
+              "18679"
+            ]
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "query": "studio behind Kill la Kill",
+            "studio": "null",
+            "filters": [
+              {
+                "field": "studios",
+                "operator": "eq",
+                "value": "null"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "18679",
+          "name": "Kill la Kill"
+        }
+      ],
+      "characters": []
+    }
+  }
+}

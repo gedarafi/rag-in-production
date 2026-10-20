@@ -1,0 +1,320 @@
+{
+  "question_id": "hf_163",
+  "anime_id": "20605",
+  "title": "Tokyo Ghoul",
+  "field": "main_characters",
+  "question": "Which characters are classified as main in the first Tokyo Ghoul season?",
+  "expected_values": [
+    "Ken Kaneki",
+    "Touka Kirishima"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Ken Kaneki and Touka Kirishima",
+  "extracted_values": [
+    "Ken Kaneki",
+    "Touka Kirishima"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 7.673092417000589,
+  "extraction_seconds": 0.6376968330005184,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Ken Kaneki",
+        "quote": "Ken Kaneki and Touka Kirishima"
+      },
+      {
+        "value": "Touka Kirishima",
+        "quote": "Ken Kaneki and Touka Kirishima"
+      }
+    ],
+    "note": "asserted",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 2,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "status": "error",
+        "step": 0,
+        "tool": "get_character",
+        "error": "Use character IDs from dictionary or tool results first",
+        "elapsed_seconds": 6.2e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 0,
+    "timings_seconds": {
+      "interpret_request": 2.026398,
+      "prepare_context": 0.018561,
+      "retrieve_guides": 0.028675,
+      "feature_candidates": 0.013504,
+      "planning": 3.650958,
+      "tools": 6.2e-05,
+      "generate_answer": 1.93171
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Tokyo Ghoul\", \"query\": \"Tokyo Ghoul\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Main characters\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Tokyo Ghoul",
+        "query": "Tokyo Ghoul",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Main characters"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Main characters\", \"role\": \"subject\", \"selection\": \"Tokyo Ghoul | anime:20605\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20605",
+          "role": "subject",
+          "text": "Tokyo Ghoul",
+          "name": "Tokyo Ghoul",
+          "meaning": "Main characters"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20605",
+          "role": "subject",
+          "text": "Tokyo Ghoul",
+          "name": "Tokyo Ghoul",
+          "meaning": "Main characters"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Tokyo Ghoul"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20605",
+            "role": "subject",
+            "text": "Tokyo Ghoul",
+            "name": "Tokyo Ghoul",
+            "meaning": "Main characters"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20605",
+            "role": "subject",
+            "text": "Tokyo Ghoul",
+            "name": "Tokyo Ghoul",
+            "meaning": "Main characters"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Find main characters in the first Tokyo Ghoul season",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "20605",
+            "section": "cast"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "20605",
+          "name": "Tokyo Ghoul"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:20605",
+          "fact": "The main characters in the first Tokyo Ghoul season are Ken Kaneki and Touka Kirishima."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 8.9e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00163
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.026398
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.018561
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.028675
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013504
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.650958
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Find main characters in the first Tokyo Ghoul season",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "20605",
+              "section": "cast"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "20605",
+            "name": "Tokyo Ghoul"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_character",
+      "arguments": {
+        "id": "20605",
+        "section": "cast"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_character",
+      "status": "error",
+      "elapsed_seconds": 6.2e-05,
+      "error": "Use character IDs from dictionary or tool results first"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 1.93171
+    }
+  ]
+}

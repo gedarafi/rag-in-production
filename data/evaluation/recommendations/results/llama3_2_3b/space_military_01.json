@@ -1,0 +1,969 @@
+{
+  "question_id": "space_military_01",
+  "category": "multiple_tags",
+  "intent_family": "space_military",
+  "wording": "explicit",
+  "question_origin": "authored_naturalistic",
+  "question": "Recommend three anime with both Space and Military themes.",
+  "k": 3,
+  "constraints": [
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Space"
+      ]
+    },
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Military"
+      ]
+    }
+  ],
+  "label_rationale": "Both space setting and military organization must hold for each recommendation.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 196,
+  "reference_examples": [
+    {
+      "id": "21893",
+      "title": "Mobile Suit Gundam Thunderbolt: December Sky"
+    },
+    {
+      "id": "2002",
+      "title": "Heroic Age"
+    },
+    {
+      "id": "3079",
+      "title": "Blue Comet SPT Layzner"
+    }
+  ],
+  "answer_text": "Catalog matches — excluding Space; Military.\n\n1. **Attack on Titan** — Several hundred years ago, humans were nearly exterminated by titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest of titans. Flash forward to the present and the city has not seen a…\n\n2. **Tokyo Ghoul** — The suspense horror/dark fantasy story is set in Tokyo, which is haunted by mysterious \"ghouls\" who are devouring humans. People are gripped by the fear of these ghouls whose identities are masked in mystery. An ordinary college student named Kaneki encounters Rize, a girl who is an avid reader like him, at the café he frequents. Little does he realize that his fate will change overnight. (Source: Anime News Network)\n\n3. **Attack on Titan Season 2** — Eren Jaeger swore to wipe out every last Titan, but in a battle for his life he wound up becoming the thing he hates most. With his new powers, he fights for humanity's freedom facing the monsters that threaten his home. After a bittersweet victory against the Female Titan, Eren finds no time to rest—a horde of Titans is approaching Wall Rose and the battle for humanity continues! (Source: Funimation)\n\n4. **Fullmetal Alchemist: Brotherhood** — \"In order for something to be obtained, something of equal value must be lost.\" Alchemy is bound by this Law of Equivalent Exchange—something the young brothers Edward and Alphonse Elric only realize after attempting human transmutation: the one forbidden act of alchemy. They pay a terrible price for their transgression—Edward loses his left leg, Alphonse his physical body. It is only by the desperate sacrifice of Edward's right arm that he is…\n\n5. **Attack on Titan Season 3** — Eren and his companions in the 104th are assigned to the newly-formed Levi Squad, whose assignment is to keep Eren and Historia safe given Eren's newly-discovered power and Historia's knowledge and pedigree. Levi and Erwin have good reason to be concerned, because the priest of the Church that Hanji had hidden away was found tortured to death, making it clear that the Military Police are involved with the cover-up. Things get more harrowing when…\n\nExcluded labels are absent from these catalog records; this does not guarantee that every scene avoids the theme or setting.",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Attack on Titan",
+      "Attack on Titan Season 2",
+      "Attack on Titan Season 3",
+      "Fullmetal Alchemist: Brotherhood",
+      "Tokyo Ghoul"
+    ],
+    "unclear": false,
+    "note": "Excluded labels are absent from these catalog records; this does not guarantee that every scene avoids the theme or setting.",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Attack on Titan",
+      "anime_id": "16498",
+      "canonical_title": "Attack on Titan",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "16498"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        0.88
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 0.88,
+          "met": true,
+          "literal_score": 0.88,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.88,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.44,
+      "gain": 0.44,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Attack on Titan Season 2",
+      "anime_id": "20958",
+      "canonical_title": "Attack on Titan Season 2",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20958"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        0.85
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 0.85,
+          "met": true,
+          "literal_score": 0.85,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.85,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.425,
+      "gain": 0.425,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Attack on Titan Season 3",
+      "anime_id": "99147",
+      "canonical_title": "Attack on Titan Season 3",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "99147"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        0.92
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 0.92,
+          "met": true,
+          "literal_score": 0.92,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.92,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.46,
+      "gain": 0.46,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Fullmetal Alchemist: Brotherhood",
+      "anime_id": "5114",
+      "canonical_title": "Fullmetal Alchemist: Brotherhood",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "5114"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        0.92
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 0.92,
+          "met": true,
+          "literal_score": 0.92,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.92,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.46,
+      "gain": 0.46,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Tokyo Ghoul",
+      "anime_id": "20605",
+      "canonical_title": "Tokyo Ghoul",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20605"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        0.6
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 0.6,
+          "met": true,
+          "literal_score": 0.6,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.6,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.3,
+      "gain": 0.3,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.0,
+    "graded_fit_at_k": 0.44166666666666665,
+    "ndcg_at_k": 0.45045601177340305,
+    "constraint_coverage": 0.5,
+    "count_compliance": 0,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "extra_count": 2,
+    "literal_precision_at_k": 0.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 11.555732999999236,
+  "extraction_seconds": 1.873227041998689,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 3.6e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000684
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 5.602058
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.00213
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.008178
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.017488
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.376014
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "Space and Military themes",
+              "kind": "tag",
+              "limit": 10
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "tags",
+                  "operator": "eq",
+                  "value": "Space"
+                },
+                {
+                  "field": "tags",
+                  "operator": "eq",
+                  "value": "Military"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "Space and Military themes",
+        "kind": "tag",
+        "limit": 10
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.037727,
+      "arguments": {
+        "query": "Space and Military themes",
+        "kind": "tag",
+        "limit": 10
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "military",
+            "name": "Military",
+            "description": "Centered around the life and activities of military personnel.",
+            "category": "Theme-Other-Organisations",
+            "similarity": 0.603
+          },
+          {
+            "kind": "tag",
+            "id": "space opera",
+            "name": "Space Opera",
+            "description": "Centers around space warfare, advanced technology, chivalric romance and adventure.",
+            "category": "Theme-Sci-Fi",
+            "similarity": 0.5942
+          },
+          {
+            "kind": "tag",
+            "id": "war",
+            "name": "War",
+            "description": "Partly or completely set during wartime.",
+            "category": "Theme-Other",
+            "similarity": 0.5658
+          },
+          {
+            "kind": "tag",
+            "id": "guns",
+            "name": "Guns",
+            "description": "Prominently features the use of guns in combat.",
+            "category": "Theme-Action",
+            "similarity": 0.5319
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Space"
+          },
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Military"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 1.509031,
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Space"
+          },
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Military"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "tags",
+              "operator": "ne",
+              "value": "Space"
+            },
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Military"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "tags",
+              "operator": "ne",
+              "value": "Space",
+              "source_text": "Recommend three anime with both Space and Military themes.",
+              "mapping": "exact"
+            },
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Military",
+              "source_text": "Recommend three anime with both Space and Military themes.",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "16498",
+            "title": "Attack on Titan",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'ne', 'value': 'Space'}, {'field': 'tags', 'operator': 'eq', 'value': 'Military'}]"
+          },
+          {
+            "id": "20605",
+            "title": "Tokyo Ghoul",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'ne', 'value': 'Space'}, {'field': 'tags', 'operator': 'eq', 'value': 'Military'}]"
+          },
+          {
+            "id": "20958",
+            "title": "Attack on Titan Season 2",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'ne', 'value': 'Space'}, {'field': 'tags', 'operator': 'eq', 'value': 'Military'}]"
+          },
+          {
+            "id": "5114",
+            "title": "Fullmetal Alchemist: Brotherhood",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'ne', 'value': 'Space'}, {'field': 'tags', 'operator': 'eq', 'value': 'Military'}]"
+          },
+          {
+            "id": "99147",
+            "title": "Attack on Titan Season 3",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'ne', 'value': 'Space'}, {'field': 'tags', 'operator': 'eq', 'value': 'Military'}]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000392
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "Space and Military themes",
+          "kind": "tag",
+          "limit": 10
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "military",
+              "name": "Military",
+              "description": "Centered around the life and activities of military personnel.",
+              "category": "Theme-Other-Organisations",
+              "similarity": 0.603
+            },
+            {
+              "kind": "tag",
+              "id": "space opera",
+              "name": "Space Opera",
+              "description": "Centers around space warfare, advanced technology, chivalric romance and adventure.",
+              "category": "Theme-Sci-Fi",
+              "similarity": 0.5942
+            },
+            {
+              "kind": "tag",
+              "id": "war",
+              "name": "War",
+              "description": "Partly or completely set during wartime.",
+              "category": "Theme-Other",
+              "similarity": 0.5658
+            },
+            {
+              "kind": "tag",
+              "id": "guns",
+              "name": "Guns",
+              "description": "Prominently features the use of guns in combat.",
+              "category": "Theme-Action",
+              "similarity": 0.5319
+            }
+          ]
+        },
+        "elapsed_seconds": 0.037727
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Space"
+            },
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Military"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "tags",
+                "operator": "ne",
+                "value": "Space"
+              },
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Military"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "tags",
+                "operator": "ne",
+                "value": "Space",
+                "source_text": "Recommend three anime with both Space and Military themes.",
+                "mapping": "exact"
+              },
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Military",
+                "source_text": "Recommend three anime with both Space and Military themes.",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "16498",
+              "title": "Attack on Titan",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'ne', 'value': 'Space'}, {'field': 'tags', 'operator': 'eq', 'value': 'Military'}]"
+            },
+            {
+              "id": "20605",
+              "title": "Tokyo Ghoul",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'ne', 'value': 'Space'}, {'field': 'tags', 'operator': 'eq', 'value': 'Military'}]"
+            },
+            {
+              "id": "20958",
+              "title": "Attack on Titan Season 2",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'ne', 'value': 'Space'}, {'field': 'tags', 'operator': 'eq', 'value': 'Military'}]"
+            },
+            {
+              "id": "5114",
+              "title": "Fullmetal Alchemist: Brotherhood",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'ne', 'value': 'Space'}, {'field': 'tags', 'operator': 'eq', 'value': 'Military'}]"
+            },
+            {
+              "id": "99147",
+              "title": "Attack on Titan Season 3",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'ne', 'value': 'Space'}, {'field': 'tags', 'operator': 'eq', 'value': 'Military'}]"
+            }
+          ]
+        },
+        "elapsed_seconds": 1.509031
+      }
+    ],
+    "llm_calls": 5,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 5.602058,
+      "prepare_context": 0.00213,
+      "retrieve_guides": 0.008178,
+      "feature_candidates": 0.017488,
+      "planning": 4.376014,
+      "tools": 1.546758,
+      "generate_answer": 0.000392
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Space\", \"query\": \"Space\", \"kind\": \"tag\", \"role\": \"required\", \"meaning\": \"Required theme\"}, {\"text\": \"Military\", \"query\": \"Military\", \"kind\": \"tag\", \"role\": \"required\", \"meaning\": \"Required theme\"}]}",
+      "{\n  \"role\": \"excluded\"\n}",
+      "{\n  \"role\": \"required\"\n}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Space",
+        "query": "Space",
+        "kind": "tag",
+        "role": "required",
+        "meaning": "Required theme"
+      },
+      {
+        "text": "Military",
+        "query": "Military",
+        "kind": "tag",
+        "role": "required",
+        "meaning": "Required theme"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"None\", \"decisions\": {\"p0\": {\"meaning\": \"Required theme\", \"role\": \"required\", \"selection\": \"Space | tag:space\"}, \"p1\": {\"meaning\": \"Required theme\", \"role\": \"required\", \"selection\": \"Military | tag:military\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "tag",
+          "id": "space",
+          "role": "required",
+          "text": "Space",
+          "name": "Space",
+          "meaning": "Required theme"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "tag",
+          "id": "military",
+          "role": "required",
+          "text": "Military",
+          "name": "Military",
+          "meaning": "Required theme"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [
+        "Space",
+        "Military"
+      ],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "tags",
+          "operator": "ne",
+          "value": "Space"
+        },
+        {
+          "field": "tags",
+          "operator": "eq",
+          "value": "Military"
+        }
+      ],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "tags",
+          "operator": "ne",
+          "value": "Space",
+          "source_text": "Recommend three anime with both Space and Military themes.",
+          "mapping": "exact"
+        },
+        {
+          "field": "tags",
+          "operator": "eq",
+          "value": "Military",
+          "source_text": "Recommend three anime with both Space and Military themes.",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "Space",
+          "candidate": {
+            "field": "tags",
+            "value": "Space",
+            "meaning": "Space"
+          },
+          "role": "excluded",
+          "mapping": "exact"
+        },
+        {
+          "phrase": "Military",
+          "candidate": {
+            "field": "tags",
+            "value": "Military",
+            "meaning": "Military"
+          },
+          "role": "required",
+          "mapping": "exact"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "tag",
+            "id": "space",
+            "role": "required",
+            "text": "Space",
+            "name": "Space",
+            "meaning": "Required theme"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "tag",
+            "id": "military",
+            "role": "required",
+            "text": "Military",
+            "name": "Military",
+            "meaning": "Required theme"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "Space and Military themes",
+            "kind": "tag",
+            "limit": 10
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Space"
+              },
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Military"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

@@ -1,0 +1,395 @@
+{
+  "question_id": "hf_089",
+  "anime_id": "101280",
+  "title": "That Time I Got Reincarnated as a Slime",
+  "field": "format",
+  "question": "Is That Time I Got Reincarnated as a Slime's original adaptation a TV anime or movie?",
+  "expected_values": [
+    "TV"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "That Time I Got Reincarnated as a Slime's original adaptation is a TV anime.",
+  "extracted_values": [
+    "TV anime"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 11.599667665999732,
+  "extraction_seconds": 0.5080519170005573,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "TV anime",
+        "quote": "That Time I Got Reincarnated as a Slime's original adaptation is a TV anime."
+      }
+    ],
+    "note": "",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "missing_values": [
+      "tv"
+    ],
+    "extra_values": [
+      "tv anime"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101280",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101280",
+          "title": "That Time I Got Reincarnated as a Slime"
+        },
+        "elapsed_seconds": 0.014855
+      },
+      {
+        "step": 1,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "original adaptation type",
+          "anime_ids": [
+            "101280"
+          ]
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.063781
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 2.406028,
+      "prepare_context": 0.014545,
+      "retrieve_guides": 0.026375,
+      "feature_candidates": 0.013279,
+      "planning": 4.209185,
+      "tools": 0.078636,
+      "generate_answer": 4.848576
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"That Time I Got Reincarnated as a Slime\", \"query\": \"That Time I Got Reincarnated as a Slime\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Original adaptation type\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "That Time I Got Reincarnated as a Slime",
+        "query": "That Time I Got Reincarnated as a Slime",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Original adaptation type"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Is That Time I Got Reincarnated as a Slime's original adaptation a TV anime or movie?\", \"decisions\": {\"p0\": {\"meaning\": \"Original adaptation type\", \"role\": \"subject\", \"selection\": \"That Time I Got Reincarnated as a Slime | anime:101280\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101280",
+          "role": "subject",
+          "text": "That Time I Got Reincarnated as a Slime",
+          "name": "That Time I Got Reincarnated as a Slime",
+          "meaning": "Original adaptation type"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101280",
+          "role": "subject",
+          "text": "That Time I Got Reincarnated as a Slime",
+          "name": "That Time I Got Reincarnated as a Slime",
+          "meaning": "Original adaptation type"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "That Time I Got Reincarnated as a Slime"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101280",
+            "role": "subject",
+            "text": "That Time I Got Reincarnated as a Slime",
+            "name": "That Time I Got Reincarnated as a Slime",
+            "meaning": "Original adaptation type"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101280",
+            "role": "subject",
+            "text": "That Time I Got Reincarnated as a Slime",
+            "name": "That Time I Got Reincarnated as a Slime",
+            "meaning": "Original adaptation type"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine original adaptation type",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101280",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "original adaptation type",
+            "anime_ids": [
+              "101280"
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "101280",
+          "name": "That Time I Got Reincarnated as a Slime"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:101280",
+          "fact": "format: TV"
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 0.00011
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001391
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.406028
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.014545
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.026375
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013279
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.209185
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine original adaptation type",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101280",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "original adaptation type",
+              "anime_ids": [
+                "101280"
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "101280",
+            "name": "That Time I Got Reincarnated as a Slime"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101280",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.014855,
+      "arguments": {
+        "id": "101280",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101280",
+        "title": "That Time I Got Reincarnated as a Slime"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "original adaptation type",
+        "anime_ids": [
+          "101280"
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.063781,
+      "arguments": {
+        "query": "original adaptation type",
+        "anime_ids": [
+          "101280"
+        ]
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.848576
+    }
+  ]
+}

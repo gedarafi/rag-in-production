@@ -1,0 +1,427 @@
+{
+  "question_id": "hf_114",
+  "anime_id": "101921",
+  "title": "Kaguya-sama: Love is War",
+  "field": "source_material",
+  "question": "Does the first Kaguya-sama: Love is War anime come from a manga or light novel?",
+  "expected_values": [
+    "MANGA"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The first Kaguya-sama: Love is War anime is based on a light novel series, but it is also adapted from a manga.",
+  "extracted_values": [
+    "light novel",
+    "manga"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 13.835514458000034,
+  "extraction_seconds": 0.694433749999007,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "light novel",
+        "quote": "The first Kaguya-sama: Love is War anime is based on a light novel series, but it is also adapted from a manga."
+      },
+      {
+        "value": "manga",
+        "quote": "The first Kaguya-sama: Love is War anime is based on a light novel series, but it is also adapted from a manga."
+      }
+    ],
+    "note": "The anime is based on both a light novel and a manga.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.5,
+    "recall": 1.0,
+    "f1": 0.6666666666666666,
+    "tp": 1,
+    "fp": 1,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": [
+      "light novel"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101921",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101921",
+          "title": "Kaguya-sama: Love is War"
+        },
+        "elapsed_seconds": 0.013759
+      },
+      {
+        "step": 1,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "origin of first Kaguya-sama: Love is War anime",
+          "anime_ids": [
+            "101921"
+          ]
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.045148
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 3.402307,
+      "prepare_context": 0.016209,
+      "retrieve_guides": 0.027823,
+      "feature_candidates": 0.013757,
+      "planning": 4.568792,
+      "tools": 0.058907,
+      "generate_answer": 5.745352
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Kaguya-sama: Love is War\", \"query\": \"Kaguya-sama: Love is War\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Original TV adaptation\"}, {\"text\": \"manga\", \"query\": \"manga\", \"kind\": \"other\", \"role\": \"reference\", \"meaning\": \"Source material\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Kaguya-sama: Love is War",
+        "query": "Kaguya-sama: Love is War",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Original TV adaptation"
+      },
+      {
+        "text": "manga",
+        "query": "manga",
+        "kind": "other",
+        "role": "reference",
+        "meaning": "Source material"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"None\", \"decisions\": {\"p0\": {\"meaning\": \"Original TV adaptation\", \"role\": \"subject\", \"selection\": \"Kaguya-sama: Love is War | anime:101921\"},\"p1\": {\"meaning\": \"Source material\", \"role\": \"reference\", \"selection\": \"ordinary wording\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101921",
+          "role": "subject",
+          "text": "Kaguya-sama: Love is War",
+          "name": "Kaguya-sama: Love is War",
+          "meaning": "Original TV adaptation"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "other",
+          "id": "",
+          "role": "reference",
+          "text": "manga",
+          "name": "",
+          "meaning": "Source material"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101921",
+          "role": "subject",
+          "text": "Kaguya-sama: Love is War",
+          "name": "Kaguya-sama: Love is War",
+          "meaning": "Original TV adaptation"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Kaguya-sama: Love is War"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101921",
+            "role": "subject",
+            "text": "Kaguya-sama: Love is War",
+            "name": "Kaguya-sama: Love is War",
+            "meaning": "Original TV adaptation"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "other",
+            "id": "",
+            "role": "reference",
+            "text": "manga",
+            "name": "",
+            "meaning": "Source material"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101921",
+            "role": "subject",
+            "text": "Kaguya-sama: Love is War",
+            "name": "Kaguya-sama: Love is War",
+            "meaning": "Original TV adaptation"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine the origin of the first Kaguya-sama: Love is War anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101921",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "origin of first Kaguya-sama: Love is War anime",
+            "anime_ids": [
+              "101921"
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "101921",
+          "name": "Kaguya-sama: Love is War"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:101921",
+          "fact": "The source material of the anime is manga."
+        },
+        {
+          "subject": "anime:101921",
+          "fact": "The anime is based on a light novel series."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.2e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000746
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.402307
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.016209
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.027823
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013757
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.568792
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine the origin of the first Kaguya-sama: Love is War anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101921",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "origin of first Kaguya-sama: Love is War anime",
+              "anime_ids": [
+                "101921"
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "101921",
+            "name": "Kaguya-sama: Love is War"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101921",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.013759,
+      "arguments": {
+        "id": "101921",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101921",
+        "title": "Kaguya-sama: Love is War"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "origin of first Kaguya-sama: Love is War anime",
+        "anime_ids": [
+          "101921"
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.045148,
+      "arguments": {
+        "query": "origin of first Kaguya-sama: Love is War anime",
+        "anime_ids": [
+          "101921"
+        ]
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 5.745352
+    }
+  ]
+}

@@ -1,0 +1,1211 @@
+{
+  "question_id": "comedy_03",
+  "category": "genres",
+  "intent_family": "comedy",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "I need five funny shows to brighten up the evening. Which anime would you pick?",
+  "k": 5,
+  "constraints": [
+    {
+      "field": "genres",
+      "op": "any",
+      "value": [
+        "Comedy"
+      ],
+      "alternatives": [
+        {
+          "reason": "Prominent slapstick, surreal comedy, or parody supports a general request for funny viewing without requiring the broad Comedy genre.",
+          "constraints": [
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Slapstick",
+                "Surreal Comedy",
+                "Parody"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "The broad request to laugh maps to Comedy rather than a specific joke style.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 7022,
+  "reference_examples": [
+    {
+      "id": "100",
+      "title": "Prétear: The New Legend of Snow White"
+    },
+    {
+      "id": "10000",
+      "title": "Esper Mami Special: My Angel Mami-chan"
+    },
+    {
+      "id": "100009",
+      "title": "Space Battleship Tiramisu"
+    }
+  ],
+  "answer_text": "Catalog matches — episode count: 5; Comedy; tag details: brighten up the evening. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **I''s Pure Bonus** (5 episodes) — 5 Dream Sequences, dubbed his Delusions. Wet dreams from the imagination of a healthy young male.\n\n2. **Oh! My Goddess** (5 episodes) — When college student Keiichi Morisato dials the wrong number while ordering for some food at his dormitory, he accidentally gets connected to the Goddess Hotline and a beautiful goddess named Belldandy appears out of a mirror in front of him. After getting kicked out of the dorm, Keiichi and Belldandy move to an old shrine and soon afterwards, Belldandy's sisters Urd and Skuld move in.\n\n3. **HAPPY☆LESSON** (5 episodes) — One guy. Five girls. One roof. It`s a recycled idea, but it never gets old. Happy Lesson is a kinetic take on an old genre. Chitose shares his house with five ladies. One might think the continued attention of this many girls would be a good thing, but too much attention can prove to be painful. Did I mention they`re also instructors at his school (hence the title)? Not only is he the subject of their abuse at home, but at school as well. Even…\n\n4. **The Way of the Househusband Part 2** (5 episodes) — Once a terrifying yakuza, \"Immortal Dragon\" Tatsu now continues to conquer the challenges of mundane life. While his beloved wife Miku works, Tatsu equips his trusted apron, takes care of their finances, hunts down the biggest store sales, and learns the way of a true househusband with the help of the neighborhood wives. Although Tatsu abandoned the life of violence, his former colleagues and enemies reappear around every corner—but this time…\n\n5. **Shaman King Tokubetsu Soushuuhen** (5 episodes) — Throughout the broadcast of Shaman King, many shorts (usually referred to as Shaman King omake and TV specials) were made on special days of the year related to spirits and the like. The omake were short stories that were made for humorous effect. Apparently, all of the omake fit into the story before the Shaman Fight 2nd round. Documents of the Shaman Fight was shown with a New Year's omake as well. The TV Specials were aired after specific…\n\nA broader catalog category was used: Comedy.",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "I''s Pure Bonus",
+      "Oh! My Goddess",
+      "HAPPY☆LESSON",
+      "The Way of the Househusband Part 2",
+      "Shaman King Tokubetsu Soushuuhen"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "I''s Pure Bonus",
+      "anime_id": "1235",
+      "canonical_title": "I''s Pure Bonus",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "1235"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Prominent slapstick, surreal comedy, or parody supports a general request for funny viewing without requiring the broad Comedy genre.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Slapstick",
+                      "Surreal Comedy",
+                      "Parody"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Oh! My Goddess",
+      "anime_id": null,
+      "canonical_title": null,
+      "resolution": "ambiguous",
+      "candidate_ids": [
+        "156107",
+        "49"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 3,
+      "extracted_title": "HAPPY☆LESSON",
+      "anime_id": null,
+      "canonical_title": null,
+      "resolution": "ambiguous",
+      "candidate_ids": [
+        "259",
+        "260"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 4,
+      "extracted_title": "The Way of the Househusband Part 2",
+      "anime_id": "132193",
+      "canonical_title": "The Way of the Househusband Part 2",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "132193"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Prominent slapstick, surreal comedy, or parody supports a general request for funny viewing without requiring the broad Comedy genre.",
+              "score": 0.82,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Slapstick",
+                      "Surreal Comedy",
+                      "Parody"
+                    ]
+                  },
+                  "score": 0.82
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Shaman King Tokubetsu Soushuuhen",
+      "anime_id": "3861",
+      "canonical_title": "Shaman King Tokubetsu Soushuuhen",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "3861"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Prominent slapstick, surreal comedy, or parody supports a general request for funny viewing without requiring the broad Comedy genre.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Slapstick",
+                      "Surreal Comedy",
+                      "Parody"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.6,
+    "graded_fit_at_k": 0.6,
+    "ndcg_at_k": 0.6164336326286644,
+    "constraint_coverage": 1.0,
+    "count_compliance": 1,
+    "resolution_rate": 0.6,
+    "duplicate_rate": 0.0,
+    "extra_count": 0,
+    "literal_precision_at_k": 0.6,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 16.33810558299956,
+  "extraction_seconds": 1.6173114580005858,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 3.9e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000855
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 8.392312
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.0021
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.008075
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.010223
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 7.64647
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend anime based on user preference",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "genres",
+                  "operator": "eq",
+                  "value": "Comedy"
+                },
+                {
+                  "field": "episodes",
+                  "operator": "eq",
+                  "value": "5"
+                }
+              ]
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "brighten up the evening",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "genres",
+                  "operator": "eq",
+                  "value": "Comedy"
+                },
+                {
+                  "field": "episodes",
+                  "operator": "eq",
+                  "value": "5"
+                },
+                {
+                  "field": "tag_details",
+                  "operator": "eq",
+                  "value": "brighten up the evening"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "eq",
+            "value": "Comedy"
+          },
+          {
+            "field": "episodes",
+            "operator": "eq",
+            "value": "5"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.201448,
+      "arguments": {
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "eq",
+            "value": "Comedy"
+          },
+          {
+            "field": "episodes",
+            "operator": "eq",
+            "value": "5"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "episodes",
+              "operator": "eq",
+              "value": "5"
+            },
+            {
+              "field": "genres",
+              "operator": "eq",
+              "value": "Comedy"
+            },
+            {
+              "field": "tag_details",
+              "operator": "eq",
+              "value": "brighten up the evening"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "episodes",
+              "operator": "eq",
+              "value": "5",
+              "source_text": "shows",
+              "mapping": "exact"
+            },
+            {
+              "field": "genres",
+              "operator": "eq",
+              "value": "Comedy",
+              "source_text": "I need five funny shows to brighten up the evening. Which anime would you pick?",
+              "mapping": "broader"
+            },
+            {
+              "field": "tag_details",
+              "operator": "eq",
+              "value": "brighten up the evening",
+              "source_text": "I need five funny shows to brighten up the evening. Which anime would you pick?",
+              "mapping": "exact",
+              "origin": "structured_attribute_plan"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "1235",
+            "title": "I''s Pure Bonus",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'eq', 'value': '5'}, {'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]",
+            "preference_similarity": 0.198
+          },
+          {
+            "id": "49",
+            "title": "Oh! My Goddess",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'eq', 'value': '5'}, {'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]",
+            "preference_similarity": 0.1867
+          },
+          {
+            "id": "259",
+            "title": "HAPPY☆LESSON",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'eq', 'value': '5'}, {'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]",
+            "preference_similarity": 0.1706
+          },
+          {
+            "id": "132193",
+            "title": "The Way of the Househusband Part 2",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'eq', 'value': '5'}, {'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]",
+            "preference_similarity": 0.1436
+          },
+          {
+            "id": "3861",
+            "title": "Shaman King Tokubetsu Soushuuhen",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'eq', 'value': '5'}, {'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]",
+            "preference_similarity": 0.1434
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "brighten up the evening",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.009946,
+      "arguments": {
+        "query": "brighten up the evening",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "iyashikei",
+            "name": "Iyashikei",
+            "description": "Primary aim is to heal the audience through serene depictions of characters' daily lives.",
+            "category": "Theme-Slice of Life",
+            "similarity": 0.2815
+          },
+          {
+            "kind": "tag",
+            "id": "revenge",
+            "name": "Revenge",
+            "description": "Prominently features a character who aims to exact punishment in a resentful or vindictive manner.",
+            "category": "Theme-Drama",
+            "similarity": 0.2322
+          },
+          {
+            "kind": "tag",
+            "id": "desert",
+            "name": "Desert",
+            "description": "Prominently features a desert environment.",
+            "category": "Setting-Scene",
+            "similarity": 0.2303
+          },
+          {
+            "kind": "tag",
+            "id": "snowscape",
+            "name": "Snowscape",
+            "description": "Prominently or partially set in a snowy environment.",
+            "category": "Setting-Scene",
+            "similarity": 0.2268
+          },
+          {
+            "kind": "tag",
+            "id": "photography",
+            "name": "Photography",
+            "description": "Centers around the use of cameras to capture photos.",
+            "category": "Theme-Arts",
+            "similarity": 0.2142
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "eq",
+            "value": "Comedy"
+          },
+          {
+            "field": "episodes",
+            "operator": "eq",
+            "value": "5"
+          },
+          {
+            "field": "tag_details",
+            "operator": "eq",
+            "value": "brighten up the evening"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.064527,
+      "arguments": {
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "eq",
+            "value": "Comedy"
+          },
+          {
+            "field": "episodes",
+            "operator": "eq",
+            "value": "5"
+          },
+          {
+            "field": "tag_details",
+            "operator": "eq",
+            "value": "brighten up the evening"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "episodes",
+              "operator": "eq",
+              "value": "5"
+            },
+            {
+              "field": "genres",
+              "operator": "eq",
+              "value": "Comedy"
+            },
+            {
+              "field": "tag_details",
+              "operator": "eq",
+              "value": "brighten up the evening"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 0,
+          "retained": 0,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "episodes",
+              "operator": "eq",
+              "value": "5",
+              "source_text": "shows",
+              "mapping": "exact"
+            },
+            {
+              "field": "genres",
+              "operator": "eq",
+              "value": "Comedy",
+              "source_text": "I need five funny shows to brighten up the evening. Which anime would you pick?",
+              "mapping": "broader"
+            },
+            {
+              "field": "tag_details",
+              "operator": "eq",
+              "value": "brighten up the evening",
+              "source_text": "I need five funny shows to brighten up the evening. Which anime would you pick?",
+              "mapping": "exact",
+              "origin": "structured_attribute_plan"
+            }
+          ]
+        },
+        "items": []
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000389
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "genres",
+              "operator": "eq",
+              "value": "Comedy"
+            },
+            {
+              "field": "episodes",
+              "operator": "eq",
+              "value": "5"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "episodes",
+                "operator": "eq",
+                "value": "5"
+              },
+              {
+                "field": "genres",
+                "operator": "eq",
+                "value": "Comedy"
+              },
+              {
+                "field": "tag_details",
+                "operator": "eq",
+                "value": "brighten up the evening"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "episodes",
+                "operator": "eq",
+                "value": "5",
+                "source_text": "shows",
+                "mapping": "exact"
+              },
+              {
+                "field": "genres",
+                "operator": "eq",
+                "value": "Comedy",
+                "source_text": "I need five funny shows to brighten up the evening. Which anime would you pick?",
+                "mapping": "broader"
+              },
+              {
+                "field": "tag_details",
+                "operator": "eq",
+                "value": "brighten up the evening",
+                "source_text": "I need five funny shows to brighten up the evening. Which anime would you pick?",
+                "mapping": "exact",
+                "origin": "structured_attribute_plan"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "1235",
+              "title": "I''s Pure Bonus",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'eq', 'value': '5'}, {'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]",
+              "preference_similarity": 0.198
+            },
+            {
+              "id": "49",
+              "title": "Oh! My Goddess",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'eq', 'value': '5'}, {'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]",
+              "preference_similarity": 0.1867
+            },
+            {
+              "id": "259",
+              "title": "HAPPY☆LESSON",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'eq', 'value': '5'}, {'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]",
+              "preference_similarity": 0.1706
+            },
+            {
+              "id": "132193",
+              "title": "The Way of the Househusband Part 2",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'eq', 'value': '5'}, {'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]",
+              "preference_similarity": 0.1436
+            },
+            {
+              "id": "3861",
+              "title": "Shaman King Tokubetsu Soushuuhen",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'eq', 'value': '5'}, {'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]",
+              "preference_similarity": 0.1434
+            }
+          ]
+        },
+        "elapsed_seconds": 0.201448
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "brighten up the evening",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "iyashikei",
+              "name": "Iyashikei",
+              "description": "Primary aim is to heal the audience through serene depictions of characters' daily lives.",
+              "category": "Theme-Slice of Life",
+              "similarity": 0.2815
+            },
+            {
+              "kind": "tag",
+              "id": "revenge",
+              "name": "Revenge",
+              "description": "Prominently features a character who aims to exact punishment in a resentful or vindictive manner.",
+              "category": "Theme-Drama",
+              "similarity": 0.2322
+            },
+            {
+              "kind": "tag",
+              "id": "desert",
+              "name": "Desert",
+              "description": "Prominently features a desert environment.",
+              "category": "Setting-Scene",
+              "similarity": 0.2303
+            },
+            {
+              "kind": "tag",
+              "id": "snowscape",
+              "name": "Snowscape",
+              "description": "Prominently or partially set in a snowy environment.",
+              "category": "Setting-Scene",
+              "similarity": 0.2268
+            },
+            {
+              "kind": "tag",
+              "id": "photography",
+              "name": "Photography",
+              "description": "Centers around the use of cameras to capture photos.",
+              "category": "Theme-Arts",
+              "similarity": 0.2142
+            }
+          ]
+        },
+        "elapsed_seconds": 0.009946
+      },
+      {
+        "step": 2,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "genres",
+              "operator": "eq",
+              "value": "Comedy"
+            },
+            {
+              "field": "episodes",
+              "operator": "eq",
+              "value": "5"
+            },
+            {
+              "field": "tag_details",
+              "operator": "eq",
+              "value": "brighten up the evening"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "episodes",
+                "operator": "eq",
+                "value": "5"
+              },
+              {
+                "field": "genres",
+                "operator": "eq",
+                "value": "Comedy"
+              },
+              {
+                "field": "tag_details",
+                "operator": "eq",
+                "value": "brighten up the evening"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 0,
+            "retained": 0,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "episodes",
+                "operator": "eq",
+                "value": "5",
+                "source_text": "shows",
+                "mapping": "exact"
+              },
+              {
+                "field": "genres",
+                "operator": "eq",
+                "value": "Comedy",
+                "source_text": "I need five funny shows to brighten up the evening. Which anime would you pick?",
+                "mapping": "broader"
+              },
+              {
+                "field": "tag_details",
+                "operator": "eq",
+                "value": "brighten up the evening",
+                "source_text": "I need five funny shows to brighten up the evening. Which anime would you pick?",
+                "mapping": "exact",
+                "origin": "structured_attribute_plan"
+              }
+            ]
+          },
+          "items": []
+        },
+        "elapsed_seconds": 0.064527
+      }
+    ],
+    "llm_calls": 5,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 8.392312,
+      "prepare_context": 0.0021,
+      "retrieve_guides": 0.008075,
+      "feature_candidates": 0.010223,
+      "planning": 7.64647,
+      "tools": 0.275921,
+      "generate_answer": 0.000389
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"funny shows\", \"query\": \"funny shows\", \"kind\": \"genre\", \"role\": \"required\", \"meaning\": \"Desired genre\"}, {\"text\": \"brighten up the evening\", \"query\": \"brighten up the evening\", \"kind\": \"description\", \"role\": \"preferred\", \"meaning\": \"Desired mood\"}]}",
+      "{\"min\": 5, \"max\": 5}",
+      "{\"role\": \"required\"}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "funny shows",
+        "query": "funny shows",
+        "kind": "genre",
+        "role": "required",
+        "meaning": "Desired genre"
+      },
+      {
+        "text": "brighten up the evening",
+        "query": "brighten up the evening",
+        "kind": "description",
+        "role": "preferred",
+        "meaning": "Desired mood"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify which anime you are referring to when asking for 'Which anime would you pick?'\", \"decisions\": {\"p0\": {\"meaning\": \"funny shows\", \"role\": \"required\", \"selection\": \"unmapped description\" }, \"p1\": {\"meaning\": \"brighten up the evening\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "funny shows",
+          "name": "",
+          "meaning": "funny shows"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "brighten up the evening",
+          "name": "",
+          "meaning": "brighten up the evening"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {
+      "episodes": {
+        "sources": [
+          "shows"
+        ],
+        "interpretations": [
+          "range"
+        ]
+      }
+    },
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [
+        "funny shows"
+      ],
+      "excluded": [],
+      "preferred": [
+        "brighten up the evening"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "episodes",
+          "operator": "eq",
+          "value": "5"
+        },
+        {
+          "field": "genres",
+          "operator": "eq",
+          "value": "Comedy"
+        },
+        {
+          "field": "tag_details",
+          "operator": "eq",
+          "value": "brighten up the evening"
+        }
+      ],
+      "soft_query": "brighten up the evening",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "episodes",
+          "operator": "eq",
+          "value": "5",
+          "source_text": "shows",
+          "mapping": "exact"
+        },
+        {
+          "field": "genres",
+          "operator": "eq",
+          "value": "Comedy",
+          "source_text": "I need five funny shows to brighten up the evening. Which anime would you pick?",
+          "mapping": "broader"
+        },
+        {
+          "field": "tag_details",
+          "operator": "eq",
+          "value": "brighten up the evening",
+          "source_text": "I need five funny shows to brighten up the evening. Which anime would you pick?",
+          "mapping": "exact",
+          "origin": "structured_attribute_plan"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "funny shows",
+          "candidate": {
+            "field": "genres",
+            "value": "Comedy",
+            "meaning": "Comedy",
+            "coverage": 1.0
+          },
+          "role": "required",
+          "mapping": "broader"
+        },
+        {
+          "phrase": "brighten up the evening",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "funny shows",
+            "name": "",
+            "meaning": "funny shows"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "brighten up the evening",
+            "name": "",
+            "meaning": "brighten up the evening"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend anime based on user preference",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "genres",
+                "operator": "eq",
+                "value": "Comedy"
+              },
+              {
+                "field": "episodes",
+                "operator": "eq",
+                "value": "5"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "brighten up the evening",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "genres",
+                "operator": "eq",
+                "value": "Comedy"
+              },
+              {
+                "field": "episodes",
+                "operator": "eq",
+                "value": "5"
+              },
+              {
+                "field": "tag_details",
+                "operator": "eq",
+                "value": "brighten up the evening"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

@@ -1,0 +1,1292 @@
+{
+  "question_id": "horror_02",
+  "category": "genres",
+  "intent_family": "horror",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "Which four anime would make a good lights-off viewing session if I want to be genuinely scared?",
+  "k": 4,
+  "constraints": [
+    {
+      "field": "genres",
+      "op": "any",
+      "value": [
+        "Horror"
+      ],
+      "alternatives": [
+        {
+          "reason": "Body Horror and Cosmic Horror are specific horror themes and valid alternatives to a missing broad Horror genre. Gore alone is not evidence that a show aims to scare.",
+          "constraints": [
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Body Horror",
+                "Cosmic Horror"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "Frightening viewing maps to Horror, not every dark or sad story.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 836,
+  "reference_examples": [
+    {
+      "id": "100010",
+      "title": "MAGICAL GIRL SITE"
+    },
+    {
+      "id": "100226",
+      "title": "EVIL OR LIVE"
+    },
+    {
+      "id": "100240",
+      "title": "Tokyo Ghoul:re"
+    }
+  ],
+  "answer_text": "Catalog matches. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **Tokyo Ghoul** — The suspense horror/dark fantasy story is set in Tokyo, which is haunted by mysterious \"ghouls\" who are devouring humans. People are gripped by the fear of these ghouls whose identities are masked in mystery. An ordinary college student named Kaneki encounters Rize, a girl who is an avid reader like him, at the café he frequents. Little does he realize that his fate will change overnight. (Source: Anime News Network)\n\n2. **The Promised Neverland** — Emma, Norman and Ray are the brightest kids at the Grace Field House orphanage. And under the care of the woman they refer to as “Mom,” all the kids have enjoyed a comfortable life. Good food, clean clothes and the perfect environment to learn—what more could an orphan ask for? One day, though, Emma and Norman uncover the dark truth of the outside world they are forbidden from seeing. (Source: VIZ Media)\n\n3. **Sword Art Online** — In the near future, a Virtual Reality Massive Multiplayer Online Role-Playing Game (VRMMORPG) called Sword Art Online has been released where players control their avatars with their bodies using a piece of technology called Nerve Gear. One day, players discover they cannot log out, as the game creator is holding them captive unless they reach the 100th floor of the game's tower and defeat the final boss. However, if they die in the game, they…\n\n4. **Chainsaw Man** — Denji is a teenage boy living with a Chainsaw Devil named Pochita. Due to the debt his father left behind, he has been living a rock-bottom life while repaying his debt by harvesting devil corpses with Pochita. One day, Denji is betrayed and killed. As his consciousness fades, he makes a contract with Pochita and gets revived as \"Chainsaw Man\" — a man with a devil's heart. (Source: Crunchyroll)\n\n5. **Re:ZERO -Starting Life in Another World-** — In the story, Subaru Natsuki is an ordinary high school student who is lost in an alternate world, where he is rescued by a beautiful, silver-haired girl. He stays near her to return the favor, but the destiny she is burdened with is more than Subaru can imagine. Enemies attack one by one, and both of them are killed. He then finds out he has the power to rewind death, back to the time he first came to this world. But only he remembers what has…",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Tokyo Ghoul",
+      "The Promised Neverland",
+      "Sword Art Online",
+      "Chainsaw Man",
+      "Re:ZERO -Starting Life in Another World-",
+      "The Promised Neverland",
+      "The Promised Neverland",
+      "Tokyo Ghoul",
+      "Chainsaw Man",
+      "Sword Art Online"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Tokyo Ghoul",
+      "anime_id": "20605",
+      "canonical_title": "Tokyo Ghoul",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20605"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Body Horror and Cosmic Horror are specific horror themes and valid alternatives to a missing broad Horror genre. Gore alone is not evidence that a show aims to scare.",
+              "score": 0.79,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Body Horror",
+                      "Cosmic Horror"
+                    ]
+                  },
+                  "score": 0.79
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 2,
+      "extracted_title": "The Promised Neverland",
+      "anime_id": "101759",
+      "canonical_title": "The Promised Neverland",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "101759"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Body Horror and Cosmic Horror are specific horror themes and valid alternatives to a missing broad Horror genre. Gore alone is not evidence that a show aims to scare.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Body Horror",
+                      "Cosmic Horror"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Sword Art Online",
+      "anime_id": "11757",
+      "canonical_title": "Sword Art Online",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "11757"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Body Horror and Cosmic Horror are specific horror themes and valid alternatives to a missing broad Horror genre. Gore alone is not evidence that a show aims to scare.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Body Horror",
+                      "Cosmic Horror"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Chainsaw Man",
+      "anime_id": "127230",
+      "canonical_title": "Chainsaw Man",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "127230"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Body Horror and Cosmic Horror are specific horror themes and valid alternatives to a missing broad Horror genre. Gore alone is not evidence that a show aims to scare.",
+              "score": 0.85,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Body Horror",
+                      "Cosmic Horror"
+                    ]
+                  },
+                  "score": 0.85
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Re:ZERO -Starting Life in Another World-",
+      "anime_id": "21355",
+      "canonical_title": "Re:ZERO -Starting Life in Another World-",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21355"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.69
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.69,
+          "met": true,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "alternative_1",
+          "graded_path": "alternative_1",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Body Horror and Cosmic Horror are specific horror themes and valid alternatives to a missing broad Horror genre. Gore alone is not evidence that a show aims to scare.",
+              "score": 0.69,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Body Horror",
+                      "Cosmic Horror"
+                    ]
+                  },
+                  "score": 0.69
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.69,
+      "gain": 0.69,
+      "strict_match": 1,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 6,
+      "extracted_title": "The Promised Neverland",
+      "anime_id": "101759",
+      "canonical_title": "The Promised Neverland",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "101759"
+      ],
+      "duplicate": true,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Body Horror and Cosmic Horror are specific horror themes and valid alternatives to a missing broad Horror genre. Gore alone is not evidence that a show aims to scare.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Body Horror",
+                      "Cosmic Horror"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 7,
+      "extracted_title": "The Promised Neverland",
+      "anime_id": "101759",
+      "canonical_title": "The Promised Neverland",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "101759"
+      ],
+      "duplicate": true,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Body Horror and Cosmic Horror are specific horror themes and valid alternatives to a missing broad Horror genre. Gore alone is not evidence that a show aims to scare.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Body Horror",
+                      "Cosmic Horror"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 8,
+      "extracted_title": "Tokyo Ghoul",
+      "anime_id": "20605",
+      "canonical_title": "Tokyo Ghoul",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20605"
+      ],
+      "duplicate": true,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Body Horror and Cosmic Horror are specific horror themes and valid alternatives to a missing broad Horror genre. Gore alone is not evidence that a show aims to scare.",
+              "score": 0.79,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Body Horror",
+                      "Cosmic Horror"
+                    ]
+                  },
+                  "score": 0.79
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 9,
+      "extracted_title": "Chainsaw Man",
+      "anime_id": "127230",
+      "canonical_title": "Chainsaw Man",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "127230"
+      ],
+      "duplicate": true,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Body Horror and Cosmic Horror are specific horror themes and valid alternatives to a missing broad Horror genre. Gore alone is not evidence that a show aims to scare.",
+              "score": 0.85,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Body Horror",
+                      "Cosmic Horror"
+                    ]
+                  },
+                  "score": 0.85
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 10,
+      "extracted_title": "Sword Art Online",
+      "anime_id": "11757",
+      "canonical_title": "Sword Art Online",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "11757"
+      ],
+      "duplicate": true,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Body Horror and Cosmic Horror are specific horror themes and valid alternatives to a missing broad Horror genre. Gore alone is not evidence that a show aims to scare.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Body Horror",
+                      "Cosmic Horror"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.75,
+    "graded_fit_at_k": 0.75,
+    "ndcg_at_k": 0.8048099750039491,
+    "constraint_coverage": 1.0,
+    "count_compliance": 0,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.5,
+    "extra_count": 6,
+    "literal_precision_at_k": 0.75,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 9.878277708001406,
+  "extraction_seconds": 2.0596274159997847,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000804
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.164592
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.001405
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.008885
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.010651
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 5.46172
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend four anime for a lights-off viewing session",
+        "clarification": "What kind of scares are you looking for?",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "query": "genuinely scared",
+              "filters": [
+                {
+                  "field": "genres",
+                  "operator": "contains",
+                  "value": "horror"
+                },
+                {
+                  "field": "genres",
+                  "operator": "contains",
+                  "value": "thriller"
+                }
+              ]
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "scary anime",
+              "kind": "genre"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "query": "genuinely scared",
+              "filters": [
+                {
+                  "field": "genres",
+                  "operator": "contains",
+                  "value": "horror"
+                },
+                {
+                  "field": "genres",
+                  "operator": "contains",
+                  "value": "thriller"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "query": "genuinely scared",
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "horror"
+          },
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "thriller"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.21522,
+      "arguments": {
+        "query": "genuinely scared",
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "horror"
+          },
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "thriller"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": []
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": []
+        },
+        "items": [
+          {
+            "id": "20605",
+            "title": "Tokyo Ghoul",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.1503
+          },
+          {
+            "id": "101759",
+            "title": "The Promised Neverland",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.1485
+          },
+          {
+            "id": "11757",
+            "title": "Sword Art Online",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.1318
+          },
+          {
+            "id": "127230",
+            "title": "Chainsaw Man",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.1277
+          },
+          {
+            "id": "21355",
+            "title": "Re:ZERO -Starting Life in Another World-",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.1271
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "scary anime",
+        "kind": "genre"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.011243,
+      "arguments": {
+        "query": "scary anime",
+        "kind": "genre"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "genre",
+        "matches": [
+          {
+            "kind": "genre",
+            "id": "horror",
+            "name": "Horror",
+            "similarity": 0.7159
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "recommend_anime",
+      "arguments": {
+        "query": "genuinely scared",
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "horror"
+          },
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "thriller"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.001655,
+      "arguments": {
+        "query": "genuinely scared",
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "horror"
+          },
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "thriller"
+          }
+        ]
+      },
+      "cached": true,
+      "result": {
+        "applied_filters": {
+          "filters": []
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": []
+        },
+        "items": [
+          {
+            "id": "20605",
+            "title": "Tokyo Ghoul",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.1503
+          },
+          {
+            "id": "101759",
+            "title": "The Promised Neverland",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.1485
+          },
+          {
+            "id": "11757",
+            "title": "Sword Art Online",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.1318
+          },
+          {
+            "id": "127230",
+            "title": "Chainsaw Man",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.1277
+          },
+          {
+            "id": "21355",
+            "title": "Re:ZERO -Starting Life in Another World-",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.1271
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000556
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "query": "genuinely scared",
+          "filters": [
+            {
+              "field": "genres",
+              "operator": "contains",
+              "value": "horror"
+            },
+            {
+              "field": "genres",
+              "operator": "contains",
+              "value": "thriller"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": []
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": []
+          },
+          "items": [
+            {
+              "id": "20605",
+              "title": "Tokyo Ghoul",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.1503
+            },
+            {
+              "id": "101759",
+              "title": "The Promised Neverland",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.1485
+            },
+            {
+              "id": "11757",
+              "title": "Sword Art Online",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.1318
+            },
+            {
+              "id": "127230",
+              "title": "Chainsaw Man",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.1277
+            },
+            {
+              "id": "21355",
+              "title": "Re:ZERO -Starting Life in Another World-",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.1271
+            }
+          ]
+        },
+        "elapsed_seconds": 0.21522
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "scary anime",
+          "kind": "genre"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "genre",
+          "matches": [
+            {
+              "kind": "genre",
+              "id": "horror",
+              "name": "Horror",
+              "similarity": 0.7159
+            }
+          ]
+        },
+        "elapsed_seconds": 0.011243
+      },
+      {
+        "step": 2,
+        "tool": "recommend_anime",
+        "arguments": {
+          "query": "genuinely scared",
+          "filters": [
+            {
+              "field": "genres",
+              "operator": "contains",
+              "value": "horror"
+            },
+            {
+              "field": "genres",
+              "operator": "contains",
+              "value": "thriller"
+            }
+          ]
+        },
+        "cached": true,
+        "result": {
+          "applied_filters": {
+            "filters": []
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": []
+          },
+          "items": [
+            {
+              "id": "20605",
+              "title": "Tokyo Ghoul",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.1503
+            },
+            {
+              "id": "101759",
+              "title": "The Promised Neverland",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.1485
+            },
+            {
+              "id": "11757",
+              "title": "Sword Art Online",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.1318
+            },
+            {
+              "id": "127230",
+              "title": "Chainsaw Man",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.1277
+            },
+            {
+              "id": "21355",
+              "title": "Re:ZERO -Starting Life in Another World-",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.1271
+            }
+          ]
+        },
+        "elapsed_seconds": 0.001655
+      }
+    ],
+    "llm_calls": 3,
+    "planned_tools": 3,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 4.164592,
+      "prepare_context": 0.001405,
+      "retrieve_guides": 0.008885,
+      "feature_candidates": 0.010651,
+      "planning": 5.46172,
+      "tools": 0.228118,
+      "generate_answer": 0.000556
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"genuinely scared\", \"query\": \"scary anime\", \"kind\": \"tag\", \"role\": \"preferred\", \"meaning\": \"Preferred theme\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "genuinely scared",
+        "query": "scary anime",
+        "kind": "tag",
+        "role": "preferred",
+        "meaning": "Preferred theme"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Anxiety or fear\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "genuinely scared",
+          "name": "",
+          "meaning": "Anxiety or fear"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [],
+      "preferred": [
+        "genuinely scared"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [],
+      "soft_query": "genuinely scared",
+      "limitations": [],
+      "mappings": [],
+      "preference_hierarchy": [
+        {
+          "phrase": "genuinely scared",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "genuinely scared",
+            "name": "",
+            "meaning": "Anxiety or fear"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend four anime for a lights-off viewing session",
+      "clarification": "What kind of scares are you looking for?",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "query": "genuinely scared",
+            "filters": [
+              {
+                "field": "genres",
+                "operator": "contains",
+                "value": "horror"
+              },
+              {
+                "field": "genres",
+                "operator": "contains",
+                "value": "thriller"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "scary anime",
+            "kind": "genre"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "query": "genuinely scared",
+            "filters": [
+              {
+                "field": "genres",
+                "operator": "contains",
+                "value": "horror"
+              },
+              {
+                "field": "genres",
+                "operator": "contains",
+                "value": "thriller"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

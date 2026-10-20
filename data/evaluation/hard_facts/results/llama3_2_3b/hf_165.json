@@ -1,0 +1,508 @@
+{
+  "question_id": "hf_165",
+  "anime_id": "20",
+  "title": "Naruto",
+  "field": "main_characters",
+  "question": "Who belongs to the original Naruto anime's main cast, excluding supporting roles?",
+  "expected_values": [
+    "Sasuke Uchiha",
+    "Sakura Haruno",
+    "Naruto Uzumaki",
+    "Kakashi Hatake"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Sakura Haruno, Sasuke Uchiha, and Naruto Uzumaki",
+  "extracted_values": [
+    "Sakura Haruno",
+    "Sasuke Uchiha",
+    "Naruto Uzumaki"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 12.536064125000848,
+  "extraction_seconds": 0.7846440829998755,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Sakura Haruno",
+        "quote": "Sakura Haruno, Sasuke Uchiha, and Naruto Uzumaki"
+      },
+      {
+        "value": "Sasuke Uchiha",
+        "quote": "Sakura Haruno, Sasuke Uchiha, and Naruto Uzumaki"
+      },
+      {
+        "value": "Naruto Uzumaki",
+        "quote": "Sakura Haruno, Sasuke Uchiha, and Naruto Uzumaki"
+      }
+    ],
+    "note": "assertion",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 1.0,
+    "recall": 0.75,
+    "f1": 0.8571428571428571,
+    "tp": 3,
+    "fp": 0,
+    "fn": 1,
+    "missing_values": [
+      "kakashi hatake"
+    ],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20",
+          "title": "Naruto"
+        },
+        "elapsed_seconds": 0.018952
+      },
+      {
+        "step": 1,
+        "tool": "get_character",
+        "arguments": {
+          "id": "17"
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "17",
+          "name": "Naruto Uzumaki"
+        },
+        "elapsed_seconds": 0.001439
+      },
+      {
+        "step": 2,
+        "tool": "get_character",
+        "arguments": {
+          "id": "13"
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "13",
+          "name": "Sasuke Uchiha"
+        },
+        "elapsed_seconds": 0.001493
+      },
+      {
+        "step": 3,
+        "tool": "get_character",
+        "arguments": {
+          "id": "145"
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "145",
+          "name": "Sakura Haruno"
+        },
+        "elapsed_seconds": 0.001342
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 4,
+    "executed_tools": 4,
+    "timings_seconds": {
+      "interpret_request": 1.937186,
+      "prepare_context": 0.023788,
+      "retrieve_guides": 0.027715,
+      "feature_candidates": 0.013366,
+      "planning": 4.632919,
+      "tools": 0.023226,
+      "generate_answer": 5.875465
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Naruto\", \"query\": \"Naruto\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Main cast\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Naruto",
+        "query": "Naruto",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Main cast"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Main cast\", \"role\": \"subject\", \"selection\": \"Naruto | anime:20\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20",
+          "role": "subject",
+          "text": "Naruto",
+          "name": "Naruto",
+          "meaning": "Main cast"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20",
+          "role": "subject",
+          "text": "Naruto",
+          "name": "Naruto",
+          "meaning": "Main cast"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Naruto"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20",
+            "role": "subject",
+            "text": "Naruto",
+            "name": "Naruto",
+            "meaning": "Main cast"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20",
+            "role": "subject",
+            "text": "Naruto",
+            "name": "Naruto",
+            "meaning": "Main cast"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Find main cast members of the original Naruto anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20"
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "17"
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "13"
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "145"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "20",
+          "name": "Naruto"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:20",
+          "fact": "The main cast of the original Naruto anime includes Sakura Haruno, Sasuke Uchiha, and Naruto Uzumaki."
+        },
+        {
+          "subject": "anime:20",
+          "fact": "Sakura Haruno is a kunoichi with no exceptional talent, but is excellent at her brain and chakra control."
+        },
+        {
+          "subject": "anime:20",
+          "fact": "Sasuke Uchiha is a wielder of the Sharingan and has a vast knowledge of Fire Jutsus."
+        },
+        {
+          "subject": "anime:20",
+          "fact": "Naruto Uzumaki is a hyperactive and knuckle-headed ninja who struggles to find his place in the village."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.3e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000819
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 1.937186
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.023788
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.027715
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013366
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.632919
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Find main cast members of the original Naruto anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20"
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "17"
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "13"
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "145"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "20",
+            "name": "Naruto"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.018952,
+      "arguments": {
+        "id": "20"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20",
+        "title": "Naruto"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_character",
+      "arguments": {
+        "id": "17"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.001439,
+      "arguments": {
+        "id": "17"
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "17",
+        "name": "Naruto Uzumaki"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "get_character",
+      "arguments": {
+        "id": "13"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.001493,
+      "arguments": {
+        "id": "13"
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "13",
+        "name": "Sasuke Uchiha"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_character",
+      "arguments": {
+        "id": "145"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.001342,
+      "arguments": {
+        "id": "145"
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "145",
+        "name": "Sakura Haruno"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 5.875465
+    }
+  ]
+}

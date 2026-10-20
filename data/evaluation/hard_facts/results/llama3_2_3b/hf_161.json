@@ -1,0 +1,364 @@
+{
+  "question_id": "hf_161",
+  "anime_id": "11061",
+  "title": "Hunter x Hunter (2011)",
+  "field": "main_characters",
+  "question": "Give me the complete main-character list for Hunter x Hunter (2011).",
+  "expected_values": [
+    "Killua Zoldyck",
+    "Kurapika",
+    "Leorio Paradinight",
+    "Gon Freecss",
+    "Hisoka Morow"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Killua Zoldyck, Kurapika, Leorio Paradinight, Gon Freecss, Hisoka Morow",
+  "extracted_values": [
+    "Killua Zoldyck",
+    "Kurapika",
+    "Leorio Paradinight",
+    "Gon Freecss",
+    "Hisoka Morow"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 11.854271084001084,
+  "extraction_seconds": 1.0079767919996812,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Killua Zoldyck",
+        "quote": "Killua Zoldyck, Kurapika, Leorio Paradinight, Gon Freecss, Hisoka Morow"
+      },
+      {
+        "value": "Kurapika",
+        "quote": "Killua Zoldyck, Kurapika, Leorio Paradinight, Gon Freecss, Hisoka Morow"
+      },
+      {
+        "value": "Leorio Paradinight",
+        "quote": "Killua Zoldyck, Kurapika, Leorio Paradinight, Gon Freecss, Hisoka Morow"
+      },
+      {
+        "value": "Gon Freecss",
+        "quote": "Killua Zoldyck, Kurapika, Leorio Paradinight, Gon Freecss, Hisoka Morow"
+      },
+      {
+        "value": "Hisoka Morow",
+        "quote": "Killua Zoldyck, Kurapika, Leorio Paradinight, Gon Freecss, Hisoka Morow"
+      }
+    ],
+    "note": "No other characters are considered main characters in the 2011 anime adaptation.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 5,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "status": "error",
+        "step": 0,
+        "tool": "get_character",
+        "error": "Use character IDs from dictionary or tool results first",
+        "elapsed_seconds": 7.9e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 0,
+    "timings_seconds": {
+      "interpret_request": 2.719437,
+      "prepare_context": 0.024099,
+      "retrieve_guides": 0.027892,
+      "feature_candidates": 0.013398,
+      "planning": 3.607757,
+      "tools": 7.9e-05,
+      "generate_answer": 5.459075
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Hunter x Hunter\", \"query\": \"Hunter x Hunter 2011\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; main characters are people\"}, {\"text\": \"main characters\", \"query\": \"Hunter x Hunter 2011 main characters\", \"kind\": \"description\", \"role\": \"required\", \"meaning\": \"List of main characters\"}]}"
+    ],
+    "unsupported_mentions": [
+      {
+        "text": "main characters",
+        "query": "Hunter x Hunter 2011 main characters",
+        "kind": "description",
+        "role": "required",
+        "meaning": "List of main characters"
+      }
+    ],
+    "typed_mentions": [
+      {
+        "text": "Hunter x Hunter",
+        "query": "Hunter x Hunter 2011",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; main characters are people"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"TV series; main characters are people\", \"role\": \"subject\", \"selection\": \"Hunter x Hunter (2011) | anime:11061\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "11061",
+          "role": "subject",
+          "text": "Hunter x Hunter",
+          "name": "Hunter x Hunter (2011)",
+          "meaning": "TV series; main characters are people"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "11061",
+          "role": "subject",
+          "text": "Hunter x Hunter",
+          "name": "Hunter x Hunter (2011)",
+          "meaning": "TV series; main characters are people"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Hunter x Hunter (2011)"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "11061",
+            "role": "subject",
+            "text": "Hunter x Hunter",
+            "name": "Hunter x Hunter (2011)",
+            "meaning": "TV series; main characters are people"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "11061",
+            "role": "subject",
+            "text": "Hunter x Hunter",
+            "name": "Hunter x Hunter (2011)",
+            "meaning": "TV series; main characters are people"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "complete main-character list for Hunter x Hunter (2011)",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "11061"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "11061",
+          "name": "Hunter x Hunter (2011)"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:11061",
+          "fact": "The main characters in Hunter x Hunter (2011) are Killua Zoldyck, Kurapika, Leorio Paradinight, Gon Freecss, and Hisoka Morow."
+        },
+        {
+          "subject": "anime:11061",
+          "fact": "Killua Zoldyck is a main character and an assassin from the Zoldyck family. He is known for his exceptional speed and agility."
+        },
+        {
+          "subject": "anime:11061",
+          "fact": "Kurapika is a main character and a member of the Cloud Village. He is driven by a desire for revenge against the Phantom Troupe."
+        },
+        {
+          "subject": "anime:11061",
+          "fact": "Leorio Paradinight is a main character and a medical student. He is known for his wealth and his desire to become a doctor."
+        },
+        {
+          "subject": "anime:11061",
+          "fact": "Gon Freecss is a main character and a young boy who aspires to become a Hunter like his father."
+        },
+        {
+          "subject": "anime:11061",
+          "fact": "Hisoka Morow is a main character and a mysterious assassin with a complex personality."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 7.3e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000855
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.719437
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.024099
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.027892
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013398
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.607757
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "complete main-character list for Hunter x Hunter (2011)",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "11061"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "11061",
+            "name": "Hunter x Hunter (2011)"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_character",
+      "arguments": {
+        "id": "11061"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_character",
+      "status": "error",
+      "elapsed_seconds": 7.9e-05,
+      "error": "Use character IDs from dictionary or tool results first"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 5.459075
+    }
+  ]
+}

@@ -1,0 +1,469 @@
+{
+  "question_id": "hf_017",
+  "anime_id": "1735",
+  "title": "Naruto: Shippuden",
+  "field": "year",
+  "question": "What is Naruto: Shippuden's first airing year?",
+  "expected_values": [
+    2007.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Naruto: Shippuden first aired in 2007.",
+  "extracted_values": [
+    "2007"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 14.188808124999923,
+  "extraction_seconds": 0.6420709169999554,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "2007",
+        "quote": "Naruto: Shippuden first aired in 2007."
+      }
+    ],
+    "note": "assertion: Naruto: Shippuden first aired in 2007.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1735"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "1735",
+          "title": "Naruto: Shippuden"
+        },
+        "elapsed_seconds": 0.015031
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "airing year"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "coming of age",
+              "name": "Coming of Age",
+              "description": "Centers around a character's transition from childhood to adulthood.",
+              "category": "Theme-Drama",
+              "similarity": 0.3082
+            },
+            {
+              "kind": "tag",
+              "id": "gore",
+              "name": "Gore",
+              "description": "Prominently features graphic bloodshed and violence.",
+              "category": "Theme-Other",
+              "similarity": 0.2337
+            }
+          ]
+        },
+        "elapsed_seconds": 0.034842
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "airing year"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.019271
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 4.071282,
+      "prepare_context": 0.02197,
+      "retrieve_guides": 0.030408,
+      "feature_candidates": 0.013749,
+      "planning": 6.59379,
+      "tools": 0.069144,
+      "generate_answer": 3.385965
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Naruto: Shippuden\", \"query\": \"Naruto: Shippuden\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; first airing year is a numeric criterion\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Naruto: Shippuden",
+        "query": "Naruto: Shippuden",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; first airing year is a numeric criterion"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify if you are asking about the first season of Naruto: Shippuden or the entire series.\", \"decisions\": {\"p0\": {\"meaning\": \"Naruto: Shippuden\", \"role\": \"subject\", \"selection\": \"Naruto: Shippuden | anime:1735\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "1735",
+          "role": "subject",
+          "text": "Naruto: Shippuden",
+          "name": "Naruto: Shippuden",
+          "meaning": "Naruto: Shippuden"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "1735",
+          "role": "subject",
+          "text": "Naruto: Shippuden",
+          "name": "Naruto: Shippuden",
+          "meaning": "Naruto: Shippuden"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Naruto: Shippuden"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "1735",
+            "role": "subject",
+            "text": "Naruto: Shippuden",
+            "name": "Naruto: Shippuden",
+            "meaning": "Naruto: Shippuden"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "1735",
+            "role": "subject",
+            "text": "Naruto: Shippuden",
+            "name": "Naruto: Shippuden",
+            "meaning": "Naruto: Shippuden"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "retrieve_anime_airing_year",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1735"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "airing year"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "airing year"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "1735",
+          "name": "Naruto: Shippuden"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:1735",
+          "fact": "year"
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 6.2e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001125
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.071282
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.02197
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.030408
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013749
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.59379
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "retrieve_anime_airing_year",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1735"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "airing year"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "airing year"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "1735",
+            "name": "Naruto: Shippuden"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1735"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.015031,
+      "arguments": {
+        "id": "1735"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "1735",
+        "title": "Naruto: Shippuden"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "airing year"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.034842,
+      "arguments": {
+        "query": "airing year"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "coming of age",
+            "name": "Coming of Age",
+            "description": "Centers around a character's transition from childhood to adulthood.",
+            "category": "Theme-Drama",
+            "similarity": 0.3082
+          },
+          {
+            "kind": "tag",
+            "id": "gore",
+            "name": "Gore",
+            "description": "Prominently features graphic bloodshed and violence.",
+            "category": "Theme-Other",
+            "similarity": 0.2337
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "airing year"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.019271,
+      "arguments": {
+        "kind": "tag",
+        "query": "airing year"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.385965
+    }
+  ]
+}

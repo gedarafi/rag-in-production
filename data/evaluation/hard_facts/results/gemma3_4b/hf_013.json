@@ -1,0 +1,931 @@
+{
+  "question_id": "hf_013",
+  "anime_id": "101759",
+  "title": "The Promised Neverland",
+  "field": "year",
+  "question": "What year marked the start of The Promised Neverland anime?",
+  "expected_values": [
+    2019.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "start year: 2019 years.",
+  "extracted_values": [
+    "2019"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 16.784661374999814,
+  "extraction_seconds": 0.4887666249999256,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "2019",
+        "quote": "start year: 2019 years."
+      }
+    ],
+    "note": "years",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101759"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101759",
+          "title": "The Promised Neverland"
+        },
+        "elapsed_seconds": 0.013345
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "start year",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "coming of age",
+              "name": "Coming of Age",
+              "description": "Centers around a character's transition from childhood to adulthood.",
+              "category": "Theme-Drama",
+              "similarity": 0.2385
+            },
+            {
+              "kind": "tag",
+              "id": "baseball",
+              "name": "Baseball",
+              "description": "Centers around the sport of baseball.",
+              "category": "Theme-Game-Sport",
+              "similarity": 0.211
+            },
+            {
+              "kind": "tag",
+              "id": "ice sports",
+              "name": "Ice Sports",
+              "description": "Centers around Ice Sports.",
+              "category": "Theme-Game-Sport",
+              "similarity": 0.2088
+            },
+            {
+              "kind": "tag",
+              "id": "basketball",
+              "name": "Basketball",
+              "description": "Centers around the sport of basketball.",
+              "category": "Theme-Game-Sport",
+              "similarity": 0.202
+            },
+            {
+              "kind": "tag",
+              "id": "american football",
+              "name": "American Football",
+              "description": "Centers around the sport of American football.",
+              "category": "Theme-Game-Sport",
+              "similarity": 0.2015
+            }
+          ]
+        },
+        "elapsed_seconds": 0.0352
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "start year"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.008897
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101759"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101759",
+          "title": "The Promised Neverland"
+        },
+        "elapsed_seconds": 0.000123
+      },
+      {
+        "step": 4,
+        "tool": "search_features",
+        "arguments": {
+          "query": "start date",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "time skip",
+              "name": "Time Skip",
+              "description": "Features a gap in time used to advance the story.",
+              "category": "Setting-Time",
+              "similarity": 0.2533
+            },
+            {
+              "kind": "tag",
+              "id": "age gap",
+              "name": "Age Gap",
+              "description": "Prominently features romantic relations between people with a significant age difference.",
+              "category": "Theme-Romance",
+              "similarity": 0.2277
+            },
+            {
+              "kind": "tag",
+              "id": "achronological order",
+              "name": "Achronological Order",
+              "description": "Chapters or episodes do not occur in chronological order.",
+              "category": "Setting-Time",
+              "similarity": 0.2095
+            }
+          ]
+        },
+        "elapsed_seconds": 0.010967
+      },
+      {
+        "step": 5,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101759"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101759",
+          "title": "The Promised Neverland"
+        },
+        "elapsed_seconds": 0.000105
+      },
+      {
+        "step": 6,
+        "tool": "search_features",
+        "arguments": {
+          "query": "year",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "age gap",
+              "name": "Age Gap",
+              "description": "Prominently features romantic relations between people with a significant age difference.",
+              "category": "Theme-Romance",
+              "similarity": 0.2377
+            },
+            {
+              "kind": "tag",
+              "id": "coming of age",
+              "name": "Coming of Age",
+              "description": "Centers around a character's transition from childhood to adulthood.",
+              "category": "Theme-Drama",
+              "similarity": 0.2334
+            },
+            {
+              "kind": "tag",
+              "id": "historical",
+              "name": "Historical",
+              "description": "Partly or completely set during a real period of world history.",
+              "category": "Setting-Time",
+              "similarity": 0.2276
+            },
+            {
+              "kind": "tag",
+              "id": "cycling",
+              "name": "Cycling",
+              "description": "Centers around the sport of cycling.",
+              "category": "Theme-Game-Sport",
+              "similarity": 0.1924
+            },
+            {
+              "kind": "tag",
+              "id": "graduation project",
+              "name": "Graduation Project",
+              "description": "A work made by students in place of an exam, typically at higher levels of education, either as a work for the entire course or as a work for a specific year of a course.",
+              "category": "Technical",
+              "similarity": 0.1907
+            }
+          ]
+        },
+        "elapsed_seconds": 0.010652
+      },
+      {
+        "step": 7,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101759"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101759",
+          "title": "The Promised Neverland"
+        },
+        "elapsed_seconds": 0.000106
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 8,
+    "executed_tools": 5,
+    "timings_seconds": {
+      "interpret_request": 3.79897,
+      "prepare_context": 0.017643,
+      "retrieve_guides": 0.031752,
+      "feature_candidates": 0.3842,
+      "planning": 8.912903,
+      "tools": 0.079395,
+      "generate_answer": 3.55684
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"The Promised Neverland\", \"query\": \"The Promised Neverland\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Anime adaptation\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "The Promised Neverland",
+        "query": "The Promised Neverland",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Anime adaptation"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify if you are asking about the original manga or the anime adaptation.\", \"decisions\": {\"p0\": {\"meaning\": \"The Promised Neverland\", \"role\": \"subject\", \"selection\": \"The Promised Neverland | anime:101759\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101759",
+          "role": "subject",
+          "text": "The Promised Neverland",
+          "name": "The Promised Neverland",
+          "meaning": "The Promised Neverland"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101759",
+          "role": "subject",
+          "text": "The Promised Neverland",
+          "name": "The Promised Neverland",
+          "meaning": "The Promised Neverland"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "The Promised Neverland"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101759",
+            "role": "subject",
+            "text": "The Promised Neverland",
+            "name": "The Promised Neverland",
+            "meaning": "The Promised Neverland"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101759",
+            "role": "subject",
+            "text": "The Promised Neverland",
+            "name": "The Promised Neverland",
+            "meaning": "The Promised Neverland"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "uncertain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine the start year of The Promised Neverland anime",
+      "clarification": "The request is for the start year of the anime, not a general question about the anime.",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101759"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "start year",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "start year"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101759"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "start date",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101759"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "year",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101759"
+          }
+        }
+      ]
+    },
+    "scope": "uncertain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "101759",
+          "name": "The Promised Neverland"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:101759",
+          "fact": "year"
+        }
+      ],
+      "calculations": [
+        {
+          "expression": "2019.0",
+          "value": "2019",
+          "unit": "years"
+        }
+      ]
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.3e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000802
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.79897
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.017643
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.031752
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.3842
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 8.912903
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "uncertain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "uncertain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine the start year of The Promised Neverland anime",
+        "clarification": "The request is for the start year of the anime, not a general question about the anime.",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101759"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "start year",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "start year"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101759"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "start date",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101759"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "year",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101759"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "101759",
+            "name": "The Promised Neverland"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101759"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.013345,
+      "arguments": {
+        "id": "101759"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101759",
+        "title": "The Promised Neverland"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "start year",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.0352,
+      "arguments": {
+        "query": "start year",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "coming of age",
+            "name": "Coming of Age",
+            "description": "Centers around a character's transition from childhood to adulthood.",
+            "category": "Theme-Drama",
+            "similarity": 0.2385
+          },
+          {
+            "kind": "tag",
+            "id": "baseball",
+            "name": "Baseball",
+            "description": "Centers around the sport of baseball.",
+            "category": "Theme-Game-Sport",
+            "similarity": 0.211
+          },
+          {
+            "kind": "tag",
+            "id": "ice sports",
+            "name": "Ice Sports",
+            "description": "Centers around Ice Sports.",
+            "category": "Theme-Game-Sport",
+            "similarity": 0.2088
+          },
+          {
+            "kind": "tag",
+            "id": "basketball",
+            "name": "Basketball",
+            "description": "Centers around the sport of basketball.",
+            "category": "Theme-Game-Sport",
+            "similarity": 0.202
+          },
+          {
+            "kind": "tag",
+            "id": "american football",
+            "name": "American Football",
+            "description": "Centers around the sport of American football.",
+            "category": "Theme-Game-Sport",
+            "similarity": 0.2015
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "start year"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.008897,
+      "arguments": {
+        "kind": "tag",
+        "query": "start year"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101759"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000123,
+      "arguments": {
+        "id": "101759"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101759",
+        "title": "The Promised Neverland"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "search_features",
+      "arguments": {
+        "query": "start date",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.010967,
+      "arguments": {
+        "query": "start date",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "time skip",
+            "name": "Time Skip",
+            "description": "Features a gap in time used to advance the story.",
+            "category": "Setting-Time",
+            "similarity": 0.2533
+          },
+          {
+            "kind": "tag",
+            "id": "age gap",
+            "name": "Age Gap",
+            "description": "Prominently features romantic relations between people with a significant age difference.",
+            "category": "Theme-Romance",
+            "similarity": 0.2277
+          },
+          {
+            "kind": "tag",
+            "id": "achronological order",
+            "name": "Achronological Order",
+            "description": "Chapters or episodes do not occur in chronological order.",
+            "category": "Setting-Time",
+            "similarity": 0.2095
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101759"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000105,
+      "arguments": {
+        "id": "101759"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101759",
+        "title": "The Promised Neverland"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 6,
+      "tool": "search_features",
+      "arguments": {
+        "query": "year",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 6,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.010652,
+      "arguments": {
+        "query": "year",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "age gap",
+            "name": "Age Gap",
+            "description": "Prominently features romantic relations between people with a significant age difference.",
+            "category": "Theme-Romance",
+            "similarity": 0.2377
+          },
+          {
+            "kind": "tag",
+            "id": "coming of age",
+            "name": "Coming of Age",
+            "description": "Centers around a character's transition from childhood to adulthood.",
+            "category": "Theme-Drama",
+            "similarity": 0.2334
+          },
+          {
+            "kind": "tag",
+            "id": "historical",
+            "name": "Historical",
+            "description": "Partly or completely set during a real period of world history.",
+            "category": "Setting-Time",
+            "similarity": 0.2276
+          },
+          {
+            "kind": "tag",
+            "id": "cycling",
+            "name": "Cycling",
+            "description": "Centers around the sport of cycling.",
+            "category": "Theme-Game-Sport",
+            "similarity": 0.1924
+          },
+          {
+            "kind": "tag",
+            "id": "graduation project",
+            "name": "Graduation Project",
+            "description": "A work made by students in place of an exam, typically at higher levels of education, either as a work for the entire course or as a work for a specific year of a course.",
+            "category": "Technical",
+            "similarity": 0.1907
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 7,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101759"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 7,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000106,
+      "arguments": {
+        "id": "101759"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101759",
+        "title": "The Promised Neverland"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.55684
+    }
+  ]
+}

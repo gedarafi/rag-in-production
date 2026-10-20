@@ -1,0 +1,337 @@
+{
+  "question_id": "hf_087",
+  "anime_id": "14719",
+  "title": "JoJo's Bizarre Adventure (TV)",
+  "field": "format",
+  "question": "Is the 2012 JoJo's Bizarre Adventure adaptation a TV series or an OVA?",
+  "expected_values": [
+    "TV"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The 2012 JoJo's Bizarre Adventure adaptation is a TV series.",
+  "extracted_values": [
+    "TV series"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 12.044332624998788,
+  "extraction_seconds": 0.7110557910000352,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "TV series",
+        "quote": "The 2012 JoJo's Bizarre Adventure adaptation is a TV series."
+      }
+    ],
+    "note": "assertion about OVA is not present",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "14719",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "14719",
+          "title": "JoJo's Bizarre Adventure (TV)"
+        },
+        "elapsed_seconds": 0.023687
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 4.630413,
+      "prepare_context": 0.014718,
+      "retrieve_guides": 0.029222,
+      "feature_candidates": 0.014186,
+      "planning": 4.003982,
+      "tools": 0.023687,
+      "generate_answer": 3.325883
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"JoJo's Bizarre Adventure\", \"query\": \"JoJo's Bizarre Adventure 2012\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"2012 adaptation; TV series or OVA\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "JoJo's Bizarre Adventure",
+        "query": "JoJo's Bizarre Adventure 2012",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "2012 adaptation; TV series or OVA"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Is the 2012 JoJo's Bizarre Adventure adaptation a TV series or an OVA?\", \"decisions\": {\"p0\": {\"meaning\": \"2012 adaptation; TV series or OVA\", \"role\": \"subject\", \"selection\": \"JoJo's Bizarre Adventure (TV) | anime:14719\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "14719",
+          "role": "subject",
+          "text": "JoJo's Bizarre Adventure",
+          "name": "JoJo's Bizarre Adventure (TV)",
+          "meaning": "2012 adaptation; TV series or OVA"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "14719",
+          "role": "subject",
+          "text": "JoJo's Bizarre Adventure",
+          "name": "JoJo's Bizarre Adventure (TV)",
+          "meaning": "2012 adaptation; TV series or OVA"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "JoJo's Bizarre Adventure (TV)"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "14719",
+            "role": "subject",
+            "text": "JoJo's Bizarre Adventure",
+            "name": "JoJo's Bizarre Adventure (TV)",
+            "meaning": "2012 adaptation; TV series or OVA"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "14719",
+            "role": "subject",
+            "text": "JoJo's Bizarre Adventure",
+            "name": "JoJo's Bizarre Adventure (TV)",
+            "meaning": "2012 adaptation; TV series or OVA"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "clarification",
+      "clarification": "Is the 2012 JoJo's Bizarre Adventure adaptation a TV series or an OVA?",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "14719",
+            "section": "overview"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "14719",
+          "name": "JoJo's Bizarre Adventure (TV)"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:14719",
+          "fact": "format = TV"
+        },
+        {
+          "subject": "anime:14719",
+          "fact": "source_material = MANGA"
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.5e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000744
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.630413
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.014718
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.029222
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014186
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.003982
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "clarification",
+        "clarification": "Is the 2012 JoJo's Bizarre Adventure adaptation a TV series or an OVA?",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "14719",
+              "section": "overview"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "14719",
+            "name": "JoJo's Bizarre Adventure (TV)"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "14719",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.023687,
+      "arguments": {
+        "id": "14719",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "14719",
+        "title": "JoJo's Bizarre Adventure (TV)"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.325883
+    }
+  ]
+}

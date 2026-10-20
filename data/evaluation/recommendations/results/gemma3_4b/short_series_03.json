@@ -1,0 +1,1014 @@
+{
+  "question_id": "short_series_03",
+  "category": "length",
+  "intent_family": "short_series",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "Give me five regular TV anime I could finish within twelve episodes each. Name the specific season if needed.",
+  "k": 5,
+  "constraints": [
+    {
+      "field": "format",
+      "op": "any",
+      "value": [
+        "TV"
+      ]
+    },
+    {
+      "field": "episodes",
+      "op": "lte",
+      "value": 12
+    }
+  ],
+  "label_rationale": "Episode count belongs to a single catalog entry, not the complete franchise.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 1745,
+  "reference_examples": [
+    {
+      "id": "100010",
+      "title": "MAGICAL GIRL SITE"
+    },
+    {
+      "id": "100077",
+      "title": "HINAMATSURI"
+    },
+    {
+      "id": "100083",
+      "title": "Butlers x Battlers"
+    }
+  ],
+  "answer_text": "Catalog matches — episode count: at most 12; format: TV. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **Demon Slayer: Kimetsu no Yaiba Entertainment District Arc** (11 episodes) — After visiting the Rengoku residence, Tanjirou and his comrades volunteer for a mission within the Entertainment District, a place where desires are sold and demons dwell. They journey alongside the flashy Sound Hashira, Tengen Uzui, in search of a monstrous foe terrorizing the town. Sworn to slay creatures of the night, the hunt continues. (Source: Funimation) Note: - The first episode aired with a runtime of ~47 minutes. - The last episode…\n\n2. **Demon Slayer: Kimetsu no Yaiba Swordsmith Village Arc** (11 episodes) — Tanjiro’s journey leads him to the Swordsmith Village, where he reunites with two Hashira, members of the Demon Slayer Corps’ highest-ranking swordsmen - Mist Hashira Muichiro Tokito and Love Hashira Mitsuri Kanroji. With the shadows of demons lurking near, a new battle begins for Tanjiro and his comrades. Notes: • The first episode has a runtime of ~49 minutes, and received an early premiere in cinemas worldwide as part of a special screening…\n\n3. **No Game, No Life** (12 episodes) — Bored with life and considering the real world to be just a “crappy game,” savvy sibling shut-ins Sora and Shiro have withdrawn into their own fantasy world filled with video games. However, one day they find themselves summoned to another world by a boy who calls himself “God,” their abilities are about to be put to the ultimate test! Now not only their fates — but the fate of all of humanity — will be decided by a series of games that may just…\n\n4. **Mushoku Tensei: Jobless Reincarnation** (11 episodes) — When a 34-year-old underachiever gets run over by a bus, his story doesn’t end there. Reincarnated in a new world as an infant, Rudeus will seize every opportunity to live the life he’s always wanted. Armed with new friends, some freshly acquired magical abilities, and the courage to do the things he’s always dreamed of, he’s embarking on an epic adventure—with all of his past experience intact! (Source: Funimation, edited) Note: The anime…\n\n5. **Demon Slayer: Kimetsu no Yaiba Mugen Train Arc** (7 episodes) — In Demon Slayer: Kimetsu no Yaiba Mugen Train Arc, Tanjiro Kamado and his fellow Demon Slayer members embark on a mission aboard the Infinity Train. Their new mission is to investigate a series of mysterious disappearances, carried out by a demon that has been terrorizing passengers and killing the demon slayers who oppose it. Note: The first episode is entirely anime original. Episodes 2-7 are a re-edited version of the movie featuring new…\n\nThe exact requirement 'regular TV anime' is assessed semantically from descriptions, not verified by a catalog category.",
+  "status": "extraction_error",
+  "error": "ValueError: Title extraction failed after two attempts: Unterminated string starting at: line 1 column 269 (char 268); Unterminated string starting at: line 1 column 269 (char 268)",
+  "extraction": null,
+  "recommendations": [],
+  "metrics": null,
+  "model_seconds": 22.292623833000107,
+  "extraction_seconds": 39.02656333399955,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00072
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 13.363979
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.009133
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.033457
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.012562
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 8.599329
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "Recommend five regular TV anime with a maximum of 12 episodes.",
+        "clarification": "The user wants regular TV anime with a maximum episode count of 12. They also request the specific season name if available.",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "episodes",
+                  "operator": "lte",
+                  "value": "12"
+                },
+                {
+                  "field": "format",
+                  "operator": "eq",
+                  "value": "TV"
+                }
+              ]
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "regular TV anime"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "episodes",
+                  "operator": "lte",
+                  "value": "12"
+                },
+                {
+                  "field": "format",
+                  "operator": "eq",
+                  "value": "TV"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": [
+          {
+            "id": "42363",
+            "name": "Episode"
+          },
+          {
+            "id": "332382",
+            "name": "Shiyi"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "episodes",
+            "operator": "lte",
+            "value": "12"
+          },
+          {
+            "field": "format",
+            "operator": "eq",
+            "value": "TV"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.258939,
+      "arguments": {
+        "filters": [
+          {
+            "field": "episodes",
+            "operator": "lte",
+            "value": "12"
+          },
+          {
+            "field": "format",
+            "operator": "eq",
+            "value": "TV"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "episodes",
+              "operator": "lte",
+              "value": "12"
+            },
+            {
+              "field": "format",
+              "operator": "eq",
+              "value": "TV"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [
+            "The exact requirement 'regular TV anime' is assessed semantically from descriptions, not verified by a catalog category."
+          ],
+          "mappings": [
+            {
+              "field": "episodes",
+              "operator": "lte",
+              "value": "12",
+              "source_text": "Episode",
+              "mapping": "exact"
+            },
+            {
+              "field": "format",
+              "operator": "eq",
+              "value": "TV",
+              "source_text": "Give me five regular TV anime I could finish within twelve episodes each. Name the specific season if needed.",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "142329",
+            "title": "Demon Slayer: Kimetsu no Yaiba Entertainment District Arc",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+            "preference_similarity": 0.4776
+          },
+          {
+            "id": "145139",
+            "title": "Demon Slayer: Kimetsu no Yaiba Swordsmith Village Arc",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+            "preference_similarity": 0.4641
+          },
+          {
+            "id": "19815",
+            "title": "No Game, No Life",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+            "preference_similarity": 0.4168
+          },
+          {
+            "id": "108465",
+            "title": "Mushoku Tensei: Jobless Reincarnation",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+            "preference_similarity": 0.4115
+          },
+          {
+            "id": "129874",
+            "title": "Demon Slayer: Kimetsu no Yaiba Mugen Train Arc",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+            "preference_similarity": 0.4015
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "regular TV anime"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.010323,
+      "arguments": {
+        "query": "regular TV anime"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "voyeur",
+            "name": "Voyeur",
+            "description": "Features a character who enjoys seeing the sex acts or sex organs of others.",
+            "category": "Sexual Content",
+            "similarity": 0.3098
+          },
+          {
+            "kind": "tag",
+            "id": "primarily adult cast",
+            "name": "Primarily Adult Cast",
+            "description": "Main cast is mostly composed of characters above a high school age.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.298
+          },
+          {
+            "kind": "tag",
+            "id": "primarily child cast",
+            "name": "Primarily Child Cast",
+            "description": "Main cast is mostly composed of characters below a high school age.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.2761
+          },
+          {
+            "kind": "tag",
+            "id": "primarily teen cast",
+            "name": "Primarily Teen Cast",
+            "description": "Main cast is mostly composed of teen characters.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.2701
+          },
+          {
+            "kind": "tag",
+            "id": "pov",
+            "name": "POV",
+            "description": "Point of View; features scenes shown from the perspective of the series protagonist.",
+            "category": "Technical",
+            "similarity": 0.2586
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "episodes",
+            "operator": "lte",
+            "value": "12"
+          },
+          {
+            "field": "format",
+            "operator": "eq",
+            "value": "TV"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.001741,
+      "arguments": {
+        "filters": [
+          {
+            "field": "episodes",
+            "operator": "lte",
+            "value": "12"
+          },
+          {
+            "field": "format",
+            "operator": "eq",
+            "value": "TV"
+          }
+        ]
+      },
+      "cached": true,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "episodes",
+              "operator": "lte",
+              "value": "12"
+            },
+            {
+              "field": "format",
+              "operator": "eq",
+              "value": "TV"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [
+            "The exact requirement 'regular TV anime' is assessed semantically from descriptions, not verified by a catalog category."
+          ],
+          "mappings": [
+            {
+              "field": "episodes",
+              "operator": "lte",
+              "value": "12",
+              "source_text": "Episode",
+              "mapping": "exact"
+            },
+            {
+              "field": "format",
+              "operator": "eq",
+              "value": "TV",
+              "source_text": "Give me five regular TV anime I could finish within twelve episodes each. Name the specific season if needed.",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "142329",
+            "title": "Demon Slayer: Kimetsu no Yaiba Entertainment District Arc",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+            "preference_similarity": 0.4776
+          },
+          {
+            "id": "145139",
+            "title": "Demon Slayer: Kimetsu no Yaiba Swordsmith Village Arc",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+            "preference_similarity": 0.4641
+          },
+          {
+            "id": "19815",
+            "title": "No Game, No Life",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+            "preference_similarity": 0.4168
+          },
+          {
+            "id": "108465",
+            "title": "Mushoku Tensei: Jobless Reincarnation",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+            "preference_similarity": 0.4115
+          },
+          {
+            "id": "129874",
+            "title": "Demon Slayer: Kimetsu no Yaiba Mugen Train Arc",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+            "preference_similarity": 0.4015
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000652
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "episodes",
+              "operator": "lte",
+              "value": "12"
+            },
+            {
+              "field": "format",
+              "operator": "eq",
+              "value": "TV"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "episodes",
+                "operator": "lte",
+                "value": "12"
+              },
+              {
+                "field": "format",
+                "operator": "eq",
+                "value": "TV"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [
+              "The exact requirement 'regular TV anime' is assessed semantically from descriptions, not verified by a catalog category."
+            ],
+            "mappings": [
+              {
+                "field": "episodes",
+                "operator": "lte",
+                "value": "12",
+                "source_text": "Episode",
+                "mapping": "exact"
+              },
+              {
+                "field": "format",
+                "operator": "eq",
+                "value": "TV",
+                "source_text": "Give me five regular TV anime I could finish within twelve episodes each. Name the specific season if needed.",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "142329",
+              "title": "Demon Slayer: Kimetsu no Yaiba Entertainment District Arc",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+              "preference_similarity": 0.4776
+            },
+            {
+              "id": "145139",
+              "title": "Demon Slayer: Kimetsu no Yaiba Swordsmith Village Arc",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+              "preference_similarity": 0.4641
+            },
+            {
+              "id": "19815",
+              "title": "No Game, No Life",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+              "preference_similarity": 0.4168
+            },
+            {
+              "id": "108465",
+              "title": "Mushoku Tensei: Jobless Reincarnation",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+              "preference_similarity": 0.4115
+            },
+            {
+              "id": "129874",
+              "title": "Demon Slayer: Kimetsu no Yaiba Mugen Train Arc",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+              "preference_similarity": 0.4015
+            }
+          ]
+        },
+        "elapsed_seconds": 0.258939
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "regular TV anime"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "voyeur",
+              "name": "Voyeur",
+              "description": "Features a character who enjoys seeing the sex acts or sex organs of others.",
+              "category": "Sexual Content",
+              "similarity": 0.3098
+            },
+            {
+              "kind": "tag",
+              "id": "primarily adult cast",
+              "name": "Primarily Adult Cast",
+              "description": "Main cast is mostly composed of characters above a high school age.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.298
+            },
+            {
+              "kind": "tag",
+              "id": "primarily child cast",
+              "name": "Primarily Child Cast",
+              "description": "Main cast is mostly composed of characters below a high school age.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.2761
+            },
+            {
+              "kind": "tag",
+              "id": "primarily teen cast",
+              "name": "Primarily Teen Cast",
+              "description": "Main cast is mostly composed of teen characters.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.2701
+            },
+            {
+              "kind": "tag",
+              "id": "pov",
+              "name": "POV",
+              "description": "Point of View; features scenes shown from the perspective of the series protagonist.",
+              "category": "Technical",
+              "similarity": 0.2586
+            }
+          ]
+        },
+        "elapsed_seconds": 0.010323
+      },
+      {
+        "step": 2,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "episodes",
+              "operator": "lte",
+              "value": "12"
+            },
+            {
+              "field": "format",
+              "operator": "eq",
+              "value": "TV"
+            }
+          ]
+        },
+        "cached": true,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "episodes",
+                "operator": "lte",
+                "value": "12"
+              },
+              {
+                "field": "format",
+                "operator": "eq",
+                "value": "TV"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [
+              "The exact requirement 'regular TV anime' is assessed semantically from descriptions, not verified by a catalog category."
+            ],
+            "mappings": [
+              {
+                "field": "episodes",
+                "operator": "lte",
+                "value": "12",
+                "source_text": "Episode",
+                "mapping": "exact"
+              },
+              {
+                "field": "format",
+                "operator": "eq",
+                "value": "TV",
+                "source_text": "Give me five regular TV anime I could finish within twelve episodes each. Name the specific season if needed.",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "142329",
+              "title": "Demon Slayer: Kimetsu no Yaiba Entertainment District Arc",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+              "preference_similarity": 0.4776
+            },
+            {
+              "id": "145139",
+              "title": "Demon Slayer: Kimetsu no Yaiba Swordsmith Village Arc",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+              "preference_similarity": 0.4641
+            },
+            {
+              "id": "19815",
+              "title": "No Game, No Life",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+              "preference_similarity": 0.4168
+            },
+            {
+              "id": "108465",
+              "title": "Mushoku Tensei: Jobless Reincarnation",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+              "preference_similarity": 0.4115
+            },
+            {
+              "id": "129874",
+              "title": "Demon Slayer: Kimetsu no Yaiba Mugen Train Arc",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+              "preference_similarity": 0.4015
+            }
+          ]
+        },
+        "elapsed_seconds": 0.001741
+      }
+    ],
+    "llm_calls": 7,
+    "planned_tools": 3,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 13.363979,
+      "prepare_context": 0.009133,
+      "retrieve_guides": 0.033457,
+      "feature_candidates": 0.012562,
+      "planning": 8.599329,
+      "tools": 0.271003,
+      "generate_answer": 0.000652
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"regular TV anime\", \"query\": \"regular TV anime\", \"kind\": \"genre\", \"role\": \"required\", \"meaning\": \"Type of anime\"}, {\"text\": \"within twelve episodes each\", \"query\": \"12 episodes\", \"kind\": \"character\", \"role\": \"subject\", \"meaning\": \"Episode length\"}, {\"text\": \"season\", \"query\": \"season\", \"kind\": \"character\", \"role\": \"subject\", \"meaning\": \"Season qualifier\"}]}",
+      "{\"min\": null, \"max\": 12}",
+      "{\"applies\": true, \"operator\": \"eq\", \"value\": \"TV\"}",
+      "{\"choice\": 1, \"role\": \"required\", \"operator\": \"eq\", \"value\": \"Attack on Titan\", \"mapping\": \"exact\"}",
+      "{\"role\": \"required\"}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "regular TV anime",
+        "query": "regular TV anime",
+        "kind": "genre",
+        "role": "required",
+        "meaning": "Type of anime"
+      },
+      {
+        "text": "within twelve episodes each",
+        "query": "12 episodes",
+        "kind": "character",
+        "role": "subject",
+        "meaning": "Episode length"
+      },
+      {
+        "text": "season",
+        "query": "season",
+        "kind": "character",
+        "role": "subject",
+        "meaning": "Season qualifier"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify the anime titles you would like recommendations for.\", \"decisions\": {\"p0\": {\"meaning\": \"regular TV anime\", \"role\": \"required\", \"selection\": \"unmapped description\"}, \"p1\": {\"meaning\": \"within twelve episodes each\", \"role\": \"subject\", \"selection\": \"Episode | character:42363\"}, \"p2\": {\"meaning\": \"season\", \"role\": \"subject\", \"selection\": \"Shiyi | character:332382\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "regular TV anime",
+          "name": "",
+          "meaning": "regular TV anime"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "character",
+          "id": "42363",
+          "role": "subject",
+          "text": "within twelve episodes each",
+          "name": "Episode",
+          "meaning": "within twelve episodes each"
+        },
+        {
+          "phrase_index": 2,
+          "kind": "character",
+          "id": "332382",
+          "role": "subject",
+          "text": "season",
+          "name": "Shiyi",
+          "meaning": "season"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 1,
+          "kind": "character",
+          "id": "42363",
+          "role": "subject",
+          "text": "within twelve episodes each",
+          "name": "Episode",
+          "meaning": "within twelve episodes each"
+        },
+        {
+          "phrase_index": 2,
+          "kind": "character",
+          "id": "332382",
+          "role": "subject",
+          "text": "season",
+          "name": "Shiyi",
+          "meaning": "season"
+        }
+      ],
+      "clarification": ""
+    },
+    "attribute_retrieval": {
+      "episodes": {
+        "sources": [
+          "Give me five regular TV anime I could finish within twelve episodes each. Name the specific season if needed.",
+          "Episode",
+          "episodes"
+        ],
+        "interpretations": [
+          "brief",
+          "range",
+          "range"
+        ]
+      }
+    },
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Episode",
+        "Shiyi"
+      ],
+      "required": [
+        "regular TV anime"
+      ],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Shiyi"
+      ],
+      "filters": [
+        {
+          "field": "episodes",
+          "operator": "lte",
+          "value": "12"
+        },
+        {
+          "field": "format",
+          "operator": "eq",
+          "value": "TV"
+        }
+      ],
+      "soft_query": "regular TV anime",
+      "limitations": [
+        "The exact requirement 'regular TV anime' is assessed semantically from descriptions, not verified by a catalog category."
+      ],
+      "mappings": [
+        {
+          "field": "episodes",
+          "operator": "lte",
+          "value": "12",
+          "source_text": "Episode",
+          "mapping": "exact"
+        },
+        {
+          "field": "format",
+          "operator": "eq",
+          "value": "TV",
+          "source_text": "Give me five regular TV anime I could finish within twelve episodes each. Name the specific season if needed.",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "regular TV anime",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "exact"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "regular TV anime",
+            "name": "",
+            "meaning": "regular TV anime"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "character",
+            "id": "42363",
+            "role": "subject",
+            "text": "within twelve episodes each",
+            "name": "Episode",
+            "meaning": "within twelve episodes each"
+          },
+          {
+            "phrase_index": 2,
+            "kind": "character",
+            "id": "332382",
+            "role": "subject",
+            "text": "season",
+            "name": "Shiyi",
+            "meaning": "season"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 1,
+            "kind": "character",
+            "id": "42363",
+            "role": "subject",
+            "text": "within twelve episodes each",
+            "name": "Episode",
+            "meaning": "within twelve episodes each"
+          },
+          {
+            "phrase_index": 2,
+            "kind": "character",
+            "id": "332382",
+            "role": "subject",
+            "text": "season",
+            "name": "Shiyi",
+            "meaning": "season"
+          }
+        ],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "Recommend five regular TV anime with a maximum of 12 episodes.",
+      "clarification": "The user wants regular TV anime with a maximum episode count of 12. They also request the specific season name if available.",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "episodes",
+                "operator": "lte",
+                "value": "12"
+              },
+              {
+                "field": "format",
+                "operator": "eq",
+                "value": "TV"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "regular TV anime"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "episodes",
+                "operator": "lte",
+                "value": "12"
+              },
+              {
+                "field": "format",
+                "operator": "eq",
+                "value": "TV"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

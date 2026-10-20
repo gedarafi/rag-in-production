@@ -1,0 +1,1040 @@
+{
+  "question_id": "comfort_exclusion_03",
+  "category": "tag_exclusions",
+  "intent_family": "comfort_exclusion",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "What are five calm everyday-life anime for a rough week? I do not want the story to turn into a tragedy.",
+  "k": 5,
+  "constraints": [
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Iyashikei"
+      ],
+      "alternatives": [
+        {
+          "reason": "Gentle everyday-life viewing can be supported by Slice of Life plus domestic/rural/cute-girl daily-life themes, with no strong tragic theme. Slice of Life alone is insufficient.",
+          "constraints": [
+            {
+              "field": "genres",
+              "op": "any",
+              "value": [
+                "Slice of Life"
+              ]
+            },
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Cute Girls Doing Cute Things",
+                "Family Life",
+                "Rural"
+              ]
+            },
+            {
+              "field": "tags",
+              "op": "none",
+              "value": [
+                "Tragedy"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "field": "tags",
+      "op": "none",
+      "value": [
+        "Tragedy"
+      ]
+    }
+  ],
+  "label_rationale": "Iyashikei is required; a Tragedy rank of 50 or higher violates the exclusion. Missing tags only mean no catalog evidence.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 844,
+  "reference_examples": [
+    {
+      "id": "10162",
+      "title": "Bunny Drop"
+    },
+    {
+      "id": "103048",
+      "title": "Re:Stage! Dream Days"
+    },
+    {
+      "id": "10379",
+      "title": "Natsume's Book of Friends Season 3"
+    }
+  ],
+  "answer_text": "Catalog matches — excluding Tragedy. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **Kakegurui** — During daylight hours, an exclusive, elite private school prepares its illustrious students for careers in business, politics, and high society. But when darkness falls, the halls of this esteemed establishment transform into an underground gambling den where bright-eyed youngsters learn the timeless art of bluffing, backdoor dealings and social manipulation. In this school for the rich and elite, money is power, and the tyrant of the betting…\n\n2. **Classroom of the Elite** — Koudo Ikusei Senior High School is a leading school with state-of-the-art facilities. The students there have the freedom to wear any hairstyle and bring any personal effects they desire. Koudo Ikusei is like a utopia, but the truth is that only the most superior students receive favorable treatment. Kiyotaka Ayanokouji is a student of D-class, which is where the school dumps its \"inferior\" students in order to ridicule them. For a certain…\n\n3. **Mob Psycho 100** — The story revolves around \"Mob,\" a boy who will explode if his emotional capacity reaches 100%. This boy with psychic powers earned his nickname \"Mob\" because he does not stand out among other people. He keeps his psychic powers bottled up so he can live normally, but if his emotional level reaches 100, something will overwhelm his entire body. (Source: Anime News Network)\n\n4. **Dr. STONE** — After five years of harboring unspoken feelings, high-schooler Taiju Ooki is finally ready to confess his love to Yuzuriha Ogawa. Just when Taiju begins his confession however, a blinding green light strikes the Earth and petrifies mankind around the world— turning every single human into stone. Several millennia later, Taiju awakens to find the modern world completely nonexistent, as nature has flourished in the years humanity stood still.…\n\n5. **My Hero Academia** — What would the world be like if 80 percent of the population manifested extraordinary superpowers called “Quirks” at age four? Heroes and villains would be battling it out everywhere! Becoming a hero would mean learning to use your power, but where would you go to study? U.A. High's Hero Program of course! But what would you do if you were one of the 20 percent who were born Quirkless? Middle school student Izuku Midoriya wants to be a hero more…\n\nExcluded labels are absent from these catalog records; this does not guarantee that every scene avoids the theme or setting.",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Kakegurui",
+      "Classroom of the Elite",
+      "Mob Psycho 100",
+      "Dr. STONE",
+      "My Hero Academia"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Kakegurui",
+      "anime_id": null,
+      "canonical_title": null,
+      "resolution": "ambiguous",
+      "candidate_ids": [
+        "100876",
+        "98314"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        0.0
+      ],
+      "constraint_evidence": [],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Classroom of the Elite",
+      "anime_id": "98659",
+      "canonical_title": "Classroom of the Elite",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "98659"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Gentle everyday-life viewing can be supported by Slice of Life plus domestic/rural/cute-girl daily-life themes, with no strong tragic theme. Slice of Life alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Slice of Life"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cute Girls Doing Cute Things",
+                      "Family Life",
+                      "Rural"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "none",
+                    "value": [
+                      "Tragedy"
+                    ]
+                  },
+                  "score": 1.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.5,
+      "gain": 0.5,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Mob Psycho 100",
+      "anime_id": "21507",
+      "canonical_title": "Mob Psycho 100",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21507"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.5,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.5,
+          "met": true,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "alternative_1",
+          "graded_path": "alternative_1",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Gentle everyday-life viewing can be supported by Slice of Life plus domestic/rural/cute-girl daily-life themes, with no strong tragic theme. Slice of Life alone is insufficient.",
+              "score": 0.5,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Slice of Life"
+                    ]
+                  },
+                  "score": 1.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cute Girls Doing Cute Things",
+                      "Family Life",
+                      "Rural"
+                    ]
+                  },
+                  "score": 0.5
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "none",
+                    "value": [
+                      "Tragedy"
+                    ]
+                  },
+                  "score": 1.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.75,
+      "gain": 0.75,
+      "strict_match": 1,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Dr. STONE",
+      "anime_id": "105333",
+      "canonical_title": "Dr. STONE",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "105333"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Gentle everyday-life viewing can be supported by Slice of Life plus domestic/rural/cute-girl daily-life themes, with no strong tragic theme. Slice of Life alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Slice of Life"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cute Girls Doing Cute Things",
+                      "Family Life",
+                      "Rural"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "none",
+                    "value": [
+                      "Tragedy"
+                    ]
+                  },
+                  "score": 1.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.5,
+      "gain": 0.5,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 5,
+      "extracted_title": "My Hero Academia",
+      "anime_id": "21459",
+      "canonical_title": "My Hero Academia",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21459"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Gentle everyday-life viewing can be supported by Slice of Life plus domestic/rural/cute-girl daily-life themes, with no strong tragic theme. Slice of Life alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Slice of Life"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cute Girls Doing Cute Things",
+                      "Family Life",
+                      "Rural"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "none",
+                    "value": [
+                      "Tragedy"
+                    ]
+                  },
+                  "score": 1.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.5,
+      "gain": 0.5,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.2,
+    "graded_fit_at_k": 0.45,
+    "ndcg_at_k": 0.37281492302239394,
+    "constraint_coverage": 1.0,
+    "count_compliance": 1,
+    "resolution_rate": 0.8,
+    "duplicate_rate": 0.0,
+    "extra_count": 0,
+    "literal_precision_at_k": 0.0,
+    "semantic_credit_at_k": 0.2
+  },
+  "model_seconds": 9.9091858339998,
+  "extraction_seconds": 1.7122538330004318,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.1e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000686
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.688877
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.002229
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.011778
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013636
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.270164
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_five_calm_anime",
+        "clarification": "What are five calm everyday-life anime for a rough week? I do not want the story to turn into a tragedy.",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "calm everyday-life anime",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "tags",
+                  "operator": "ne",
+                  "value": "Tragedy"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "calm everyday-life anime",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.036984,
+      "arguments": {
+        "query": "calm everyday-life anime",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "iyashikei",
+            "name": "Iyashikei",
+            "description": "Primary aim is to heal the audience through serene depictions of characters' daily lives.",
+            "category": "Theme-Slice of Life",
+            "similarity": 0.4197
+          },
+          {
+            "kind": "tag",
+            "id": "survival",
+            "name": "Survival",
+            "description": "Centers around the struggle to live in spite of extreme obstacles.",
+            "category": "Theme-Other",
+            "similarity": 0.3873
+          },
+          {
+            "kind": "tag",
+            "id": "environmental",
+            "name": "Environmental",
+            "description": "Concern with the state of the natural world and how humans interact with it.",
+            "category": "Theme-Other",
+            "similarity": 0.3221
+          },
+          {
+            "kind": "tag",
+            "id": "family life",
+            "name": "Family Life",
+            "description": "Centers around the activities of a family unit.",
+            "category": "Theme-Slice of Life",
+            "similarity": 0.317
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "ne",
+            "value": "Tragedy"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.882302,
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "ne",
+            "value": "Tragedy"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "tags",
+              "operator": "ne",
+              "value": "Tragedy"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "tags",
+              "operator": "ne",
+              "value": "Tragedy",
+              "source_text": "What are five calm everyday-life anime for a rough week? I do not want the story to turn into a tragedy.",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "98314",
+            "title": "Kakegurui",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'ne', 'value': 'Tragedy'}]",
+            "preference_similarity": 0.1279
+          },
+          {
+            "id": "98659",
+            "title": "Classroom of the Elite",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'ne', 'value': 'Tragedy'}]",
+            "preference_similarity": 0.1239
+          },
+          {
+            "id": "21507",
+            "title": "Mob Psycho 100",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'ne', 'value': 'Tragedy'}]",
+            "preference_similarity": 0.122
+          },
+          {
+            "id": "105333",
+            "title": "Dr. STONE",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'ne', 'value': 'Tragedy'}]",
+            "preference_similarity": 0.121
+          },
+          {
+            "id": "21459",
+            "title": "My Hero Academia",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'ne', 'value': 'Tragedy'}]",
+            "preference_similarity": 0.1199
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000453
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "calm everyday-life anime",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "iyashikei",
+              "name": "Iyashikei",
+              "description": "Primary aim is to heal the audience through serene depictions of characters' daily lives.",
+              "category": "Theme-Slice of Life",
+              "similarity": 0.4197
+            },
+            {
+              "kind": "tag",
+              "id": "survival",
+              "name": "Survival",
+              "description": "Centers around the struggle to live in spite of extreme obstacles.",
+              "category": "Theme-Other",
+              "similarity": 0.3873
+            },
+            {
+              "kind": "tag",
+              "id": "environmental",
+              "name": "Environmental",
+              "description": "Concern with the state of the natural world and how humans interact with it.",
+              "category": "Theme-Other",
+              "similarity": 0.3221
+            },
+            {
+              "kind": "tag",
+              "id": "family life",
+              "name": "Family Life",
+              "description": "Centers around the activities of a family unit.",
+              "category": "Theme-Slice of Life",
+              "similarity": 0.317
+            }
+          ]
+        },
+        "elapsed_seconds": 0.036984
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "tags",
+              "operator": "ne",
+              "value": "Tragedy"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "tags",
+                "operator": "ne",
+                "value": "Tragedy"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "tags",
+                "operator": "ne",
+                "value": "Tragedy",
+                "source_text": "What are five calm everyday-life anime for a rough week? I do not want the story to turn into a tragedy.",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "98314",
+              "title": "Kakegurui",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'ne', 'value': 'Tragedy'}]",
+              "preference_similarity": 0.1279
+            },
+            {
+              "id": "98659",
+              "title": "Classroom of the Elite",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'ne', 'value': 'Tragedy'}]",
+              "preference_similarity": 0.1239
+            },
+            {
+              "id": "21507",
+              "title": "Mob Psycho 100",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'ne', 'value': 'Tragedy'}]",
+              "preference_similarity": 0.122
+            },
+            {
+              "id": "105333",
+              "title": "Dr. STONE",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'ne', 'value': 'Tragedy'}]",
+              "preference_similarity": 0.121
+            },
+            {
+              "id": "21459",
+              "title": "My Hero Academia",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'ne', 'value': 'Tragedy'}]",
+              "preference_similarity": 0.1199
+            }
+          ]
+        },
+        "elapsed_seconds": 0.882302
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 4.688877,
+      "prepare_context": 0.002229,
+      "retrieve_guides": 0.011778,
+      "feature_candidates": 0.013636,
+      "planning": 4.270164,
+      "tools": 0.919286,
+      "generate_answer": 0.000453
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"calm\", \"query\": \"calm\", \"kind\": \"tag\", \"role\": \"preferred\", \"meaning\": \"Preferred genre\"}]}",
+      "{\n  \"role\": \"excluded\"\n}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "calm",
+        "query": "calm",
+        "kind": "tag",
+        "role": "preferred",
+        "meaning": "Preferred genre"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Relaxing anime\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "calm",
+          "name": "",
+          "meaning": "Relaxing anime"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [],
+      "preferred": [
+        "calm"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "tags",
+          "operator": "ne",
+          "value": "Tragedy"
+        }
+      ],
+      "soft_query": "calm",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "tags",
+          "operator": "ne",
+          "value": "Tragedy",
+          "source_text": "What are five calm everyday-life anime for a rough week? I do not want the story to turn into a tragedy.",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "calm",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        },
+        {
+          "phrase": "Tragedy",
+          "candidate": {
+            "field": "tags",
+            "value": "Tragedy",
+            "meaning": "Tragedy"
+          },
+          "role": "excluded",
+          "mapping": "exact"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "calm",
+            "name": "",
+            "meaning": "Relaxing anime"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_five_calm_anime",
+      "clarification": "What are five calm everyday-life anime for a rough week? I do not want the story to turn into a tragedy.",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "calm everyday-life anime",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "tags",
+                "operator": "ne",
+                "value": "Tragedy"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

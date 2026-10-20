@@ -1,0 +1,937 @@
+{
+  "question_id": "tv_02",
+  "category": "formats",
+  "intent_family": "tv",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "What are four regular television anime series I could follow episode by episode?",
+  "k": 4,
+  "constraints": [
+    {
+      "field": "format",
+      "op": "any",
+      "value": [
+        "TV"
+      ]
+    }
+  ],
+  "label_rationale": "TV format only; web-only series and TV_SHORT are different catalog formats.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 4555,
+  "reference_examples": [
+    {
+      "id": "1",
+      "title": "Cowboy Bebop"
+    },
+    {
+      "id": "100",
+      "title": "Prétear: The New Legend of Snow White"
+    },
+    {
+      "id": "1000",
+      "title": "Captain Harlock Space Pirate"
+    }
+  ],
+  "answer_text": "Catalog matches — episode count: over 1; episode count: at most 120; format: TV. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **No Game, No Life** (12 episodes) — Bored with life and considering the real world to be just a “crappy game,” savvy sibling shut-ins Sora and Shiro have withdrawn into their own fantasy world filled with video games. However, one day they find themselves summoned to another world by a boy who calls himself “God,” their abilities are about to be put to the ultimate test! Now not only their fates — but the fate of all of humanity — will be decided by a series of games that may just…\n\n2. **Demon Slayer: Kimetsu no Yaiba** (26 episodes) — It is the Taisho Period in Japan. Tanjiro, a kindhearted boy who sells charcoal for a living, finds his family slaughtered by a demon. To make matters worse, his younger sister Nezuko, the sole survivor, has been transformed into a demon herself. Though devastated by this grim reality, Tanjiro resolves to become a “demon slayer” so that he can turn his sister back into a human, and kill the demon that massacred his family. (Source: Crunchyroll)\n\n3. **Re:ZERO -Starting Life in Another World-** (25 episodes) — In the story, Subaru Natsuki is an ordinary high school student who is lost in an alternate world, where he is rescued by a beautiful, silver-haired girl. He stays near her to return the favor, but the destiny she is burdened with is more than Subaru can imagine. Enemies attack one by one, and both of them are killed. He then finds out he has the power to rewind death, back to the time he first came to this world. But only he remembers what has…\n\n4. **Attack on Titan Season 2** (12 episodes) — Eren Jaeger swore to wipe out every last Titan, but in a battle for his life he wound up becoming the thing he hates most. With his new powers, he fights for humanity's freedom facing the monsters that threaten his home. After a bittersweet victory against the Female Titan, Eren finds no time to rest—a horde of Titans is approaching Wall Rose and the battle for humanity continues! (Source: Funimation)\n\n5. **Attack on Titan Season 3 Part 2** (10 episodes) — The battle to retake Wall Maria begins now! With Eren’s new hardening ability, the Scouts are confident they can seal the wall and take back Shiganshina District. If they succeed, Eren can finally unlock the secrets of the basement—and the world. But danger lies in wait as Reiner, Bertholdt, and the Beast Titan have plans of their own. Could this be humanity’s final battle for survival? (Source: Funimation)\n\nThe exact requirement 'regular television anime series' is assessed semantically from descriptions, not verified by a catalog category.",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "No Game, No Life",
+      "Demon Slayer: Kimetsu no Yaiba",
+      "Re:ZERO -Starting Life in Another World-",
+      "Attack on Titan Season 2",
+      "Attack on Titan Season 3 Part 2"
+    ],
+    "unclear": false,
+    "note": "catalog matches — episode count: over 1; episode count: at most 120; format: TV. Ranked by your stated preferences; mood and tone are approximate matches.",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "No Game, No Life",
+      "anime_id": "19815",
+      "canonical_title": "No Game, No Life",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "19815"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Demon Slayer: Kimetsu no Yaiba",
+      "anime_id": "101922",
+      "canonical_title": "Demon Slayer: Kimetsu no Yaiba",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "101922"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Re:ZERO -Starting Life in Another World-",
+      "anime_id": "21355",
+      "canonical_title": "Re:ZERO -Starting Life in Another World-",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21355"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Attack on Titan Season 2",
+      "anime_id": "20958",
+      "canonical_title": "Attack on Titan Season 2",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20958"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Attack on Titan Season 3 Part 2",
+      "anime_id": "104578",
+      "canonical_title": "Attack on Titan Season 3 Part 2",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "104578"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 1.0,
+    "graded_fit_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "constraint_coverage": 1.0,
+    "count_compliance": 0,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "extra_count": 1,
+    "literal_precision_at_k": 1.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 16.427071375000196,
+  "extraction_seconds": 2.1419848749992525,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000916
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 9.400833
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.002596
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.036304
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.012038
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.705294
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "regular television anime series"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "episodes",
+                  "operator": "gt",
+                  "value": "1"
+                },
+                {
+                  "field": "episodes",
+                  "operator": "lte",
+                  "value": "120"
+                },
+                {
+                  "field": "format",
+                  "operator": "eq",
+                  "value": "TV"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "regular television anime series"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.036464,
+      "arguments": {
+        "query": "regular television anime series"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "pov",
+            "name": "POV",
+            "description": "Point of View; features scenes shown from the perspective of the series protagonist.",
+            "category": "Technical",
+            "similarity": 0.4232
+          },
+          {
+            "kind": "tag",
+            "id": "kingdom management",
+            "name": "Kingdom Management",
+            "description": "Characters in these series take on the responsibility of running a town or kingdom, whether they take control of an existing one, or build their own from the ground up.",
+            "category": "Theme-Drama",
+            "similarity": 0.4006
+          },
+          {
+            "kind": "tag",
+            "id": "primarily teen cast",
+            "name": "Primarily Teen Cast",
+            "description": "Main cast is mostly composed of teen characters.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.3743
+          },
+          {
+            "kind": "tag",
+            "id": "primarily adult cast",
+            "name": "Primarily Adult Cast",
+            "description": "Main cast is mostly composed of characters above a high school age.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.3691
+          },
+          {
+            "kind": "tag",
+            "id": "alternate universe",
+            "name": "Alternate Universe",
+            "description": "Features multiple alternate universes in the same series.",
+            "category": "Setting-Universe",
+            "similarity": 0.362
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "episodes",
+            "operator": "gt",
+            "value": "1"
+          },
+          {
+            "field": "episodes",
+            "operator": "lte",
+            "value": "120"
+          },
+          {
+            "field": "format",
+            "operator": "eq",
+            "value": "TV"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.230142,
+      "arguments": {
+        "filters": [
+          {
+            "field": "episodes",
+            "operator": "gt",
+            "value": "1"
+          },
+          {
+            "field": "episodes",
+            "operator": "lte",
+            "value": "120"
+          },
+          {
+            "field": "format",
+            "operator": "eq",
+            "value": "TV"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "episodes",
+              "operator": "gt",
+              "value": "1"
+            },
+            {
+              "field": "episodes",
+              "operator": "lte",
+              "value": "120"
+            },
+            {
+              "field": "format",
+              "operator": "eq",
+              "value": "TV"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [
+            "The exact requirement 'regular television anime series' is assessed semantically from descriptions, not verified by a catalog category."
+          ],
+          "mappings": [
+            {
+              "field": "episodes",
+              "operator": "gt",
+              "value": "1",
+              "source_text": "series",
+              "mapping": "exact"
+            },
+            {
+              "field": "episodes",
+              "operator": "lte",
+              "value": "120",
+              "source_text": "series",
+              "mapping": "exact"
+            },
+            {
+              "field": "format",
+              "operator": "eq",
+              "value": "TV",
+              "source_text": "What are four regular television anime series I could follow episode by episode?",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "19815",
+            "title": "No Game, No Life",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gt', 'value': '1'}, {'field': 'episodes', 'operator': 'lte', 'value': '120'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+            "preference_similarity": 0.4283
+          },
+          {
+            "id": "101922",
+            "title": "Demon Slayer: Kimetsu no Yaiba",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gt', 'value': '1'}, {'field': 'episodes', 'operator': 'lte', 'value': '120'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+            "preference_similarity": 0.3976
+          },
+          {
+            "id": "21355",
+            "title": "Re:ZERO -Starting Life in Another World-",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gt', 'value': '1'}, {'field': 'episodes', 'operator': 'lte', 'value': '120'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+            "preference_similarity": 0.3752
+          },
+          {
+            "id": "20958",
+            "title": "Attack on Titan Season 2",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gt', 'value': '1'}, {'field': 'episodes', 'operator': 'lte', 'value': '120'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+            "preference_similarity": 0.3717
+          },
+          {
+            "id": "104578",
+            "title": "Attack on Titan Season 3 Part 2",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gt', 'value': '1'}, {'field': 'episodes', 'operator': 'lte', 'value': '120'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+            "preference_similarity": 0.3683
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000409
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "regular television anime series"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "pov",
+              "name": "POV",
+              "description": "Point of View; features scenes shown from the perspective of the series protagonist.",
+              "category": "Technical",
+              "similarity": 0.4232
+            },
+            {
+              "kind": "tag",
+              "id": "kingdom management",
+              "name": "Kingdom Management",
+              "description": "Characters in these series take on the responsibility of running a town or kingdom, whether they take control of an existing one, or build their own from the ground up.",
+              "category": "Theme-Drama",
+              "similarity": 0.4006
+            },
+            {
+              "kind": "tag",
+              "id": "primarily teen cast",
+              "name": "Primarily Teen Cast",
+              "description": "Main cast is mostly composed of teen characters.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.3743
+            },
+            {
+              "kind": "tag",
+              "id": "primarily adult cast",
+              "name": "Primarily Adult Cast",
+              "description": "Main cast is mostly composed of characters above a high school age.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.3691
+            },
+            {
+              "kind": "tag",
+              "id": "alternate universe",
+              "name": "Alternate Universe",
+              "description": "Features multiple alternate universes in the same series.",
+              "category": "Setting-Universe",
+              "similarity": 0.362
+            }
+          ]
+        },
+        "elapsed_seconds": 0.036464
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "episodes",
+              "operator": "gt",
+              "value": "1"
+            },
+            {
+              "field": "episodes",
+              "operator": "lte",
+              "value": "120"
+            },
+            {
+              "field": "format",
+              "operator": "eq",
+              "value": "TV"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "episodes",
+                "operator": "gt",
+                "value": "1"
+              },
+              {
+                "field": "episodes",
+                "operator": "lte",
+                "value": "120"
+              },
+              {
+                "field": "format",
+                "operator": "eq",
+                "value": "TV"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [
+              "The exact requirement 'regular television anime series' is assessed semantically from descriptions, not verified by a catalog category."
+            ],
+            "mappings": [
+              {
+                "field": "episodes",
+                "operator": "gt",
+                "value": "1",
+                "source_text": "series",
+                "mapping": "exact"
+              },
+              {
+                "field": "episodes",
+                "operator": "lte",
+                "value": "120",
+                "source_text": "series",
+                "mapping": "exact"
+              },
+              {
+                "field": "format",
+                "operator": "eq",
+                "value": "TV",
+                "source_text": "What are four regular television anime series I could follow episode by episode?",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "19815",
+              "title": "No Game, No Life",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gt', 'value': '1'}, {'field': 'episodes', 'operator': 'lte', 'value': '120'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+              "preference_similarity": 0.4283
+            },
+            {
+              "id": "101922",
+              "title": "Demon Slayer: Kimetsu no Yaiba",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gt', 'value': '1'}, {'field': 'episodes', 'operator': 'lte', 'value': '120'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+              "preference_similarity": 0.3976
+            },
+            {
+              "id": "21355",
+              "title": "Re:ZERO -Starting Life in Another World-",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gt', 'value': '1'}, {'field': 'episodes', 'operator': 'lte', 'value': '120'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+              "preference_similarity": 0.3752
+            },
+            {
+              "id": "20958",
+              "title": "Attack on Titan Season 2",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gt', 'value': '1'}, {'field': 'episodes', 'operator': 'lte', 'value': '120'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+              "preference_similarity": 0.3717
+            },
+            {
+              "id": "104578",
+              "title": "Attack on Titan Season 3 Part 2",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gt', 'value': '1'}, {'field': 'episodes', 'operator': 'lte', 'value': '120'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]",
+              "preference_similarity": 0.3683
+            }
+          ]
+        },
+        "elapsed_seconds": 0.230142
+      }
+    ],
+    "llm_calls": 7,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 9.400833,
+      "prepare_context": 0.002596,
+      "retrieve_guides": 0.036304,
+      "feature_candidates": 0.012038,
+      "planning": 6.705294,
+      "tools": 0.266606,
+      "generate_answer": 0.000409
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"regular television anime series\", \"query\": \"regular television anime series\", \"kind\": \"genre\", \"role\": \"required\", \"meaning\": \"Desired format\"}]}",
+      "{\"min\": 1, \"max\": 120}",
+      "{\"applies\": true, \"operator\": \"eq\", \"value\": \"TV\"}",
+      "{\"choice\": 1, \"role\": \"required\", \"operator\": \"eq\", \"value\": \"ANIME\", \"mapping\": \"exact\"}",
+      "{\"role\": \"required\"}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "regular television anime series",
+        "query": "regular television anime series",
+        "kind": "genre",
+        "role": "required",
+        "meaning": "Desired format"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify the genres or themes you are interested in for these anime series.\", \"decisions\": {\"p0\": {\"meaning\": \"regular television anime series\", \"role\": \"required\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "regular television anime series",
+          "name": "",
+          "meaning": "regular television anime series"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {
+      "episodes": {
+        "sources": [
+          "What are four regular television anime series I could follow episode by episode?",
+          "series",
+          "episode",
+          "episode?"
+        ],
+        "interpretations": [
+          "brief",
+          "brief",
+          "range",
+          "range"
+        ]
+      }
+    },
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [
+        "regular television anime series"
+      ],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "episodes",
+          "operator": "gt",
+          "value": "1"
+        },
+        {
+          "field": "episodes",
+          "operator": "lte",
+          "value": "120"
+        },
+        {
+          "field": "format",
+          "operator": "eq",
+          "value": "TV"
+        }
+      ],
+      "soft_query": "regular television anime series",
+      "limitations": [
+        "The exact requirement 'regular television anime series' is assessed semantically from descriptions, not verified by a catalog category."
+      ],
+      "mappings": [
+        {
+          "field": "episodes",
+          "operator": "gt",
+          "value": "1",
+          "source_text": "series",
+          "mapping": "exact"
+        },
+        {
+          "field": "episodes",
+          "operator": "lte",
+          "value": "120",
+          "source_text": "series",
+          "mapping": "exact"
+        },
+        {
+          "field": "format",
+          "operator": "eq",
+          "value": "TV",
+          "source_text": "What are four regular television anime series I could follow episode by episode?",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "regular television anime series",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "exact"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "regular television anime series",
+            "name": "",
+            "meaning": "regular television anime series"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "regular television anime series"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "episodes",
+                "operator": "gt",
+                "value": "1"
+              },
+              {
+                "field": "episodes",
+                "operator": "lte",
+                "value": "120"
+              },
+              {
+                "field": "format",
+                "operator": "eq",
+                "value": "TV"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

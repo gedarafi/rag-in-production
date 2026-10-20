@@ -1,0 +1,400 @@
+{
+  "question_id": "hf_159",
+  "anime_id": "1535",
+  "title": "Death Note",
+  "field": "main_characters",
+  "question": "Which Death Note characters have a main role in the catalog?",
+  "expected_values": [
+    "Mihael Keehl",
+    "Nate River",
+    "L Lawliet",
+    "Ryuk",
+    "Light Yagami",
+    "Misa Amane"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "",
+  "extracted_values": [],
+  "status": "model_error",
+  "error": "RuntimeError: No supported recommendations were retrieved. Please rephrase your preferences and retry.",
+  "model_seconds": 13.968436667000788,
+  "extraction_seconds": 0.0,
+  "extraction": null,
+  "metrics": null,
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_character",
+        "arguments": {
+          "id": "80"
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "80",
+          "name": "Light Yagami"
+        },
+        "elapsed_seconds": 0.005755
+      },
+      {
+        "step": 1,
+        "tool": "get_character",
+        "arguments": {
+          "id": "75"
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "75",
+          "name": "Ryuk"
+        },
+        "elapsed_seconds": 0.001532
+      },
+      {
+        "step": 2,
+        "tool": "get_character",
+        "arguments": {
+          "id": "71"
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "71",
+          "name": "L Lawliet"
+        },
+        "elapsed_seconds": 0.001173
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 2.020836,
+      "prepare_context": 0.021929,
+      "retrieve_guides": 0.02695,
+      "feature_candidates": 0.014924,
+      "planning": 4.237563,
+      "tools": 0.00846,
+      "generate_answer": 7.634064
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Death Note\", \"query\": \"Death Note\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Main characters\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Death Note",
+        "query": "Death Note",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Main characters"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Which Death Note characters have a main role in the catalog?\", \"decisions\": {\"p0\": {\"meaning\": \"Main characters of Death Note\", \"role\": \"subject\", \"selection\": \"Death Note | anime:1535\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "1535",
+          "role": "subject",
+          "text": "Death Note",
+          "name": "Death Note",
+          "meaning": "Main characters of Death Note"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "1535",
+          "role": "subject",
+          "text": "Death Note",
+          "name": "Death Note",
+          "meaning": "Main characters of Death Note"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Death Note"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "1535",
+            "role": "subject",
+            "text": "Death Note",
+            "name": "Death Note",
+            "meaning": "Main characters of Death Note"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "1535",
+            "role": "subject",
+            "text": "Death Note",
+            "name": "Death Note",
+            "meaning": "Main characters of Death Note"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "recommend characters with main role in Death Note catalog",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "80"
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "75"
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "71"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "1535",
+          "name": "Death Note"
+        }
+      ],
+      "characters": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 8.5e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001628
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.020836
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.021929
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.02695
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014924
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.237563
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "recommend characters with main role in Death Note catalog",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "80"
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "75"
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "71"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "1535",
+            "name": "Death Note"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_character",
+      "arguments": {
+        "id": "80"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.005755,
+      "arguments": {
+        "id": "80"
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "80",
+        "name": "Light Yagami"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_character",
+      "arguments": {
+        "id": "75"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.001532,
+      "arguments": {
+        "id": "75"
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "75",
+        "name": "Ryuk"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "get_character",
+      "arguments": {
+        "id": "71"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.001173,
+      "arguments": {
+        "id": "71"
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "71",
+        "name": "L Lawliet"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "error",
+      "elapsed_seconds": 7.634064,
+      "error": "No supported recommendations were retrieved. Please rephrase your preferences and retry."
+    }
+  ]
+}

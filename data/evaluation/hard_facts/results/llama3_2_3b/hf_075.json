@@ -1,0 +1,337 @@
+{
+  "question_id": "hf_075",
+  "anime_id": "30",
+  "title": "Neon Genesis Evangelion",
+  "field": "duration",
+  "question": "What's the recorded episode length for Neon Genesis Evangelion?",
+  "expected_values": [
+    24.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "26 episodes",
+  "extracted_values": [
+    "26 minutes"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 8.481834166001136,
+  "extraction_seconds": 0.60211820800032,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "26 minutes",
+        "quote": "26 episodes"
+      }
+    ],
+    "note": "Note: The episode length may vary slightly depending on the source.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "missing_values": [
+      "24"
+    ],
+    "extra_values": [
+      "invalid-number:26 minutes"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "30",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "30",
+          "title": "Neon Genesis Evangelion"
+        },
+        "elapsed_seconds": 0.010728
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 2.015476,
+      "prepare_context": 0.015384,
+      "retrieve_guides": 0.029232,
+      "feature_candidates": 0.013602,
+      "planning": 3.582785,
+      "tools": 0.010728,
+      "generate_answer": 2.811352
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Neon Genesis Evangelion\", \"query\": \"Neon Genesis Evangelion\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Episode length\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Neon Genesis Evangelion",
+        "query": "Neon Genesis Evangelion",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Episode length"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Episode length of Neon Genesis Evangelion\", \"role\": \"subject\", \"selection\": \"Neon Genesis Evangelion | anime:30\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "30",
+          "role": "subject",
+          "text": "Neon Genesis Evangelion",
+          "name": "Neon Genesis Evangelion",
+          "meaning": "Episode length of Neon Genesis Evangelion"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "30",
+          "role": "subject",
+          "text": "Neon Genesis Evangelion",
+          "name": "Neon Genesis Evangelion",
+          "meaning": "Episode length of Neon Genesis Evangelion"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Neon Genesis Evangelion"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "30",
+            "role": "subject",
+            "text": "Neon Genesis Evangelion",
+            "name": "Neon Genesis Evangelion",
+            "meaning": "Episode length of Neon Genesis Evangelion"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "30",
+            "role": "subject",
+            "text": "Neon Genesis Evangelion",
+            "name": "Neon Genesis Evangelion",
+            "meaning": "Episode length of Neon Genesis Evangelion"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "recorded episode length for Neon Genesis Evangelion",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "30",
+            "section": "overview"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "30",
+          "name": "Neon Genesis Evangelion"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:30",
+          "fact": "episodes"
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 9.2e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001823
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.015476
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.015384
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.029232
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013602
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.582785
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "recorded episode length for Neon Genesis Evangelion",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "30",
+              "section": "overview"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "30",
+            "name": "Neon Genesis Evangelion"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "30",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.010728,
+      "arguments": {
+        "id": "30",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "30",
+        "title": "Neon Genesis Evangelion"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 2.811352
+    }
+  ]
+}

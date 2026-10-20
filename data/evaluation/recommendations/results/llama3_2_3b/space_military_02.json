@@ -1,0 +1,940 @@
+{
+  "question_id": "space_military_02",
+  "category": "multiple_tags",
+  "intent_family": "space_military",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "Which four anime follow armed forces fighting beyond Earth?",
+  "k": 4,
+  "constraints": [
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Space"
+      ]
+    },
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Military"
+      ]
+    }
+  ],
+  "label_rationale": "Both space setting and military organization must hold for each recommendation.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 196,
+  "reference_examples": [
+    {
+      "id": "21893",
+      "title": "Mobile Suit Gundam Thunderbolt: December Sky"
+    },
+    {
+      "id": "2002",
+      "title": "Heroic Age"
+    },
+    {
+      "id": "3079",
+      "title": "Blue Comet SPT Layzner"
+    }
+  ],
+  "answer_text": "Catalog matches. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **Attack on Titan Season 3 Part 2** — The battle to retake Wall Maria begins now! With Eren’s new hardening ability, the Scouts are confident they can seal the wall and take back Shiganshina District. If they succeed, Eren can finally unlock the secrets of the basement—and the world. But danger lies in wait as Reiner, Bertholdt, and the Beast Titan have plans of their own. Could this be humanity’s final battle for survival? (Source: Funimation)\n\n2. **Attack on Titan Final Season** — It’s been four years since the Scout Regiment reached the shoreline, and the world looks different now. Things are heating up as the fate of the Scout Regiment—and the people of Paradis—are determined at last. However, Eren is missing. Will he reappear before age-old tensions between Marleyans and Eldians result in the war of all wars? (Source: Crunchyroll)\n\n3. **Naruto: Shippuden** — Naruto: Shippuuden is the continuation of the original animated TV series Naruto. The story revolves around an older and slightly more matured Uzumaki Naruto and his quest to save his friend Uchiha Sasuke from the grips of the snake-like Shinobi, Orochimaru. After 2 and a half years Naruto finally returns to his village of Konoha, and sets about putting his ambitions to work, though it will not be easy, as he has amassed a few (more dangerous)…\n\n4. **Attack on Titan Season 2** — Eren Jaeger swore to wipe out every last Titan, but in a battle for his life he wound up becoming the thing he hates most. With his new powers, he fights for humanity's freedom facing the monsters that threaten his home. After a bittersweet victory against the Female Titan, Eren finds no time to rest—a horde of Titans is approaching Wall Rose and the battle for humanity continues! (Source: Funimation)\n\n5. **One-Punch Man** — Saitama has a rather peculiar hobby, being a superhero, but despite his heroic deeds and superhuman abilities, a shadow looms over his life. He's become much too powerful, to the point that every opponent ends up defeated with a single punch. The lack of challenge has driven him into a state of apathy, as he watches his life pass by having lost all enthusiasm, at least until he's unwillingly thrust in the role of being a mentor to the young and…\n\nThe exact requirement 'four anime' is assessed semantically from descriptions, not verified by a catalog category.",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Attack on Titan Season 3 Part 2",
+      "Attack on Titan Final Season",
+      "Attack on Titan Season 2",
+      "One-Punch Man"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Attack on Titan Season 3 Part 2",
+      "anime_id": "104578",
+      "canonical_title": "Attack on Titan Season 3 Part 2",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "104578"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        0.93
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 0.93,
+          "met": true,
+          "literal_score": 0.93,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.93,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.465,
+      "gain": 0.465,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Attack on Titan Final Season",
+      "anime_id": "110277",
+      "canonical_title": "Attack on Titan Final Season",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "110277"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        0.93
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 0.93,
+          "met": true,
+          "literal_score": 0.93,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.93,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.465,
+      "gain": 0.465,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Attack on Titan Season 2",
+      "anime_id": "20958",
+      "canonical_title": "Attack on Titan Season 2",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20958"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        0.85
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 0.85,
+          "met": true,
+          "literal_score": 0.85,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.85,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.425,
+      "gain": 0.425,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 4,
+      "extracted_title": "One-Punch Man",
+      "anime_id": "21087",
+      "canonical_title": "One-Punch Man",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21087"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.0,
+    "graded_fit_at_k": 0.33875,
+    "ndcg_at_k": 0.3886235112206993,
+    "constraint_coverage": 0.5,
+    "count_compliance": 1,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "extra_count": 0,
+    "literal_precision_at_k": 0.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 13.329683875001137,
+  "extraction_seconds": 1.6305702499994368,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.6e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000746
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 8.16135
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.001354
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.007328
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.009804
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.92465
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "four anime armed forces fighting beyond Earth",
+              "kind": "tag",
+              "limit": 4
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "genres",
+                  "operator": "contains",
+                  "value": "armed forces"
+                },
+                {
+                  "field": "genres",
+                  "operator": "contains",
+                  "value": "fighting"
+                },
+                {
+                  "field": "genres",
+                  "operator": "contains",
+                  "value": "beyond Earth"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "four anime armed forces fighting beyond Earth",
+        "kind": "tag",
+        "limit": 4
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.034555,
+      "arguments": {
+        "query": "four anime armed forces fighting beyond Earth",
+        "kind": "tag",
+        "limit": 4
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "military",
+            "name": "Military",
+            "description": "Centered around the life and activities of military personnel.",
+            "category": "Theme-Other-Organisations",
+            "similarity": 0.3541
+          },
+          {
+            "kind": "tag",
+            "id": "proxy battle",
+            "name": "Proxy Battle",
+            "description": "A proxy battle is a battle where humans use creatures/robots to do the fighting for them, either by commanding those creatures/robots or by simply evolving them/changing them into battle mode.",
+            "category": "Theme-Other",
+            "similarity": 0.3235
+          },
+          {
+            "kind": "tag",
+            "id": "battle royale",
+            "name": "Battle Royale",
+            "description": "Centers around a fierce group competition, often violent and with only one winner.",
+            "category": "Theme-Action",
+            "similarity": 0.3235
+          },
+          {
+            "kind": "tag",
+            "id": "guns",
+            "name": "Guns",
+            "description": "Prominently features the use of guns in combat.",
+            "category": "Theme-Action",
+            "similarity": 0.3109
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "armed forces"
+          },
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "fighting"
+          },
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "beyond Earth"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.187992,
+      "arguments": {
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "armed forces"
+          },
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "fighting"
+          },
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "beyond Earth"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": []
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [
+            "The exact requirement 'four anime' is assessed semantically from descriptions, not verified by a catalog category."
+          ],
+          "mappings": []
+        },
+        "items": [
+          {
+            "id": "104578",
+            "title": "Attack on Titan Season 3 Part 2",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.4918
+          },
+          {
+            "id": "110277",
+            "title": "Attack on Titan Final Season",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.474
+          },
+          {
+            "id": "1735",
+            "title": "Naruto: Shippuden",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.4494
+          },
+          {
+            "id": "20958",
+            "title": "Attack on Titan Season 2",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.4433
+          },
+          {
+            "id": "21087",
+            "title": "One-Punch Man",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.43
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000529
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "four anime armed forces fighting beyond Earth",
+          "kind": "tag",
+          "limit": 4
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "military",
+              "name": "Military",
+              "description": "Centered around the life and activities of military personnel.",
+              "category": "Theme-Other-Organisations",
+              "similarity": 0.3541
+            },
+            {
+              "kind": "tag",
+              "id": "proxy battle",
+              "name": "Proxy Battle",
+              "description": "A proxy battle is a battle where humans use creatures/robots to do the fighting for them, either by commanding those creatures/robots or by simply evolving them/changing them into battle mode.",
+              "category": "Theme-Other",
+              "similarity": 0.3235
+            },
+            {
+              "kind": "tag",
+              "id": "battle royale",
+              "name": "Battle Royale",
+              "description": "Centers around a fierce group competition, often violent and with only one winner.",
+              "category": "Theme-Action",
+              "similarity": 0.3235
+            },
+            {
+              "kind": "tag",
+              "id": "guns",
+              "name": "Guns",
+              "description": "Prominently features the use of guns in combat.",
+              "category": "Theme-Action",
+              "similarity": 0.3109
+            }
+          ]
+        },
+        "elapsed_seconds": 0.034555
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "genres",
+              "operator": "contains",
+              "value": "armed forces"
+            },
+            {
+              "field": "genres",
+              "operator": "contains",
+              "value": "fighting"
+            },
+            {
+              "field": "genres",
+              "operator": "contains",
+              "value": "beyond Earth"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": []
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [
+              "The exact requirement 'four anime' is assessed semantically from descriptions, not verified by a catalog category."
+            ],
+            "mappings": []
+          },
+          "items": [
+            {
+              "id": "104578",
+              "title": "Attack on Titan Season 3 Part 2",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.4918
+            },
+            {
+              "id": "110277",
+              "title": "Attack on Titan Final Season",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.474
+            },
+            {
+              "id": "1735",
+              "title": "Naruto: Shippuden",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.4494
+            },
+            {
+              "id": "20958",
+              "title": "Attack on Titan Season 2",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.4433
+            },
+            {
+              "id": "21087",
+              "title": "One-Punch Man",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.43
+            }
+          ]
+        },
+        "elapsed_seconds": 0.187992
+      }
+    ],
+    "llm_calls": 5,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 8.16135,
+      "prepare_context": 0.001354,
+      "retrieve_guides": 0.007328,
+      "feature_candidates": 0.009804,
+      "planning": 4.92465,
+      "tools": 0.222547,
+      "generate_answer": 0.000529
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"armed forces\", \"query\": \"armed forces\", \"kind\": \"genre\", \"role\": \"preferred\", \"meaning\": \"Genre\"}, {\"text\": \"fighting\", \"query\": \"fighting\", \"kind\": \"genre\", \"role\": \"preferred\", \"meaning\": \"Genre\"}, {\"text\": \"beyond Earth\", \"query\": \"beyond Earth\", \"kind\": \"genre\", \"role\": \"preferred\", \"meaning\": \"Genre\"}, {\"text\": \"four anime\", \"query\": \"four anime\", \"kind\": \"description\", \"role\": \"required\", \"meaning\": \"Number of anime\"}]}",
+      "{\n  \"choice\": 1,\n  \"role\": \"required\",\n  \"operator\": \"eq\",\n  \"value\": \"Sports\",\n  \"mapping\": \"exact\"\n}",
+      "{\n  \"role\": \"required\"\n}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "armed forces",
+        "query": "armed forces",
+        "kind": "genre",
+        "role": "preferred",
+        "meaning": "Genre"
+      },
+      {
+        "text": "fighting",
+        "query": "fighting",
+        "kind": "genre",
+        "role": "preferred",
+        "meaning": "Genre"
+      },
+      {
+        "text": "beyond Earth",
+        "query": "beyond Earth",
+        "kind": "genre",
+        "role": "preferred",
+        "meaning": "Genre"
+      },
+      {
+        "text": "four anime",
+        "query": "four anime",
+        "kind": "description",
+        "role": "required",
+        "meaning": "Number of anime"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"None\", \"decisions\": {\"p0\": {\"meaning\": \"Genre\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}, \"p1\": {\"meaning\": \"Genre\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}, \"p2\": {\"meaning\": \"Genre\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}, \"p3\": {\"meaning\": \"Number of anime\", \"role\": \"required\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "armed forces",
+          "name": "",
+          "meaning": "Genre"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "fighting",
+          "name": "",
+          "meaning": "Genre"
+        },
+        {
+          "phrase_index": 2,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "beyond Earth",
+          "name": "",
+          "meaning": "Genre"
+        },
+        {
+          "phrase_index": 3,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "four anime",
+          "name": "",
+          "meaning": "Number of anime"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [
+        "four anime"
+      ],
+      "excluded": [],
+      "preferred": [
+        "armed forces",
+        "fighting",
+        "beyond Earth"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [],
+      "soft_query": "four anime armed forces fighting Action beyond Earth",
+      "limitations": [
+        "The exact requirement 'four anime' is assessed semantically from descriptions, not verified by a catalog category."
+      ],
+      "mappings": [],
+      "preference_hierarchy": [
+        {
+          "phrase": "four anime",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "exact"
+        },
+        {
+          "phrase": "armed forces",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        },
+        {
+          "phrase": "fighting",
+          "candidate": {
+            "field": "genres",
+            "value": "Action",
+            "meaning": "Action",
+            "coverage": 1.0
+          },
+          "role": "preferred",
+          "mapping": "broader"
+        },
+        {
+          "phrase": "beyond Earth",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "armed forces",
+            "name": "",
+            "meaning": "Genre"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "fighting",
+            "name": "",
+            "meaning": "Genre"
+          },
+          {
+            "phrase_index": 2,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "beyond Earth",
+            "name": "",
+            "meaning": "Genre"
+          },
+          {
+            "phrase_index": 3,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "four anime",
+            "name": "",
+            "meaning": "Number of anime"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "four anime armed forces fighting beyond Earth",
+            "kind": "tag",
+            "limit": 4
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "genres",
+                "operator": "contains",
+                "value": "armed forces"
+              },
+              {
+                "field": "genres",
+                "operator": "contains",
+                "value": "fighting"
+              },
+              {
+                "field": "genres",
+                "operator": "contains",
+                "value": "beyond Earth"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

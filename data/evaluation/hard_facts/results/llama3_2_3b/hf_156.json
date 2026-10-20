@@ -1,0 +1,329 @@
+{
+  "question_id": "hf_156",
+  "anime_id": "16498",
+  "title": "Attack on Titan",
+  "field": "main_characters",
+  "question": "Who are all the characters marked as main in Attack on Titan's first-season cast?",
+  "expected_values": [
+    "Mikasa Ackerman",
+    "Eren Yeager",
+    "Armin Arlert"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Mikasa Ackerman, Eren Yeager, and Armin Arlert",
+  "extracted_values": [
+    "Mikasa Ackerman",
+    "Eren Yeager",
+    "Armin Arlert"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 8.380979166999168,
+  "extraction_seconds": 0.7949845420007478,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Mikasa Ackerman",
+        "quote": "Mikasa Ackerman, Eren Yeager, and Armin Arlert"
+      },
+      {
+        "value": "Eren Yeager",
+        "quote": "Mikasa Ackerman, Eren Yeager, and Armin Arlert"
+      },
+      {
+        "value": "Armin Arlert",
+        "quote": "Mikasa Ackerman, Eren Yeager, and Armin Arlert"
+      }
+    ],
+    "note": "No requested field other than main_characters",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 3,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "status": "error",
+        "step": 0,
+        "tool": "get_character",
+        "error": "Use character IDs from dictionary or tool results first",
+        "elapsed_seconds": 7e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 0,
+    "timings_seconds": {
+      "interpret_request": 2.035007,
+      "prepare_context": 0.023959,
+      "retrieve_guides": 0.027599,
+      "feature_candidates": 0.013426,
+      "planning": 3.789658,
+      "tools": 7e-05,
+      "generate_answer": 2.488821
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Attack on Titan\", \"query\": \"Attack on Titan\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Main characters in first season\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Attack on Titan",
+        "query": "Attack on Titan",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Main characters in first season"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Main characters in first season\", \"role\": \"subject\", \"selection\": \"Attack on Titan | anime:16498\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "16498",
+          "role": "subject",
+          "text": "Attack on Titan",
+          "name": "Attack on Titan",
+          "meaning": "Main characters in first season"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "16498",
+          "role": "subject",
+          "text": "Attack on Titan",
+          "name": "Attack on Titan",
+          "meaning": "Main characters in first season"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Attack on Titan"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "16498",
+            "role": "subject",
+            "text": "Attack on Titan",
+            "name": "Attack on Titan",
+            "meaning": "Main characters in first season"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "16498",
+            "role": "subject",
+            "text": "Attack on Titan",
+            "name": "Attack on Titan",
+            "meaning": "Main characters in first season"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Get main characters in Attack on Titan's first-season cast",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "16498",
+            "section": "cast",
+            "offset": 0
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "16498",
+          "name": "Attack on Titan"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:16498",
+          "fact": "The main characters in Attack on Titan's first-season cast are Mikasa Ackerman, Eren Yeager, and Armin Arlert."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.7e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000737
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.035007
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.023959
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.027599
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013426
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.789658
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Get main characters in Attack on Titan's first-season cast",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "16498",
+              "section": "cast",
+              "offset": 0
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "16498",
+            "name": "Attack on Titan"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_character",
+      "arguments": {
+        "id": "16498",
+        "section": "cast",
+        "offset": 0
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_character",
+      "status": "error",
+      "elapsed_seconds": 7e-05,
+      "error": "Use character IDs from dictionary or tool results first"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 2.488821
+    }
+  ]
+}

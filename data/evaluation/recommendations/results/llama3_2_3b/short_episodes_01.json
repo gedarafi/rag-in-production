@@ -1,0 +1,884 @@
+{
+  "question_id": "short_episodes_01",
+  "category": "length",
+  "intent_family": "short_episodes",
+  "wording": "explicit",
+  "question_origin": "authored_naturalistic",
+  "question": "Recommend three TV anime or TV shorts whose episodes run no more than 15 minutes each.",
+  "k": 3,
+  "constraints": [
+    {
+      "field": "format",
+      "op": "any",
+      "value": [
+        "TV",
+        "TV_SHORT"
+      ]
+    },
+    {
+      "field": "duration",
+      "op": "lte",
+      "value": 15
+    }
+  ],
+  "label_rationale": "Duration is minutes per episode, not total series runtime.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 1310,
+  "reference_examples": [
+    {
+      "id": "100009",
+      "title": "Space Battleship Tiramisu"
+    },
+    {
+      "id": "100093",
+      "title": "Skull-face Bookseller Honda-san"
+    },
+    {
+      "id": "100133",
+      "title": "One Room SECOND SEASON"
+    }
+  ],
+  "answer_text": "Catalog matches — minutes per episode: under 15; format: TV_SHORT.\n\n1. **The Disastrous Life of Saiki K.** (5 min/episode) — To the average person, psychic abilities might seem a blessing; for Kusuo Saiki, however, this couldn't be further from the truth. Gifted with a wide assortment of supernatural abilities ranging from telepathy to x-ray vision, he finds this so-called blessing to be nothing but a curse. As all the inconveniences his powers cause constantly pile up, all Kusuo aims for is an ordinary, hassle-free life—a life where ignorance is bliss. Unfortunately…\n\n2. **Tsuredure Children** (13 min/episode) — To those of you out there who never could say \"I love you\"— This story is about ordinary highschoolers and how love makes them fired up, shaken, laugh, cry, and hurt. Whether things go well or not, this story of adolescence and romance will show you how they spend their precious youth. Every character is the main character here, and you're sure to find one you can sympathize with. (Source: Crunchyroll)\n\n3. **AHO-GIRL** (13 min/episode) — Yoshiko Hanabatake is an idiot beyond all belief. Somehow managing to consistently score zeroes on all of her tests and consumed by an absurd obsession with bananas, her senseless acts have caused even her own mother to lose all hope. Only one person is up to the task of keeping her insanity in check: childhood friend Akuru \"A-kun\" Akutsu. Though he bemoans the ridiculous behavior he has to endure, the studious but terrifying A-kun is always…\n\n4. **Why the hell are you here, Teacher!?** (12 min/episode) — Kawanuma West may be a public school, but some of its students are about to get private lessons in sex ed courtesy of four very attractive teachers! To be clear, none of our lady educational professionals begin their semesters by writing “get involved with a fortunate male member of my class” in their daily planners… but strange and inexplicable things keep happening to thrust our teacher/pupil combos into sexually charged situations where…\n\n5. **Isekai Quartet** (12 min/episode) — The button appeared out of nowhere. There weren't any signs NOT to push it... so the solution is obvious, right? Is it a trap or the start of something new and exciting? The crews of Re:Zero, Overlord, Konosuba, and The Saga of Tanya the Evil will find out when they go from their world to another and get stuck in... class?! See what adorable chaos they'll get up to in this collection of shorts! (Source: Funimation)",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "The Disastrous Life of Saiki K.",
+      "Tsuredure Children",
+      "AHO-GIRL",
+      "Why the hell are you here, Teacher!?",
+      "Isekai Quartet"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "The Disastrous Life of Saiki K.",
+      "anime_id": null,
+      "canonical_title": null,
+      "resolution": "ambiguous",
+      "candidate_ids": [
+        "112625",
+        "21804"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        0.0
+      ],
+      "constraint_evidence": [],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Tsuredure Children",
+      "anime_id": "98291",
+      "canonical_title": "Tsuredure Children",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "98291"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 3,
+      "extracted_title": "AHO-GIRL",
+      "anime_id": "98251",
+      "canonical_title": "AHO-GIRL",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "98251"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Why the hell are you here, Teacher!?",
+      "anime_id": "104325",
+      "canonical_title": "Why the hell are you here, Teacher!?",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "104325"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Isekai Quartet",
+      "anime_id": "104454",
+      "canonical_title": "Isekai Quartet",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "104454"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.6666666666666666,
+    "graded_fit_at_k": 0.6666666666666666,
+    "ndcg_at_k": 0.5307212739772434,
+    "constraint_coverage": 1.0,
+    "count_compliance": 0,
+    "resolution_rate": 0.8,
+    "duplicate_rate": 0.0,
+    "extra_count": 2,
+    "literal_precision_at_k": 0.6666666666666666,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 9.84634420799921,
+  "extraction_seconds": 1.7643732090000412,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.7e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00079
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 5.249832
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.002814
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.009308
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.016231
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.442346
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "TV anime or TV shorts with episodes run no more than 15 minutes each",
+              "kind": "tag",
+              "limit": 3
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "duration",
+                  "operator": "lt",
+                  "value": "15"
+                },
+                {
+                  "field": "format",
+                  "operator": "eq",
+                  "value": "TV_SHORT"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "TV anime or TV shorts with episodes run no more than 15 minutes each",
+        "kind": "tag",
+        "limit": 3
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.0399,
+      "arguments": {
+        "query": "TV anime or TV shorts with episodes run no more than 15 minutes each",
+        "kind": "tag",
+        "limit": 3
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "time skip",
+            "name": "Time Skip",
+            "description": "Features a gap in time used to advance the story.",
+            "category": "Setting-Time",
+            "similarity": 0.3305
+          },
+          {
+            "kind": "tag",
+            "id": "ensemble cast",
+            "name": "Ensemble Cast",
+            "description": "Features a large cast of characters with (almost) equal screen time and importance to the plot.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.2994
+          },
+          {
+            "kind": "tag",
+            "id": "time loop",
+            "name": "Time Loop",
+            "description": "A character is stuck in a repetitive cycle that they are attempting to break out of. This is distinct from a manipulating time of their own choice.",
+            "category": "Theme-Sci-Fi",
+            "similarity": 0.2501
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "duration",
+            "operator": "lt",
+            "value": "15"
+          },
+          {
+            "field": "format",
+            "operator": "eq",
+            "value": "TV_SHORT"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.082725,
+      "arguments": {
+        "filters": [
+          {
+            "field": "duration",
+            "operator": "lt",
+            "value": "15"
+          },
+          {
+            "field": "format",
+            "operator": "eq",
+            "value": "TV_SHORT"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "duration",
+              "operator": "lt",
+              "value": "15"
+            },
+            {
+              "field": "format",
+              "operator": "eq",
+              "value": "TV_SHORT"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "duration",
+              "operator": "lt",
+              "value": "15",
+              "source_text": "15 minutes",
+              "mapping": "exact"
+            },
+            {
+              "field": "format",
+              "operator": "eq",
+              "value": "TV_SHORT",
+              "source_text": "Recommend three TV anime or TV shorts whose episodes run no more than 15 minutes each.",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "21804",
+            "title": "The Disastrous Life of Saiki K.",
+            "reason": "Matches: filters=[{'field': 'duration', 'operator': 'lt', 'value': '15'}, {'field': 'format', 'operator': 'eq', 'value': 'TV_SHORT'}]"
+          },
+          {
+            "id": "98291",
+            "title": "Tsuredure Children",
+            "reason": "Matches: filters=[{'field': 'duration', 'operator': 'lt', 'value': '15'}, {'field': 'format', 'operator': 'eq', 'value': 'TV_SHORT'}]"
+          },
+          {
+            "id": "98251",
+            "title": "AHO-GIRL",
+            "reason": "Matches: filters=[{'field': 'duration', 'operator': 'lt', 'value': '15'}, {'field': 'format', 'operator': 'eq', 'value': 'TV_SHORT'}]"
+          },
+          {
+            "id": "104325",
+            "title": "Why the hell are you here, Teacher!?",
+            "reason": "Matches: filters=[{'field': 'duration', 'operator': 'lt', 'value': '15'}, {'field': 'format', 'operator': 'eq', 'value': 'TV_SHORT'}]"
+          },
+          {
+            "id": "104454",
+            "title": "Isekai Quartet",
+            "reason": "Matches: filters=[{'field': 'duration', 'operator': 'lt', 'value': '15'}, {'field': 'format', 'operator': 'eq', 'value': 'TV_SHORT'}]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000353
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "TV anime or TV shorts with episodes run no more than 15 minutes each",
+          "kind": "tag",
+          "limit": 3
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "time skip",
+              "name": "Time Skip",
+              "description": "Features a gap in time used to advance the story.",
+              "category": "Setting-Time",
+              "similarity": 0.3305
+            },
+            {
+              "kind": "tag",
+              "id": "ensemble cast",
+              "name": "Ensemble Cast",
+              "description": "Features a large cast of characters with (almost) equal screen time and importance to the plot.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.2994
+            },
+            {
+              "kind": "tag",
+              "id": "time loop",
+              "name": "Time Loop",
+              "description": "A character is stuck in a repetitive cycle that they are attempting to break out of. This is distinct from a manipulating time of their own choice.",
+              "category": "Theme-Sci-Fi",
+              "similarity": 0.2501
+            }
+          ]
+        },
+        "elapsed_seconds": 0.0399
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "duration",
+              "operator": "lt",
+              "value": "15"
+            },
+            {
+              "field": "format",
+              "operator": "eq",
+              "value": "TV_SHORT"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "duration",
+                "operator": "lt",
+                "value": "15"
+              },
+              {
+                "field": "format",
+                "operator": "eq",
+                "value": "TV_SHORT"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "duration",
+                "operator": "lt",
+                "value": "15",
+                "source_text": "15 minutes",
+                "mapping": "exact"
+              },
+              {
+                "field": "format",
+                "operator": "eq",
+                "value": "TV_SHORT",
+                "source_text": "Recommend three TV anime or TV shorts whose episodes run no more than 15 minutes each.",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "21804",
+              "title": "The Disastrous Life of Saiki K.",
+              "reason": "Matches: filters=[{'field': 'duration', 'operator': 'lt', 'value': '15'}, {'field': 'format', 'operator': 'eq', 'value': 'TV_SHORT'}]"
+            },
+            {
+              "id": "98291",
+              "title": "Tsuredure Children",
+              "reason": "Matches: filters=[{'field': 'duration', 'operator': 'lt', 'value': '15'}, {'field': 'format', 'operator': 'eq', 'value': 'TV_SHORT'}]"
+            },
+            {
+              "id": "98251",
+              "title": "AHO-GIRL",
+              "reason": "Matches: filters=[{'field': 'duration', 'operator': 'lt', 'value': '15'}, {'field': 'format', 'operator': 'eq', 'value': 'TV_SHORT'}]"
+            },
+            {
+              "id": "104325",
+              "title": "Why the hell are you here, Teacher!?",
+              "reason": "Matches: filters=[{'field': 'duration', 'operator': 'lt', 'value': '15'}, {'field': 'format', 'operator': 'eq', 'value': 'TV_SHORT'}]"
+            },
+            {
+              "id": "104454",
+              "title": "Isekai Quartet",
+              "reason": "Matches: filters=[{'field': 'duration', 'operator': 'lt', 'value': '15'}, {'field': 'format', 'operator': 'eq', 'value': 'TV_SHORT'}]"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.082725
+      }
+    ],
+    "llm_calls": 5,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 5.249832,
+      "prepare_context": 0.002814,
+      "retrieve_guides": 0.009308,
+      "feature_candidates": 0.016231,
+      "planning": 4.442346,
+      "tools": 0.122625,
+      "generate_answer": 0.000353
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"15 minutes\", \"query\": \"15 minutes\", \"kind\": \"character\", \"role\": \"required\", \"meaning\": \"Episode length\"}]}",
+      "{\n  \"min\": 0,\n  \"max\": 15\n}",
+      "{\n  \"applies\": true,\n  \"operator\": \"eq\",\n  \"value\": \"TV_SHORT\"\n}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "15 minutes",
+        "query": "15 minutes",
+        "kind": "character",
+        "role": "required",
+        "meaning": "Episode length"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Episode length\", \"role\": \"required\", \"selection\": \"Minutes | character:224649\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "character",
+          "id": "224649",
+          "role": "required",
+          "text": "15 minutes",
+          "name": "Minutes",
+          "meaning": "Episode length"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {
+      "duration": {
+        "sources": [
+          "Recommend three TV anime or TV shorts whose episodes run no more than 15 minutes each.",
+          "15 minutes"
+        ],
+        "interpretations": [
+          "brief",
+          "range"
+        ]
+      }
+    },
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [
+        "15 minutes"
+      ],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "duration",
+          "operator": "lt",
+          "value": "15"
+        },
+        {
+          "field": "format",
+          "operator": "eq",
+          "value": "TV_SHORT"
+        }
+      ],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "duration",
+          "operator": "lt",
+          "value": "15",
+          "source_text": "15 minutes",
+          "mapping": "exact"
+        },
+        {
+          "field": "format",
+          "operator": "eq",
+          "value": "TV_SHORT",
+          "source_text": "Recommend three TV anime or TV shorts whose episodes run no more than 15 minutes each.",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "character",
+            "id": "224649",
+            "role": "required",
+            "text": "15 minutes",
+            "name": "Minutes",
+            "meaning": "Episode length"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "TV anime or TV shorts with episodes run no more than 15 minutes each",
+            "kind": "tag",
+            "limit": 3
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "duration",
+                "operator": "lt",
+                "value": "15"
+              },
+              {
+                "field": "format",
+                "operator": "eq",
+                "value": "TV_SHORT"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

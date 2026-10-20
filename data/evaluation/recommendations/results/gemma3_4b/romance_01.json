@@ -1,0 +1,1185 @@
+{
+  "question_id": "romance_01",
+  "category": "genres",
+  "intent_family": "romance",
+  "wording": "explicit",
+  "question_origin": "authored_naturalistic",
+  "question": "What are three romance anime you would recommend?",
+  "k": 3,
+  "constraints": [
+    {
+      "field": "genres",
+      "op": "any",
+      "value": [
+        "Romance"
+      ],
+      "alternatives": [
+        {
+          "reason": "Prominent love-triangle or unrequited-love themes are acceptable evidence for the requested focus on developing romantic feelings. A demographic or cast-gender tag alone is insufficient.",
+          "constraints": [
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Love Triangle",
+                "Unrequited Love"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "A central falling-in-love story maps to Romance.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 2881,
+  "reference_examples": [
+    {
+      "id": "100",
+      "title": "Prétear: The New Legend of Snow White"
+    },
+    {
+      "id": "100004",
+      "title": "Demoness of Dreams"
+    },
+    {
+      "id": "100085",
+      "title": "Seven Senses of the Re'Union"
+    }
+  ],
+  "answer_text": "",
+  "status": "model_error",
+  "error": "RuntimeError: No supported recommendations were retrieved. Please rephrase your preferences and retry.",
+  "extraction": null,
+  "recommendations": [],
+  "metrics": null,
+  "model_seconds": 27.309951332999844,
+  "extraction_seconds": 0.0,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.4e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000968
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 10.717301
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.002628
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.034956
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.012835
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 8.448417
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "genres",
+                  "operator": "eq",
+                  "value": "Romance"
+                }
+              ]
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "Romance",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "three",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "love triangle",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "polyamorous",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "marriage",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "cheating",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "heterosexual",
+              "kind": "tag"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "eq",
+            "value": "Romance"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.400781,
+      "arguments": {
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "eq",
+            "value": "Romance"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "genres",
+              "operator": "eq",
+              "value": "Romance"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [
+            "The exact requirement 'three' is assessed semantically from descriptions, not verified by a catalog category."
+          ],
+          "mappings": [
+            {
+              "field": "genres",
+              "operator": "eq",
+              "value": "Romance",
+              "source_text": "What are three romance anime you would recommend?",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "20698",
+            "title": "My Teen Romantic Comedy SNAFU TOO!",
+            "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Romance'}]",
+            "preference_similarity": 0.1555
+          },
+          {
+            "id": "133965",
+            "title": "Komi Can’t Communicate",
+            "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Romance'}]",
+            "preference_similarity": 0.1529
+          },
+          {
+            "id": "103572",
+            "title": "The Quintessential Quintuplets",
+            "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Romance'}]",
+            "preference_similarity": 0.1465
+          },
+          {
+            "id": "20954",
+            "title": "A Silent Voice",
+            "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Romance'}]",
+            "preference_similarity": 0.1459
+          },
+          {
+            "id": "11757",
+            "title": "Sword Art Online",
+            "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Romance'}]",
+            "preference_similarity": 0.1416
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "Romance",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.01034,
+      "arguments": {
+        "query": "Romance",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "interspecies",
+            "name": "Interspecies",
+            "description": "Romance between characters of different species.",
+            "category": "Theme-Romance",
+            "similarity": 0.6401
+          },
+          {
+            "kind": "tag",
+            "id": "heterosexual",
+            "name": "Heterosexual",
+            "description": "Prominently features a romance between a man and a woman, not inherently sexual.",
+            "category": "Theme-Romance",
+            "similarity": 0.6267
+          },
+          {
+            "kind": "tag",
+            "id": "boys love",
+            "name": "Boys' Love",
+            "description": "Prominently features romance between two males, not inherently sexual.",
+            "category": "Theme-Romance",
+            "similarity": 0.6122
+          },
+          {
+            "kind": "tag",
+            "id": "love triangle",
+            "name": "Love Triangle",
+            "description": "Centered around romantic feelings between more than two people. Includes all love polygons.",
+            "category": "Theme-Romance",
+            "similarity": 0.609
+          },
+          {
+            "kind": "tag",
+            "id": "polyamorous",
+            "name": "Polyamorous",
+            "description": "Features a character who is in a consenting relationship with multiple people at one time.",
+            "category": "Theme-Romance",
+            "similarity": 0.5918
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "search_features",
+      "arguments": {
+        "query": "three",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.009804,
+      "arguments": {
+        "query": "three",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "threesome",
+            "name": "Threesome",
+            "description": "Features sexual acts between three people.",
+            "category": "Sexual Content",
+            "similarity": 0.4135
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "search_features",
+      "arguments": {
+        "query": "love triangle",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.00966,
+      "arguments": {
+        "query": "love triangle",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "love triangle",
+            "name": "Love Triangle",
+            "description": "Centered around romantic feelings between more than two people. Includes all love polygons.",
+            "category": "Theme-Romance",
+            "similarity": 0.8053
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "search_features",
+      "arguments": {
+        "query": "polyamorous",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.010154,
+      "arguments": {
+        "query": "polyamorous",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "polyamorous",
+            "name": "Polyamorous",
+            "description": "Features a character who is in a consenting relationship with multiple people at one time.",
+            "category": "Theme-Romance",
+            "similarity": 0.8291
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "search_features",
+      "arguments": {
+        "query": "marriage",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.009841,
+      "arguments": {
+        "query": "marriage",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "marriage",
+            "name": "Marriage",
+            "description": "Centers around marriage between two or more characters.",
+            "category": "Theme-Other",
+            "similarity": 0.6457
+          },
+          {
+            "kind": "tag",
+            "id": "cohabitation",
+            "name": "Cohabitation",
+            "description": "Features two or more people who live in the same household and develop a romantic or sexual relationship.",
+            "category": "Theme-Romance",
+            "similarity": 0.6408
+          },
+          {
+            "kind": "tag",
+            "id": "arranged marriage",
+            "name": "Arranged Marriage",
+            "description": "Features two characters made to marry each other, usually by their family.",
+            "category": "Cast-Traits",
+            "similarity": 0.533
+          },
+          {
+            "kind": "tag",
+            "id": "matchmaking",
+            "name": "Matchmaking",
+            "description": "Prominently features either a matchmaker or events with the intent of matchmaking with eventual marriage in sight.",
+            "category": "Theme-Romance",
+            "similarity": 0.5045
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 6,
+      "tool": "search_features",
+      "arguments": {
+        "query": "cheating",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 6,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.010198,
+      "arguments": {
+        "query": "cheating",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "cheating",
+            "name": "Cheating",
+            "description": "Features a character with a partner shown being intimate with someone else consensually.",
+            "category": "Theme-Romance",
+            "similarity": 0.5109
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 7,
+      "tool": "search_features",
+      "arguments": {
+        "query": "heterosexual",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 7,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.009688,
+      "arguments": {
+        "query": "heterosexual",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "heterosexual",
+            "name": "Heterosexual",
+            "description": "Prominently features a romance between a man and a woman, not inherently sexual.",
+            "category": "Theme-Romance",
+            "similarity": 0.7248
+          },
+          {
+            "kind": "tag",
+            "id": "bisexual",
+            "name": "Bisexual",
+            "description": "Features a character who is romantically or sexually attracted to people of more than one sex or gender.",
+            "category": "Cast-Traits",
+            "similarity": 0.5804
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "error",
+      "elapsed_seconds": 7.620713,
+      "error": "No supported recommendations were retrieved. Please rephrase your preferences and retry."
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "genres",
+              "operator": "eq",
+              "value": "Romance"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "genres",
+                "operator": "eq",
+                "value": "Romance"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [
+              "The exact requirement 'three' is assessed semantically from descriptions, not verified by a catalog category."
+            ],
+            "mappings": [
+              {
+                "field": "genres",
+                "operator": "eq",
+                "value": "Romance",
+                "source_text": "What are three romance anime you would recommend?",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "20698",
+              "title": "My Teen Romantic Comedy SNAFU TOO!",
+              "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Romance'}]",
+              "preference_similarity": 0.1555
+            },
+            {
+              "id": "133965",
+              "title": "Komi Can’t Communicate",
+              "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Romance'}]",
+              "preference_similarity": 0.1529
+            },
+            {
+              "id": "103572",
+              "title": "The Quintessential Quintuplets",
+              "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Romance'}]",
+              "preference_similarity": 0.1465
+            },
+            {
+              "id": "20954",
+              "title": "A Silent Voice",
+              "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Romance'}]",
+              "preference_similarity": 0.1459
+            },
+            {
+              "id": "11757",
+              "title": "Sword Art Online",
+              "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Romance'}]",
+              "preference_similarity": 0.1416
+            }
+          ]
+        },
+        "elapsed_seconds": 0.400781
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "Romance",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "interspecies",
+              "name": "Interspecies",
+              "description": "Romance between characters of different species.",
+              "category": "Theme-Romance",
+              "similarity": 0.6401
+            },
+            {
+              "kind": "tag",
+              "id": "heterosexual",
+              "name": "Heterosexual",
+              "description": "Prominently features a romance between a man and a woman, not inherently sexual.",
+              "category": "Theme-Romance",
+              "similarity": 0.6267
+            },
+            {
+              "kind": "tag",
+              "id": "boys love",
+              "name": "Boys' Love",
+              "description": "Prominently features romance between two males, not inherently sexual.",
+              "category": "Theme-Romance",
+              "similarity": 0.6122
+            },
+            {
+              "kind": "tag",
+              "id": "love triangle",
+              "name": "Love Triangle",
+              "description": "Centered around romantic feelings between more than two people. Includes all love polygons.",
+              "category": "Theme-Romance",
+              "similarity": 0.609
+            },
+            {
+              "kind": "tag",
+              "id": "polyamorous",
+              "name": "Polyamorous",
+              "description": "Features a character who is in a consenting relationship with multiple people at one time.",
+              "category": "Theme-Romance",
+              "similarity": 0.5918
+            }
+          ]
+        },
+        "elapsed_seconds": 0.01034
+      },
+      {
+        "step": 2,
+        "tool": "search_features",
+        "arguments": {
+          "query": "three",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "threesome",
+              "name": "Threesome",
+              "description": "Features sexual acts between three people.",
+              "category": "Sexual Content",
+              "similarity": 0.4135
+            }
+          ]
+        },
+        "elapsed_seconds": 0.009804
+      },
+      {
+        "step": 3,
+        "tool": "search_features",
+        "arguments": {
+          "query": "love triangle",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "love triangle",
+              "name": "Love Triangle",
+              "description": "Centered around romantic feelings between more than two people. Includes all love polygons.",
+              "category": "Theme-Romance",
+              "similarity": 0.8053
+            }
+          ]
+        },
+        "elapsed_seconds": 0.00966
+      },
+      {
+        "step": 4,
+        "tool": "search_features",
+        "arguments": {
+          "query": "polyamorous",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "polyamorous",
+              "name": "Polyamorous",
+              "description": "Features a character who is in a consenting relationship with multiple people at one time.",
+              "category": "Theme-Romance",
+              "similarity": 0.8291
+            }
+          ]
+        },
+        "elapsed_seconds": 0.010154
+      },
+      {
+        "step": 5,
+        "tool": "search_features",
+        "arguments": {
+          "query": "marriage",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "marriage",
+              "name": "Marriage",
+              "description": "Centers around marriage between two or more characters.",
+              "category": "Theme-Other",
+              "similarity": 0.6457
+            },
+            {
+              "kind": "tag",
+              "id": "cohabitation",
+              "name": "Cohabitation",
+              "description": "Features two or more people who live in the same household and develop a romantic or sexual relationship.",
+              "category": "Theme-Romance",
+              "similarity": 0.6408
+            },
+            {
+              "kind": "tag",
+              "id": "arranged marriage",
+              "name": "Arranged Marriage",
+              "description": "Features two characters made to marry each other, usually by their family.",
+              "category": "Cast-Traits",
+              "similarity": 0.533
+            },
+            {
+              "kind": "tag",
+              "id": "matchmaking",
+              "name": "Matchmaking",
+              "description": "Prominently features either a matchmaker or events with the intent of matchmaking with eventual marriage in sight.",
+              "category": "Theme-Romance",
+              "similarity": 0.5045
+            }
+          ]
+        },
+        "elapsed_seconds": 0.009841
+      },
+      {
+        "step": 6,
+        "tool": "search_features",
+        "arguments": {
+          "query": "cheating",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "cheating",
+              "name": "Cheating",
+              "description": "Features a character with a partner shown being intimate with someone else consensually.",
+              "category": "Theme-Romance",
+              "similarity": 0.5109
+            }
+          ]
+        },
+        "elapsed_seconds": 0.010198
+      },
+      {
+        "step": 7,
+        "tool": "search_features",
+        "arguments": {
+          "query": "heterosexual",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "heterosexual",
+              "name": "Heterosexual",
+              "description": "Prominently features a romance between a man and a woman, not inherently sexual.",
+              "category": "Theme-Romance",
+              "similarity": 0.7248
+            },
+            {
+              "kind": "tag",
+              "id": "bisexual",
+              "name": "Bisexual",
+              "description": "Features a character who is romantically or sexually attracted to people of more than one sex or gender.",
+              "category": "Cast-Traits",
+              "similarity": 0.5804
+            }
+          ]
+        },
+        "elapsed_seconds": 0.009688
+      }
+    ],
+    "llm_calls": 7,
+    "planned_tools": 8,
+    "executed_tools": 8,
+    "timings_seconds": {
+      "interpret_request": 10.717301,
+      "prepare_context": 0.002628,
+      "retrieve_guides": 0.034956,
+      "feature_candidates": 0.012835,
+      "planning": 8.448417,
+      "tools": 0.470466,
+      "generate_answer": 7.620713
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"romance\", \"query\": \"romance\", \"kind\": \"genre\", \"role\": \"required\", \"meaning\": \"Desired genre\"}, {\"text\": \"anime\", \"query\": \"anime\", \"kind\": \"genre\", \"role\": \"required\", \"meaning\": \"Desired media type\"}, {\"text\": \"three\", \"query\": \"three\", \"kind\": \"other\", \"role\": \"required\", \"meaning\": \"Number of recommendations\"}]}",
+      "{\"role\": \"required\"}",
+      "{\"choice\": 1, \"role\": \"required\", \"operator\": \"eq\", \"value\": \"Romance\", \"mapping\": \"exact\"}",
+      "{\"role\": \"required\"}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "romance",
+        "query": "romance",
+        "kind": "genre",
+        "role": "required",
+        "meaning": "Desired genre"
+      },
+      {
+        "text": "anime",
+        "query": "anime",
+        "kind": "genre",
+        "role": "required",
+        "meaning": "Desired media type"
+      },
+      {
+        "text": "three",
+        "query": "three",
+        "kind": "other",
+        "role": "required",
+        "meaning": "Number of recommendations"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify which romance anime you would like recommendations for.\", \"decisions\": {\"p0\": {\"meaning\": \"romance\", \"role\": \"required\", \"selection\": \"Romance | genre:romance\" }, \"p1\": {\"meaning\": \"anime\", \"role\": \"required\", \"selection\": \"unmapped description\" }, \"p2\": {\"meaning\": \"three\", \"role\": \"required\", \"selection\": \"ordinary wording\" } }}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "genre",
+          "id": "romance",
+          "role": "required",
+          "text": "romance",
+          "name": "Romance",
+          "meaning": "romance"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "anime",
+          "name": "",
+          "meaning": "anime"
+        },
+        {
+          "phrase_index": 2,
+          "kind": "other",
+          "id": "",
+          "role": "required",
+          "text": "three",
+          "name": "",
+          "meaning": "three"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [
+        "romance",
+        "anime",
+        "three"
+      ],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "genres",
+          "operator": "eq",
+          "value": "Romance"
+        }
+      ],
+      "soft_query": "three",
+      "limitations": [
+        "The exact requirement 'three' is assessed semantically from descriptions, not verified by a catalog category."
+      ],
+      "mappings": [
+        {
+          "field": "genres",
+          "operator": "eq",
+          "value": "Romance",
+          "source_text": "What are three romance anime you would recommend?",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "romance",
+          "candidate": {
+            "field": "genres",
+            "value": "Romance",
+            "meaning": "Romance"
+          },
+          "role": "required",
+          "mapping": "exact"
+        },
+        {
+          "phrase": "three",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "exact"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "genre",
+            "id": "romance",
+            "role": "required",
+            "text": "romance",
+            "name": "Romance",
+            "meaning": "romance"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "anime",
+            "name": "",
+            "meaning": "anime"
+          },
+          {
+            "phrase_index": 2,
+            "kind": "other",
+            "id": "",
+            "role": "required",
+            "text": "three",
+            "name": "",
+            "meaning": "three"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "genres",
+                "operator": "eq",
+                "value": "Romance"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "Romance",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "three",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "love triangle",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "polyamorous",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "marriage",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "cheating",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "heterosexual",
+            "kind": "tag"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

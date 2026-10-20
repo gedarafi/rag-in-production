@@ -1,0 +1,502 @@
+{
+  "question_id": "hf_054",
+  "anime_id": "113415",
+  "title": "JUJUTSU KAISEN",
+  "field": "duration",
+  "question": "What's the listed runtime per episode of JUJUTSU KAISEN season one?",
+  "expected_values": [
+    24.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "anime runtime per episode: 576 minutes.",
+  "extracted_values": [
+    "576 minutes"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 18.238479665999876,
+  "extraction_seconds": 0.7149307079998835,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "576 minutes",
+        "quote": "anime runtime per episode: 576 minutes."
+      }
+    ],
+    "note": "assertion for duration per episode of JUJUTSU KAISEN season one",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "missing_values": [
+      "24"
+    ],
+    "extra_values": [
+      "invalid-number:576 minutes"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "113415"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "113415",
+          "title": "JUJUTSU KAISEN"
+        },
+        "elapsed_seconds": 0.014021
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "runtime per episode"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "ensemble cast",
+              "name": "Ensemble Cast",
+              "description": "Features a large cast of characters with (almost) equal screen time and importance to the plot.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.3729
+            }
+          ]
+        },
+        "elapsed_seconds": 0.0334
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "anime",
+          "query": "JUJUTSU KAISEN"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "anime",
+          "matches": [
+            {
+              "kind": "anime",
+              "id": "113415",
+              "name": "JUJUTSU KAISEN",
+              "aliases": [
+                "JUJUTSU KAISEN",
+                "Jujutsu Kaisen",
+                "呪術廻戦",
+                "JJK",
+                "Sorcery Fight",
+                "咒术回战",
+                "주술회전",
+                "มหาเวทย์ผนึกมาร"
+              ],
+              "match": "exact_or_name_order",
+              "similarity": 1.0
+            }
+          ]
+        },
+        "elapsed_seconds": 0.001854
+      }
+    ],
+    "llm_calls": 5,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 5.021052,
+      "prepare_context": 0.015897,
+      "retrieve_guides": 0.032174,
+      "feature_candidates": 0.013765,
+      "planning": 6.738106,
+      "tools": 0.049275,
+      "generate_answer": 6.36592
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"JUJUTSU KAISEN season one\", \"query\": \"JUJUTSU KAISEN season one\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested anime season\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "JUJUTSU KAISEN season one",
+        "query": "JUJUTSU KAISEN season one",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested anime season"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify which season of JUJUTSU KAISEN you are referring to.\", \"decisions\": {\"p0\": {\"meaning\": \"JUJUTSU KAISEN season one\", \"role\": \"subject\", \"selection\": \"JUJUTSU KAISEN | anime:113415\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "113415",
+          "role": "subject",
+          "text": "JUJUTSU KAISEN season one",
+          "name": "JUJUTSU KAISEN",
+          "meaning": "JUJUTSU KAISEN season one"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "113415",
+          "role": "subject",
+          "text": "JUJUTSU KAISEN season one",
+          "name": "JUJUTSU KAISEN",
+          "meaning": "JUJUTSU KAISEN season one"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "JUJUTSU KAISEN"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "113415",
+            "role": "subject",
+            "text": "JUJUTSU KAISEN season one",
+            "name": "JUJUTSU KAISEN",
+            "meaning": "JUJUTSU KAISEN season one"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "113415",
+            "role": "subject",
+            "text": "JUJUTSU KAISEN season one",
+            "name": "JUJUTSU KAISEN",
+            "meaning": "JUJUTSU KAISEN season one"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "retrieve anime runtime per episode",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "113415"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "runtime per episode"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "anime",
+            "query": "JUJUTSU KAISEN"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "113415",
+          "name": "JUJUTSU KAISEN"
+        }
+      ],
+      "characters": []
+    },
+    "grounding_corrections": [
+      "Ambiguous literal: use a measurement variable instead"
+    ],
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:113415",
+          "fact": "episodes: 24.0"
+        }
+      ],
+      "calculations": [
+        {
+          "expression": "q0 * q1",
+          "value": "576",
+          "unit": "minutes"
+        }
+      ]
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.3e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000758
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 5.021052
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.015897
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.032174
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013765
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.738106
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "retrieve anime runtime per episode",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "113415"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "runtime per episode"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "anime",
+              "query": "JUJUTSU KAISEN"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "113415",
+            "name": "JUJUTSU KAISEN"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "113415"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.014021,
+      "arguments": {
+        "id": "113415"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "113415",
+        "title": "JUJUTSU KAISEN"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "runtime per episode"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.0334,
+      "arguments": {
+        "query": "runtime per episode"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "ensemble cast",
+            "name": "Ensemble Cast",
+            "description": "Features a large cast of characters with (almost) equal screen time and importance to the plot.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.3729
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "anime",
+        "query": "JUJUTSU KAISEN"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.001854,
+      "arguments": {
+        "kind": "anime",
+        "query": "JUJUTSU KAISEN"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "anime",
+        "matches": [
+          {
+            "kind": "anime",
+            "id": "113415",
+            "name": "JUJUTSU KAISEN",
+            "aliases": [
+              "JUJUTSU KAISEN",
+              "Jujutsu Kaisen",
+              "呪術廻戦",
+              "JJK",
+              "Sorcery Fight",
+              "咒术回战",
+              "주술회전",
+              "มหาเวทย์ผนึกมาร"
+            ],
+            "match": "exact_or_name_order",
+            "similarity": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 6.36592
+    }
+  ]
+}

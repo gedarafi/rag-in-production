@@ -1,0 +1,338 @@
+{
+  "question_id": "hf_176",
+  "anime_id": "9253",
+  "title": "Steins;Gate",
+  "field": "main_characters",
+  "question": "Please name the characters marked MAIN for the original Steins;Gate anime.",
+  "expected_values": [
+    "Kurisu Makise",
+    "Rintarou Okabe",
+    "Mayuri Shiina",
+    "Suzuha Amane",
+    "Itaru Hashida"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Kurisu Makise, Rintarou Okabe, Mayuri Shiina, Suzuha Amane, and Itaru Hashida",
+  "extracted_values": [
+    "Kurisu Makise",
+    "Rintarou Okabe",
+    "Mayuri Shiina",
+    "Suzuha Amane",
+    "Itaru Hashida"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 8.609020833999239,
+  "extraction_seconds": 0.9784614579984918,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Kurisu Makise",
+        "quote": "Kurisu Makise, Rintarou Okabe, Mayuri Shiina, Suzuha Amane, and Itaru Hashida"
+      },
+      {
+        "value": "Rintarou Okabe",
+        "quote": "Kurisu Makise, Rintarou Okabe, Mayuri Shiina, Suzuha Amane, and Itaru Hashida"
+      },
+      {
+        "value": "Mayuri Shiina",
+        "quote": "Kurisu Makise, Rintarou Okabe, Mayuri Shiina, Suzuha Amane, and Itaru Hashida"
+      },
+      {
+        "value": "Suzuha Amane",
+        "quote": "Kurisu Makise, Rintarou Okabe, Mayuri Shiina, Suzuha Amane, and Itaru Hashida"
+      },
+      {
+        "value": "Itaru Hashida",
+        "quote": "Kurisu Makise, Rintarou Okabe, Mayuri Shiina, Suzuha Amane, and Itaru Hashida"
+      }
+    ],
+    "note": "assertions for requested field and anime",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 5,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "status": "error",
+        "step": 0,
+        "tool": "get_character",
+        "error": "Use character IDs from dictionary or tool results first",
+        "elapsed_seconds": 7.1e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 0,
+    "timings_seconds": {
+      "interpret_request": 1.993469,
+      "prepare_context": 0.013532,
+      "retrieve_guides": 0.027481,
+      "feature_candidates": 0.014266,
+      "planning": 3.725434,
+      "tools": 7.1e-05,
+      "generate_answer": 2.832278
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Steins;Gate\", \"query\": \"Steins;Gate\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Original TV adaptation\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Steins;Gate",
+        "query": "Steins;Gate",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Original TV adaptation"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Original TV adaptation\", \"role\": \"subject\", \"selection\": \"Steins;Gate | anime:9253\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "9253",
+          "role": "subject",
+          "text": "Steins;Gate",
+          "name": "Steins;Gate",
+          "meaning": "Original TV adaptation"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "9253",
+          "role": "subject",
+          "text": "Steins;Gate",
+          "name": "Steins;Gate",
+          "meaning": "Original TV adaptation"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Steins;Gate"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "9253",
+            "role": "subject",
+            "text": "Steins;Gate",
+            "name": "Steins;Gate",
+            "meaning": "Original TV adaptation"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "9253",
+            "role": "subject",
+            "text": "Steins;Gate",
+            "name": "Steins;Gate",
+            "meaning": "Original TV adaptation"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "name the characters marked MAIN for the original Steins;Gate anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "9253",
+            "section": "cast"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "9253",
+          "name": "Steins;Gate"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:9253",
+          "fact": "The main characters of the original Steins;Gate anime are Kurisu Makise, Rintarou Okabe, Mayuri Shiina, Suzuha Amane, and Itaru Hashida."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.1e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000863
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 1.993469
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.013532
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.027481
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014266
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.725434
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "name the characters marked MAIN for the original Steins;Gate anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "9253",
+              "section": "cast"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "9253",
+            "name": "Steins;Gate"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_character",
+      "arguments": {
+        "id": "9253",
+        "section": "cast"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_character",
+      "status": "error",
+      "elapsed_seconds": 7.1e-05,
+      "error": "Use character IDs from dictionary or tool results first"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 2.832278
+    }
+  ]
+}

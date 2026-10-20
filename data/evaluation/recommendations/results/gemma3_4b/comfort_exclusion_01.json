@@ -1,0 +1,1300 @@
+{
+  "question_id": "comfort_exclusion_01",
+  "category": "tag_exclusions",
+  "intent_family": "comfort_exclusion",
+  "wording": "explicit",
+  "question_origin": "authored_naturalistic",
+  "question": "Give me three iyashikei recommendations without a strong Tragedy tag.",
+  "k": 3,
+  "constraints": [
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Iyashikei"
+      ],
+      "alternatives": [
+        {
+          "reason": "Gentle everyday-life viewing can be supported by Slice of Life plus domestic/rural/cute-girl daily-life themes, with no strong tragic theme. Slice of Life alone is insufficient.",
+          "constraints": [
+            {
+              "field": "genres",
+              "op": "any",
+              "value": [
+                "Slice of Life"
+              ]
+            },
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Cute Girls Doing Cute Things",
+                "Family Life",
+                "Rural"
+              ]
+            },
+            {
+              "field": "tags",
+              "op": "none",
+              "value": [
+                "Tragedy"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "field": "tags",
+      "op": "none",
+      "value": [
+        "Tragedy"
+      ]
+    }
+  ],
+  "label_rationale": "Iyashikei is required; a Tragedy rank of 50 or higher violates the exclusion. Missing tags only mean no catalog evidence.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 844,
+  "reference_examples": [
+    {
+      "id": "10162",
+      "title": "Bunny Drop"
+    },
+    {
+      "id": "103048",
+      "title": "Re:Stage! Dream Days"
+    },
+    {
+      "id": "10379",
+      "title": "Natsume's Book of Friends Season 3"
+    }
+  ],
+  "answer_text": "Catalog matches — Iyashikei; excluding Tragedy.\n\n1. **Frieren: Beyond Journey’s End** — The adventure is over but life goes on for an elf mage just beginning to learn what living is all about. Elf mage Frieren and her courageous fellow adventurers have defeated the Demon King and brought peace to the land. But Frieren will long outlive the rest of her former party. How will she come to understand what life means to the people around her? Decades after their victory, the funeral of one her friends confronts Frieren with her own near…\n\n2. **My Dress-Up Darling** — High schooler Wakana Gojou cares about one thing: making Hina dolls. With nobody to share his obsession, he has trouble finding friends—or even holding conversation. But after the school’s most popular girl, Marin Kitagawa, reveals a secret of her own, he discovers a new purpose for his sewing skills. Together, they’ll make her cosplay dreams come true! (Source: Funimation)\n\n3. **Hyouka** — Energy-conservative high school student Houtarou Oreki ends up with more than he bargained for when he signs up for the Classic Literature Club at his sister's behest—especially when he realizes how deep-rooted the club's history really is. Begrudgingly, Oreki is dragged into an investigation concerning the 45-year-old mystery that surrounds the club room. Accompanied by his fellow club members, the knowledgeable Satoshi Fukube, the stern but…\n\n4. **Miss Kobayashi's Dragon Maid** — What happens when a drunken promise leads to living with a dragon? That’s Miss Kobayashi’s new reality when Tohru appears in her life. With a maid-slash-dragon in her home, she’s experiencing a whole new level of domestic bliss! But the dragons don’t stop there. On a mission to find Tohru appears Kanna, a little dragon with a big attitude. Before she knows it, Kobayashi’s got a house full of dragons—one serving tail and the other serving serious…\n\n5. **Fruits Basket (2019)** — Tohru Honda thought her life was headed for misfortune when a family tragedy left her living in a tent. When her small home is discovered by the mysterious Soma clan, she suddenly finds herself living with Yuki, Kyo, and Shigure Soma. But she quickly learns their family has a bizarre secret of their own: when hugged by the opposite sex, they turn into the animals of the Zodiac! (Source: Crunchyroll)\n\nExcluded labels are absent from these catalog records; this does not guarantee that every scene avoids the theme or setting.",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Frieren: Beyond Journey's End",
+      "My Dress-Up Darling",
+      "Hyouka",
+      "Miss Kobayashi's Dragon Maid",
+      "Fruits Basket (2019)"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Frieren: Beyond Journey's End",
+      "anime_id": "154587",
+      "canonical_title": "Frieren: Beyond Journey’s End",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "154587"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.63,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.63,
+          "met": true,
+          "literal_score": 0.63,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.63,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Gentle everyday-life viewing can be supported by Slice of Life plus domestic/rural/cute-girl daily-life themes, with no strong tragic theme. Slice of Life alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Slice of Life"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cute Girls Doing Cute Things",
+                      "Family Life",
+                      "Rural"
+                    ]
+                  },
+                  "score": 0.6
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "none",
+                    "value": [
+                      "Tragedy"
+                    ]
+                  },
+                  "score": 1.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.815,
+      "gain": 0.815,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 2,
+      "extracted_title": "My Dress-Up Darling",
+      "anime_id": "132405",
+      "canonical_title": "My Dress-Up Darling",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "132405"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.68,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.68,
+          "met": true,
+          "literal_score": 0.68,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.68,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Gentle everyday-life viewing can be supported by Slice of Life plus domestic/rural/cute-girl daily-life themes, with no strong tragic theme. Slice of Life alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Slice of Life"
+                    ]
+                  },
+                  "score": 1.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cute Girls Doing Cute Things",
+                      "Family Life",
+                      "Rural"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "none",
+                    "value": [
+                      "Tragedy"
+                    ]
+                  },
+                  "score": 1.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.8400000000000001,
+      "gain": 0.8400000000000001,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Hyouka",
+      "anime_id": "12189",
+      "canonical_title": "Hyouka",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "12189"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.58,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.58,
+          "met": true,
+          "literal_score": 0.56,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "alternative_1",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.56,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Gentle everyday-life viewing can be supported by Slice of Life plus domestic/rural/cute-girl daily-life themes, with no strong tragic theme. Slice of Life alone is insufficient.",
+              "score": 0.58,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Slice of Life"
+                    ]
+                  },
+                  "score": 1.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cute Girls Doing Cute Things",
+                      "Family Life",
+                      "Rural"
+                    ]
+                  },
+                  "score": 0.58
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "none",
+                    "value": [
+                      "Tragedy"
+                    ]
+                  },
+                  "score": 1.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.79,
+      "gain": 0.79,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Miss Kobayashi's Dragon Maid",
+      "anime_id": "21776",
+      "canonical_title": "Miss Kobayashi's Dragon Maid",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21776"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.92,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.92,
+          "met": true,
+          "literal_score": 0.73,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "alternative_1",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.73,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Gentle everyday-life viewing can be supported by Slice of Life plus domestic/rural/cute-girl daily-life themes, with no strong tragic theme. Slice of Life alone is insufficient.",
+              "score": 0.92,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Slice of Life"
+                    ]
+                  },
+                  "score": 1.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cute Girls Doing Cute Things",
+                      "Family Life",
+                      "Rural"
+                    ]
+                  },
+                  "score": 0.92
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "none",
+                    "value": [
+                      "Tragedy"
+                    ]
+                  },
+                  "score": 1.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.96,
+      "gain": 0.96,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Fruits Basket (2019)",
+      "anime_id": "105334",
+      "canonical_title": "Fruits Basket (2019)",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "105334"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.91,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.91,
+          "met": true,
+          "literal_score": 0.6,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "alternative_1",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.6,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Gentle everyday-life viewing can be supported by Slice of Life plus domestic/rural/cute-girl daily-life themes, with no strong tragic theme. Slice of Life alone is insufficient.",
+              "score": 0.91,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Slice of Life"
+                    ]
+                  },
+                  "score": 1.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cute Girls Doing Cute Things",
+                      "Family Life",
+                      "Rural"
+                    ]
+                  },
+                  "score": 0.91
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "none",
+                    "value": [
+                      "Tragedy"
+                    ]
+                  },
+                  "score": 1.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.9550000000000001,
+      "gain": 0.9550000000000001,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 1.0,
+    "graded_fit_at_k": 0.8150000000000001,
+    "ndcg_at_k": 0.8165360636988621,
+    "constraint_coverage": 1.0,
+    "count_compliance": 0,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "extra_count": 2,
+    "literal_precision_at_k": 1.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 17.009431292000045,
+  "extraction_seconds": 1.6150319159996798,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000892
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 8.189024
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.001864
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.029915
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.015285
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 7.342344
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "tags",
+                  "operator": "eq",
+                  "value": "Iyashikei"
+                },
+                {
+                  "field": "tags",
+                  "operator": "ne",
+                  "value": "Tragedy"
+                }
+              ]
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "Iyashikei",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "Tragedy",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "Tragedy",
+              "kind": "tag",
+              "limit": 5
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Iyashikei"
+          },
+          {
+            "field": "tags",
+            "operator": "ne",
+            "value": "Tragedy"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 1.376252,
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Iyashikei"
+          },
+          {
+            "field": "tags",
+            "operator": "ne",
+            "value": "Tragedy"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Iyashikei"
+            },
+            {
+              "field": "tags",
+              "operator": "ne",
+              "value": "Tragedy"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Iyashikei",
+              "source_text": "Give me three iyashikei recommendations without a strong Tragedy tag.",
+              "mapping": "exact"
+            },
+            {
+              "field": "tags",
+              "operator": "ne",
+              "value": "Tragedy",
+              "source_text": "Give me three iyashikei recommendations without a strong Tragedy tag.",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "154587",
+            "title": "Frieren: Beyond Journey’s End",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Iyashikei'}, {'field': 'tags', 'operator': 'ne', 'value': 'Tragedy'}]"
+          },
+          {
+            "id": "132405",
+            "title": "My Dress-Up Darling",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Iyashikei'}, {'field': 'tags', 'operator': 'ne', 'value': 'Tragedy'}]"
+          },
+          {
+            "id": "12189",
+            "title": "Hyouka",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Iyashikei'}, {'field': 'tags', 'operator': 'ne', 'value': 'Tragedy'}]"
+          },
+          {
+            "id": "21776",
+            "title": "Miss Kobayashi's Dragon Maid",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Iyashikei'}, {'field': 'tags', 'operator': 'ne', 'value': 'Tragedy'}]"
+          },
+          {
+            "id": "105334",
+            "title": "Fruits Basket (2019)",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Iyashikei'}, {'field': 'tags', 'operator': 'ne', 'value': 'Tragedy'}]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "Iyashikei",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.029292,
+      "arguments": {
+        "query": "Iyashikei",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "iyashikei",
+            "name": "Iyashikei",
+            "description": "Primary aim is to heal the audience through serene depictions of characters' daily lives.",
+            "category": "Theme-Slice of Life",
+            "similarity": 0.6966
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "search_features",
+      "arguments": {
+        "query": "Tragedy",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.011305,
+      "arguments": {
+        "query": "Tragedy",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "tragedy",
+            "name": "Tragedy",
+            "description": "Centers around tragic events and unhappy endings.",
+            "category": "Theme-Drama",
+            "similarity": 0.6962
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "search_features",
+      "arguments": {
+        "query": "Tragedy",
+        "kind": "tag",
+        "limit": 5
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.011101,
+      "arguments": {
+        "query": "Tragedy",
+        "kind": "tag",
+        "limit": 5
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "tragedy",
+            "name": "Tragedy",
+            "description": "Centers around tragic events and unhappy endings.",
+            "category": "Theme-Drama",
+            "similarity": 0.6962
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000405
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Iyashikei"
+            },
+            {
+              "field": "tags",
+              "operator": "ne",
+              "value": "Tragedy"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Iyashikei"
+              },
+              {
+                "field": "tags",
+                "operator": "ne",
+                "value": "Tragedy"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Iyashikei",
+                "source_text": "Give me three iyashikei recommendations without a strong Tragedy tag.",
+                "mapping": "exact"
+              },
+              {
+                "field": "tags",
+                "operator": "ne",
+                "value": "Tragedy",
+                "source_text": "Give me three iyashikei recommendations without a strong Tragedy tag.",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "154587",
+              "title": "Frieren: Beyond Journey’s End",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Iyashikei'}, {'field': 'tags', 'operator': 'ne', 'value': 'Tragedy'}]"
+            },
+            {
+              "id": "132405",
+              "title": "My Dress-Up Darling",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Iyashikei'}, {'field': 'tags', 'operator': 'ne', 'value': 'Tragedy'}]"
+            },
+            {
+              "id": "12189",
+              "title": "Hyouka",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Iyashikei'}, {'field': 'tags', 'operator': 'ne', 'value': 'Tragedy'}]"
+            },
+            {
+              "id": "21776",
+              "title": "Miss Kobayashi's Dragon Maid",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Iyashikei'}, {'field': 'tags', 'operator': 'ne', 'value': 'Tragedy'}]"
+            },
+            {
+              "id": "105334",
+              "title": "Fruits Basket (2019)",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Iyashikei'}, {'field': 'tags', 'operator': 'ne', 'value': 'Tragedy'}]"
+            }
+          ]
+        },
+        "elapsed_seconds": 1.376252
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "Iyashikei",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "iyashikei",
+              "name": "Iyashikei",
+              "description": "Primary aim is to heal the audience through serene depictions of characters' daily lives.",
+              "category": "Theme-Slice of Life",
+              "similarity": 0.6966
+            }
+          ]
+        },
+        "elapsed_seconds": 0.029292
+      },
+      {
+        "step": 2,
+        "tool": "search_features",
+        "arguments": {
+          "query": "Tragedy",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "tragedy",
+              "name": "Tragedy",
+              "description": "Centers around tragic events and unhappy endings.",
+              "category": "Theme-Drama",
+              "similarity": 0.6962
+            }
+          ]
+        },
+        "elapsed_seconds": 0.011305
+      },
+      {
+        "step": 3,
+        "tool": "search_features",
+        "arguments": {
+          "query": "Tragedy",
+          "kind": "tag",
+          "limit": 5
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "tragedy",
+              "name": "Tragedy",
+              "description": "Centers around tragic events and unhappy endings.",
+              "category": "Theme-Drama",
+              "similarity": 0.6962
+            }
+          ]
+        },
+        "elapsed_seconds": 0.011101
+      }
+    ],
+    "llm_calls": 5,
+    "planned_tools": 4,
+    "executed_tools": 4,
+    "timings_seconds": {
+      "interpret_request": 8.189024,
+      "prepare_context": 0.001864,
+      "retrieve_guides": 0.029915,
+      "feature_candidates": 0.015285,
+      "planning": 7.342344,
+      "tools": 1.42795,
+      "generate_answer": 0.000405
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"iyashikei\", \"query\": \"iyashikei\", \"kind\": \"genre\", \"role\": \"required\", \"meaning\": \"Desired genre\"}, {\"text\": \"Tragedy\", \"query\": \"Tragedy\", \"kind\": \"tag\", \"role\": \"excluded\", \"meaning\": \"Excluded theme\"}]}",
+      "{\"role\": \"required\"}",
+      "{\"role\": \"excluded\"}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "iyashikei",
+        "query": "iyashikei",
+        "kind": "genre",
+        "role": "required",
+        "meaning": "Desired genre"
+      },
+      {
+        "text": "Tragedy",
+        "query": "Tragedy",
+        "kind": "tag",
+        "role": "excluded",
+        "meaning": "Excluded theme"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"To clarify, you want recommendations for iyashikei anime without a strong Tragedy theme.\",\"decisions\": {\"p0\": {\"meaning\": \"Desired genre\", \"role\": \"required\", \"selection\": \"unmapped description\" }, \"p1\": {\"meaning\": \"Excluded theme\", \"role\": \"excluded\", \"selection\": \"unmapped description\" }}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "iyashikei",
+          "name": "",
+          "meaning": "Desired genre"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "excluded",
+          "text": "Tragedy",
+          "name": "",
+          "meaning": "Excluded theme"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [
+        "iyashikei"
+      ],
+      "excluded": [
+        "Tragedy"
+      ],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "tags",
+          "operator": "eq",
+          "value": "Iyashikei"
+        },
+        {
+          "field": "tags",
+          "operator": "ne",
+          "value": "Tragedy"
+        }
+      ],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "tags",
+          "operator": "eq",
+          "value": "Iyashikei",
+          "source_text": "Give me three iyashikei recommendations without a strong Tragedy tag.",
+          "mapping": "exact"
+        },
+        {
+          "field": "tags",
+          "operator": "ne",
+          "value": "Tragedy",
+          "source_text": "Give me three iyashikei recommendations without a strong Tragedy tag.",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "iyashikei",
+          "candidate": {
+            "field": "tags",
+            "value": "Iyashikei",
+            "meaning": "Iyashikei"
+          },
+          "role": "required",
+          "mapping": "exact"
+        },
+        {
+          "phrase": "Tragedy",
+          "candidate": {
+            "field": "tags",
+            "value": "Tragedy",
+            "meaning": "Tragedy"
+          },
+          "role": "excluded",
+          "mapping": "exact"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "iyashikei",
+            "name": "",
+            "meaning": "Desired genre"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "excluded",
+            "text": "Tragedy",
+            "name": "",
+            "meaning": "Excluded theme"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Iyashikei"
+              },
+              {
+                "field": "tags",
+                "operator": "ne",
+                "value": "Tragedy"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "Iyashikei",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "Tragedy",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "Tragedy",
+            "kind": "tag",
+            "limit": 5
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

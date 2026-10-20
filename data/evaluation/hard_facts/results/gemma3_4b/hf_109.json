@@ -1,0 +1,964 @@
+{
+  "question_id": "hf_109",
+  "anime_id": "101759",
+  "title": "The Promised Neverland",
+  "field": "source_material",
+  "question": "What is the original source medium for The Promised Neverland anime?",
+  "expected_values": [
+    "MANGA"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The original source medium for The Promised Neverland anime is the manga.",
+  "extracted_values": [
+    "manga"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 16.343726874999902,
+  "extraction_seconds": 0.6608837079998011,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "manga",
+        "quote": "The original source medium for The Promised Neverland anime is the manga."
+      }
+    ],
+    "note": "The original source medium for The Promised Neverland anime is the manga.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101759"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101759",
+          "title": "The Promised Neverland"
+        },
+        "elapsed_seconds": 0.015492
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "source material",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "anthology",
+              "name": "Anthology",
+              "description": "A collection of separate works collated into a single release.",
+              "category": "Technical",
+              "similarity": 0.4049
+            },
+            {
+              "kind": "tag",
+              "id": "makeup",
+              "name": "Makeup",
+              "description": "Centers around the makeup industry.",
+              "category": "Theme-Arts",
+              "similarity": 0.3508
+            },
+            {
+              "kind": "tag",
+              "id": "advertisement",
+              "name": "Advertisement",
+              "description": "Produced in order to promote the products of a certain company.",
+              "category": "Technical",
+              "similarity": 0.3332
+            },
+            {
+              "kind": "tag",
+              "id": "achromatic",
+              "name": "Achromatic",
+              "description": "Contains animation that is primarily done in black and white.",
+              "category": "Technical",
+              "similarity": 0.327
+            },
+            {
+              "kind": "tag",
+              "id": "educational",
+              "name": "Educational",
+              "description": "Primary aim is to educate the audience.",
+              "category": "Theme-Other",
+              "similarity": 0.3118
+            }
+          ]
+        },
+        "elapsed_seconds": 0.035251
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "source material"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.018302
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101759"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101759",
+          "title": "The Promised Neverland"
+        },
+        "elapsed_seconds": 0.00012
+      },
+      {
+        "step": 4,
+        "tool": "search_features",
+        "arguments": {
+          "query": "original source",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "anthology",
+              "name": "Anthology",
+              "description": "A collection of separate works collated into a single release.",
+              "category": "Technical",
+              "similarity": 0.2331
+            },
+            {
+              "kind": "tag",
+              "id": "netori",
+              "name": "Netori",
+              "description": "Features the protagonist stealing the partner of someone else. The opposite of netorare.",
+              "category": "Sexual Content",
+              "similarity": 0.2313
+            },
+            {
+              "kind": "tag",
+              "id": "full cgi",
+              "name": "Full CGI",
+              "description": "Almost entirely created with computer-generated imagery.",
+              "category": "Technical",
+              "similarity": 0.2221
+            },
+            {
+              "kind": "tag",
+              "id": "rape",
+              "name": "Rape",
+              "description": "Features non-consensual sexual penetration.",
+              "category": "Sexual Content",
+              "similarity": 0.2095
+            },
+            {
+              "kind": "tag",
+              "id": "clone",
+              "name": "Clone",
+              "description": "Prominently features a character who is an artificial exact copy of another organism.",
+              "category": "Cast-Traits",
+              "similarity": 0.206
+            }
+          ]
+        },
+        "elapsed_seconds": 0.010822
+      },
+      {
+        "step": 5,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "original source"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.014445
+      },
+      {
+        "step": 6,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101759"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101759",
+          "title": "The Promised Neverland"
+        },
+        "elapsed_seconds": 0.000108
+      },
+      {
+        "step": 7,
+        "tool": "search_features",
+        "arguments": {
+          "query": "adaptation",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "shapeshifting",
+              "name": "Shapeshifting",
+              "description": "Features character(s) who changes one's appearance or form.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.3995
+            },
+            {
+              "kind": "tag",
+              "id": "isekai",
+              "name": "Isekai",
+              "description": "Features a character from a modern-day setting being transported into an alternate world and has to adapt to their new surroundings.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.3822
+            },
+            {
+              "kind": "tag",
+              "id": "clone",
+              "name": "Clone",
+              "description": "Prominently features a character who is an artificial exact copy of another organism.",
+              "category": "Cast-Traits",
+              "similarity": 0.3722
+            },
+            {
+              "kind": "tag",
+              "id": "body swapping",
+              "name": "Body Swapping",
+              "description": "Centers around individuals swapping bodies with one another.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.345
+            },
+            {
+              "kind": "tag",
+              "id": "memory manipulation",
+              "name": "Memory Manipulation",
+              "description": "Prominently features a character(s) who has had their memories altered.",
+              "category": "Theme-Other",
+              "similarity": 0.3448
+            }
+          ]
+        },
+        "elapsed_seconds": 0.010102
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 8,
+    "executed_tools": 6,
+    "timings_seconds": {
+      "interpret_request": 3.464822,
+      "prepare_context": 0.015574,
+      "retrieve_guides": 0.025289,
+      "feature_candidates": 0.015041,
+      "planning": 8.827294,
+      "tools": 0.104642,
+      "generate_answer": 3.887602
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"The Promised Neverland\", \"query\": \"The Promised Neverland\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "The Promised Neverland",
+        "query": "The Promised Neverland",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify if you are asking about the original TV series or the film adaptation.\", \"decisions\": {\"p0\": {\"meaning\": \"The Promised Neverland\", \"role\": \"subject\", \"selection\": \"The Promised Neverland | anime:101759\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101759",
+          "role": "subject",
+          "text": "The Promised Neverland",
+          "name": "The Promised Neverland",
+          "meaning": "The Promised Neverland"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101759",
+          "role": "subject",
+          "text": "The Promised Neverland",
+          "name": "The Promised Neverland",
+          "meaning": "The Promised Neverland"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "The Promised Neverland"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101759",
+            "role": "subject",
+            "text": "The Promised Neverland",
+            "name": "The Promised Neverland",
+            "meaning": "The Promised Neverland"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101759",
+            "role": "subject",
+            "text": "The Promised Neverland",
+            "name": "The Promised Neverland",
+            "meaning": "The Promised Neverland"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "uncertain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine source medium for The Promised Neverland anime",
+      "clarification": "Confirm if the user is asking about the original source material or the anime adaptation.",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101759"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "source material",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "source material"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101759"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "original source",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "original source"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101759"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "adaptation",
+            "kind": "tag"
+          }
+        }
+      ]
+    },
+    "scope": "uncertain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "101759",
+          "name": "The Promised Neverland"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:101759",
+          "fact": "The Promised Neverland is based on the manga series of the same name."
+        },
+        {
+          "subject": "anime:101759",
+          "fact": "The source material for the anime is the manga."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 7.5e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00151
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.464822
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.015574
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.025289
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.015041
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 8.827294
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "uncertain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "uncertain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine source medium for The Promised Neverland anime",
+        "clarification": "Confirm if the user is asking about the original source material or the anime adaptation.",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101759"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "source material",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "source material"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101759"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "original source",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "original source"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101759"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "adaptation",
+              "kind": "tag"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "101759",
+            "name": "The Promised Neverland"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101759"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.015492,
+      "arguments": {
+        "id": "101759"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101759",
+        "title": "The Promised Neverland"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "source material",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.035251,
+      "arguments": {
+        "query": "source material",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "anthology",
+            "name": "Anthology",
+            "description": "A collection of separate works collated into a single release.",
+            "category": "Technical",
+            "similarity": 0.4049
+          },
+          {
+            "kind": "tag",
+            "id": "makeup",
+            "name": "Makeup",
+            "description": "Centers around the makeup industry.",
+            "category": "Theme-Arts",
+            "similarity": 0.3508
+          },
+          {
+            "kind": "tag",
+            "id": "advertisement",
+            "name": "Advertisement",
+            "description": "Produced in order to promote the products of a certain company.",
+            "category": "Technical",
+            "similarity": 0.3332
+          },
+          {
+            "kind": "tag",
+            "id": "achromatic",
+            "name": "Achromatic",
+            "description": "Contains animation that is primarily done in black and white.",
+            "category": "Technical",
+            "similarity": 0.327
+          },
+          {
+            "kind": "tag",
+            "id": "educational",
+            "name": "Educational",
+            "description": "Primary aim is to educate the audience.",
+            "category": "Theme-Other",
+            "similarity": 0.3118
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "source material"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.018302,
+      "arguments": {
+        "kind": "tag",
+        "query": "source material"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101759"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.00012,
+      "arguments": {
+        "id": "101759"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101759",
+        "title": "The Promised Neverland"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "search_features",
+      "arguments": {
+        "query": "original source",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.010822,
+      "arguments": {
+        "query": "original source",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "anthology",
+            "name": "Anthology",
+            "description": "A collection of separate works collated into a single release.",
+            "category": "Technical",
+            "similarity": 0.2331
+          },
+          {
+            "kind": "tag",
+            "id": "netori",
+            "name": "Netori",
+            "description": "Features the protagonist stealing the partner of someone else. The opposite of netorare.",
+            "category": "Sexual Content",
+            "similarity": 0.2313
+          },
+          {
+            "kind": "tag",
+            "id": "full cgi",
+            "name": "Full CGI",
+            "description": "Almost entirely created with computer-generated imagery.",
+            "category": "Technical",
+            "similarity": 0.2221
+          },
+          {
+            "kind": "tag",
+            "id": "rape",
+            "name": "Rape",
+            "description": "Features non-consensual sexual penetration.",
+            "category": "Sexual Content",
+            "similarity": 0.2095
+          },
+          {
+            "kind": "tag",
+            "id": "clone",
+            "name": "Clone",
+            "description": "Prominently features a character who is an artificial exact copy of another organism.",
+            "category": "Cast-Traits",
+            "similarity": 0.206
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "original source"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.014445,
+      "arguments": {
+        "kind": "tag",
+        "query": "original source"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 6,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101759"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 6,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000108,
+      "arguments": {
+        "id": "101759"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101759",
+        "title": "The Promised Neverland"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 7,
+      "tool": "search_features",
+      "arguments": {
+        "query": "adaptation",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 7,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.010102,
+      "arguments": {
+        "query": "adaptation",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "shapeshifting",
+            "name": "Shapeshifting",
+            "description": "Features character(s) who changes one's appearance or form.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.3995
+          },
+          {
+            "kind": "tag",
+            "id": "isekai",
+            "name": "Isekai",
+            "description": "Features a character from a modern-day setting being transported into an alternate world and has to adapt to their new surroundings.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.3822
+          },
+          {
+            "kind": "tag",
+            "id": "clone",
+            "name": "Clone",
+            "description": "Prominently features a character who is an artificial exact copy of another organism.",
+            "category": "Cast-Traits",
+            "similarity": 0.3722
+          },
+          {
+            "kind": "tag",
+            "id": "body swapping",
+            "name": "Body Swapping",
+            "description": "Centers around individuals swapping bodies with one another.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.345
+          },
+          {
+            "kind": "tag",
+            "id": "memory manipulation",
+            "name": "Memory Manipulation",
+            "description": "Prominently features a character(s) who has had their memories altered.",
+            "category": "Theme-Other",
+            "similarity": 0.3448
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.887602
+    }
+  ]
+}

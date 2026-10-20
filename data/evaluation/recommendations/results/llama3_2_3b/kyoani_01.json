@@ -1,0 +1,1064 @@
+{
+  "question_id": "kyoani_01",
+  "category": "studios",
+  "intent_family": "kyoani",
+  "wording": "explicit",
+  "question_origin": "authored_naturalistic",
+  "question": "Which three anime made by Kyoto Animation would you recommend?",
+  "k": 3,
+  "constraints": [
+    {
+      "field": "studios",
+      "op": "any",
+      "value": [
+        "Kyoto Animation"
+      ]
+    }
+  ],
+  "label_rationale": "Only studios marked main=true AND animation=true in the local export count.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 119,
+  "reference_examples": [
+    {
+      "id": "100178",
+      "title": "Liz and the Blue Bird"
+    },
+    {
+      "id": "100402",
+      "title": "Tsurune"
+    },
+    {
+      "id": "101",
+      "title": "Air"
+    }
+  ],
+  "answer_text": "Catalog matches — studios: Kyoto Animation.\n\n1. **A Silent Voice** — After transferring into a new school, a deaf girl, Shouko Nishimiya, is bullied by the popular Shouya Ishida. As Shouya continues to bully Shouko, the class turns its back on him. Shouko transfers and Shouya grows up as an outcast. Alone and depressed, the regretful Shouya finds Shouko to make amends. (Source: Eleven Arts)\n\n2. **Violet Evergarden** — A certain point in time, in the continent of Telesis. The great war which divided the continent into North and South has ended after four years, and the people are welcoming a new generation. Violet Evergarden, a young girl formerly known as “the weapon”, has left the battlefield to start a new life at CH Postal Service. There, she is deeply moved by the work of “Auto Memories Dolls”, who carry people's thoughts and convert them into words.…\n\n3. **Love, Chunibyo & Other Delusions** — Everybody has had that stage in their life where they have thought themselves to be special, different from the masses of ordinary humans. They might go as far as seeing themselves capable of wielding mystical powers, or maybe even believe themselves to have descended from a fantasy realm. This \"disease\" is known as \"chuunibyou\" and is often the source of some of the most embarrassing moments of a person's life. For Yuuta Togashi, the scars that…\n\n4. **Hyouka** — Energy-conservative high school student Houtarou Oreki ends up with more than he bargained for when he signs up for the Classic Literature Club at his sister's behest—especially when he realizes how deep-rooted the club's history really is. Begrudgingly, Oreki is dragged into an investigation concerning the 45-year-old mystery that surrounds the club room. Accompanied by his fellow club members, the knowledgeable Satoshi Fukube, the stern but…\n\n5. **Miss Kobayashi's Dragon Maid** — What happens when a drunken promise leads to living with a dragon? That’s Miss Kobayashi’s new reality when Tohru appears in her life. With a maid-slash-dragon in her home, she’s experiencing a whole new level of domestic bliss! But the dragons don’t stop there. On a mission to find Tohru appears Kanna, a little dragon with a big attitude. Before she knows it, Kobayashi’s got a house full of dragons—one serving tail and the other serving serious…",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "A Silent Voice",
+      "Violet Evergarden",
+      "Love, Chunibyo & Other Delusions",
+      "Hyouka",
+      "Miss Kobayashi's Dragon Maid"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "A Silent Voice",
+      "anime_id": "20954",
+      "canonical_title": "A Silent Voice",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20954"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Violet Evergarden",
+      "anime_id": "21827",
+      "canonical_title": "Violet Evergarden",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21827"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Love, Chunibyo & Other Delusions",
+      "anime_id": "14741",
+      "canonical_title": "Love, Chunibyo & Other Delusions",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "14741"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Hyouka",
+      "anime_id": "12189",
+      "canonical_title": "Hyouka",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "12189"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Miss Kobayashi's Dragon Maid",
+      "anime_id": "21776",
+      "canonical_title": "Miss Kobayashi's Dragon Maid",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21776"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 1.0,
+    "graded_fit_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "constraint_coverage": 1.0,
+    "count_compliance": 0,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "extra_count": 2,
+    "literal_precision_at_k": 1.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 15.041646458001196,
+  "extraction_seconds": 1.5118385419991682,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 7.1e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001175
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 5.723526
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.011835
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.0075
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.012561
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.098635
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "query": "Kyoto Animation",
+              "filters": [
+                {
+                  "field": "studios",
+                  "operator": "eq",
+                  "value": "Kyoto Animation"
+                }
+              ]
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "query": "",
+              "filters": [
+                {
+                  "field": "genres",
+                  "operator": "contains",
+                  "value": "tokusatsu"
+                },
+                {
+                  "field": "genres",
+                  "operator": "contains",
+                  "value": "kabuki"
+                }
+              ]
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "query": "",
+              "filters": [
+                {
+                  "field": "studios",
+                  "operator": "eq",
+                  "value": "Kyoto Animation"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "17813",
+            "name": "Kyoto Animation: Megane-hen"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "query": "Kyoto Animation",
+        "filters": [
+          {
+            "field": "studios",
+            "operator": "eq",
+            "value": "Kyoto Animation"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 1.069151,
+      "arguments": {
+        "query": "Kyoto Animation",
+        "filters": [
+          {
+            "field": "studios",
+            "operator": "eq",
+            "value": "Kyoto Animation"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "studios",
+              "operator": "eq",
+              "value": "Kyoto Animation"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "studios",
+              "operator": "eq",
+              "value": "Kyoto Animation",
+              "source_text": "Which three anime made by Kyoto Animation would you recommend?",
+              "mapping": "exact",
+              "origin": "structured_attribute_plan"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "20954",
+            "title": "A Silent Voice",
+            "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+          },
+          {
+            "id": "21827",
+            "title": "Violet Evergarden",
+            "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+          },
+          {
+            "id": "14741",
+            "title": "Love, Chunibyo & Other Delusions",
+            "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+          },
+          {
+            "id": "12189",
+            "title": "Hyouka",
+            "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+          },
+          {
+            "id": "21776",
+            "title": "Miss Kobayashi's Dragon Maid",
+            "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "query": "",
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "tokusatsu"
+          },
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "kabuki"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 1.062561,
+      "arguments": {
+        "query": "",
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "tokusatsu"
+          },
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "kabuki"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "studios",
+              "operator": "eq",
+              "value": "Kyoto Animation"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "studios",
+              "operator": "eq",
+              "value": "Kyoto Animation",
+              "source_text": "Which three anime made by Kyoto Animation would you recommend?",
+              "mapping": "exact",
+              "origin": "structured_attribute_plan"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "20954",
+            "title": "A Silent Voice",
+            "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+          },
+          {
+            "id": "21827",
+            "title": "Violet Evergarden",
+            "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+          },
+          {
+            "id": "14741",
+            "title": "Love, Chunibyo & Other Delusions",
+            "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+          },
+          {
+            "id": "12189",
+            "title": "Hyouka",
+            "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+          },
+          {
+            "id": "21776",
+            "title": "Miss Kobayashi's Dragon Maid",
+            "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "recommend_anime",
+      "arguments": {
+        "query": "",
+        "filters": [
+          {
+            "field": "studios",
+            "operator": "eq",
+            "value": "Kyoto Animation"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 1.052179,
+      "arguments": {
+        "query": "",
+        "filters": [
+          {
+            "field": "studios",
+            "operator": "eq",
+            "value": "Kyoto Animation"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "studios",
+              "operator": "eq",
+              "value": "Kyoto Animation"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "studios",
+              "operator": "eq",
+              "value": "Kyoto Animation",
+              "source_text": "Which three anime made by Kyoto Animation would you recommend?",
+              "mapping": "exact",
+              "origin": "structured_attribute_plan"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "20954",
+            "title": "A Silent Voice",
+            "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+          },
+          {
+            "id": "21827",
+            "title": "Violet Evergarden",
+            "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+          },
+          {
+            "id": "14741",
+            "title": "Love, Chunibyo & Other Delusions",
+            "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+          },
+          {
+            "id": "12189",
+            "title": "Hyouka",
+            "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+          },
+          {
+            "id": "21776",
+            "title": "Miss Kobayashi's Dragon Maid",
+            "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000873
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "query": "Kyoto Animation",
+          "filters": [
+            {
+              "field": "studios",
+              "operator": "eq",
+              "value": "Kyoto Animation"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "studios",
+                "operator": "eq",
+                "value": "Kyoto Animation"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "studios",
+                "operator": "eq",
+                "value": "Kyoto Animation",
+                "source_text": "Which three anime made by Kyoto Animation would you recommend?",
+                "mapping": "exact",
+                "origin": "structured_attribute_plan"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "20954",
+              "title": "A Silent Voice",
+              "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+            },
+            {
+              "id": "21827",
+              "title": "Violet Evergarden",
+              "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+            },
+            {
+              "id": "14741",
+              "title": "Love, Chunibyo & Other Delusions",
+              "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+            },
+            {
+              "id": "12189",
+              "title": "Hyouka",
+              "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+            },
+            {
+              "id": "21776",
+              "title": "Miss Kobayashi's Dragon Maid",
+              "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+            }
+          ]
+        },
+        "elapsed_seconds": 1.069151
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "query": "",
+          "filters": [
+            {
+              "field": "genres",
+              "operator": "contains",
+              "value": "tokusatsu"
+            },
+            {
+              "field": "genres",
+              "operator": "contains",
+              "value": "kabuki"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "studios",
+                "operator": "eq",
+                "value": "Kyoto Animation"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "studios",
+                "operator": "eq",
+                "value": "Kyoto Animation",
+                "source_text": "Which three anime made by Kyoto Animation would you recommend?",
+                "mapping": "exact",
+                "origin": "structured_attribute_plan"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "20954",
+              "title": "A Silent Voice",
+              "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+            },
+            {
+              "id": "21827",
+              "title": "Violet Evergarden",
+              "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+            },
+            {
+              "id": "14741",
+              "title": "Love, Chunibyo & Other Delusions",
+              "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+            },
+            {
+              "id": "12189",
+              "title": "Hyouka",
+              "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+            },
+            {
+              "id": "21776",
+              "title": "Miss Kobayashi's Dragon Maid",
+              "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+            }
+          ]
+        },
+        "elapsed_seconds": 1.062561
+      },
+      {
+        "step": 2,
+        "tool": "recommend_anime",
+        "arguments": {
+          "query": "",
+          "filters": [
+            {
+              "field": "studios",
+              "operator": "eq",
+              "value": "Kyoto Animation"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "studios",
+                "operator": "eq",
+                "value": "Kyoto Animation"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "studios",
+                "operator": "eq",
+                "value": "Kyoto Animation",
+                "source_text": "Which three anime made by Kyoto Animation would you recommend?",
+                "mapping": "exact",
+                "origin": "structured_attribute_plan"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "20954",
+              "title": "A Silent Voice",
+              "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+            },
+            {
+              "id": "21827",
+              "title": "Violet Evergarden",
+              "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+            },
+            {
+              "id": "14741",
+              "title": "Love, Chunibyo & Other Delusions",
+              "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+            },
+            {
+              "id": "12189",
+              "title": "Hyouka",
+              "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+            },
+            {
+              "id": "21776",
+              "title": "Miss Kobayashi's Dragon Maid",
+              "reason": "Matches: filters=[{'field': 'studios', 'operator': 'eq', 'value': 'Kyoto Animation'}]"
+            }
+          ]
+        },
+        "elapsed_seconds": 1.052179
+      }
+    ],
+    "llm_calls": 3,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 5.723526,
+      "prepare_context": 0.011835,
+      "retrieve_guides": 0.0075,
+      "feature_candidates": 0.012561,
+      "planning": 6.098635,
+      "tools": 3.183891,
+      "generate_answer": 0.000873
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Kyoto Animation\", \"query\": \"Kyoto Animation\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Studio\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Kyoto Animation",
+        "query": "Kyoto Animation",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Studio"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"None\", \"decisions\": {\"p0\": {\"meaning\": \"Studio\", \"role\": \"subject\", \"selection\": \"Kyoto Animation: Megane-hen | anime:17813\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "17813",
+          "role": "subject",
+          "text": "Kyoto Animation",
+          "name": "Kyoto Animation: Megane-hen",
+          "meaning": "Studio"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "17813",
+          "role": "subject",
+          "text": "Kyoto Animation",
+          "name": "Kyoto Animation: Megane-hen",
+          "meaning": "Studio"
+        }
+      ],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Kyoto Animation: Megane-hen"
+      ],
+      "required": [],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Kyoto Animation: Megane-hen"
+      ],
+      "filters": [
+        {
+          "field": "studios",
+          "operator": "eq",
+          "value": "Kyoto Animation"
+        }
+      ],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "studios",
+          "operator": "eq",
+          "value": "Kyoto Animation",
+          "source_text": "Which three anime made by Kyoto Animation would you recommend?",
+          "mapping": "exact",
+          "origin": "structured_attribute_plan"
+        }
+      ],
+      "preference_hierarchy": [],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "17813",
+            "role": "subject",
+            "text": "Kyoto Animation",
+            "name": "Kyoto Animation: Megane-hen",
+            "meaning": "Studio"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "17813",
+            "role": "subject",
+            "text": "Kyoto Animation",
+            "name": "Kyoto Animation: Megane-hen",
+            "meaning": "Studio"
+          }
+        ],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "query": "Kyoto Animation",
+            "filters": [
+              {
+                "field": "studios",
+                "operator": "eq",
+                "value": "Kyoto Animation"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "query": "",
+            "filters": [
+              {
+                "field": "genres",
+                "operator": "contains",
+                "value": "tokusatsu"
+              },
+              {
+                "field": "genres",
+                "operator": "contains",
+                "value": "kabuki"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "query": "",
+            "filters": [
+              {
+                "field": "studios",
+                "operator": "eq",
+                "value": "Kyoto Animation"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

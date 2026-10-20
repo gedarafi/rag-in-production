@@ -1,0 +1,791 @@
+{
+  "question_id": "nineties_01",
+  "category": "release_year",
+  "intent_family": "nineties",
+  "wording": "explicit",
+  "question_origin": "authored_naturalistic",
+  "question": "What are three anime released between 1990 and 1999, inclusive?",
+  "k": 3,
+  "constraints": [
+    {
+      "field": "year",
+      "op": "gte",
+      "value": 1990
+    },
+    {
+      "field": "year",
+      "op": "lte",
+      "value": 1999
+    }
+  ],
+  "label_rationale": "The original entry must first release in the inclusive 1990-1999 interval.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 2030,
+  "reference_examples": [
+    {
+      "id": "1",
+      "title": "Cowboy Bebop"
+    },
+    {
+      "id": "100110",
+      "title": "Dragon Fist"
+    },
+    {
+      "id": "1004",
+      "title": "She and Her Cat: Their Standing Points"
+    }
+  ],
+  "answer_text": "Catalog matches.\n\n1. **Dragon Ball Z: The Tree of Might** — The Saiyajin named Turlus has come to Earth in order to plant a tree that will both destroy the planet and give him infinite strength. Son Goku and the Z Warriors cannot let this happen and duke it out with the invaders for the sake of the planet. (Source: Anime News Network)\n\n2. **Record of Lodoss War** — Created from the aftermath of the last great battle of the gods, Lodoss and its kingdoms have been plagued by war for thousands of years. As a quiet peace and unity finally become foreseeable over the land, an unknown evil begins to stir. An ancient witch has awakened, bent on preserving the island of Lodoss by creating political unbalance throughout the many kingdoms and keeping any one from maintaining central control. Only a mixed-race party…\n\n3. **Dragon Ball Z: Bardock – The Father of Goku** — Bardock, Son Goku's father, is a low-ranking Saiyan soldier who was given the power to see into the future by the last remaining alien on a planet he just destroyed. He witnesses the destruction of his race and must now do his best to stop Freeza's impending massacre. (Source: Anime News Network)\n\n4. **Dragon Ball Z: The World's Strongest** — The evil Dr. Wheelo has resurrected his brain into a robot and now desires to inhabit the body of the world's strongest warrior. This means he must face Son Goku and company in a fight for Goku's life. (Source: Anime News Network)\n\n5. **Nadia: The Secret of Blue Water** — In 1889, the world is on the pinnacle of great discoveries in technology. In mankind's grasp for the future, a sinister foe known only as Gargoyle, obsessed with restoring the former Atlantean empire to the glory it once held, begins his plans to take over the world. Nadia, with the help of a young inventor, Jean Raltique, and the mysterious captain Nemo of the submarine Nautilus, must fight to save the world from Gargoyle and Neo-Atlantis.…",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Dragon Ball Z: The Tree of Might",
+      "Record of Lodoss War",
+      "Dragon Ball Z: Bardock – The Father of Goku",
+      "Dragon Ball Z: The World's Strongest",
+      "Nadia: The Secret of Blue Water"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Dragon Ball Z: The Tree of Might",
+      "anime_id": "896",
+      "canonical_title": "Dragon Ball Z: The Tree of Might",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "896"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Record of Lodoss War",
+      "anime_id": "207",
+      "canonical_title": "Record of Lodoss War",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "207"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Dragon Ball Z: Bardock – The Father of Goku",
+      "anime_id": "986",
+      "canonical_title": "Dragon Ball Z: Bardock – The Father of Goku",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "986"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Dragon Ball Z: The World's Strongest",
+      "anime_id": "895",
+      "canonical_title": "Dragon Ball Z: The World's Strongest",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "895"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Nadia: The Secret of Blue Water",
+      "anime_id": "1251",
+      "canonical_title": "Nadia: The Secret of Blue Water",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "1251"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 1.0,
+    "graded_fit_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "constraint_coverage": 1.0,
+    "count_compliance": 0,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "extra_count": 2,
+    "literal_precision_at_k": 1.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 8.199602291999327,
+  "extraction_seconds": 1.7387660839995078,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.7e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000758
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.113628
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.020648
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.030423
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.01488
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.953734
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "anime released between 1990 and 1999",
+              "anime_ids": []
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "query": "anime released between 1990 and 1999",
+              "filters": [
+                {
+                  "field": "year",
+                  "operator": "eq",
+                  "value": "1990"
+                },
+                {
+                  "field": "year",
+                  "operator": "lte",
+                  "value": "1999"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21334",
+            "name": "Three Leaves, Three Colors"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "anime released between 1990 and 1999",
+        "anime_ids": []
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.009913,
+      "arguments": {
+        "query": "anime released between 1990 and 1999",
+        "anime_ids": []
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "query": "anime released between 1990 and 1999",
+        "filters": [
+          {
+            "field": "year",
+            "operator": "eq",
+            "value": "1990"
+          },
+          {
+            "field": "year",
+            "operator": "lte",
+            "value": "1999"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.053228,
+      "arguments": {
+        "query": "anime released between 1990 and 1999",
+        "filters": [
+          {
+            "field": "year",
+            "operator": "eq",
+            "value": "1990"
+          },
+          {
+            "field": "year",
+            "operator": "lte",
+            "value": "1999"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "year",
+              "operator": "eq",
+              "value": "1990"
+            },
+            {
+              "field": "year",
+              "operator": "lte",
+              "value": "1999"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "896",
+            "title": "Dragon Ball Z: The Tree of Might",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'eq', 'value': '1990'}, {'field': 'year', 'operator': 'lte', 'value': '1999'}]"
+          },
+          {
+            "id": "207",
+            "title": "Record of Lodoss War",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'eq', 'value': '1990'}, {'field': 'year', 'operator': 'lte', 'value': '1999'}]"
+          },
+          {
+            "id": "986",
+            "title": "Dragon Ball Z: Bardock – The Father of Goku",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'eq', 'value': '1990'}, {'field': 'year', 'operator': 'lte', 'value': '1999'}]"
+          },
+          {
+            "id": "895",
+            "title": "Dragon Ball Z: The World's Strongest",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'eq', 'value': '1990'}, {'field': 'year', 'operator': 'lte', 'value': '1999'}]"
+          },
+          {
+            "id": "1251",
+            "title": "Nadia: The Secret of Blue Water",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'eq', 'value': '1990'}, {'field': 'year', 'operator': 'lte', 'value': '1999'}]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.00059
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "anime released between 1990 and 1999",
+          "anime_ids": []
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.009913
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "query": "anime released between 1990 and 1999",
+          "filters": [
+            {
+              "field": "year",
+              "operator": "eq",
+              "value": "1990"
+            },
+            {
+              "field": "year",
+              "operator": "lte",
+              "value": "1999"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "year",
+                "operator": "eq",
+                "value": "1990"
+              },
+              {
+                "field": "year",
+                "operator": "lte",
+                "value": "1999"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "896",
+              "title": "Dragon Ball Z: The Tree of Might",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'eq', 'value': '1990'}, {'field': 'year', 'operator': 'lte', 'value': '1999'}]"
+            },
+            {
+              "id": "207",
+              "title": "Record of Lodoss War",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'eq', 'value': '1990'}, {'field': 'year', 'operator': 'lte', 'value': '1999'}]"
+            },
+            {
+              "id": "986",
+              "title": "Dragon Ball Z: Bardock – The Father of Goku",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'eq', 'value': '1990'}, {'field': 'year', 'operator': 'lte', 'value': '1999'}]"
+            },
+            {
+              "id": "895",
+              "title": "Dragon Ball Z: The World's Strongest",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'eq', 'value': '1990'}, {'field': 'year', 'operator': 'lte', 'value': '1999'}]"
+            },
+            {
+              "id": "1251",
+              "title": "Nadia: The Secret of Blue Water",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'eq', 'value': '1990'}, {'field': 'year', 'operator': 'lte', 'value': '1999'}]"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.053228
+      }
+    ],
+    "llm_calls": 3,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 3.113628,
+      "prepare_context": 0.020648,
+      "retrieve_guides": 0.030423,
+      "feature_candidates": 0.01488,
+      "planning": 4.953734,
+      "tools": 0.063141,
+      "generate_answer": 0.00059
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"three anime\", \"query\": \"three anime\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested type of content\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "three anime",
+        "query": "three anime",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested type of content"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"What are three anime released between 1990 and 1999, inclusive?\", \"decisions\": {\"p0\": {\"meaning\": \"Requested type of content\", \"role\": \"subject\", \"selection\": \"Three Leaves, Three Colors | anime:21334\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21334",
+          "role": "subject",
+          "text": "three anime",
+          "name": "Three Leaves, Three Colors",
+          "meaning": "Requested type of content"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21334",
+          "role": "subject",
+          "text": "three anime",
+          "name": "Three Leaves, Three Colors",
+          "meaning": "Requested type of content"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Three Leaves, Three Colors"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21334",
+            "role": "subject",
+            "text": "three anime",
+            "name": "Three Leaves, Three Colors",
+            "meaning": "Requested type of content"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21334",
+            "role": "subject",
+            "text": "three anime",
+            "name": "Three Leaves, Three Colors",
+            "meaning": "Requested type of content"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "anime released between 1990 and 1999",
+            "anime_ids": []
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "query": "anime released between 1990 and 1999",
+            "filters": [
+              {
+                "field": "year",
+                "operator": "eq",
+                "value": "1990"
+              },
+              {
+                "field": "year",
+                "operator": "lte",
+                "value": "1999"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21334",
+          "name": "Three Leaves, Three Colors"
+        }
+      ],
+      "characters": []
+    }
+  }
+}

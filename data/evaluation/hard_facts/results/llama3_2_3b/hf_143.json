@@ -1,0 +1,389 @@
+{
+  "question_id": "hf_143",
+  "anime_id": "127230",
+  "title": "Chainsaw Man",
+  "field": "main_animation_studios",
+  "question": "Who produced the main animation for Chainsaw Man's first season?",
+  "expected_values": [
+    "MAPPA"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "MAPPA",
+  "extracted_values": [
+    "MAPPA"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 10.112276666999605,
+  "extraction_seconds": 0.4798356250012148,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "MAPPA",
+        "quote": "MAPPA"
+      }
+    ],
+    "note": "",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "127230",
+          "section": "staff"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "127230",
+          "title": "Chainsaw Man"
+        },
+        "elapsed_seconds": 0.005633
+      },
+      {
+        "step": 1,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "studio responsible for Chainsaw Man's first season animation",
+          "anime_ids": [
+            "127230"
+          ]
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.056665
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 2.056867,
+      "prepare_context": 0.016315,
+      "retrieve_guides": 0.029993,
+      "feature_candidates": 0.013947,
+      "planning": 4.2989,
+      "tools": 0.062298,
+      "generate_answer": 3.631181
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Chainsaw Man\", \"query\": \"Chainsaw Man\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; animation production\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Chainsaw Man",
+        "query": "Chainsaw Man",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; animation production"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"None\", \"decisions\": {\"p0\": {\"meaning\": \"TV series; animation production\", \"role\": \"subject\", \"selection\": \"Chainsaw Man | anime:127230\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "127230",
+          "role": "subject",
+          "text": "Chainsaw Man",
+          "name": "Chainsaw Man",
+          "meaning": "TV series; animation production"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "127230",
+          "role": "subject",
+          "text": "Chainsaw Man",
+          "name": "Chainsaw Man",
+          "meaning": "TV series; animation production"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Chainsaw Man"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "127230",
+            "role": "subject",
+            "text": "Chainsaw Man",
+            "name": "Chainsaw Man",
+            "meaning": "TV series; animation production"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "127230",
+            "role": "subject",
+            "text": "Chainsaw Man",
+            "name": "Chainsaw Man",
+            "meaning": "TV series; animation production"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Find the studio responsible for the main animation of Chainsaw Man's first season.",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "127230",
+            "section": "staff"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "studio responsible for Chainsaw Man's first season animation",
+            "anime_ids": [
+              "127230"
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "127230",
+          "name": "Chainsaw Man"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:127230",
+          "fact": "The main animation for Chainsaw Man's first season was produced by MAPPA."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 0.000102
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001311
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.056867
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.016315
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.029993
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013947
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.2989
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Find the studio responsible for the main animation of Chainsaw Man's first season.",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "127230",
+              "section": "staff"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "studio responsible for Chainsaw Man's first season animation",
+              "anime_ids": [
+                "127230"
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "127230",
+            "name": "Chainsaw Man"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "127230",
+        "section": "staff"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.005633,
+      "arguments": {
+        "id": "127230",
+        "section": "staff"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "127230",
+        "title": "Chainsaw Man"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "studio responsible for Chainsaw Man's first season animation",
+        "anime_ids": [
+          "127230"
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.056665,
+      "arguments": {
+        "query": "studio responsible for Chainsaw Man's first season animation",
+        "anime_ids": [
+          "127230"
+        ]
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.631181
+    }
+  ]
+}

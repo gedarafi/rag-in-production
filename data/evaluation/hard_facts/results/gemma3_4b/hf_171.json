@@ -1,0 +1,724 @@
+{
+  "question_id": "hf_171",
+  "anime_id": "21507",
+  "title": "Mob Psycho 100",
+  "field": "main_characters",
+  "question": "List everyone assigned a main character role in Mob Psycho 100 season one.",
+  "expected_values": [
+    "Arataka Reigen",
+    "Shigeo Kageyama",
+    "Ekubo",
+    "Ritsu Kageyama"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The main cast of Mob Psycho 100 season one includes: Arataka Reigen, Shigeo Kageyama, Ekubo, and Ritsu Kageyama.",
+  "extracted_values": [
+    "Arataka Reigen",
+    "Shigeo Kageyama",
+    "Ekubo",
+    "Ritsu Kageyama"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 20.452447333000237,
+  "extraction_seconds": 0.9463387499999953,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Arataka Reigen",
+        "quote": "The main cast of Mob Psycho 100 season one includes: Arataka Reigen, Shigeo Kageyama, Ekubo, and Ritsu Kageyama."
+      },
+      {
+        "value": "Shigeo Kageyama",
+        "quote": "The main cast of Mob Psycho 100 season one includes: Arataka Reigen, Shigeo Kageyama, Ekubo, and Ritsu Kageyama."
+      },
+      {
+        "value": "Ekubo",
+        "quote": "The main cast of Mob Psycho 100 season one includes: Arataka Reigen, Shigeo Kageyama, Ekubo, and Ritsu Kageyama."
+      },
+      {
+        "value": "Ritsu Kageyama",
+        "quote": "The main cast of Mob Psycho 100 season one includes: Arataka Reigen, Shigeo Kageyama, Ekubo, and Ritsu Kageyama."
+      }
+    ],
+    "note": "No other characters were mentioned as main characters in the season one cast.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 4,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21507"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21507",
+          "title": "Mob Psycho 100"
+        },
+        "elapsed_seconds": 0.028116
+      },
+      {
+        "step": 1,
+        "tool": "get_character",
+        "arguments": {
+          "id": "89334",
+          "offset": 0
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "89334",
+          "name": "Arataka Reigen"
+        },
+        "elapsed_seconds": 0.003888
+      },
+      {
+        "step": 2,
+        "tool": "get_character",
+        "arguments": {
+          "id": "89616",
+          "offset": 0
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "89616",
+          "name": "Shigeo Kageyama"
+        },
+        "elapsed_seconds": 0.002124
+      },
+      {
+        "step": 3,
+        "tool": "get_character",
+        "arguments": {
+          "id": "89617",
+          "offset": 0
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "89617",
+          "name": "Ekubo"
+        },
+        "elapsed_seconds": 0.002081
+      },
+      {
+        "step": 4,
+        "tool": "get_character",
+        "arguments": {
+          "id": "89618",
+          "offset": 0
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "89618",
+          "name": "Ritsu Kageyama"
+        },
+        "elapsed_seconds": 0.001404
+      },
+      {
+        "status": "error",
+        "step": 5,
+        "tool": "get_character",
+        "error": "Use character IDs from dictionary or tool results first",
+        "elapsed_seconds": 2.9e-05
+      },
+      {
+        "status": "error",
+        "step": 6,
+        "tool": "get_character",
+        "error": "Use character IDs from dictionary or tool results first",
+        "elapsed_seconds": 1e-05
+      },
+      {
+        "status": "error",
+        "step": 7,
+        "tool": "get_character",
+        "error": "Use character IDs from dictionary or tool results first",
+        "elapsed_seconds": 5e-06
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 8,
+    "executed_tools": 5,
+    "timings_seconds": {
+      "interpret_request": 5.132483,
+      "prepare_context": 0.021432,
+      "retrieve_guides": 0.033739,
+      "feature_candidates": 0.212578,
+      "planning": 9.352478,
+      "tools": 0.037657,
+      "generate_answer": 5.659491
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Mob Psycho 100\", \"query\": \"Mob Psycho 100\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Anime series\"}, {\"text\": \"season one\", \"query\": \"Mob Psycho 100 Season 1\", \"kind\": \"genre\", \"role\": \"reference\", \"meaning\": \"Specific season\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Mob Psycho 100",
+        "query": "Mob Psycho 100",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Anime series"
+      },
+      {
+        "text": "season one",
+        "query": "Mob Psycho 100 Season 1",
+        "kind": "genre",
+        "role": "reference",
+        "meaning": "Specific season"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify which characters you would like to list as main characters in Mob Psycho 100 season one.\", \"decisions\": {\"p0\": {\"meaning\": \"Anime series\", \"role\": \"subject\", \"selection\": \"Mob Psycho 100 | anime:21507\"}, \"p1\": {\"meaning\": \"Specific season\", \"role\": \"reference\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21507",
+          "role": "subject",
+          "text": "Mob Psycho 100",
+          "name": "Mob Psycho 100",
+          "meaning": "Anime series"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "reference",
+          "text": "season one",
+          "name": "",
+          "meaning": "Specific season"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21507",
+          "role": "subject",
+          "text": "Mob Psycho 100",
+          "name": "Mob Psycho 100",
+          "meaning": "Anime series"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Mob Psycho 100"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21507",
+            "role": "subject",
+            "text": "Mob Psycho 100",
+            "name": "Mob Psycho 100",
+            "meaning": "Anime series"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "reference",
+            "text": "season one",
+            "name": "",
+            "meaning": "Specific season"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21507",
+            "role": "subject",
+            "text": "Mob Psycho 100",
+            "name": "Mob Psycho 100",
+            "meaning": "Anime series"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Retrieve cast information for Mob Psycho 100 season one.",
+      "clarification": "Confirm the user wants a list of all main cast members in season one.",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21507"
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "89334",
+            "offset": 0
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "89616",
+            "offset": 0
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "89617",
+            "offset": 0
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "89618",
+            "offset": 0
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "89619",
+            "offset": 0
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "89620",
+            "offset": 0
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "89621",
+            "offset": 0
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21507",
+          "name": "Mob Psycho 100"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:21507",
+          "fact": "Arataka Reigen is the MAIN character."
+        },
+        {
+          "subject": "anime:21507",
+          "fact": "Shigeo Kageyama is the MAIN character."
+        },
+        {
+          "subject": "anime:21507",
+          "fact": "Ekubo is the MAIN character."
+        },
+        {
+          "subject": "anime:21507",
+          "fact": "Ritsu Kageyama is the MAIN character."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.7e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001157
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 5.132483
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.021432
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.033739
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.212578
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 9.352478
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Retrieve cast information for Mob Psycho 100 season one.",
+        "clarification": "Confirm the user wants a list of all main cast members in season one.",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21507"
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "89334",
+              "offset": 0
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "89616",
+              "offset": 0
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "89617",
+              "offset": 0
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "89618",
+              "offset": 0
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "89619",
+              "offset": 0
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "89620",
+              "offset": 0
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "89621",
+              "offset": 0
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21507",
+            "name": "Mob Psycho 100"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21507"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.028116,
+      "arguments": {
+        "id": "21507"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21507",
+        "title": "Mob Psycho 100"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_character",
+      "arguments": {
+        "id": "89334",
+        "offset": 0
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.003888,
+      "arguments": {
+        "id": "89334",
+        "offset": 0
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "89334",
+        "name": "Arataka Reigen"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "get_character",
+      "arguments": {
+        "id": "89616",
+        "offset": 0
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.002124,
+      "arguments": {
+        "id": "89616",
+        "offset": 0
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "89616",
+        "name": "Shigeo Kageyama"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_character",
+      "arguments": {
+        "id": "89617",
+        "offset": 0
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.002081,
+      "arguments": {
+        "id": "89617",
+        "offset": 0
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "89617",
+        "name": "Ekubo"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "get_character",
+      "arguments": {
+        "id": "89618",
+        "offset": 0
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.001404,
+      "arguments": {
+        "id": "89618",
+        "offset": 0
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "89618",
+        "name": "Ritsu Kageyama"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "get_character",
+      "arguments": {
+        "id": "89619",
+        "offset": 0
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "get_character",
+      "status": "error",
+      "elapsed_seconds": 2.9e-05,
+      "error": "Use character IDs from dictionary or tool results first"
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 6,
+      "tool": "get_character",
+      "arguments": {
+        "id": "89620",
+        "offset": 0
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 6,
+      "tool": "get_character",
+      "status": "error",
+      "elapsed_seconds": 1e-05,
+      "error": "Use character IDs from dictionary or tool results first"
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 7,
+      "tool": "get_character",
+      "arguments": {
+        "id": "89621",
+        "offset": 0
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 7,
+      "tool": "get_character",
+      "status": "error",
+      "elapsed_seconds": 5e-06,
+      "error": "Use character IDs from dictionary or tool results first"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 5.659491
+    }
+  ]
+}

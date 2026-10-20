@@ -1,0 +1,527 @@
+{
+  "question_id": "hf_111",
+  "anime_id": "9253",
+  "title": "Steins;Gate",
+  "field": "source_material",
+  "question": "What kind of work was Steins;Gate adapted from?",
+  "expected_values": [
+    "VISUAL_NOVEL"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Steins;Gate was adapted from the visual novel of the same name, created by 5pb. and Nitroplus.",
+  "extracted_values": [
+    "visual novel",
+    "manga",
+    "light novel",
+    "original"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 16.687626999999793,
+  "extraction_seconds": 0.7360545830001683,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "visual novel",
+        "quote": "Steins;Gate was adapted from the visual novel of the same name, created by 5pb. and Nitroplus."
+      },
+      {
+        "value": "manga",
+        "quote": "Steins;Gate was adapted from the visual novel of the same name, created by 5pb. and Nitroplus."
+      },
+      {
+        "value": "light novel",
+        "quote": "Steins;Gate was adapted from the visual novel of the same name, created by 5pb. and Nitroplus."
+      },
+      {
+        "value": "original",
+        "quote": "Steins;Gate was adapted from the visual novel of the same name, created by 5pb. and Nitroplus."
+      }
+    ],
+    "note": "No clear source material was asserted for Steins;Gate.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.25,
+    "recall": 1.0,
+    "f1": 0.4,
+    "tp": 1,
+    "fp": 3,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": [
+      "light novel",
+      "manga",
+      "original"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "Steins;Gate source material"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "exorcism",
+              "name": "Exorcism",
+              "description": "Involving religious methods of vanquishing youkai, demons, or other supernatural entities.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.2003
+            },
+            {
+              "kind": "tag",
+              "id": "full cgi",
+              "name": "Full CGI",
+              "description": "Almost entirely created with computer-generated imagery.",
+              "category": "Technical",
+              "similarity": 0.1905
+            },
+            {
+              "kind": "tag",
+              "id": "alchemy",
+              "name": "Alchemy",
+              "description": "Features character(s) who practice alchemy.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.17
+            },
+            {
+              "kind": "tag",
+              "id": "dungeon",
+              "name": "Dungeon",
+              "description": "Prominently features a dungeon environment.",
+              "category": "Setting-Scene",
+              "similarity": 0.1629
+            },
+            {
+              "kind": "tag",
+              "id": "snowscape",
+              "name": "Snowscape",
+              "description": "Prominently or partially set in a snowy environment.",
+              "category": "Setting-Scene",
+              "similarity": 0.1597
+            }
+          ]
+        },
+        "elapsed_seconds": 0.037941
+      },
+      {
+        "step": 1,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "9253"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "9253",
+          "title": "Steins;Gate"
+        },
+        "elapsed_seconds": 0.014171
+      },
+      {
+        "step": 2,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "Steins;Gate origin"
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.011267
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 3.466565,
+      "prepare_context": 0.018193,
+      "retrieve_guides": 0.030459,
+      "feature_candidates": 0.014974,
+      "planning": 6.836898,
+      "tools": 0.063379,
+      "generate_answer": 6.25421
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Steins;Gate\", \"query\": \"Steins;Gate\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Steins;Gate",
+        "query": "Steins;Gate",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"The question asks about the source material for the adaptation of Steins;Gate.\", \"decisions\": {\"p0\": {\"meaning\": \"Steins;Gate\", \"role\": \"subject\", \"selection\": \"Steins;Gate | anime:9253\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "9253",
+          "role": "subject",
+          "text": "Steins;Gate",
+          "name": "Steins;Gate",
+          "meaning": "Steins;Gate"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "9253",
+          "role": "subject",
+          "text": "Steins;Gate",
+          "name": "Steins;Gate",
+          "meaning": "Steins;Gate"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Steins;Gate"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "9253",
+            "role": "subject",
+            "text": "Steins;Gate",
+            "name": "Steins;Gate",
+            "meaning": "Steins;Gate"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "9253",
+            "role": "subject",
+            "text": "Steins;Gate",
+            "name": "Steins;Gate",
+            "meaning": "Steins;Gate"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "uncertain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine source material for Steins;Gate",
+      "clarification": "Confirm if the request is about the original source material or adaptations.",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "Steins;Gate source material"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "9253"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "Steins;Gate origin"
+          }
+        }
+      ]
+    },
+    "scope": "uncertain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "9253",
+          "name": "Steins;Gate"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:9253",
+          "fact": "Steins;Gate was adapted from the critically acclaimed visual novel by 5pb. and Nitroplus."
+        },
+        {
+          "subject": "anime:9253",
+          "fact": "The visual novel ‘Steins;Gate’ tells the story of Okabe Rintarou and his team as they discover the ability to send emails to the past, leading to a series of time travel adventures and dangerous consequences."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.2e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001312
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.466565
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.018193
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.030459
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014974
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.836898
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "uncertain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "uncertain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine source material for Steins;Gate",
+        "clarification": "Confirm if the request is about the original source material or adaptations.",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "Steins;Gate source material"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "9253"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "Steins;Gate origin"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "9253",
+            "name": "Steins;Gate"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "Steins;Gate source material"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.037941,
+      "arguments": {
+        "query": "Steins;Gate source material"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "exorcism",
+            "name": "Exorcism",
+            "description": "Involving religious methods of vanquishing youkai, demons, or other supernatural entities.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.2003
+          },
+          {
+            "kind": "tag",
+            "id": "full cgi",
+            "name": "Full CGI",
+            "description": "Almost entirely created with computer-generated imagery.",
+            "category": "Technical",
+            "similarity": 0.1905
+          },
+          {
+            "kind": "tag",
+            "id": "alchemy",
+            "name": "Alchemy",
+            "description": "Features character(s) who practice alchemy.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.17
+          },
+          {
+            "kind": "tag",
+            "id": "dungeon",
+            "name": "Dungeon",
+            "description": "Prominently features a dungeon environment.",
+            "category": "Setting-Scene",
+            "similarity": 0.1629
+          },
+          {
+            "kind": "tag",
+            "id": "snowscape",
+            "name": "Snowscape",
+            "description": "Prominently or partially set in a snowy environment.",
+            "category": "Setting-Scene",
+            "similarity": 0.1597
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "9253"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.014171,
+      "arguments": {
+        "id": "9253"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "9253",
+        "title": "Steins;Gate"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "Steins;Gate origin"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.011267,
+      "arguments": {
+        "query": "Steins;Gate origin"
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 6.25421
+    }
+  ]
+}

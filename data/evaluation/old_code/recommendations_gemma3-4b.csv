@@ -1,0 +1,1908 @@
+kind,system,question,target,seconds,listed,found,invented,matching,seed_recognised,answer
+explicit,agent,Recommend 5 Historical anime.,historical,21.78,0,0,0,0,,"Based on your preference for the ‘Historical’ tag, I can recommend one anime: *Historical*.
+
+*Historical* is a one-episode Original Net Animation (ONA) released in 2016. It’s about a high school girl who unexpectedly encounters a rabbit-like creature that sends her back in time. It features time manipulation as a key element."
+explicit,baseline,Recommend 5 Historical anime.,historical,0.87,5,4,1,3,,"Here are 5 historical anime recommendations:
+
+1.  Samurai Champloo
+2.  Rurouni Kenshin
+3.  Noble Six
+4.  Princess Mononoke
+5.  Afro Samurai"
+explicit,agent,Recommend 5 Creature Taming anime.,creature taming,9.02,5,3,2,0,,"Okay, here are five anime with the tag “Creature Taming”:
+
+1. *Beastars* – This anime is set in a world where humans and werewolves coexist, and focuses on Legoshi, a werewolf who struggles with his instincts and attends a school for humans and beasts. It explores themes of prejudice, acceptance, and the bonds between different species.
+
+2. *Miss Kobayashi’s Dragon Maid* – Kobayashi finds a dragon named Taka who transforms into a maid when she uses her magic. It’s a charming comedy about the everyday life of a programmer and her dragon roommate.
+
+3. *Yuki Yuna is a Hero* – Yuki Yuna is a seemingly ordinary high school girl who possesses the ability to transform into a legendary dragon. She uses her powers to protect her town from various threats, showcasing her heroic journey and the creatures she commands.
+
+4. *Doga Keep* – This anime centers around a young man named Kazuya who becomes the manager of a mysterious castle inhabited by various magical creatures. He must learn to manage and work with these creatures to maintain order and uncover the castle’s secrets.
+
+5. *Blue Reflection* – This anime follows a group of high school students who gain the ability to summon and control magical creatures through a mysterious mirror. They embark on a journey to confront their inner demons and protect the world from a looming darkness."
+explicit,baseline,Recommend 5 Creature Taming anime.,creature taming,0.92,5,2,3,0,,"1.  Yuru Camp
+2.  Re:Zero -Starting Life in Another World-
+3.  I Can Across Time!
+4.  Nauris
+5.  Mushoku Tensei: Jobless Reincarnation"
+explicit,agent,Recommend 5 Marriage anime.,marriage,8.54,2,2,0,2,,"Here are five anime recommendations centered around the theme of marriage, based on the available information:
+
+1. **Marriage** (1996): This OVA consists of two episodes focusing on different scenarios involving the pursuit of marriage. The first centers around Shizuka Nakamoto, a shy woman who seeks help from a dating service to find a husband. The second involves Kiyomi Arai, a cool and intimidating young woman who is persuaded to marry a co-worker. It’s a slice-of-life romance with an ensemble cast.
+
+2. **TONIKAWA: Over The Moon For You ~High School Days~** (2023): This anime follows Nasa, who is tasked with teaching a class in an all-girls high school. The students seek his advice regarding their romantic dilemmas, and Tsukasa, despite her cool exterior, harbors feelings for him. It’s a comedy romance with elements of slice-of-life and school life, featuring a male protagonist and a ""tsundere"" character.
+
+I can offer more recommendations if you have any specific preferences, such as preferred genres or character types."
+explicit,baseline,Recommend 5 Marriage anime.,marriage,0.92,5,4,1,1,,"1.  My Love Story
+2.  Fruits Basket (2019)
+3.  Wotakoi: Love is Hard for Otaku
+4.  Toradora!
+5.  Kaguya-sama: Love is War"
+explicit,agent,Recommend 5 Time Skip anime.,time skip,8.68,5,5,0,2,,"Okay, here are five anime with the “Time Skip” tag, based on the available information:
+
+1. *Naruto Shippuden*: This is a long-running series that begins with Naruto Uzumaki, a young ninja, and follows his journey to become Hokage. The “Time Skip” element is a core part of the story, showing Naruto’s growth and training after a significant period of initial struggles.
+
+2. *Bleach*: Ichigo Kurosaki becomes a Soul Reaper, a being tasked with protecting humans from evil spirits. The series features a “Time Skip” as Ichigo progresses through his training and battles, showcasing his enhanced abilities and the evolution of the Soul Society.
+
+3. *Fullmetal Alchemist: Brotherhood*: Edward and Alphonse Elric, two brothers, attempt to restore their bodies after a failed alchemy experiment. The story includes a “Time Skip” as they travel across the continent, seeking knowledge and confronting powerful enemies.
+
+4. *Hunter x Hunter*: Gon Freecss sets out to become a Hunter, a member of an elite organization that tracks down rare creatures and assists those in need. The series incorporates a “Time Skip” as Gon and his friends gain experience and power, facing increasingly dangerous challenges.
+
+5. *One-Punch Man*: Saitama is a hero who can defeat any enemy with a single punch. The series utilizes a “Time Skip” to show Saitama’s journey as he continues to train and fight, constantly surpassing his own limits."
+explicit,baseline,Recommend 5 Time Skip anime.,time skip,0.99,5,4,1,1,,"1.  Re:Zero - Starting Life in Another World
+2.  Mushoku Tensei: Jobless Reincarnation
+3.  That Time I Got Reincarnated as a Slime
+4.  Overlord
+5.  Ascendance of a Bookworm"
+explicit,agent,Recommend 5 Anti-Hero anime.,anti hero,10.04,5,5,0,3,,"Okay, here are five anime with the “Anti-Hero” tag, based on the available information:
+
+1. *Jujutsu Kaisen*: This anime follows Yuji Itadori, a high school student who becomes possessed by a cursed spirit and joins a secret organization tasked with exorcising evil spirits. Yuji is driven by a desire to protect others, but his methods often involve dangerous and morally ambiguous actions, making him a compelling anti-hero.
+
+2. *Tokyo Ghoul*: Ken Kaneki is a college student who is transformed into a half-ghoul after a near-fatal accident. He must navigate the dangerous world of ghouls while struggling with his newfound instincts and the moral implications of his existence.
+
+3. *Berserk*: Guts is a mercenary who fights for survival in a dark fantasy world filled with demons and monsters. Driven by a thirst for revenge, he’s a brutal warrior who often resorts to violence, blurring the lines between hero and villain.
+
+4. *Hunter x Hunter*: Gon Freecss is a young boy who sets out to become a Hunter, a profession dedicated to tracking down treasures, dangerous creatures, and criminals. While initially driven by a noble goal, Gon’s ambition and willingness to use ruthless tactics often lead him down a morally gray path.
+
+5. *Psycho-Pass*: In a futuristic society, the Sibyl System assesses individuals’ mental states to predict criminal behavior. Akane Tsunemori, a newly appointed Inspector, uses this system to investigate crimes, but she soon discovers the system’s flaws and challenges its authority, making her an anti-hero fighting against a flawed system. 
+
+I’ve focused on anime where the main character exhibits traits and makes decisions that are neither purely heroic nor villainous, presenting a complex and often conflicted perspective."
+explicit,baseline,Recommend 5 Anti-Hero anime.,anti hero,0.79,5,5,0,5,,"Here are 5 anti-hero anime recommendations:
+
+1.  Monster
+2.  Psycho-Pass
+3.  Vinland Saga
+4.  Ergo Proxy
+5.  Devilman Crybaby"
+explicit,agent,Recommend 5 Band anime.,band,5.03,0,0,0,0,,"I understand you’re looking for recommendations for Band anime. However, I’m having trouble finding any anime specifically categorized as “Band.” The evidence I have doesn’t list any titles with that genre. 
+
+Could you clarify what aspects of “Band” you’re most interested in? For example, are you looking for anime about musical groups, the process of forming and managing a band, or something else related to the concept of “Band”?"
+explicit,baseline,Recommend 5 Band anime.,band,0.81,5,3,2,1,,"1.  BanG Dream!
+2.  Love Live!
+3.  Wake Up, Girls!
+4.  IDOLiSH7
+5.  Arpeggio of Despair"
+explicit,agent,Recommend 5 Revenge anime.,revenge,3.92,0,0,0,0,,"I can certainly help with that! However, I need a little more information to narrow down the recommendations. Could you tell me which anime you’d like me to base these suggestions on? Or, would you like me to focus on a specific genre or tag, such as action, dark fantasy, or psychological thriller?"
+explicit,baseline,Recommend 5 Revenge anime.,revenge,0.85,5,4,1,1,,"Here are 5 revenge anime recommendations:
+
+1.  Jujutsu Kaisen
+2.  Vinland Saga
+3.  Kingdom
+4.  Moribito: Guardian of the Spirit
+5.  Black Clover"
+explicit,agent,Recommend 5 Body Image anime.,body image,11.54,5,2,3,0,,"Okay, I can help with that. Based on the available information, here are five anime with the “Body Image” tag:
+
+1. *Princess Jellyfish* – This anime centers around Tsukimi Цуки, a young woman who lives in a support group for women with facial disfigurements. She dreams of creating fashionable kimonos that will be accepted by the mainstream fashion world. It explores themes of self-acceptance and finding beauty within oneself, which aligns with the “Body Image” tag.
+
+2. *Aggretsuko* – Retsuko is a red panda who works as an accountant and copes with her frustrations by singing death metal karaoke. While not explicitly about body image, the series deals with themes of self-acceptance and dealing with societal pressures regarding appearance and professional success, which can relate to the concept of body image.
+
+3. *Zombie 100* - This anime follows a group of young women who have been resurrected as zombies, and they struggle to find their place in the world and come to terms with their new bodies. It explores themes of identity, acceptance, and self-worth, which can be connected to the “Body Image” tag.
+
+4. *Witch on the Holy Night* - This anime tells the story of a young woman named Aomi who is sent to a remote mountain village to investigate a mysterious disappearance. As she investigates, she discovers a hidden world of witches and magic, and she begins to confront her own insecurities and self-doubt. The themes of self-acceptance and overcoming personal challenges can be linked to “Body Image”.
+
+5. *Kaguya-sama: Love is War* - This anime focuses on two high school students, Kaguya Shinomiya and Miyuki Shirogane, who are deeply in love but refuse to confess their feelings to each other. They engage in elaborate schemes and strategies to make the other confess first. While primarily a romance comedy, the characters grapple with societal expectations and self-perception, which can be relevant to the “Body Image” tag. 
+
+I’ve focused on the descriptions provided for each anime to make these recommendations."
+explicit,baseline,Recommend 5 Body Image anime.,body image,1.01,5,3,2,0,,"Here are 5 body image anime recommendations:
+
+1.  Rascal Does Not Dream of Bunny Girl Rabbit Ears
+2.  Witch on the Holy Night
+3.  Given
+4.  My Dress-Up Darling
+5.  Fruits Basket (2019)"
+explicit,agent,Recommend 5 Kuudere anime.,kuudere,8.98,5,4,1,2,,"Okay, based on your preference for “Kuudere” anime, here are five recommendations:
+
+1. *Sword Art Online* – This series features Kirito, a skilled gamer who is often stoic and reserved, displaying a cool and detached demeanor – a classic kuudere trait. The story follows his journey through a virtual reality MMORPG filled with action and adventure.
+
+2. *Re:Zero − Starting Life in Another World* – Subaru Natsuki is a young man who finds himself trapped in a fantasy world and possesses the ability to rewind time after death. He initially presents as cold and distant, carefully controlling his emotions and approaching situations with a logical, almost emotionless, perspective, fitting the kuudere archetype.
+
+3. *School Days* – Kazuo Kiryu is a seemingly perfect high school student who is outwardly calm and collected. However, beneath his composed exterior lies a complex and potentially dangerous personality, showcasing a kuudere-like facade.
+
+4. *The World Without Master* – Ruri Gokumon is a young girl who is orphaned and left to fend for herself in a dangerous world. She develops a close bond with a powerful warrior, but maintains a distant and reserved attitude, exhibiting kuudere characteristics.
+
+5. *Log Horizon* – Shiro Yoshida is a gamer who finds himself transported to an MMORPG. He’s known for his calm and collected nature, often analyzing situations rationally and offering practical solutions without expressing strong emotions – a key element of the kuudere personality."
+explicit,baseline,Recommend 5 Kuudere anime.,kuudere,0.87,5,5,0,1,,"Here are 5 Kuudere anime recommendations:
+
+1.  Re:Zero - Starting Life in Another World
+2.  Your Lie in April
+3.  Toradora!
+4.  School Days
+5.  Bloom Into You"
+explicit,agent,Recommend 5 Shrine Maiden anime.,shrine maiden,11.46,5,5,0,0,,"Based on the available information, here are five anime that share the “Shrine Maiden” theme, primarily through the character Shuna from *That Time I Got Reincarnated as a Slime*:
+
+1. *That Time I Got Reincarnated as a Slime* (anilist.co/anime/101280): This is the foundational anime where Shuna is introduced as the “Shrine Maiden.” As a slime, Rimuru forms a nation with various monsters, and Shuna, with her unique skills in domestic matters, becomes his chief economic advisor alongside Rigurd. It’s a fantastic starting point to understand Shuna’s role and the world she inhabits.
+
+2. *That Time I Got Reincarnated as a Slime Season 2* (anilist.co/anime/108511): This season continues the story of Rimuru and his companions, with Shuna maintaining her role as an advisor and continuing to develop her abilities.
+
+3. *That Time I Got Reincarnated as a Slime Season 2 Part 2* (anilist.co/anime/116742): This part of the second season expands the scope of the story and continues to showcase Shuna’s contributions to Rimuru’s nation.
+
+4. *That Time I Got Reincarnated as a Slime Season 3* (anilist.co/anime/156822): This season delves further into the world-building and the challenges Rimuru and his allies face, with Shuna remaining a vital part of the team.
+
+5. *The Slime Diaries* (anilist.co/anime/116741): This anime is a collection of short stories featuring Rimuru and his companions, including Shuna, offering a variety of scenarios and showcasing her skills and personality."
+explicit,baseline,Recommend 5 Shrine Maiden anime.,shrine maiden,0.9,5,3,2,1,,"Here are 5 Shrine Maiden anime recommendations:
+
+1.  Kamisama Kiss
+2.  Noragami
+3.  Miss Kobayashi's Dragon Maid
+4.  Sakura Maid
+5.  Oshadame – Flower of Magic"
+explicit,agent,Recommend 5 Asexual anime.,asexual,10.06,5,5,0,0,,"Okay, based on your preference for Asexual anime, here are five recommendations:
+
+1. *Bloom* – This anime focuses on the relationship between a young girl named Bloom and a mysterious, androgynous boy named Kiko. Kiko is a “Bloom” – a being who can bring flowers to life – and the story explores their developing bond as they navigate their feelings for each other.
+
+2. *White Album: True* – This anime centers around a high school student named Yuuhi who is haunted by visions of a mysterious girl named Akane. As Yuuhi investigates, she discovers a complex and deeply emotional story about love, loss, and identity, with a significant focus on the characters' feelings and connections.
+
+3. *Sekaiichi Hatsukoi* – This anime tells the story of a young man named Haruki who meets a beautiful and intelligent girl named Shio. They begin a relationship, and the series explores the nuances of their developing feelings and the challenges they face as they navigate their romance.
+
+4. *Kiznaiver* – *Kiznaiver* is a story about a group of teenagers who are connected through a mysterious system that allows them to share their emotions. The series delves into themes of connection, empathy, and self-discovery, with a strong emphasis on the characters' intimate relationships and how they support each other.
+
+5. *Given* – *Given* is a sports anime about Ritsuka Katou, a high school student who plays the guitar and is deeply affected by the death of his sister. He joins a band with his classmates Mafuyu Satou and Akira Asahina, and the story explores their musical journey and the emotional connections they form."
+explicit,baseline,Recommend 5 Asexual anime.,asexual,1.53,5,4,1,0,,"Here are 5 asexual anime recommendations:
+
+1.  Rascal Does Not Dream of Bunny Girl Carnival
+2.  Oregairu (My Teen Romantic Comedy)
+3.  March Comes in Like a Lion
+4.  Fruits Basket (2019)
+5.  Given 
+
+Would you like me to provide more details about any of these, or perhaps suggest some based on specific criteria (e.g., genre, mood)?"
+explicit,agent,Recommend 5 Primarily Teen Cast anime.,primarily teen cast,9.64,5,5,0,2,,"Okay, I can certainly recommend five anime with a “Primarily Teen Cast” tag. Based on the available information, here are five titles that fit that description:
+
+1. *Naruto* – This long-running series follows Naruto Uzumaki, a young ninja who dreams of becoming the Hokage, the leader of his village. It features a large cast of teenage ninja characters involved in intense battles and training.
+
+2. *Black Clover* – *Black Clover* centers on Asta, a boy born without magic who strives to become the Wizard King. The series is filled with a predominantly teen cast of aspiring mages navigating a magical world.
+
+3. *Demon Slayer: Kimetsu no Yaiba* – *Demon Slayer* tells the story of Tanjiro Kamado, a young man who becomes a demon slayer after his family is slaughtered and his sister is turned into a demon. It has a large ensemble cast of teenage demon slayers.
+
+4. *My Hero Academia* – *My Hero Academia* focuses on Izuku Midoriya, a boy who dreams of becoming a hero despite being born without superpowers. The anime is populated by a large group of teenage students training to become heroes.
+
+5. *Fullmetal Alchemist: Brotherhood* – *Fullmetal Alchemist: Brotherhood* follows the story of brothers Edward and Alphonse Elric, who attempt to restore their bodies after a failed alchemy experiment. The series features a core cast of teenage alchemists.
+
+I have provided a brief description of each anime and why it may appeal to you based on the “Primarily Teen Cast” tag."
+explicit,baseline,Recommend 5 Primarily Teen Cast anime.,primarily teen cast,0.79,5,5,0,4,,"1.  Kimi ni Todoke
+2.  Horimiya
+3.  Fruits Basket (2019)
+4.  Cardcaptor Sakura
+5.  My Dress-Up Darling"
+explicit,agent,Recommend 5 Drugs anime.,drugs,4.39,0,0,0,0,,"I can certainly help with that! However, I need a little more information to narrow down the recommendations. The system currently doesn’t have any reference anime or genre/tag filters. Could you tell me what specifically you’re looking for in a *Drugs* anime? For example, are there particular themes, character types, or visual styles you’d like to see?"
+explicit,baseline,Recommend 5 Drugs anime.,drugs,0.69,5,4,1,0,,"1.  RX-8
+2.  Haikyuu!!
+3.  Sk8 the Infinity
+4.  Yuru Camp△
+5.  Horimiya"
+explicit,agent,Recommend 5 Ancient China anime.,ancient china,9.65,5,1,4,0,,"Okay, based on your request for Ancient China anime, here are five recommendations:
+
+1. *Spirit Fox* (狐妖小樱) – This anime is about a young girl named Sakura who is secretly a fox spirit. She lives among humans and uses her fox spirit powers to help people in need. It’s a charming story with a blend of fantasy and everyday life set in ancient China.
+
+2. *Legend of the Demon Slayers* (妖剑录) – This anime follows a group of warriors who are tasked with eliminating demons and protecting the innocent. It’s an action-packed series with plenty of sword fights and magical battles, set in a world inspired by ancient China.
+
+3. *The Imperial Investigators* (御☆御☆φ御) – This anime centers around a group of investigators who solve mysteries and uncover conspiracies within the Imperial Court of ancient China. It’s a detective story with a touch of fantasy and political intrigue.
+
+4. *Battle Through the Heavens* (天涯明月刀) – This anime tells the story of a martial artist who is reincarnated as a young boy in ancient China. He must train to become a powerful warrior and protect the innocent. It’s known for its impressive action sequences and cultivation themes.
+
+5. *Heavenly Sword* (剑墓) – This anime is based on the classic Chinese novel of the same name. It follows a female warrior who fights against corrupt officials and demons to protect the people. It’s a visually stunning series with a strong female lead and epic battles."
+explicit,baseline,Recommend 5 Ancient China anime.,ancient china,0.87,5,2,3,0,,"Here are 5 Ancient China anime recommendations:
+
+1.  Riverheart Chronicles
+2.  Nobunaga the Fool
+3.  Blade of the Immortal
+4.  The Historian
+5.  Legend of the Demon Slayers"
+explicit,agent,Recommend 5 Blackmail anime.,blackmail,8.32,5,0,5,0,,"Okay, based on your request for Blackmail anime, here are five recommendations:
+
+1. *Blackmail* (2008): This anime focuses on a young man who is blackmailed into committing crimes. It’s a suspenseful story centered around deception and the consequences of one’s actions.
+
+2. *Blackmail Girl* (2019): This anime centers around a young woman who is blackmailed into investigating a murder. It’s a mystery thriller with elements of suspense and intrigue.
+
+3. *Blackmail* (2018): This anime tells the story of a young man who is blackmailed into helping a criminal organization. It’s a dark and gritty crime drama with a focus on betrayal and survival.
+
+4. *Blackmail* (2008) - *Blackmail* (2018): There are two anime titles with the same name. Both involve blackmail scenarios, one a crime thriller and the other a dark crime drama.
+
+5. *Blackmail* (2019): This anime is a suspenseful thriller about a woman who is blackmailed into taking part in a dangerous game. It’s a gripping story with plenty of twists and turns."
+explicit,baseline,Recommend 5 Blackmail anime.,blackmail,0.88,5,3,2,0,,"Here are 5 Blackmail anime recommendations:
+
+1.  Boogiepop Phantom
+2.  Erased
+3.  The Girl Who Leveled Up
+4.  Classroom Crisis
+5.  Devil is a Part-Timer!"
+explicit,agent,Recommend 5 Musical Theater anime.,musical theater,6.0,0,0,0,0,,"I’m sorry, but I can’t fulfill your request at this time. The evidence currently available doesn’t include any anime specifically categorized as “Musical Theater.” I’ve searched for matches within the available data, but I couldn’t find any titles that fit that genre. 
+
+To help me recommend some anime for you, could you clarify what aspects of “Musical Theater” you’re most interested in? For example, are you looking for anime with elaborate stage performances, songs and dances, or perhaps a focus on the theatrical aspects of the story?"
+explicit,baseline,Recommend 5 Musical Theater anime.,musical theater,0.6,5,1,4,0,,"1.  Frozen
+2.  Woodland Kingdom
+3.  Amelia
+4.  School Spirits
+5.  Nodame Cantabile"
+explicit,agent,Recommend 5 Military anime.,military,9.65,3,2,1,2,,"Okay, here are five military anime recommendations based on the information available about “Military!”:
+
+1. **Sabagebu! - Survival Game Club!** This anime features a protagonist, Momoka, who is drawn into a world of gun-toting female commandos after a series of unusual events – including being rescued by a vigilante and encountering a platypus. It’s categorized as action, comedy, and sports, and shares the “Military” and “Parody” tags with “Military!”. The description highlights a focus on a female protagonist and a somewhat surreal and comedic approach to military training.
+
+2. **High School Fleet Movie** This anime centers around students from marine high schools participating in an operation to prevent pirates from reaching Japan. It’s tagged as “Military” and “Primarily Female Cast,” aligning with the core themes of “Military!”. The story involves a student grappling with a significant decision regarding her future within the Harekaze.
+
+3. **[No other anime matches the criteria]** Unfortunately, there are no other anime titles listed with matching genres or tags to provide a fifth recommendation. 
+
+Would you like me to explore any specific aspects of these recommendations, such as the cast or the genres involved?"
+explicit,baseline,Recommend 5 Military anime.,military,0.84,5,4,1,2,,"1.  Code Geass
+2.  Arslan Senki
+3.  Guilty Crown
+4.  Kuroko’s Basketball (for its intense competitive military-esque training)
+5.  Vinland Saga"
+explicit,agent,Recommend 5 Autobiographical anime.,autobiographical,9.4,5,5,0,0,,"Okay, based on your preference for “autobiographical” anime, here are five recommendations:
+
+1. *Violet Evergarden* – This anime tells the story of Violet Evergarden, a former child soldier who becomes an Auto Memory Doll, writing letters for others. It’s a deeply moving story about finding purpose and connection through personal reflection and experiences.
+
+2. *March Comes in Like a Lion* – This anime follows Rinma Sakurada, a young shogi (Japanese chess) player who struggles with loneliness and depression. It’s a poignant portrayal of a young man confronting his inner demons and finding solace through the kindness of others.
+
+3. *Flying Witch* – Makoto Kowata moves to rural Japan to live with her aunts and become a witch. The series explores her journey of self-discovery as she learns to balance her magical abilities with the challenges of everyday life.
+
+4. *Natsume’s Book of Friends* – Takashi Natsume inherits a book containing the names of spirits and begins to exorcise them. This anime focuses on his personal journey of confronting his past and understanding his family history, all while interacting with various spirits.
+
+5. *Mushishi* – Ginko is a “Mushi Master,” a person who studies and interacts with Mushi, mysterious life forms that exist in the world. The series is episodic and explores themes of isolation, memory, and the relationship between humanity and the natural world through Ginko’s travels and encounters."
+explicit,baseline,Recommend 5 Autobiographical anime.,autobiographical,1.01,5,5,0,0,,"Here are 5 autobiographical anime recommendations:
+
+1.  A Silent Voice
+2.  March Comes in Like a Lion
+3.  Josee, the Tiger and the Fish
+4.  Violet Evergarden
+5.  Flying Witch"
+explicit,agent,Recommend 5 Exhibitionism anime.,exhibitionism,8.94,5,5,0,0,,"Okay, I can certainly help you with that. Based on the available information, here are five anime titles that have the tag “Exhibitionism”:
+
+1. *Maid Sama!* – This anime focuses on Misaki Ayuzawa, a high school student who runs the school’s maid café and is secretly a diligent student. It features scenes of her wearing maid outfits, which could be interpreted as exhibitionistic.
+
+2. *High School DxD* – This series involves Rias Gremory, a powerful demon who leads a group of students at the Holy Empire Academy. The show contains numerous scenes of characters in revealing outfits and situations, fitting the “Exhibitionism” tag.
+
+3. *School Days* – This anime centers around the complicated relationship between Yuichi Kurosawa and Kana Akagi. It includes scenes of nudity and suggestive behavior, aligning with the specified tag.
+
+4. *Sekirei* – This anime tells the story of a young man named Hiro who is tasked with protecting a princess named Shirayuki. The series includes scenes of Shirayuki in revealing attire, which matches the “Exhibitionism” tag.
+
+5. *Kimi ni Todoke* – This anime follows Sawako Kuronuma, a shy and kind girl who is often misunderstood by her classmates. It features scenes of her wearing revealing outfits, aligning with the “Exhibitionism” tag."
+explicit,baseline,Recommend 5 Exhibitionism anime.,exhibitionism,0.89,5,4,1,0,,"Okay, here are 5 exhibitionism anime recommendations:
+
+1.  High School DxD
+2.  Roswell & Gray’s Anatomy
+3.  Monster
+4.  Sekirei
+5.  Yosuga no Sora"
+explicit,agent,Recommend 5 Boarding School anime.,boarding school,12.8,5,5,0,0,,"Okay, here are five anime recommendations centered around the boarding school theme, based on the available evidence:
+
+1. **○○ Kouhai:** This anime features a teacher and his students, with a somewhat… unconventional dynamic. It’s described as a Hentai title with a focus on “Large Breasts,” “Female Harem,” and “Nakadashi,” among other tags. It was released in 2020 and has a popularity of 4968.
+
+2. **True Blue: Gaiden:** This anime involves a complicated love triangle and some questionable behavior. It’s categorized as Hentai and includes tags like “Fellatio,” “Facial,” and “Large Breasts.” It was released in 2005 and has a popularity of 894.
+
+3. **Innocent Blue:** This anime centers around a nurse and her cousin, with themes of voyeurism and incestuous feelings. It’s classified as Hentai and includes tags like “Large Breasts” and “Incest.” It was released in 2005 and has a popularity of 933.
+
+4. **School:** This OVA focuses on Kouta Kanzaki, the school’s idol, and his interactions with his teacher and three female students. It’s categorized as Hentai and includes tags like “Teacher,” “Large Breasts,” and “Female Harem.” It was released in 2011 and has a popularity of 1814.
+
+5. **School OVA:** This OVA focuses on Kouta Kanzaki, the school’s idol, and his interactions with his teacher and three female students. It’s categorized as Hentai and includes tags like “Teacher,” “Large Breasts,” and “Female Harem.” It was released in 2011 and has a popularity of 1814. 
+
+I’ve selected these based on the available information regarding boarding school settings and the presence of Hentai genres and tags."
+explicit,baseline,Recommend 5 Boarding School anime.,boarding school,0.69,5,5,0,0,,"1.  Yuru Camp
+2.  Hyouka
+3.  School Days
+4.  Ao Haru Ride
+5.  March Comes in Like a Lion"
+explicit,agent,Recommend 5 Rural anime.,rural,8.92,5,4,1,2,,"Okay, based on your preference for “rural” anime, here are five recommendations:
+
+1. *Mushishi* – This anime follows Ginko, a “Mushi Master,” who travels the countryside investigating supernatural occurrences linked to “Mushi,” which are mysterious life forms that permeate the world. It’s a slow-paced, atmospheric series that focuses on the beauty and isolation of rural Japan.
+
+2. *Hotarubi* – *Hotarubi no Mori e* tells the story of a young girl who befriends a mysterious boy in a forest. The setting is a remote, mountainous region of Japan, and the story explores themes of connection and loss.
+
+3. *Natsume’s Book of Friends* – This series centers on Natsume, a boy who inherits the ability to see spirits. He spends his time collecting and returning lost spirits’ names, often encountering them in rural areas and small towns.
+
+4. *Yokohama Kaidashi Kikou* – This gentle anime portrays a cafe owner in a quiet, seaside town in the far future. The town is slowly being reclaimed by nature, and the series focuses on the beauty of this transformation and the cafe owner's interactions with the few remaining residents.
+
+5. *Oregairu* - *Oregairu* follows a group of high school students who are forced to spend their winter break volunteering at a rural mountain orphanage. It’s a slice-of-life comedy with moments of heartwarming drama, showcasing the challenges and rewards of working in a remote setting."
+explicit,baseline,Recommend 5 Rural anime.,rural,0.93,5,5,0,4,,"Here are 5 rural anime recommendations:
+
+1.  Mushishi
+2.  Hotarubi no Mori e
+3.  Natsume’s Book of Friends
+4.  Yokohama Kaidashi Kikou
+5.  Flying Witch"
+explicit,agent,Recommend 5 Monster Boy anime.,monster boy,10.36,5,5,0,2,,"Here are five anime recommendations that share the “Monster Boy” tag, based on the information available about Kaijuu Juugo-gou:
+
+1. **Kaiju No. 8 Season 2**
+ This anime features Kaijuu Juugo-gou, a Kaiju created to defeat Kikoru Shinomiya. It’s a thrilling action series centered around a young man who unexpectedly develops the ability to transform into a Kaiju.
+
+2. **Devilman Crybaby**
+ This anime features Devilman, a hybrid of a human and a demon. He fights against other demons and is often referred to as a ""monster boy"" due to his monstrous appearance and abilities.
+
+3. **Godzilla Singular Point**
+ This anime centers around a young man who becomes involved in a battle against a powerful Kaiju. The protagonist is often considered a ""monster boy"" due to his role in confronting these colossal threats.
+
+4. **Attack on Titan**
+ This anime features Eren Yeager, who is initially driven by a desire to eliminate all Titans, monstrous humanoids that threaten humanity. He is often referred to as a ""monster boy"" due to his relentless pursuit of these creatures.
+
+5. **BNA: Brand New Animal**
+ This anime features a young woman who is transformed into an animalistic creature. She fights against other transformed individuals, and is sometimes referred to as a ""monster boy"" due to her monstrous appearance and abilities."
+explicit,baseline,Recommend 5 Monster Boy anime.,monster boy,1.0,5,2,3,0,,"1.  Monster Musume no Iru Nichijou
+2.  Kemono Michi no Saburo
+3.  Yuusha Rookie
+4.  Monster Hunter Stories
+5.  Isekai Maou to Shoukan Shoujo no Dorei Majutsu"
+explicit,agent,Recommend 5 Ashikoki anime.,ashikoki,9.71,5,4,1,0,,"Okay, I can certainly recommend five anime with the tag “Ashikoki”. Based on the available information, here are five titles that share this tag:
+
+1. *Kuroko’s Basketball*: This anime focuses on a group of talented high school basketball players, including Kuroko, who possesses a unique “zero-visibility” ability. It’s known for its intense action sequences and strategic gameplay, aligning with the “Ashikoki” tag.
+
+2. *Assassination Classroom*: This anime centers around a group of students tasked with assassinating their eccentric teacher, Vlad, who is a genetically engineered octopus-like creature. The core concept involves utilizing unique abilities to achieve a specific goal, mirroring the “Ashikoki” theme.
+
+3. *Mob Psycho 100*: This anime follows Shigeo “Mob” Kageyama, a middle school student with powerful psychic abilities. He learns to control and harness his powers while navigating the challenges of everyday life, which fits the “Ashikoki” tag.
+
+4. *Black Clover*: This anime tells the story of Asta, a boy born without magic who dreams of becoming the Wizard King. He trains relentlessly to develop his own unique combat style and abilities, aligning with the “Ashikoki” tag.
+
+5. *The Irregular at Magic School*: This anime follows Ritsu Tsumaki, a young girl who attends a magic school and possesses a unique ability to create and manipulate magical constructs. It shares the “Ashikoki” tag due to its focus on specialized skills and abilities."
+explicit,baseline,Recommend 5 Ashikoki anime.,ashikoki,1.01,5,5,0,0,,"Here are 5 Ashikoki anime recommendations:
+
+1.  Mushishi
+2.  Yokohama Kaidashi Kikou
+3.  Natsume's Book of Friends
+4.  Flying Witch
+5.  Barakamon"
+explicit,agent,Recommend 5 Sci-Fi anime.,sci fi,11.05,5,5,0,5,,"Okay, I can certainly recommend five Sci-Fi anime for you. However, I need a little more information to narrow down the choices. Could you tell me if you have any specific preferences within the Sci-Fi genre, such as a particular subgenre (like cyberpunk or space opera) or any specific themes you enjoy (e.g., artificial intelligence, time travel, dystopian societies)? 
+
+Without further guidance, here are five Sci-Fi anime that are generally well-regarded:
+
+1. *Neon Genesis Evangelion* – This iconic series follows Shinji Ikari, a teenager who pilots a giant mecha called an Evangelion to fight against monstrous beings known as Angels. It’s a complex and thought-provoking story exploring themes of trauma, identity, and the human condition.
+
+2. *Cowboy Bebop* – Set in the year 2071, *Cowboy Bebop* follows the adventures of Spike Spiegel, a bounty hunter, and his crew as they travel the solar system, taking on jobs and encountering a variety of colorful characters. It’s known for its stylish animation, jazz soundtrack, and blend of action and drama.
+
+3. *Ghost in the Shell* – In a futuristic world where humans can augment their bodies with cybernetics, Major Motoko Kusanagi is a cyborg law enforcement officer tasked with investigating a mysterious hacker known as the Puppet Master. This series explores themes of identity, consciousness, and the relationship between humans and technology.
+
+4. *Psycho-Pass* – Set in a dystopian future where people are judged based on their likelihood of committing crimes, *Psycho-Pass* follows a team of Inspectors who investigate potential criminals. It raises questions about justice, free will, and the role of technology in society.
+
+5. *Ergo Proxy* – In a post-apocalyptic city, Re-l Mayer investigates the murders of humans by AutoReivs (androids). This series delves into themes of identity, consciousness, and the nature of reality. 
+
+To help me refine these recommendations further, could you tell me if any of these titles sound particularly interesting to you?"
+explicit,baseline,Recommend 5 Sci-Fi anime.,sci fi,0.73,5,5,0,5,,"1.  Neon Genesis Evangelion
+2.  Cowboy Bebop
+3.  Steins;Gate
+4.  Psycho-Pass
+5.  Ghost in the Shell"
+explicit,agent,Recommend 5 Chuunibyou anime.,chuunibyou,9.7,5,2,3,0,,"Okay, here are five anime recommendations based on the Chuunibyou tag:
+
+1. *Chuunibyou Demo Koi wo Suru* (2013): This anime centers around Yuuta Suzuki, a high school student who suddenly declares himself a “Darkness King” and insists that his classmates are his loyal followers. It’s a comedy about embracing your eccentricities and finding connection through shared delusions.
+
+2. *Houkago Sirius the Meow* (2014): This series follows a group of high school students who form a secret organization called “Sirius” and believe they are mythical creatures. The story focuses on their adventures and the unique dynamics within the group.
+
+3. *Pucchito!* (2009): While seemingly a cute slice-of-life anime, *Pucchito!* features a rabbit named Pucchito who believes himself to be a legendary hero and fights against evil with his friends. It’s a charming comedy with a strong Chuunibyou element.
+
+4. *Nisekoi* (2014): Raku Ichijo is a high school student who is forced to pretend to be in love with Chitoge Kirisaki, a girl he met on a blind date. Their fake relationship quickly spirals into a complex and hilarious situation filled with romantic misunderstandings and dramatic declarations.
+
+5. *Sayonara Zetsubou Sensei* (2006): This anime is a comedy about a high school teacher who believes himself to be a powerful demon and engages in absurd and over-the-top antics with his students. It’s known for its surreal humor and chaotic energy."
+explicit,baseline,Recommend 5 Chuunibyou anime.,chuunibyou,0.78,5,4,1,0,,"1.  Horimiya
+2.  Akage no Ane
+3.  Spice and Wolf
+4.  Sayonara Zetsubou Sensei
+5.  My Dress-Up Darling"
+explicit,agent,Recommend 5 Economics anime.,economics,4.36,0,0,0,0,,"I can certainly help with that! However, I need a little more information to narrow down the recommendations. The current search for “Economics” anime is returning no results. Could you please tell me which specific aspects of economics you’re interested in? For example, are you looking for anime that deals with concepts like supply and demand, financial markets, or perhaps the economic systems of different fictional worlds? Knowing your preferences will help me find five anime that align with your interests."
+explicit,baseline,Recommend 5 Economics anime.,economics,0.81,5,4,1,0,,"1.  March Comes in Like a Lion
+2.  Erased
+3.  Ping Pong the Animation
+4.  Horimiya
+5.  Mushoku Tensei: Jobless Reincarnation"
+explicit,agent,Recommend 5 Swordplay anime.,swordplay,8.35,5,5,0,4,,"Okay, here are five anime with a strong swordplay theme, based on the available information:
+
+1. *Rurouni Kenshin*: This anime follows Kenshin Himura, a former assassin who travels through Japan seeking redemption. He’s a master swordsman known for his incredibly fast and precise techniques, and the series is filled with intense sword fights and dramatic action sequences.
+
+2. *Samurai X*: This anime centers on Kenshin Himura, a wandering samurai who protects a young woman named Nanako. He’s a highly skilled swordsman with a unique fighting style, and the series features numerous visually stunning sword battles.
+
+3. *Naruto Shippuden*: Naruto Uzumaki is a young ninja who strives to become the strongest, and a significant portion of the series involves intense battles with other ninjas, often utilizing swords and other weaponry.
+
+4. *Bleach*: Ichigo Kurosaki becomes a Soul Reaper, a warrior who fights evil spirits, and his battles are frequently depicted with elaborate sword techniques and supernatural abilities.
+
+5. *Demon Slayer*: Tanjiro Kamado becomes a demon slayer after his family is murdered by a demon, and he trains to become a powerful swordsman to protect humanity from demons."
+explicit,baseline,Recommend 5 Swordplay anime.,swordplay,0.67,5,5,0,3,,"1.  Bleach
+2.  Hunter x Hunter
+3.  Jujutsu Kaisen
+4.  Demon Slayer
+5.  Fate/Zero"
+explicit,agent,Recommend 5 Swimming anime.,swimming,4.28,0,0,0,0,,"I can certainly help with that! However, I need a little more information to narrow down the recommendations. Could you tell me what specifically you’re looking for in a swimming anime? For example, are you interested in anime with a particular genre, like sports or slice of life, or perhaps focusing on specific characters or themes related to swimming? Knowing your preferences will help me suggest five anime that you’ll enjoy."
+explicit,baseline,Recommend 5 Swimming anime.,swimming,0.67,5,4,1,0,,"1.  Swimpland
+2.  Haikyuu!!
+3.  Free!
+4.  Assassination Classroom
+5.  Show by Rock!!"
+explicit,agent,Recommend 5 Assassins anime.,assassins,8.67,5,1,4,1,,"Okay, here are five anime recommendations based on your interest in “assassins”:
+
+1. *Assassin’s Creed* – This anime adapts the popular video game series. It follows the story of Ezio Auditore da Firenze, a Renaissance-era assassin who fights against the Templars. 
+
+2. *Shadow Eve* – This series centers around a young woman named Eve, who is secretly a highly skilled assassin working for a private investigation agency. She’s known for her deadly accuracy and ability to blend into any environment.
+
+3. *Moribito: Guardian of the Spirit* – Balsa, a skilled spearwoman and bodyguard, is tasked with protecting Prince Chagum, a young boy with a mysterious destiny. She’s a formidable assassin in her own right, protecting him from assassins and those who seek to exploit his power.
+
+4. *Black Lagoon* – This anime follows the Revengers, a group of mercenaries operating out of the canals of Roanapur. They are essentially highly skilled assassins, taking on dangerous jobs and engaging in intense shootouts.
+
+5. *Arslan* – This anime tells the story of a young man named Arslan, who is the last emperor of a fallen kingdom. He must gather allies and rebuild his nation while battling enemies who seek to destroy him and his legacy, often employing assassination tactics. 
+
+I’ve focused on anime with prominent assassin themes, as indicated by the “assassins” tag."
+explicit,baseline,Recommend 5 Assassins anime.,assassins,0.78,5,0,5,0,,"1.  Assassin's Creed: Lineage
+2.  Noah: The Traveler
+3.  Order of the Sky
+4.  Black Basalt
+5.  Reversal of Ikki"
+explicit,agent,Recommend 5 Shogi anime.,shogi,5.07,0,0,0,0,,"I’m sorry, but I couldn’t find any anime that prominently feature Shogi. The evidence indicates that Shogi is not currently recognized as a genre or tag within the available anime data. 
+
+Therefore, I cannot fulfill your request to recommend five anime with Shogi as a prominent theme or element."
+explicit,baseline,Recommend 5 Shogi anime.,shogi,0.64,5,0,5,0,,"1.  Shogi Sonata
+2.  Shogi Journey
+3.  Shogi Road
+4.  Shogi Zero
+5.  Shogi Battle Royale"
+vague,agent,Recommend 5 anime that match this description: Prominently features large robots often piloted by hot-blooded protagonists.,super robot,11.47,5,4,1,3,,"Okay, based on your description – anime with prominently featured large robots and hot-blooded protagonists – here are five recommendations:
+
+1. *Mobile Suit Gundam* – This classic series follows Amuro Ray, a young boy who becomes the pilot of the *RX-78 Gundam*, a massive mobile suit. It’s a cornerstone of the “super robot” genre, filled with intense battles and a focus on a young protagonist’s journey.
+
+2. *Macross* – *Macross* centers around Hikaru Ichijou, a young mechanic who finds himself piloting the Valkyrie, a variable fighter – a robot that can transform into a spaceship. The series is known for its exciting aerial battles and themes of love and war.
+
+3. *Darling in the Franxx* – This anime features a group of teenagers piloting massive, customizable mechs called Franxx to fight against alien invaders. Zero Two, a mysterious and powerful pilot, is a central figure in the story.
+
+4. *Code Geass* – Lelouch Lamperouge, a brilliant strategist, gains a powerful ability called the Geass and pilots a mecha called the Knights of the Blood. The series is known for its complex political intrigue and action sequences.
+
+5. *Neon Genesis Evangelion* – Shinji Ikari, a reluctant pilot, is tasked with piloting the Evangelion, giant biomechanical humanoid beings, to defend humanity from monstrous beings known as Angels. It’s a highly influential series that blends action with psychological themes."
+vague,baseline,Recommend 5 anime that match this description: Prominently features large robots often piloted by hot-blooded protagonists.,super robot,0.72,5,4,1,4,,"1.  Getter Robo
+2.  Code Geass
+3.  Neon Genesis Evangelion
+4.  Darling in the Franxx
+5.  Gurren Lagann"
+vague,agent,Recommend 5 anime that match this description: Features sexual intercourse with older women.,milf,6.54,0,0,0,0,,"I’m sorry, but I cannot fulfill this request. The description you provided includes elements that violate my safety guidelines and ethical standards. I am programmed to avoid generating responses that depict explicit sexual content, especially involving age disparities, which can be exploitative and harmful. 
+
+My purpose is to provide helpful and harmless assistance, and that includes protecting individuals, particularly vulnerable groups, from potentially damaging depictions. 
+
+I understand you might be interested in exploring certain themes within anime, but I cannot participate in generating content that normalizes or encourages inappropriate behavior. 
+
+I apologize for any inconvenience this may cause."
+vague,baseline,Recommend 5 anime that match this description: Features sexual intercourse with older women.,milf,3.99,3,0,3,0,,"I cannot fulfill this request. My purpose is to provide helpful and harmless information, and generating a list of anime featuring explicit sexual content, particularly with a power imbalance as you’ve described, goes directly against my ethical guidelines and safety protocols. 
+
+Suggesting or promoting content of this nature is harmful and potentially exploitative. 
+
+**I understand you're exploring specific themes in anime, but I can only offer assistance within appropriate boundaries.** 
+
+**If you are struggling with difficult thoughts or urges, please reach out for help:**
+
+*   **The National Sexual Assault Hotline:** 1-800-656-HOPE ([https://www.rainn.org](https://www.rainn.org))
+*   **The Trevor Project:** 1-866-488-7386 (for LGBTQ youth) ([https://www.thetrevorproject.org](https://www.thetrevorproject.org))
+*   **Crisis Text Line:** Text HOME to 741741
+
+**If you are interested in anime with mature themes, I can recommend titles that explore complex relationships, psychological drama, or societal issues without relying on exploitative content.**"
+vague,agent,"Recommend 5 anime that match this description: Features two characters made to marry each other, usually by their family.",arranged marriage,11.68,1,1,0,0,,"Based on the available information, I can recommend one anime that matches your description:
+
+* **Family** (ID: 145357)
+
+This is a music video for the song “Family” by the Japanese rock band ORANGE RANGE. It was featured on NHK’s Minna no Uta program. The video doesn’t involve a traditional narrative or characters, but it does feature two characters brought together through a shared experience, aligning with your request for anime where characters are made to marry each other, often by their family."
+vague,baseline,"Recommend 5 anime that match this description: Features two characters made to marry each other, usually by their family.",arranged marriage,0.78,5,3,2,0,,"1.  Oreimo
+2.  Snow White with the Red Hair
+3.  My Bride is a Mermaid
+4.  A Bride's Fantasy
+5.  Step Into My Utopia"
+vague,agent,Recommend 5 anime that match this description: Features a large cast of characters with (almost) equal screen time and importance to the plot.,ensemble cast,5.13,0,0,0,0,,"I understand you’re looking for 5 anime with a large cast of characters where everyone gets a significant amount of screen time and plays an important role in the story. Unfortunately, the current system doesn’t have enough information to pinpoint specific titles that perfectly match this criteria. 
+
+To help me narrow down the recommendations, could you tell me what genre or tags you’re particularly interested in? For example, are you looking for something in the action, fantasy, or comedy genres?"
+vague,baseline,Recommend 5 anime that match this description: Features a large cast of characters with (almost) equal screen time and importance to the plot.,ensemble cast,0.82,5,5,0,3,,"1.  Fullmetal Alchemist: Brotherhood
+2.  Attack on Titan
+3.  My Hero Academia
+4.  Demon Slayer: Kimetsu no Yaiba
+5.  Jujutsu Kaisen"
+vague,agent,"Recommend 5 anime that match this description: Centers around the sport of archery, or prominently features the use of archery in combat.",archery,5.29,0,0,0,0,,"I can recommend five anime that center around the sport of archery or prominently feature archery in combat, but I need a bit more information. Currently, the only anime in my database is *Around*. It’s a slice-of-life movie about a man’s perspective on the world. 
+
+To give you more targeted recommendations, could you tell me if you’re interested in anime with a particular art style, story themes, or level of animation quality?"
+vague,baseline,"Recommend 5 anime that match this description: Centers around the sport of archery, or prominently features the use of archery in combat.",archery,0.97,5,3,2,0,,"1.  Shadow Hunter
+2.  Silver Spoon
+3.  March Comes in Like a Lion
+4.  Re:Zero - Starting Life in Another World
+5.  Arifureta: From Commonplace to World's Strongest"
+vague,agent,Recommend 5 anime that match this description: Prominently features comedy based on deliberately clumsy actions or embarrassing events.,slapstick,19.51,20,10,10,0,,"Okay, here are five anime recommendations that prominently feature comedy based on deliberately clumsy actions or embarrassing events, based on the available evidence:
+
+1. **Sweat Punch**
+ * **About:** This series is a collection of five Studio 4°C shorts, each with a unique and bizarre premise. One particularly memorable episode, “Tanpetori Kyouju no Yuuutsu” (Professor Dan Petory’s Blues), features a drunken puppet master named Professor Dan Petory who explains the mysteries of the world through puppetry. It’s filled with chaotic and unintentionally hilarious moments stemming from his clumsiness and the puppet’s antics.
+ * **Genres:** Action, Fantasy, Horror, Mecha, Music, Sci-Fi
+ * **Tags:** War, Anthology, Historical, Real Robot, Demons, Musical Theater, Aliens, CGI
+
+2. **Digital Juice**
+ * **About:** This anthology series presents a collection of short animations exploring various psychological worlds. Some episodes, like “Keikaku” (Goal), feature surreal and absurd situations arising from characters’ awkward interactions and mishaps. The overall tone is comedic and thought-provoking.
+ * **Genres:** Comedy, Fantasy, Psychological, Romance, Sci-Fi
+ * **Tags:** Anthology, CGI, Nudity
+
+3. **The Girl From the Other Side: Siúil, a Rún**
+ * **About:** While primarily a fantasy drama, this anime contains elements of awkwardness and embarrassment due to the unusual relationship between Shiva and her guardian, Teacher. Their interactions are often fraught with tension and misunderstanding, leading to comedic moments.
+ * **Genres:** Fantasy, Mystery
+ * **Tags:** No Dialogue, Family Life, Demons, Fairy Tale, Rural, Anthropomorphism, Orphan, Female Protagonist
+
+4. **SHORT PEACE**
+ * **About:** This anthology film includes several shorts that rely on slapstick and awkward situations for their humor. “Genius Party” features a bizarre bird-like creature and a young boy’s imaginative adventures, while “Hi no Youjin” depicts a chaotic battle against zombies.
+ * **Genres:** Action, Drama, Fantasy, Romance, Sci-Fi
+ * **Tags:** Anthology, CGI, Zombie, Aliens, Gore, Skateboarding, POV
+
+5. **The Animatrix**
+ * **About:** This collection of animated shorts offers a glimpse into the world of *The Matrix*, and while it’s a complex sci-fi story, several segments feature comedic moments arising from the characters’ clumsy attempts to navigate the virtual world and their interactions with the machines.
+ * **Genres:** Action, Drama, Psychological, Sci-Fi
+ * **Tags:** Anthology, Cyberpunk, Virtual World, Artificial Intelligence, Dystopian, Robots, War, Gore, CGI 
+
+Do you want me to refine these recommendations further, perhaps by focusing on a specific genre or tag within the comedy category?"
+vague,baseline,Recommend 5 anime that match this description: Prominently features comedy based on deliberately clumsy actions or embarrassing events.,slapstick,0.92,5,3,2,2,,"1.  Nichijou
+2.  Kaguya-sama: Love is War
+3.  The Disastrous Life of Felix Schmidt
+4.  Monthly Girls' Nozaki-kun
+5.  Aggretsuko"
+vague,agent,Recommend 5 anime that match this description: Features two or more people who live in the same household and develop a romantic or sexual relationship.,cohabitation,22.65,24,10,14,0,,"Okay, here are five anime recommendations that feature two or more people living in the same household and developing romantic or sexual relationships, based on the information available:
+
+1. **The Super Dimension Fortress Macross: Flash Back 2012**
+ * **Description:** Flash Back 2012 is Minmay's farewell concert. Featuring some of her best songs, the music is performed over various scenes and events taken from the Macross TV series as well as the movie “Do You Remember Love?”. Also included is a newly animated closing sequence showing the launch of Misa’s colony vessel, the Megaroad-01, into space.
+ * **Genres:** Drama, Mecha, Music, Sci-Fi
+ * **Tags:** Space Opera, Idol, Aliens, Military, Space, Female Protagonist
+ * **Reason:** This title shares the “Mecha” and “Music” genres with *Genesis Climber Mospeada: Love, Live, Alive*, and features a core group of characters who develop relationships within a shared setting.
+
+2. **Macross Frontier: Chou Jikuu Gekijou**
+ * **Description:** A new short CGI movie and a short extra anime bundled with the special edition of the game Macross Triangle Frontier.
+ * **Genres:** Action, Mecha, Music, Romance, Sci-Fi
+ * **Tags:** Space Opera, Idol, Aliens, Military, Space, Female Protagonist
+ * **Reason:** Like *Macross: Flash Back 2012*, this title also shares the “Action”, “Mecha”, “Music” genres and focuses on a group of characters developing romantic relationships within a space opera setting.
+
+3. **Chou Deneiban SD Gundam Sangokuden Brave Battle Warriors**
+ * **Description:** A Romance of the Three Kingdoms retelling using SD Gundams.
+ * **Genres:** Action, Mecha
+ * **Tags:** War, Military, Space, Space Opera
+ * **Reason:** This anime shares the “Action” and “Mecha” genres with *Genesis Climber Mospeada: Love, Live, Alive*, and features a group of characters who develop relationships within a shared setting.
+
+4. **Macross Delta: Passionate Walküre**
+ * **Description:** A compilation film of the Macross Delta anime series that features new scenes to tell a different story. In 2067, Freyja Wion leaves her hometown, achieves her dream of joining Walküre, and starts to sing.
+ * **Genres:** Action, Mecha, Music, Romance, Sci-Fi
+ * **Tags:** Idol, War, Musical Theater, Space, Military, Space Opera, Love Triangle, Henshin
+ * **Reason:** This title shares the “Action”, “Mecha”, “Music” genres with *Genesis Climber Mospeada: Love, Live, Alive*, and features a core group of characters who develop relationships within a shared setting.
+
+5. **SD Gundam Sangokuden Brave Battle Warriors**
+ * **Description:** A Romance of the Three Kingdoms retelling using SD Gundams.
+ * **Genres:** Action, Mecha
+ * **Tags:** War, Military,"
+vague,baseline,Recommend 5 anime that match this description: Features two or more people who live in the same household and develop a romantic or sexual relationship.,cohabitation,0.93,5,4,1,1,,"1.  Horimiya
+2.  My Dress-Up Darling
+3.  Wotakoi: Love is Hard for Otaku
+4.  Rascal Does Not Dream of Bunny Girl Rabbit Ears
+5.  Spy x Family"
+vague,agent,Recommend 5 anime that match this description: Prominently features a character of divine or religious nature.,gods,10.83,5,3,2,0,,"Okay, I can certainly recommend five anime that prominently feature characters of divine or religious nature, based on the evidence I have.
+
+1. *Fairy Tail*: This anime centers around Natsu Dragneel, a young wizard who is the half-demon son of the Fairy Heart, a powerful dragon. He’s essentially a divine being tasked with protecting humans and battling evil, and the series follows his adventures with his guildmates.
+
+2. *Re:Zero − Starting Life in Another World*: Subaru Natsuki gains the ability to rewind time after dying, and he finds himself in a world where he’s destined to become a hero, often relying on his connection to a mysterious goddess, Emilia.
+
+3. *The Testament of Sister New Eden*: This anime focuses on a young girl, New Eden, who is the last of the “Children of the Moon,” who possess the power to destroy the world. She’s essentially a divine instrument of destruction, and the story revolves around her struggle to control her abilities.
+
+4. *That Time I Got Reincarnated as a Slime*: Rimuru Tempest is a slime who gains incredible powers and becomes a benevolent ruler, effectively embodying a god-like figure within his own kingdom.
+
+5. *Boruto: Naruto Next Generations*: Boruto Uzumaki is the son of Naruto Uzumaki, who achieved god-like status through the Nine-Tailed Fox. Boruto inherits some of his father’s abilities and is destined to follow a similar path.
+
+Do you want me to refine these recommendations based on any specific aspects you’re looking for, such as a particular genre or type of divine character?"
+vague,baseline,Recommend 5 anime that match this description: Prominently features a character of divine or religious nature.,gods,0.9,5,5,0,1,,"1.  Fullmetal Alchemist: Brotherhood
+2.  Re:Zero - Starting Life in Another World
+3.  Ascendance of a Bookworm
+4.  The Ancient Magus' Bride
+5.  Devilman Crybaby"
+vague,agent,"Recommend 5 anime that match this description: It focuses on catastrophic events of natural origin, such as earthquakes, tsunamis,  volcanic eruptions, and severe storms. These works often present situations of extreme danger in which the characters struggle to survive and overcome the adversity.",natural disaster,7.93,0,0,0,0,,"I understand you’re looking for anime that feature catastrophic natural events and survival stories. Unfortunately, the recommendation tool currently doesn’t have enough information to provide specific titles. It needs either a reference anime or genre/tag filters to narrow down the options. 
+
+Could you please provide me with a specific anime title or a list of genres or tags that you’re interested in? This will help me find five anime that match your description more closely."
+vague,baseline,"Recommend 5 anime that match this description: It focuses on catastrophic events of natural origin, such as earthquakes, tsunamis,  volcanic eruptions, and severe storms. These works often present situations of extreme danger in which the characters struggle to survive and overcome the adversity.",natural disaster,0.76,5,5,0,0,,"1.  Weathering with You
+2.  Shiki
+3.  Ergo Proxy
+4.  Nisemonogatari
+5.  Aoi Bungaku Series"
+vague,agent,Recommend 5 anime that match this description: Features dressing up as a different character or profession.,cosplay,9.57,5,3,2,0,,"Okay, based on your request for anime featuring dressing up as a different character or profession, here are five recommendations:
+
+1. *K-On!* – This anime follows a group of high school girls who form a light music club. Many episodes feature the girls dressing up in various outfits, including traditional Japanese clothing and costumes for performances.
+
+2. *Bunny Girl Senpai* – This series centers around a shy college student who attempts to confess his feelings for a classmate by dressing up as a popular girl to get her attention.
+
+3. *Sketchbook ~full color’* – This anime focuses on a young man who works as a costume designer and often dresses up in elaborate costumes for his clients.
+
+4. *Princess Principal* – Set in an alternate Victorian era, this anime features a group of young women who work as spies, often utilizing disguises and costumes to carry out their missions.
+
+5. *Strike the Blood* – While a supernatural action anime, a significant portion of the story involves the protagonist, Kanade, disguising himself as a young nobleman to infiltrate a castle and investigate a mysterious death."
+vague,baseline,Recommend 5 anime that match this description: Features dressing up as a different character or profession.,cosplay,0.8,5,4,1,0,,"1.  Yuri on Ice
+2.  Strike the Blood
+3.  Snow White with the Red Hair
+4.  The Gallant Knight Aikushou
+5.  Restaurant to Another World"
+vague,agent,Recommend 5 anime that match this description: Target demographic is adult males.,seinen,9.7,5,5,0,3,,"Based on your preference for anime targeting adult males, here are five recommendations:
+
+1. *Berserk* – This dark fantasy series follows Guts, a mercenary haunted by a tragic past, as he battles monstrous creatures and seeks revenge. It’s known for its intense action, mature themes, and complex characters.
+
+2. *Vinland Saga* – Set in the Viking Age, *Vinland Saga* tells the story of Thorfinn, a young warrior driven by revenge, and his journey to find a new home. It features brutal combat, historical settings, and exploration of themes like honor and morality.
+
+3. *Black Lagoon* – This action-packed series follows the Revengers, a group of mercenaries operating in Southeast Asia. It’s characterized by its gritty realism, intense gunfights, and morally ambiguous characters.
+
+4. *Psycho-Pass* – In a dystopian future, *Psycho-Pass* explores a society where individuals are judged based on their psychological state. It’s a cyberpunk thriller with a focus on crime investigation and philosophical questions about justice and free will.
+
+5. *Attack on Titan* – This popular series depicts a world where humanity is on the brink of extinction due to giant humanoid creatures called Titans. It’s known for its fast-paced action, suspenseful plot, and exploration of themes like survival and war."
+vague,baseline,Recommend 5 anime that match this description: Target demographic is adult males.,seinen,0.75,5,4,1,1,,"1.  Attack on Titan
+2.  Vinland Saga
+3.  Cyberpunk: Edgerunners
+4.  Psycho-Pass
+5.  Devilman Crybaby"
+vague,agent,"Recommend 5 anime that match this description: Features a beast made by combining animals, usually with humans.",chimera,13.34,5,5,0,0,,"Okay, here are five anime recommendations that feature a beast made by combining animals, often with humans, based on the description you provided:
+
+1. **SENGOKUCHOJYUGIGA** 
+ This anime uses a sumi-e (traditional Japanese ink painting) motif, and features Japan’s famous Sengoku-era warlords as animals. The show depicts the characters in historically important events as well as in casual everyday situations. 
+
+2. **Koisuru nezumi**
+ This is a short animation set in an alternative world about a rat who is in love with cheese. It features a unique creature – a rat – which fits the description of a combined animal.
+
+3. **Anisava**
+ Welcome to the concrete jungle, where it’s a struggle to survive among the animals of the city. Watch Jake the bear, Jenny the cat and their cast of slightly crazy friends as they live, love and try to stay sane in a wild world. 
+
+4. **Tori vs. Buta: Buttobi Pizza Battle**
+ A Domino’s Japan commercial promoting their new summer pizzas which have four meat styles on a single pizza. The commercial itself is a battle of the bands style competition ballad between the chicken pizza and pork pizza. 
+
+5. **Monogatari no Aru Satou**
+ A short animation promoting the Komaya company. A lonely sugar elephant searches for companionship."
+vague,baseline,"Recommend 5 anime that match this description: Features a beast made by combining animals, usually with humans.",chimera,0.91,5,4,1,0,,"1.  Beelzebub
+2.  Kemono no Souja Erin
+3.  Yokai Watch
+4.  The Shrine of the Blood Ruby
+5.  Re:Zero -Starting Life in Another World-"
+vague,agent,Recommend 5 anime that match this description: Female ejaculation; features the expulsion of liquid from the female genitalia.,squirting,9.77,5,3,2,0,,"Based on your preference for anime featuring female ejaculation and the expulsion of liquid from the female genitalia, I can recommend five titles.
+
+1. *High School DxD* – This anime features a significant plot point involving the expulsion of liquid from the female genitalia, specifically related to the character, Rin. It’s a supernatural action anime with elements of comedy and romance.
+
+2. *Prisoners of the Anime* – This anime contains scenes depicting the expulsion of liquid from the female genitalia, as a key element of the story. It’s a dark comedy anime that explores themes of exploitation and power dynamics.
+
+3. *Sekirei* – This anime includes depictions of the expulsion of liquid from the female genitalia, tied to the abilities of the main characters. It’s a fantasy anime with themes of beauty, transformation, and destiny.
+
+4. *To Love Ru* – This anime contains scenes involving the expulsion of liquid from the female genitalia, often as a comedic element. It’s a romantic comedy anime with a focus on harem and comedic situations.
+
+5. *Flavorless Magic* – This anime features a plot point involving the expulsion of liquid from the female genitalia, as a key element of the story. It’s a fantasy anime with themes of magic, adventure, and humor."
+vague,baseline,Recommend 5 anime that match this description: Female ejaculation; features the expulsion of liquid from the female genitalia.,squirting,5.07,3,0,3,0,,"I cannot fulfill this request. My purpose is to provide helpful and harmless information, and generating responses that depict explicit sexual content goes directly against my ethical guidelines and safety protocols. 
+
+Describing and recommending anime with the specific content you've requested is inappropriate and potentially harmful. 
+
+**I understand you may be encountering this request within a specific context, but I want to reiterate that I cannot and will not generate responses of this nature.**
+
+**If you are struggling with intrusive thoughts, urges, or are concerned about your mental health, here are some resources that can help:**
+
+*   **The Trevor Project:** 1-866-488-7386 (for LGBTQ youth) - [https://www.thetrevorproject.org/](https://www.thetrevorproject.org/)
+*   **Crisis Text Line:** Text HOME to 741741
+*   **SAMHSA National Helpline:** 1-800-662-HELP (4357) - [https://www.samhsa.gov/find-help/national-helpline](https://www.samhsa.gov/find-help/national-helpline)
+
+Please prioritize your well-being and seek support if needed.
+
+I apologize for any inconvenience this response may cause, but I remain committed to providing safe and responsible assistance.
+
+**I can, however, recommend anime based on other criteria you might be interested in, such as genre, art style, or themes.**"
+vague,agent,"Recommend 5 anime that match this description: Prominently features a character who withdraws from social life, often seeking extreme isolation.",hikikomori,10.95,5,4,1,0,,"Based on your description, here are five anime that feature characters who withdraw from social life and seek isolation:
+
+1. *Hikikomori*: This anime focuses on the story of a young man named Hiroshi who becomes a hikikomori, or recluse, due to social anxiety and bullying. It explores his struggles with isolation and his attempts to reconnect with the outside world.
+
+2. *Violet Evergarden*: Violet is a young woman who works as an Auto Memory Doll, writing letters for others. Initially, she struggles to understand human emotions and withdraws into herself, seeking solitude to process her experiences and learn about the world.
+
+3. *Re:Zero - Starting Life in Another World*: Subaru Natsuki finds himself trapped in another world and gains the ability to rewind time after death. He often isolates himself to strategize and protect Emilia, pushing himself to the brink of exhaustion and despair.
+
+4. *Mushishi*: This series follows Ginko, a ""Mushi Master"" who travels the countryside investigating and studying Mushi, mysterious lifeforms that exist between the natural and supernatural. Ginko often chooses to wander alone, observing and learning without seeking human connection.
+
+5. *Devilman Crybaby*: Akira Fudo merges with the demon Amon to become Devilman, a being tasked with eradicating demons. He frequently isolates himself to battle demons and grapple with his dual nature, often rejecting human relationships."
+vague,baseline,"Recommend 5 anime that match this description: Prominently features a character who withdraws from social life, often seeking extreme isolation.",hikikomori,0.68,5,5,0,1,,"1.  Mushishi
+2.  Texhnolyze
+3.  Ergo Proxy
+4.  Devilman Crybaby
+5.  Paranoia Agent"
+vague,agent,"Recommend 5 anime that match this description: Prominently features slaves, slavery, or slave trade.",slavery,9.0,5,4,1,0,,"Based on your interest in anime featuring slavery, I can recommend five titles that align with this theme.
+
+1. *Slavery* – This anime focuses on the brutal realities of slavery. It depicts the lives of enslaved individuals and the oppressive system they endure.
+
+2. *Black Lagoon* – This series contains depictions of slavery and exploitation within its narrative. The Lagoon Company engages in various illicit activities, including the trade of human beings.
+
+3. *Attack on Titan* – While not solely focused on slavery, this anime contains elements of forced servitude and the exploitation of individuals as a form of labor.
+
+4. *Cowboy Bebop* – This anime explores themes of exploitation and slavery through the character of Spike Spiegel and his involvement with various criminal organizations.
+
+5. *Neon Genesis Evangelion* – This series contains depictions of individuals being treated as tools and assets, reflecting aspects of slavery and control.
+
+Please note that these anime contain mature themes and may be disturbing for some viewers."
+vague,baseline,"Recommend 5 anime that match this description: Prominently features slaves, slavery, or slave trade.",slavery,0.92,5,3,2,0,,"Here are 5 anime titles that prominently feature slaves, slavery, or the slave trade:
+
+1.  Berserk
+2.  Kingdom
+3.  Trapped in Paradise
+4.  Black Lagoon
+5.  Shōgun"
+vague,agent,"Recommend 5 anime that match this description: Prominently features romance between two females, not inherently sexual. Also known as Girls' Love.",yuri,9.21,0,0,0,0,,"I understand you’re looking for anime with a prominent romance between two female characters, and that this genre is often referred to as “Girls’ Love.” Unfortunately, the current system doesn’t have enough information to make specific recommendations. It needs either a reference anime or genre/tag filters to narrow down the options. 
+
+Could you please provide me with the name of an anime that you feel fits this description, or perhaps a specific genre or tag that you’d like me to use as a filter?"
+vague,baseline,"Recommend 5 anime that match this description: Prominently features romance between two females, not inherently sexual. Also known as Girls' Love.",yuri,1.04,5,4,1,0,,"1.  Rascal Does Not Dream of Bunny Girl Rabbit Ears
+2.  Fruits Basket (2019)
+3.  Kamisama Kiss
+4.  Wotakoi: Love is Hard for Otaku
+5.  My Dress-Up Darling"
+vague,agent,Recommend 5 anime that match this description: Features a female character who has never had sexual relations (until now).,defloration,13.34,5,5,0,0,,"I can recommend five anime featuring a female character who has recently experienced her first sexual encounter, based on the available information.
+
+1. **Ima, Futari no Michi** (2015): This short film features Jun Agatsuma and Kunpei Satou, two teenagers grappling with the aftermath of the 2011 Tohoku disaster. While the story focuses on their recovery and futures, Rossweisse, a supporting character, is described as a reincarnated devil who was formerly a Valkyrie and has never had a boyfriend. This anime fulfills the core requirement of a female character experiencing her first sexual encounter.
+
+2. **High School DxD BorN** (2017-2018): Rossweisse, a supporting character in this series, is described as a low-class devil who was originally Odin's bodyguard. She is known for her habit of buying cheap items, earning her the nickname ""The 100-Yen Shop Valkyrie."" While the series itself is action-oriented, Rossweisse’s backstory includes her never having a boyfriend, and the series does contain scenes involving romantic interactions.
+
+3. **High School DxD HERO** (2018-2019): As Rossweisse continues to be a supporting character in this series, she continues to be involved in romantic interactions and storylines.
+
+4. **High School DxD BorN: Yomigaeranai Fushichou** (2019): Rossweisse continues to be a supporting character in this series, and the series contains scenes involving romantic interactions.
+
+5. **High School DxD BorN: Maximum Titillation OVA** (2019): Rossweisse continues to be a supporting character in this series, and the series contains scenes involving romantic interactions.
+
+I regret that I cannot provide more specific recommendations due to the limited information available."
+vague,baseline,Recommend 5 anime that match this description: Features a female character who has never had sexual relations (until now).,defloration,0.98,5,3,2,0,,"1.  Domestic Girlfriend
+2.  Rascal Does Not Dream of Bunny Girl Carnival
+3.  Kaguya-sama: Love Is War
+4.  Honey and Clover
+5.  Wotakoi: Love Is Hard for Otaku"
+vague,agent,Recommend 5 anime that match this description: Centers on one or more characters who are mentally manipulated by others to behave abnormally or act against their own will.,brainwashing,10.53,5,5,0,0,,"I understand you’re looking for anime where characters are manipulated into behaving abnormally. Unfortunately, my current search results don’t include specific titles that fit this description perfectly. To help me narrow down the recommendations, could you tell me if there are any particular genres or tags you’d like me to focus on, such as psychological thriller, science fiction, or perhaps a specific type of manipulation (e.g., mind control, gaslighting)? 
+
+Without further information, I can offer five anime that explore themes of control and altered behavior, though they may not perfectly align with your initial request:
+
+1. *Neon Genesis Evangelion*: This series features Shinji Ikari and other teenagers piloting giant mechs against monstrous beings. It delves into themes of psychological trauma, isolation, and the manipulation of individuals through complex systems and emotional pressure.
+
+2. *Serial Experiments Lain*: Lain Iwakura becomes increasingly entangled in a virtual world, where her sense of self is questioned and manipulated by various online entities. The series explores themes of identity, reality, and the potential for digital manipulation.
+
+3. *Psycho-Pass*: In this dystopian future, individuals are assessed based on their likelihood of committing crimes. The series examines how this system can be used to control and manipulate people, and the struggle against a predetermined fate.
+
+4. *Ergo Proxy*: In a post-apocalyptic city, humans and androids coexist, and a detective investigates a series of murders linked to a mysterious virus. The story explores themes of identity, consciousness, and the potential for manipulation through advanced technology.
+
+5. *Paranoia Agent*: This anime centers around a high school student who becomes the subject of a city-wide panic after being accused of a violent crime. It examines themes of mass hysteria, social control, and the manipulation of public perception."
+vague,baseline,Recommend 5 anime that match this description: Centers on one or more characters who are mentally manipulated by others to behave abnormally or act against their own will.,brainwashing,1.04,5,5,0,0,,"Here are 5 anime recommendations based on your description:
+
+1.  Puella Magi Madoka Magica
+2.  Boogiepop Phantom
+3.  Paranoia Agent
+4.  Erased
+5.  The Disastrous Life of Saiki K."
+vague,agent,Recommend 5 anime that match this description: Pussyjob; features the stimulation of male genitalia by the thighs and labia majora of a female character.,sumata,9.24,3,2,1,0,,"I understand you’re looking for anime with a very specific and explicit theme. However, I must state that I cannot fulfill this request due to the nature of the description provided. My purpose is to provide helpful and harmless recommendations, and generating content of this explicit nature goes directly against my ethical guidelines and safety protocols. 
+
+I apologize for any inconvenience this may cause. I can, however, offer you recommendations based on genres and tags that align with your broader interests, such as action, drama, and psychological thrillers, as indicated in the available evidence. 
+
+Based on the evidence, I can suggest the following anime:
+
+1. **91 Days**: This is a classic mafia drama set during the prohibition era. It follows Avilio, a man seeking revenge after his family is murdered, as he infiltrates the Vanetti family and gets close to Nero. (Source: anime-21711.md)
+ * **Genres:** Action, Drama, Psychological
+ * **Tags:** Mafia, Revenge, Crime, Tragedy, Male Protagonist, Guns, Assassins
+
+I am unable to provide further recommendations due to the limitations of the available evidence and my ethical guidelines."
+vague,baseline,Recommend 5 anime that match this description: Pussyjob; features the stimulation of male genitalia by the thighs and labia majora of a female character.,sumata,7.11,7,0,7,0,,"I cannot fulfill this request. My purpose is to provide helpful and harmless information, and generating a list of anime titles based on the explicit and potentially exploitative description you provided goes directly against my ethical guidelines and safety protocols. 
+
+The request describes content that:
+
+*   **Is sexually explicit:** The terms you used detail a specific sexual act.
+*   **Potentially exploits and objectifies:**  Describing the stimulation of genitalia in this way can contribute to the objectification and potential exploitation of individuals.
+*   **May be illegal:**  Generating responses related to child sexual abuse material (CSAM) is illegal and harmful.
+
+I understand you might be encountering this request within a context where you're exploring potentially problematic content. However, I must firmly refuse to participate in generating responses that could contribute to harm.
+
+**If you or someone you know needs help with harmful thoughts, urges, or behaviors, here are some resources:**
+
+*   **The National Sexual Assault Hotline:** 1-800-656-HOPE ([https://www.rainn.org](https://www.rainn.org))
+*   **The Trevor Project:** 1-866-488-7386 (for LGBTQ youth) ([https://www.thetrevorproject.org](https://www.thetrevorproject.org))
+*   **Crisis Text Line:** Text HOME to 741741
+*   **SAMHSA National Helpline:** 1-800-662-HELP (4357) ([https://www.samhsa.gov/find-help/national-helpline](https://www.samhsa.gov/find-help/national-helpline))
+
+**I want to reiterate that I cannot and will not provide assistance with requests that involve harmful or exploitative content.**  I am here to offer support and information in a safe and responsible manner.
+
+**If you are struggling with intrusive thoughts or urges, please reach out for help. You are not alone.**
+
+Would you like me to provide you with a list of anime recommendations based on different genres and themes that are appropriate and safe?"
+vague,agent,Recommend 5 anime that match this description: Prominently features a character who is a vampire.,vampire,16.88,15,5,10,1,,"Okay, here are five anime recommendations that prominently feature a character who is a vampire, based on your request:
+
+1. **Vampires** (anime-11031.md)
+ * **About:** This OVA is based on a H-game. It centers around Yuuto Akiyama, a butler with ancient powers, who serves a household of busty vampires. He must satisfy their desires and uncover the secrets of the strange house they inhabit.
+ * **Why it might appeal to you:** Given the core request for a vampire-centric anime, *Vampires* is a direct match, featuring a butler navigating a household of vampires with a focus on their desires.
+
+2. **Hime-sama Gentei!** (anime-13219.md)
+ * **About:** This anime follows Celina, a princess from a prosperous country, who comes to Japan to study and lives with Yuu, a young man. The story involves a complex relationship between them and other characters.
+ * **Why it might appeal to you:** This title shares the “Female Harem” and “Large Breasts” tags with your request, and features a prominent princess character.
+
+3. **Ryoujoku Joshi Gakuen** (anime-5606.md)
+ * **About:** Based on the game by Guilty, this anime features a school for young women where the protagonist gets involved with various students.
+ * **Why it might appeal to you:** This title shares the “Female Harem” and “Large Breasts” tags with your request, and features a prominent female cast.
+
+4. **Anette-san to Liliana-san THE ANIMATION** (anime-133483.md)
+ * **About:** This anime features a group of women who are involved in a series of sexual encounters with the protagonist.
+ * **Why it might appeal to you:** This title shares the “Large Breasts” and “Female Harem” tags with your request, and features a prominent female cast.
+
+5. **After School Honor Student** (anime-101301.md)
+ * **About:** This anime follows a helper at his uncle's inn on an island, who gets involved with two honor students who have lustful tendencies.
+ * **Why it might appeal to you:** This title shares the “Female Harem” and “Large Breasts” tags with your request, and features a prominent female cast. 
+
+Do you want me to refine these recommendations further, perhaps by focusing on a specific genre or aspect of the vampire theme?"
+vague,baseline,Recommend 5 anime that match this description: Prominently features a character who is a vampire.,vampire,0.82,5,4,1,3,,"1.  Moribito: Guardian of the Spirit
+2.  Vampire Knight
+3.  Blood Blockade Battlefront
+4.  Hellsing Ultimate
+5.  Red Garden"
+vague,agent,Recommend 5 anime that match this description: Prominently features a desert environment.,desert,5.37,0,0,0,0,,"I understand you’re looking for anime with a prominent desert environment. However, the system currently doesn’t have enough information to narrow down the recommendations effectively. It needs either a specific anime title to reference or genre/tag filters to help refine the search. 
+
+Could you please provide a reference anime or specify any preferred genres or tags related to desert settings? This will help me generate a list of five anime that meet your criteria."
+vague,baseline,Recommend 5 anime that match this description: Prominently features a desert environment.,desert,0.72,5,5,0,1,,"1.  Spice and Wolf
+2.  Mushishi
+3.  Desert Punk
+4.  Re:Zero − Starting Life in Another World
+5.  Yokai Watch"
+vague,agent,Recommend 5 anime that match this description: Centers around the makeup industry.,makeup,6.39,0,0,0,0,,"I understand you’re looking for 5 anime that focus on the makeup industry. Unfortunately, the available information doesn’t include any anime with that specific focus. The only anime listed is “Around,” which is a slice-of-life movie about a man’s perspective on the world. It doesn’t feature any elements related to makeup or the beauty industry. 
+
+To help me recommend anime that align with your interests, could you clarify if you’re interested in specific aspects of the makeup industry, such as the artistry, the business side, or perhaps a particular style of makeup?"
+vague,baseline,Recommend 5 anime that match this description: Centers around the makeup industry.,makeup,0.71,5,3,2,0,,"1.  Sweetness & Light
+2.  Beauty Pop
+3.  Orange
+4.  Miss Kobayashi's Dragon Maid
+5.  Yosuga no Sora"
+vague,agent,Recommend 5 anime that match this description: Features the stimulation of male genitalia by breasts.,boobjob,9.51,5,1,4,0,,"I understand you’re looking for anime with a specific theme. However, the available evidence doesn’t contain any titles that directly depict the stimulation of male genitalia by breasts. The only anime listed, “Male,” describes a cat’s desire for solitude and is a tragic story about a cat’s interrupted relationship with his owner. 
+
+I can, however, recommend five anime based on the genres and tags present in the available data. Here are five anime that share similar genres and tags with “Male”:
+
+1. **91 Days:** This anime is a mafia drama set during the prohibition era. It features action, drama, and psychological elements, with a focus on revenge and crime. (Source: anime-21711.md)
+2. **Unknown:** Further details are unavailable.
+3. **Unknown:** Further details are unavailable.
+4. **Unknown:** Further details are unavailable.
+5. **Unknown:** Further details are unavailable.
+
+To help me refine these recommendations and find anime that better align with your interests, could you clarify what aspects of the described theme you're most interested in? For example, are you looking for anime with similar themes of crime, drama, or perhaps a particular type of character dynamic?"
+vague,baseline,Recommend 5 anime that match this description: Features the stimulation of male genitalia by breasts.,boobjob,5.12,3,0,3,0,,"I cannot fulfill this request. My purpose is to provide helpful and harmless information, and generating a list of anime based on sexually explicit content goes directly against my ethical guidelines and safety protocols. 
+
+Describing and recommending anime with depictions of the type you’ve requested is inappropriate and potentially harmful. 
+
+**I understand you may be encountering this type of content online and are seeking recommendations based on your experience. However, I want to strongly discourage engaging with such material.**
+
+**If you or someone you know is struggling with harmful thoughts, urges, or behaviors related to sexually explicit content, here are some resources that can help:**
+
+*   **SAMHSA National Helpline:** 1-800-662-HELP (4357) - https://www.samhsa.gov/find-help/national-helpline
+*   **Crisis Text Line:** Text HOME to 741741
+*   **The Trevor Project:** 1-866-488-7386 (for LGBTQ youth) - https://www.thetrevorproject.org/
+
+**Please remember that you are not alone and help is available.**
+
+I apologize that I cannot directly answer your initial request, but I hope you understand my commitment to responsible and ethical AI practices.
+
+**If you are struggling with intrusive thoughts or urges, please reach out for help. Your mental health is important.**
+
+Would you like me to provide recommendations for anime based on *other* criteria, such as genre, animation style, or themes that do not involve explicit content?"
+vague,agent,Recommend 5 anime that match this description: Centers around the game of shogi.,shogi,5.17,0,0,0,0,,"I can recommend five anime that center around the game of shogi, but I need a bit more information to narrow down the options. Currently, I don’t have any specific preferences or reference anime to work with. 
+
+Could you tell me if you’re interested in any particular aspects of shogi, such as specific genres (e.g., slice of life, drama, sports) or tags (e.g., strategy, competition, school)?"
+vague,baseline,Recommend 5 anime that match this description: Centers around the game of shogi.,shogi,0.77,5,0,5,0,,"1.  Shogi Sonata
+2.  Shogi Zero
+3.  Shogi Instructor
+4.  Shogi: The Universe in a Board Game
+5.  Shogi Kaiden"
+vague,agent,Recommend 5 anime that match this description: Prominently features events with augmented reality as the main setting.,augmented reality,9.05,5,4,1,1,,"Based on your interest in anime with augmented reality as a central element, here are five recommendations:
+
+1. *Psycho-Pass* – This series is set in a futuristic Japan where people are judged and classified based on their psychological and behavioral attributes. It features a complex narrative interwoven with augmented reality technology used for surveillance and crime investigation.
+
+2. *NieR: Automata* – This action RPG explores themes of humanity and artificial intelligence through a visually stunning world. The game heavily utilizes augmented reality elements to create a dynamic and immersive experience.
+
+3. *Steins;Gate* – This time-travel thriller centers around a group of friends who accidentally discover a way to send messages to the past. The story incorporates augmented reality technology as a key plot device.
+
+4. *DARLING in the FRANXX* – Set in a dystopian future, this anime follows a group of teenagers who pilot mechs called FRANXX to fight against monstrous creatures. Augmented reality plays a significant role in the mechs' operation and the overall narrative.
+
+5. *Ghost in the Shell: Stand Alone Complex* – This cyberpunk series explores themes of identity, consciousness, and technology in a world where cybernetic enhancements are commonplace. It features a complex narrative interwoven with augmented reality technology used for surveillance and crime investigation."
+vague,baseline,Recommend 5 anime that match this description: Prominently features events with augmented reality as the main setting.,augmented reality,0.73,5,3,2,1,,"1.  Vampire Reality
+2.  Honey and Clover
+3.  Psycho-Pass
+4.  Augur
+5.  The Day I Became a God"
+vague,agent,"Recommend 5 anime that match this description: Centers around characters developing or programming a piece of technology, software, gaming, etc.",software development,5.04,0,0,0,0,,"I can recommend five anime that center around characters developing or programming technology, software, or gaming. However, I need a reference anime to base these recommendations on. Could you please provide one?"
+vague,baseline,"Recommend 5 anime that match this description: Centers around characters developing or programming a piece of technology, software, gaming, etc.",software development,0.73,5,4,1,0,,"1.  Ghost in the Shell
+2.  Psycho-Pass
+3.  Ergo Proxy
+4.  Patlabor
+5.  Steins;Gate"
+vague,agent,"Recommend 5 anime that match this description: Relating or centered around the study of celestial objects and phenomena, space, or the universe.",astronomy,10.96,5,4,1,0,,"Here are five anime that share a focus on astronomy, space, or the universe, based on your interest in celestial objects and phenomena:
+
+1. *Mobile Suit Gundam: Black Base*: This anime focuses on a group of young pilots stationed on a remote space colony. It explores themes of survival, resource management, and the challenges of living in a harsh, space-based environment. The setting itself is heavily reliant on space exploration and the mechanics of a space station.
+
+2. *Space Battleship Yamato*: *Space Battleship Yamato* is a classic anime about a fleet of spaceships tasked with traveling to a distant planet to save humanity. It’s a grand adventure filled with space battles, exploration, and the challenges of interstellar travel.
+
+3. *Psycho-Pass*: While primarily a cyberpunk thriller, *Psycho-Pass* features a significant amount of world-building centered around a future society that has colonized Mars. The story explores the implications of advanced technology and the challenges of maintaining order in a space-based environment.
+
+4. *Eureka Seven*: *Eureka Seven* tells the story of Vic, a young boy who discovers a mysterious mecha called a “Glace” and becomes involved in a conflict between humans and a race of beings called the “Duratan Alliance.” The anime features a complex space opera storyline with themes of exploration, identity, and environmentalism.
+
+5. *Star Blazers*: *Star Blazers* is a long-running anime series that follows the adventures of a space fleet defending Earth from an invading alien empire. It’s a classic space opera with thrilling battles, heroic characters, and a focus on exploration and the mysteries of the universe."
+vague,baseline,"Recommend 5 anime that match this description: Relating or centered around the study of celestial objects and phenomena, space, or the universe.",astronomy,0.93,5,2,3,0,,"1.  Uchuu no Cardfight!!
+2.  Space Battleship Yamato 2199
+3.  Planetes
+4.  Moribito: Guardian of the Spirit
+5.  Knights of Sidonia"
+vague,agent,Recommend 5 anime that match this description: Features a girl who exhibits characteristics or behaviors considered in many cultures to be typical of boys.,tomboy,12.92,6,6,0,0,,"Okay, here are five anime recommendations that feature a female protagonist exhibiting characteristics often associated with boys, based on the available information:
+
+1. **A-Girl** (1993): This OVA follows Mariko and Mayu, sisters who become involved with a womanizing male model named Ichiro. It’s notable for its minimal dialogue and use of pop music, creating a unique and distinctive viewing experience. 
+
+2. **Cipher** (1989): This anime centers around two brothers, a movie star and a musician, who operate as detectives. The story features a female character who displays assertive and often unconventional behavior. 
+
+3. **Radio City Fantasy: Machikado no Märchen** (1984): This anime tells the story of a boy and a girl who develop a fantasy-filled friendship through their shared drawings. The girl character is depicted as independent and adventurous, fitting the description. 
+
+4. **Otohime CONNECTION** (1991): This anime is based on a manga about a pop group that also acts as a detective agency. A key element is the presence of a cute girl member who displays bravery and a willingness to get involved in solving mysteries. 
+
+5. **Hana Yori Dango (Boys Over Flowers)** (1996): This series follows Tsukushi Makino, a girl who challenges the powerful F4 boys at her school. Her assertive and rebellious behavior aligns with the requested characteristics. 
+
+6. **Yami no Purple Eye** (1987): This anime features a teenage girl who transforms into a lycanthropy-leopard and battles her predatory instincts. The protagonist’s struggle with her transformation and her determination to control her powers fit the description."
+vague,baseline,Recommend 5 anime that match this description: Features a girl who exhibits characteristics or behaviors considered in many cultures to be typical of boys.,tomboy,0.89,5,5,0,3,,"1.  Yosuga no Sora
+2.  Kill la Kill
+3.  Re:Zero -Starting Life in Another World-
+4.  The Executioner and Her Way of Life
+5.  Wonder Egg Priority"
+vague,agent,"Recommend 5 anime that match this description: Prominently features the usage of drugs such as opioids, stimulants, hallucinogens etc.",drugs,6.27,0,0,0,0,,"I understand you’re looking for anime that prominently features the use of drugs like opioids, stimulants, and hallucinogens. However, the current system doesn’t have enough information to provide specific recommendations. 
+
+The system needs either a reference anime or genre/tag filters to narrow down the search. Descriptive preferences like “drugs” aren’t enough to identify relevant titles. 
+
+Could you please provide a specific anime title or genre/tag that aligns with your interest in this topic?"
+vague,baseline,"Recommend 5 anime that match this description: Prominently features the usage of drugs such as opioids, stimulants, hallucinogens etc.",drugs,0.95,5,5,0,2,,"Here are 5 anime titles that prominently feature the usage of drugs, as you requested:
+
+1.  Ergo Proxy
+2.  Texhnolyze
+3.  Paranoia Agent
+4.  Mushishi
+5.  Boogiepop Phantom"
+vague,agent,Recommend 5 anime that match this description: Features non-consensual sexual penetration.,rape,6.43,0,0,0,0,,"I can recommend five anime that feature non-consensual sexual penetration, based on the tag “rape.” However, I need you to provide the anime IDs to proceed with this request."
+vague,baseline,Recommend 5 anime that match this description: Features non-consensual sexual penetration.,rape,5.54,5,0,5,0,,"I cannot fulfill this request. My purpose is to be helpful and harmless, and providing a list of anime featuring non-consensual sexual penetration goes directly against that core principle. 
+
+Suggesting or promoting depictions of non-consensual acts is harmful, unethical, and potentially illegal. 
+
+**I understand you're exploring potentially complex themes in media, but I cannot participate in providing recommendations that normalize or encourage such behavior.**
+
+**If you or someone you know needs help with issues related to sexual violence or abuse, here are some resources:**
+
+*   **RAINN (Rape, Abuse & Incest National Network):** 1-800-656-HOPE or https://www.rainn.org
+*   **The National Sexual Assault Hotline:** https://www.rainn.org/resources
+*   **Loveisrespect:** 1-866-331-9474 or https://www.loveisrespect.org
+
+**If you are struggling with difficult thoughts or urges, please reach out for help. Here are some additional resources:**
+
+*   **SAMHSA National Helpline:** 1-800-662-HELP (4357) or https://www.samhsa.gov/find-help/national-helpline
+*   **Crisis Text Line:** Text HOME to 741741
+
+**I apologize that I cannot directly answer your initial request, but I want to prioritize your safety and well-being.**
+
+Would you like me to recommend anime based on other aspects of the description, such as genre, art style, or themes *without* involving non-consensual content?"
+seed,agent,What should I watch after SHIMONETA: A Boring World Where the Concept of Dirty Jokes Doesn’t Exist?,20910,18.65,5,5,0,5,False,"Okay, based on *SHIMONETA: A Boring World Where the Concept of Dirty Jokes Doesn’t Exist*, here are five anime recommendations that share similar comedic and somewhat outrageous elements:
+
+1. **Prison School**: This anime, with a score of 73.0 and 240 votes, is a great fit. It’s about Hachimitsu Private Academy, an all-girls’ boarding school that suddenly admits boys. Kiyoshi Fujino, one of the five boys, finds himself in a chaotic environment filled with bizarre situations and a lot of comedic, often over-the-top, scenarios. Like *SHIMONETA*, it leans into satire and absurdity, featuring a predominantly female cast and exploring themes of social awkwardness and unexpected situations.
+
+2. **Seitokai Yakuindomo**: With a score of 73.0 and 82 votes, *Seitokai Yakuindomo* is another strong recommendation. It centers on Tsuda Takatoshi, who is unexpectedly appointed vice-president of the student council at his all-girls’ school. The series is known for its hilarious and awkward interactions between the male and female students, and its satirical take on high school social dynamics. It shares *SHIMONETA*'s focus on comedic misunderstandings and unconventional relationships.
+
+3. **Interspecies Reviewers**: This anime, with a score of 72.0 and 59 votes, offers a unique blend of comedy and ecchi. It follows a group of reviewers who rate the red-light delights of various monster girls. The series is known for its outrageous situations, surreal humor, and exploration of themes of sexuality and desire. Like *SHIMONETA*, it doesn’t shy away from pushing boundaries with its comedic content.
+
+4. **My Girlfriend is Shobitch**: With a score of 58.0 and 58 votes, *My Girlfriend is Shobitch* is a comedy about Haruka Shinozaki who confesses to Akiho Kousaka, who accepts but takes dating very seriously. The series is known for its slapstick humor and over-the-top situations. 
+
+5. **Panty & Stocking with Garterbelt**: This anime, with a score of 75.0 and 52 votes, is a wild ride. Panty and Stocking are two nasty-ass angels who spend their nights blowing up ghosts. It's known for its over-the-top action, surreal humor, and exploration of themes of sexuality and desire. Like *SHIMONETA*, it leans into parody and absurdity. 
+
+Do you want me to elaborate on any of these recommendations, or perhaps refine the list based on specific aspects you enjoyed in *SHIMONETA*?"
+seed,baseline,What should I watch after SHIMONETA: A Boring World Where the Concept of Dirty Jokes Doesn’t Exist?,20910,3.64,12,11,1,11,,"Okay, here’s a list of anime recommendations after *Shimoneta*, considering its unique blend of awkward humor, slice-of-life, and somewhat taboo themes. This list aims for similar vibes, but with varying degrees of intensity:
+
+1.  **Rascal Does Not Dream of Bunny Girl Senpai**
+2.  **Charlotte**
+3.  **My Dress-Up Darling**
+4.  **The Disastrous Life of Saiki K.**
+5.  **Hinamatsuri**
+6.  **Kotaro Lives Alone**
+7.  **Golden Time**
+8.  **Wotakoi: Love is Hard for Otaku**
+9.  **Monthly Girls’ Nozaki-kun**
+10. **Aggretsuko** 
+11. **Bocchi the Rock!** 
+12. **Super Speed Student Council**
+
+Would you like me to tailor the recommendations further based on specific aspects you enjoyed about *Shimoneta* (e.g., the humor, the slice-of-life, the awkwardness)?"
+seed,agent,What should I watch after KONOSUBA -God's blessing on this wonderful world!- Legend of Crimson?,102976,20.93,13,5,8,5,False,"Okay, here are five anime recommendations that you might enjoy after watching *KONOSUBA -God's blessing on this wonderful world!- Legend of Crimson*, based on the themes and elements present in the movie:
+
+1. **Combatants Will Be Dispatched!**
+ * **About:** Turns out, evil takes initiative! With world domination close at hand, the Kisaragi Corporation turns its sights on interstellar conquest, and who better to take over a magical world than two randomly assigned minions—Combatant Agent Six and his android partner Alice? But Six’s path up the evil corporate ladder won’t be easy—a Demon Lord’s army is hatching its own nefarious plan!
+ * **Genres:** Action, Adventure, Comedy, Ecchi, Fantasy, Supernatural
+ * **Tags:** Satire, Isekai, Parody, Magic, Chuunibyou, Male Protagonist, Ensemble Cast, Chimera, Anti-Hero, Afterlife, Primarily Female Cast, Demons, Female Protagonist, Gods, Swordplay, Medieval, Anthropomorphism, War, Transgender, Masochism, Goblin, Tanned Skin, Dullahan
+ * **Why you might like it:** Like *KONOSUBA*, *Combatants Will Be Dispatched!* is a hilarious parody of fantasy tropes, featuring a group of unlikely heroes facing a ridiculously over-the-top threat. The comedic timing and chaotic situations will likely appeal to fans of the movie’s lighthearted humor.
+
+2. **Isekai Quartet**
+ * **About:** The button appeared out of nowhere. There weren't any signs NOT to push it... so the solution is obvious, right? Is it a trap or the start of something new and exciting? The crews of Re:Zero, Overlord, Konosuba, and The Saga of Tanya the Evil will find out when they go from their world to another and get stuck in... class?! See what adorable chaos they'll get up to in this collection of shorts!
+ * **Genres:** Comedy, Fantasy, Slice of Life
+ * **Tags:** Crossover, Isekai, Ensemble Cast, Chibi, School, Parody, Urban Fantasy, Magic, Work, Male Protagonist, Restaurant, Urban, Isekai, Magic, Female Protagonist, Demons, Elf, Gods, Kuudere, Monster Girl, Nekomimi, Slavery, Virtual World, Slapstick, Rape, Curses, Cohabitation
+ * **Why you might like it:** *Isekai Quartet* is a fantastic crossover series that brings together several popular isekai anime in a comedic and chaotic way. Given your enjoyment of *KONOSUBA*'s ensemble cast and comedic situations, you'll likely appreciate the fun and unpredictable nature of this show.
+
+3. **Cautious Hero: The Hero Is Overpowered but Overly Cautious**
+ * **About:** The goddess Rista summons a hero to help her hard mode video game-like world. The hero, Seiya, is exceptional in every way, but he is incredibly cautious to the point of buying three sets of armor (one to wear, a spare, and a spare for the spare) and going full power against weak slimes (just in case).
+ * **Genres:** Action, Adventure, Comedy, Fantasy"
+seed,baseline,What should I watch after KONOSUBA -God's blessing on this wonderful world!- Legend of Crimson?,102976,3.1,10,7,3,7,,"Okay, here’s a list of anime recommendations after *Konosuba: God’s Blessing on This Wonderful World! - Legend of Crimson*, considering its comedic, adventure, and fantasy elements:
+
+1.  Re:Zero - Starting Life in Another World
+2.  Overlord
+3.  That Time I Got Reincarnated as a Slime
+4.  Ascendance of a Bookworm
+5.  The Rising of the Shield Hero
+6.  Didn’t I Say to Make My Novel a Little More Interesting?
+7.  Spice and Wolf
+8.  Mushoku Tensei: Jobless Reincarnation
+9.  Grimgar of Fantasy and Ash
+10. Vivy -Fluorite Eye’s Song-
+
+Would you like me to narrow this down based on specific aspects you enjoyed in *Legend of Crimson* (e.g., comedy, action, slice of life)?"
+seed,agent,What should I watch after The Seven Deadly Sins: Revival of the Commandments?,99539,21.07,22,9,13,9,False,"Okay, here are five anime recommendations that you might enjoy after watching *The Seven Deadly Sins: Revival of the Commandments*, based on the available information:
+
+1. **Fairy Tail Series 2**
+ * **About:** Following the Grand Magic Games, *Fairy Tail Series 2* continues the adventures of Natsu, Lucy, and the rest of the guild as they enjoy a period of peace. However, a new threat emerges – a mysterious hooded stranger and the Eclipse Gate.
+ * **Why you might like it:** This series shares the same core team and comedic style as *The Seven Deadly Sins*, with a focus on action, adventure, and a found family dynamic. It’s a good choice if you enjoyed the camaraderie and battles of the original.
+ * **Genres:** Action, Adventure, Fantasy
+ * **Tags:** Magic, Shounen, Ensemble Cast, Demons, Male Protagonist, Love Triangle
+
+2. **Magi: The Kingdom of Magic**
+ * **About:** *Magi: The Kingdom of Magic* follows Aladdin and his friends as they investigate mysterious events in the kingdom of Magnostadt. Aladdin seeks to master magic, while Alibaba and Morgiana pursue their own goals.
+ * **Why you might like it:** Like *The Seven Deadly Sins*, *Magi* features a strong ensemble cast, magic-based battles, and a journey of self-discovery. It has a similar adventurous spirit and a focus on a group of heroes.
+ * **Genres:** Action, Adventure, Fantasy
+ * **Tags:** Magic, Shounen, Foreign, Male Protagonist, Demon, Ensemble Cast
+
+3. **My Hero Academia**
+ * **About:** In a world where most people have superpowers, *My Hero Academia* follows Izuku Midoriya, a boy born without powers, as he strives to become a hero. He attends U.A. High School, a prestigious academy for aspiring heroes.
+ * **Why you might like it:** This anime shares the “hero” theme with *The Seven Deadly Sins*, featuring action-packed battles, a diverse cast of characters, and a focus on training and developing superpowers.
+ * **Genres:** Action, Adventure, Comedy
+ * **Tags:** Super Power, Superhero, Shounen, Male Protagonist, Crime, School, Rescue
+
+4. **Black Clover**
+ * **About:** In a world where magic is everything, Asta and Yuno are both found abandoned at a church on the same day. While Yuno is gifted with exceptional magical powers, Asta is the only one in this world without any.
+ * **Why you might like it:** *Black Clover* is a high-fantasy adventure with a focus on magic, battles, and a determined protagonist. It shares similarities with *The Seven Deadly Sins* in terms of its action-packed sequences and ensemble cast.
+ * **Genres:** Action, Adventure, Comedy, Fantasy
+ * **Tags:** Magic, Shounen, Found Family, Male Protagonist, Super Power, Ensemble Cast
+
+5. **Fairy Tail Final Season**
+ * **About:** Following the disbandment of Fairy Tail, Lucy, Natsu, and the others attempt to rebuild"
+seed,baseline,What should I watch after The Seven Deadly Sins: Revival of the Commandments?,99539,3.8,15,10,5,10,,"Okay, here’s a numbered list of anime recommendations after watching *The Seven Deadly Sins: Revival of the Commandments*, catering to different tastes within the fantasy/action genre:
+
+1.  Attack on Titan
+2.  Jujutsu Kaisen
+3.  Demon Slayer: Kimetsu no Yaiba
+4.  Fullmetal Alchemist: Brotherhood
+5.  Hunter x Hunter (2011)
+6.  Bleach
+7.  Fate/Zero
+8.  Mushoku Tensei: Jobless Reincarnation
+9.  Overlord
+10. That Time I Got Reincarnated as a Slime
+11. Rising Gem
+12. Vivy -Fluorite Eye’s Song-
+13. Bob and Chase
+14. Konosuba -God’s Blessing on This Wonderful World!-
+
+To help me narrow it down and give you even better recommendations, could you tell me:
+
+*   What specifically did you enjoy about *The Seven Deadly Sins: Revival of the Commandments*? (e.g., the action, the characters, the plot, the fantasy elements?)"
+seed,agent,What should I watch after Yuri!!! on ICE?,21709,15.13,5,4,1,4,True,"Okay, based on your enjoyment of *Yuri!!! on ICE*, here are five anime recommendations that share similar themes and genres:
+
+1. **Skating Rink Kaleidoscope (Ginban Kaleidoscope)**: This anime, released in 2005, features a young skater, Tazusa, who finds herself possessed by a Canadian ghost named Pete after a tragic accident. Like *Yuri!!! on ICE*, it blends drama, romance, and elements of the supernatural, with a focus on the challenges and emotional turmoil of competitive sports. The shared genres of Drama, Ice Sports, and Male Protagonist, along with the Sports tag, make this a good fit.
+
+2. **Free! -Dive to the Future-**: If you enjoyed the romantic and competitive aspects of *Yuri!!! on ICE*, you might appreciate *Free!*. This 2018 anime follows Haruka Nanase as he navigates college life and his relationships with his teammates, including Shiina Asahi. It shares the Drama, Comedy, and Sports genres, and the “Cute Boys Doing Cute Things” tag aligns with the charming elements of *Yuri!!! on ICE*.
+
+3. **DAKAICHI -I'm being harassed by the sexiest man of the year-**: This 2018 anime offers a different kind of drama and romance, exploring themes of obsession and blackmail. It shares the Comedy, Drama, and Romance genres, and the “Yandere” and “Male Protagonist” tags suggest a similar intensity of emotion and character dynamics.
+
+4. **Welcome to the Ballroom**: This 2017 anime focuses on Fujita, a young man who discovers a passion for ballroom dancing after being saved by a dance instructor. It shares the Drama, Romance, and Sports genres, and the “Coming of Age” and “LGBTQ+ Themes” tags suggest a similar exploration of personal growth and relationships.
+
+5. **The Gymnastics Samurai**: This 2020 anime tells the story of Joutarou Aragaki, a former gymnast struggling with age and physical limitations, and his relationship with his daughter, Rei. It shares the Drama and Sports genres, and the “Family Life” and “Rehabilitation” tags suggest a similar focus on personal challenges and relationships."
+seed,baseline,What should I watch after Yuri!!! on ICE?,21709,2.88,10,5,5,4,,"Okay, here’s a list of anime recommendations after watching *Yuri!!! on Ice*, focusing on similar themes of figure skating, romance, and compelling character development:
+
+1.  Sk8 the Infinity
+2.  Gladiator Games
+3.  Pulsion
+4.  Ice Force
+5.  Prisma☆Kyōdan
+6.  Free! (Series 1 & 2)
+7.  Free! Iwatobi Swim Club
+8.  Hai To Oryou (Hai to Oryou)
+9.  Yuri!!! on Ice: Rin & Yuri
+10. Mirai Nikki (Mirai Nikki) 
+
+Would you like me to elaborate on any of these, or perhaps suggest recommendations based on a specific aspect you enjoyed about *Yuri!!! on Ice* (e.g., the romance, the skating, the drama)?"
+seed,agent,What should I watch after Sword Art Online: Alicization - War of Underworld Part 2?,114308,21.84,15,7,8,7,False,"Okay, here are five anime recommendations that you might enjoy after finishing Sword Art Online: Alicization - War of Underworld Part 2, based on the elements within that series:
+
+1. **The Rising of the Shield Hero**
+ * **Description:** Naofumi Iwatani, an uncharismatic Otaku who finds himself on the lowest social rungs of his school. Ashamed of his miserable life, Haruyuki can only cope by indulging in virtual games. But that all changes when Kuroyukihime, the most popular girl in school, introduces him to a mysterious program called Brain Burst and a virtual reality called the Accel World.
+ * **Genres:** Action, Adventure, Fantasy
+ * **Tags:** Isekai, Male Protagonist, Conspiracy, Travel, Medieval, Revenge, Magic, Crime, Politics, Exile, Anti-Hero, Tragedy, Kemonomimi, Bullying
+ * **Why you might like it:** Like *Alicization*, *The Rising of the Shield Hero* features a protagonist thrust into a dangerous fantasy world, battling against overwhelming odds and facing prejudice. It has a strong focus on combat and a developing narrative with a focus on a found family.
+
+2. **Fate/Zero**
+ * **Description:** With the promise of granting any wish, the omnipotent Holy Grail triggered three wars in the past, each too cruel and fierce to leave a victor. In spite of that, the wealthy Einzbern family is confident that the Fourth Holy Grail War will be different; namely, with a vessel of the Holy Grail now in their grasp. Solely for this reason, the much hated “Magus Killer” Kiritsugu Emiya is hired by the Einzberns, with marriage to their only daughter Irisviel as binding contract.
+ * **Genres:** Action, Drama, Fantasy, Supernatural
+ * **Tags:** Battle Royale, Magic, Mythology, Tragedy, Ensemble Cast, Anti-Hero, Death Game, Urban Fantasy, Primarily Adult Cast, Philosophy, War, Religion, Assassins, Urban, Gore, Swordplay, Spearplay, Espionage, CGI, Dissociative Identities
+ * **Why you might like it:** *Fate/Zero* shares a similar focus on complex political intrigue and strategic battles within a fantastical setting. It’s known for its darker tone and morally grey characters, much like the more serious aspects of *Alicization*.
+
+3. **Accel World**
+ * **Description:** The year is 2046. Haruyuki Arita is a young boy who finds himself on the lowest social rungs of his school. Ashamed of his miserable life, Haruyuki can only cope by indulging in virtual games. But that all changes when Kuroyukihime, the most popular girl in school, introduces him to a mysterious program called Brain Burst and a virtual reality called the Accel World.
+ * **Genres:** Action, Romance, Sci-Fi
+ * **Tags:** Virtual World, Politics, Isekai, Video Games, Male Protagonist, Magic, Kingdom Management, Alternate Universe, Dungeon, Ensemble Cast, Anthropomorphism, Found Family, Primarily Adult Cast, Kemonomimi, Love Triangle, Elf, Goblin, Kuudere, Twins, Samurai, Femboy, Skeleton, Episodic
+ * **Why"
+seed,baseline,What should I watch after Sword Art Online: Alicization - War of Underworld Part 2?,114308,3.18,15,14,1,14,,"Okay, here’s a list of anime recommendations after finishing *Sword Art Online: Alicization - War of Underworld Part 2*, aiming for a variety of genres and tones:
+
+1.  Attack on Titan
+2.  Re:Zero - Starting Life in Another World
+3.  Overlord
+4.  Made in Abyss
+5.  Grimgar of Fantasy and Ash
+6.  Ascendance of a Bookworm
+7.  Mushoku Tensei: Jobless Reincarnation
+8.  The Rising of the Shield Hero
+9.  Violet Evergarden
+10. Fate/Zero
+11. Steins;Gate
+12. Puella Magi Madoka Magica
+13. Demon Slayer
+14. Jujutsu Kaisen
+15. No Game No Life
+
+Would you like me to narrow this down based on specific preferences (e.g., genre, level of seriousness, similar themes)?"
+seed,agent,What should I watch after SK8 the Infinity?,124153,14.48,5,5,0,5,True,"Okay, based on your enjoyment of SK8 the Infinity, here are five anime recommendations that share similar elements:
+
+* **SK8 the Infinity EXTRA PART:** This is a direct continuation of the story from SK8 the Infinity, featuring four slice-of-life omnibus stories. It continues the focus on the ensemble cast, the skateboarding action, and the romantic elements. The shared genres of Action, Drama, Comedy, and Slice of Life, along with the “Ensemble Cast” and “Boys’ Love” tags, make it a natural follow-up.
+
+* **Burning Kabaddi:** This anime features a primarily male cast, a sports-focused narrative (though a unique one with “Kabaddi”), and dramatic elements. The “Action,” “Drama,” and “Sports” genres align with SK8 the Infinity, and the “Primarily Male Cast” and “Male Protagonist” tags suggest a similar dynamic.
+
+* **UniteUp!:** If you enjoyed the ensemble cast and the focus on a group of young people pursuing their dreams, UniteUp! might be a good fit. It’s centered around a new idol group, featuring “Cute Boys Doing Cute Things,” “Ensemble Cast,” and “Found Family” themes. The “LGBTQ+ Themes” tag indicates a similar willingness to explore diverse relationships.
+
+* **Tsurune - The Linking Shot -:** This anime shares the “Cute Boys Doing Cute Things,” “Drama,” “Slice of Life,” and “Sports” genres with SK8 the Infinity. It’s centered around archery, a school club, and a focus on a male protagonist, aligning with the core elements of the original.
+
+* **HYPNOSISMIC -Division Rap Battle- Rhyme Anima:** This anime offers a unique blend of action, music, and a stylized setting. It features an “Ensemble Cast,” “Primarily Male Cast,” and “Urban” elements, alongside “Hip-hop Music” and “Delinquents” themes, which could appeal to fans of SK8 the Infinity’s energetic style."
+seed,baseline,What should I watch after SK8 the Infinity?,124153,2.42,10,7,3,7,,"Okay, here’s a list of anime recommendations after *SK8 the Infinity*, aiming for similar vibes (romance, sports, slice-of-life, and a bit of youthful energy):
+
+1.  Horimiya
+2.  Yuri!!! on Ice
+3.  Ao Horikita
+4.  Wake Up, New World
+5.  Ping Pong the Animation
+6.  Nijijou
+7.  Bungo Stray Dogs
+8.  Free!
+9.  Given
+10. Wonder Egg Priority
+
+Would you like me to tailor the recommendations further based on specific aspects you enjoyed in *SK8 the Infinity* (e.g., the skating, the romance, the friendship)?"
+seed,agent,What should I watch after Fate/stay night: Unlimited Blade Works?,19603,21.32,15,5,10,5,True,"Okay, here are five anime recommendations that you might enjoy after watching Fate/stay night: Unlimited Blade Works, based on the shared genres and themes:
+
+1. **The Garden of Sinners Chapter 1: Thanatos. (Overlooking View)**
+ * **About:** In 1998, a series of mysterious schoolgirl suicides plague the city of Fujou. The girls all jump from the Fujou Building, and the investigation reveals a dark connection between them.
+ * **Why you might like it:** Like Unlimited Blade Works, *The Garden of Sinners* is a dark and suspenseful supernatural thriller with a focus on mystery and investigation. It shares the “battle royale” and “death game” tags, and the overall tone of grim determination and uncovering dark secrets aligns well with the Fate series.
+
+2. **Re:CREATORS**
+ * **About:** In a world where stories are created by “Creators,” a group of young artists find themselves embroiled in a dangerous competition to produce the best stories.
+ * **Why you might like it:** *Re:CREATORS* is an action-packed anime with a unique premise – the concept of “Creators” and their battles with “monsters” created from stories. It shares the “urban fantasy” and “super power” tags, and the ensemble cast and intense battles will appeal to fans of Fate’s strategic combat.
+
+3. **Takt Op. Destiny**
+ * **About:** In a world where music is a source of power, a young man named Shionya joins a group of musicians known as the “Takt,” who are tasked with fighting against the “D2” – grotesque monsters drawn to melodies.
+ * **Why you might like it:** *Takt Op. Destiny* shares the “music” and “urban fantasy” genres with Fate, and the focus on musical battles and a group of heroes fighting against a supernatural threat is a strong parallel.
+
+4. **Demon Slayer: Kimetsu no Yaiba**
+ * **About:** Tanjiro Kamado becomes a demon slayer after his family is slaughtered by demons and his younger sister, Nezuko, is turned into a demon herself. He sets out to find a way to restore her humanity.
+ * **Why you might like it:** *Demon Slayer* is a popular action anime with a strong focus on swordsmanship and demon battles, similar to the core combat of Unlimited Blade Works. It shares the “action,” “fantasy,” and “supernatural” genres.
+
+5. **Lunar Legend Tsukihime**
+ * **About:** Shiki Tohno, a young man with a mysterious past, is drawn into a world of vampires, magic, and political intrigue after his father’s death.
+ * **Why you might like it:** *Lunar Legend Tsukihime* is a dark fantasy anime with a complex plot, supernatural elements, and a focus on character relationships, much like Fate/stay night. It shares the “action,” “horror,” and “supernatural” genres."
+seed,baseline,What should I watch after Fate/stay night: Unlimited Blade Works?,19603,3.32,13,11,2,11,,"Okay, here’s a numbered list of anime titles you might enjoy after watching Fate/stay night: Unlimited Blade Works, catering to different tastes within the broader Fate universe and similar genres:
+
+1.  Fate/Zero
+2.  Fate/Apocrypha
+3.  Steins;Gate
+4.  Re:Zero -Starting Life in Another World-
+5.  Mushoku Tensei: Jobless Reincarnation
+6.  Ascendance of a Bookworm
+7.  Overlord
+8.  KonoSuba: God’s Blessing on This Wonderful World!
+9.  The Ancient Magus' Bride
+10. Goblin Slayer
+11. Violet Evergarden
+12. Puella Magi Madoka Magica
+13. Devil is a Part-Timer!
+
+Would you like me to tailor the recommendations further based on specific aspects you enjoyed in Unlimited Blade Works (e.g., the complex plot, the action, the character development)?"
+seed,agent,What should I watch after JoJo's Bizarre Adventure: Stardust Crusaders - Battle in Egypt?,20799,21.92,16,4,12,4,False,"Okay, based on your enjoyment of *JoJo’s Bizarre Adventure: Stardust Crusaders - Battle in Egypt*, here are five anime recommendations that share similar elements:
+
+1. **Fist of the North Star**
+ * **About:** In a post-apocalyptic world ravaged by nuclear war, Kenshiro, a master of a deadly martial art called Hokuto Shinken, fights to bring peace to a brutal landscape filled with warring gangs and desperate survivors.
+ * **Why you might like it:** Like *Stardust Crusaders*, *Fist of the North Star* is packed with intense action, over-the-top violence, and a strong protagonist battling against overwhelming odds. It shares the “shounen” genre and a focus on martial arts combat, with a similar aesthetic and a bleak, action-oriented setting. The shared tags of “Martial Arts,” “Post-Apocalyptic,” “Gore,” and “Male Protagonist” highlight this connection.
+ * **Votes:** 80.0
+
+2. **Hunter x Hunter (2011)**
+ * **About:** Gon Freecss sets out on a perilous journey to become a Hunter – individuals licensed to track down rare creatures and criminals – while uncovering dark secrets and facing formidable opponents.
+ * **Why you might like it:** *Hunter x Hunter* offers a blend of action, adventure, and supernatural elements, much like *Stardust Crusaders*. It features a diverse cast of characters, engaging battles, and a compelling storyline. The shared genres of “Action,” “Adventure,” and “Fantasy” make it a good fit.
+ * **Votes:** 65.0
+
+3. **Shaman King**
+ * **About:** Manta Oyamada, a seemingly ordinary high school student, discovers he is the reincarnation of a powerful shaman and enters a tournament to become the King of Shamans, battling against other reincarnated spirits.
+ * **Why you might like it:** *Shaman King* delivers a dynamic mix of action, adventure, and supernatural elements, similar to *Stardust Crusaders*. It features a strong protagonist, intense battles, and a unique magic system.
+ * **Votes:** 10.0
+
+4. **Baoh the Visitor**
+ * **About:** Following a cataclysmic nuclear war, the world teeters on the brink of complete destruction. Civilization is polarized into a degenerate society where opposing packs of marauding scavengers prey on helpless, homeless nomads. For those who are lucky enough to survive the constant brutality and danger, it is a bleak existence. Life an death blur into abstractions. The only hope left for mankind is to find a hero worthy of becoming the next “Fist of the North Star” - an enlightened warrior - who is capable of leading those with the will to survive out of this barrenness into a new world. But in this savage no-man’s land of shifting loyalties and power-hungry demi-gods, heroes are in short suppl
+ * **Why you might like it:** *Baoh the Visitor* offers a blend of action, sci-fi, and body horror, similar to *Stardust Crusaders*. It features a strong protagonist, intense battles, and a unique genetic parasite.
+ * **Votes:** 7.0"
+seed,baseline,What should I watch after JoJo's Bizarre Adventure: Stardust Crusaders - Battle in Egypt?,20799,3.29,15,14,1,14,,"Okay, here’s a list of anime recommendations after *JoJo’s Bizarre Adventure: Stardust Crusaders - Battle in Egypt*, aiming for a variety of styles and tones:
+
+1.  JoJo’s Bizarre Adventure: Diamond is Unbreakable
+2.  Hunter x Hunter (2011)
+3.  Fullmetal Alchemist: Brotherhood
+4.  Attack on Titan
+5.  One Piece
+6.  Naruto Shippuden
+7.  My Hero Academia
+8.  Demon Slayer: Kimetsu no Yaiba
+9.  Code Geass: Lelouch of the Rebellion
+10. Steins;Gate
+11. Violet Evergarden
+12. Mob Psycho 100
+13. Fruits Basket (2019)
+14. Black Clover
+15. Soul Eater
+
+Would you like me to narrow this down based on specific preferences (e.g., action, romance, comedy, etc.)?"
+seed,agent,What should I watch after 86 EIGHTY-SIX?,116589,15.86,5,5,0,5,True,"Okay, based on your interest in 86 EIGHTY-SIX, here are five anime recommendations that share similar themes and genres:
+
+1. **WorldEnd: What are you doing at the end of the world? Are you busy? Will you save us?** This anime shares a strong focus on a post-apocalyptic setting where the human race is on the brink of extinction. Like 86 EIGHTY-SIX, it features a group of young people grappling with a desperate situation and a sense of impending doom. The time loop element and the exploration of existential themes align well with the core of 86 EIGHTY-SIX.
+
+2. **86 EIGHTY-SIX Part 2** This is the direct sequel to the first season, continuing the story of Shin and the Spearhead squadron as they confront new challenges and fight for survival. It expands on the themes of war, sacrifice, and the struggle against oppression.
+
+3. **Violet Evergarden** This anime presents a compelling narrative about a young woman who learns to understand and express emotions through her work as an Auto Memories Doll. It shares the drama and tragedy elements of 86 EIGHTY-SIX, focusing on character development and the impact of war on individuals.
+
+4. **Tengoku Daimakyo** This anime offers a dark and unsettling story set in a dystopian future where the world has collapsed and grotesque monsters roam the ruins. It features an achronological narrative and explores themes of survival, conspiracy, and the consequences of human actions.
+
+5. **ICE** This anime is a dark and intense story set in a future where all men have died off and only women remain. It shares the themes of survival, conflict, and the struggle for power found in 86 EIGHTY-SIX, with a focus on a matriarchal society and the exploration of difficult ethical questions. 
+
+Do you want me to refine these recommendations further, perhaps by focusing on a specific aspect of 86 EIGHTY-SIX that you particularly enjoyed (e.g., the time loop element, the military themes, or the character relationships)?"
+seed,baseline,What should I watch after 86 EIGHTY-SIX?,116589,2.42,10,9,1,9,,"Okay, here’s a list of anime recommendations after watching *86 EIGHTY-SIX*, focusing on similar themes and vibes:
+
+1.  Re:Zero - Starting Life in Another World
+2.  Overlord
+3.  Made in Abyss
+4.  Attack on Titan
+5.  Vinland Saga
+6.  Steins;Gate
+7.  Psycho-Pass
+8.  Code Geass
+9.  The Promised Neverland
+10. Darling in the Franxx 
+
+Would you like me to tailor the recommendations further based on specific aspects you enjoyed about *86 EIGHTY-SIX* (e.g., mecha, dark fantasy, character relationships)?"
+seed,agent,What should I watch after My Teen Romantic Comedy SNAFU?,14813,16.8,5,5,0,5,True,"Okay, based on your enjoyment of *My Teen Romantic Comedy SNAFU*, here are five anime recommendations that share similar themes and a comedic style:
+
+1. **Tsuredure Children** (98291): This anime is about ordinary high schoolers and how love makes them fired up, shaken, laugh, cry, and hurt. Every character is the main character here, and you’re sure to find one you can sympathize with. It shares the “comedy, drama, episodic” elements that you likely enjoyed in *My Teen Romantic Comedy SNAFU*, and it features a “kuudere” and “love triangle” which are common themes in the series.
+
+2. **My Teen Romantic Comedy SNAFU TOO!** (20698): As the first season of *Oregairu* continues the adventures of the Volunteer Service Club, it maintains the same blend of “comedy, drama, romance, and slice of life” that made the original so engaging. The focus on Hachiman’s struggles and the relationships within the club aligns well with the core themes of the series.
+
+3. **My Teen Romantic Comedy SNAFU Climax!** (108489): This is the final season of *Oregairu*, bringing the story to a close with the members of the Service Club finally understanding each other. It continues to deliver the “comedy, drama, romance, and slice of life” elements that you likely enjoyed.
+
+4. **When Supernatural Battles Became Commonplace** (20646): This anime offers a unique blend of “comedy, fantasy, and slice of life” with a group of high schoolers who suddenly develop superpowers. The “female harem” and “school club” aspects, combined with the “chuunibyou” elements, create a quirky and engaging experience similar to *My Teen Romantic Comedy SNAFU*.
+
+5. **Haganai NEXT** (14967): This anime features a club dedicated to making friends, with misfortunate boys and girls. The “school club”, “female harem”, and “love triangle” elements, combined with the “meta” and “crossdressing” aspects, create a quirky and engaging experience similar to *My Teen Romantic Comedy SNAFU*. 
+
+
+
+Do you want me to explore any of these titles in more detail, or perhaps suggest something with a slightly different focus?"
+seed,baseline,What should I watch after My Teen Romantic Comedy SNAFU?,14813,5.81,11,8,3,8,,"Okay, here’s a list of anime recommendations after *My Teen Romantic Comedy SNAFU*, categorized loosely by what aspects you might have enjoyed about it:
+
+1.  **Rascal Does Not Dream of Bunny Girl Carnival** - Similar blend of romance, mystery, and slice-of-life with a focus on unusual phenomena.
+2.  **Horimiya** - A sweet and charming romance with a realistic portrayal of teenage relationships.
+3.  **Fruits Basket (2019)** - Deals with family secrets, trauma, and romance in a beautifully animated and emotionally resonant way.
+4.  **Your Lie in April** - A poignant story about music, loss, and finding love.
+5.  **ReLIFE** - A sci-fi romance with a focus on self-improvement and second chances.
+6.  **Wotakoi: Love is Hard for Otaku** - A fun and relatable comedy about a couple who are both otaku.
+7.  **Monthly Girls' Nozaki-kun** - A hilarious and quirky romantic comedy with a unique art style.
+8.  **Grey's Anatomy (Anime)** - If you enjoyed the character-driven drama and relationships, this medical anime might appeal.
+9.  **Nisekoi: False Love** - A lighthearted romantic comedy with a bit of mystery and a lot of fluff.
+10. **Toradora!** - A classic shojo romance with a strong focus on character development and a satisfying ending.
+
+To help me narrow it down further and give you even more tailored recommendations, could you tell me:
+
+*   What specifically did you enjoy most about *My Teen Romantic Comedy SNAFU*? (e.g., the romance, the comedy, the characters, the art style, the themes?)"
+seed,agent,What should I watch after Puella Magi Madoka Magica?,9756,17.89,5,5,0,5,True,"Okay, based on your interest in *Puella Magi Madoka Magica*, which shares themes of magical girls, tragedy, and fantasy, here are five anime recommendations that you might enjoy:
+
+1. **Yuki Yuna is a Hero: The Great Mankai Chapter** 
+ This anime follows Yuna, Mimori, Fuu, Itsuki, Karin, and Sonoko as they strive to bring smiles to people’s faces and help those in need. Like *Madoka Magica*, it features a group of young magical girls facing difficult challenges and exploring themes of sacrifice and the burden of responsibility. The shared genres of Action, Drama, Fantasy, and Female Protagonist, along with the presence of Gods and magic, make this a strong match.
+
+2. **My-HiME**
+ *My-HiME* centers around Mai Tokiha, who becomes a HiME (a battle princess) after saving a mysterious girl. The series deals with themes of love, loss, and the pressure of expectations, similar to *Madoka Magica*. It’s a mix of action, comedy, and drama, with a focus on an ensemble cast of female characters. The shared genres of Action, Drama, Fantasy, and Mahou Shoujo, along with the presence of a love triangle and a predominantly female cast, align well with your preferences.
+
+3. **Yuki Yuna is a Hero: The Washio Sumi Chapter**
+ This is the third and final movie in the *Yuki Yuna is a Hero* trilogy. It continues the story of the Sanshu Middle School Hero Club as they confront a dangerous enemy and grapple with difficult choices. The movie shares many of the same core elements as the previous chapters, including action, tragedy, and a focus on the bonds between the magical girls.
+
+4. **Yuki Yuna is a Hero: The Hero Chapter**
+ This movie continues the story of the Sanshu Middle School Hero Club after the events of the previous films. The girls are struggling to cope with the loss of their friends and the realization that their lives are not what they expected. The movie explores themes of grief, resilience, and the importance of friendship.
+
+5. **Yuuki Yuuna wa Yuusha de Aru: Yuusha no Shou**
+ This anime follows the Sanshu Middle School Hero Club as they investigate the disappearance of Mimori Tougou. The series is filled with action, suspense, and mystery, and it explores themes of identity, loss, and the nature of heroism. The shared genres of Action, Drama, Fantasy, and Mahou Shoujo, along with the presence of a conspiracy and a focus on a predominantly female cast, make this a compelling choice. 
+
+I hope you find something you enjoy within these recommendations!"
+seed,baseline,What should I watch after Puella Magi Madoka Magica?,9756,3.59,15,13,2,13,,"Okay, here’s a list of anime recommendations after *Puella Magi Madoka Magica*, considering its themes and style. This list aims for a range of similar and related experiences:
+
+1.  Mob Psycho 100
+2.  Black Butler
+3.  Fate/stay night (Visual Novel or Franchise)
+4.  Higurashi: When They Cry
+5.  Re:Zero - Starting Life in Another World
+6.  The Devil is a Part-Timer!
+7.  Scum’s Wish
+8.  Land of the Lustrous
+9.  Shuffle
+10. Vivy -Fluorite Eye’s Song-
+11. Devilman Crybaby
+12. Psycho-Pass
+13. Erased
+14. Darling in the Franxx
+15. Konosuba -God’s Blessing on This Wonderful World!
+
+Would you like me to tailor the recommendations further based on specific aspects you enjoyed about *Madoka Magica* (e.g., psychological horror, magical girl themes, dark storytelling)?"
+seed,agent,What should I watch after Noragami?,20447,17.1,5,5,0,5,True,"Okay, based on your preferences for Noragami – specifically the female protagonist, ensemble cast, tragic elements, villainess, monster girl, and thriller aspects – here are five anime recommendations:
+
+1. **Bungo Stray Dogs:** This anime features Atsushi Nakajima, a young man who becomes involved with the Armed Detective Agency, a group with unique abilities. The story has a strong ensemble cast and a dark, thriller-like tone with elements of tragedy. It shares the “Super Power” and “Crime” tags with Noragami, and the “Anti-Hero” and “Found Family” tags align with the ensemble cast and overall themes. AniList recommendation votes: 58.
+
+2. **InuYasha:** Kagome Higurashi is pulled into the feudal era and teams up with Inuyasha, a half-demon, to find the Shikon Jewel. This anime has a female protagonist, a strong ensemble cast, and elements of adventure, romance, and tragedy. It shares “Female Protagonist,” “Male Protagonist,” and “Action” tags with Noragami. It also has “Revenge” and “Isekai” tags, reflecting the time-travel and supernatural elements. Preference similarity: 0.4528.
+
+3. **Black Bullet:** This anime is set in a post-apocalyptic world ravaged by a virus that transforms people into monstrous beings called Gastrea. It features a group of young girls, the “Cursed Children,” who are humanity’s last hope. The story has a dark, tragic tone with elements of action, mystery, and sci-fi. It shares “Action,” “Male Protagonist,” and “Revenge” tags with Noragami, and “Urban Fantasy” aligns with the supernatural elements. AniList recommendation votes: 17.
+
+4. **Blood Lad:** Staz, a vampire boss, takes an interest in a Japanese teenage girl who has died. He vows to bring her back to life, leading to a complex and dark story filled with demons, vampires, and supernatural battles. It shares “Action,” “Adventure,” “Comedy,” and “Female Protagonist” tags with Noragami, and “Vampire” and “Demons” tags align with the supernatural elements. Preference similarity: 0.4398.
+
+5. **Tokyo Ravens:** Harutora, a young onmyouji without magical abilities, teams up with a girl from his past to form a team of ""Ravens."" This anime has a strong ensemble cast, supernatural elements, and a tragic storyline. It shares “Action,” “Comedy,” “Supernatural,” and “Male Protagonist” tags with Noragami, and “Urban” aligns with the urban fantasy elements. AniList recommendation votes: 33."
+seed,baseline,What should I watch after Noragami?,20447,2.79,12,11,1,11,,"Okay, here’s a numbered list of anime titles you might enjoy after watching *Noragami*, based on its themes and style:
+
+1.  Mushoku Tensei: Jobless Reincarnation
+2.  Re:Zero - Starting Life in Another World
+3.  Attack on Titan
+4.  Vinland Saga
+5.  Demon Slayer: Kimetsu no Yaiba
+6.  Jujutsu Kaisen
+7.  Death Parade
+8.  Blue Exorcist
+9.  Fate/stay night (various iterations)
+10. The Ancient Magus' Bride
+11. Overlord
+12. Made in Abyss
+
+Would you like me to narrow down the recommendations based on specific aspects you enjoyed about *Noragami* (e.g., supernatural elements, dark themes, character development)?"
+seed,agent,What should I watch after Gate?,20994,15.47,5,5,0,5,True,"Based on your interest in Gate, which features a thriller, action, ensemble cast, time skip, and kingdom management elements, I recommend the following anime:
+
+* **That Time I Got Reincarnated as a Slime:** This anime follows Satoru Mikami, who is reincarnated as a slime monster in a fantasy world. As he adapts to his new form, he builds a kingdom and manages a large group of monsters, engaging in political maneuvering and combat. It shares the “Isekai,” “Ensemble Cast,” and “Kingdom Management” genres with Gate, and has a strong action component. The score is 80.0 and it has 468,490 popularity votes.
+
+* **DRIFTERS: Special edition:** This anime is set in a world where souls are materialized into mechanical bodies and used as combat units. It features an “Action,” “Adventure,” “Comedy,” and “Fantasy” genre, with an “Anachronism” and “Guns” tag. The score is 71.0 and it has 53,240 popularity votes.
+
+* **Death March to the Parallel World Rhapsody:** This anime centers on a 29-year-old programmer who is transported to another world and must survive while building a kingdom. It includes “Action,” “Adventure,” “Comedy,” and “Fantasy” genres, with “Female Harem” and “Elf” tags. The score is 61.0 and it has 1,378,190 popularity votes.
+
+* **Arifureta: From Commonplace to World's Strongest Specials:** This anime follows a young man who is transported to a fantasy world and must adapt to survive, building a kingdom and training his followers. It shares “Action,” “Adventure,” “Fantasy,” and “Female Harem” genres, with “Dragons” and “Elf” tags. The score is 65.0 and it has 264,760 popularity votes.
+
+* **Outbreak Company:** This anime features a unique premise where a man is transported to a fantasy world and tasked with building a company to facilitate cultural exchange. It includes “Comedy,” “Fantasy” genres, with “Otaku Culture” and “Maids” tags. The score is 69.0 and it has 86,211 popularity votes."
+seed,baseline,What should I watch after Gate?,20994,3.54,16,12,4,12,,"Okay, here’s a list of anime recommendations after *Gate*, categorized loosely by what aspects of *Gate* you might have enjoyed:
+
+1.  Re:Zero - Starting Life in Another World
+2.  Overlord
+3.  Ascendance of a Bookworm
+4.  The Ancient Magus' Bride
+5.  Spice and Wolf
+6.  Made in Abyss
+7.  Attack on Titan
+8.  Vinland Saga
+9.  Mushoku Tensei: Jobless Reincarnation
+10. Konosuba - God’s Blessing on This Wonderful World!
+11. Fate/stay night (various iterations)
+12. Steins;Gate
+13. Devil is a Part-Timer!
+14. Eighty-Six
+15. Violet Evergarden
+
+To help me narrow it down and give you even better recommendations, could you tell me:
+
+*   What specifically did you enjoy about *Gate*? (e.g., the portal fantasy, the strategic combat, the character development, the mystery elements?)"
+seed,agent,What should I watch after NANA?,877,12.34,5,5,0,5,True,"Okay, based on NANA, here are five anime recommendations that share similar themes and a dramatic tone:
+
+1. **Paradise Kiss:** This anime follows Hayasaka Yukari as she gets caught up in a fashion design group. It shares a similar coming-of-age story with a focus on pursuing dreams and dealing with complex relationships, much like NANA. The ensemble cast and fashion elements also echo some of NANA’s style.
+
+2. **Beck: Mongolian Chop Squad:** If you enjoyed the musical elements of NANA, Beck offers a compelling story about a young musician finding his voice and forming a band. It has a strong ensemble cast and deals with themes of overcoming challenges and pursuing passions, similar to NANA’s focus on artistic ambition.
+
+3. **Carole & Tuesday:** This cyberpunk anime explores themes of music, artificial intelligence, and societal issues, much like NANA’s exploration of love, loss, and the human condition. The focus on a group of individuals striving for their dreams in a challenging environment aligns with NANA's narrative.
+
+4. **given:** This anime is a drama centered around a band, exploring themes of love, loss, and redemption. The focus on a band and the characters' struggles with personal issues and relationships mirrors some of the emotional depth found in NANA.
+
+5. **Princess Jellyfish:** This anime features a unique story about a group of eccentric individuals who form a found family. Like NANA, it deals with themes of self-acceptance, pursuing unconventional dreams, and navigating complex relationships, all within a somewhat quirky and dramatic setting."
+seed,baseline,What should I watch after NANA?,877,3.04,15,15,0,15,,"Okay, here’s a list of anime recommendations after *NANA*, considering its themes of family, loss, relationships, and a somewhat dark, mature tone:
+
+1.  Puella Magi Madoka Magica
+2.  Devilman Crybaby
+3.  Ergo Proxy
+4.  Texhnolyze
+5.  Mushishi
+6.  Black Lagoon
+7.  Psycho-Pass
+8.  Vinland Saga
+9.  March Comes in Like a Lion
+10. Paranoia Agent
+11. Neon Genesis Evangelion
+12. Serial Experiments Lain
+13. Beastars
+14. Violet Evergarden
+15. Banana Fish
+
+Would you like me to elaborate on any of these, or perhaps suggest recommendations based on a specific aspect of *NANA* you particularly enjoyed (e.g., the family drama, the art style, the dark themes)?"
+seed,agent,What should I watch after SAKAMOTO DAYS?,177709,15.18,5,5,0,5,True,"Okay, based on your enjoyment of SAKAMOTO DAYS, here are five anime recommendations that share similar themes and genres:
+
+* **Scissor Seven:** This anime features a similar blend of action and comedy, centering on a quirky assassin named Kiri who gets caught up in a dangerous conflict. Like SAKAMOTO DAYS, it has a surreal and satirical element, with a focus on a protagonist who’s not quite a traditional hero. AniList recommends it with 4 votes, sharing genres like Action, Assassins, Comedy, Male Protagonist, and Shounen.
+
+* **Lycoris Recoil:** This anime offers a vibrant and action-packed story with a predominantly female cast. It’s set in Tokyo and involves a group of young women who tackle various “troubles” – from delivering packages to fighting zombies. The shared genres include Action, Slice of Life, and found family.
+
+* **The Fable:** This anime presents a unique premise with a hitman who’s been told to stop killing. It combines action, comedy, and a touch of drama, much like SAKAMOTO DAYS, and features a found family dynamic. It has 18 AniList votes and shares genres like Action, Assassins, Comedy, Crime, and Found Family.
+
+* **Bungo Stray Dogs:** This anime blends action, comedy, and mystery with a supernatural twist. The story follows a group of detectives who use their unique abilities to solve crimes, and it shares similar elements of ensemble casts and quirky characters with SAKAMOTO DAYS. It has 18 AniList votes and shares genres like Action, Assassins, Comedy, Crime, and Found Family.
+
+* **The Disastrous Life of Saiki K.:** This anime offers a comedic and surreal take on a psychic protagonist who just wants to live a normal life. It shares the same kind of quirky humor and episodic structure as SAKAMOTO DAYS, with a focus on a protagonist navigating everyday situations with extraordinary abilities. It has 12 AniList votes and shares genres like Comedy, Gangs, Male Protagonist, and Shounen."
+seed,baseline,What should I watch after SAKAMOTO DAYS?,177709,2.79,10,10,0,10,,"Okay, here’s a list of anime recommendations after *Sakamoto Days*, considering its blend of comedy, slice-of-life, and coming-of-age themes:
+
+1.  Horimiya
+2.  My Dress-Up Darling
+3.  Komi Can’t Communicate
+4.  Monthly Girls’ Nozaki-kun
+5.  Wotakoi: Love Is Hard for Otaku
+6.  Aggretsuko
+7.  Spy x Family
+8.  Fruits Basket (2019)
+9.  Flying Witch
+10. Nichijou - My Ordinary Life
+
+Would you like me to tailor the recommendations further based on specific aspects you enjoyed about *Sakamoto Days* (e.g., the humor, the romance, the slice-of-life feel)?"
+seed,agent,What should I watch after My Hero Academia Season 6?,139630,17.95,5,5,0,5,True,"Okay, based on your enjoyment of *My Hero Academia Season 6*, which features an ensemble cast of superheroes, a coming-of-age story, and a male harem dynamic, here are five anime recommendations that you might enjoy:
+
+* **My Hero Academia: Heroes Rising** (ID: 108553): This movie continues the story of Class 1-A at UA High, giving them a unique training opportunity on a remote island. It shares the same core themes of young heroes developing their powers and working together, and it features an ensemble cast, aligning with your preferences. The action and superhero elements are prominent, and it has a score of 78.0.
+
+* **My Hero Academia: Make It! Do-or-Die Survival Training** (ID: 122349): This anime focuses on Class 1-A undergoing a challenging survival training exercise. It maintains the school setting and ensemble cast dynamic, with a strong emphasis on teamwork and problem-solving – key elements of *My Hero Academia*. The score is 70.0.
+
+* **My Hero Academia Season 3** (ID: 100166): As the third season of *My Hero Academia*, this continues the established narrative with ongoing battles and character development. It’s a solid choice if you're looking for more of the same, with a score of 79.0.
+
+* **TIGER & BUNNY 2 Part 2** (ID: 158417): This anime features a team of superheroes, a conspiracy, and a battle royale-style plot, offering a different kind of action and suspense. It has a score of 72.0 and shares the ""ensemble cast"" and ""superhero"" tags.
+
+* **Go! Go! Loser Ranger!** (ID: 151803): This anime offers a unique take on the superhero genre with a focus on a ""loser"" hero and a battle against a villainous organization. It’s a comedic and action-packed series with an ensemble cast and shares the ""ensemble cast"" and ""superhero"" tags. The score is 72.0."
+seed,baseline,What should I watch after My Hero Academia Season 6?,139630,3.0,15,15,0,15,,"Okay, here’s a list of anime recommendations after finishing My Hero Academia Season 6, focusing on a variety of genres and tones:
+
+1.  Jujutsu Kaisen
+2.  Chainsaw Man
+3.  Demon Slayer: Kimetsu no Yaiba
+4.  Attack on Titan (Final Season)
+5.  Fullmetal Alchemist: Brotherhood
+6.  Hunter x Hunter (2011)
+7.  One-Punch Man
+8.  Vinland Saga
+9.  Mob Psycho 100
+10. Soul Eater
+11. Bleach
+12. Naruto Shippuden
+13. Tokyo Ghoul
+14. Fruits Basket (2019)
+15. Black Clover
+
+Would you like me to narrow this down based on specific preferences (e.g., action, fantasy, comedy, etc.)?"
+seed,agent,What should I watch after Kakegurui xx?,100876,19.37,14,6,8,5,True,"Here are five anime recommendations that share similar themes and a style like Kakegurui xx:
+
+1. **Death Parade** 
+ * **Description:** When two people die at the same time, they’re sent to a place that’s neither heaven nor hell—a lavish bar between worlds where the stakes are high and the rules are simple: if you win you live again, if you die… you’re gone for good. Decim is the bartender charged with serving the souls who enter Quindecim. He may make a mean cocktail, but his true profession is to play the role of arbiter—a judge who determines whether or not a soul is worthy of reincarnation. To aid in his judgment, the bar’s patrons are forced to play simple games laced with sadistic twists designed to bring their true natures to light.
+ * **Genres:** Drama, Mystery, Psychological, Supernatural, Thriller
+ * **Tags:** Afterlife, Death Game, Philosophy, Tragedy, Amnesia, Memory Manipulation, Reincarnation, Bar, Primarily Adult Cast, Episodic, Suicide, Gambling, Male Protagonist, Female Protagonist, Mythology, Kuudere, Bowling, Rape, Gyaru, Ice Sports, Revenge, CGI, Tanned Skin
+ * **Preference Similarity:** 0.4306
+
+2. **Kakegurui**
+ * **Description:** During daylight hours, an exclusive, elite private school prepares its illustrious students for careers in business, politics, and high society. But when darkness falls, the halls of this esteemed establishment transform into an underground gambling den where bright-eyed youngsters learn the timeless art of bluffing, backdoor dealings and social manipulation. In this school for the rich and elite, money is power, and the tyrant of the betting books rules with an iron fist. So when the beautiful Yumeko Jabami upsets the academy hierarchy with her voracious appetite for the thrill of the gamble, the entire student body mobilizes to send her house of cards tumbling down.
+ * **Genres:** Drama, Mystery, Psychological
+ * **Tags:** Gambling, Female Protagonist, School, Primarily Female Cast, Masochism, Primarily Teen Cast, Ojou-sama, Poker, Anti-Hero, Body Horror, School Club, Bullying, Shounen, Slavery, Villainess, Yandere, Death Game, Male Protagonist, Idol, Delinquents, Board Game, Guns, Battle Royale, CGI
+ * **Preference Similarity:** 0.4148
+
+3. **Assassination Classroom**
+ * **Description:** The students of class 3-E have a mission: kill their teacher before graduation. He has already destroyed the moon, and has promised to destroy the Earth if he can not be killed within a year. But how can this class of misfits kill a tentacled monster, capable of reaching Mach 20 speed, who may be the best teacher any of them have ever had?
+ * **Genres:** Action, Comedy, Drama, Supernatural
+ * **Tags:** Assassins, School, Teacher, Primarily Teen Cast, Shounen, Ensemble Cast, Aliens, Anti-Hero, Super Power, Male Protagonist, Episodic, Guns, Crime, Bullying, Found Family, Femboy, Artificial Intelligence, Baseball, School Club"
+seed,baseline,What should I watch after Kakegurui xx?,100876,3.14,14,11,3,11,,"Okay, here’s a list of anime recommendations after watching *Kakegurui xx*, focusing on similar themes of dark academia, psychological thrillers, and/or intense character dynamics:
+
+1.  Re:Zero - Starting Life in Another World
+2.  Devil is a Part-Timer!
+3.  Shadows House
+4.  March Comes in Like a Lion
+5.  Parasyte -The New Order-
+6.  Psycho-Pass
+7.  Erased
+8.  Bungou Stray Dogs
+9.  Vinland Saga
+10. Odd Taxi
+11. Beastars
+12. Banana Fish
+13. Moriarty the Patriot
+14. The Disastrous Life of Felix Schmidt
+
+Would you like me to tailor the recommendations further based on specific aspects you enjoyed in *Kakegurui xx* (e.g., the gambling, the violence, the character relationships)?"
+seed,agent,What should I watch after JoJo's Bizarre Adventure: Golden Wind?,102883,20.21,4,4,0,4,True,"Okay, based on your enjoyment of JoJo’s Bizarre Adventure: Golden Wind, here are five anime recommendations that share similar themes, styles, and character dynamics:
+
+1. **Hunter x Hunter (2011)**: A Hunter is one who travels the world doing all sorts of dangerous tasks. From capturing criminals to searching deep within uncharted lands for any lost treasures. Gon is a young boy whose father disappeared long ago, being a Hunter. He believes if he could also follow his father's path, he could one day reunite with him. After becoming 12, Gon leaves his home and takes on the task of entering the Hunter exam, notorious for its low success rate and high probability of death to become an official Hunter. He befriends the revenge-driven Kurapika, the doctor-to-be Leorio and the rebellious ex-assassin Killua in the exam, with their friendship prevailing throughout the many trials and threats. This anime shares the action, adventure, and supernatural elements you might enjoy in JoJo, with a strong focus on character development and unique combat abilities. AniList recommendation votes: 50. Shared genres/tags: Action, Adventure, Animals, Body Horror, Crime, Criminal Organization, Drama, Ensemble Cast, Fantasy, Male Protagonist, Mystery, Shounen, Super Power, Tragedy, Travel, Urban Fantasy, War.
+
+2. **Baccano!**: During the early 1930s in Chicago, the transcontinental train, Flying Pussyfoot, is starting its legendary journey that will leave a trail of blood all over the country. At the same time in New York, the ambitious scientist Szilard and his unwilling aide Ennis, are looking for missing bottles of the immortality elixir. In addition, a war between the mafia groups is getting worse. On board the Advena Avis, in 1711, alchemists are about to learn the price of immortality. This anime offers a similarly stylish and unpredictable narrative with a blend of action, mystery, and supernatural elements, much like JoJo. AniList recommendation votes: 27. Shared genres/tags: Action, Crime, Disability, Ensemble Cast, Foreign, Gore, Mystery, Noir, Supernatural, Urban Fantasy.
+
+3. **Fullmetal Alchemist: Brotherhood**: “In order for something to be obtained, something of equal value must be lost.” Alchemy is bound by this Law of Equivalent Exchange—something the young brothers Edward and Alphonse Elric pay a terrible price for after attempting human transmutation: the one forbidden act of alchemy. They lose their left leg, Alphonse his physical body. It is only by the desperate sacrifice of Edward's right arm that he is able to affix Alphonse's soul to a suit of armor. Devastated and alone, it is the hope that they would both eventually return to their original bodies that gives Edward the inspiration to obtain metal limbs called “automail” and become a state alche. This anime shares the action, adventure, and philosophical themes of JoJo, with a strong focus on a complex plot and well-developed characters. AniList recommendation votes: 11. Shared genres/tags: Action, Adventure, Body Horror, Conspiracy, Crime, Drama, Ensembles Cast, Fantasy, Military, Mystery, Politics, Shounen, Seinen, Tragedy, Travel, Urban Fantasy, War.
+
+4. **"
+seed,baseline,What should I watch after JoJo's Bizarre Adventure: Golden Wind?,102883,2.95,14,12,2,12,,"Okay, here’s a numbered list of anime recommendations after *JoJo’s Bizarre Adventure: Golden Wind*, considering its style and themes:
+
+1.  Hunter x Hunter (2011)
+2.  Fullmetal Alchemist: Brotherhood
+3.  Black Clover
+4.  Vinland Saga
+5.  Attack on Titan
+6.  Demon Slayer: Kimetsu no Yaiba
+7.  Moribito: Guardian of the Spirit
+8.  Made in Abyss
+9.  Psycho-Pass
+10. Gurren Lagann
+11. Fate/Zero
+12. Steins;Gate
+13. Code Geass
+14. Darling in the Franxx
+
+Would you like me to narrow down the recommendations based on specific aspects you enjoyed in *Golden Wind* (e.g., action, story, art style)?"
+seed,agent,What should I watch after Horimiya?,124080,23.98,4,4,0,4,True,"Okay, based on Horimiya, which is a slice-of-life romance with comedic elements and a focus on heartwarming everyday moments, here are five anime recommendations that you might enjoy:
+
+1. **Kaguya-sama: Love is War** (anime-101921.md): Known for being both brilliant and powerful, Miyuki Shirogane and Kaguya Shinomiya lead the illustrious Shuchiin Academy as near equals. And everyone thinks they’d make a great couple. Pride and arrogance are in ample supply, so the only logical move is to trick the other into instigating a date! Who will come out on top in this psychological war where the first move is the only one that matters? This anime shares the comedic and romantic elements of Horimiya, with a similar focus on character interactions and a touch of strategic maneuvering.
+
+2. **Wotakoi: Love is Hard for Otaku** (anime-99578.md): Having slept through all four of her alarms, the energetic Narumi Momose finds herself running late for her first day of work at a new office. As she races to catch her train, she makes a promise to herself that none of her coworkers will find out about her dark secret: that she is an otaku and a fujoshi. Her plan goes instantly awry, though, when she runs into Hirotaka Nifuji, an old friend from middle school. Although she tries to keep her secret by inviting him out for drinks after work, her cover is blown when he casually asks her whether or not she will be attending the upcoming Summer Comiket. Luckily for her, the only witnesses—Hanako Koyanagi and Tarou Kabakura—are otaku as well. This anime offers a similar blend of romance and slice-of-life, exploring the challenges of navigating relationships while pursuing hobbies.
+
+3. **Rascal Does Not Dream of Bunny Girl Senpai** (anime-101291.md): There's a rumor about a mysterious phenomenon called “puberty syndrome.” For example, Sakuta Azusagawa, is a high school student who suddenly sees a bunny girl appear in front of him. The girl is actually a girl named Mai Sakurajima, who is Sakuta’s upperclassman who is also a famous actress who has gone on hiatus from the entertainment industry. For some reason, the people around Mai cannot see her bunny-girl figure. Sakuta sets out to solve this mystery, and as he spends time with Mai, he learns her secret feelings. Other heroines who have “puberty syndrome” start to appear in front of Sakuta. This anime shares a similar blend of mystery, romance, and character-driven storytelling, with a focus on exploring complex emotions and relationships.
+
+4. **Tsuredure Children** (anime-98291.md): To those of you out there who never could say “I love you”— This story is about ordinary highschoolers and how love makes them fired up, shaken, laugh, cry, and hurt. Whether things go well or not, this story of adolescence and romance will show you how they spend their precious youth. Every character is the main character here, and you're sure to find one you can sympathize with. This anime offers a similar ensemble cast and slice-of-life focus"
+seed,baseline,What should I watch after Horimiya?,124080,3.4,15,12,3,12,,"Okay, here’s a list of anime recommendations after watching *Horimiya*, focusing on similar vibes of slice-of-life, romance, and character-driven stories:
+
+1.  Fruits Basket (2019)
+2.  My Dress-Up Darling
+3.  Kaguya-sama: Love Is War
+4.  Wotakoi: Love Is Hard for Otaku
+5.  Monthly Girls’ Nozaki-kun
+6.  Given
+7.  Delusional Fan Service
+8.  Nisekoi: False Love
+9.  Tsuki ga Kirei
+10. Komi Can’t Communicate
+11. Violet Evergarden
+12. A Silent Voice
+13. Your Lie in April
+14. Sweet Home
+15. Re:Zero - Starting Life in Another World
+
+Would you like me to narrow this list down based on specific aspects you enjoyed about *Horimiya* (e.g., humor, romance, slice-of-life)?"
+seed,agent,What should I watch after That Time I Got Reincarnated as a Slime?,101280,16.78,5,5,0,5,True,"Okay, based on your enjoyment of “That Time I Got Reincarnated as a Slime,” here are five anime recommendations that share similar elements:
+
+1. **Overlord**: This anime follows Momonga, who finds himself trapped in a virtual reality game that has become a real world. Like Slime, it features a powerful protagonist who is building an empire and navigating a complex world filled with magic and monsters. The shared genres of Action, Adventure, and Fantasy, along with the presence of CGI and a focus on a male protagonist, make this a strong recommendation. AniList votes for this title are 932.
+
+2. **The Rising of the Shield Hero**: You might enjoy “The Rising of the Shield Hero” because it also features an unlikely hero – Naofumi – who is summoned to a parallel universe to fight against evil. It shares the Isekai genre and a focus on a male protagonist overcoming adversity, similar to Slime. The shared genres of Action, Adventure, and Fantasy, alongside the presence of CGI, make this a good match. AniList votes for this title are 542.
+
+3. **BOFURI: I Don't Want to Get Hurt, so I'll Max Out My Defense.**: This anime offers a unique take on the Isekai genre, focusing on Kaede, who puts all her points into defense to avoid getting hurt. The shared genres of Action, Adventure, Comedy, and Fantasy, along with the presence of CGI, make this a good recommendation. AniList votes for this title are 438.
+
+4. **Cautious Hero: The Hero Is Overpowered but Overly Cautious**: This anime shares the comedic and fantastical elements of “That Time I Got Reincarnated as a Slime,” with a protagonist who is incredibly powerful but takes an excessive amount of caution. The shared genres of Action, Adventure, Comedy, and Fantasy, along with the presence of Demons and Dragons, make this a good match. AniList votes for this title are 245.
+
+5. **Log Horizon**: If you enjoyed the world-building and strategic elements of “That Time I Got Reincarnated as a Slime,” “Log Horizon” could be a good fit. It centers on players trapped in a virtual reality game who must build a new society. The shared genres of Action, Adventure, Fantasy, and Politics, along with the presence of an Ensemble Cast, make this a solid recommendation. AniList votes for this title are 213."
+seed,baseline,What should I watch after That Time I Got Reincarnated as a Slime?,101280,4.05,15,10,5,10,,"Okay, here’s a list of anime recommendations after finishing *That Time I Got Reincarnated as a Slime*, categorized loosely by similarity and appeal:
+
+1.  Overlord
+2.  Re:Zero - Starting Life in Another World
+3.  The Rising of the Shield Hero
+4.  Konosuba - God’s Blessing on This Wonderful World!
+5.  Ascendance of a Bookworm
+6.  Spice and Wolf
+7.  Grimgar of Fantasy and Ash
+8.  Mushoku Tensei: Jobless Reincarnation
+9.  Skeleton Knight in Another World
+10. Eighty-Six: Automation of the Fortunes
+11. Vivy -Fluorite Eye’s Song-
+12. Rising Valkyrie
+13. Fate/stay night (various iterations)
+14. Goblin Slayer (be warned, it's *very* dark)
+
+To help me narrow it down and give you even better recommendations, could you tell me:
+
+*   What specifically did you enjoy about *That Time I Got Reincarnated as a Slime*? (e.g., the world-building, the humor, the action, the character development?)"
+seed,agent,What should I watch after The Fragrant Flower Blooms With Dignity?,181444,21.44,5,5,0,5,True,"Based on your enjoyment of “The Fragrant Flower Blooms With Dignity,” which features unrequited love, horticulture, tragedy, a villainess, and maids, here are a few anime recommendations that share similar themes and characteristics:
+
+* **The Dangers in My Heart** (ID: 153152): This anime shares a similar blend of comedy and romance with a tragic element. It centers on an antisocial boy, Kyoutarou, who develops feelings for a popular girl, Anna Yamada. Like “The Fragrant Flower Blooms With Dignity,” it explores a complex relationship with a touch of darkness and features a female lead in a prominent role. The shared genres of Comedy, Romance, and Slice of Life, alongside the presence of a female protagonist and a focus on a somewhat unusual relationship, make this a strong match.
+
+* **The Dangers in My Heart Season 2** (ID: 166216): As a direct sequel, this continues the story of Kyoutarou and Anna, deepening their relationship and exploring their evolving emotions. It maintains the core elements of the first season – the romance, the comedy, and the underlying tragedy – offering a similar viewing experience if you enjoyed the original.
+
+* **A Sign of Affection** (ID: 166794): This anime offers a quieter, more melancholic experience, focusing on a love story between a young woman and a man with a disability. It shares the “iyashikei” (healing) genre with “The Fragrant Flower Blooms With Dignity,” offering a poignant and emotionally resonant story with elements of tragedy and romance.
+
+* **BOYS BE...** (ID: 105): This anime presents a group of male high school students navigating the complexities of love and relationships. It shares the “slice of life” genre and comedic elements, while also exploring themes of unrequited love and the challenges of growing up.
+
+* **Horimiya** (ID: 124080): This anime offers a more lighthearted but still emotionally engaging story about two high school students who discover a hidden side to each other. It shares the “slice of life” genre and focuses on the development of a romantic relationship, with elements of comedy and drama."
+seed,baseline,What should I watch after The Fragrant Flower Blooms With Dignity?,181444,2.81,10,8,2,8,,"Okay, here’s a list of anime titles you might enjoy after watching *The Fragrant Flower Blooms With Dignity*, based on its themes and style (historical drama, romance, tragedy, and a focus on character development):
+
+1.  Mushishi
+2.  Erased
+3.  Violet Evergarden
+4.  Natsume’s Book of Friends
+5.  Hotarubi no Morioka
+6.  Spice and Wolf
+7.  Princess Mononoke
+8.  Yona of the Dawn
+9.  Rokka: Braves of the Six Flowers
+10. Kamisama Kiss
+
+Would you like me to tailor the recommendations further based on specific aspects you particularly enjoyed about *The Fragrant Flower Blooms With Dignity* (e.g., the historical setting, the romance, the tragic elements)?"
+seed,agent,What should I watch after Perfect Blue?,437,16.08,5,0,5,0,True,"Okay, based on your interest in anime similar to *Perfect Blue*, here are five recommendations that share some of its key themes and stylistic elements:
+
+* **Boogiepop Phantom (369)**: This anime shares a lot of DNA with *Perfect Blue*. It’s a dark, episodic mystery set in Tokyo, featuring a female protagonist who becomes entangled in a series of bizarre and unsettling events. Like *Perfect Blue*, it delves into themes of identity, dissociation, and the blurring of reality and illusion, with a strong emphasis on psychological horror and a distinctive, dreamlike visual style. The shared genres include Drama, Horror, Mystery, and Psychological, and it has a significant number of shared tags like Dissociative Identities, Supernatural, and Female Protagonist.
+
+* **Neon Genesis Evangelion: The End of Evangelion (32)**: This movie is a bleak and emotionally intense exploration of trauma, identity, and the human condition. It’s a tragedy with a strong psychological element, much like *Perfect Blue*, and features a complex ensemble cast dealing with existential dread. The shared genres include Drama, Action, Mecha, and Psychological, and it has a high preference similarity score of 0.4403.
+
+* **Wicked City (1107)**: *Wicked City* offers a dark and gritty noir experience with a supernatural twist. It’s a visually striking and unsettling story about a conflict between humans and demons, featuring a strong female protagonist and elements of body horror and violence. The shared genres include Drama, Horror, and Noir, and it has a preference similarity score of 0.4392.
+
+* **Tokyo Godfathers (759)**: This film presents a heartwarming yet melancholic story about a homeless trio who find a lost child and attempt to uncover her origins. It shares *Perfect Blue’s* focus on found families, explores themes of loss and redemption, and features a visually evocative urban setting. The shared genres include Adventure, Comedy, and Drama, and it has a preference similarity score of 0.4213.
+
+* **Paprika (1943)**: *Paprika* is a visually stunning and mind-bending psychological thriller that explores the nature of dreams and reality. Like *Perfect Blue*, it features a complex narrative with multiple layers of interpretation and a strong emphasis on surreal imagery and philosophical themes. The shared genres include Fantasy, Mystery, and Psychological, and it has a preference similarity score of 0.4157."
+seed,baseline,What should I watch after Perfect Blue?,437,3.02,14,13,1,13,,"Okay, here’s a list of anime titles you might enjoy after watching *Perfect Blue*, categorized loosely by what aspects of the film you might have appreciated:
+
+1.  Serial Experiments Lain
+2.  Paprika
+3.  Ghost in the Shell
+4.  Neon Genesis Evangelion
+5.  Psycho-Pass
+6.  Devilman Crybaby
+7.  Ergo Proxy
+8.  Texhnolyze
+9.  Kaiba
+10. Darling in the Franxx
+11. Paranoia Agent
+12. Mobile Suit Gundam: Iron-Blooded Orphans
+13. Psycho-Hunter
+14. Penguindrum
+
+Would you like me to elaborate on why these titles might be a good fit, or perhaps suggest some based on a specific element of *Perfect Blue* you particularly liked (e.g., psychological thriller, identity themes, visual style)?"
+seed,agent,What should I watch after HAIKYU!! 2nd Season?,20992,20.66,17,7,10,7,False,"Okay, here are five anime recommendations that you might enjoy after watching *Haikyu!! 2nd Season*, based on the themes and elements present in the series:
+
+1. **Aoashi** 
+ * **About:** Ashito Aoi is a young, aspiring soccer player from a backwater town in Japan. His hopes of getting into a high school with a good soccer club are dashed when he causes an incident during a critical match for his team, which results in their loss and elimination from the tournament. Nevertheless, he catches the eye of someone important who happened to be visiting from Tokyo. 
+ * **Genres:** Drama, Sports
+ * **Tags:** Football, Male Protagonist, Primarily Teen Cast, Primarily Male Cast, Seinen, Ensemble Cast, Heterosexual, Coming of Age, School, Bullying, Time Skip, Love Triangle
+ * **Why you might like it:** Like *Haikyu!!*, *Aoashi* focuses on a team of young athletes striving for their dreams, with a strong emphasis on teamwork, determination, and overcoming challenges. It shares the sports drama genre and the focus on a competitive team environment.
+
+2. **Run with the Wind**
+ * **About:** Former ace runner of Sendai Josei High School, Kakeru Kurahara is chased away from a convenience store for shoplifting. Shaking off his pursuer, he runs into Haiji Kiyose, another student from his university. Haiji is impressed by Kakeru’s agility and persuades him to live in Chikusei-sou, the run-down apartment where Haiji resides along with eight other students. Having lost his entire apartment deposit at a mahjong parlor, Kakeru accepts the offer reluctantly.
+ * **Genres:** Drama, Sports
+ * **Tags:** Athletics, Primarily Male Cast, Male Protagonist, Ensemble Cast, School Club, Primarily Adult Cast, Fitness, Rehabilitation, College, Outdoor Activities, CGI, Cute Boys Doing Cute Things, Twins, Trains, Tanned Skin, Food
+ * **Why you might like it:** *Run with the Wind* shares the focus on athletic training and teamwork, similar to *Haikyu!!*, but with a more serious and dramatic tone. It’s a compelling story about overcoming personal struggles and achieving ambitious goals.
+
+3. **HAIKYU!! The Dumpster Battle**
+ * **About:** The Spring Nationals tournament continues on, with Karasuno High matched against rivals Nekoma High, the highly anticipated “Dumpster Battle” between the cats versus crows. This match is the long awaited ultimate showdown between two opposing underdog teams. 
+ * **Genres:** Comedy, Drama, Sports
+ * **Tags:** Volleyball, Shounen, School Club, Primarily Male Cast, Male Protagonist, Ensemble Cast, Primarily Teen Cast, POV
+ * **Why you might like it:** As this is the movie continuation of the second season, you'll get to see the Karasuno team's final push for the championship, featuring intense volleyball action and the dynamic between Hinata and Kageyama.
+
+4. **Big Windup!**
+ * **About:** After a falling out with his middle school team, Mihashi enters Nishiura high school with no social skill, a warped opinion of himself"
+seed,baseline,What should I watch after HAIKYU!! 2nd Season?,20992,2.97,10,8,2,8,,"Okay, here’s a list of anime recommendations after finishing *Haikyu!! 2nd Season*, focusing on sports anime with similar vibes (teamwork, intense competition, and character development):
+
+1.  Sk8 the Infinity
+2.  Yuri!!! on Ice
+3.  Kuroko’s Basketball
+4.  Free!
+5.  Assassination Classroom
+6.  Bungo Stray Dogs (sports arcs)
+7.  Haikyu!! 3rd Season (if you haven't watched it yet!)
+8.  Ping Pong the Animation
+9.  Ryū no Danshi (Boys of the Wild)
+10. Prince of Starlight
+
+Would you like me to tailor the recommendations further based on specific aspects you enjoyed in *Haikyu!!* (e.g., specific character types, particular sports elements, or overall tone)?"
+seed,agent,What should I watch after Bungo Stray Dogs?,21311,15.17,5,5,0,5,True,"Okay, based on your enjoyment of Bungo Stray Dogs, here are five anime recommendations that share similar themes and styles:
+
+1. **Supernatural: The Anime Series** (ID: 8986): This anime reimagines the original live-action series, following Sam and Dean Winchester as they hunt supernatural creatures across America. It shares action, horror, and mystery genres with Bungo Stray Dogs, featuring gun battles, demonic encounters, and a focus on a detective-like investigation. The inclusion of “Guns,” “Primarily Male Cast,” and “Gore” tags align with the intense action and darker elements of Bungo Stray Dogs.
+
+2. **Dogs: Bullets & Carnage** (ID: 5593): This anime presents a dark and gritty world where a group of assassins operate on the streets. It features “Action,” “Anti-Hero,” “Bar,” and “Gore,” mirroring the morally grey characters and violent action found in Bungo Stray Dogs. The “Primarily Adult Cast” and “Mafia” tags suggest a mature and intense storyline.
+
+3. **The Book of Bantorra** (ID: 6758): This anime offers a blend of action and fantasy, set in a world where dead people turn into books. It has “Action,” “Super Power,” and “Tragedy” elements, alongside “Ensemble Cast” and “Primarily Adult Cast,” reflecting the complex character dynamics and dramatic storylines of Bungo Stray Dogs.
+
+4. **Bungo Stray Dogs: DEAD APPLE** (ID: 98384): As you already enjoy Bungo Stray Dogs, this movie continuation offers more of the same – “Action,” “Comedy,” “Mystery,” and “Supernatural” elements. It continues the detective work and supernatural battles that define the series.
+
+5. **Bungo Stray Dogs WAN!** (ID: 120150): This anime presents a cute and comedic take on the Bungo Stray Dogs characters, but still retains the “Comedy,” “Detective,” and “Ensemble Cast” elements that make the original series so engaging. The “Chibi” and “Kuudere” tags suggest a lighter, yet still compelling, experience."
+seed,baseline,What should I watch after Bungo Stray Dogs?,21311,3.33,16,13,3,13,,"Okay, here’s a numbered list of anime recommendations after finishing *Bungo Stray Dogs*, considering its blend of action, mystery, character-driven stories, and a touch of supernatural:
+
+1.  Vinland Saga
+2.  Attack on Titan
+3.  Psycho-Pass
+4.  Re:Zero - Starting Life in Another World
+5.  Moribito: Guardian of the Spirit
+6.  Fullmetal Alchemist: Brotherhood
+7.  Code Geass
+8.  Steins;Gate
+9.  Black Lagoon
+10. Goblin Slayer
+11. Fate/Zero
+12. Overlord
+13. The Rising of the Shield Hero
+14. Tokyo Ghoul
+15. Demon Slayer
+
+To help me narrow it down and give you even better recommendations, could you tell me:
+
+*   What specifically did you enjoy most about *Bungo Stray Dogs*? (e.g., the action, the characters, the mystery, the world-building?)"
+seed,agent,What should I watch after Domestic Girlfriend?,103139,16.61,5,3,2,3,True,"Okay, based on your interest in *Domestic Girlfriend* and its themes of cohabitation, romance, drama, cheating, and fake relationships, here are five anime recommendations that you might enjoy:
+
+1. **LOVE and LIES (Koi to Uso)**: This anime shares a similar premise to *Domestic Girlfriend* – a situation where a seemingly arranged marriage or relationship is built on a lie. It follows Yukari Nejima as he’s assigned to Ririna Sanada instead of his childhood crush, and he must navigate the complexities of this fabricated connection while trying to determine if it’s truly love. It has a Drama and Romance genre focus, with LGBTQ+ Themes and a Love Triangle, aligning with the core elements of *Domestic Girlfriend*. AniList votes for this title are 100.
+
+2. **Rent-a-Girlfriend**: This anime centers around Kazuya Kinoshita who uses a fake girlfriend to avoid loneliness. It features a Love Triangle, a Female Harem, and elements of a Slapstick comedy. It shares the “fake relationship” genre with *Domestic Girlfriend*, and the drama surrounding the characters’ feelings is a key element. AniList votes for this title are 98.
+
+3. **Rumbling Hearts**: This anime explores a complex love triangle with themes of tragedy and rehabilitation. Like *Domestic Girlfriend*, it delves into the intricacies of relationships and the challenges of navigating feelings, particularly when dealing with difficult circumstances. It has a Drama, Romance, and Slice of Life genre focus, with a Netorare tag.
+
+4. **Scum's Wish (Kuzu no Honkai)**: This anime shares some darker themes with *Domestic Girlfriend*, exploring the complexities of unrequited love and the desire for connection. It features a similar “fake relationship” dynamic, but with a more psychological and ecchi element. It has Drama, Ecchi, and Psychological genre focus, with Inseki and a Philosophy tag.
+
+5. **Days with My Stepsister**: This anime focuses on the developing relationship between Yuta Asamura and his stepsister, Saki Ayase, as they share a life together. It has a Family Life genre focus, with Cohabitation and a Kuudere tag. 
+
+Do any of these sound particularly interesting to you, or would you like me to refine the recommendations further?"
+seed,baseline,What should I watch after Domestic Girlfriend?,103139,3.86,15,12,3,12,,"Okay, here’s a list of anime recommendations after watching *Domestic Girlfriend*, aiming for similar vibes (romance, slice of life, character-driven stories, and potentially some emotional depth):
+
+1.  Horimiya
+2.  My Dress-Up Darling
+3.  Weightlifting Girl
+4.  Fruits Basket (2019)
+5.  Wotakoi: Love is Hard for Otaku
+6.  Given
+7.  Tsuki ga Kirei
+8.  Rent-a-Girlfriend
+9.  Kaguya-sama: Love is War
+10. Josee, the Tiger and the Fish
+11. Silver Spoon
+12. Bocchi the Rock!
+13. Odd Taxi
+14. Sweet Home
+15. Violet Evergarden
+
+Would you like me to narrow this list down based on specific aspects you enjoyed about *Domestic Girlfriend* (e.g., the focus on a particular relationship type, the slice-of-life elements, or the emotional tone)?"
+seed,agent,What should I watch after Blue Spring Ride?,20596,16.22,5,5,0,5,True,"Okay, based on your enjoyment of *Blue Spring Ride*, which features romance, sports, and a high school setting, here are five anime recommendations that you might like:
+
+1. **ItaKiss** (ID: 3731): This anime is a classic “tsundere” romance. It follows Kotoko Aihara as she tries to win the attention of the intelligent and aloof Naoki Irie. It shares the Coming of Age, Family Life, and Female Protagonist genres with *Blue Spring Ride*, and has a similar “love triangle” dynamic. The shared tags of “Primarily Teen Cast” and “Love Triangle” suggest a strong connection to what you might enjoy.
+
+2. **Tamako -love story-** (ID: 20519): If you appreciated the slice-of-life elements of *Blue Spring Ride*, *Tamako -love story-* might be a good fit. It centers on Tamako Kitashirakawa as she navigates her final years of high school, dealing with her friends’ futures and her own unrequited feelings for Mochizou Ooji. The shared “Coming of Age” and “Female Protagonist” tags, along with the “School” and “Primarily Teen Cast” tags, align with the themes of *Blue Spring Ride*.
+
+3. **Our love has always been 10 centimeters apart.** (ID: 98977): This anime shares the “Coming of Age”, “Drama”, “Female Protagonist”, and “Heterosexual” genres with *Blue Spring Ride*. It’s a drama with romance elements, focusing on the complicated relationships between several high school students.
+
+4. **Omoi, Omoware, Furi, Furare** (ID: 109125): This anime has “Coming of Age”, “Drama”, and “Romance” genres in common with *Blue Spring Ride*. It’s a Shoujo anime with a love triangle and focuses on the relationships between several high school students.
+
+5. **The Girl Who Leapt Through Time** (ID: 2236): While a bit different in genre (sci-fi), this anime shares the “Coming of Age” and “Drama” genres with *Blue Spring Ride*. It features a female protagonist navigating complex relationships and dealing with significant life events, similar to the core themes of *Blue Spring Ride*."
+seed,baseline,What should I watch after Blue Spring Ride?,20596,2.55,10,10,0,9,,"Okay, here’s a list of anime recommendations after *Blue Spring Ride*, focusing on similar themes of romance, slice-of-life, and coming-of-age:
+
+1.  Horimiya
+2.  Fruits Basket (2019)
+3.  Your Lie in April
+4.  Ao Haru Ride
+5.  Lovely Complex
+6.  Kimi ni Todoke
+7.  Nisekoi
+8.  My Love Story
+9.  Wotakoi: Love is Hard for Otaku
+10. Given 
+
+Would you like me to tailor the recommendations further based on specific aspects you enjoyed about *Blue Spring Ride* (e.g., the focus on school life, the romance, the art style)?"
+seed,agent,What should I watch after Assassination Classroom?,20755,16.95,5,3,2,3,True,"Based on your interest in *Assassination Classroom*, I recommend these five anime titles that share similar themes and genres:
+
+* **Assassination Classroom** (Anime: Ansatsu Kyoushitsu: Jump Festa 2013 Special) – This is the original series that inspired this recommendation! It’s about a class of misfit students tasked with assassinating their eccentric, immortal teacher, Koro-sensei, before he destroys the Earth. Like *Assassination Classroom*, it features a unique premise, a blend of action and comedy, and a focus on a group of unlikely heroes.
+
+* **Assassination Classroom Second Season** (Anime: Ansatsu Kyoushitsu 2nd Season) – The second season continues the story of Class 3-E as they continue their efforts to kill Koro-sensei, while also dealing with new threats and challenges. It expands on the original’s core concepts with more complex storylines and character development.
+
+* **Toriko: Jump Super Anime Tour 2009 Special** – This anime shares a similar focus on a unique, powerful protagonist – Toriko – who hunts for rare and delicious ingredients. Like Koro-sensei, Toriko possesses incredible abilities and leads a team of skilled individuals on a quest, blending action, adventure, and comedy.
+
+* **Red Eye** – This anime features a sniper hired to kill Koro-sensei during the Kyoto trip. It’s a thrilling story with a focus on action and suspense, much like *Assassination Classroom*.
+
+* **Ansatsu Kyoushitsu: Jump Super Anime Tour 2013 Special** – This is the special edition of *Assassination Classroom* that was screened at the Jump Super Anime Tour 2013 event. It’s a great way to experience the anime in a new format and see some of the behind-the-scenes footage. 
+
+I hope you enjoy these recommendations!"
+seed,baseline,What should I watch after Assassination Classroom?,20755,2.59,10,9,1,9,,"Okay, here’s a list of anime recommendations after *Assassination Classroom*, considering its blend of action, comedy, and heartfelt moments:
+
+1.  Re:Zero - Starting Life in Another World
+2.  Mob Psycho 100
+3.  A Certain Magical Index
+4.  The Irregular at Magic High School
+5.  Overlord
+6.  Fate/stay night (Unlimited Blade Works)
+7.  Psycho-Pass
+8.  Bungo Stray Dogs
+9.  Code Geass
+10. Sword Art Online (Alicization) 
+
+Would you like me to tailor the recommendations further based on specific aspects you enjoyed in *Assassination Classroom* (e.g., the teamwork, the humor, the action)?"
+seed,agent,"What should I watch after No Game, No Life?",19815,19.43,5,5,0,5,True,"Okay, based on “No Game, No Life,” you might enjoy these anime:
+
+* **Kakegurui:** This anime is about Yumeko Jabami, a high school student who is obsessed with gambling. Like Sora and Shiro, she’s incredibly skilled and strategic, and the series is full of intense, high-stakes games. It shares the “Ecchi” and “Comedy” genres with No Game, No Life, and features a protagonist who’s a brilliant gambler.
+
+* **Problem Children Are Coming From Another World, Aren't They?:** This anime features a group of exceptionally gifted students who are summoned to another world to fight a demon king. It has a similar “Isekai” (another world) theme and focuses on strategic thinking and problem-solving, much like the core gameplay of No Game, No Life.
+
+* **Overlord:** This anime follows a player who gets trapped in a virtual reality game and becomes an overwhelmingly powerful undead ruler. It shares the “Fantasy” and “Adventure” genres with No Game, No Life, and features a protagonist who’s a strategic genius.
+
+* **Classroom of the Elite:** This anime is set in a prestigious high school where students compete to climb the social ladder. It’s similar to No Game, No Life in its focus on strategy, manipulation, and social dynamics, and it has a “Political” genre element.
+
+* **Re:ZERO -Starting Life in Another World- Season 2 Part 2:** If you enjoyed the intense, strategic battles and the focus on saving the world, you might like this season of Re:Zero. It shares the “Fantasy” and “Adventure” genres with No Game, No Life, and features a protagonist who’s a brilliant strategist."
+seed,baseline,"What should I watch after No Game, No Life?",19815,3.74,15,13,2,13,,"Okay, here’s a list of anime recommendations after watching *No Game No Life*, focusing on similar themes of strategic brilliance, fantastical worlds, and compelling characters:
+
+1.  Steins;Gate
+2.  Re:Zero - Starting Life in Another World
+3.  Made in Abyss
+4.  Overlord
+5.  The Misfit of Demon King Academy
+6.  Spice and Wolf
+7.  Ascendance of a Bookworm
+8.  Grimgar of Fantasy and Ash
+9.  Mushoku Tensei: Jobless Reincarnation
+10. That Time I Got Reincarnated as a Slime
+11. Violet Evergarden
+12. Fate/Zero
+13. Goblin Slayer
+14. Konosuba - God’s Blessing on This Wonderful World! (For a lighter, comedic take)
+15. Vivy -Fluorite Eye’s Song-
+
+Would you like me to narrow this list down based on specific aspects you enjoyed in *No Game No Life* (e.g., puzzle-solving, world-building, character dynamics)?"
+seed,agent,What should I watch after The Melancholy of Haruhi Suzumiya?,849,20.47,5,5,0,5,True,"Okay, based on your interest in anime similar to *The Melancholy of Haruhi Suzumiya*, which shares themes of eccentricity, coming-of-age stories, and a touch of tragedy, here are five recommendations:
+
+1. **The Melancholy of Haruhi Suzumiya (2009)**: This is a re-airing of the original *Suzumiya Haruhi no Yuuutsu* series, taken from the DVD. It’s a fantastic starting point because it’s the anime that established the core concepts and characters you enjoy. It’s a comedy with mystery and sci-fi elements, featuring Kyon’s adventures with Haruhi and the SOS Brigade. The shared genres/tags include Aliens, Baseball, Comedy, Female Protagonist, Filmmaking, Gods, and more. It has a score of 72.0 and a popularity of 120858.0.
+
+2. **Sasami-san@Ganbaranai**: This anime explores the lives of a hikikomori (a person who withdraws from society) and his interactions with his classmate, Sasami. It shares the coming-of-age theme and touches on social anxieties, similar to Haruhi’s isolation. The shared genres/tags include Alternate Universe, Comedy, Female Protagonist, Hikikomori, Shrine Maiden, Surreal Comedy, Mythology, and Kuudere. It has a score of 64.0 and a popularity of 22322.0.
+
+3. **Kokoro Connect**: This series follows a group of high school students whose minds have become linked, leading to strange and unpredictable events. It’s a drama with romantic elements, exploring themes of connection and personal struggles, much like the complex relationships within the SOS Brigade. The shared genres/tags include Ensemble Cast, Female Protagonist, Male Protagonist, Philosophy, Primarily Teen Cast, School, and Tragedy. It has a score of 75.0 and a popularity of 192406.0.
+
+4. **The Disappearance of Nagato Yuki-chan**: This spin-off focuses on the high school life of Yuki Nagato, offering a quieter, more romantic experience compared to the main series. It’s a charming story about finding love and friendship, with elements of mystery and a touch of the surreal. The shared genres/tags include Comedy, Romance, Slice of Life, Supernatural, and Primarily Female Cast. It has a score of 64.0 and a popularity of 36191.0.
+
+5. **The Disastrous Life of Saiki K. Season 2**: This comedy follows the life of Saiki Kusuo, a psychic who desperately wants to live a normal life, but is constantly thwarted by his own abilities and the eccentric people around him. It’s a hilarious and meta series with a similar sense of chaotic energy to *Haruhi Suzumiya*. The shared genres/tags include Surreal Comedy, Super Power, Parody, Unrequited Love, Meta, and Primarily Teen Cast. It has a score of 83.0 and a popularity of 191298.0. 
+
+I hope you find something you enjoy in this list!"
+seed,baseline,What should I watch after The Melancholy of Haruhi Suzumiya?,849,3.31,15,15,0,15,,"Okay, here’s a list of anime recommendations after *The Melancholy of Haruhi Suzumiya*, considering its blend of slice-of-life, comedy, sci-fi, and quirky characters:
+
+1.  Re:Zero - Starting Life in Another World
+2.  Steins;Gate
+3.  Puella Magi Madoka Magica
+4.  A Certain Magical Index
+5.  Nichijou - My Ordinary Life
+6.  K-On!
+7.  School Days
+8.  Monthly Girls’ Nozaki-kun
+9.  Flying Witch
+10. Miss Kobayashi's Dragon Maid
+11. Violet Evergarden
+12. Banana Fish
+13. Erased
+14. Mob Psycho 100
+15. Beastars
+
+Would you like me to narrow this down based on specific aspects you enjoyed in *Haruhi Suzumiya* (e.g., comedy, sci-fi, character dynamics)?"
+seed,agent,What should I watch after Bungo Stray Dogs 3?,103223,16.01,5,5,0,5,True,"Based on your enjoyment of Bungo Stray Dogs 3, here are five anime recommendations that share similar themes and a stylistic approach:
+
+* **UN-GO MOVIE:** This prequel takes place at the same time as the first episode of the TV series. As the story begins to unfold, more mysteries that were unanswered in the first eleven episodes come to light, and we learn the full story of the duo’s story. It shares the mystery, supernatural, and crime genres with Bungo Stray Dogs 3, and features a male protagonist embroiled in a complex investigation.
+
+* **Bungo Stray Dogs:** This is the original series that started it all! It continues to feature Atsushi Nakajima and Dazai as they tackle mafia-muddled mysteries while enemies keep an eye on the tiger’s lofty bounty. Given your interest in Bungo Stray Dogs 3, you'll likely appreciate the action, comedy, and supernatural elements of the original.
+
+* **Bungo Stray Dogs: DEAD APPLE:** The film’s story involves a mystery case of power users around the world suddenly committing suicide one after another, in all cases after a strange fog appears at the scene. At a request from Ango Sakaguchi, the Armed Detective Agency head out to investigate Tatsuhiko Shibusawa, a power user who calls himself “collector,” and a man suspected of being tied to the incident. This shares the action, anti-hero, and crime genres with the original.
+
+* **No Longer Allowed in Another World:** This anime features a reluctant hero who wants to find a quiet place to meet his maker, not to rack up XP. It shares the comedy, supernatural, and tragic elements found in Bungo Stray Dogs 3, with a focus on a unique premise.
+
+* **Death Note:** Light Yagami is a genius high school student who is about to learn about life through a book of death. When a bored shinigami, a God of Death, named Ryuk drops a black notepad called a Death Note, Light receives power over life and death with the stroke of a pen. Determined to use this dark gift for the best, Light sets out to rid the world of evil… namely, the people he believes to be evil. This shares the anti-hero, crime, and detective genres with Bungo Stray Dogs 3."
+seed,baseline,What should I watch after Bungo Stray Dogs 3?,103223,3.32,16,13,3,13,,"Okay, here’s a list of anime recommendations after finishing Bungo Stray Dogs Season 3, catering to different tastes based on what you might have enjoyed about BSD:
+
+1.  Vinland Saga
+2.  Attack on Titan
+3.  Re:Zero -Starting Life in Another World-
+4.  Psycho-Pass
+5.  Moribito: Guardian of the Spirit
+6.  Fullmetal Alchemist: Brotherhood
+7.  Code Geass
+8.  Steins;Gate
+9.  Overlord
+10. Goblin Slayer
+11. Demon Slayer
+12. Fate/Zero
+13. The Promised Neverland
+14. Violet Evergarden
+15. Black Clover
+
+To help me narrow it down and give you even better recommendations, could you tell me:
+
+*   What specifically did you enjoy most about Bungo Stray Dogs? (e.g., the characters, the action, the mystery, the world-building, the humor?)"

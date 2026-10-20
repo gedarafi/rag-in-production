@@ -1,0 +1,873 @@
+{
+  "question_id": "laughter_02",
+  "category": "tags",
+  "intent_family": "laughter",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "I could use a laugh. What are four shows full of ridiculous situations and over-the-top physical gags?",
+  "k": 4,
+  "constraints": [
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Surreal Comedy",
+        "Slapstick"
+      ],
+      "alternatives": [
+        {
+          "reason": "Comedy with Parody or Meta humor is another reasonable interpretation of an absurd, ridiculous watch; unrelated comedy subtypes are not automatically equivalent.",
+          "constraints": [
+            {
+              "field": "genres",
+              "op": "any",
+              "value": [
+                "Comedy"
+              ]
+            },
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Parody",
+                "Meta"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "Absurd and physical comedy are alternative acceptable routes to the requested laughter.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 1622,
+  "reference_examples": [
+    {
+      "id": "10012",
+      "title": "Carnival Phantasm"
+    },
+    {
+      "id": "10191",
+      "title": "Katte ni Kaizou"
+    },
+    {
+      "id": "102010",
+      "title": "Docchi mo Maid"
+    }
+  ],
+  "answer_text": "Catalog matches — episode count: 4; tag details: including ridiculous situations. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **After-school Hanako-kun** (4 episodes) — The ghostly Hanako-kun and his mortal assistant, Nene Yashiro, usually have their hands full resolving various supernatural incidents in Kamome Academy, but how do they spend their time when they get a break from all that? (Source: Yen Press) Note: The episodes were streamed two days ahead of the Japanese broadcast on Crunchyroll beginning on Oct 11, 2023 at 3:00 JST. The regular TV broadcast started on Oct 13, 2023 at 1:58 JST.\n\n2. **Fate/Grand Carnival** (4 episodes) — Series focused on parodies and stories based on Fate/Grand Order. Episodes: 1) The First Singularity Party As more and more Servants join Chaldea, maintaining resources for so many is becoming a problem. And so, a cruel order has been given... 2) The Second Singularity Party Jeanne d’Arc Alter needs a serious amount of QP because of reasons, so she heads to the Kabukicho Singularity, the glittering gem of the nightlife scene, where she begins…\n\n3. **Petshop of Horrors** (4 episodes) — Count D, a quite interesting pet shop owner from an area called Chinatown, sells rare and hard to come by pets to people longing for something special, but with each sale comes a contract. If the rules of the contract are followed, everything goes fine, but if someone should break the rules of the contract, the pet shop cannot be held responsible for anything unfortunate that might happen. Leon Orcot, a homicide detective, has linked many odd…\n\n4. **Kokoro Connect ~ The OVAs** (4 episodes) — They've already had their bodies swapped like musical chairs, had their ages changed at random and experienced their deepest desires taking control of them without warning, but if you thought Heartseed was finished with Taichi, Iori, Himeko, Yoshifumi and Yui, you've got another thing coming! Now there's a new affliction going around, and the name of this peculiar bug is emotion sickness. As in, suddenly your emotions jump out of your body and…\n\n5. **Higurashi no Naku Koro ni Kira** (4 episodes) — With things such as story out of the way, Higurashi cranks up the fanservice with Kira, a new OVA series to commemorate the series' 10th anniversary, featuring nail-biting situations such as Rika and Satoko becoming magical girls to battle evil magic crime syndicates with the help of their trusty squad of cheerleaders, among other things. The excitement may be too much to handle. Do you dare step inside the... \"different\" world of Higurashi no…",
+  "status": "needs_review",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "After-school Hanako-kun",
+      "Fate/Grand Carnival",
+      "Petshop of Horrors",
+      "Kokoro Connect ~ The OVAs",
+      "Higurashi no Naku Koro ni Kira",
+      "Fate/Grand Carnival",
+      "Fate/Grand Carnival",
+      "Petshop of Horrors",
+      "Petshop of Horrors",
+      "Kokoro Connect ~ The OVAs",
+      "Kokoro Connect ~ The OVAs",
+      "Higurashi no Naku Koro ni Kira",
+      "Higurashi no Naku Koro ni Kira"
+    ],
+    "unclear": true,
+    "note": "Note: The episodes were streamed two days ahead of the Japanese broadcast on Crunchyroll beginning on Oct 11, 2023 at 3:00 JST. The regular TV broadcast started on Oct 13, 2023 at 1:58 JST.",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [],
+  "metrics": null,
+  "model_seconds": 16.08979754200027,
+  "extraction_seconds": 3.1898568750002596,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 3.9e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000756
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 8.335813
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.001294
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.007796
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.009911
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 7.269478
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "episodes",
+                  "operator": "eq",
+                  "value": "4"
+                }
+              ]
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "ridiculous situations over-the-top physical gags",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "tag_details",
+                  "operator": "contains",
+                  "value": "ridiculous situations"
+                },
+                {
+                  "field": "tag_details",
+                  "operator": "contains",
+                  "value": "over-the-top physical gags"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "episodes",
+            "operator": "eq",
+            "value": "4"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.20184,
+      "arguments": {
+        "filters": [
+          {
+            "field": "episodes",
+            "operator": "eq",
+            "value": "4"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "episodes",
+              "operator": "eq",
+              "value": "4"
+            },
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "ridiculous situations"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "episodes",
+              "operator": "eq",
+              "value": "4",
+              "source_text": "shows",
+              "mapping": "exact"
+            },
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "ridiculous situations",
+              "source_text": "I could use a laugh. What are four shows full of ridiculous situations and over-the-top physical gags?",
+              "mapping": "exact",
+              "origin": "structured_attribute_plan"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "159074",
+            "title": "After-school Hanako-kun",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'eq', 'value': '4'}]",
+            "preference_similarity": 0.2246
+          },
+          {
+            "id": "127149",
+            "title": "Fate/Grand Carnival",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'eq', 'value': '4'}]",
+            "preference_similarity": 0.222
+          },
+          {
+            "id": "326",
+            "title": "Petshop of Horrors",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'eq', 'value': '4'}]",
+            "preference_similarity": 0.2192
+          },
+          {
+            "id": "16001",
+            "title": "Kokoro Connect ~ The OVAs",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'eq', 'value': '4'}]",
+            "preference_similarity": 0.2141
+          },
+          {
+            "id": "10491",
+            "title": "Higurashi no Naku Koro ni Kira",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'eq', 'value': '4'}]",
+            "preference_similarity": 0.2063
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "ridiculous situations over-the-top physical gags",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.010051,
+      "arguments": {
+        "query": "ridiculous situations over-the-top physical gags",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "surreal comedy",
+            "name": "Surreal Comedy",
+            "description": "Prominently features comedic moments that defy casual reasoning, resulting in illogical events.",
+            "category": "Theme-Comedy",
+            "similarity": 0.4466
+          },
+          {
+            "kind": "tag",
+            "id": "parody",
+            "name": "Parody",
+            "description": "Features deliberate exaggeration of popular tropes or a particular genre to comedic effect.",
+            "category": "Theme-Comedy",
+            "similarity": 0.427
+          },
+          {
+            "kind": "tag",
+            "id": "slapstick",
+            "name": "Slapstick",
+            "description": "Prominently features comedy based on deliberately clumsy actions or embarrassing events.",
+            "category": "Theme-Comedy",
+            "similarity": 0.4118
+          },
+          {
+            "kind": "tag",
+            "id": "scuba diving",
+            "name": "Scuba Diving",
+            "description": "Prominently features characters diving with the aid of special breathing equipment.",
+            "category": "Theme-Game-Sport",
+            "similarity": 0.3455
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "tag_details",
+            "operator": "contains",
+            "value": "ridiculous situations"
+          },
+          {
+            "field": "tag_details",
+            "operator": "contains",
+            "value": "over-the-top physical gags"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.25091,
+      "arguments": {
+        "filters": [
+          {
+            "field": "tag_details",
+            "operator": "contains",
+            "value": "ridiculous situations"
+          },
+          {
+            "field": "tag_details",
+            "operator": "contains",
+            "value": "over-the-top physical gags"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "episodes",
+              "operator": "eq",
+              "value": "4"
+            },
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "ridiculous situations"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 0,
+          "retained": 0,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "episodes",
+              "operator": "eq",
+              "value": "4",
+              "source_text": "shows",
+              "mapping": "exact"
+            },
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "ridiculous situations",
+              "source_text": "I could use a laugh. What are four shows full of ridiculous situations and over-the-top physical gags?",
+              "mapping": "exact",
+              "origin": "structured_attribute_plan"
+            }
+          ]
+        },
+        "items": []
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000437
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "episodes",
+              "operator": "eq",
+              "value": "4"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "episodes",
+                "operator": "eq",
+                "value": "4"
+              },
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "ridiculous situations"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "episodes",
+                "operator": "eq",
+                "value": "4",
+                "source_text": "shows",
+                "mapping": "exact"
+              },
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "ridiculous situations",
+                "source_text": "I could use a laugh. What are four shows full of ridiculous situations and over-the-top physical gags?",
+                "mapping": "exact",
+                "origin": "structured_attribute_plan"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "159074",
+              "title": "After-school Hanako-kun",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'eq', 'value': '4'}]",
+              "preference_similarity": 0.2246
+            },
+            {
+              "id": "127149",
+              "title": "Fate/Grand Carnival",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'eq', 'value': '4'}]",
+              "preference_similarity": 0.222
+            },
+            {
+              "id": "326",
+              "title": "Petshop of Horrors",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'eq', 'value': '4'}]",
+              "preference_similarity": 0.2192
+            },
+            {
+              "id": "16001",
+              "title": "Kokoro Connect ~ The OVAs",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'eq', 'value': '4'}]",
+              "preference_similarity": 0.2141
+            },
+            {
+              "id": "10491",
+              "title": "Higurashi no Naku Koro ni Kira",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'eq', 'value': '4'}]",
+              "preference_similarity": 0.2063
+            }
+          ]
+        },
+        "elapsed_seconds": 0.20184
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "ridiculous situations over-the-top physical gags",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "surreal comedy",
+              "name": "Surreal Comedy",
+              "description": "Prominently features comedic moments that defy casual reasoning, resulting in illogical events.",
+              "category": "Theme-Comedy",
+              "similarity": 0.4466
+            },
+            {
+              "kind": "tag",
+              "id": "parody",
+              "name": "Parody",
+              "description": "Features deliberate exaggeration of popular tropes or a particular genre to comedic effect.",
+              "category": "Theme-Comedy",
+              "similarity": 0.427
+            },
+            {
+              "kind": "tag",
+              "id": "slapstick",
+              "name": "Slapstick",
+              "description": "Prominently features comedy based on deliberately clumsy actions or embarrassing events.",
+              "category": "Theme-Comedy",
+              "similarity": 0.4118
+            },
+            {
+              "kind": "tag",
+              "id": "scuba diving",
+              "name": "Scuba Diving",
+              "description": "Prominently features characters diving with the aid of special breathing equipment.",
+              "category": "Theme-Game-Sport",
+              "similarity": 0.3455
+            }
+          ]
+        },
+        "elapsed_seconds": 0.010051
+      },
+      {
+        "step": 2,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "ridiculous situations"
+            },
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "over-the-top physical gags"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "episodes",
+                "operator": "eq",
+                "value": "4"
+              },
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "ridiculous situations"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 0,
+            "retained": 0,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "episodes",
+                "operator": "eq",
+                "value": "4",
+                "source_text": "shows",
+                "mapping": "exact"
+              },
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "ridiculous situations",
+                "source_text": "I could use a laugh. What are four shows full of ridiculous situations and over-the-top physical gags?",
+                "mapping": "exact",
+                "origin": "structured_attribute_plan"
+              }
+            ]
+          },
+          "items": []
+        },
+        "elapsed_seconds": 0.25091
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 8.335813,
+      "prepare_context": 0.001294,
+      "retrieve_guides": 0.007796,
+      "feature_candidates": 0.009911,
+      "planning": 7.269478,
+      "tools": 0.462801,
+      "generate_answer": 0.000437
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"ridiculous situations\", \"query\": \"ridiculous situations\", \"kind\": \"description\", \"role\": \"preferred\", \"meaning\": \"Desired content criteria\"}, {\"text\": \"over-the-top physical gags\", \"query\": \"over-the-top physical gags\", \"kind\": \"description\", \"role\": \"preferred\", \"meaning\": \"Desired content criteria\"}]}",
+      "{\"min\": 4, \"max\": 4}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "ridiculous situations",
+        "query": "ridiculous situations",
+        "kind": "description",
+        "role": "preferred",
+        "meaning": "Desired content criteria"
+      },
+      {
+        "text": "over-the-top physical gags",
+        "query": "over-the-top physical gags",
+        "kind": "description",
+        "role": "preferred",
+        "meaning": "Desired content criteria"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify a genre or anime to narrow the recommendations.\",\"decisions\": {\"p0\": {\"meaning\": \"ridiculous situations\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}, \"p1\": {\"meaning\": \"over-the-top physical gags\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "ridiculous situations",
+          "name": "",
+          "meaning": "ridiculous situations"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "over-the-top physical gags",
+          "name": "",
+          "meaning": "over-the-top physical gags"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {
+      "episodes": {
+        "sources": [
+          "shows"
+        ],
+        "interpretations": [
+          "range"
+        ]
+      }
+    },
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [],
+      "preferred": [
+        "ridiculous situations",
+        "over-the-top physical gags"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "episodes",
+          "operator": "eq",
+          "value": "4"
+        },
+        {
+          "field": "tag_details",
+          "operator": "contains",
+          "value": "ridiculous situations"
+        }
+      ],
+      "soft_query": "ridiculous situations over-the-top physical gags",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "episodes",
+          "operator": "eq",
+          "value": "4",
+          "source_text": "shows",
+          "mapping": "exact"
+        },
+        {
+          "field": "tag_details",
+          "operator": "contains",
+          "value": "ridiculous situations",
+          "source_text": "I could use a laugh. What are four shows full of ridiculous situations and over-the-top physical gags?",
+          "mapping": "exact",
+          "origin": "structured_attribute_plan"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "ridiculous situations",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        },
+        {
+          "phrase": "over-the-top physical gags",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "ridiculous situations",
+            "name": "",
+            "meaning": "ridiculous situations"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "over-the-top physical gags",
+            "name": "",
+            "meaning": "over-the-top physical gags"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "episodes",
+                "operator": "eq",
+                "value": "4"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "ridiculous situations over-the-top physical gags",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "ridiculous situations"
+              },
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "over-the-top physical gags"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

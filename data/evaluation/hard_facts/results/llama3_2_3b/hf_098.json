@@ -1,0 +1,336 @@
+{
+  "question_id": "hf_098",
+  "anime_id": "6547",
+  "title": "Angel Beats!",
+  "field": "format",
+  "question": "Is Angel Beats! listed as a TV series, movie, or ONA?",
+  "expected_values": [
+    "TV"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Angel Beats! is listed as a TV series.",
+  "extracted_values": [
+    "TV series"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 9.091195250000965,
+  "extraction_seconds": 0.5110037909998937,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "TV series",
+        "quote": "Angel Beats! is listed as a TV series."
+      }
+    ],
+    "note": "ON A",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "6547"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "6547",
+          "title": "Angel Beats!"
+        },
+        "elapsed_seconds": 0.016284
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 2.050181,
+      "prepare_context": 0.019258,
+      "retrieve_guides": 0.025501,
+      "feature_candidates": 0.013191,
+      "planning": 3.752408,
+      "tools": 0.016284,
+      "generate_answer": 3.211449
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Angel Beats!\", \"query\": \"Angel Beats!\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; ONA is an abbreviation for Original Net Animation\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Angel Beats!",
+        "query": "Angel Beats!",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; ONA is an abbreviation for Original Net Animation"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"What is Angel Beats! about?\", \"decisions\": {\"p0\": {\"meaning\": \"TV series\", \"role\": \"subject\", \"selection\": \"Angel Beats! | anime:6547\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "6547",
+          "role": "subject",
+          "text": "Angel Beats!",
+          "name": "Angel Beats!",
+          "meaning": "TV series"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "6547",
+          "role": "subject",
+          "text": "Angel Beats!",
+          "name": "Angel Beats!",
+          "meaning": "TV series"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Angel Beats!"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "6547",
+            "role": "subject",
+            "text": "Angel Beats!",
+            "name": "Angel Beats!",
+            "meaning": "TV series"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "6547",
+            "role": "subject",
+            "text": "Angel Beats!",
+            "name": "Angel Beats!",
+            "meaning": "TV series"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Clarify the type of Angel Beats!",
+      "clarification": "Is Angel Beats! listed as a TV series, movie, or ONA?",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "6547"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "6547",
+          "name": "Angel Beats!"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:6547",
+          "fact": "Angel Beats! is listed as a TV series."
+        },
+        {
+          "subject": "anime:6547",
+          "fact": "Angel Beats! is not listed as a movie."
+        },
+        {
+          "subject": "anime:6547",
+          "fact": "Angel Beats! is not listed as an ONA."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 8.5e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001078
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.050181
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.019258
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.025501
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013191
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.752408
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Clarify the type of Angel Beats!",
+        "clarification": "Is Angel Beats! listed as a TV series, movie, or ONA?",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "6547"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "6547",
+            "name": "Angel Beats!"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "6547"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.016284,
+      "arguments": {
+        "id": "6547"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "6547",
+        "title": "Angel Beats!"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.211449
+    }
+  ]
+}

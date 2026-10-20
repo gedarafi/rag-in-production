@@ -1,0 +1,361 @@
+{
+  "question_id": "hf_164",
+  "anime_id": "5114",
+  "title": "Fullmetal Alchemist: Brotherhood",
+  "field": "main_characters",
+  "question": "Can you name every main character listed for Fullmetal Alchemist: Brotherhood?",
+  "expected_values": [
+    "Edward Elric",
+    "Alphonse Elric"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Edward Elric and Alphonse Elric.",
+  "extracted_values": [
+    "Edward Elric",
+    "Alphonse Elric"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 11.943056916999922,
+  "extraction_seconds": 0.6657045829997514,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Edward Elric",
+        "quote": "Edward Elric and Alphonse Elric."
+      },
+      {
+        "value": "Alphonse Elric",
+        "quote": "Edward Elric and Alphonse Elric."
+      }
+    ],
+    "note": "No other main characters were mentioned.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 2,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "status": "error",
+        "step": 0,
+        "tool": "get_character",
+        "error": "Use character IDs from dictionary or tool results first",
+        "elapsed_seconds": 5.8e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 0,
+    "timings_seconds": {
+      "interpret_request": 2.082072,
+      "prepare_context": 0.023928,
+      "retrieve_guides": 0.02837,
+      "feature_candidates": 0.013461,
+      "planning": 3.590693,
+      "tools": 5.8e-05,
+      "generate_answer": 6.201351
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Fullmetal Alchemist: Brotherhood\", \"query\": \"Fullmetal Alchemist: Brotherhood\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Main characters\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Fullmetal Alchemist: Brotherhood",
+        "query": "Fullmetal Alchemist: Brotherhood",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Main characters"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Main characters\", \"role\": \"subject\", \"selection\": \"Fullmetal Alchemist: Brotherhood | anime:5114\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "5114",
+          "role": "subject",
+          "text": "Fullmetal Alchemist: Brotherhood",
+          "name": "Fullmetal Alchemist: Brotherhood",
+          "meaning": "Main characters"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "5114",
+          "role": "subject",
+          "text": "Fullmetal Alchemist: Brotherhood",
+          "name": "Fullmetal Alchemist: Brotherhood",
+          "meaning": "Main characters"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Fullmetal Alchemist: Brotherhood"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "5114",
+            "role": "subject",
+            "text": "Fullmetal Alchemist: Brotherhood",
+            "name": "Fullmetal Alchemist: Brotherhood",
+            "meaning": "Main characters"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "5114",
+            "role": "subject",
+            "text": "Fullmetal Alchemist: Brotherhood",
+            "name": "Fullmetal Alchemist: Brotherhood",
+            "meaning": "Main characters"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "name every main character listed for Fullmetal Alchemist: Brotherhood",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "5114"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "5114",
+          "name": "Fullmetal Alchemist: Brotherhood"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:5114",
+          "fact": "The main characters are Edward Elric and Alphonse Elric."
+        },
+        {
+          "subject": "anime:5114",
+          "fact": "Edward Elric is the main protagonist, and Alphonse Elric is his younger brother."
+        },
+        {
+          "subject": "anime:5114",
+          "fact": "Edward Elric lost his left leg and Alphonse Elric lost his physical body during human transmutation."
+        },
+        {
+          "subject": "anime:5114",
+          "fact": "Edward Elric received a suit of armor to house Alphonse's soul."
+        },
+        {
+          "subject": "anime:5114",
+          "fact": "The brothers seek the Philosopher's Stone to overcome the Law of Equivalent Exchange."
+        },
+        {
+          "subject": "anime:5114",
+          "fact": "The main characters are also joined by Colonel Roy Mustang, Lieutenant Riza Hawkeye, and Lieutenant Colonel Maes Hughes."
+        },
+        {
+          "subject": "anime:5114",
+          "fact": "The main characters are part of a nationwide conspiracy."
+        },
+        {
+          "subject": "anime:5114",
+          "fact": "The main characters also uncover their country's murky history."
+        },
+        {
+          "subject": "anime:5114",
+          "fact": "The main characters are part of a primarily male cast."
+        },
+        {
+          "subject": "anime:5114",
+          "fact": "The main characters are also part of an ensemble cast."
+        },
+        {
+          "subject": "anime:5114",
+          "fact": "The main characters are part of a coming-of-age story."
+        },
+        {
+          "subject": "anime:5114",
+          "fact": "The main characters are fugitives."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 6e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000837
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.082072
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.023928
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.02837
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013461
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.590693
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "name every main character listed for Fullmetal Alchemist: Brotherhood",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "5114"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "5114",
+            "name": "Fullmetal Alchemist: Brotherhood"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_character",
+      "arguments": {
+        "id": "5114"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_character",
+      "status": "error",
+      "elapsed_seconds": 5.8e-05,
+      "error": "Use character IDs from dictionary or tool results first"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 6.201351
+    }
+  ]
+}

@@ -1,0 +1,1055 @@
+{
+  "question_id": "found_family_02",
+  "category": "tags",
+  "intent_family": "found_family",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "What are four anime about people who are not related but slowly become each other's home?",
+  "k": 4,
+  "constraints": [
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Found Family"
+      ],
+      "alternatives": [
+        {
+          "reason": "Adoption directly supports unrelated people becoming a family; Ensemble Cast by itself does not.",
+          "constraints": [
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Adoption"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "Unrelated people forming a family-like bond map to Found Family.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 470,
+  "reference_examples": [
+    {
+      "id": "10162",
+      "title": "Bunny Drop"
+    },
+    {
+      "id": "107956",
+      "title": "If It's for My Daughter, I'd Even Defeat a Demon Lord"
+    },
+    {
+      "id": "108617",
+      "title": "Somali and the Forest Spirit"
+    }
+  ],
+  "answer_text": "Catalog matches.\n\n1. **Re:ZERO -Starting Life in Another World-** — In the story, Subaru Natsuki is an ordinary high school student who is lost in an alternate world, where he is rescued by a beautiful, silver-haired girl. He stays near her to return the favor, but the destiny she is burdened with is more than Subaru can imagine. Enemies attack one by one, and both of them are killed. He then finds out he has the power to rewind death, back to the time he first came to this world. But only he remembers what has…\n\n2. **SPY x FAMILY** — Everyone has a part of themselves they cannot show to anyone else. At a time when all nations of the world were involved in a fierce war of information happening behind closed doors, Ostania and Westalis had been in a state of cold war against one another for decades. The Westalis Intelligence Services' Eastern-Focused Division (WISE) sends their most talented spy, \"Twilight,\" on a top-secret mission to investigate the movements of Donovan…\n\n3. **DARLING in the FRANXX** — The distant future: Humanity established the mobile fort city, Plantation, upon the ruined wasteland. Within the city were pilot quarters, Mistilteinn, otherwise known as the “Birdcage.” That is where the children live... Their only mission in life was the fight. Their enemies are the mysterious giant organisms known as Kyoryu. The children operate robots known as FRANXX in order to face these still unseen enemies. Among them was a boy who was…\n\n4. **The Rising of the Shield Hero** — Naofumi Iwatani, an uncharismatic Otaku who spends his days on games and manga, suddenly finds himself summoned to a parallel universe! He discovers he is one of four heroes equipped with legendary weapons and tasked with saving the world from its prophesied destruction. As the Shield Hero, the weakest of the heroes, all is not as it seems. Naofumi is soon alone, penniless, and betrayed. With no one to turn to, and nowhere to run, he is left…\n\n5. **Mushoku Tensei: Jobless Reincarnation** — When a 34-year-old underachiever gets run over by a bus, his story doesn’t end there. Reincarnated in a new world as an infant, Rudeus will seize every opportunity to live the life he’s always wanted. Armed with new friends, some freshly acquired magical abilities, and the courage to do the things he’s always dreamed of, he’s embarking on an epic adventure—with all of his past experience intact! (Source: Funimation, edited) Note: The anime…",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Re:ZERO -Starting Life in Another World-",
+      "SPY x FAMILY",
+      "DARLING in the FRANXX",
+      "The Rising of the Shield Hero",
+      "Mushoku Tensei: Jobless Reincarnation"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Re:ZERO -Starting Life in Another World-",
+      "anime_id": "21355",
+      "canonical_title": "Re:ZERO -Starting Life in Another World-",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21355"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Adoption directly supports unrelated people becoming a family; Ensemble Cast by itself does not.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Adoption"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 2,
+      "extracted_title": "SPY x FAMILY",
+      "anime_id": "140960",
+      "canonical_title": "SPY x FAMILY",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "140960"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.92
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.92,
+          "met": true,
+          "literal_score": 0.92,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.92,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Adoption directly supports unrelated people becoming a family; Ensemble Cast by itself does not.",
+              "score": 0.79,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Adoption"
+                    ]
+                  },
+                  "score": 0.79
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.92,
+      "gain": 0.92,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 3,
+      "extracted_title": "DARLING in the FRANXX",
+      "anime_id": "99423",
+      "canonical_title": "DARLING in the FRANXX",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "99423"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.79
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.79,
+          "met": true,
+          "literal_score": 0.79,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.79,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Adoption directly supports unrelated people becoming a family; Ensemble Cast by itself does not.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Adoption"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.79,
+      "gain": 0.79,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 4,
+      "extracted_title": "The Rising of the Shield Hero",
+      "anime_id": "99263",
+      "canonical_title": "The Rising of the Shield Hero",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "99263"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.6
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.6,
+          "met": true,
+          "literal_score": 0.6,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.6,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Adoption directly supports unrelated people becoming a family; Ensemble Cast by itself does not.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Adoption"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.6,
+      "gain": 0.6,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Mushoku Tensei: Jobless Reincarnation",
+      "anime_id": "108465",
+      "canonical_title": "Mushoku Tensei: Jobless Reincarnation",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "108465"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Adoption directly supports unrelated people becoming a family; Ensemble Cast by itself does not.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Adoption"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.75,
+    "graded_fit_at_k": 0.5775,
+    "ndcg_at_k": 0.48167483915102227,
+    "constraint_coverage": 1.0,
+    "count_compliance": 0,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "extra_count": 1,
+    "literal_precision_at_k": 0.75,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 33.86187120800059,
+  "extraction_seconds": 1.6646144590004042,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 3.7e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000727
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.598131
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.004462
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.031314
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.015206
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 7.379342
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "recommend_anime",
+        "clarification": "None",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "found family",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "tag_details",
+                  "operator": "contains",
+                  "value": "found family"
+                }
+              ]
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "tag_details",
+                  "operator": "contains",
+                  "value": "estranged family"
+                }
+              ]
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "tag_details",
+                  "operator": "contains",
+                  "value": "cohabitation"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "found family",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.039585,
+      "arguments": {
+        "query": "found family",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "found family",
+            "name": "Found Family",
+            "description": "Features a group of characters with no biological relations that are united in a group providing social support.",
+            "category": "Theme-Other",
+            "similarity": 0.6918
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "tag_details",
+            "operator": "contains",
+            "value": "found family"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 7.581068,
+      "arguments": {
+        "filters": [
+          {
+            "field": "tag_details",
+            "operator": "contains",
+            "value": "found family"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "found family"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "21",
+            "title": "ONE PIECE",
+            "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'found family'}]"
+          },
+          {
+            "id": "20",
+            "title": "Naruto",
+            "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'found family'}]"
+          },
+          {
+            "id": "11757",
+            "title": "Sword Art Online",
+            "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'found family'}]"
+          },
+          {
+            "id": "127230",
+            "title": "Chainsaw Man",
+            "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'found family'}]"
+          },
+          {
+            "id": "101759",
+            "title": "The Promised Neverland",
+            "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'found family'}]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "tag_details",
+            "operator": "contains",
+            "value": "estranged family"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 7.572539,
+      "arguments": {
+        "filters": [
+          {
+            "field": "tag_details",
+            "operator": "contains",
+            "value": "estranged family"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "estranged family"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "20",
+            "title": "Naruto",
+            "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'estranged family'}]"
+          },
+          {
+            "id": "1735",
+            "title": "Naruto: Shippuden",
+            "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'estranged family'}]"
+          },
+          {
+            "id": "97940",
+            "title": "Black Clover",
+            "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'estranged family'}]"
+          },
+          {
+            "id": "30",
+            "title": "Neon Genesis Evangelion",
+            "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'estranged family'}]"
+          },
+          {
+            "id": "101347",
+            "title": "Dororo",
+            "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'estranged family'}]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "tag_details",
+            "operator": "contains",
+            "value": "cohabitation"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 7.636713,
+      "arguments": {
+        "filters": [
+          {
+            "field": "tag_details",
+            "operator": "contains",
+            "value": "cohabitation"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "cohabitation"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "21355",
+            "title": "Re:ZERO -Starting Life in Another World-",
+            "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'cohabitation'}]"
+          },
+          {
+            "id": "140960",
+            "title": "SPY x FAMILY",
+            "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'cohabitation'}]"
+          },
+          {
+            "id": "99423",
+            "title": "DARLING in the FRANXX",
+            "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'cohabitation'}]"
+          },
+          {
+            "id": "99263",
+            "title": "The Rising of the Shield Hero",
+            "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'cohabitation'}]"
+          },
+          {
+            "id": "108465",
+            "title": "Mushoku Tensei: Jobless Reincarnation",
+            "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'cohabitation'}]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000894
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "found family",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "found family",
+              "name": "Found Family",
+              "description": "Features a group of characters with no biological relations that are united in a group providing social support.",
+              "category": "Theme-Other",
+              "similarity": 0.6918
+            }
+          ]
+        },
+        "elapsed_seconds": 0.039585
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "found family"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "found family"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "21",
+              "title": "ONE PIECE",
+              "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'found family'}]"
+            },
+            {
+              "id": "20",
+              "title": "Naruto",
+              "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'found family'}]"
+            },
+            {
+              "id": "11757",
+              "title": "Sword Art Online",
+              "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'found family'}]"
+            },
+            {
+              "id": "127230",
+              "title": "Chainsaw Man",
+              "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'found family'}]"
+            },
+            {
+              "id": "101759",
+              "title": "The Promised Neverland",
+              "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'found family'}]"
+            }
+          ]
+        },
+        "elapsed_seconds": 7.581068
+      },
+      {
+        "step": 2,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "estranged family"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "estranged family"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "20",
+              "title": "Naruto",
+              "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'estranged family'}]"
+            },
+            {
+              "id": "1735",
+              "title": "Naruto: Shippuden",
+              "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'estranged family'}]"
+            },
+            {
+              "id": "97940",
+              "title": "Black Clover",
+              "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'estranged family'}]"
+            },
+            {
+              "id": "30",
+              "title": "Neon Genesis Evangelion",
+              "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'estranged family'}]"
+            },
+            {
+              "id": "101347",
+              "title": "Dororo",
+              "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'estranged family'}]"
+            }
+          ]
+        },
+        "elapsed_seconds": 7.572539
+      },
+      {
+        "step": 3,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "cohabitation"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "cohabitation"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "21355",
+              "title": "Re:ZERO -Starting Life in Another World-",
+              "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'cohabitation'}]"
+            },
+            {
+              "id": "140960",
+              "title": "SPY x FAMILY",
+              "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'cohabitation'}]"
+            },
+            {
+              "id": "99423",
+              "title": "DARLING in the FRANXX",
+              "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'cohabitation'}]"
+            },
+            {
+              "id": "99263",
+              "title": "The Rising of the Shield Hero",
+              "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'cohabitation'}]"
+            },
+            {
+              "id": "108465",
+              "title": "Mushoku Tensei: Jobless Reincarnation",
+              "reason": "Matches: filters=[{'field': 'tag_details', 'operator': 'contains', 'value': 'cohabitation'}]"
+            }
+          ]
+        },
+        "elapsed_seconds": 7.636713
+      }
+    ],
+    "llm_calls": 3,
+    "planned_tools": 4,
+    "executed_tools": 4,
+    "timings_seconds": {
+      "interpret_request": 3.598131,
+      "prepare_context": 0.004462,
+      "retrieve_guides": 0.031314,
+      "feature_candidates": 0.015206,
+      "planning": 7.379342,
+      "tools": 22.829905,
+      "generate_answer": 0.000894
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"people who are not related but slowly become each other's home\", \"query\": \"people who are not related but slowly become each other's home\", \"kind\": \"description\", \"role\": \"subject\", \"meaning\": \"Desired theme/concept\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "people who are not related but slowly become each other's home",
+        "query": "people who are not related but slowly become each other's home",
+        "kind": "description",
+        "role": "subject",
+        "meaning": "Desired theme/concept"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"To clarify, are you looking for anime with a theme of found family, where unrelated characters develop a close, familial bond?\", \"decisions\": {\"p0\": {\"meaning\": \"people who are not related but slowly become each other's home\", \"role\": \"subject\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "subject",
+          "text": "people who are not related but slowly become each other's home",
+          "name": "",
+          "meaning": "people who are not related but slowly become each other's home"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "subject",
+            "text": "people who are not related but slowly become each other's home",
+            "name": "",
+            "meaning": "people who are not related but slowly become each other's home"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "recommend_anime",
+      "clarification": "None",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "found family",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "found family"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "estranged family"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "cohabitation"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

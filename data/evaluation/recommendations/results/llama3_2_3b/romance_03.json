@@ -1,0 +1,919 @@
+{
+  "question_id": "romance_03",
+  "category": "genres",
+  "intent_family": "romance",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "Can you suggest five anime centered on two people developing feelings for each other?",
+  "k": 5,
+  "constraints": [
+    {
+      "field": "genres",
+      "op": "any",
+      "value": [
+        "Romance"
+      ],
+      "alternatives": [
+        {
+          "reason": "Prominent love-triangle or unrequited-love themes are acceptable evidence for the requested focus on developing romantic feelings. A demographic or cast-gender tag alone is insufficient.",
+          "constraints": [
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Love Triangle",
+                "Unrequited Love"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "A central falling-in-love story maps to Romance.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 2881,
+  "reference_examples": [
+    {
+      "id": "100",
+      "title": "Prétear: The New Legend of Snow White"
+    },
+    {
+      "id": "100004",
+      "title": "Demoness of Dreams"
+    },
+    {
+      "id": "100085",
+      "title": "Seven Senses of the Re'Union"
+    }
+  ],
+  "answer_text": "Catalog matches — source material: OTHER. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **Josee, the Tiger and the Fish** — The story centers on the relationship between Tsuneo and Josee. Tsuneo is a university student, and Josee is a young girl who has rarely gone out of the house by herself due to her being unable to walk. The two meet when Tsuneo finds Josee's grandmother taking her out for a morning walk. (Source: Anime News Network)\n\n2. **Liz and the Blue Bird** — Students and best friends Mizore Yoroizuka and Nozomi Kasaki prepare to play a complex musical duet, Liz and the Blue Bird, for oboe and flute. Though they play beautifully together and have been friends since childhood, Mizore and Nozomi find that with graduation looming and the duet proving difficult, their friendship begins to buckle under the pressure. Interspersed with their story is the fantasy tale of Liz, drawn like a storybook…\n\n3. **The Tatami Galaxy** — When a college dropout stops for a late night bite at a mysterious ramen stand, he crosses paths with a self-proclaimed deity of matrimony. This bizarre meeting sends the young man hurtling through a horrifying flashback to his not-so-glorious college days when the influence of a cruel new friend turned him from a hopeless romantic into a mischievous “black cupid.” (Source: Funimation)\n\n4. **In/Spectre** — At the young age of 11, Kotoko Iwanaga was abducted by youkai for two weeks and asked to become their \"God of Wisdom,\" a mediator between the spirit and human worlds, to which the girl quickly agreed but at the cost of her right eye and left leg. Now, six years later, whenever youkai wish for their problems to be solved, they make their way to Kotoko for consultation. Meanwhile, Kurou Sakuragawa, a 22-year-old university student, has just broken…\n\n5. **Run with the Wind** — Former ace runner of Sendai Josei High School, Kakeru Kurahara is chased away from a convenience store for shoplifting. Shaking off his pursuer, he runs into Haiji Kiyose, another student from his university. Haiji is impressed by Kakeru's agility and persuades him to live in Chikusei-sou, the run-down apartment where Haiji resides along with eight other students. Having lost his entire apartment deposit at a mahjong parlor, Kakeru accepts the…\n\nThe exact requirement 'two people' is assessed semantically from descriptions, not verified by a catalog category.",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Josee, the Tiger and the Fish",
+      "Liz and the Blue Bird",
+      "The Tatami Galaxy",
+      "In/Spectre",
+      "Run with the Wind"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Josee, the Tiger and the Fish",
+      "anime_id": "113596",
+      "canonical_title": "Josee, the Tiger and the Fish",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "113596"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Prominent love-triangle or unrequited-love themes are acceptable evidence for the requested focus on developing romantic feelings. A demographic or cast-gender tag alone is insufficient.",
+              "score": 0.47,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Love Triangle",
+                      "Unrequited Love"
+                    ]
+                  },
+                  "score": 0.47
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Liz and the Blue Bird",
+      "anime_id": "100178",
+      "canonical_title": "Liz and the Blue Bird",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "100178"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.6
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.6,
+          "met": true,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "alternative_1",
+          "graded_path": "alternative_1",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Prominent love-triangle or unrequited-love themes are acceptable evidence for the requested focus on developing romantic feelings. A demographic or cast-gender tag alone is insufficient.",
+              "score": 0.6,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Love Triangle",
+                      "Unrequited Love"
+                    ]
+                  },
+                  "score": 0.6
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.6,
+      "gain": 0.6,
+      "strict_match": 1,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 3,
+      "extracted_title": "The Tatami Galaxy",
+      "anime_id": "7785",
+      "canonical_title": "The Tatami Galaxy",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "7785"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Prominent love-triangle or unrequited-love themes are acceptable evidence for the requested focus on developing romantic feelings. A demographic or cast-gender tag alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Love Triangle",
+                      "Unrequited Love"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 4,
+      "extracted_title": "In/Spectre",
+      "anime_id": "107201",
+      "canonical_title": "In/Spectre",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "107201"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Prominent love-triangle or unrequited-love themes are acceptable evidence for the requested focus on developing romantic feelings. A demographic or cast-gender tag alone is insufficient.",
+              "score": 0.43,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Love Triangle",
+                      "Unrequited Love"
+                    ]
+                  },
+                  "score": 0.43
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Run with the Wind",
+      "anime_id": "101903",
+      "canonical_title": "Run with the Wind",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "101903"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Prominent love-triangle or unrequited-love themes are acceptable evidence for the requested focus on developing romantic feelings. A demographic or cast-gender tag alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Love Triangle",
+                      "Unrequited Love"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.8,
+    "graded_fit_at_k": 0.72,
+    "ndcg_at_k": 0.7832004165938472,
+    "constraint_coverage": 1.0,
+    "count_compliance": 1,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "extra_count": 0,
+    "literal_precision_at_k": 0.6,
+    "semantic_credit_at_k": 0.2
+  },
+  "model_seconds": 10.62375479199909,
+  "extraction_seconds": 1.7176816660012264,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 3.7e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000692
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 5.962304
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.001986
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.031517
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.011655
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.896296
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "two people developing feelings for each other",
+              "kind": "tag",
+              "limit": 5
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "source_material",
+                  "operator": "eq",
+                  "value": "OTHER"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "two people developing feelings for each other",
+        "kind": "tag",
+        "limit": 5
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.037919,
+      "arguments": {
+        "query": "two people developing feelings for each other",
+        "kind": "tag",
+        "limit": 5
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "fake relationship",
+            "name": "Fake Relationship",
+            "description": "When two characters enter a fake relationship that mutually benefits one or both involved.",
+            "category": "Theme-Drama",
+            "similarity": 0.4412
+          },
+          {
+            "kind": "tag",
+            "id": "dissociative identities",
+            "name": "Dissociative Identities",
+            "description": "A case where one or more people share the same body.",
+            "category": "Cast-Traits",
+            "similarity": 0.4244
+          },
+          {
+            "kind": "tag",
+            "id": "interspecies",
+            "name": "Interspecies",
+            "description": "Romance between characters of different species.",
+            "category": "Theme-Romance",
+            "similarity": 0.4157
+          },
+          {
+            "kind": "tag",
+            "id": "group sex",
+            "name": "Group Sex",
+            "description": "Features more than two participants engaged in sex simultaneously.",
+            "category": "Sexual Content",
+            "similarity": 0.414
+          },
+          {
+            "kind": "tag",
+            "id": "swapping",
+            "name": "Swapping",
+            "description": "Features consensual partner swapping between couples during sexual activities.",
+            "category": "Sexual Content",
+            "similarity": 0.411
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "source_material",
+            "operator": "eq",
+            "value": "OTHER"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.679399,
+      "arguments": {
+        "filters": [
+          {
+            "field": "source_material",
+            "operator": "eq",
+            "value": "OTHER"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "source_material",
+              "operator": "eq",
+              "value": "OTHER"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [
+            "The exact requirement 'two people' is assessed semantically from descriptions, not verified by a catalog category."
+          ],
+          "mappings": [
+            {
+              "field": "source_material",
+              "operator": "eq",
+              "value": "OTHER",
+              "source_text": "Can you suggest five anime centered on two people developing feelings for each other?",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "113596",
+            "title": "Josee, the Tiger and the Fish",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]",
+            "preference_similarity": 0.1471
+          },
+          {
+            "id": "100178",
+            "title": "Liz and the Blue Bird",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]",
+            "preference_similarity": 0.1441
+          },
+          {
+            "id": "7785",
+            "title": "The Tatami Galaxy",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]",
+            "preference_similarity": 0.1082
+          },
+          {
+            "id": "107201",
+            "title": "In/Spectre",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]",
+            "preference_similarity": 0.1073
+          },
+          {
+            "id": "101903",
+            "title": "Run with the Wind",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]",
+            "preference_similarity": 0.0939
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.00041
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "two people developing feelings for each other",
+          "kind": "tag",
+          "limit": 5
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "fake relationship",
+              "name": "Fake Relationship",
+              "description": "When two characters enter a fake relationship that mutually benefits one or both involved.",
+              "category": "Theme-Drama",
+              "similarity": 0.4412
+            },
+            {
+              "kind": "tag",
+              "id": "dissociative identities",
+              "name": "Dissociative Identities",
+              "description": "A case where one or more people share the same body.",
+              "category": "Cast-Traits",
+              "similarity": 0.4244
+            },
+            {
+              "kind": "tag",
+              "id": "interspecies",
+              "name": "Interspecies",
+              "description": "Romance between characters of different species.",
+              "category": "Theme-Romance",
+              "similarity": 0.4157
+            },
+            {
+              "kind": "tag",
+              "id": "group sex",
+              "name": "Group Sex",
+              "description": "Features more than two participants engaged in sex simultaneously.",
+              "category": "Sexual Content",
+              "similarity": 0.414
+            },
+            {
+              "kind": "tag",
+              "id": "swapping",
+              "name": "Swapping",
+              "description": "Features consensual partner swapping between couples during sexual activities.",
+              "category": "Sexual Content",
+              "similarity": 0.411
+            }
+          ]
+        },
+        "elapsed_seconds": 0.037919
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "source_material",
+              "operator": "eq",
+              "value": "OTHER"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "source_material",
+                "operator": "eq",
+                "value": "OTHER"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [
+              "The exact requirement 'two people' is assessed semantically from descriptions, not verified by a catalog category."
+            ],
+            "mappings": [
+              {
+                "field": "source_material",
+                "operator": "eq",
+                "value": "OTHER",
+                "source_text": "Can you suggest five anime centered on two people developing feelings for each other?",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "113596",
+              "title": "Josee, the Tiger and the Fish",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]",
+              "preference_similarity": 0.1471
+            },
+            {
+              "id": "100178",
+              "title": "Liz and the Blue Bird",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]",
+              "preference_similarity": 0.1441
+            },
+            {
+              "id": "7785",
+              "title": "The Tatami Galaxy",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]",
+              "preference_similarity": 0.1082
+            },
+            {
+              "id": "107201",
+              "title": "In/Spectre",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]",
+              "preference_similarity": 0.1073
+            },
+            {
+              "id": "101903",
+              "title": "Run with the Wind",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'OTHER'}]",
+              "preference_similarity": 0.0939
+            }
+          ]
+        },
+        "elapsed_seconds": 0.679399
+      }
+    ],
+    "llm_calls": 6,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 5.962304,
+      "prepare_context": 0.001986,
+      "retrieve_guides": 0.031517,
+      "feature_candidates": 0.011655,
+      "planning": 3.896296,
+      "tools": 0.717318,
+      "generate_answer": 0.00041
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"two people\", \"query\": \"two people\", \"kind\": \"tag\", \"role\": \"excluded\", \"meaning\": \"Excluded theme\"}]}",
+      "{\n  \"applies\": true,\n  \"operator\": \"eq\",\n  \"value\": \"OTHER\"\n}",
+      "{\n  \"choice\": 1,\n  \"role\": \"excluded\",\n  \"operator\": \"ne\",\n  \"value\": \"Drama\",\n  \"mapping\": \"exact\"\n}",
+      "{\n  \"role\": \"required\"\n}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "two people",
+        "query": "two people",
+        "kind": "tag",
+        "role": "excluded",
+        "meaning": "Excluded theme"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Excluded theme\", \"role\": \"excluded\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "excluded",
+          "text": "two people",
+          "name": "",
+          "meaning": "Excluded theme"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [
+        "two people"
+      ],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "source_material",
+          "operator": "eq",
+          "value": "OTHER"
+        }
+      ],
+      "soft_query": "two people",
+      "limitations": [
+        "The exact requirement 'two people' is assessed semantically from descriptions, not verified by a catalog category."
+      ],
+      "mappings": [
+        {
+          "field": "source_material",
+          "operator": "eq",
+          "value": "OTHER",
+          "source_text": "Can you suggest five anime centered on two people developing feelings for each other?",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "two people",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "exact"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "excluded",
+            "text": "two people",
+            "name": "",
+            "meaning": "Excluded theme"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "two people developing feelings for each other",
+            "kind": "tag",
+            "limit": 5
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "source_material",
+                "operator": "eq",
+                "value": "OTHER"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

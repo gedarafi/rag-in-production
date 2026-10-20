@@ -1,0 +1,867 @@
+{
+  "question_id": "short_series_03",
+  "category": "length",
+  "intent_family": "short_series",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "Give me five regular TV anime I could finish within twelve episodes each. Name the specific season if needed.",
+  "k": 5,
+  "constraints": [
+    {
+      "field": "format",
+      "op": "any",
+      "value": [
+        "TV"
+      ]
+    },
+    {
+      "field": "episodes",
+      "op": "lte",
+      "value": 12
+    }
+  ],
+  "label_rationale": "Episode count belongs to a single catalog entry, not the complete franchise.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 1745,
+  "reference_examples": [
+    {
+      "id": "100010",
+      "title": "MAGICAL GIRL SITE"
+    },
+    {
+      "id": "100077",
+      "title": "HINAMATSURI"
+    },
+    {
+      "id": "100083",
+      "title": "Butlers x Battlers"
+    }
+  ],
+  "answer_text": "Catalog matches — episode count: over 5; episode count: at most 12; format: TV.\n\n1. **One-Punch Man** (12 episodes) — Saitama has a rather peculiar hobby, being a superhero, but despite his heroic deeds and superhuman abilities, a shadow looms over his life. He's become much too powerful, to the point that every opponent ends up defeated with a single punch. The lack of challenge has driven him into a state of apathy, as he watches his life pass by having lost all enthusiasm, at least until he's unwillingly thrust in the role of being a mentor to the young and…\n\n2. **Tokyo Ghoul** (12 episodes) — The suspense horror/dark fantasy story is set in Tokyo, which is haunted by mysterious \"ghouls\" who are devouring humans. People are gripped by the fear of these ghouls whose identities are masked in mystery. An ordinary college student named Kaneki encounters Rize, a girl who is an avid reader like him, at the café he frequents. Little does he realize that his fate will change overnight. (Source: Anime News Network)\n\n3. **Attack on Titan Season 2** (12 episodes) — Eren Jaeger swore to wipe out every last Titan, but in a battle for his life he wound up becoming the thing he hates most. With his new powers, he fights for humanity's freedom facing the monsters that threaten his home. After a bittersweet victory against the Female Titan, Eren finds no time to rest—a horde of Titans is approaching Wall Rose and the battle for humanity continues! (Source: Funimation)\n\n4. **Attack on Titan Season 3** (12 episodes) — Eren and his companions in the 104th are assigned to the newly-formed Levi Squad, whose assignment is to keep Eren and Historia safe given Eren's newly-discovered power and Historia's knowledge and pedigree. Levi and Erwin have good reason to be concerned, because the priest of the Church that Hanji had hidden away was found tortured to death, making it clear that the Military Police are involved with the cover-up. Things get more harrowing when…\n\n5. **Chainsaw Man** (12 episodes) — Denji is a teenage boy living with a Chainsaw Devil named Pochita. Due to the debt his father left behind, he has been living a rock-bottom life while repaying his debt by harvesting devil corpses with Pochita. One day, Denji is betrayed and killed. As his consciousness fades, he makes a contract with Pochita and gets revived as \"Chainsaw Man\" — a man with a devil's heart. (Source: Crunchyroll)",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "One-Punch Man",
+      "Tokyo Ghoul",
+      "Attack on Titan Season 2",
+      "Attack on Titan Season 3",
+      "Chainsaw Man"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "One-Punch Man",
+      "anime_id": "21087",
+      "canonical_title": "One-Punch Man",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21087"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Tokyo Ghoul",
+      "anime_id": "20605",
+      "canonical_title": "Tokyo Ghoul",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20605"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Attack on Titan Season 2",
+      "anime_id": "20958",
+      "canonical_title": "Attack on Titan Season 2",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20958"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Attack on Titan Season 3",
+      "anime_id": "99147",
+      "canonical_title": "Attack on Titan Season 3",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "99147"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Chainsaw Man",
+      "anime_id": "127230",
+      "canonical_title": "Chainsaw Man",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "127230"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 1.0,
+    "graded_fit_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "constraint_coverage": 1.0,
+    "count_compliance": 1,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "extra_count": 0,
+    "literal_precision_at_k": 1.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 9.365456375000576,
+  "extraction_seconds": 1.6726622920014051,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.5e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000696
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.996543
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.002659
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.009123
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.015718
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.258
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_five_regular_tv_anime",
+        "clarification": "Name the specific season if needed.",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "format",
+                  "operator": "eq",
+                  "value": "TV"
+                },
+                {
+                  "field": "episodes",
+                  "operator": "gt",
+                  "value": "5"
+                },
+                {
+                  "field": "episodes",
+                  "operator": "lte",
+                  "value": "12"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "format",
+            "operator": "eq",
+            "value": "TV"
+          },
+          {
+            "field": "episodes",
+            "operator": "gt",
+            "value": "5"
+          },
+          {
+            "field": "episodes",
+            "operator": "lte",
+            "value": "12"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.080604,
+      "arguments": {
+        "filters": [
+          {
+            "field": "format",
+            "operator": "eq",
+            "value": "TV"
+          },
+          {
+            "field": "episodes",
+            "operator": "gt",
+            "value": "5"
+          },
+          {
+            "field": "episodes",
+            "operator": "lte",
+            "value": "12"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "episodes",
+              "operator": "gt",
+              "value": "5"
+            },
+            {
+              "field": "episodes",
+              "operator": "lte",
+              "value": "12"
+            },
+            {
+              "field": "format",
+              "operator": "eq",
+              "value": "TV"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "episodes",
+              "operator": "gt",
+              "value": "5",
+              "source_text": "episodes",
+              "mapping": "exact"
+            },
+            {
+              "field": "episodes",
+              "operator": "lte",
+              "value": "12",
+              "source_text": "episodes",
+              "mapping": "exact"
+            },
+            {
+              "field": "format",
+              "operator": "eq",
+              "value": "TV",
+              "source_text": "Give me five regular TV anime I could finish within twelve episodes each. Name the specific season if needed.",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "21087",
+            "title": "One-Punch Man",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gt', 'value': '5'}, {'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]"
+          },
+          {
+            "id": "20605",
+            "title": "Tokyo Ghoul",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gt', 'value': '5'}, {'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]"
+          },
+          {
+            "id": "20958",
+            "title": "Attack on Titan Season 2",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gt', 'value': '5'}, {'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]"
+          },
+          {
+            "id": "99147",
+            "title": "Attack on Titan Season 3",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gt', 'value': '5'}, {'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]"
+          },
+          {
+            "id": "127230",
+            "title": "Chainsaw Man",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gt', 'value': '5'}, {'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000402
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "format",
+              "operator": "eq",
+              "value": "TV"
+            },
+            {
+              "field": "episodes",
+              "operator": "gt",
+              "value": "5"
+            },
+            {
+              "field": "episodes",
+              "operator": "lte",
+              "value": "12"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "episodes",
+                "operator": "gt",
+                "value": "5"
+              },
+              {
+                "field": "episodes",
+                "operator": "lte",
+                "value": "12"
+              },
+              {
+                "field": "format",
+                "operator": "eq",
+                "value": "TV"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "episodes",
+                "operator": "gt",
+                "value": "5",
+                "source_text": "episodes",
+                "mapping": "exact"
+              },
+              {
+                "field": "episodes",
+                "operator": "lte",
+                "value": "12",
+                "source_text": "episodes",
+                "mapping": "exact"
+              },
+              {
+                "field": "format",
+                "operator": "eq",
+                "value": "TV",
+                "source_text": "Give me five regular TV anime I could finish within twelve episodes each. Name the specific season if needed.",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "21087",
+              "title": "One-Punch Man",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gt', 'value': '5'}, {'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]"
+            },
+            {
+              "id": "20605",
+              "title": "Tokyo Ghoul",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gt', 'value': '5'}, {'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]"
+            },
+            {
+              "id": "20958",
+              "title": "Attack on Titan Season 2",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gt', 'value': '5'}, {'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]"
+            },
+            {
+              "id": "99147",
+              "title": "Attack on Titan Season 3",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gt', 'value': '5'}, {'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]"
+            },
+            {
+              "id": "127230",
+              "title": "Chainsaw Man",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gt', 'value': '5'}, {'field': 'episodes', 'operator': 'lte', 'value': '12'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}]"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.080604
+      }
+    ],
+    "llm_calls": 5,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 4.996543,
+      "prepare_context": 0.002659,
+      "retrieve_guides": 0.009123,
+      "feature_candidates": 0.015718,
+      "planning": 4.258,
+      "tools": 0.080604,
+      "generate_answer": 0.000402
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"twelve episodes\", \"query\": \"12 episodes\", \"kind\": \"description\", \"role\": \"required\", \"meaning\": \"Episode count\"}]}",
+      "{\n  \"min\": 5,\n  \"max\": 12\n}",
+      "{\n  \"applies\": true,\n  \"operator\": \"eq\",\n  \"value\": \"TV\"\n}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "twelve episodes",
+        "query": "12 episodes",
+        "kind": "description",
+        "role": "required",
+        "meaning": "Episode count"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Episode count\", \"role\": \"required\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "twelve episodes",
+          "name": "",
+          "meaning": "Episode count"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {
+      "episodes": {
+        "sources": [
+          "Give me five regular TV anime I could finish within twelve episodes each. Name the specific season if needed.",
+          "twelve episodes",
+          "episodes"
+        ],
+        "interpretations": [
+          "brief",
+          "range",
+          "range"
+        ]
+      }
+    },
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [
+        "twelve episodes"
+      ],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "episodes",
+          "operator": "gt",
+          "value": "5"
+        },
+        {
+          "field": "episodes",
+          "operator": "lte",
+          "value": "12"
+        },
+        {
+          "field": "format",
+          "operator": "eq",
+          "value": "TV"
+        }
+      ],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "episodes",
+          "operator": "gt",
+          "value": "5",
+          "source_text": "episodes",
+          "mapping": "exact"
+        },
+        {
+          "field": "episodes",
+          "operator": "lte",
+          "value": "12",
+          "source_text": "episodes",
+          "mapping": "exact"
+        },
+        {
+          "field": "format",
+          "operator": "eq",
+          "value": "TV",
+          "source_text": "Give me five regular TV anime I could finish within twelve episodes each. Name the specific season if needed.",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "twelve episodes",
+            "name": "",
+            "meaning": "Episode count"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_five_regular_tv_anime",
+      "clarification": "Name the specific season if needed.",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "format",
+                "operator": "eq",
+                "value": "TV"
+              },
+              {
+                "field": "episodes",
+                "operator": "gt",
+                "value": "5"
+              },
+              {
+                "field": "episodes",
+                "operator": "lte",
+                "value": "12"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

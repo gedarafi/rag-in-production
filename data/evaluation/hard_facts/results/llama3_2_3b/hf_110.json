@@ -1,0 +1,468 @@
+{
+  "question_id": "hf_110",
+  "anime_id": "21355",
+  "title": "Re:ZERO -Starting Life in Another World-",
+  "field": "source_material",
+  "question": "Did Re:ZERO's anime adapt a light novel, manga, or something else?",
+  "expected_values": [
+    "LIGHT_NOVEL"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The anime adapts both a light novel and a manga series.",
+  "extracted_values": [
+    "light novel",
+    "manga",
+    "something else"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 14.173571041001196,
+  "extraction_seconds": 0.6723084580007708,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "light novel",
+        "quote": "The anime adapts both a light novel and a manga series."
+      },
+      {
+        "value": "manga",
+        "quote": "The anime adapts both a light novel and a manga series."
+      },
+      {
+        "value": "something else",
+        "quote": "The anime adapts both a light novel and a manga series."
+      }
+    ],
+    "note": "assertion for 'something else' is unclear",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.3333333333333333,
+    "recall": 1.0,
+    "f1": 0.5,
+    "tp": 1,
+    "fp": 2,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": [
+      "manga",
+      "something else"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21355",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21355",
+          "title": "Re:ZERO -Starting Life in Another World-"
+        },
+        "elapsed_seconds": 0.012833
+      },
+      {
+        "step": 1,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "light novel adaptation Re:ZERO",
+          "anime_ids": [
+            "21355"
+          ]
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.021251
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "anime",
+          "query": "light novel adaptation Re:ZERO"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "anime",
+          "matches": []
+        },
+        "elapsed_seconds": 0.087194
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 3.457332,
+      "prepare_context": 0.016846,
+      "retrieve_guides": 0.028245,
+      "feature_candidates": 0.013841,
+      "planning": 5.039908,
+      "tools": 0.121278,
+      "generate_answer": 5.493545
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Re:ZERO\", \"query\": \"Re:ZERO\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Light novel adaptation\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Re:ZERO",
+        "query": "Re:ZERO",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Light novel adaptation"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Light novel adaptation\", \"role\": \"subject\", \"selection\": \"Re:ZERO -Starting Life in Another World- | anime:21355\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21355",
+          "role": "subject",
+          "text": "Re:ZERO",
+          "name": "Re:ZERO -Starting Life in Another World-",
+          "meaning": "Light novel adaptation"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21355",
+          "role": "subject",
+          "text": "Re:ZERO",
+          "name": "Re:ZERO -Starting Life in Another World-",
+          "meaning": "Light novel adaptation"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Re:ZERO -Starting Life in Another World-"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21355",
+            "role": "subject",
+            "text": "Re:ZERO",
+            "name": "Re:ZERO -Starting Life in Another World-",
+            "meaning": "Light novel adaptation"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21355",
+            "role": "subject",
+            "text": "Re:ZERO",
+            "name": "Re:ZERO -Starting Life in Another World-",
+            "meaning": "Light novel adaptation"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Did Re:ZERO's anime adapt a light novel, manga, or something else?",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21355",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "light novel adaptation Re:ZERO",
+            "anime_ids": [
+              "21355"
+            ]
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "anime",
+            "query": "light novel adaptation Re:ZERO"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21355",
+          "name": "Re:ZERO -Starting Life in Another World-"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:21355",
+          "fact": "The anime is based on a light novel series."
+        },
+        {
+          "subject": "anime:21355",
+          "fact": "The anime is also based on a manga series."
+        },
+        {
+          "subject": "anime:21355",
+          "fact": "The anime is based on a combination of light novels and manga."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.9e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000787
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.457332
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.016846
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.028245
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013841
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 5.039908
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Did Re:ZERO's anime adapt a light novel, manga, or something else?",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21355",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "light novel adaptation Re:ZERO",
+              "anime_ids": [
+                "21355"
+              ]
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "anime",
+              "query": "light novel adaptation Re:ZERO"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21355",
+            "name": "Re:ZERO -Starting Life in Another World-"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21355",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.012833,
+      "arguments": {
+        "id": "21355",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21355",
+        "title": "Re:ZERO -Starting Life in Another World-"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "light novel adaptation Re:ZERO",
+        "anime_ids": [
+          "21355"
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.021251,
+      "arguments": {
+        "query": "light novel adaptation Re:ZERO",
+        "anime_ids": [
+          "21355"
+        ]
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "anime",
+        "query": "light novel adaptation Re:ZERO"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.087194,
+      "arguments": {
+        "kind": "anime",
+        "query": "light novel adaptation Re:ZERO"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "anime",
+        "matches": []
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 5.493545
+    }
+  ]
+}

@@ -1,0 +1,714 @@
+{
+  "question_id": "recent_01",
+  "category": "release_year",
+  "intent_family": "recent",
+  "wording": "explicit",
+  "question_origin": "authored_naturalistic",
+  "question": "Recommend three anime first released in 2020 or later.",
+  "k": 3,
+  "constraints": [
+    {
+      "field": "year",
+      "op": "gte",
+      "value": 2020
+    }
+  ],
+  "label_rationale": "First release year of the specific catalog entry, inclusive from 2020.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 5100,
+  "reference_examples": [
+    {
+      "id": "100643",
+      "title": "Made in Abyss: Dawn of the Deep Soul"
+    },
+    {
+      "id": "101168",
+      "title": "Plunderer"
+    },
+    {
+      "id": "101216",
+      "title": "Etotama: Nyankyaku Banrai"
+    }
+  ],
+  "answer_text": "Catalog matches — release year: at least 2020.\n\n1. **JUJUTSU KAISEN** (2020) — A boy fights... for \"the right death.\" Hardship, regret, shame: the negative feelings that humans feel become Curses that lurk in our everyday lives. The Curses run rampant throughout the world, capable of leading people to terrible misfortune and even death. What's more, the Curses can only be exorcised by another Curse. Itadori Yuji is a boy with tremendous physical strength, though he lives a completely ordinary high school life. One day, to…\n\n2. **Attack on Titan Final Season** (2020) — It’s been four years since the Scout Regiment reached the shoreline, and the world looks different now. Things are heating up as the fate of the Scout Regiment—and the people of Paradis—are determined at last. However, Eren is missing. Will he reappear before age-old tensions between Marleyans and Eldians result in the war of all wars? (Source: Crunchyroll)\n\n3. **Chainsaw Man** (2022) — Denji is a teenage boy living with a Chainsaw Devil named Pochita. Due to the debt his father left behind, he has been living a rock-bottom life while repaying his debt by harvesting devil corpses with Pochita. One day, Denji is betrayed and killed. As his consciousness fades, he makes a contract with Pochita and gets revived as \"Chainsaw Man\" — a man with a devil's heart. (Source: Crunchyroll)\n\n4. **SPY x FAMILY** (2022) — Everyone has a part of themselves they cannot show to anyone else. At a time when all nations of the world were involved in a fierce war of information happening behind closed doors, Ostania and Westalis had been in a state of cold war against one another for decades. The Westalis Intelligence Services' Eastern-Focused Division (WISE) sends their most talented spy, \"Twilight,\" on a top-secret mission to investigate the movements of Donovan…\n\n5. **Horimiya** (2021) — A secret life is the one thing they have in common. At school, Hori is a prim and perfect social butterfly, but the truth is she's a brash homebody. Meanwhile, under a gloomy facade, Miyamura hides a gentle heart, along with piercings and tattoos. In a chance meeting, they both reveal a side they've never shown. Could this blossom into something new? (Source: Funimation)",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "JUJUTSU KAISEN",
+      "Attack on Titan Final Season",
+      "Chainsaw Man",
+      "Horimiya",
+      "SPY x FAMILY"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "JUJUTSU KAISEN",
+      "anime_id": "113415",
+      "canonical_title": "JUJUTSU KAISEN",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "113415"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Attack on Titan Final Season",
+      "anime_id": "110277",
+      "canonical_title": "Attack on Titan Final Season",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "110277"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Chainsaw Man",
+      "anime_id": "127230",
+      "canonical_title": "Chainsaw Man",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "127230"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Horimiya",
+      "anime_id": null,
+      "canonical_title": null,
+      "resolution": "ambiguous",
+      "candidate_ids": [
+        "124080",
+        "14753"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 5,
+      "extracted_title": "SPY x FAMILY",
+      "anime_id": "140960",
+      "canonical_title": "SPY x FAMILY",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "140960"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 1.0,
+    "graded_fit_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "constraint_coverage": 1.0,
+    "count_compliance": 0,
+    "resolution_rate": 0.8,
+    "duplicate_rate": 0.0,
+    "extra_count": 2,
+    "literal_precision_at_k": 1.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 8.541900499998519,
+  "extraction_seconds": 1.5718372920000547,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 3.8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000737
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.732927
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.001686
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.007437
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.012677
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.688373
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "first released 2020 or later",
+              "kind": "genre"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "year",
+                  "operator": "gte",
+                  "value": "2020"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "first released 2020 or later",
+        "kind": "genre"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.042544,
+      "arguments": {
+        "query": "first released 2020 or later",
+        "kind": "genre"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "genre",
+        "matches": [
+          {
+            "kind": "genre",
+            "id": "thriller",
+            "name": "Thriller",
+            "similarity": 0.2992
+          },
+          {
+            "kind": "genre",
+            "id": "sci fi",
+            "name": "Sci-Fi",
+            "similarity": 0.2476
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "year",
+            "operator": "gte",
+            "value": "2020"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.053654,
+      "arguments": {
+        "filters": [
+          {
+            "field": "year",
+            "operator": "gte",
+            "value": "2020"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "year",
+              "operator": "gte",
+              "value": "2020"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "year",
+              "operator": "gte",
+              "value": "2020",
+              "source_text": "released",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "113415",
+            "title": "JUJUTSU KAISEN",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}]"
+          },
+          {
+            "id": "110277",
+            "title": "Attack on Titan Final Season",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}]"
+          },
+          {
+            "id": "127230",
+            "title": "Chainsaw Man",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}]"
+          },
+          {
+            "id": "140960",
+            "title": "SPY x FAMILY",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}]"
+          },
+          {
+            "id": "124080",
+            "title": "Horimiya",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000388
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "first released 2020 or later",
+          "kind": "genre"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "genre",
+          "matches": [
+            {
+              "kind": "genre",
+              "id": "thriller",
+              "name": "Thriller",
+              "similarity": 0.2992
+            },
+            {
+              "kind": "genre",
+              "id": "sci fi",
+              "name": "Sci-Fi",
+              "similarity": 0.2476
+            }
+          ]
+        },
+        "elapsed_seconds": 0.042544
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "year",
+              "operator": "gte",
+              "value": "2020"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "year",
+                "operator": "gte",
+                "value": "2020"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "year",
+                "operator": "gte",
+                "value": "2020",
+                "source_text": "released",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "113415",
+              "title": "JUJUTSU KAISEN",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}]"
+            },
+            {
+              "id": "110277",
+              "title": "Attack on Titan Final Season",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}]"
+            },
+            {
+              "id": "127230",
+              "title": "Chainsaw Man",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}]"
+            },
+            {
+              "id": "140960",
+              "title": "SPY x FAMILY",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}]"
+            },
+            {
+              "id": "124080",
+              "title": "Horimiya",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}]"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.053654
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 4.732927,
+      "prepare_context": 0.001686,
+      "retrieve_guides": 0.007437,
+      "feature_candidates": 0.012677,
+      "planning": 3.688373,
+      "tools": 0.096198,
+      "generate_answer": 0.000388
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"2020\", \"query\": \"2020\", \"kind\": \"tag\", \"role\": \"excluded\", \"meaning\": \"Excluded release year\"}]}",
+      "{\n  \"min\": 2020,\n  \"max\": null\n}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "2020",
+        "query": "2020",
+        "kind": "tag",
+        "role": "excluded",
+        "meaning": "Excluded release year"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Excluded release year\", \"role\": \"excluded\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "excluded",
+          "text": "2020",
+          "name": "",
+          "meaning": "Excluded release year"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {
+      "year": {
+        "sources": [
+          "released"
+        ],
+        "interpretations": [
+          "range"
+        ]
+      }
+    },
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [
+        "2020"
+      ],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "year",
+          "operator": "gte",
+          "value": "2020"
+        }
+      ],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "year",
+          "operator": "gte",
+          "value": "2020",
+          "source_text": "released",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "excluded",
+            "text": "2020",
+            "name": "",
+            "meaning": "Excluded release year"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "first released 2020 or later",
+            "kind": "genre"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "year",
+                "operator": "gte",
+                "value": "2020"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

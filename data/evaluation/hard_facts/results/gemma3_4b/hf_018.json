@@ -1,0 +1,68 @@
+{
+  "question_id": "hf_018",
+  "anime_id": "21234",
+  "title": "ERASED",
+  "field": "year",
+  "question": "In which year did the ERASED anime premiere?",
+  "expected_values": [
+    2016.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "",
+  "extracted_values": [],
+  "status": "model_error",
+  "error": "ValueError: Mention must be supported by the user request or selected user history: ['ERASE']",
+  "model_seconds": 3.0858811250000144,
+  "extraction_seconds": 0.0,
+  "extraction": null,
+  "metrics": null,
+  "rag_usage": {
+    "agent_trace": [],
+    "llm_calls": 2,
+    "planned_tools": 0,
+    "executed_tools": 0,
+    "timings_seconds": {
+      "interpret_request": 3.083836
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"ERASE\", \"query\": \"ERASE\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Anime series\"}]}",
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"ERASE\", \"query\": \"ERASE\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Anime series\"}]}"
+    ],
+    "mention_classification_corrections": [
+      "Mention must be supported by the user request or selected user history: ['ERASE']"
+    ]
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 0.000145
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001752
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "error",
+      "elapsed_seconds": 3.083836,
+      "error": "Mention must be supported by the user request or selected user history: ['ERASE']"
+    }
+  ]
+}

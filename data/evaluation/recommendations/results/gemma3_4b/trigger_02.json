@@ -1,0 +1,620 @@
+{
+  "question_id": "trigger_02",
+  "category": "studios",
+  "intent_family": "trigger",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "I like the studio behind Kill la Kill. What are four anime from that animation studio that I could watch?",
+  "k": 4,
+  "constraints": [
+    {
+      "field": "studios",
+      "op": "any",
+      "value": [
+        "Trigger"
+      ]
+    }
+  ],
+  "label_rationale": "Trigger must be a main animation studio; perceived visual similarity is insufficient.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 38,
+  "reference_examples": [
+    {
+      "id": "101817",
+      "title": "Inferno Cop Specials"
+    },
+    {
+      "id": "102337",
+      "title": "Hacka Doll"
+    },
+    {
+      "id": "102406",
+      "title": "Bishoujo Mobage: Mobami-chan"
+    }
+  ],
+  "answer_text": "",
+  "status": "model_error",
+  "error": "RuntimeError: No supported recommendations were retrieved. Please rephrase your preferences and retry.",
+  "extraction": null,
+  "recommendations": [],
+  "metrics": null,
+  "model_seconds": 22.13458391599943,
+  "extraction_seconds": 0.0,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.1e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001083
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 6.530076
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.013105
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.007678
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.011699
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 7.449648
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "query": "studio behind Kill la Kill",
+              "limit": 5,
+              "sort_by": "popularity"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "18679"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "2001"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "99425"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "227"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "18679",
+            "name": "Kill la Kill"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "query": "studio behind Kill la Kill",
+        "limit": 5,
+        "sort_by": "popularity"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.062214,
+      "arguments": {
+        "query": "studio behind Kill la Kill",
+        "limit": 5,
+        "sort_by": "popularity"
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "sort_by": "popularity",
+          "filters": []
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": []
+        },
+        "items": [
+          {
+            "id": "16498",
+            "title": "Attack on Titan",
+            "reason": "Matches: sort_by=popularity, filters=[]"
+          },
+          {
+            "id": "101922",
+            "title": "Demon Slayer: Kimetsu no Yaiba",
+            "reason": "Matches: sort_by=popularity, filters=[]"
+          },
+          {
+            "id": "113415",
+            "title": "JUJUTSU KAISEN",
+            "reason": "Matches: sort_by=popularity, filters=[]"
+          },
+          {
+            "id": "1535",
+            "title": "Death Note",
+            "reason": "Matches: sort_by=popularity, filters=[]"
+          },
+          {
+            "id": "21459",
+            "title": "My Hero Academia",
+            "reason": "Matches: sort_by=popularity, filters=[]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "18679"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.009883,
+      "arguments": {
+        "id": "18679"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "18679",
+        "title": "Kill la Kill"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "2001"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.012074,
+      "arguments": {
+        "id": "2001"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "2001",
+        "title": "Gurren Lagann"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "99425"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.010297,
+      "arguments": {
+        "id": "99425"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "99425",
+        "title": "Promare"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "227"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.010459,
+      "arguments": {
+        "id": "227"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "227",
+        "title": "FLCL"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "error",
+      "elapsed_seconds": 8.014767,
+      "error": "No supported recommendations were retrieved. Please rephrase your preferences and retry."
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "query": "studio behind Kill la Kill",
+          "limit": 5,
+          "sort_by": "popularity"
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "sort_by": "popularity",
+            "filters": []
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": []
+          },
+          "items": [
+            {
+              "id": "16498",
+              "title": "Attack on Titan",
+              "reason": "Matches: sort_by=popularity, filters=[]"
+            },
+            {
+              "id": "101922",
+              "title": "Demon Slayer: Kimetsu no Yaiba",
+              "reason": "Matches: sort_by=popularity, filters=[]"
+            },
+            {
+              "id": "113415",
+              "title": "JUJUTSU KAISEN",
+              "reason": "Matches: sort_by=popularity, filters=[]"
+            },
+            {
+              "id": "1535",
+              "title": "Death Note",
+              "reason": "Matches: sort_by=popularity, filters=[]"
+            },
+            {
+              "id": "21459",
+              "title": "My Hero Academia",
+              "reason": "Matches: sort_by=popularity, filters=[]"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.062214
+      },
+      {
+        "step": 1,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "18679"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "18679",
+          "title": "Kill la Kill"
+        },
+        "elapsed_seconds": 0.009883
+      },
+      {
+        "step": 2,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "2001"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "2001",
+          "title": "Gurren Lagann"
+        },
+        "elapsed_seconds": 0.012074
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "99425"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "99425",
+          "title": "Promare"
+        },
+        "elapsed_seconds": 0.010297
+      },
+      {
+        "step": 4,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "227"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "227",
+          "title": "FLCL"
+        },
+        "elapsed_seconds": 0.010459
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 5,
+    "executed_tools": 5,
+    "timings_seconds": {
+      "interpret_request": 6.530076,
+      "prepare_context": 0.013105,
+      "retrieve_guides": 0.007678,
+      "feature_candidates": 0.011699,
+      "planning": 7.449648,
+      "tools": 0.104927,
+      "generate_answer": 8.014767
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Kill la Kill\", \"query\": \"Kill la Kill\", \"kind\": \"anime\", \"role\": \"reference\", \"meaning\": \"Studio behind Kill la Kill\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Kill la Kill",
+        "query": "Kill la Kill",
+        "kind": "anime",
+        "role": "reference",
+        "meaning": "Studio behind Kill la Kill"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"The question asks for anime from the studio that produced Kill la Kill. The provided phrase 'studio behind Kill la Kill' refers to TRIGGER.\",\"decisions\": {\"p0\": {\"meaning\": \"Studio behind Kill la Kill\", \"role\": \"reference\", \"selection\": \"Kill la Kill | anime:18679\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "18679",
+          "role": "reference",
+          "text": "Kill la Kill",
+          "name": "Kill la Kill",
+          "meaning": "Studio behind Kill la Kill"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "18679",
+          "role": "reference",
+          "text": "Kill la Kill",
+          "name": "Kill la Kill",
+          "meaning": "Studio behind Kill la Kill"
+        }
+      ],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Kill la Kill"
+      ],
+      "required": [],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Kill la Kill"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "preference_hierarchy": [],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "18679",
+            "role": "reference",
+            "text": "Kill la Kill",
+            "name": "Kill la Kill",
+            "meaning": "Studio behind Kill la Kill"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "18679",
+            "role": "reference",
+            "text": "Kill la Kill",
+            "name": "Kill la Kill",
+            "meaning": "Studio behind Kill la Kill"
+          }
+        ],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "query": "studio behind Kill la Kill",
+            "limit": 5,
+            "sort_by": "popularity"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "18679"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "2001"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "99425"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "227"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "18679",
+          "name": "Kill la Kill"
+        }
+      ],
+      "characters": []
+    }
+  }
+}

@@ -1,0 +1,405 @@
+{
+  "question_id": "hf_069",
+  "anime_id": "1735",
+  "title": "Naruto: Shippuden",
+  "field": "duration",
+  "question": "What's the standard episode runtime listed for Naruto: Shippuden?",
+  "expected_values": [
+    23.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "episode runtime: 191.67 minutes.",
+  "extracted_values": [
+    "191.67"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 10.168905750000704,
+  "extraction_seconds": 0.502302333001353,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "191.67",
+        "quote": "episode runtime: 191.67 minutes."
+      }
+    ],
+    "note": "minutes",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "missing_values": [
+      "23"
+    ],
+    "extra_values": [
+      "191.67"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1735",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "1735",
+          "title": "Naruto: Shippuden"
+        },
+        "elapsed_seconds": 0.019229
+      },
+      {
+        "step": 1,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1735",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "1735",
+          "title": "Naruto: Shippuden"
+        },
+        "elapsed_seconds": 0.000188
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 2.104896,
+      "prepare_context": 0.020688,
+      "retrieve_guides": 0.028069,
+      "feature_candidates": 0.01403,
+      "planning": 4.212745,
+      "tools": 0.019417,
+      "generate_answer": 3.766199
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Naruto: Shippuden\", \"query\": \"Naruto: Shippuden\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV adaptation runtime\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Naruto: Shippuden",
+        "query": "Naruto: Shippuden",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV adaptation runtime"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"TV adaptation runtime\", \"role\": \"subject\", \"selection\": \"Naruto: Shippuden | anime:1735\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "1735",
+          "role": "subject",
+          "text": "Naruto: Shippuden",
+          "name": "Naruto: Shippuden",
+          "meaning": "TV adaptation runtime"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "1735",
+          "role": "subject",
+          "text": "Naruto: Shippuden",
+          "name": "Naruto: Shippuden",
+          "meaning": "TV adaptation runtime"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Naruto: Shippuden"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "1735",
+            "role": "subject",
+            "text": "Naruto: Shippuden",
+            "name": "Naruto: Shippuden",
+            "meaning": "TV adaptation runtime"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "1735",
+            "role": "subject",
+            "text": "Naruto: Shippuden",
+            "name": "Naruto: Shippuden",
+            "meaning": "TV adaptation runtime"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Get the standard episode runtime for Naruto: Shippuden",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1735",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1735",
+            "section": "overview"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "1735",
+          "name": "Naruto: Shippuden"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:1735",
+          "fact": "episodes = 500.0"
+        },
+        {
+          "subject": "anime:1735",
+          "fact": "duration = 23.0 minutes per episode"
+        }
+      ],
+      "calculations": [
+        {
+          "expression": "(500.0 * 23.0) / 60",
+          "value": "191.67",
+          "unit": "minutes"
+        }
+      ]
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 0.000113
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001052
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.104896
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.020688
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.028069
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.01403
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.212745
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Get the standard episode runtime for Naruto: Shippuden",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1735",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1735",
+              "section": "overview"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "1735",
+            "name": "Naruto: Shippuden"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1735",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.019229,
+      "arguments": {
+        "id": "1735",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "1735",
+        "title": "Naruto: Shippuden"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1735",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000188,
+      "arguments": {
+        "id": "1735",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "1735",
+        "title": "Naruto: Shippuden"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.766199
+    }
+  ]
+}

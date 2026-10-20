@@ -1,0 +1,344 @@
+{
+  "question_id": "hf_158",
+  "anime_id": "113415",
+  "title": "JUJUTSU KAISEN",
+  "field": "main_characters",
+  "question": "Who makes up the main cast of JUJUTSU KAISEN's first season? Character names only.",
+  "expected_values": [
+    "Megumi Fushiguro",
+    "Yuuji Itadori",
+    "Satoru Gojou",
+    "Nobara Kugisaki"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Megumi Fushiguro, Yuuji Itadori, Satoru Gojou, Nobara Kugisaki",
+  "extracted_values": [
+    "Megumi Fushiguro",
+    "Yuuji Itadori",
+    "Satoru Gojou",
+    "Nobara Kugisaki"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 9.608788458999697,
+  "extraction_seconds": 0.9310356249989127,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Megumi Fushiguro",
+        "quote": "Megumi Fushiguro, Yuuji Itadori, Satoru Gojou, Nobara Kugisaki"
+      },
+      {
+        "value": "Yuuji Itadori",
+        "quote": "Megumi Fushiguro, Yuuji Itadori, Satoru Gojou, Nobara Kugisaki"
+      },
+      {
+        "value": "Satoru Gojou",
+        "quote": "Megumi Fushiguro, Yuuji Itadori, Satoru Gojou, Nobara Kugisaki"
+      },
+      {
+        "value": "Nobara Kugisaki",
+        "quote": "Megumi Fushiguro, Yuuji Itadori, Satoru Gojou, Nobara Kugisaki"
+      }
+    ],
+    "note": "assertion",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 4,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "status": "error",
+        "step": 0,
+        "tool": "get_character",
+        "error": "Use character IDs from dictionary or tool results first",
+        "elapsed_seconds": 6e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 0,
+    "timings_seconds": {
+      "interpret_request": 2.292738,
+      "prepare_context": 0.020583,
+      "retrieve_guides": 0.027402,
+      "feature_candidates": 0.013788,
+      "planning": 3.835604,
+      "tools": 6e-05,
+      "generate_answer": 3.415363
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"JUJUTSU KAISEN\", \"query\": \"JUJUTSU KAISEN\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; cast is a noun\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "JUJUTSU KAISEN",
+        "query": "JUJUTSU KAISEN",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; cast is a noun"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"TV series; cast is a noun\", \"role\": \"subject\", \"selection\": \"JUJUTSU KAISEN | anime:113415\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "113415",
+          "role": "subject",
+          "text": "JUJUTSU KAISEN",
+          "name": "JUJUTSU KAISEN",
+          "meaning": "TV series; cast is a noun"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "113415",
+          "role": "subject",
+          "text": "JUJUTSU KAISEN",
+          "name": "JUJUTSU KAISEN",
+          "meaning": "TV series; cast is a noun"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "JUJUTSU KAISEN"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "113415",
+            "role": "subject",
+            "text": "JUJUTSU KAISEN",
+            "name": "JUJUTSU KAISEN",
+            "meaning": "TV series; cast is a noun"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "113415",
+            "role": "subject",
+            "text": "JUJUTSU KAISEN",
+            "name": "JUJUTSU KAISEN",
+            "meaning": "TV series; cast is a noun"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Get main cast of JUJUTSU KAISEN's first season",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "113415",
+            "section": "cast"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "113415",
+          "name": "JUJUTSU KAISEN"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:113415",
+          "fact": "Megumi Fushiguro"
+        },
+        {
+          "subject": "anime:113415",
+          "fact": "Yuuji Itadori"
+        },
+        {
+          "subject": "anime:113415",
+          "fact": "Satoru Gojou"
+        },
+        {
+          "subject": "anime:113415",
+          "fact": "Nobara Kugisaki"
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 8.9e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001602
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.292738
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.020583
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.027402
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013788
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.835604
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Get main cast of JUJUTSU KAISEN's first season",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "113415",
+              "section": "cast"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "113415",
+            "name": "JUJUTSU KAISEN"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_character",
+      "arguments": {
+        "id": "113415",
+        "section": "cast"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_character",
+      "status": "error",
+      "elapsed_seconds": 6e-05,
+      "error": "Use character IDs from dictionary or tool results first"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.415363
+    }
+  ]
+}

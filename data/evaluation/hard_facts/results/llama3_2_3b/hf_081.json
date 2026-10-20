@@ -1,0 +1,337 @@
+{
+  "question_id": "hf_081",
+  "anime_id": "112151",
+  "title": "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train",
+  "field": "format",
+  "question": "Is Demon Slayer: Mugen Train's movie entry a film, TV series, or special?",
+  "expected_values": [
+    "MOVIE"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "film",
+  "extracted_values": [
+    "film"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 9.529263041000377,
+  "extraction_seconds": 0.4630480420000822,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "film",
+        "quote": "film"
+      }
+    ],
+    "note": "",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "missing_values": [
+      "movie"
+    ],
+    "extra_values": [
+      "film"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "112151",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "112151",
+          "title": "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train"
+        },
+        "elapsed_seconds": 0.025185
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 2.831638,
+      "prepare_context": 0.016483,
+      "retrieve_guides": 0.029489,
+      "feature_candidates": 0.013461,
+      "planning": 3.936643,
+      "tools": 0.025185,
+      "generate_answer": 2.672834
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Demon Slayer: Mugen Train\", \"query\": \"Demon Slayer: Mugen Train\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Movie; film is a noun\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Demon Slayer: Mugen Train",
+        "query": "Demon Slayer: Mugen Train",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Movie; film is a noun"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Is Demon Slayer: Mugen Train's movie entry a film, TV series, or special?\", \"decisions\": {\"p0\": {\"meaning\": \"Movie; film is a noun\", \"role\": \"subject\", \"selection\": \"Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train | anime:112151\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "112151",
+          "role": "subject",
+          "text": "Demon Slayer: Mugen Train",
+          "name": "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train",
+          "meaning": "Movie; film is a noun"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "112151",
+          "role": "subject",
+          "text": "Demon Slayer: Mugen Train",
+          "name": "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train",
+          "meaning": "Movie; film is a noun"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "112151",
+            "role": "subject",
+            "text": "Demon Slayer: Mugen Train",
+            "name": "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train",
+            "meaning": "Movie; film is a noun"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "112151",
+            "role": "subject",
+            "text": "Demon Slayer: Mugen Train",
+            "name": "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train",
+            "meaning": "Movie; film is a noun"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine the type of Demon Slayer: Mugen Train's movie entry",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "112151",
+            "section": "overview"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "112151",
+          "name": "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:112151",
+          "fact": "format = MOVIE"
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 0.000111
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.002027
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.831638
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.016483
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.029489
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013461
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.936643
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine the type of Demon Slayer: Mugen Train's movie entry",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "112151",
+              "section": "overview"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "112151",
+            "name": "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "112151",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.025185,
+      "arguments": {
+        "id": "112151",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "112151",
+        "title": "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 2.672834
+    }
+  ]
+}

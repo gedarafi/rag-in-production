@@ -1,0 +1,678 @@
+{
+  "question_id": "hf_137",
+  "anime_id": "21087",
+  "title": "One-Punch Man",
+  "field": "main_animation_studios",
+  "question": "Who handled One-Punch Man season one's main animation?",
+  "expected_values": [
+    "MADHOUSE"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "MADHOUSE handled the main animation for One-Punch Man season one.",
+  "extracted_values": [
+    "MADHOUSE"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 16.191910791000282,
+  "extraction_seconds": 0.6129975419999028,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "MADHOUSE",
+        "quote": "MADHOUSE handled the main animation for One-Punch Man season one."
+      }
+    ],
+    "note": "assertion about One-Punch Man season one",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21087"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21087",
+          "title": "One-Punch Man"
+        },
+        "elapsed_seconds": 0.013322
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "animation studio One-Punch Man season 1"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "tokusatsu",
+              "name": "Tokusatsu",
+              "description": "Prominently features elements that resemble special effects in Japanese live-action shows",
+              "category": "Theme-Sci-Fi",
+              "similarity": 0.3716
+            },
+            {
+              "kind": "tag",
+              "id": "blackmail",
+              "name": "Blackmail",
+              "description": "Features a character blackmailing another.",
+              "category": "Theme-Other",
+              "similarity": 0.3545
+            },
+            {
+              "kind": "tag",
+              "id": "martial arts",
+              "name": "Martial Arts",
+              "description": "Centers around the use of traditional hand-to-hand combat.",
+              "category": "Theme-Action",
+              "similarity": 0.3259
+            },
+            {
+              "kind": "tag",
+              "id": "male harem",
+              "name": "Male Harem",
+              "description": "Main cast features the protagonist plus several male characters who are romantically interested in them.",
+              "category": "Theme-Romance",
+              "similarity": 0.3189
+            },
+            {
+              "kind": "tag",
+              "id": "battle royale",
+              "name": "Battle Royale",
+              "description": "Centers around a fierce group competition, often violent and with only one winner.",
+              "category": "Theme-Action",
+              "similarity": 0.3173
+            }
+          ]
+        },
+        "elapsed_seconds": 0.03352
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "animation studio"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.017867
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21087"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21087",
+          "title": "One-Punch Man"
+        },
+        "elapsed_seconds": 0.000113
+      },
+      {
+        "step": 4,
+        "tool": "get_character",
+        "arguments": {
+          "id": "73935"
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "73935",
+          "name": "Saitama"
+        },
+        "elapsed_seconds": 0.001834
+      },
+      {
+        "step": 5,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21087"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21087",
+          "title": "One-Punch Man"
+        },
+        "elapsed_seconds": 8.9e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 6,
+    "executed_tools": 4,
+    "timings_seconds": {
+      "interpret_request": 3.741173,
+      "prepare_context": 0.017836,
+      "retrieve_guides": 0.031852,
+      "feature_candidates": 0.014119,
+      "planning": 7.735895,
+      "tools": 0.066745,
+      "generate_answer": 4.581923
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"One-Punch Man\", \"query\": \"One-Punch Man\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Season one\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "One-Punch Man",
+        "query": "One-Punch Man",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Season one"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify which season of One-Punch Man you are referring to.\", \"decisions\": {\"p0\": {\"meaning\": \"One-Punch Man\", \"role\": \"subject\", \"selection\": \"One-Punch Man | anime:21087\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21087",
+          "role": "subject",
+          "text": "One-Punch Man",
+          "name": "One-Punch Man",
+          "meaning": "One-Punch Man"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21087",
+          "role": "subject",
+          "text": "One-Punch Man",
+          "name": "One-Punch Man",
+          "meaning": "One-Punch Man"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "One-Punch Man"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21087",
+            "role": "subject",
+            "text": "One-Punch Man",
+            "name": "One-Punch Man",
+            "meaning": "One-Punch Man"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21087",
+            "role": "subject",
+            "text": "One-Punch Man",
+            "name": "One-Punch Man",
+            "meaning": "One-Punch Man"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Retrieve the animation studio responsible for One-Punch Man season one.",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21087"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "animation studio One-Punch Man season 1"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "animation studio"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21087"
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "73935"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21087"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21087",
+          "name": "One-Punch Man"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:21087",
+          "fact": "MADHOUSE was the animation studio responsible for One-Punch Man season one."
+        },
+        {
+          "subject": "anime:21087",
+          "fact": "The source records confirm MADHOUSE as the main studio for the anime."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.5e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000852
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.741173
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.017836
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.031852
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014119
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 7.735895
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Retrieve the animation studio responsible for One-Punch Man season one.",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21087"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "animation studio One-Punch Man season 1"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "animation studio"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21087"
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "73935"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21087"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21087",
+            "name": "One-Punch Man"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21087"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.013322,
+      "arguments": {
+        "id": "21087"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21087",
+        "title": "One-Punch Man"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "animation studio One-Punch Man season 1"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.03352,
+      "arguments": {
+        "query": "animation studio One-Punch Man season 1"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "tokusatsu",
+            "name": "Tokusatsu",
+            "description": "Prominently features elements that resemble special effects in Japanese live-action shows",
+            "category": "Theme-Sci-Fi",
+            "similarity": 0.3716
+          },
+          {
+            "kind": "tag",
+            "id": "blackmail",
+            "name": "Blackmail",
+            "description": "Features a character blackmailing another.",
+            "category": "Theme-Other",
+            "similarity": 0.3545
+          },
+          {
+            "kind": "tag",
+            "id": "martial arts",
+            "name": "Martial Arts",
+            "description": "Centers around the use of traditional hand-to-hand combat.",
+            "category": "Theme-Action",
+            "similarity": 0.3259
+          },
+          {
+            "kind": "tag",
+            "id": "male harem",
+            "name": "Male Harem",
+            "description": "Main cast features the protagonist plus several male characters who are romantically interested in them.",
+            "category": "Theme-Romance",
+            "similarity": 0.3189
+          },
+          {
+            "kind": "tag",
+            "id": "battle royale",
+            "name": "Battle Royale",
+            "description": "Centers around a fierce group competition, often violent and with only one winner.",
+            "category": "Theme-Action",
+            "similarity": 0.3173
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "animation studio"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.017867,
+      "arguments": {
+        "kind": "tag",
+        "query": "animation studio"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21087"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000113,
+      "arguments": {
+        "id": "21087"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21087",
+        "title": "One-Punch Man"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "get_character",
+      "arguments": {
+        "id": "73935"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.001834,
+      "arguments": {
+        "id": "73935"
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "73935",
+        "name": "Saitama"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21087"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 8.9e-05,
+      "arguments": {
+        "id": "21087"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21087",
+        "title": "One-Punch Man"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.581923
+    }
+  ]
+}

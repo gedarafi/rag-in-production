@@ -1,0 +1,1049 @@
+{
+  "question_id": "short_episodes_03",
+  "category": "length",
+  "intent_family": "short_episodes",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "I want five anime made for TV that I can watch one episode at a time in fifteen minutes or less.",
+  "k": 5,
+  "constraints": [
+    {
+      "field": "format",
+      "op": "any",
+      "value": [
+        "TV",
+        "TV_SHORT"
+      ]
+    },
+    {
+      "field": "duration",
+      "op": "lte",
+      "value": 15
+    }
+  ],
+  "label_rationale": "Duration is minutes per episode, not total series runtime.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 1310,
+  "reference_examples": [
+    {
+      "id": "100009",
+      "title": "Space Battleship Tiramisu"
+    },
+    {
+      "id": "100093",
+      "title": "Skull-face Bookseller Honda-san"
+    },
+    {
+      "id": "100133",
+      "title": "One Room SECOND SEASON"
+    }
+  ],
+  "answer_text": "Catalog matches — episode count: at most 50; minutes per episode: at most 1499999; format: TV.\n\n1. **My Hero Academia** (13 episodes; 24 min/episode) — What would the world be like if 80 percent of the population manifested extraordinary superpowers called “Quirks” at age four? Heroes and villains would be battling it out everywhere! Becoming a hero would mean learning to use your power, but where would you go to study? U.A. High's Hero Program of course! But what would you do if you were one of the 20 percent who were born Quirkless? Middle school student Izuku Midoriya wants to be a hero more…\n\n2. **One-Punch Man** (12 episodes; 24 min/episode) — Saitama has a rather peculiar hobby, being a superhero, but despite his heroic deeds and superhuman abilities, a shadow looms over his life. He's become much too powerful, to the point that every opponent ends up defeated with a single punch. The lack of challenge has driven him into a state of apathy, as he watches his life pass by having lost all enthusiasm, at least until he's unwillingly thrust in the role of being a mentor to the young and…\n\n3. **Tokyo Ghoul** (12 episodes; 24 min/episode) — The suspense horror/dark fantasy story is set in Tokyo, which is haunted by mysterious \"ghouls\" who are devouring humans. People are gripped by the fear of these ghouls whose identities are masked in mystery. An ordinary college student named Kaneki encounters Rize, a girl who is an avid reader like him, at the café he frequents. Little does he realize that his fate will change overnight. (Source: Anime News Network)\n\n4. **Attack on Titan Season 2** (12 episodes; 25 min/episode) — Eren Jaeger swore to wipe out every last Titan, but in a battle for his life he wound up becoming the thing he hates most. With his new powers, he fights for humanity's freedom facing the monsters that threaten his home. After a bittersweet victory against the Female Titan, Eren finds no time to rest—a horde of Titans is approaching Wall Rose and the battle for humanity continues! (Source: Funimation)\n\n5. **Attack on Titan Season 3** (12 episodes; 24 min/episode) — Eren and his companions in the 104th are assigned to the newly-formed Levi Squad, whose assignment is to keep Eren and Historia safe given Eren's newly-discovered power and Historia's knowledge and pedigree. Levi and Erwin have good reason to be concerned, because the priest of the Church that Hanji had hidden away was found tortured to death, making it clear that the Military Police are involved with the cover-up. Things get more harrowing when…\n\nInterpreting brevity as at most 50 episodes. Prioritizing titles with 10–19 episodes; this is a preference, not a strict category.",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "My Hero Academia",
+      "One-Punch Man",
+      "Tokyo Ghoul",
+      "Attack on Titan Season 2",
+      "Attack on Titan Season 3"
+    ],
+    "unclear": false,
+    "note": "All titles have 10-50 episodes, with a preference for 10-19 episodes.",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "My Hero Academia",
+      "anime_id": "21459",
+      "canonical_title": "My Hero Academia",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21459"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.5,
+      "gain": 0.5,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 2,
+      "extracted_title": "One-Punch Man",
+      "anime_id": "21087",
+      "canonical_title": "One-Punch Man",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21087"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.5,
+      "gain": 0.5,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Tokyo Ghoul",
+      "anime_id": "20605",
+      "canonical_title": "Tokyo Ghoul",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20605"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.5,
+      "gain": 0.5,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Attack on Titan Season 2",
+      "anime_id": "20958",
+      "canonical_title": "Attack on Titan Season 2",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20958"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.5,
+      "gain": 0.5,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Attack on Titan Season 3",
+      "anime_id": "99147",
+      "canonical_title": "Attack on Titan Season 3",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "99147"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.5,
+      "gain": 0.5,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.0,
+    "graded_fit_at_k": 0.5,
+    "ndcg_at_k": 0.5,
+    "constraint_coverage": 0.5,
+    "count_compliance": 1,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "extra_count": 0,
+    "literal_precision_at_k": 0.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 17.54191070900015,
+  "extraction_seconds": 2.0150048329996935,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 6.9e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001142
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 9.970641
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.002371
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.009642
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014801
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 7.378886
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "Recommend anime based on user preferences",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "ensemble cast, time skip, time loop, time manipulation, achronological order, episodic, tragedy, pov, tokusatsu, 4 koma"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "episodes",
+                  "operator": "lte",
+                  "value": "50"
+                },
+                {
+                  "field": "duration",
+                  "operator": "lte",
+                  "value": "1499999"
+                },
+                {
+                  "field": "format",
+                  "operator": "eq",
+                  "value": "TV"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "ensemble cast, time skip, time loop, time manipulation, achronological order, episodic, tragedy, pov, tokusatsu, 4 koma"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.038394,
+      "arguments": {
+        "query": "ensemble cast, time skip, time loop, time manipulation, achronological order, episodic, tragedy, pov, tokusatsu, 4 koma"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "time skip",
+            "name": "Time Skip",
+            "description": "Features a gap in time used to advance the story.",
+            "category": "Setting-Time",
+            "similarity": 0.5828
+          },
+          {
+            "kind": "tag",
+            "id": "achronological order",
+            "name": "Achronological Order",
+            "description": "Chapters or episodes do not occur in chronological order.",
+            "category": "Setting-Time",
+            "similarity": 0.5612
+          },
+          {
+            "kind": "tag",
+            "id": "ensemble cast",
+            "name": "Ensemble Cast",
+            "description": "Features a large cast of characters with (almost) equal screen time and importance to the plot.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.4709
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "episodes",
+            "operator": "lte",
+            "value": "50"
+          },
+          {
+            "field": "duration",
+            "operator": "lte",
+            "value": "1499999"
+          },
+          {
+            "field": "format",
+            "operator": "eq",
+            "value": "TV"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.123625,
+      "arguments": {
+        "filters": [
+          {
+            "field": "episodes",
+            "operator": "lte",
+            "value": "50"
+          },
+          {
+            "field": "duration",
+            "operator": "lte",
+            "value": "1499999"
+          },
+          {
+            "field": "format",
+            "operator": "eq",
+            "value": "TV"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "episodes",
+              "operator": "lte",
+              "value": "50"
+            },
+            {
+              "field": "duration",
+              "operator": "lte",
+              "value": "1499999"
+            },
+            {
+              "field": "format",
+              "operator": "eq",
+              "value": "TV"
+            }
+          ],
+          "numeric_preferences": [
+            {
+              "field": "episodes",
+              "min": 10,
+              "max": 19
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [
+            "Interpreting brevity as at most 50 episodes. Prioritizing titles with 10–19 episodes; this is a preference, not a strict category."
+          ],
+          "mappings": [
+            {
+              "field": "episodes",
+              "operator": "lte",
+              "value": "50",
+              "source_text": "I want five anime made for TV that I can watch one episode at a time in fifteen minutes or less.",
+              "mapping": "broader"
+            },
+            {
+              "field": "duration",
+              "operator": "lte",
+              "value": "1499999",
+              "source_text": "fifteen minutes or less",
+              "mapping": "exact"
+            },
+            {
+              "field": "format",
+              "operator": "eq",
+              "value": "TV",
+              "source_text": "I want five anime made for TV that I can watch one episode at a time in fifteen minutes or less.",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "21459",
+            "title": "My Hero Academia",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '50'}, {'field': 'duration', 'operator': 'lte', 'value': '1499999'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}], numeric_preferences=[{'field': 'episodes', 'min': 10, 'max': 19}]"
+          },
+          {
+            "id": "21087",
+            "title": "One-Punch Man",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '50'}, {'field': 'duration', 'operator': 'lte', 'value': '1499999'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}], numeric_preferences=[{'field': 'episodes', 'min': 10, 'max': 19}]"
+          },
+          {
+            "id": "20605",
+            "title": "Tokyo Ghoul",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '50'}, {'field': 'duration', 'operator': 'lte', 'value': '1499999'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}], numeric_preferences=[{'field': 'episodes', 'min': 10, 'max': 19}]"
+          },
+          {
+            "id": "20958",
+            "title": "Attack on Titan Season 2",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '50'}, {'field': 'duration', 'operator': 'lte', 'value': '1499999'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}], numeric_preferences=[{'field': 'episodes', 'min': 10, 'max': 19}]"
+          },
+          {
+            "id": "99147",
+            "title": "Attack on Titan Season 3",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '50'}, {'field': 'duration', 'operator': 'lte', 'value': '1499999'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}], numeric_preferences=[{'field': 'episodes', 'min': 10, 'max': 19}]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000391
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "ensemble cast, time skip, time loop, time manipulation, achronological order, episodic, tragedy, pov, tokusatsu, 4 koma"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "time skip",
+              "name": "Time Skip",
+              "description": "Features a gap in time used to advance the story.",
+              "category": "Setting-Time",
+              "similarity": 0.5828
+            },
+            {
+              "kind": "tag",
+              "id": "achronological order",
+              "name": "Achronological Order",
+              "description": "Chapters or episodes do not occur in chronological order.",
+              "category": "Setting-Time",
+              "similarity": 0.5612
+            },
+            {
+              "kind": "tag",
+              "id": "ensemble cast",
+              "name": "Ensemble Cast",
+              "description": "Features a large cast of characters with (almost) equal screen time and importance to the plot.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.4709
+            }
+          ]
+        },
+        "elapsed_seconds": 0.038394
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "episodes",
+              "operator": "lte",
+              "value": "50"
+            },
+            {
+              "field": "duration",
+              "operator": "lte",
+              "value": "1499999"
+            },
+            {
+              "field": "format",
+              "operator": "eq",
+              "value": "TV"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "episodes",
+                "operator": "lte",
+                "value": "50"
+              },
+              {
+                "field": "duration",
+                "operator": "lte",
+                "value": "1499999"
+              },
+              {
+                "field": "format",
+                "operator": "eq",
+                "value": "TV"
+              }
+            ],
+            "numeric_preferences": [
+              {
+                "field": "episodes",
+                "min": 10,
+                "max": 19
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [
+              "Interpreting brevity as at most 50 episodes. Prioritizing titles with 10–19 episodes; this is a preference, not a strict category."
+            ],
+            "mappings": [
+              {
+                "field": "episodes",
+                "operator": "lte",
+                "value": "50",
+                "source_text": "I want five anime made for TV that I can watch one episode at a time in fifteen minutes or less.",
+                "mapping": "broader"
+              },
+              {
+                "field": "duration",
+                "operator": "lte",
+                "value": "1499999",
+                "source_text": "fifteen minutes or less",
+                "mapping": "exact"
+              },
+              {
+                "field": "format",
+                "operator": "eq",
+                "value": "TV",
+                "source_text": "I want five anime made for TV that I can watch one episode at a time in fifteen minutes or less.",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "21459",
+              "title": "My Hero Academia",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '50'}, {'field': 'duration', 'operator': 'lte', 'value': '1499999'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}], numeric_preferences=[{'field': 'episodes', 'min': 10, 'max': 19}]"
+            },
+            {
+              "id": "21087",
+              "title": "One-Punch Man",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '50'}, {'field': 'duration', 'operator': 'lte', 'value': '1499999'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}], numeric_preferences=[{'field': 'episodes', 'min': 10, 'max': 19}]"
+            },
+            {
+              "id": "20605",
+              "title": "Tokyo Ghoul",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '50'}, {'field': 'duration', 'operator': 'lte', 'value': '1499999'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}], numeric_preferences=[{'field': 'episodes', 'min': 10, 'max': 19}]"
+            },
+            {
+              "id": "20958",
+              "title": "Attack on Titan Season 2",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '50'}, {'field': 'duration', 'operator': 'lte', 'value': '1499999'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}], numeric_preferences=[{'field': 'episodes', 'min': 10, 'max': 19}]"
+            },
+            {
+              "id": "99147",
+              "title": "Attack on Titan Season 3",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '50'}, {'field': 'duration', 'operator': 'lte', 'value': '1499999'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}], numeric_preferences=[{'field': 'episodes', 'min': 10, 'max': 19}]"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.123625
+      }
+    ],
+    "llm_calls": 5,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 9.970641,
+      "prepare_context": 0.002371,
+      "retrieve_guides": 0.009642,
+      "feature_candidates": 0.014801,
+      "planning": 7.378886,
+      "tools": 0.162019,
+      "generate_answer": 0.000391
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"anime\", \"query\": \"anime\", \"kind\": \"genre\", \"role\": \"subject\", \"meaning\": \"Requested media type\"}, {\"text\": \"TV\", \"query\": \"TV\", \"kind\": \"genre\", \"role\": \"subject\", \"meaning\": \"Requested media type\"}, {\"text\": \"fifteen minutes or less\", \"query\": \"fifteen minutes or less\", \"kind\": \"description\", \"role\": \"preferred\", \"meaning\": \"Preferred duration\"}]}",
+      "{\"min\": 0, \"max\": 1499999}",
+      "{\"applies\": true, \"operator\": \"eq\", \"value\": \"TV\"}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "anime",
+        "query": "anime",
+        "kind": "genre",
+        "role": "subject",
+        "meaning": "Requested media type"
+      },
+      {
+        "text": "TV",
+        "query": "TV",
+        "kind": "genre",
+        "role": "subject",
+        "meaning": "Requested media type"
+      },
+      {
+        "text": "fifteen minutes or less",
+        "query": "fifteen minutes or less",
+        "kind": "description",
+        "role": "preferred",
+        "meaning": "Preferred duration"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"To clarify, you want recommendations for anime that are made for TV and can be watched one episode at a time with an episode length of fifteen minutes or less. Is this correct?\",\"decisions\": {\"p0\": {\"meaning\": \"Requested media type\", \"role\": \"subject\", \"selection\": \"unmapped description\" }, \"p1\": {\"meaning\": \"Requested media type\", \"role\": \"subject\", \"selection\": \"unmapped description\" }, \"p2\": {\"meaning\": \"Preferred duration\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "subject",
+          "text": "anime",
+          "name": "",
+          "meaning": "Requested media type"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "subject",
+          "text": "TV",
+          "name": "",
+          "meaning": "Requested media type"
+        },
+        {
+          "phrase_index": 2,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "fifteen minutes or less",
+          "name": "",
+          "meaning": "Preferred duration"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {
+      "episodes": {
+        "sources": [
+          "I want five anime made for TV that I can watch one episode at a time in fifteen minutes or less."
+        ],
+        "interpretations": [
+          "brief"
+        ]
+      },
+      "duration": {
+        "sources": [
+          "fifteen minutes or less"
+        ],
+        "interpretations": [
+          "range"
+        ]
+      }
+    },
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [],
+      "preferred": [
+        "fifteen minutes or less"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "episodes",
+          "operator": "lte",
+          "value": "50"
+        },
+        {
+          "field": "duration",
+          "operator": "lte",
+          "value": "1499999"
+        },
+        {
+          "field": "format",
+          "operator": "eq",
+          "value": "TV"
+        }
+      ],
+      "soft_query": "",
+      "limitations": [
+        "Interpreting brevity as at most 50 episodes. Prioritizing titles with 10–19 episodes; this is a preference, not a strict category."
+      ],
+      "mappings": [
+        {
+          "field": "episodes",
+          "operator": "lte",
+          "value": "50",
+          "source_text": "I want five anime made for TV that I can watch one episode at a time in fifteen minutes or less.",
+          "mapping": "broader"
+        },
+        {
+          "field": "duration",
+          "operator": "lte",
+          "value": "1499999",
+          "source_text": "fifteen minutes or less",
+          "mapping": "exact"
+        },
+        {
+          "field": "format",
+          "operator": "eq",
+          "value": "TV",
+          "source_text": "I want five anime made for TV that I can watch one episode at a time in fifteen minutes or less.",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [],
+      "description_exclusions": [],
+      "numeric_preferences": [
+        {
+          "field": "episodes",
+          "min": 10,
+          "max": 19
+        }
+      ],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "subject",
+            "text": "anime",
+            "name": "",
+            "meaning": "Requested media type"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "subject",
+            "text": "TV",
+            "name": "",
+            "meaning": "Requested media type"
+          },
+          {
+            "phrase_index": 2,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "fifteen minutes or less",
+            "name": "",
+            "meaning": "Preferred duration"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "Recommend anime based on user preferences",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "ensemble cast, time skip, time loop, time manipulation, achronological order, episodic, tragedy, pov, tokusatsu, 4 koma"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "episodes",
+                "operator": "lte",
+                "value": "50"
+              },
+              {
+                "field": "duration",
+                "operator": "lte",
+                "value": "1499999"
+              },
+              {
+                "field": "format",
+                "operator": "eq",
+                "value": "TV"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

@@ -1,0 +1,1079 @@
+{
+  "question_id": "cyberpunk_03",
+  "category": "tags",
+  "intent_family": "cyberpunk",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "Suggest five anime set in a harsh wired-up future where advanced technology has not made ordinary life better.",
+  "k": 5,
+  "constraints": [
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Cyberpunk"
+      ],
+      "alternatives": [
+        {
+          "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+          "constraints": [
+            {
+              "field": "genres",
+              "op": "any",
+              "value": [
+                "Sci-Fi"
+              ]
+            },
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Dystopian"
+              ]
+            },
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Cyborg",
+                "Artificial Intelligence"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "High technology and a gritty unequal future are a Cyberpunk proxy.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 239,
+  "reference_examples": [
+    {
+      "id": "100168",
+      "title": "Blade Runner: Black Out 2022"
+    },
+    {
+      "id": "1079",
+      "title": "Armitage III"
+    },
+    {
+      "id": "1095",
+      "title": "Patlabor: The Movie"
+    }
+  ],
+  "answer_text": "Catalog matches. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **Steins;Gate** — Self-proclaimed mad scientist Okabe Rintarou lives in a small room in Akihabara, where he invents \"future gadgets\" with fellow lab members Shiina Mayuri, his air-headed childhood friend, and Hashida Itaru, an otaku hacker. The three pass the time by tinkering with their latest creation, a \"Phone Microwave\" that can be controlled through text messages. The lab members soon face a string of mysterious incidents that lead to a game-changing…\n\n2. **Attack on Titan Season 3 Part 2** — The battle to retake Wall Maria begins now! With Eren’s new hardening ability, the Scouts are confident they can seal the wall and take back Shiganshina District. If they succeed, Eren can finally unlock the secrets of the basement—and the world. But danger lies in wait as Reiner, Bertholdt, and the Beast Titan have plans of their own. Could this be humanity’s final battle for survival? (Source: Funimation)\n\n3. **Attack on Titan Season 3** — Eren and his companions in the 104th are assigned to the newly-formed Levi Squad, whose assignment is to keep Eren and Historia safe given Eren's newly-discovered power and Historia's knowledge and pedigree. Levi and Erwin have good reason to be concerned, because the priest of the Church that Hanji had hidden away was found tortured to death, making it clear that the Military Police are involved with the cover-up. Things get more harrowing when…\n\n4. **Attack on Titan** — Several hundred years ago, humans were nearly exterminated by titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest of titans. Flash forward to the present and the city has not seen a…\n\n5. **Sword Art Online** — In the near future, a Virtual Reality Massive Multiplayer Online Role-Playing Game (VRMMORPG) called Sword Art Online has been released where players control their avatars with their bodies using a piece of technology called Nerve Gear. One day, players discover they cannot log out, as the game creator is holding them captive unless they reach the 100th floor of the game's tower and defeat the final boss. However, if they die in the game, they…\n\nDescription matching can downrank 'ordinary life better', but the catalog cannot verify its complete absence.",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Steins;Gate",
+      "Attack on Titan Season 3 Part 2",
+      "Attack on Titan Season 3",
+      "Attack on Titan",
+      "Sword Art Online"
+    ],
+    "unclear": false,
+    "note": "Description matching can downrank 'ordinary life better', but the catalog cannot verify its complete absence.",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Steins;Gate",
+      "anime_id": "9253",
+      "canonical_title": "Steins;Gate",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "9253"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Sci-Fi"
+                    ]
+                  },
+                  "score": 1.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Dystopian"
+                    ]
+                  },
+                  "score": 0.78
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cyborg",
+                      "Artificial Intelligence"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Attack on Titan Season 3 Part 2",
+      "anime_id": "104578",
+      "canonical_title": "Attack on Titan Season 3 Part 2",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "104578"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Sci-Fi"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Dystopian"
+                    ]
+                  },
+                  "score": 0.95
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cyborg",
+                      "Artificial Intelligence"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Attack on Titan Season 3",
+      "anime_id": "99147",
+      "canonical_title": "Attack on Titan Season 3",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "99147"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Sci-Fi"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Dystopian"
+                    ]
+                  },
+                  "score": 0.83
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cyborg",
+                      "Artificial Intelligence"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Attack on Titan",
+      "anime_id": "16498",
+      "canonical_title": "Attack on Titan",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "16498"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Sci-Fi"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Dystopian"
+                    ]
+                  },
+                  "score": 0.77
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cyborg",
+                      "Artificial Intelligence"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Sword Art Online",
+      "anime_id": "11757",
+      "canonical_title": "Sword Art Online",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "11757"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Sci-Fi"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Dystopian"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cyborg",
+                      "Artificial Intelligence"
+                    ]
+                  },
+                  "score": 0.61
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.0,
+    "graded_fit_at_k": 0.0,
+    "ndcg_at_k": 0.0,
+    "constraint_coverage": 0.0,
+    "count_compliance": 1,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "extra_count": 0,
+    "literal_precision_at_k": 0.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 18.76567737500045,
+  "extraction_seconds": 1.8082594999996218,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.2e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000835
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 11.502076
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.002262
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.008159
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.009549
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.954308
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "None",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "harsh wired-up future advanced technology",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "tag_details",
+                  "operator": "contains",
+                  "value": "cyberpunk"
+                },
+                {
+                  "field": "tag_details",
+                  "operator": "contains",
+                  "value": "artificial intelligence"
+                },
+                {
+                  "field": "tag_details",
+                  "operator": "contains",
+                  "value": "augmented reality"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "harsh wired-up future advanced technology",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.0371,
+      "arguments": {
+        "query": "harsh wired-up future advanced technology",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "cyberpunk",
+            "name": "Cyberpunk",
+            "description": "Set in a future of advanced technological and scientific achievements that have resulted in social disorder.",
+            "category": "Theme-Sci-Fi",
+            "similarity": 0.2261
+          },
+          {
+            "kind": "tag",
+            "id": "non fiction",
+            "name": "Non-fiction",
+            "description": "A work that provides information regarding a real world topic and does not focus on an imaginary narrative.",
+            "category": "Technical",
+            "similarity": 0.2004
+          },
+          {
+            "kind": "tag",
+            "id": "steampunk",
+            "name": "Steampunk",
+            "description": "Prominently features technology and designs inspired by 19th-century industrial steam-powered machinery.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.1869
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "tag_details",
+            "operator": "contains",
+            "value": "cyberpunk"
+          },
+          {
+            "field": "tag_details",
+            "operator": "contains",
+            "value": "artificial intelligence"
+          },
+          {
+            "field": "tag_details",
+            "operator": "contains",
+            "value": "augmented reality"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.249585,
+      "arguments": {
+        "filters": [
+          {
+            "field": "tag_details",
+            "operator": "contains",
+            "value": "cyberpunk"
+          },
+          {
+            "field": "tag_details",
+            "operator": "contains",
+            "value": "artificial intelligence"
+          },
+          {
+            "field": "tag_details",
+            "operator": "contains",
+            "value": "augmented reality"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": []
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [
+            "Description matching can downrank 'ordinary life better', but the catalog cannot verify its complete absence."
+          ],
+          "mappings": []
+        },
+        "items": [
+          {
+            "id": "9253",
+            "title": "Steins;Gate",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.1067
+          },
+          {
+            "id": "104578",
+            "title": "Attack on Titan Season 3 Part 2",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.0779
+          },
+          {
+            "id": "99147",
+            "title": "Attack on Titan Season 3",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.0495
+          },
+          {
+            "id": "16498",
+            "title": "Attack on Titan",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.0483
+          },
+          {
+            "id": "11757",
+            "title": "Sword Art Online",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.0285
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000511
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "harsh wired-up future advanced technology",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "cyberpunk",
+              "name": "Cyberpunk",
+              "description": "Set in a future of advanced technological and scientific achievements that have resulted in social disorder.",
+              "category": "Theme-Sci-Fi",
+              "similarity": 0.2261
+            },
+            {
+              "kind": "tag",
+              "id": "non fiction",
+              "name": "Non-fiction",
+              "description": "A work that provides information regarding a real world topic and does not focus on an imaginary narrative.",
+              "category": "Technical",
+              "similarity": 0.2004
+            },
+            {
+              "kind": "tag",
+              "id": "steampunk",
+              "name": "Steampunk",
+              "description": "Prominently features technology and designs inspired by 19th-century industrial steam-powered machinery.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.1869
+            }
+          ]
+        },
+        "elapsed_seconds": 0.0371
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "cyberpunk"
+            },
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "artificial intelligence"
+            },
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "augmented reality"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": []
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [
+              "Description matching can downrank 'ordinary life better', but the catalog cannot verify its complete absence."
+            ],
+            "mappings": []
+          },
+          "items": [
+            {
+              "id": "9253",
+              "title": "Steins;Gate",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.1067
+            },
+            {
+              "id": "104578",
+              "title": "Attack on Titan Season 3 Part 2",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.0779
+            },
+            {
+              "id": "99147",
+              "title": "Attack on Titan Season 3",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.0495
+            },
+            {
+              "id": "16498",
+              "title": "Attack on Titan",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.0483
+            },
+            {
+              "id": "11757",
+              "title": "Sword Art Online",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.0285
+            }
+          ]
+        },
+        "elapsed_seconds": 0.249585
+      }
+    ],
+    "llm_calls": 5,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 11.502076,
+      "prepare_context": 0.002262,
+      "retrieve_guides": 0.008159,
+      "feature_candidates": 0.009549,
+      "planning": 6.954308,
+      "tools": 0.286685,
+      "generate_answer": 0.000511
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"harsh wired-up future\", \"query\": \"harsh wired-up future\", \"kind\": \"genre\", \"role\": \"preferred\", \"meaning\": \"Setting\"}, {\"text\": \"advanced technology\", \"query\": \"advanced technology\", \"kind\": \"genre\", \"role\": \"preferred\", \"meaning\": \"Setting\"}, {\"text\": \"ordinary life better\", \"query\": \"ordinary life better\", \"kind\": \"tag\", \"role\": \"excluded\", \"meaning\": \"Theme\"}, {\"text\": \"Monster\", \"query\": \"Monster\", \"kind\": \"anime\", \"role\": \"reference\", \"meaning\": \"Reference title\"}]}",
+      "{\"choice\": 1, \"role\": \"preferred\", \"operator\": \"ne\", \"value\": \"ordinary life better\", \"mapping\": \"exact\"}",
+      "{\n  \"role\": \"excluded\"\n}"
+    ],
+    "unsupported_mentions": [
+      {
+        "text": "Monster",
+        "query": "Monster",
+        "kind": "anime",
+        "role": "reference",
+        "meaning": "Reference title"
+      }
+    ],
+    "typed_mentions": [
+      {
+        "text": "harsh wired-up future",
+        "query": "harsh wired-up future",
+        "kind": "genre",
+        "role": "preferred",
+        "meaning": "Setting"
+      },
+      {
+        "text": "advanced technology",
+        "query": "advanced technology",
+        "kind": "genre",
+        "role": "preferred",
+        "meaning": "Setting"
+      },
+      {
+        "text": "ordinary life better",
+        "query": "ordinary life better",
+        "kind": "tag",
+        "role": "excluded",
+        "meaning": "Theme"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"To clarify, are you looking for anime with a dystopian setting and themes of technological advancement negatively impacting everyday life?\",\"decisions\": {\"p0\": {\"meaning\": \"Setting\", \"role\": \"preferred\", \"selection\": \"unmapped description\" }, \"p1\": {\"meaning\": \"Setting\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}, \"p2\": {\"meaning\": \"Theme\", \"role\": \"excluded\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "harsh wired-up future",
+          "name": "",
+          "meaning": "Setting"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "advanced technology",
+          "name": "",
+          "meaning": "Setting"
+        },
+        {
+          "phrase_index": 2,
+          "kind": "description",
+          "id": "",
+          "role": "excluded",
+          "text": "ordinary life better",
+          "name": "",
+          "meaning": "Theme"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [
+        "ordinary life better"
+      ],
+      "preferred": [
+        "harsh wired-up future",
+        "advanced technology"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [],
+      "soft_query": "harsh wired-up future advanced technology",
+      "limitations": [
+        "Description matching can downrank 'ordinary life better', but the catalog cannot verify its complete absence."
+      ],
+      "mappings": [],
+      "preference_hierarchy": [
+        {
+          "phrase": "ordinary life better",
+          "candidate": null,
+          "role": "irrelevant",
+          "mapping": "exact"
+        },
+        {
+          "phrase": "harsh wired-up future",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        },
+        {
+          "phrase": "advanced technology",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        }
+      ],
+      "description_exclusions": [
+        "ordinary life better"
+      ],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "harsh wired-up future",
+            "name": "",
+            "meaning": "Setting"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "advanced technology",
+            "name": "",
+            "meaning": "Setting"
+          },
+          {
+            "phrase_index": 2,
+            "kind": "description",
+            "id": "",
+            "role": "excluded",
+            "text": "ordinary life better",
+            "name": "",
+            "meaning": "Theme"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "None",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "harsh wired-up future advanced technology",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "cyberpunk"
+              },
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "artificial intelligence"
+              },
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "augmented reality"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}
