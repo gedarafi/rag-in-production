@@ -1,0 +1,333 @@
+{
+  "question_id": "hf_023",
+  "anime_id": "30",
+  "title": "Neon Genesis Evangelion",
+  "field": "year",
+  "question": "What was the original broadcast year of Neon Genesis Evangelion?",
+  "expected_values": [
+    1995.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "1995",
+  "extracted_values": [
+    "1995"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 8.693242999999711,
+  "extraction_seconds": 0.5464440420000756,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "1995",
+        "quote": "1995"
+      }
+    ],
+    "note": "assertion for year of original broadcast",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "30",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "30",
+          "title": "Neon Genesis Evangelion"
+        },
+        "elapsed_seconds": 0.01516
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 2.138609,
+      "prepare_context": 0.015016,
+      "retrieve_guides": 0.03798,
+      "feature_candidates": 0.011471,
+      "planning": 3.561459,
+      "tools": 0.01516,
+      "generate_answer": 2.911299
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Neon Genesis Evangelion\", \"query\": \"Neon Genesis Evangelion\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Original broadcast year\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Neon Genesis Evangelion",
+        "query": "Neon Genesis Evangelion",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Original broadcast year"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\n  \"clarification\": \"ambiguous\",\n  \"decisions\": {\n    \"p0\": {\n      \"meaning\": \"Original broadcast year\",\n      \"role\": \"subject\",\n      \"selection\": \"Neon Genesis Evangelion | anime:30\"\n    }\n  }\n}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "30",
+          "role": "subject",
+          "text": "Neon Genesis Evangelion",
+          "name": "Neon Genesis Evangelion",
+          "meaning": "Original broadcast year"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "30",
+          "role": "subject",
+          "text": "Neon Genesis Evangelion",
+          "name": "Neon Genesis Evangelion",
+          "meaning": "Original broadcast year"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Neon Genesis Evangelion"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "30",
+            "role": "subject",
+            "text": "Neon Genesis Evangelion",
+            "name": "Neon Genesis Evangelion",
+            "meaning": "Original broadcast year"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "30",
+            "role": "subject",
+            "text": "Neon Genesis Evangelion",
+            "name": "Neon Genesis Evangelion",
+            "meaning": "Original broadcast year"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Get the original broadcast year of Neon Genesis Evangelion",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "30",
+            "section": "overview"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "30",
+          "name": "Neon Genesis Evangelion"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:30",
+          "fact": "The original broadcast year of Neon Genesis Evangelion was 1995."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.1e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000785
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.138609
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.015016
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.03798
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.011471
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.561459
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Get the original broadcast year of Neon Genesis Evangelion",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "30",
+              "section": "overview"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "30",
+            "name": "Neon Genesis Evangelion"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "30",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.01516,
+      "arguments": {
+        "id": "30",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "30",
+        "title": "Neon Genesis Evangelion"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 2.911299
+    }
+  ]
+}

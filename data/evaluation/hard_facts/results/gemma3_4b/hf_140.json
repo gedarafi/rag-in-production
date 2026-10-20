@@ -1,0 +1,582 @@
+{
+  "question_id": "hf_140",
+  "anime_id": "20",
+  "title": "Naruto",
+  "field": "main_animation_studios",
+  "question": "Which company was responsible for the main animation of the original Naruto series?",
+  "expected_values": [
+    "Studio Pierrot"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Studio Pierrot was responsible for the main animation of the original Naruto series.",
+  "extracted_values": [
+    "Studio Pierrot"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 15.006250249999994,
+  "extraction_seconds": 0.6087937500001317,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Studio Pierrot",
+        "quote": "Studio Pierrot was responsible for the main animation of the original Naruto series."
+      }
+    ],
+    "note": "assertion for requested field and anime",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20",
+          "title": "Naruto"
+        },
+        "elapsed_seconds": 0.021108
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "animation studio",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "flash",
+              "name": "Flash",
+              "description": "Created using Flash animation techniques.",
+              "category": "Technical",
+              "similarity": 0.4938
+            },
+            {
+              "kind": "tag",
+              "id": "achromatic",
+              "name": "Achromatic",
+              "description": "Contains animation that is primarily done in black and white.",
+              "category": "Technical",
+              "similarity": 0.4916
+            },
+            {
+              "kind": "tag",
+              "id": "puppetry",
+              "name": "Puppetry",
+              "description": "Animation style involving the manipulation of puppets to act out scenes.",
+              "category": "Technical",
+              "similarity": 0.4621
+            },
+            {
+              "kind": "tag",
+              "id": "tokusatsu",
+              "name": "Tokusatsu",
+              "description": "Prominently features elements that resemble special effects in Japanese live-action shows",
+              "category": "Theme-Sci-Fi",
+              "similarity": 0.4025
+            },
+            {
+              "kind": "tag",
+              "id": "software development",
+              "name": "Software Development",
+              "description": "Centers around characters developing or programming a piece of technology, software, gaming, etc.",
+              "category": "Theme-Other",
+              "similarity": 0.3775
+            }
+          ]
+        },
+        "elapsed_seconds": 0.036015
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "animation studio"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.017742
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20",
+          "section": "studios"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "20",
+          "title": "Naruto"
+        },
+        "elapsed_seconds": 0.002425
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 4,
+    "executed_tools": 4,
+    "timings_seconds": {
+      "interpret_request": 3.695358,
+      "prepare_context": 0.022495,
+      "retrieve_guides": 0.02957,
+      "feature_candidates": 0.013452,
+      "planning": 6.977269,
+      "tools": 0.07729,
+      "generate_answer": 4.187857
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Naruto\", \"query\": \"Naruto\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Original TV adaptation\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Naruto",
+        "query": "Naruto",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Original TV adaptation"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify which Naruto series you are referring to.\", \"decisions\": {\"p0\": {\"meaning\": \"Naruto\", \"role\": \"subject\", \"selection\": \"Naruto | anime:20\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20",
+          "role": "subject",
+          "text": "Naruto",
+          "name": "Naruto",
+          "meaning": "Naruto"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20",
+          "role": "subject",
+          "text": "Naruto",
+          "name": "Naruto",
+          "meaning": "Naruto"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Naruto"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20",
+            "role": "subject",
+            "text": "Naruto",
+            "name": "Naruto",
+            "meaning": "Naruto"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20",
+            "role": "subject",
+            "text": "Naruto",
+            "name": "Naruto",
+            "meaning": "Naruto"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Retrieve the animation studio responsible for the original Naruto series.",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "animation studio",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "animation studio"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20",
+            "section": "studios"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "20",
+          "name": "Naruto"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:20",
+          "fact": "Studio Pierrot was the main studio responsible for the original Naruto series animation."
+        },
+        {
+          "subject": "anime:20",
+          "fact": "TV Tokyo, Aniplex, and Viz Media were involved in distribution and publishing, but not the primary animation."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001433
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.695358
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.022495
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.02957
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013452
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.977269
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Retrieve the animation studio responsible for the original Naruto series.",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "animation studio",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "animation studio"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20",
+              "section": "studios"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "20",
+            "name": "Naruto"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.021108,
+      "arguments": {
+        "id": "20"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20",
+        "title": "Naruto"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "animation studio",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.036015,
+      "arguments": {
+        "query": "animation studio",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "flash",
+            "name": "Flash",
+            "description": "Created using Flash animation techniques.",
+            "category": "Technical",
+            "similarity": 0.4938
+          },
+          {
+            "kind": "tag",
+            "id": "achromatic",
+            "name": "Achromatic",
+            "description": "Contains animation that is primarily done in black and white.",
+            "category": "Technical",
+            "similarity": 0.4916
+          },
+          {
+            "kind": "tag",
+            "id": "puppetry",
+            "name": "Puppetry",
+            "description": "Animation style involving the manipulation of puppets to act out scenes.",
+            "category": "Technical",
+            "similarity": 0.4621
+          },
+          {
+            "kind": "tag",
+            "id": "tokusatsu",
+            "name": "Tokusatsu",
+            "description": "Prominently features elements that resemble special effects in Japanese live-action shows",
+            "category": "Theme-Sci-Fi",
+            "similarity": 0.4025
+          },
+          {
+            "kind": "tag",
+            "id": "software development",
+            "name": "Software Development",
+            "description": "Centers around characters developing or programming a piece of technology, software, gaming, etc.",
+            "category": "Theme-Other",
+            "similarity": 0.3775
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "animation studio"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.017742,
+      "arguments": {
+        "kind": "tag",
+        "query": "animation studio"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20",
+        "section": "studios"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.002425,
+      "arguments": {
+        "id": "20",
+        "section": "studios"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "20",
+        "title": "Naruto"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.187857
+    }
+  ]
+}

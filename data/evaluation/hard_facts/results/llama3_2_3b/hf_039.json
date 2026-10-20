@@ -1,0 +1,455 @@
+{
+  "question_id": "hf_039",
+  "anime_id": "101921",
+  "title": "Kaguya-sama: Love is War",
+  "field": "episodes",
+  "question": "How many episodes does the first Kaguya-sama: Love is War season contain?",
+  "expected_values": [
+    12.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "First season of Kaguya-sama: Love is War: 12 episodes.",
+  "extracted_values": [
+    "12"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 12.822325041999648,
+  "extraction_seconds": 0.5210197079995851,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "12",
+        "quote": "First season of Kaguya-sama: Love is War: 12 episodes."
+      }
+    ],
+    "note": "units: episodes",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101921",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101921",
+          "title": "Kaguya-sama: Love is War"
+        },
+        "elapsed_seconds": 0.010934
+      },
+      {
+        "step": 1,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101921",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101921",
+          "title": "Kaguya-sama: Love is War"
+        },
+        "elapsed_seconds": 7.6e-05
+      },
+      {
+        "step": 2,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101921",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101921",
+          "title": "Kaguya-sama: Love is War"
+        },
+        "elapsed_seconds": 6.7e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 4.572774,
+      "prepare_context": 0.016384,
+      "retrieve_guides": 0.029831,
+      "feature_candidates": 0.014219,
+      "planning": 4.819912,
+      "tools": 0.011077,
+      "generate_answer": 3.355868
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Kaguya-sama: Love is War\", \"query\": \"Kaguya-sama: Love is War S1\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Episode count for season 1\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Kaguya-sama: Love is War",
+        "query": "Kaguya-sama: Love is War S1",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Episode count for season 1"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Episode count for season 1\", \"role\": \"subject\", \"selection\": \"Kaguya-sama: Love is War | anime:101921\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101921",
+          "role": "subject",
+          "text": "Kaguya-sama: Love is War",
+          "name": "Kaguya-sama: Love is War",
+          "meaning": "Episode count for season 1"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101921",
+          "role": "subject",
+          "text": "Kaguya-sama: Love is War",
+          "name": "Kaguya-sama: Love is War",
+          "meaning": "Episode count for season 1"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Kaguya-sama: Love is War"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101921",
+            "role": "subject",
+            "text": "Kaguya-sama: Love is War",
+            "name": "Kaguya-sama: Love is War",
+            "meaning": "Episode count for season 1"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101921",
+            "role": "subject",
+            "text": "Kaguya-sama: Love is War",
+            "name": "Kaguya-sama: Love is War",
+            "meaning": "Episode count for season 1"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Get the number of episodes in the first season of Kaguya-sama: Love is War",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101921",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101921",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101921",
+            "section": "overview"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "101921",
+          "name": "Kaguya-sama: Love is War"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:101921",
+          "fact": "episodes = 12.0"
+        }
+      ],
+      "calculations": [
+        {
+          "expression": "q0",
+          "value": "12",
+          "unit": "episodes"
+        }
+      ]
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.7e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000772
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.572774
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.016384
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.029831
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014219
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.819912
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Get the number of episodes in the first season of Kaguya-sama: Love is War",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101921",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101921",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101921",
+              "section": "overview"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "101921",
+            "name": "Kaguya-sama: Love is War"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101921",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.010934,
+      "arguments": {
+        "id": "101921",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101921",
+        "title": "Kaguya-sama: Love is War"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101921",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 7.6e-05,
+      "arguments": {
+        "id": "101921",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101921",
+        "title": "Kaguya-sama: Love is War"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101921",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 6.7e-05,
+      "arguments": {
+        "id": "101921",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101921",
+        "title": "Kaguya-sama: Love is War"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.355868
+    }
+  ]
+}

@@ -1,0 +1,329 @@
+{
+  "question_id": "hf_157",
+  "anime_id": "101922",
+  "title": "Demon Slayer: Kimetsu no Yaiba",
+  "field": "main_characters",
+  "question": "Can you list the main characters of Demon Slayer season one?",
+  "expected_values": [
+    "Tanjirou Kamado",
+    "Nezuko Kamado",
+    "Inosuke Hashibira",
+    "Zenitsu Agatsuma"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Tanjirou Kamado, Nezuko Kamado, Inosuke Hashibira, and Zenitsu Agatsuma",
+  "extracted_values": [
+    "Tanjirou Kamado",
+    "Nezuko Kamado",
+    "Inosuke Hashibira",
+    "Zenitsu Agatsuma"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 10.095536583001376,
+  "extraction_seconds": 0.8403061669996532,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Tanjirou Kamado",
+        "quote": "Tanjirou Kamado, Nezuko Kamado, Inosuke Hashibira, and Zenitsu Agatsuma"
+      },
+      {
+        "value": "Nezuko Kamado",
+        "quote": "Tanjirou Kamado, Nezuko Kamado, Inosuke Hashibira, and Zenitsu Agatsuma"
+      },
+      {
+        "value": "Inosuke Hashibira",
+        "quote": "Tanjirou Kamado, Nezuko Kamado, Inosuke Hashibira, and Zenitsu Agatsuma"
+      },
+      {
+        "value": "Zenitsu Agatsuma",
+        "quote": "Tanjirou Kamado, Nezuko Kamado, Inosuke Hashibira, and Zenitsu Agatsuma"
+      }
+    ],
+    "note": "",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 4,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "status": "error",
+        "step": 0,
+        "tool": "get_character",
+        "error": "Use character IDs from dictionary or tool results first",
+        "elapsed_seconds": 6e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 0,
+    "timings_seconds": {
+      "interpret_request": 3.694312,
+      "prepare_context": 0.020348,
+      "retrieve_guides": 0.027166,
+      "feature_candidates": 0.015099,
+      "planning": 3.612698,
+      "tools": 6e-05,
+      "generate_answer": 2.723127
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Demon Slayer\", \"query\": \"Demon Slayer\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; season one\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Demon Slayer",
+        "query": "Demon Slayer",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; season one"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"TV series; season one\", \"role\": \"subject\", \"selection\": \"Demon Slayer: Kimetsu no Yaiba | anime:101922\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101922",
+          "role": "subject",
+          "text": "Demon Slayer",
+          "name": "Demon Slayer: Kimetsu no Yaiba",
+          "meaning": "TV series; season one"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101922",
+          "role": "subject",
+          "text": "Demon Slayer",
+          "name": "Demon Slayer: Kimetsu no Yaiba",
+          "meaning": "TV series; season one"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Demon Slayer: Kimetsu no Yaiba"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101922",
+            "role": "subject",
+            "text": "Demon Slayer",
+            "name": "Demon Slayer: Kimetsu no Yaiba",
+            "meaning": "TV series; season one"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101922",
+            "role": "subject",
+            "text": "Demon Slayer",
+            "name": "Demon Slayer: Kimetsu no Yaiba",
+            "meaning": "TV series; season one"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "list main characters of Demon Slayer season one",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "101922"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "101922",
+          "name": "Demon Slayer: Kimetsu no Yaiba"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:101922",
+          "fact": "Demon Slayer: Kimetsu no Yaiba has 4 main characters: Tanjirou Kamado, Nezuko Kamado, Inosuke Hashibira, and Zenitsu Agatsuma."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.9e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000816
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.694312
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.020348
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.027166
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.015099
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.612698
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "list main characters of Demon Slayer season one",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "101922"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "101922",
+            "name": "Demon Slayer: Kimetsu no Yaiba"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_character",
+      "arguments": {
+        "id": "101922"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_character",
+      "status": "error",
+      "elapsed_seconds": 6e-05,
+      "error": "Use character IDs from dictionary or tool results first"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 2.723127
+    }
+  ]
+}

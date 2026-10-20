@@ -1,0 +1,378 @@
+{
+  "question_id": "hf_113",
+  "anime_id": "140960",
+  "title": "SPY x FAMILY",
+  "field": "source_material",
+  "question": "What was SPY x FAMILY adapted from originally?",
+  "expected_values": [
+    "MANGA"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "SPY x FAMILY was adapted from the manga SPY x FAMILY CODE: White.",
+  "extracted_values": [
+    "manga",
+    "SPY x FAMILY CODE: White"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 15.262190208999982,
+  "extraction_seconds": 0.7108820410003318,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "manga",
+        "quote": "SPY x FAMILY was adapted from the manga SPY x FAMILY CODE: White."
+      },
+      {
+        "value": "SPY x FAMILY CODE: White",
+        "quote": "SPY x FAMILY was adapted from the manga SPY x FAMILY CODE: White."
+      }
+    ],
+    "note": "assertion for 'original' is missing",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.5,
+    "recall": 1.0,
+    "f1": 0.6666666666666666,
+    "tp": 1,
+    "fp": 1,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": [
+      "spy x family code: white"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "140960"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "140960",
+          "title": "SPY x FAMILY"
+        },
+        "elapsed_seconds": 0.014671
+      },
+      {
+        "step": 1,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "SPY x FAMILY source material"
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.033006
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 3.567288,
+      "prepare_context": 0.01422,
+      "retrieve_guides": 0.026141,
+      "feature_candidates": 0.014651,
+      "planning": 6.333194,
+      "tools": 0.047677,
+      "generate_answer": 5.255889
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"SPY x FAMILY\", \"query\": \"SPY x FAMILY\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "SPY x FAMILY",
+        "query": "SPY x FAMILY",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"To clarify, you are asking about the original source material for the SPY x FAMILY anime adaptation.\", \"decisions\": {\"p0\": {\"meaning\": \"SPY x FAMILY\", \"role\": \"subject\", \"selection\": \"SPY x FAMILY | anime:140960\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "140960",
+          "role": "subject",
+          "text": "SPY x FAMILY",
+          "name": "SPY x FAMILY",
+          "meaning": "SPY x FAMILY"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "140960",
+          "role": "subject",
+          "text": "SPY x FAMILY",
+          "name": "SPY x FAMILY",
+          "meaning": "SPY x FAMILY"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "SPY x FAMILY"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "140960",
+            "role": "subject",
+            "text": "SPY x FAMILY",
+            "name": "SPY x FAMILY",
+            "meaning": "SPY x FAMILY"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "140960",
+            "role": "subject",
+            "text": "SPY x FAMILY",
+            "name": "SPY x FAMILY",
+            "meaning": "SPY x FAMILY"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Retrieve the source material for SPY x FAMILY.",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "140960"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "SPY x FAMILY source material"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "140960",
+          "name": "SPY x FAMILY"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:140960",
+          "fact": "Anime: SPY x FAMILY CODE: White. Aliases: SPY x FAMILY CODE: White, SPY×FAMILY CODE: White, SxF Movie, 劇場版 スパイファミリー, SPY x FAMILY CÓDIGO: Branco."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001101
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.567288
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.01422
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.026141
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014651
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.333194
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Retrieve the source material for SPY x FAMILY.",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "140960"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "SPY x FAMILY source material"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "140960",
+            "name": "SPY x FAMILY"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "140960"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.014671,
+      "arguments": {
+        "id": "140960"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "140960",
+        "title": "SPY x FAMILY"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "SPY x FAMILY source material"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.033006,
+      "arguments": {
+        "query": "SPY x FAMILY source material"
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 5.255889
+    }
+  ]
+}

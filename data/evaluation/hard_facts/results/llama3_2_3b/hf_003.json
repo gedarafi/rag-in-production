@@ -1,0 +1,391 @@
+{
+  "question_id": "hf_003",
+  "anime_id": "113415",
+  "title": "JUJUTSU KAISEN",
+  "field": "year",
+  "question": "Which year was the first JUJUTSU KAISEN TV season released?",
+  "expected_values": [
+    2020.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "2020",
+  "extracted_values": [
+    "2020"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 11.881788749999942,
+  "extraction_seconds": 0.6885276250004608,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "2020",
+        "quote": "2020"
+      }
+    ],
+    "note": "assertion for year of first JUJUTSU KAISEN TV season release",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "113415",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "113415",
+          "title": "JUJUTSU KAISEN"
+        },
+        "elapsed_seconds": 0.017129
+      },
+      {
+        "step": 1,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "first release year of JUJUTSU KAISEN TV season",
+          "anime_ids": [
+            "113415"
+          ]
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.45612
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 2.293194,
+      "prepare_context": 0.01956,
+      "retrieve_guides": 0.027751,
+      "feature_candidates": 0.177246,
+      "planning": 4.529621,
+      "tools": 0.473249,
+      "generate_answer": 4.356757
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"JUJUTSU KAISEN\", \"query\": \"JUJUTSU KAISEN\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV season; year is a number\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "JUJUTSU KAISEN",
+        "query": "JUJUTSU KAISEN",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV season; year is a number"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"TV season; year is a number\", \"role\": \"subject\", \"selection\": \"JUJUTSU KAISEN | anime:113415\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "113415",
+          "role": "subject",
+          "text": "JUJUTSU KAISEN",
+          "name": "JUJUTSU KAISEN",
+          "meaning": "TV season; year is a number"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "113415",
+          "role": "subject",
+          "text": "JUJUTSU KAISEN",
+          "name": "JUJUTSU KAISEN",
+          "meaning": "TV season; year is a number"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "JUJUTSU KAISEN"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "113415",
+            "role": "subject",
+            "text": "JUJUTSU KAISEN",
+            "name": "JUJUTSU KAISEN",
+            "meaning": "TV season; year is a number"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "113415",
+            "role": "subject",
+            "text": "JUJUTSU KAISEN",
+            "name": "JUJUTSU KAISEN",
+            "meaning": "TV season; year is a number"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "find the release year of the first JUJUTSU KAISEN TV season",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "113415",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "first release year of JUJUTSU KAISEN TV season",
+            "anime_ids": [
+              "113415"
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "113415",
+          "name": "JUJUTSU KAISEN"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:113415",
+          "fact": "The regular TV broadcast of JUJUTSU KAISEN started on October 3rd, 2020."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 0.000164
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.002809
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.293194
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.01956
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.027751
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.177246
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.529621
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "find the release year of the first JUJUTSU KAISEN TV season",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "113415",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "first release year of JUJUTSU KAISEN TV season",
+              "anime_ids": [
+                "113415"
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "113415",
+            "name": "JUJUTSU KAISEN"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "113415",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.017129,
+      "arguments": {
+        "id": "113415",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "113415",
+        "title": "JUJUTSU KAISEN"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "first release year of JUJUTSU KAISEN TV season",
+        "anime_ids": [
+          "113415"
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.45612,
+      "arguments": {
+        "query": "first release year of JUJUTSU KAISEN TV season",
+        "anime_ids": [
+          "113415"
+        ]
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.356757
+    }
+  ]
+}

@@ -1,0 +1,365 @@
+{
+  "question_id": "hf_172",
+  "anime_id": "21355",
+  "title": "Re:ZERO -Starting Life in Another World-",
+  "field": "main_characters",
+  "question": "Who are the main cast characters listed for Re:ZERO's first TV season?",
+  "expected_values": [
+    "Emilia",
+    "Subaru Natsuki",
+    "Rem",
+    "Ram"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Emilia, Subaru Natsuki, Rem, and Ram",
+  "extracted_values": [
+    "Emilia",
+    "Subaru Natsuki",
+    "Rem",
+    "Ram"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 15.483519125000385,
+  "extraction_seconds": 0.7349389999999403,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Emilia",
+        "quote": "Emilia, Subaru Natsuki, Rem, and Ram"
+      },
+      {
+        "value": "Subaru Natsuki",
+        "quote": "Emilia, Subaru Natsuki, Rem, and Ram"
+      },
+      {
+        "value": "Rem",
+        "quote": "Emilia, Subaru Natsuki, Rem, and Ram"
+      },
+      {
+        "value": "Ram",
+        "quote": "Emilia, Subaru Natsuki, Rem, and Ram"
+      }
+    ],
+    "note": "assertion",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 4,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21355",
+          "section": "cast"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "21355",
+          "title": "Re:ZERO -Starting Life in Another World-"
+        },
+        "elapsed_seconds": 0.003732
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 3.635328,
+      "prepare_context": 0.023731,
+      "retrieve_guides": 0.02804,
+      "feature_candidates": 0.013643,
+      "planning": 4.034573,
+      "tools": 0.003732,
+      "generate_answer": 7.741491
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Re:ZERO\", \"query\": \"Re:ZERO\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; first season cast\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Re:ZERO",
+        "query": "Re:ZERO",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; first season cast"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"None\", \"decisions\": {\"p0\": {\"meaning\": \"TV series; first season cast\", \"role\": \"subject\", \"selection\": \"Re:ZERO -Starting Life in Another World- | anime:21355\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21355",
+          "role": "subject",
+          "text": "Re:ZERO",
+          "name": "Re:ZERO -Starting Life in Another World-",
+          "meaning": "TV series; first season cast"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21355",
+          "role": "subject",
+          "text": "Re:ZERO",
+          "name": "Re:ZERO -Starting Life in Another World-",
+          "meaning": "TV series; first season cast"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Re:ZERO -Starting Life in Another World-"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21355",
+            "role": "subject",
+            "text": "Re:ZERO",
+            "name": "Re:ZERO -Starting Life in Another World-",
+            "meaning": "TV series; first season cast"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21355",
+            "role": "subject",
+            "text": "Re:ZERO",
+            "name": "Re:ZERO -Starting Life in Another World-",
+            "meaning": "TV series; first season cast"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Get main cast characters for Re:ZERO's first TV season",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21355",
+            "section": "cast"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21355",
+          "name": "Re:ZERO -Starting Life in Another World-"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:21355",
+          "fact": "The main cast characters for Re:ZERO's first TV season are Emilia, Subaru Natsuki, Rem, and Ram."
+        },
+        {
+          "subject": "anime:21355",
+          "fact": "Emilia is a half-elf girl who is one of the candidates to become the next ruler in the royal election. She is good-natured and likes to take care of others, though she herself refines her nature over time."
+        },
+        {
+          "subject": "anime:21355",
+          "fact": "Subaru Natsuki is an ordinary high school student who is lost in an alternate world, where he is rescued by a beautiful, silver-haired girl. He stays near her to return the favor, but the destiny she is burdened with is more than Subaru can imagine."
+        },
+        {
+          "subject": "anime:21355",
+          "fact": "Rem is one of the twin maids working for Roswaal L Mathers. She has medium length sky blue hair that covers her right eye, large light blue eyes, and young features."
+        },
+        {
+          "subject": "anime:21355",
+          "fact": "Ram is one of the twin maids working for Roswaal L Mathers. She has medium length light pink hair that covers her left eye, large darkish pink eyes, and young features."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 8.9e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001611
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.635328
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.023731
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.02804
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013643
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.034573
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Get main cast characters for Re:ZERO's first TV season",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21355",
+              "section": "cast"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21355",
+            "name": "Re:ZERO -Starting Life in Another World-"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21355",
+        "section": "cast"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.003732,
+      "arguments": {
+        "id": "21355",
+        "section": "cast"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "21355",
+        "title": "Re:ZERO -Starting Life in Another World-"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 7.741491
+    }
+  ]
+}

@@ -1,0 +1,853 @@
+{
+  "question_id": "detectives_02",
+  "category": "tags",
+  "intent_family": "detectives",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "What are four good anime about investigators piecing together evidence to solve cases?",
+  "k": 4,
+  "constraints": [
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Detective"
+      ],
+      "alternatives": [
+        {
+          "reason": "Mystery is an acceptable broader catalog interpretation of the request for investigations and clue-solving, even when Detective is unrecorded.",
+          "constraints": [
+            {
+              "field": "genres",
+              "op": "any",
+              "value": [
+                "Mystery"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "A central investigator solving cases maps to Detective.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 1012,
+  "reference_examples": [
+    {
+      "id": "100240",
+      "title": "Tokyo Ghoul:re"
+    },
+    {
+      "id": "100332",
+      "title": "KOKKOKU"
+    },
+    {
+      "id": "100465",
+      "title": "Attack on Titan: The Roar of Awakening"
+    }
+  ],
+  "answer_text": "Catalog matches. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **SPY x FAMILY** — Everyone has a part of themselves they cannot show to anyone else. At a time when all nations of the world were involved in a fierce war of information happening behind closed doors, Ostania and Westalis had been in a state of cold war against one another for decades. The Westalis Intelligence Services' Eastern-Focused Division (WISE) sends their most talented spy, \"Twilight,\" on a top-secret mission to investigate the movements of Donovan…\n\n2. **Assassination Classroom** — The students of class 3-E have a mission: kill their teacher before graduation. He has already destroyed the moon, and has promised to destroy the Earth if he can not be killed within a year. But how can this class of misfits kill a tentacled monster, capable of reaching Mach 20 speed, who may be the best teacher any of them have ever had?\n\n3. **Hunter x Hunter (2011)** — A Hunter is one who travels the world doing all sorts of dangerous tasks. From capturing criminals to searching deep within uncharted lands for any lost treasures. Gon is a young boy whose father disappeared long ago, being a Hunter. He believes if he could also follow his father's path, he could one day reunite with him. After becoming 12, Gon leaves his home and takes on the task of entering the Hunter exam, notorious for its low success rate…\n\n4. **Tokyo Ghoul** — The suspense horror/dark fantasy story is set in Tokyo, which is haunted by mysterious \"ghouls\" who are devouring humans. People are gripped by the fear of these ghouls whose identities are masked in mystery. An ordinary college student named Kaneki encounters Rize, a girl who is an avid reader like him, at the café he frequents. Little does he realize that his fate will change overnight. (Source: Anime News Network)\n\n5. **Steins;Gate** — Self-proclaimed mad scientist Okabe Rintarou lives in a small room in Akihabara, where he invents \"future gadgets\" with fellow lab members Shiina Mayuri, his air-headed childhood friend, and Hashida Itaru, an otaku hacker. The three pass the time by tinkering with their latest creation, a \"Phone Microwave\" that can be controlled through text messages. The lab members soon face a string of mysterious incidents that lead to a game-changing…\n\nThe exact requirement 'investigators' is assessed semantically from descriptions, not verified by a catalog category.",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Steins;Gate",
+      "Tokyo Ghoul",
+      "Hunter x Hunter (2011)",
+      "Assassination Classroom",
+      "SPY x FAMILY"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Steins;Gate",
+      "anime_id": "9253",
+      "canonical_title": "Steins;Gate",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "9253"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.33
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.33,
+          "met": false,
+          "literal_score": 0.33,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.33,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Mystery is an acceptable broader catalog interpretation of the request for investigations and clue-solving, even when Detective is unrecorded.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Mystery"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.33,
+      "gain": 0.33,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Tokyo Ghoul",
+      "anime_id": "20605",
+      "canonical_title": "Tokyo Ghoul",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20605"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 0.67,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "alternative_1",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.67,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Mystery is an acceptable broader catalog interpretation of the request for investigations and clue-solving, even when Detective is unrecorded.",
+              "score": 1.0,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Mystery"
+                    ]
+                  },
+                  "score": 1.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Hunter x Hunter (2011)",
+      "anime_id": "11061",
+      "canonical_title": "Hunter x Hunter (2011)",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "11061"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Mystery is an acceptable broader catalog interpretation of the request for investigations and clue-solving, even when Detective is unrecorded.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Mystery"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Assassination Classroom",
+      "anime_id": null,
+      "canonical_title": null,
+      "resolution": "ambiguous",
+      "candidate_ids": [
+        "19759",
+        "20755"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 5,
+      "extracted_title": "SPY x FAMILY",
+      "anime_id": "140960",
+      "canonical_title": "SPY x FAMILY",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "140960"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Mystery is an acceptable broader catalog interpretation of the request for investigations and clue-solving, even when Detective is unrecorded.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Mystery"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.25,
+    "graded_fit_at_k": 0.3325,
+    "ndcg_at_k": 0.37512780523812356,
+    "constraint_coverage": 1.0,
+    "count_compliance": 0,
+    "resolution_rate": 0.8,
+    "duplicate_rate": 0.0,
+    "extra_count": 1,
+    "literal_precision_at_k": 0.25,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 10.803250124999977,
+  "extraction_seconds": 1.61923087499963,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000767
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 5.756114
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.003149
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.031788
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.011394
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.749835
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "investigator"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "investigator",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "query": "investigator",
+              "filters": [
+                {
+                  "field": "genres",
+                  "operator": "eq",
+                  "value": "Mystery"
+                },
+                {
+                  "field": "genres",
+                  "operator": "eq",
+                  "value": "Thriller"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "investigator"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.017706,
+      "arguments": {
+        "kind": "tag",
+        "query": "investigator"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "investigator",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.036063,
+      "arguments": {
+        "query": "investigator",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "detective",
+            "name": "Detective",
+            "description": "Features a character who investigates and solves crimes.",
+            "category": "Cast-Traits",
+            "similarity": 0.5864
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "recommend_anime",
+      "arguments": {
+        "query": "investigator",
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "eq",
+            "value": "Mystery"
+          },
+          {
+            "field": "genres",
+            "operator": "eq",
+            "value": "Thriller"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.194327,
+      "arguments": {
+        "query": "investigator",
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "eq",
+            "value": "Mystery"
+          },
+          {
+            "field": "genres",
+            "operator": "eq",
+            "value": "Thriller"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": []
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [
+            "The exact requirement 'investigators' is assessed semantically from descriptions, not verified by a catalog category."
+          ],
+          "mappings": []
+        },
+        "items": [
+          {
+            "id": "140960",
+            "title": "SPY x FAMILY",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.268
+          },
+          {
+            "id": "20755",
+            "title": "Assassination Classroom",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.2461
+          },
+          {
+            "id": "11061",
+            "title": "Hunter x Hunter (2011)",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.2438
+          },
+          {
+            "id": "20605",
+            "title": "Tokyo Ghoul",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.2094
+          },
+          {
+            "id": "9253",
+            "title": "Steins;Gate",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.1902
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000466
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "investigator"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.017706
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "investigator",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "detective",
+              "name": "Detective",
+              "description": "Features a character who investigates and solves crimes.",
+              "category": "Cast-Traits",
+              "similarity": 0.5864
+            }
+          ]
+        },
+        "elapsed_seconds": 0.036063
+      },
+      {
+        "step": 2,
+        "tool": "recommend_anime",
+        "arguments": {
+          "query": "investigator",
+          "filters": [
+            {
+              "field": "genres",
+              "operator": "eq",
+              "value": "Mystery"
+            },
+            {
+              "field": "genres",
+              "operator": "eq",
+              "value": "Thriller"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": []
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [
+              "The exact requirement 'investigators' is assessed semantically from descriptions, not verified by a catalog category."
+            ],
+            "mappings": []
+          },
+          "items": [
+            {
+              "id": "140960",
+              "title": "SPY x FAMILY",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.268
+            },
+            {
+              "id": "20755",
+              "title": "Assassination Classroom",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.2461
+            },
+            {
+              "id": "11061",
+              "title": "Hunter x Hunter (2011)",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.2438
+            },
+            {
+              "id": "20605",
+              "title": "Tokyo Ghoul",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.2094
+            },
+            {
+              "id": "9253",
+              "title": "Steins;Gate",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.1902
+            }
+          ]
+        },
+        "elapsed_seconds": 0.194327
+      }
+    ],
+    "llm_calls": 5,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 5.756114,
+      "prepare_context": 0.003149,
+      "retrieve_guides": 0.031788,
+      "feature_candidates": 0.011394,
+      "planning": 4.749835,
+      "tools": 0.248096,
+      "generate_answer": 0.000466
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"investigators\", \"query\": \"investigators\", \"kind\": \"tag\", \"role\": \"required\", \"meaning\": \"Required theme\"}]}",
+      "{\n  \"choice\": 1,\n  \"role\": \"required\",\n  \"operator\": \"eq\",\n  \"value\": \"Detective\",\n  \"mapping\": \"exact\"\n}",
+      "{\n  \"role\": \"required\"\n}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "investigators",
+        "query": "investigators",
+        "kind": "tag",
+        "role": "required",
+        "meaning": "Required theme"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"People who investigate and analyze evidence to solve cases\", \"role\": \"required\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "investigators",
+          "name": "",
+          "meaning": "People who investigate and analyze evidence to solve cases"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [
+        "investigators"
+      ],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [],
+      "soft_query": "investigators",
+      "limitations": [
+        "The exact requirement 'investigators' is assessed semantically from descriptions, not verified by a catalog category."
+      ],
+      "mappings": [],
+      "preference_hierarchy": [
+        {
+          "phrase": "investigators",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "exact"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "investigators",
+            "name": "",
+            "meaning": "People who investigate and analyze evidence to solve cases"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "investigator"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "investigator",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "query": "investigator",
+            "filters": [
+              {
+                "field": "genres",
+                "operator": "eq",
+                "value": "Mystery"
+              },
+              {
+                "field": "genres",
+                "operator": "eq",
+                "value": "Thriller"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

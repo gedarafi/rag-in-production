@@ -1,0 +1,526 @@
+{
+  "question_id": "hf_122",
+  "anime_id": "99423",
+  "title": "DARLING in the FRANXX",
+  "field": "source_material",
+  "question": "Where does DARLING in the FRANXX fall in terms of source material: original, manga, or novel?",
+  "expected_values": [
+    "ORIGINAL"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "DARLING in the FRANXX is an ORIGINAL work.",
+  "extracted_values": [
+    "original"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 17.237217082999905,
+  "extraction_seconds": 0.45285599999988335,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "original",
+        "quote": "DARLING in the FRANXX is an ORIGINAL work."
+      }
+    ],
+    "note": "",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "99423"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "99423",
+          "title": "DARLING in the FRANXX"
+        },
+        "elapsed_seconds": 0.01858
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "source material",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "anthology",
+              "name": "Anthology",
+              "description": "A collection of separate works collated into a single release.",
+              "category": "Technical",
+              "similarity": 0.4049
+            },
+            {
+              "kind": "tag",
+              "id": "makeup",
+              "name": "Makeup",
+              "description": "Centers around the makeup industry.",
+              "category": "Theme-Arts",
+              "similarity": 0.3508
+            },
+            {
+              "kind": "tag",
+              "id": "advertisement",
+              "name": "Advertisement",
+              "description": "Produced in order to promote the products of a certain company.",
+              "category": "Technical",
+              "similarity": 0.3332
+            },
+            {
+              "kind": "tag",
+              "id": "achromatic",
+              "name": "Achromatic",
+              "description": "Contains animation that is primarily done in black and white.",
+              "category": "Technical",
+              "similarity": 0.327
+            },
+            {
+              "kind": "tag",
+              "id": "educational",
+              "name": "Educational",
+              "description": "Primary aim is to educate the audience.",
+              "category": "Theme-Other",
+              "similarity": 0.3118
+            }
+          ]
+        },
+        "elapsed_seconds": 0.035827
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "source material"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.017887
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 4.290767,
+      "prepare_context": 0.016559,
+      "retrieve_guides": 0.030485,
+      "feature_candidates": 0.013752,
+      "planning": 6.861219,
+      "tools": 0.072294,
+      "generate_answer": 5.949276
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"DARLING in the FRANXX\", \"query\": \"DARLING in the FRANXX\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "DARLING in the FRANXX",
+        "query": "DARLING in the FRANXX",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"To clarify, are you asking about the original source material for the anime DARLING in the FRANXX, or are you asking about adaptations of the source material?\", \"decisions\": {\"p0\": {\"meaning\": \"DARLING in the FRANXX\", \"role\": \"subject\", \"selection\": \"DARLING in the FRANXX | anime:99423\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "99423",
+          "role": "subject",
+          "text": "DARLING in the FRANXX",
+          "name": "DARLING in the FRANXX",
+          "meaning": "DARLING in the FRANXX"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "99423",
+          "role": "subject",
+          "text": "DARLING in the FRANXX",
+          "name": "DARLING in the FRANXX",
+          "meaning": "DARLING in the FRANXX"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "DARLING in the FRANXX"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "99423",
+            "role": "subject",
+            "text": "DARLING in the FRANXX",
+            "name": "DARLING in the FRANXX",
+            "meaning": "DARLING in the FRANXX"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "99423",
+            "role": "subject",
+            "text": "DARLING in the FRANXX",
+            "name": "DARLING in the FRANXX",
+            "meaning": "DARLING in the FRANXX"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Retrieve source material information for DARLING in the FRANXX",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "99423"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "source material",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "source material"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "99423",
+          "name": "DARLING in the FRANXX"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:99423",
+          "fact": "The source material is ORIGINAL."
+        },
+        {
+          "subject": "anime:99423",
+          "fact": "The genres include Action, Drama, Mecha, Psychological, Romance, Sci-Fi, Cohabitation, Psychosexual, Super Robot, Orphan, Post-Apocalyptic, Primarily Teen Cast, Dystopian, Coming of Age, Tragedy, Robots, Conspiracy, Kaiju, Monster Girl, Lost Civilization, Heterosexual, Found Family, Memory Manipulation, Aliens, Male Protagonist, Travel, Environmental, Love Triangle, Military, Politics, Unrequited Love, Survival, Tsundere, Demons, LGBTQ+ Themes, Space, Body Horror, Femdom, Pregnancy, Female Prot."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001164
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.290767
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.016559
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.030485
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013752
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.861219
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Retrieve source material information for DARLING in the FRANXX",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "99423"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "source material",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "source material"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "99423",
+            "name": "DARLING in the FRANXX"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "99423"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.01858,
+      "arguments": {
+        "id": "99423"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "99423",
+        "title": "DARLING in the FRANXX"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "source material",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.035827,
+      "arguments": {
+        "query": "source material",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "anthology",
+            "name": "Anthology",
+            "description": "A collection of separate works collated into a single release.",
+            "category": "Technical",
+            "similarity": 0.4049
+          },
+          {
+            "kind": "tag",
+            "id": "makeup",
+            "name": "Makeup",
+            "description": "Centers around the makeup industry.",
+            "category": "Theme-Arts",
+            "similarity": 0.3508
+          },
+          {
+            "kind": "tag",
+            "id": "advertisement",
+            "name": "Advertisement",
+            "description": "Produced in order to promote the products of a certain company.",
+            "category": "Technical",
+            "similarity": 0.3332
+          },
+          {
+            "kind": "tag",
+            "id": "achromatic",
+            "name": "Achromatic",
+            "description": "Contains animation that is primarily done in black and white.",
+            "category": "Technical",
+            "similarity": 0.327
+          },
+          {
+            "kind": "tag",
+            "id": "educational",
+            "name": "Educational",
+            "description": "Primary aim is to educate the audience.",
+            "category": "Theme-Other",
+            "similarity": 0.3118
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "source material"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.017887,
+      "arguments": {
+        "kind": "tag",
+        "query": "source material"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 5.949276
+    }
+  ]
+}

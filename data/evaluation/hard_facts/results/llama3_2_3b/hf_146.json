@@ -1,0 +1,331 @@
+{
+  "question_id": "hf_146",
+  "anime_id": "20665",
+  "title": "Your lie in April",
+  "field": "main_animation_studios",
+  "question": "What is the main animation studio for Your Lie in April?",
+  "expected_values": [
+    "A-1 Pictures"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "A-1 Pictures",
+  "extracted_values": [
+    "A-1 Pictures"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 8.299758874998588,
+  "extraction_seconds": 0.6412211670012766,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "A-1 Pictures",
+        "quote": "A-1 Pictures"
+      }
+    ],
+    "note": "assertion for main animation studio for Your Lie in April",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20665",
+          "section": "studios"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "20665",
+          "title": "Your lie in April"
+        },
+        "elapsed_seconds": 0.006453
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 1.944044,
+      "prepare_context": 0.019674,
+      "retrieve_guides": 0.026973,
+      "feature_candidates": 0.015463,
+      "planning": 3.664889,
+      "tools": 0.006453,
+      "generate_answer": 2.619386
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Your Lie in April\", \"query\": \"Your Lie in April\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Your Lie in April",
+        "query": "Your Lie in April",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"None\", \"decisions\": {\"p0\": {\"meaning\": \"Requested title\", \"role\": \"subject\", \"selection\": \"Your lie in April | anime:20665\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20665",
+          "role": "subject",
+          "text": "Your Lie in April",
+          "name": "Your lie in April",
+          "meaning": "Requested title"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20665",
+          "role": "subject",
+          "text": "Your Lie in April",
+          "name": "Your lie in April",
+          "meaning": "Requested title"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Your lie in April"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20665",
+            "role": "subject",
+            "text": "Your Lie in April",
+            "name": "Your lie in April",
+            "meaning": "Requested title"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20665",
+            "role": "subject",
+            "text": "Your Lie in April",
+            "name": "Your lie in April",
+            "meaning": "Requested title"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Find the main animation studio for Your Lie in April",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20665",
+            "section": "studios"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "20665",
+          "name": "Your lie in April"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:20665",
+          "fact": "The main animation studio for Your Lie in April is A-1 Pictures."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.2e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001274
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 1.944044
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.019674
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.026973
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.015463
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.664889
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Find the main animation studio for Your Lie in April",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20665",
+              "section": "studios"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "20665",
+            "name": "Your lie in April"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20665",
+        "section": "studios"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.006453,
+      "arguments": {
+        "id": "20665",
+        "section": "studios"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "20665",
+        "title": "Your lie in April"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 2.619386
+    }
+  ]
+}

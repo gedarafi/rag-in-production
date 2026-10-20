@@ -1,0 +1,335 @@
+{
+  "question_id": "hf_136",
+  "anime_id": "11061",
+  "title": "Hunter x Hunter (2011)",
+  "field": "main_animation_studios",
+  "question": "Which studio animated Hunter x Hunter's 2011 TV adaptation?",
+  "expected_values": [
+    "MADHOUSE"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "MADHOUSE",
+  "extracted_values": [
+    "MADHOUSE"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 8.866116917000909,
+  "extraction_seconds": 0.47766720799882023,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "MADHOUSE",
+        "quote": "MADHOUSE"
+      }
+    ],
+    "note": "",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "11061",
+          "section": "studios"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "11061",
+          "title": "Hunter x Hunter (2011)"
+        },
+        "elapsed_seconds": 0.00314
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 1.959522,
+      "prepare_context": 0.021426,
+      "retrieve_guides": 0.026833,
+      "feature_candidates": 0.013588,
+      "planning": 3.686419,
+      "tools": 0.00314,
+      "generate_answer": 3.152807
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Hunter x Hunter\", \"query\": \"Hunter x Hunter 2011\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"2011 TV adaptation\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Hunter x Hunter",
+        "query": "Hunter x Hunter 2011",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "2011 TV adaptation"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"2011 TV adaptation\", \"role\": \"subject\", \"selection\": \"Hunter x Hunter (2011) | anime:11061\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "11061",
+          "role": "subject",
+          "text": "Hunter x Hunter",
+          "name": "Hunter x Hunter (2011)",
+          "meaning": "2011 TV adaptation"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "11061",
+          "role": "subject",
+          "text": "Hunter x Hunter",
+          "name": "Hunter x Hunter (2011)",
+          "meaning": "2011 TV adaptation"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Hunter x Hunter (2011)"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "11061",
+            "role": "subject",
+            "text": "Hunter x Hunter",
+            "name": "Hunter x Hunter (2011)",
+            "meaning": "2011 TV adaptation"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "11061",
+            "role": "subject",
+            "text": "Hunter x Hunter",
+            "name": "Hunter x Hunter (2011)",
+            "meaning": "2011 TV adaptation"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "find studio for 2011 TV adaptation",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "11061",
+            "section": "studios"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "11061",
+          "name": "Hunter x Hunter (2011)"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:11061",
+          "fact": "The 2011 TV adaptation of Hunter x Hunter was animated by MADHOUSE."
+        },
+        {
+          "subject": "anime:11061",
+          "fact": "MADHOUSE was one of the studios involved in the production of the 2011 TV adaptation."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001002
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 1.959522
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.021426
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.026833
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013588
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.686419
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "find studio for 2011 TV adaptation",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "11061",
+              "section": "studios"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "11061",
+            "name": "Hunter x Hunter (2011)"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "11061",
+        "section": "studios"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.00314,
+      "arguments": {
+        "id": "11061",
+        "section": "studios"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "11061",
+        "title": "Hunter x Hunter (2011)"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.152807
+    }
+  ]
+}

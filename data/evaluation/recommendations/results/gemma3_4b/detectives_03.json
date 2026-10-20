@@ -1,0 +1,743 @@
+{
+  "question_id": "detectives_03",
+  "category": "tags",
+  "intent_family": "detectives",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "I want five anime where following clues and figuring out who did it drives the story. What should I try?",
+  "k": 5,
+  "constraints": [
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Detective"
+      ],
+      "alternatives": [
+        {
+          "reason": "Mystery is an acceptable broader catalog interpretation of the request for investigations and clue-solving, even when Detective is unrecorded.",
+          "constraints": [
+            {
+              "field": "genres",
+              "op": "any",
+              "value": [
+                "Mystery"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "A central investigator solving cases maps to Detective.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 1012,
+  "reference_examples": [
+    {
+      "id": "100240",
+      "title": "Tokyo Ghoul:re"
+    },
+    {
+      "id": "100332",
+      "title": "KOKKOKU"
+    },
+    {
+      "id": "100465",
+      "title": "Attack on Titan: The Roar of Awakening"
+    }
+  ],
+  "answer_text": "Catalog matches. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **Frieren: Beyond Journey’s End** — The adventure is over but life goes on for an elf mage just beginning to learn what living is all about. Elf mage Frieren and her courageous fellow adventurers have defeated the Demon King and brought peace to the land. But Frieren will long outlive the rest of her former party. How will she come to understand what life means to the people around her? Decades after their victory, the funeral of one her friends confronts Frieren with her own near…\n\n2. **Fullmetal Alchemist: Brotherhood** — \"In order for something to be obtained, something of equal value must be lost.\" Alchemy is bound by this Law of Equivalent Exchange—something the young brothers Edward and Alphonse Elric only realize after attempting human transmutation: the one forbidden act of alchemy. They pay a terrible price for their transgression—Edward loses his left leg, Alphonse his physical body. It is only by the desperate sacrifice of Edward's right arm that he is…\n\n3. **Chainsaw Man – The Movie: Reze Arc** — Denji became “Chainsaw Man”, a boy with a devil’s heart, and is now part of Special Division 4’s devil hunters. After a date with Makima, the woman of his dreams, Denji takes shelter from the rain. There he meets Reze, a girl who works in a café. (Source: MAPPA CHANNEL)\n\n4. **Gintama Season 3** — Gintoki, Shinpachi, and Kagura return as the fun-loving but broke members of the Yorozuya team! Living in an alternate-reality Edo, where swords are prohibited and alien overlords have conquered Japan, they try to thrive on doing whatever work they can get their hands on. However, Shinpachi and Kagura still haven't been paid... Does Gin-chan really spend all that cash playing pachinko? Meanwhile, when Gintoki drunkenly staggers home one night…\n\n5. **Gintama: THE VERY FINAL** — Two years have passed following the Tendoshuu's invasion of the O-Edo Central Terminal. Since then, the Yorozuya have gone their separate ways. Foreseeing Utsuro's return, Gintoki Sakata begins surveying Earth's ley lines for traces of the other man's Altana. After an encounter with the remnants of the Tendoshuu—who continue to press on in search of immortality—Gintoki returns to Edo. Later, the regrouped Shinsengumi and Yorozuya begin an attack…\n\nThe exact requirement 'five anime' is assessed semantically from descriptions, not verified by a catalog category. The exact requirement 'following clues and figuring out who did it drives the story' is assessed semantically from descriptions, not verified by a catalog category.",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Frieren: Beyond Journey’s End",
+      "Fullmetal Alchemist: Brotherhood",
+      "Chainsaw Man - The Movie: Reze Arc",
+      "Gintama Season 3",
+      "Gintama: THE VERY FINAL"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Frieren: Beyond Journey’s End",
+      "anime_id": "154587",
+      "canonical_title": "Frieren: Beyond Journey’s End",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "154587"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Mystery is an acceptable broader catalog interpretation of the request for investigations and clue-solving, even when Detective is unrecorded.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Mystery"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Fullmetal Alchemist: Brotherhood",
+      "anime_id": "5114",
+      "canonical_title": "Fullmetal Alchemist: Brotherhood",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "5114"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Mystery is an acceptable broader catalog interpretation of the request for investigations and clue-solving, even when Detective is unrecorded.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Mystery"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Chainsaw Man - The Movie: Reze Arc",
+      "anime_id": "171627",
+      "canonical_title": "Chainsaw Man – The Movie: Reze Arc",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "171627"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Mystery is an acceptable broader catalog interpretation of the request for investigations and clue-solving, even when Detective is unrecorded.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Mystery"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Gintama Season 3",
+      "anime_id": "20996",
+      "canonical_title": "Gintama Season 3",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20996"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Mystery is an acceptable broader catalog interpretation of the request for investigations and clue-solving, even when Detective is unrecorded.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Mystery"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Gintama: THE VERY FINAL",
+      "anime_id": "114129",
+      "canonical_title": "Gintama: THE VERY FINAL",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "114129"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Mystery is an acceptable broader catalog interpretation of the request for investigations and clue-solving, even when Detective is unrecorded.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Mystery"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.0,
+    "graded_fit_at_k": 0.0,
+    "ndcg_at_k": 0.0,
+    "constraint_coverage": 0.0,
+    "count_compliance": 1,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "extra_count": 0,
+    "literal_precision_at_k": 0.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 18.36492620900026,
+  "extraction_seconds": 1.7829182079995007,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 3.7e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000731
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 12.180081
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.003828
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.041456
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.012515
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.039535
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "I need five anime where the plot revolves around solving a mystery and uncovering clues.",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "query": "mystery clues investigation",
+              "limit": 5,
+              "sort_by": "score",
+              "sort_order": "desc"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "query": "mystery clues investigation",
+        "limit": 5,
+        "sort_by": "score",
+        "sort_order": "desc"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.084748,
+      "arguments": {
+        "query": "mystery clues investigation",
+        "limit": 5,
+        "sort_by": "score",
+        "sort_order": "desc"
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "sort_by": "score",
+          "sort_order": "desc",
+          "filters": []
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [
+            "The exact requirement 'five anime' is assessed semantically from descriptions, not verified by a catalog category.",
+            "The exact requirement 'following clues and figuring out who did it drives the story' is assessed semantically from descriptions, not verified by a catalog category."
+          ],
+          "mappings": []
+        },
+        "items": [
+          {
+            "id": "154587",
+            "title": "Frieren: Beyond Journey’s End",
+            "reason": "Matches: sort_by=score, sort_order=desc, filters=[]"
+          },
+          {
+            "id": "5114",
+            "title": "Fullmetal Alchemist: Brotherhood",
+            "reason": "Matches: sort_by=score, sort_order=desc, filters=[]"
+          },
+          {
+            "id": "171627",
+            "title": "Chainsaw Man – The Movie: Reze Arc",
+            "reason": "Matches: sort_by=score, sort_order=desc, filters=[]"
+          },
+          {
+            "id": "20996",
+            "title": "Gintama Season 3",
+            "reason": "Matches: sort_by=score, sort_order=desc, filters=[]"
+          },
+          {
+            "id": "114129",
+            "title": "Gintama: THE VERY FINAL",
+            "reason": "Matches: sort_by=score, sort_order=desc, filters=[]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000449
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "query": "mystery clues investigation",
+          "limit": 5,
+          "sort_by": "score",
+          "sort_order": "desc"
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "sort_by": "score",
+            "sort_order": "desc",
+            "filters": []
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [
+              "The exact requirement 'five anime' is assessed semantically from descriptions, not verified by a catalog category.",
+              "The exact requirement 'following clues and figuring out who did it drives the story' is assessed semantically from descriptions, not verified by a catalog category."
+            ],
+            "mappings": []
+          },
+          "items": [
+            {
+              "id": "154587",
+              "title": "Frieren: Beyond Journey’s End",
+              "reason": "Matches: sort_by=score, sort_order=desc, filters=[]"
+            },
+            {
+              "id": "5114",
+              "title": "Fullmetal Alchemist: Brotherhood",
+              "reason": "Matches: sort_by=score, sort_order=desc, filters=[]"
+            },
+            {
+              "id": "171627",
+              "title": "Chainsaw Man – The Movie: Reze Arc",
+              "reason": "Matches: sort_by=score, sort_order=desc, filters=[]"
+            },
+            {
+              "id": "20996",
+              "title": "Gintama Season 3",
+              "reason": "Matches: sort_by=score, sort_order=desc, filters=[]"
+            },
+            {
+              "id": "114129",
+              "title": "Gintama: THE VERY FINAL",
+              "reason": "Matches: sort_by=score, sort_order=desc, filters=[]"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.084748
+      }
+    ],
+    "llm_calls": 7,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 12.180081,
+      "prepare_context": 0.003828,
+      "retrieve_guides": 0.041456,
+      "feature_candidates": 0.012515,
+      "planning": 6.039535,
+      "tools": 0.084748,
+      "generate_answer": 0.000449
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"five anime\", \"query\": \"five anime\", \"kind\": \"genre\", \"role\": \"required\", \"meaning\": \"Number of recommendations\"}, {\"text\": \"following clues and figuring out who did it drives the story\", \"query\": \"following clues and figuring out who did it drives the story\", \"kind\": \"tag\", \"role\": \"required\", \"meaning\": \"Content criteria\"}]}",
+      "{\"choice\": 1, \"role\": \"required\", \"operator\": \"eq\", \"value\": \"Mystery\", \"mapping\": \"exact\"}",
+      "{\"role\": \"required\"}",
+      "{\"choice\": 1, \"role\": \"required\", \"operator\": \"eq\", \"value\": \"Mystery\", \"mapping\": \"exact\"}",
+      "{\"role\": \"required\"}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "five anime",
+        "query": "five anime",
+        "kind": "genre",
+        "role": "required",
+        "meaning": "Number of recommendations"
+      },
+      {
+        "text": "following clues and figuring out who did it drives the story",
+        "query": "following clues and figuring out who did it drives the story",
+        "kind": "tag",
+        "role": "required",
+        "meaning": "Content criteria"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify the genre or themes you are interested in for these five anime recommendations.\",\"decisions\": {\"p0\": {\"meaning\": \"Number of recommendations\", \"role\": \"required\", \"selection\": \"unmapped description\" }, \"p1\": {\"meaning\": \"Content criteria\", \"role\": \"required\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "five anime",
+          "name": "",
+          "meaning": "Number of recommendations"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "following clues and figuring out who did it drives the story",
+          "name": "",
+          "meaning": "Content criteria"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [
+        "five anime",
+        "following clues and figuring out who did it drives the story"
+      ],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [],
+      "soft_query": "five anime following clues and figuring out who did it drives the story",
+      "limitations": [
+        "The exact requirement 'five anime' is assessed semantically from descriptions, not verified by a catalog category.",
+        "The exact requirement 'following clues and figuring out who did it drives the story' is assessed semantically from descriptions, not verified by a catalog category."
+      ],
+      "mappings": [],
+      "preference_hierarchy": [
+        {
+          "phrase": "five anime",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "exact"
+        },
+        {
+          "phrase": "following clues and figuring out who did it drives the story",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "exact"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "five anime",
+            "name": "",
+            "meaning": "Number of recommendations"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "following clues and figuring out who did it drives the story",
+            "name": "",
+            "meaning": "Content criteria"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "I need five anime where the plot revolves around solving a mystery and uncovering clues.",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "query": "mystery clues investigation",
+            "limit": 5,
+            "sort_by": "score",
+            "sort_order": "desc"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

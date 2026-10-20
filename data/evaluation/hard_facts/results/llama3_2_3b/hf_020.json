@@ -1,0 +1,391 @@
+{
+  "question_id": "hf_020",
+  "anime_id": "20464",
+  "title": "HAIKYU!!",
+  "field": "year",
+  "question": "When did Haikyu's first TV season start? Please give the year.",
+  "expected_values": [
+    2014.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "2014",
+  "extracted_values": [
+    "2014"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 8.894275083999673,
+  "extraction_seconds": 0.6392255829996429,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "2014",
+        "quote": "2014"
+      }
+    ],
+    "note": "assertion for year of first TV season of Haikyu",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20464",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20464",
+          "title": "HAIKYU!!"
+        },
+        "elapsed_seconds": 0.013387
+      },
+      {
+        "step": 1,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20464",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20464",
+          "title": "HAIKYU!!"
+        },
+        "elapsed_seconds": 0.000152
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 2.112752,
+      "prepare_context": 0.015371,
+      "retrieve_guides": 0.029348,
+      "feature_candidates": 0.013884,
+      "planning": 4.156231,
+      "tools": 0.013539,
+      "generate_answer": 2.548274
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Haikyu\", \"query\": \"Haikyu\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; first season is a noun\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Haikyu",
+        "query": "Haikyu",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; first season is a noun"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"TV series; first season is a noun\", \"role\": \"subject\", \"selection\": \"HAIKYU!! | anime:20464\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20464",
+          "role": "subject",
+          "text": "Haikyu",
+          "name": "HAIKYU!!",
+          "meaning": "TV series; first season is a noun"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20464",
+          "role": "subject",
+          "text": "Haikyu",
+          "name": "HAIKYU!!",
+          "meaning": "TV series; first season is a noun"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "HAIKYU!!"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20464",
+            "role": "subject",
+            "text": "Haikyu",
+            "name": "HAIKYU!!",
+            "meaning": "TV series; first season is a noun"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20464",
+            "role": "subject",
+            "text": "Haikyu",
+            "name": "HAIKYU!!",
+            "meaning": "TV series; first season is a noun"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "find the start year of Haikyu's first TV season",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20464",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20464",
+            "section": "overview"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "20464",
+          "name": "HAIKYU!!"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:20464",
+          "fact": "The first TV season of Haikyuu!! started in 2014."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 0.000139
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.002909
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.112752
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.015371
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.029348
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013884
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.156231
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "find the start year of Haikyu's first TV season",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20464",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20464",
+              "section": "overview"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "20464",
+            "name": "HAIKYU!!"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20464",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.013387,
+      "arguments": {
+        "id": "20464",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20464",
+        "title": "HAIKYU!!"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20464",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000152,
+      "arguments": {
+        "id": "20464",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20464",
+        "title": "HAIKYU!!"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 2.548274
+    }
+  ]
+}

@@ -1,0 +1,1074 @@
+{
+  "question_id": "short_episodes_03",
+  "category": "length",
+  "intent_family": "short_episodes",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "I want five anime made for TV that I can watch one episode at a time in fifteen minutes or less.",
+  "k": 5,
+  "constraints": [
+    {
+      "field": "format",
+      "op": "any",
+      "value": [
+        "TV",
+        "TV_SHORT"
+      ]
+    },
+    {
+      "field": "duration",
+      "op": "lte",
+      "value": 15
+    }
+  ],
+  "label_rationale": "Duration is minutes per episode, not total series runtime.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 1310,
+  "reference_examples": [
+    {
+      "id": "100009",
+      "title": "Space Battleship Tiramisu"
+    },
+    {
+      "id": "100093",
+      "title": "Skull-face Bookseller Honda-san"
+    },
+    {
+      "id": "100133",
+      "title": "One Room SECOND SEASON"
+    }
+  ],
+  "answer_text": "Catalog matches — episode count: at most 50; minutes per episode: over 15; format: TV. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **Demon Slayer: Kimetsu no Yaiba Entertainment District Arc** (11 episodes; 24 min/episode) — After visiting the Rengoku residence, Tanjirou and his comrades volunteer for a mission within the Entertainment District, a place where desires are sold and demons dwell. They journey alongside the flashy Sound Hashira, Tengen Uzui, in search of a monstrous foe terrorizing the town. Sworn to slay creatures of the night, the hunt continues. (Source: Funimation) Note: - The first episode aired with a runtime of ~47 minutes. - The last episode…\n\n2. **No Game, No Life** (12 episodes; 24 min/episode) — Bored with life and considering the real world to be just a “crappy game,” savvy sibling shut-ins Sora and Shiro have withdrawn into their own fantasy world filled with video games. However, one day they find themselves summoned to another world by a boy who calls himself “God,” their abilities are about to be put to the ultimate test! Now not only their fates — but the fate of all of humanity — will be decided by a series of games that may just…\n\n3. **The Devil is a Part-Timer!** (13 episodes; 24 min/episode) — Devil King Sadao is only one step away from conquering the world when he is beaten by Hero Emilia and forced to drift to the other world: modern-day Tokyo. As \"conquering the world\" are the only skills the Devil King possesses—and are obviously unnecessary in his new situation—he must work as a freeter to pay for his living expenses!\n\n4. **One-Punch Man** (12 episodes; 24 min/episode) — Saitama has a rather peculiar hobby, being a superhero, but despite his heroic deeds and superhuman abilities, a shadow looms over his life. He's become much too powerful, to the point that every opponent ends up defeated with a single punch. The lack of challenge has driven him into a state of apathy, as he watches his life pass by having lost all enthusiasm, at least until he's unwillingly thrust in the role of being a mentor to the young and…\n\n5. **Angel Beats!** (13 episodes; 24 min/episode) — Otonashi wakes up in the afterlife to find out he has no memories of his life before death. Desperate to survive in a war that could yield another unfortunate fate, he joins the SSS in the battle against Angel, whose very mission is to destroy all inhabitants of this afterlife. As Otonashi struggles to recover his memory and learn more about this world, he finds that not all is as it had seemed. (Source: Funimation)\n\nInterpreting brevity as at most 50 episodes. Prioritizing titles with 10–19 episodes; this is a preference, not a strict category. The exact requirement 'five anime' is assessed semantically from descriptions, not verified by a catalog category. The exact requirement 'made for TV' is assessed semantically from descriptions, not verified by a catalog category.",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Demon Slayer: Kimetsu no Yaiba Entertainment District Arc",
+      "No Game, No Life",
+      "The Devil is a Part-Timer!",
+      "One-Punch Man",
+      "Angel Beats!"
+    ],
+    "unclear": false,
+    "note": "Note: - The first episode aired with a runtime of ~47 minutes. - The last episode…",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Demon Slayer: Kimetsu no Yaiba Entertainment District Arc",
+      "anime_id": "142329",
+      "canonical_title": "Demon Slayer: Kimetsu no Yaiba Entertainment District Arc",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "142329"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.5,
+      "gain": 0.5,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 2,
+      "extracted_title": "No Game, No Life",
+      "anime_id": "19815",
+      "canonical_title": "No Game, No Life",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "19815"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.5,
+      "gain": 0.5,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 3,
+      "extracted_title": "The Devil is a Part-Timer!",
+      "anime_id": null,
+      "canonical_title": null,
+      "resolution": "ambiguous",
+      "candidate_ids": [
+        "130592",
+        "15809"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        0.0
+      ],
+      "constraint_evidence": [],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 4,
+      "extracted_title": "One-Punch Man",
+      "anime_id": "21087",
+      "canonical_title": "One-Punch Man",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21087"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.5,
+      "gain": 0.5,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Angel Beats!",
+      "anime_id": "6547",
+      "canonical_title": "Angel Beats!",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "6547"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.5,
+      "gain": 0.5,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.0,
+    "graded_fit_at_k": 0.4,
+    "ndcg_at_k": 0.415209948681596,
+    "constraint_coverage": 0.5,
+    "count_compliance": 1,
+    "resolution_rate": 0.8,
+    "duplicate_rate": 0.0,
+    "extra_count": 0,
+    "literal_precision_at_k": 0.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 18.218000167000355,
+  "extraction_seconds": 2.2113384999993286,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000895
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 12.963613
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.002249
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.032487
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.011913
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.936539
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_five_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "five anime made for TV that I can watch one episode at a time in fifteen minutes or less",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "format",
+                  "operator": "eq",
+                  "value": "TV"
+                },
+                {
+                  "field": "duration",
+                  "operator": "lt",
+                  "value": "15"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "five anime made for TV that I can watch one episode at a time in fifteen minutes or less",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.032493,
+      "arguments": {
+        "query": "five anime made for TV that I can watch one episode at a time in fifteen minutes or less",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "ensemble cast",
+            "name": "Ensemble Cast",
+            "description": "Features a large cast of characters with (almost) equal screen time and importance to the plot.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.3913
+          },
+          {
+            "kind": "tag",
+            "id": "time skip",
+            "name": "Time Skip",
+            "description": "Features a gap in time used to advance the story.",
+            "category": "Setting-Time",
+            "similarity": 0.3571
+          },
+          {
+            "kind": "tag",
+            "id": "time loop",
+            "name": "Time Loop",
+            "description": "A character is stuck in a repetitive cycle that they are attempting to break out of. This is distinct from a manipulating time of their own choice.",
+            "category": "Theme-Sci-Fi",
+            "similarity": 0.309
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "format",
+            "operator": "eq",
+            "value": "TV"
+          },
+          {
+            "field": "duration",
+            "operator": "lt",
+            "value": "15"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.235502,
+      "arguments": {
+        "filters": [
+          {
+            "field": "format",
+            "operator": "eq",
+            "value": "TV"
+          },
+          {
+            "field": "duration",
+            "operator": "lt",
+            "value": "15"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "episodes",
+              "operator": "lte",
+              "value": "50"
+            },
+            {
+              "field": "duration",
+              "operator": "gt",
+              "value": "15"
+            },
+            {
+              "field": "format",
+              "operator": "eq",
+              "value": "TV"
+            }
+          ],
+          "numeric_preferences": [
+            {
+              "field": "episodes",
+              "min": 10,
+              "max": 19
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [
+            "Interpreting brevity as at most 50 episodes. Prioritizing titles with 10–19 episodes; this is a preference, not a strict category.",
+            "The exact requirement 'five anime' is assessed semantically from descriptions, not verified by a catalog category.",
+            "The exact requirement 'made for TV' is assessed semantically from descriptions, not verified by a catalog category."
+          ],
+          "mappings": [
+            {
+              "field": "episodes",
+              "operator": "lte",
+              "value": "50",
+              "source_text": "I want five anime made for TV that I can watch one episode at a time in fifteen minutes or less.",
+              "mapping": "broader"
+            },
+            {
+              "field": "duration",
+              "operator": "gt",
+              "value": "15",
+              "source_text": "one episode at a time",
+              "mapping": "exact"
+            },
+            {
+              "field": "format",
+              "operator": "eq",
+              "value": "TV",
+              "source_text": "I want five anime made for TV that I can watch one episode at a time in fifteen minutes or less.",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "142329",
+            "title": "Demon Slayer: Kimetsu no Yaiba Entertainment District Arc",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '50'}, {'field': 'duration', 'operator': 'gt', 'value': '15'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}], numeric_preferences=[{'field': 'episodes', 'min': 10, 'max': 19}]",
+            "preference_similarity": 0.4121
+          },
+          {
+            "id": "19815",
+            "title": "No Game, No Life",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '50'}, {'field': 'duration', 'operator': 'gt', 'value': '15'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}], numeric_preferences=[{'field': 'episodes', 'min': 10, 'max': 19}]",
+            "preference_similarity": 0.3745
+          },
+          {
+            "id": "15809",
+            "title": "The Devil is a Part-Timer!",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '50'}, {'field': 'duration', 'operator': 'gt', 'value': '15'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}], numeric_preferences=[{'field': 'episodes', 'min': 10, 'max': 19}]",
+            "preference_similarity": 0.3612
+          },
+          {
+            "id": "21087",
+            "title": "One-Punch Man",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '50'}, {'field': 'duration', 'operator': 'gt', 'value': '15'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}], numeric_preferences=[{'field': 'episodes', 'min': 10, 'max': 19}]",
+            "preference_similarity": 0.3531
+          },
+          {
+            "id": "6547",
+            "title": "Angel Beats!",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '50'}, {'field': 'duration', 'operator': 'gt', 'value': '15'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}], numeric_preferences=[{'field': 'episodes', 'min': 10, 'max': 19}]",
+            "preference_similarity": 0.3497
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000559
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "five anime made for TV that I can watch one episode at a time in fifteen minutes or less",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "ensemble cast",
+              "name": "Ensemble Cast",
+              "description": "Features a large cast of characters with (almost) equal screen time and importance to the plot.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.3913
+            },
+            {
+              "kind": "tag",
+              "id": "time skip",
+              "name": "Time Skip",
+              "description": "Features a gap in time used to advance the story.",
+              "category": "Setting-Time",
+              "similarity": 0.3571
+            },
+            {
+              "kind": "tag",
+              "id": "time loop",
+              "name": "Time Loop",
+              "description": "A character is stuck in a repetitive cycle that they are attempting to break out of. This is distinct from a manipulating time of their own choice.",
+              "category": "Theme-Sci-Fi",
+              "similarity": 0.309
+            }
+          ]
+        },
+        "elapsed_seconds": 0.032493
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "format",
+              "operator": "eq",
+              "value": "TV"
+            },
+            {
+              "field": "duration",
+              "operator": "lt",
+              "value": "15"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "episodes",
+                "operator": "lte",
+                "value": "50"
+              },
+              {
+                "field": "duration",
+                "operator": "gt",
+                "value": "15"
+              },
+              {
+                "field": "format",
+                "operator": "eq",
+                "value": "TV"
+              }
+            ],
+            "numeric_preferences": [
+              {
+                "field": "episodes",
+                "min": 10,
+                "max": 19
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [
+              "Interpreting brevity as at most 50 episodes. Prioritizing titles with 10–19 episodes; this is a preference, not a strict category.",
+              "The exact requirement 'five anime' is assessed semantically from descriptions, not verified by a catalog category.",
+              "The exact requirement 'made for TV' is assessed semantically from descriptions, not verified by a catalog category."
+            ],
+            "mappings": [
+              {
+                "field": "episodes",
+                "operator": "lte",
+                "value": "50",
+                "source_text": "I want five anime made for TV that I can watch one episode at a time in fifteen minutes or less.",
+                "mapping": "broader"
+              },
+              {
+                "field": "duration",
+                "operator": "gt",
+                "value": "15",
+                "source_text": "one episode at a time",
+                "mapping": "exact"
+              },
+              {
+                "field": "format",
+                "operator": "eq",
+                "value": "TV",
+                "source_text": "I want five anime made for TV that I can watch one episode at a time in fifteen minutes or less.",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "142329",
+              "title": "Demon Slayer: Kimetsu no Yaiba Entertainment District Arc",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '50'}, {'field': 'duration', 'operator': 'gt', 'value': '15'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}], numeric_preferences=[{'field': 'episodes', 'min': 10, 'max': 19}]",
+              "preference_similarity": 0.4121
+            },
+            {
+              "id": "19815",
+              "title": "No Game, No Life",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '50'}, {'field': 'duration', 'operator': 'gt', 'value': '15'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}], numeric_preferences=[{'field': 'episodes', 'min': 10, 'max': 19}]",
+              "preference_similarity": 0.3745
+            },
+            {
+              "id": "15809",
+              "title": "The Devil is a Part-Timer!",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '50'}, {'field': 'duration', 'operator': 'gt', 'value': '15'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}], numeric_preferences=[{'field': 'episodes', 'min': 10, 'max': 19}]",
+              "preference_similarity": 0.3612
+            },
+            {
+              "id": "21087",
+              "title": "One-Punch Man",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '50'}, {'field': 'duration', 'operator': 'gt', 'value': '15'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}], numeric_preferences=[{'field': 'episodes', 'min': 10, 'max': 19}]",
+              "preference_similarity": 0.3531
+            },
+            {
+              "id": "6547",
+              "title": "Angel Beats!",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'lte', 'value': '50'}, {'field': 'duration', 'operator': 'gt', 'value': '15'}, {'field': 'format', 'operator': 'eq', 'value': 'TV'}], numeric_preferences=[{'field': 'episodes', 'min': 10, 'max': 19}]",
+              "preference_similarity": 0.3497
+            }
+          ]
+        },
+        "elapsed_seconds": 0.235502
+      }
+    ],
+    "llm_calls": 10,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 12.963613,
+      "prepare_context": 0.002249,
+      "retrieve_guides": 0.032487,
+      "feature_candidates": 0.011913,
+      "planning": 4.936539,
+      "tools": 0.267995,
+      "generate_answer": 0.000559
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"TV anime\", \"query\": \"TV anime\", \"kind\": \"genre\", \"role\": \"excluded\", \"meaning\": \"Excluded medium\"}]}",
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"one episode at a time\", \"query\": \"one episode at a time\", \"kind\": \"tag\", \"role\": \"excluded\", \"meaning\": \"Excluded viewing style\"}, {\"text\": \"fifteen minutes or less\", \"query\": \"fifteen minutes or less\", \"kind\": \"tag\", \"role\": \"excluded\", \"meaning\": \"Excluded viewing time\"}, {\"text\": \"TV anime\", \"query\": \"TV anime\", \"kind\": \"genre\", \"role\": \"excluded\", \"meaning\": \"Excluded medium\"}, {\"text\": \"five anime\", \"query\": \"five anime\", \"kind\": \"tag\", \"role\": \"required\", \"meaning\": \"Required quantity\"}, {\"text\": \"made for TV\", \"query\": \"made for TV\", \"kind\": \"tag\", \"role\": \"excluded\", \"meaning\": \"Excluded production type\"}]}",
+      "{\n  \"min\": 15,\n  \"max\": null\n}",
+      "{\n  \"applies\": true,\n  \"operator\": \"eq\",\n  \"value\": \"TV\"\n}",
+      "{\n  \"choice\": 1,\n  \"role\": \"required\",\n  \"operator\": \"eq\",\n  \"value\": \"4-koma\",\n  \"mapping\": \"exact\"\n}",
+      "{\n  \"role\": \"required\"\n}",
+      "{\n  \"choice\": 1,\n  \"role\": \"required\",\n  \"operator\": \"eq\",\n  \"value\": \"TV\",\n  \"mapping\": \"exact\"\n}",
+      "{\n  \"role\": \"required\"\n}"
+    ],
+    "mention_classification_corrections": [
+      "Mention must be supported by the user request or selected user history: ['TV anime']"
+    ],
+    "unsupported_mentions": [
+      {
+        "text": "TV anime",
+        "query": "TV anime",
+        "kind": "genre",
+        "role": "excluded",
+        "meaning": "Excluded medium"
+      }
+    ],
+    "typed_mentions": [
+      {
+        "text": "one episode at a time",
+        "query": "one episode at a time",
+        "kind": "tag",
+        "role": "excluded",
+        "meaning": "Excluded viewing style"
+      },
+      {
+        "text": "fifteen minutes or less",
+        "query": "fifteen minutes or less",
+        "kind": "tag",
+        "role": "excluded",
+        "meaning": "Excluded viewing time"
+      },
+      {
+        "text": "five anime",
+        "query": "five anime",
+        "kind": "tag",
+        "role": "required",
+        "meaning": "Required quantity"
+      },
+      {
+        "text": "made for TV",
+        "query": "made for TV",
+        "kind": "tag",
+        "role": "excluded",
+        "meaning": "Excluded production type"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Excluded viewing style\", \"role\": \"excluded\", \"selection\": \"unmapped description\"}, \"p1\": {\"meaning\": \"Excluded viewing time\", \"role\": \"excluded\", \"selection\": \"unmapped description\"}, \"p2\": {\"meaning\": \"Required quantity\", \"role\": \"required\", \"selection\": \"unmapped description\"}, \"p3\": {\"meaning\": \"Excluded production type\", \"role\": \"excluded\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "excluded",
+          "text": "one episode at a time",
+          "name": "",
+          "meaning": "Excluded viewing style"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "excluded",
+          "text": "fifteen minutes or less",
+          "name": "",
+          "meaning": "Excluded viewing time"
+        },
+        {
+          "phrase_index": 2,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "five anime",
+          "name": "",
+          "meaning": "Required quantity"
+        },
+        {
+          "phrase_index": 3,
+          "kind": "description",
+          "id": "",
+          "role": "excluded",
+          "text": "made for TV",
+          "name": "",
+          "meaning": "Excluded production type"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {
+      "episodes": {
+        "sources": [
+          "I want five anime made for TV that I can watch one episode at a time in fifteen minutes or less."
+        ],
+        "interpretations": [
+          "brief"
+        ]
+      },
+      "duration": {
+        "sources": [
+          "one episode at a time",
+          "fifteen minutes or less"
+        ],
+        "interpretations": [
+          "brief",
+          "range"
+        ]
+      }
+    },
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [
+        "five anime"
+      ],
+      "excluded": [
+        "one episode at a time",
+        "fifteen minutes or less",
+        "made for TV"
+      ],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "episodes",
+          "operator": "lte",
+          "value": "50"
+        },
+        {
+          "field": "duration",
+          "operator": "gt",
+          "value": "15"
+        },
+        {
+          "field": "format",
+          "operator": "eq",
+          "value": "TV"
+        }
+      ],
+      "soft_query": "five anime made for TV",
+      "limitations": [
+        "Interpreting brevity as at most 50 episodes. Prioritizing titles with 10–19 episodes; this is a preference, not a strict category.",
+        "The exact requirement 'five anime' is assessed semantically from descriptions, not verified by a catalog category.",
+        "The exact requirement 'made for TV' is assessed semantically from descriptions, not verified by a catalog category."
+      ],
+      "mappings": [
+        {
+          "field": "episodes",
+          "operator": "lte",
+          "value": "50",
+          "source_text": "I want five anime made for TV that I can watch one episode at a time in fifteen minutes or less.",
+          "mapping": "broader"
+        },
+        {
+          "field": "duration",
+          "operator": "gt",
+          "value": "15",
+          "source_text": "one episode at a time",
+          "mapping": "exact"
+        },
+        {
+          "field": "format",
+          "operator": "eq",
+          "value": "TV",
+          "source_text": "I want five anime made for TV that I can watch one episode at a time in fifteen minutes or less.",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "five anime",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "exact"
+        },
+        {
+          "phrase": "made for TV",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "exact"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [
+        {
+          "field": "episodes",
+          "min": 10,
+          "max": 19
+        }
+      ],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "excluded",
+            "text": "one episode at a time",
+            "name": "",
+            "meaning": "Excluded viewing style"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "excluded",
+            "text": "fifteen minutes or less",
+            "name": "",
+            "meaning": "Excluded viewing time"
+          },
+          {
+            "phrase_index": 2,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "five anime",
+            "name": "",
+            "meaning": "Required quantity"
+          },
+          {
+            "phrase_index": 3,
+            "kind": "description",
+            "id": "",
+            "role": "excluded",
+            "text": "made for TV",
+            "name": "",
+            "meaning": "Excluded production type"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_five_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "five anime made for TV that I can watch one episode at a time in fifteen minutes or less",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "format",
+                "operator": "eq",
+                "value": "TV"
+              },
+              {
+                "field": "duration",
+                "operator": "lt",
+                "value": "15"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

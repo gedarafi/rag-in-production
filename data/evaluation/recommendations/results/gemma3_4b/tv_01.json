@@ -1,0 +1,168 @@
+{
+  "question_id": "tv_01",
+  "category": "formats",
+  "intent_family": "tv",
+  "wording": "explicit",
+  "question_origin": "authored_naturalistic",
+  "question": "Recommend three anime released as TV series, not TV shorts.",
+  "k": 3,
+  "constraints": [
+    {
+      "field": "format",
+      "op": "any",
+      "value": [
+        "TV"
+      ]
+    }
+  ],
+  "label_rationale": "TV format only; web-only series and TV_SHORT are different catalog formats.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 4555,
+  "reference_examples": [
+    {
+      "id": "1",
+      "title": "Cowboy Bebop"
+    },
+    {
+      "id": "100",
+      "title": "Prétear: The New Legend of Snow White"
+    },
+    {
+      "id": "1000",
+      "title": "Captain Harlock Space Pirate"
+    }
+  ],
+  "answer_text": "",
+  "status": "model_error",
+  "error": "ValueError: Cannot interpret measurable requirement: released",
+  "extraction": null,
+  "recommendations": [],
+  "metrics": null,
+  "model_seconds": 8.418451165999613,
+  "extraction_seconds": 0.0,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 6e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000905
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "error",
+      "elapsed_seconds": 8.417235,
+      "error": "Cannot interpret measurable requirement: released"
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [],
+    "llm_calls": 3,
+    "planned_tools": 0,
+    "executed_tools": 0,
+    "timings_seconds": {
+      "interpret_request": 8.417235
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"anime\", \"query\": \"anime\", \"kind\": \"genre\", \"role\": \"subject\", \"meaning\": \"Anime series\"}, {\"text\": \"TV series\", \"query\": \"TV series\", \"kind\": \"genre\", \"role\": \"required\", \"meaning\": \"TV series format\"}, {\"text\": \"not TV shorts\", \"query\": \"TV shorts\", \"kind\": \"tag\", \"role\": \"excluded\", \"meaning\": \"Exclude TV shorts\"}]}",
+      "{\"min\": null, \"max\": null}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "anime",
+        "query": "anime",
+        "kind": "genre",
+        "role": "subject",
+        "meaning": "Anime series"
+      },
+      {
+        "text": "TV series",
+        "query": "TV series",
+        "kind": "genre",
+        "role": "required",
+        "meaning": "TV series format"
+      },
+      {
+        "text": "not TV shorts",
+        "query": "TV shorts",
+        "kind": "tag",
+        "role": "excluded",
+        "meaning": "Exclude TV shorts"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify which anime series you would like recommendations for.\", \"decisions\": {\"p0\": {\"meaning\": \"Anime series\", \"role\": \"subject\", \"selection\": \"unmapped description\" }, \"p1\": {\"meaning\": \"TV series format\", \"role\": \"required\", \"selection\": \"unmapped description\"}, \"p2\": {\"meaning\": \"Exclude TV shorts\", \"role\": \"excluded\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "subject",
+          "text": "anime",
+          "name": "",
+          "meaning": "Anime series"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "TV series",
+          "name": "",
+          "meaning": "TV series format"
+        },
+        {
+          "phrase_index": 2,
+          "kind": "description",
+          "id": "",
+          "role": "excluded",
+          "text": "not TV shorts",
+          "name": "",
+          "meaning": "Exclude TV shorts"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {
+      "episodes": {
+        "sources": [
+          "Recommend three anime released as TV series, not TV shorts.",
+          "TV series",
+          "not TV shorts"
+        ],
+        "interpretations": [
+          "brief",
+          "range",
+          "brief"
+        ]
+      },
+      "year": {
+        "sources": [
+          "released"
+        ],
+        "interpretations": [
+          "range"
+        ]
+      }
+    }
+  }
+}

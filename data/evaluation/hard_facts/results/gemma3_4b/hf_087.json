@@ -1,0 +1,521 @@
+{
+  "question_id": "hf_087",
+  "anime_id": "14719",
+  "title": "JoJo's Bizarre Adventure (TV)",
+  "field": "format",
+  "question": "Is the 2012 JoJo's Bizarre Adventure adaptation a TV series or an OVA?",
+  "expected_values": [
+    "TV"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The 2012 JoJo's Bizarre Adventure adaptation is an OVA.",
+  "extracted_values": [
+    "OVA"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 14.884095541000079,
+  "extraction_seconds": 1.2158629579998887,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "OVA",
+        "quote": "The 2012 JoJo's Bizarre Adventure adaptation is an OVA."
+      }
+    ],
+    "note": "The format of the 2012 JoJo's Bizarre Adventure adaptation is asserted as an OVA, but it is unclear if this is correct as the question asks for the format of a TV series or an OVA, and the answer does not specify if it is a TV series or not.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "missing_values": [
+      "tv"
+    ],
+    "extra_values": [
+      "ova"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "666"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "666",
+          "title": "JoJo's Bizarre Adventure"
+        },
+        "elapsed_seconds": 0.01463
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "anime format 2012 JoJo's Bizarre Adventure"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "4 koma",
+              "name": "4-koma",
+              "description": "A manga in the 'yonkoma' format, which consists of four equal-sized panels arranged in a vertical strip.",
+              "category": "Technical",
+              "similarity": 0.3899
+            },
+            {
+              "kind": "tag",
+              "id": "isekai",
+              "name": "Isekai",
+              "description": "Features a character from a modern-day setting being transported into an alternate world and has to adapt to their new surroundings.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.3762
+            },
+            {
+              "kind": "tag",
+              "id": "reverse isekai",
+              "name": "Reverse Isekai",
+              "description": "Features a character from a fantasy world who is transported into a modern-day setting.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.3636
+            },
+            {
+              "kind": "tag",
+              "id": "kaiju",
+              "name": "Kaiju",
+              "description": "Prominently features giant monsters.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.3565
+            },
+            {
+              "kind": "tag",
+              "id": "tokusatsu",
+              "name": "Tokusatsu",
+              "description": "Prominently features elements that resemble special effects in Japanese live-action shows",
+              "category": "Theme-Sci-Fi",
+              "similarity": 0.3242
+            }
+          ]
+        },
+        "elapsed_seconds": 0.036041
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "anime",
+          "query": "666"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "anime",
+          "matches": []
+        },
+        "elapsed_seconds": 0.014784
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 3.93112,
+      "prepare_context": 0.018083,
+      "retrieve_guides": 0.030591,
+      "feature_candidates": 0.013356,
+      "planning": 7.22063,
+      "tools": 0.065455,
+      "generate_answer": 3.602302
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"JoJo's Bizarre Adventure\", \"query\": \"JoJo's Bizarre Adventure\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series/adaptation\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "JoJo's Bizarre Adventure",
+        "query": "JoJo's Bizarre Adventure",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series/adaptation"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Is the 2012 JoJo's Bizarre Adventure adaptation a TV series or an OVA?\", \"decisions\": {\"p0\": {\"meaning\": \"JoJo's Bizarre Adventure\", \"role\": \"subject\", \"selection\": \"JoJo's Bizarre Adventure | anime:666\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "666",
+          "role": "subject",
+          "text": "JoJo's Bizarre Adventure",
+          "name": "JoJo's Bizarre Adventure",
+          "meaning": "JoJo's Bizarre Adventure"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "666",
+          "role": "subject",
+          "text": "JoJo's Bizarre Adventure",
+          "name": "JoJo's Bizarre Adventure",
+          "meaning": "JoJo's Bizarre Adventure"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "JoJo's Bizarre Adventure"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "666",
+            "role": "subject",
+            "text": "JoJo's Bizarre Adventure",
+            "name": "JoJo's Bizarre Adventure",
+            "meaning": "JoJo's Bizarre Adventure"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "666",
+            "role": "subject",
+            "text": "JoJo's Bizarre Adventure",
+            "name": "JoJo's Bizarre Adventure",
+            "meaning": "JoJo's Bizarre Adventure"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine the format of the 2012 JoJo's Bizarre Adventure adaptation",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "666"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "anime format 2012 JoJo's Bizarre Adventure"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "anime",
+            "query": "666"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "666",
+          "name": "JoJo's Bizarre Adventure"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:666",
+          "fact": "The source records state that the format of the 2012 JoJo's Bizarre Adventure adaptation is OVA."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.3e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00095
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.93112
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.018083
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.030591
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013356
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 7.22063
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine the format of the 2012 JoJo's Bizarre Adventure adaptation",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "666"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "anime format 2012 JoJo's Bizarre Adventure"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "anime",
+              "query": "666"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "666",
+            "name": "JoJo's Bizarre Adventure"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "666"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.01463,
+      "arguments": {
+        "id": "666"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "666",
+        "title": "JoJo's Bizarre Adventure"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "anime format 2012 JoJo's Bizarre Adventure"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.036041,
+      "arguments": {
+        "query": "anime format 2012 JoJo's Bizarre Adventure"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "4 koma",
+            "name": "4-koma",
+            "description": "A manga in the 'yonkoma' format, which consists of four equal-sized panels arranged in a vertical strip.",
+            "category": "Technical",
+            "similarity": 0.3899
+          },
+          {
+            "kind": "tag",
+            "id": "isekai",
+            "name": "Isekai",
+            "description": "Features a character from a modern-day setting being transported into an alternate world and has to adapt to their new surroundings.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.3762
+          },
+          {
+            "kind": "tag",
+            "id": "reverse isekai",
+            "name": "Reverse Isekai",
+            "description": "Features a character from a fantasy world who is transported into a modern-day setting.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.3636
+          },
+          {
+            "kind": "tag",
+            "id": "kaiju",
+            "name": "Kaiju",
+            "description": "Prominently features giant monsters.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.3565
+          },
+          {
+            "kind": "tag",
+            "id": "tokusatsu",
+            "name": "Tokusatsu",
+            "description": "Prominently features elements that resemble special effects in Japanese live-action shows",
+            "category": "Theme-Sci-Fi",
+            "similarity": 0.3242
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "anime",
+        "query": "666"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.014784,
+      "arguments": {
+        "kind": "anime",
+        "query": "666"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "anime",
+        "matches": []
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.602302
+    }
+  ]
+}

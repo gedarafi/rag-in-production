@@ -1,0 +1,547 @@
+{
+  "question_id": "hf_065",
+  "anime_id": "20755",
+  "title": "Assassination Classroom",
+  "field": "duration",
+  "question": "How long is a standard episode of Assassination Classroom's first season?",
+  "expected_values": [
+    23.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Catalog matches.\n\n1. **Attack on Titan** — Several hundred years ago, humans were nearly exterminated by titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest of titans. Flash forward to the present and the city has not seen a…",
+  "extracted_values": [
+    "minutes",
+    "several hundred years ago",
+    "several stories tall",
+    "for the pleasure",
+    "as a food source",
+    "protected by extremely high walls",
+    "present"
+  ],
+  "status": "needs_review",
+  "error": "",
+  "model_seconds": 10.313495083999896,
+  "extraction_seconds": 1.2026652499998818,
+  "extraction": {
+    "status": "unclear",
+    "facts": [
+      {
+        "value": "minutes",
+        "quote": "Catalog matches.\n\n1. **Attack on Titan** — Several hundred years ago, humans were nearly exterminated by titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest of titans. Flash forward to the present and the city has not seen a…"
+      },
+      {
+        "value": "several hundred years ago",
+        "quote": "Catalog matches.\n\n1. **Attack on Titan** — Several hundred years ago, humans were nearly exterminated by titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest of titans. Flash forward to the present and the city has not seen a…"
+      },
+      {
+        "value": "several stories tall",
+        "quote": "Catalog matches.\n\n1. **Attack on Titan** — Several hundred years ago, humans were nearly exterminated by titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest of titans. Flash forward to the present and the city has not seen a…"
+      },
+      {
+        "value": "for the pleasure",
+        "quote": "Catalog matches.\n\n1. **Attack on Titan** — Several hundred years ago, humans were nearly exterminated by titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest of titans. Flash forward to the present and the city has not seen a…"
+      },
+      {
+        "value": "as a food source",
+        "quote": "Catalog matches.\n\n1. **Attack on Titan** — Several hundred years ago, humans were nearly exterminated by titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest of titans. Flash forward to the present and the city has not seen a…"
+      },
+      {
+        "value": "protected by extremely high walls",
+        "quote": "Catalog matches.\n\n1. **Attack on Titan** — Several hundred years ago, humans were nearly exterminated by titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest of titans. Flash forward to the present and the city has not seen a…"
+      },
+      {
+        "value": "present",
+        "quote": "Catalog matches.\n\n1. **Attack on Titan** — Several hundred years ago, humans were nearly exterminated by titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest of titans. Flash forward to the present and the city has not seen a…"
+      }
+    ],
+    "note": "No duration value was provided for the requested field.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": null,
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20755"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20755",
+          "title": "Assassination Classroom"
+        },
+        "elapsed_seconds": 0.015788
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "episode length",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "episodic",
+              "name": "Episodic",
+              "description": "Features story arcs that are loosely tied or lack an overarching plot.",
+              "category": "Technical",
+              "similarity": 0.3276
+            },
+            {
+              "kind": "tag",
+              "id": "ensemble cast",
+              "name": "Ensemble Cast",
+              "description": "Features a large cast of characters with (almost) equal screen time and importance to the plot.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.3084
+            },
+            {
+              "kind": "tag",
+              "id": "achronological order",
+              "name": "Achronological Order",
+              "description": "Chapters or episodes do not occur in chronological order.",
+              "category": "Setting-Time",
+              "similarity": 0.2873
+            },
+            {
+              "kind": "tag",
+              "id": "pov",
+              "name": "POV",
+              "description": "Point of View; features scenes shown from the perspective of the series protagonist.",
+              "category": "Technical",
+              "similarity": 0.2842
+            },
+            {
+              "kind": "tag",
+              "id": "time skip",
+              "name": "Time Skip",
+              "description": "Features a gap in time used to advance the story.",
+              "category": "Setting-Time",
+              "similarity": 0.2799
+            }
+          ]
+        },
+        "elapsed_seconds": 0.032738
+      },
+      {
+        "step": 2,
+        "tool": "recommend_anime",
+        "arguments": {
+          "query": "episode length",
+          "limit": 1
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "sort_by": "popularity"
+          },
+          "items": [
+            {
+              "id": "16498",
+              "title": "Attack on Titan",
+              "reason": "Matches: sort_by=popularity"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.044968
+      }
+    ],
+    "llm_calls": 3,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 3.442904,
+      "prepare_context": 0.014954,
+      "retrieve_guides": 0.025806,
+      "feature_candidates": 0.013017,
+      "planning": 6.71973,
+      "tools": 0.093494,
+      "generate_answer": 0.000484
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Assassination Classroom\", \"query\": \"Assassination Classroom\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; first season\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Assassination Classroom",
+        "query": "Assassination Classroom",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; first season"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify the format of the episode length you are asking about.\", \"decisions\": {\"p0\": {\"meaning\": \"Assassination Classroom\", \"role\": \"subject\", \"selection\": \"Assassination Classroom | anime:20755\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20755",
+          "role": "subject",
+          "text": "Assassination Classroom",
+          "name": "Assassination Classroom",
+          "meaning": "Assassination Classroom"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20755",
+          "role": "subject",
+          "text": "Assassination Classroom",
+          "name": "Assassination Classroom",
+          "meaning": "Assassination Classroom"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Assassination Classroom"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20755",
+            "role": "subject",
+            "text": "Assassination Classroom",
+            "name": "Assassination Classroom",
+            "meaning": "Assassination Classroom"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20755",
+            "role": "subject",
+            "text": "Assassination Classroom",
+            "name": "Assassination Classroom",
+            "meaning": "Assassination Classroom"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine episode length of Assassination Classroom season 1",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20755"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "episode length",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "query": "episode length",
+            "limit": 1
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "20755",
+          "name": "Assassination Classroom"
+        }
+      ],
+      "characters": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.1e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001618
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.442904
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.014954
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.025806
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013017
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.71973
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine episode length of Assassination Classroom season 1",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20755"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "episode length",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "query": "episode length",
+              "limit": 1
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "20755",
+            "name": "Assassination Classroom"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20755"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.015788,
+      "arguments": {
+        "id": "20755"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20755",
+        "title": "Assassination Classroom"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "episode length",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.032738,
+      "arguments": {
+        "query": "episode length",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "episodic",
+            "name": "Episodic",
+            "description": "Features story arcs that are loosely tied or lack an overarching plot.",
+            "category": "Technical",
+            "similarity": 0.3276
+          },
+          {
+            "kind": "tag",
+            "id": "ensemble cast",
+            "name": "Ensemble Cast",
+            "description": "Features a large cast of characters with (almost) equal screen time and importance to the plot.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.3084
+          },
+          {
+            "kind": "tag",
+            "id": "achronological order",
+            "name": "Achronological Order",
+            "description": "Chapters or episodes do not occur in chronological order.",
+            "category": "Setting-Time",
+            "similarity": 0.2873
+          },
+          {
+            "kind": "tag",
+            "id": "pov",
+            "name": "POV",
+            "description": "Point of View; features scenes shown from the perspective of the series protagonist.",
+            "category": "Technical",
+            "similarity": 0.2842
+          },
+          {
+            "kind": "tag",
+            "id": "time skip",
+            "name": "Time Skip",
+            "description": "Features a gap in time used to advance the story.",
+            "category": "Setting-Time",
+            "similarity": 0.2799
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "recommend_anime",
+      "arguments": {
+        "query": "episode length",
+        "limit": 1
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.044968,
+      "arguments": {
+        "query": "episode length",
+        "limit": 1
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "sort_by": "popularity"
+        },
+        "items": [
+          {
+            "id": "16498",
+            "title": "Attack on Titan",
+            "reason": "Matches: sort_by=popularity"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000484
+    }
+  ]
+}

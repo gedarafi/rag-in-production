@@ -1,0 +1,471 @@
+{
+  "question_id": "hf_162",
+  "anime_id": "21087",
+  "title": "One-Punch Man",
+  "field": "main_characters",
+  "question": "Who is in One-Punch Man season one's main character cast?",
+  "expected_values": [
+    "Saitama",
+    "Genos"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The main character cast for One-Punch Man season one includes Saitama and Genos.",
+  "extracted_values": [
+    "Saitama",
+    "Genos"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 17.554101208000247,
+  "extraction_seconds": 0.7047495420001724,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Saitama",
+        "quote": "The main character cast for One-Punch Man season one includes Saitama and Genos."
+      },
+      {
+        "value": "Genos",
+        "quote": "The main character cast for One-Punch Man season one includes Saitama and Genos."
+      }
+    ],
+    "note": "No other characters are mentioned as part of the main cast.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 2,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21087"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21087",
+          "title": "One-Punch Man"
+        },
+        "elapsed_seconds": 0.015247
+      },
+      {
+        "step": 1,
+        "tool": "get_character",
+        "arguments": {
+          "id": "73935",
+          "offset": 0
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "73935",
+          "name": "Saitama"
+        },
+        "elapsed_seconds": 0.002601
+      },
+      {
+        "step": 2,
+        "tool": "get_character",
+        "arguments": {
+          "id": "73979",
+          "offset": 0
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "73979",
+          "name": "Genos"
+        },
+        "elapsed_seconds": 0.002059
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 6.387433,
+      "prepare_context": 0.016459,
+      "retrieve_guides": 0.039885,
+      "feature_candidates": 0.013085,
+      "planning": 6.859014,
+      "tools": 0.019907,
+      "generate_answer": 4.215711
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"One-Punch Man\", \"query\": \"One-Punch Man\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; cast is a noun\"}, {\"text\": \"season one\", \"query\": \"One-Punch Man Season 1\", \"kind\": \"anime\", \"role\": \"reference\", \"meaning\": \"Season qualifier\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "One-Punch Man",
+        "query": "One-Punch Man",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; cast is a noun"
+      },
+      {
+        "text": "season one",
+        "query": "One-Punch Man Season 1",
+        "kind": "anime",
+        "role": "reference",
+        "meaning": "Season qualifier"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify which season of One-Punch Man you are referring to.\", \"decisions\": {\"p0\": {\"meaning\": \"One-Punch Man\", \"role\": \"subject\", \"selection\": \"One-Punch Man | anime:21087\"}, \"p1\": {\"meaning\": \"season one\", \"role\": \"reference\", \"selection\": \"One-Punch Man | anime:21087\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21087",
+          "role": "subject",
+          "text": "One-Punch Man",
+          "name": "One-Punch Man",
+          "meaning": "One-Punch Man"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "anime",
+          "id": "21087",
+          "role": "reference",
+          "text": "season one",
+          "name": "One-Punch Man",
+          "meaning": "season one"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21087",
+          "role": "subject",
+          "text": "One-Punch Man",
+          "name": "One-Punch Man",
+          "meaning": "One-Punch Man"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "One-Punch Man"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21087",
+            "role": "subject",
+            "text": "One-Punch Man",
+            "name": "One-Punch Man",
+            "meaning": "One-Punch Man"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "anime",
+            "id": "21087",
+            "role": "reference",
+            "text": "season one",
+            "name": "One-Punch Man",
+            "meaning": "season one"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21087",
+            "role": "subject",
+            "text": "One-Punch Man",
+            "name": "One-Punch Man",
+            "meaning": "One-Punch Man"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Retrieve the main character cast for One-Punch Man season one.",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21087"
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "73935",
+            "offset": 0
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "73979",
+            "offset": 0
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21087",
+          "name": "One-Punch Man"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:21087",
+          "fact": "The main characters in One-Punch Man season one are Saitama and Genos."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 6.8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001281
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 6.387433
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.016459
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.039885
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013085
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.859014
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Retrieve the main character cast for One-Punch Man season one.",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21087"
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "73935",
+              "offset": 0
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "73979",
+              "offset": 0
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21087",
+            "name": "One-Punch Man"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21087"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.015247,
+      "arguments": {
+        "id": "21087"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21087",
+        "title": "One-Punch Man"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_character",
+      "arguments": {
+        "id": "73935",
+        "offset": 0
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.002601,
+      "arguments": {
+        "id": "73935",
+        "offset": 0
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "73935",
+        "name": "Saitama"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "get_character",
+      "arguments": {
+        "id": "73979",
+        "offset": 0
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.002059,
+      "arguments": {
+        "id": "73979",
+        "offset": 0
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "73979",
+        "name": "Genos"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.215711
+    }
+  ]
+}

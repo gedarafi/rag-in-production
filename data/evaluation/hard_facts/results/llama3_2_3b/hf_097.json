@@ -1,0 +1,332 @@
+{
+  "question_id": "hf_097",
+  "anime_id": "120120",
+  "title": "Tokyo Revengers",
+  "field": "format",
+  "question": "What type of release is the original Tokyo Revengers anime?",
+  "expected_values": [
+    "TV"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The original Tokyo Revengers anime is a TV release.",
+  "extracted_values": [
+    "TV release"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 8.28976379100095,
+  "extraction_seconds": 0.5426566670012107,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "TV release",
+        "quote": "The original Tokyo Revengers anime is a TV release."
+      }
+    ],
+    "note": "No other format was mentioned",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "missing_values": [
+      "tv"
+    ],
+    "extra_values": [
+      "tv release"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "120120"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "120120",
+          "title": "Tokyo Revengers"
+        },
+        "elapsed_seconds": 0.012577
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 1.983776,
+      "prepare_context": 0.017461,
+      "retrieve_guides": 0.027853,
+      "feature_candidates": 0.015115,
+      "planning": 3.560113,
+      "tools": 0.012577,
+      "generate_answer": 2.669766
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Tokyo Revengers\", \"query\": \"Tokyo Revengers\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Original release type\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Tokyo Revengers",
+        "query": "Tokyo Revengers",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Original release type"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Original release type\", \"role\": \"subject\", \"selection\": \"Tokyo Revengers | anime:120120\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "120120",
+          "role": "subject",
+          "text": "Tokyo Revengers",
+          "name": "Tokyo Revengers",
+          "meaning": "Original release type"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "120120",
+          "role": "subject",
+          "text": "Tokyo Revengers",
+          "name": "Tokyo Revengers",
+          "meaning": "Original release type"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Tokyo Revengers"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "120120",
+            "role": "subject",
+            "text": "Tokyo Revengers",
+            "name": "Tokyo Revengers",
+            "meaning": "Original release type"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "120120",
+            "role": "subject",
+            "text": "Tokyo Revengers",
+            "name": "Tokyo Revengers",
+            "meaning": "Original release type"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "What type of release is the original Tokyo Revengers anime?",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "120120"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "120120",
+          "name": "Tokyo Revengers"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:120120",
+          "fact": "The original Tokyo Revengers anime is a TV release."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 9.8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001362
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 1.983776
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.017461
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.027853
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.015115
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.560113
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "What type of release is the original Tokyo Revengers anime?",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "120120"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "120120",
+            "name": "Tokyo Revengers"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "120120"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.012577,
+      "arguments": {
+        "id": "120120"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "120120",
+        "title": "Tokyo Revengers"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 2.669766
+    }
+  ]
+}

@@ -1,0 +1,969 @@
+{
+  "question_id": "hf_166",
+  "anime_id": "20954",
+  "title": "A Silent Voice",
+  "field": "main_characters",
+  "question": "What are the names of A Silent Voice's main characters?",
+  "expected_values": [
+    "Shouko Nishimiya",
+    "Shouya Ishida"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The main characters of A Silent Voice are Shouko Nishimiya and Shouya Ishida.",
+  "extracted_values": [
+    "Shouko Nishimiya",
+    "Shouya Ishida"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 17.77609887499966,
+  "extraction_seconds": 0.704262541999924,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Shouko Nishimiya",
+        "quote": "The main characters of A Silent Voice are Shouko Nishimiya and Shouya Ishida."
+      },
+      {
+        "value": "Shouya Ishida",
+        "quote": "The main characters of A Silent Voice are Shouko Nishimiya and Shouya Ishida."
+      }
+    ],
+    "note": "",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 2,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20954"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20954",
+          "title": "A Silent Voice"
+        },
+        "elapsed_seconds": 0.017749
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "main characters",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "male protagonist",
+              "name": "Male Protagonist",
+              "description": "Main character is male.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.3698
+            },
+            {
+              "kind": "tag",
+              "id": "female protagonist",
+              "name": "Female Protagonist",
+              "description": "Main character is female.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.3356
+            },
+            {
+              "kind": "tag",
+              "id": "battle royale",
+              "name": "Battle Royale",
+              "description": "Centers around a fierce group competition, often violent and with only one winner.",
+              "category": "Theme-Action",
+              "similarity": 0.3306
+            },
+            {
+              "kind": "tag",
+              "id": "primarily male cast",
+              "name": "Primarily Male Cast",
+              "description": "Main cast is mostly composed of male characters.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.3235
+            },
+            {
+              "kind": "tag",
+              "id": "revenge",
+              "name": "Revenge",
+              "description": "Prominently features a character who aims to exact punishment in a resentful or vindictive manner.",
+              "category": "Theme-Drama",
+              "similarity": 0.3089
+            }
+          ]
+        },
+        "elapsed_seconds": 0.049447
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "character",
+          "query": "Shouko Nishimiya"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "character",
+          "matches": [
+            {
+              "kind": "character",
+              "id": "80243",
+              "name": "Shouko Nishimiya",
+              "aliases": [
+                "Shouko Nishimiya",
+                "西宮硝子",
+                "Shoko",
+                "Shou",
+                "Sho",
+                "Sho-chan"
+              ],
+              "match": "exact_or_name_order",
+              "similarity": 1.0
+            }
+          ]
+        },
+        "elapsed_seconds": 0.092415
+      },
+      {
+        "step": 3,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "character",
+          "query": "Shouya Ishida"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "character",
+          "matches": [
+            {
+              "kind": "character",
+              "id": "80491",
+              "name": "Shouya Ishida",
+              "aliases": [
+                "Shouya Ishida",
+                "石田将也",
+                "Shou",
+                "Yashou",
+                "Sho-Chan",
+                "Cho-ya"
+              ],
+              "match": "exact_or_name_order",
+              "similarity": 1.0
+            }
+          ]
+        },
+        "elapsed_seconds": 0.020564
+      },
+      {
+        "step": 4,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20954"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20954",
+          "title": "A Silent Voice"
+        },
+        "elapsed_seconds": 9.4e-05
+      },
+      {
+        "step": 5,
+        "tool": "search_features",
+        "arguments": {
+          "query": "main characters",
+          "kind": "tag"
+        },
+        "cached": true,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "male protagonist",
+              "name": "Male Protagonist",
+              "description": "Main character is male.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.3698
+            },
+            {
+              "kind": "tag",
+              "id": "female protagonist",
+              "name": "Female Protagonist",
+              "description": "Main character is female.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.3356
+            },
+            {
+              "kind": "tag",
+              "id": "battle royale",
+              "name": "Battle Royale",
+              "description": "Centers around a fierce group competition, often violent and with only one winner.",
+              "category": "Theme-Action",
+              "similarity": 0.3306
+            },
+            {
+              "kind": "tag",
+              "id": "primarily male cast",
+              "name": "Primarily Male Cast",
+              "description": "Main cast is mostly composed of male characters.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.3235
+            },
+            {
+              "kind": "tag",
+              "id": "revenge",
+              "name": "Revenge",
+              "description": "Prominently features a character who aims to exact punishment in a resentful or vindictive manner.",
+              "category": "Theme-Drama",
+              "similarity": 0.3089
+            }
+          ]
+        },
+        "elapsed_seconds": 1.3e-05
+      },
+      {
+        "step": 6,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20954"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20954",
+          "title": "A Silent Voice"
+        },
+        "elapsed_seconds": 6.5e-05
+      },
+      {
+        "step": 7,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20954"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20954",
+          "title": "A Silent Voice"
+        },
+        "elapsed_seconds": 6.5e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 8,
+    "executed_tools": 4,
+    "timings_seconds": {
+      "interpret_request": 4.604688,
+      "prepare_context": 0.027769,
+      "retrieve_guides": 0.034339,
+      "feature_candidates": 0.018302,
+      "planning": 8.663264,
+      "tools": 0.180412,
+      "generate_answer": 4.245031
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"A Silent Voice\", \"query\": \"A Silent Voice\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}, {\"text\": \"Shoko Nishimiya\", \"query\": \"Shoko Nishimiya\", \"kind\": \"character\", \"role\": \"subject\", \"meaning\": \"Main character\"}, {\"text\": \"Shouko Nishimiya\", \"query\": \"Shouko Nishimiya\", \"kind\": \"character\", \"role\": \"subject\", \"meaning\": \"Main character\"}]}"
+    ],
+    "unsupported_mentions": [
+      {
+        "text": "Shoko Nishimiya",
+        "query": "Shoko Nishimiya",
+        "kind": "character",
+        "role": "subject",
+        "meaning": "Main character"
+      },
+      {
+        "text": "Shouko Nishimiya",
+        "query": "Shouko Nishimiya",
+        "kind": "character",
+        "role": "subject",
+        "meaning": "Main character"
+      }
+    ],
+    "typed_mentions": [
+      {
+        "text": "A Silent Voice",
+        "query": "A Silent Voice",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"The question asks for the names of the main characters in the anime A Silent Voice.\", \"decisions\": {\"p0\": {\"meaning\": \"A Silent Voice\", \"role\": \"subject\", \"selection\": \"A Silent Voice | anime:20954\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20954",
+          "role": "subject",
+          "text": "A Silent Voice",
+          "name": "A Silent Voice",
+          "meaning": "A Silent Voice"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20954",
+          "role": "subject",
+          "text": "A Silent Voice",
+          "name": "A Silent Voice",
+          "meaning": "A Silent Voice"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "A Silent Voice"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20954",
+            "role": "subject",
+            "text": "A Silent Voice",
+            "name": "A Silent Voice",
+            "meaning": "A Silent Voice"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20954",
+            "role": "subject",
+            "text": "A Silent Voice",
+            "name": "A Silent Voice",
+            "meaning": "A Silent Voice"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Retrieve the names of the main characters from the anime \"A Silent Voice\"",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20954"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "main characters",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "character",
+            "query": "Shouko Nishimiya"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "character",
+            "query": "Shouya Ishida"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20954"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "main characters",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20954"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20954"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "20954",
+          "name": "A Silent Voice"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:20954",
+          "fact": "The main characters are Shouko Nishimiya and Shouya Ishida."
+        },
+        {
+          "subject": "anime:20954",
+          "fact": "Shouko Nishimiya is a deaf girl who is bullied by Shouya Ishida. She transfers into a new school after being bullied."
+        },
+        {
+          "subject": "anime:20954",
+          "fact": "Shouya Ishida is a boy who bullies Shouko Nishimiya. He later seeks to make amends with her."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 3.8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000663
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.604688
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.027769
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.034339
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.018302
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 8.663264
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Retrieve the names of the main characters from the anime \"A Silent Voice\"",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20954"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "main characters",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "character",
+              "query": "Shouko Nishimiya"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "character",
+              "query": "Shouya Ishida"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20954"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "main characters",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20954"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20954"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "20954",
+            "name": "A Silent Voice"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20954"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.017749,
+      "arguments": {
+        "id": "20954"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20954",
+        "title": "A Silent Voice"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "main characters",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.049447,
+      "arguments": {
+        "query": "main characters",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "male protagonist",
+            "name": "Male Protagonist",
+            "description": "Main character is male.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.3698
+          },
+          {
+            "kind": "tag",
+            "id": "female protagonist",
+            "name": "Female Protagonist",
+            "description": "Main character is female.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.3356
+          },
+          {
+            "kind": "tag",
+            "id": "battle royale",
+            "name": "Battle Royale",
+            "description": "Centers around a fierce group competition, often violent and with only one winner.",
+            "category": "Theme-Action",
+            "similarity": 0.3306
+          },
+          {
+            "kind": "tag",
+            "id": "primarily male cast",
+            "name": "Primarily Male Cast",
+            "description": "Main cast is mostly composed of male characters.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.3235
+          },
+          {
+            "kind": "tag",
+            "id": "revenge",
+            "name": "Revenge",
+            "description": "Prominently features a character who aims to exact punishment in a resentful or vindictive manner.",
+            "category": "Theme-Drama",
+            "similarity": 0.3089
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "character",
+        "query": "Shouko Nishimiya"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.092415,
+      "arguments": {
+        "kind": "character",
+        "query": "Shouko Nishimiya"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "character",
+        "matches": [
+          {
+            "kind": "character",
+            "id": "80243",
+            "name": "Shouko Nishimiya",
+            "aliases": [
+              "Shouko Nishimiya",
+              "西宮硝子",
+              "Shoko",
+              "Shou",
+              "Sho",
+              "Sho-chan"
+            ],
+            "match": "exact_or_name_order",
+            "similarity": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "character",
+        "query": "Shouya Ishida"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.020564,
+      "arguments": {
+        "kind": "character",
+        "query": "Shouya Ishida"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "character",
+        "matches": [
+          {
+            "kind": "character",
+            "id": "80491",
+            "name": "Shouya Ishida",
+            "aliases": [
+              "Shouya Ishida",
+              "石田将也",
+              "Shou",
+              "Yashou",
+              "Sho-Chan",
+              "Cho-ya"
+            ],
+            "match": "exact_or_name_order",
+            "similarity": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20954"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 9.4e-05,
+      "arguments": {
+        "id": "20954"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20954",
+        "title": "A Silent Voice"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "search_features",
+      "arguments": {
+        "query": "main characters",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 1.3e-05,
+      "arguments": {
+        "query": "main characters",
+        "kind": "tag"
+      },
+      "cached": true,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "male protagonist",
+            "name": "Male Protagonist",
+            "description": "Main character is male.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.3698
+          },
+          {
+            "kind": "tag",
+            "id": "female protagonist",
+            "name": "Female Protagonist",
+            "description": "Main character is female.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.3356
+          },
+          {
+            "kind": "tag",
+            "id": "battle royale",
+            "name": "Battle Royale",
+            "description": "Centers around a fierce group competition, often violent and with only one winner.",
+            "category": "Theme-Action",
+            "similarity": 0.3306
+          },
+          {
+            "kind": "tag",
+            "id": "primarily male cast",
+            "name": "Primarily Male Cast",
+            "description": "Main cast is mostly composed of male characters.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.3235
+          },
+          {
+            "kind": "tag",
+            "id": "revenge",
+            "name": "Revenge",
+            "description": "Prominently features a character who aims to exact punishment in a resentful or vindictive manner.",
+            "category": "Theme-Drama",
+            "similarity": 0.3089
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 6,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20954"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 6,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 6.5e-05,
+      "arguments": {
+        "id": "20954"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20954",
+        "title": "A Silent Voice"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 7,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20954"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 7,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 6.5e-05,
+      "arguments": {
+        "id": "20954"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20954",
+        "title": "A Silent Voice"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.245031
+    }
+  ]
+}

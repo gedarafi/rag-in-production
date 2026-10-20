@@ -1,0 +1,391 @@
+{
+  "question_id": "hf_026",
+  "anime_id": "154587",
+  "title": "Frieren: Beyond Journey’s End",
+  "field": "year",
+  "question": "In what year did Frieren: Beyond Journey's End start airing?",
+  "expected_values": [
+    2023.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The anime Frieren: Beyond Journey's End started airing in 2023.",
+  "extracted_values": [
+    "2023"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 11.392911958000695,
+  "extraction_seconds": 0.593694790999507,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "2023",
+        "quote": "The anime Frieren: Beyond Journey's End started airing in 2023."
+      }
+    ],
+    "note": "assertion for year of airing",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "154587",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "154587",
+          "title": "Frieren: Beyond Journey’s End"
+        },
+        "elapsed_seconds": 0.013981
+      },
+      {
+        "step": 1,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "start year of Frieren: Beyond Journey's End",
+          "anime_ids": [
+            "154587"
+          ]
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.038803
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 2.242767,
+      "prepare_context": 0.014514,
+      "retrieve_guides": 0.023084,
+      "feature_candidates": 0.012812,
+      "planning": 4.274381,
+      "tools": 0.052784,
+      "generate_answer": 4.769158
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Frieren: Beyond Journey's End\", \"query\": \"Frieren: Beyond Journey's End\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; air is a verb\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Frieren: Beyond Journey's End",
+        "query": "Frieren: Beyond Journey's End",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; air is a verb"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"TV series; air is a verb\", \"role\": \"subject\", \"selection\": \"Frieren: Beyond Journey’s End | anime:154587\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "154587",
+          "role": "subject",
+          "text": "Frieren: Beyond Journey's End",
+          "name": "Frieren: Beyond Journey’s End",
+          "meaning": "TV series; air is a verb"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "154587",
+          "role": "subject",
+          "text": "Frieren: Beyond Journey's End",
+          "name": "Frieren: Beyond Journey’s End",
+          "meaning": "TV series; air is a verb"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Frieren: Beyond Journey’s End"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "154587",
+            "role": "subject",
+            "text": "Frieren: Beyond Journey's End",
+            "name": "Frieren: Beyond Journey’s End",
+            "meaning": "TV series; air is a verb"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "154587",
+            "role": "subject",
+            "text": "Frieren: Beyond Journey's End",
+            "name": "Frieren: Beyond Journey’s End",
+            "meaning": "TV series; air is a verb"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "find the start year of Frieren: Beyond Journey's End",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "154587",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "start year of Frieren: Beyond Journey's End",
+            "anime_ids": [
+              "154587"
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "154587",
+          "name": "Frieren: Beyond Journey’s End"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:154587",
+          "fact": "year = 2023.0"
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 7.9e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000818
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.242767
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.014514
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.023084
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.012812
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.274381
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "find the start year of Frieren: Beyond Journey's End",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "154587",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "start year of Frieren: Beyond Journey's End",
+              "anime_ids": [
+                "154587"
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "154587",
+            "name": "Frieren: Beyond Journey’s End"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "154587",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.013981,
+      "arguments": {
+        "id": "154587",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "154587",
+        "title": "Frieren: Beyond Journey’s End"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "start year of Frieren: Beyond Journey's End",
+        "anime_ids": [
+          "154587"
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.038803,
+      "arguments": {
+        "query": "start year of Frieren: Beyond Journey's End",
+        "anime_ids": [
+          "154587"
+        ]
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.769158
+    }
+  ]
+}

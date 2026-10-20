@@ -1,0 +1,667 @@
+{
+  "question_id": "manga_03",
+  "category": "source_material",
+  "intent_family": "manga",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "Give me five anime where I could go read the original manga afterward.",
+  "k": 5,
+  "constraints": [
+    {
+      "field": "source_material",
+      "op": "any",
+      "value": [
+        "MANGA"
+      ]
+    }
+  ],
+  "label_rationale": "MANGA source medium is required; popularity or manga-like style is insufficient.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 5246,
+  "reference_examples": [
+    {
+      "id": "100",
+      "title": "Prétear: The New Legend of Snow White"
+    },
+    {
+      "id": "1000",
+      "title": "Captain Harlock Space Pirate"
+    },
+    {
+      "id": "100004",
+      "title": "Demoness of Dreams"
+    }
+  ],
+  "answer_text": "Catalog matches — source material: ORIGINAL; Go.\n\n1. **Code Geass: Lelouch of the Rebellion** — On August 10th of the year 2010 the Holy Empire of Britannia began a campaign of conquest, its sights set on Japan. Operations were completed in one month thanks to Britannia's deployment of new mobile humanoid armor vehicles dubbed Knightmare Frames. Japan's rights and identity were stripped away, the once proud nation now referred to as Area 11. Its citizens, Elevens, are forced to scratch out a living while the Britannian aristocracy lives…",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Code Geass: Lelouch of the Rebellion"
+    ],
+    "unclear": false,
+    "note": "catalog matches — source material: ORIGINAL",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Code Geass: Lelouch of the Rebellion",
+      "anime_id": "1575",
+      "canonical_title": "Code Geass: Lelouch of the Rebellion",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "1575"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.0,
+    "graded_fit_at_k": 0.0,
+    "ndcg_at_k": 0.0,
+    "constraint_coverage": 0.0,
+    "count_compliance": 0,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "extra_count": 0,
+    "literal_precision_at_k": 0.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 10.399083375001283,
+  "extraction_seconds": 0.9967981660010992,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.5e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000728
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 5.013746
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.002218
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.008851
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.016383
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.570654
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "Give me five anime where I could go read the original manga afterward.",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "original manga",
+              "kind": "tag",
+              "limit": 5
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "source_material",
+                  "operator": "eq",
+                  "value": "ORIGINAL"
+                },
+                {
+                  "field": "tags",
+                  "operator": "eq",
+                  "value": "Go"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "original manga",
+        "kind": "tag",
+        "limit": 5
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.038425,
+      "arguments": {
+        "query": "original manga",
+        "kind": "tag",
+        "limit": 5
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "4 koma",
+            "name": "4-koma",
+            "description": "A manga in the 'yonkoma' format, which consists of four equal-sized panels arranged in a vertical strip.",
+            "category": "Technical",
+            "similarity": 0.4809
+          },
+          {
+            "kind": "tag",
+            "id": "rakugo",
+            "name": "Rakugo",
+            "description": "Rakugo is the traditional Japanese performance art of comic storytelling.",
+            "category": "Theme-Arts",
+            "similarity": 0.4771
+          },
+          {
+            "kind": "tag",
+            "id": "drawing",
+            "name": "Drawing",
+            "description": "Centers around the art of drawing, including manga and doujinshi.",
+            "category": "Theme-Arts",
+            "similarity": 0.4597
+          },
+          {
+            "kind": "tag",
+            "id": "reverse isekai",
+            "name": "Reverse Isekai",
+            "description": "Features a character from a fantasy world who is transported into a modern-day setting.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.4308
+          },
+          {
+            "kind": "tag",
+            "id": "isekai",
+            "name": "Isekai",
+            "description": "Features a character from a modern-day setting being transported into an alternate world and has to adapt to their new surroundings.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.4303
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "source_material",
+            "operator": "eq",
+            "value": "ORIGINAL"
+          },
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Go"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.746192,
+      "arguments": {
+        "filters": [
+          {
+            "field": "source_material",
+            "operator": "eq",
+            "value": "ORIGINAL"
+          },
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Go"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "source_material",
+              "operator": "eq",
+              "value": "ORIGINAL"
+            },
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Go"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 1,
+          "retained": 1,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "source_material",
+              "operator": "eq",
+              "value": "ORIGINAL",
+              "source_text": "Give me five anime where I could go read the original manga afterward.",
+              "mapping": "exact"
+            },
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Go",
+              "source_text": "Give me five anime where I could go read the original manga afterward.",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "1575",
+            "title": "Code Geass: Lelouch of the Rebellion",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'ORIGINAL'}, {'field': 'tags', 'operator': 'eq', 'value': 'Go'}]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000187
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "original manga",
+          "kind": "tag",
+          "limit": 5
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "4 koma",
+              "name": "4-koma",
+              "description": "A manga in the 'yonkoma' format, which consists of four equal-sized panels arranged in a vertical strip.",
+              "category": "Technical",
+              "similarity": 0.4809
+            },
+            {
+              "kind": "tag",
+              "id": "rakugo",
+              "name": "Rakugo",
+              "description": "Rakugo is the traditional Japanese performance art of comic storytelling.",
+              "category": "Theme-Arts",
+              "similarity": 0.4771
+            },
+            {
+              "kind": "tag",
+              "id": "drawing",
+              "name": "Drawing",
+              "description": "Centers around the art of drawing, including manga and doujinshi.",
+              "category": "Theme-Arts",
+              "similarity": 0.4597
+            },
+            {
+              "kind": "tag",
+              "id": "reverse isekai",
+              "name": "Reverse Isekai",
+              "description": "Features a character from a fantasy world who is transported into a modern-day setting.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.4308
+            },
+            {
+              "kind": "tag",
+              "id": "isekai",
+              "name": "Isekai",
+              "description": "Features a character from a modern-day setting being transported into an alternate world and has to adapt to their new surroundings.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.4303
+            }
+          ]
+        },
+        "elapsed_seconds": 0.038425
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "source_material",
+              "operator": "eq",
+              "value": "ORIGINAL"
+            },
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Go"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "source_material",
+                "operator": "eq",
+                "value": "ORIGINAL"
+              },
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Go"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 1,
+            "retained": 1,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "source_material",
+                "operator": "eq",
+                "value": "ORIGINAL",
+                "source_text": "Give me five anime where I could go read the original manga afterward.",
+                "mapping": "exact"
+              },
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Go",
+                "source_text": "Give me five anime where I could go read the original manga afterward.",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "1575",
+              "title": "Code Geass: Lelouch of the Rebellion",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'ORIGINAL'}, {'field': 'tags', 'operator': 'eq', 'value': 'Go'}]"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.746192
+      }
+    ],
+    "llm_calls": 5,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 5.013746,
+      "prepare_context": 0.002218,
+      "retrieve_guides": 0.008851,
+      "feature_candidates": 0.016383,
+      "planning": 4.570654,
+      "tools": 0.784617,
+      "generate_answer": 0.000187
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"read the original manga\", \"query\": \"read the original manga\", \"kind\": \"tag\", \"role\": \"subject\", \"meaning\": \"Desired action\"}]}",
+      "{\n  \"applies\": true,\n  \"operator\": \"eq\",\n  \"value\": \"ORIGINAL\"\n}",
+      "{\n  \"role\": \"required\"\n}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "read the original manga",
+        "query": "read the original manga",
+        "kind": "tag",
+        "role": "subject",
+        "meaning": "Desired action"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Read the original manga\", \"role\": \"subject\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "subject",
+          "text": "read the original manga",
+          "name": "",
+          "meaning": "Read the original manga"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "source_material",
+          "operator": "eq",
+          "value": "ORIGINAL"
+        },
+        {
+          "field": "tags",
+          "operator": "eq",
+          "value": "Go"
+        }
+      ],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "source_material",
+          "operator": "eq",
+          "value": "ORIGINAL",
+          "source_text": "Give me five anime where I could go read the original manga afterward.",
+          "mapping": "exact"
+        },
+        {
+          "field": "tags",
+          "operator": "eq",
+          "value": "Go",
+          "source_text": "Give me five anime where I could go read the original manga afterward.",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "Go",
+          "candidate": {
+            "field": "tags",
+            "value": "Go",
+            "meaning": "Go"
+          },
+          "role": "required",
+          "mapping": "exact"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "subject",
+            "text": "read the original manga",
+            "name": "",
+            "meaning": "Read the original manga"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "Give me five anime where I could go read the original manga afterward.",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "original manga",
+            "kind": "tag",
+            "limit": 5
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "source_material",
+                "operator": "eq",
+                "value": "ORIGINAL"
+              },
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Go"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

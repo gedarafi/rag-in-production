@@ -1,0 +1,398 @@
+{
+  "question_id": "hf_096",
+  "anime_id": "98659",
+  "title": "Classroom of the Elite",
+  "field": "format",
+  "question": "Does Classroom of the Elite's first anime season have a TV or OVA format?",
+  "expected_values": [
+    "TV"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Classroom of the Elite's first anime season has a TV format.",
+  "extracted_values": [
+    "TV",
+    "OVA"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 9.863888583999142,
+  "extraction_seconds": 0.8019346250002855,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "TV",
+        "quote": "Classroom of the Elite's first anime season has a TV format."
+      },
+      {
+        "value": "OVA",
+        "quote": "Classroom of the Elite's first anime season has a TV format."
+      }
+    ],
+    "note": "Note: The answer contains a negation, but the requested field is format, which is typically a singular value.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.5,
+    "recall": 1.0,
+    "f1": 0.6666666666666666,
+    "tp": 1,
+    "fp": 1,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": [
+      "ova"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "98659",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "98659",
+          "title": "Classroom of the Elite"
+        },
+        "elapsed_seconds": 0.016961
+      },
+      {
+        "step": 1,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "format of first anime season",
+          "anime_ids": [
+            "98659"
+          ]
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.04025
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 2.106521,
+      "prepare_context": 0.018064,
+      "retrieve_guides": 0.027235,
+      "feature_candidates": 0.014063,
+      "planning": 4.261948,
+      "tools": 0.057211,
+      "generate_answer": 3.37535
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Classroom of the Elite\", \"query\": \"Classroom of the Elite\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; OVA is a format\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Classroom of the Elite",
+        "query": "Classroom of the Elite",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; OVA is a format"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"TV series\", \"role\": \"subject\", \"selection\": \"Classroom of the Elite | anime:98659\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "98659",
+          "role": "subject",
+          "text": "Classroom of the Elite",
+          "name": "Classroom of the Elite",
+          "meaning": "TV series"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "98659",
+          "role": "subject",
+          "text": "Classroom of the Elite",
+          "name": "Classroom of the Elite",
+          "meaning": "TV series"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Classroom of the Elite"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "98659",
+            "role": "subject",
+            "text": "Classroom of the Elite",
+            "name": "Classroom of the Elite",
+            "meaning": "TV series"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "98659",
+            "role": "subject",
+            "text": "Classroom of the Elite",
+            "name": "Classroom of the Elite",
+            "meaning": "TV series"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Check format of Classroom of the Elite's first anime season",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "98659",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "format of first anime season",
+            "anime_ids": [
+              "98659"
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "98659",
+          "name": "Classroom of the Elite"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:98659",
+          "fact": "format: TV"
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 0.000145
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001597
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.106521
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.018064
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.027235
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014063
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.261948
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Check format of Classroom of the Elite's first anime season",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "98659",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "format of first anime season",
+              "anime_ids": [
+                "98659"
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "98659",
+            "name": "Classroom of the Elite"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "98659",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.016961,
+      "arguments": {
+        "id": "98659",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "98659",
+        "title": "Classroom of the Elite"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "format of first anime season",
+        "anime_ids": [
+          "98659"
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.04025,
+      "arguments": {
+        "query": "format of first anime season",
+        "anime_ids": [
+          "98659"
+        ]
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.37535
+    }
+  ]
+}

@@ -1,0 +1,579 @@
+{
+  "question_id": "hf_056",
+  "anime_id": "21459",
+  "title": "My Hero Academia",
+  "field": "duration",
+  "question": "What is the episode duration for My Hero Academia's first season?",
+  "expected_values": [
+    24.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "episode duration for My Hero Academia's first season: 312 minutes.",
+  "extracted_values": [
+    "312 minutes"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 10.621640458999536,
+  "extraction_seconds": 0.6474416250002832,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "312 minutes",
+        "quote": "episode duration for My Hero Academia's first season: 312 minutes."
+      }
+    ],
+    "note": "Set unclear=true only when the requested assertions cannot be interpreted reliably.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "missing_values": [
+      "24"
+    ],
+    "extra_values": [
+      "invalid-number:312 minutes"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21459",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21459",
+          "title": "My Hero Academia"
+        },
+        "elapsed_seconds": 0.015606
+      },
+      {
+        "step": 1,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21459",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21459",
+          "title": "My Hero Academia"
+        },
+        "elapsed_seconds": 0.000115
+      },
+      {
+        "step": 2,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21459",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21459",
+          "title": "My Hero Academia"
+        },
+        "elapsed_seconds": 0.000103
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21459",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21459",
+          "title": "My Hero Academia"
+        },
+        "elapsed_seconds": 0.0001
+      },
+      {
+        "step": 4,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21459",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21459",
+          "title": "My Hero Academia"
+        },
+        "elapsed_seconds": 0.000101
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 5,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 2.07629,
+      "prepare_context": 0.021165,
+      "retrieve_guides": 0.02807,
+      "feature_candidates": 0.013243,
+      "planning": 5.532796,
+      "tools": 0.016025,
+      "generate_answer": 2.931516
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"My Hero Academia\", \"query\": \"My Hero Academia\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; season 1 duration\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "My Hero Academia",
+        "query": "My Hero Academia",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; season 1 duration"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"TV series; season 1 duration\", \"role\": \"subject\", \"selection\": \"My Hero Academia | anime:21459\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21459",
+          "role": "subject",
+          "text": "My Hero Academia",
+          "name": "My Hero Academia",
+          "meaning": "TV series; season 1 duration"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21459",
+          "role": "subject",
+          "text": "My Hero Academia",
+          "name": "My Hero Academia",
+          "meaning": "TV series; season 1 duration"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "My Hero Academia"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21459",
+            "role": "subject",
+            "text": "My Hero Academia",
+            "name": "My Hero Academia",
+            "meaning": "TV series; season 1 duration"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21459",
+            "role": "subject",
+            "text": "My Hero Academia",
+            "name": "My Hero Academia",
+            "meaning": "TV series; season 1 duration"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "episode duration for My Hero Academia's first season",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21459",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21459",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21459",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21459",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21459",
+            "section": "overview"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21459",
+          "name": "My Hero Academia"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:21459",
+          "fact": "episodes = 13.0"
+        },
+        {
+          "subject": "anime:21459",
+          "fact": "duration = 24.0"
+        }
+      ],
+      "calculations": [
+        {
+          "expression": "(q0 * q1) / 1",
+          "value": "312",
+          "unit": "minutes"
+        }
+      ]
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 0.000105
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000979
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.07629
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.021165
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.02807
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013243
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 5.532796
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "episode duration for My Hero Academia's first season",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21459",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21459",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21459",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21459",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21459",
+              "section": "overview"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21459",
+            "name": "My Hero Academia"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21459",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.015606,
+      "arguments": {
+        "id": "21459",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21459",
+        "title": "My Hero Academia"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21459",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000115,
+      "arguments": {
+        "id": "21459",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21459",
+        "title": "My Hero Academia"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21459",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000103,
+      "arguments": {
+        "id": "21459",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21459",
+        "title": "My Hero Academia"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21459",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.0001,
+      "arguments": {
+        "id": "21459",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21459",
+        "title": "My Hero Academia"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21459",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000101,
+      "arguments": {
+        "id": "21459",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21459",
+        "title": "My Hero Academia"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 2.931516
+    }
+  ]
+}

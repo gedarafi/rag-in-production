@@ -1,0 +1,365 @@
+{
+  "question_id": "hf_173",
+  "anime_id": "20665",
+  "title": "Your lie in April",
+  "field": "main_characters",
+  "question": "Which characters make up Your Lie in April's main cast?",
+  "expected_values": [
+    "Ryouta Watari",
+    "Kousei Arima",
+    "Tsubaki Sawabe",
+    "Kaori Miyazono"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Ryouta Watari, Kousei Arima, Tsubaki Sawabe, and Kaori Miyazono",
+  "extracted_values": [
+    "Ryouta Watari",
+    "Kousei Arima",
+    "Tsubaki Sawabe",
+    "Kaori Miyazono"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 11.442294041000423,
+  "extraction_seconds": 0.9077619580002647,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Ryouta Watari",
+        "quote": "Ryouta Watari, Kousei Arima, Tsubaki Sawabe, and Kaori Miyazono"
+      },
+      {
+        "value": "Kousei Arima",
+        "quote": "Ryouta Watari, Kousei Arima, Tsubaki Sawabe, and Kaori Miyazono"
+      },
+      {
+        "value": "Tsubaki Sawabe",
+        "quote": "Ryouta Watari, Kousei Arima, Tsubaki Sawabe, and Kaori Miyazono"
+      },
+      {
+        "value": "Kaori Miyazono",
+        "quote": "Ryouta Watari, Kousei Arima, Tsubaki Sawabe, and Kaori Miyazono"
+      }
+    ],
+    "note": "assertions for main animation studios are not provided",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 4,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20665",
+          "section": "cast"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "20665",
+          "title": "Your lie in April"
+        },
+        "elapsed_seconds": 0.007873
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 1.960523,
+      "prepare_context": 0.01711,
+      "retrieve_guides": 0.028339,
+      "feature_candidates": 0.013589,
+      "planning": 3.621551,
+      "tools": 0.007873,
+      "generate_answer": 5.790698
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Your Lie in April\", \"query\": \"Your Lie in April\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Main cast\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Your Lie in April",
+        "query": "Your Lie in April",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Main cast"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Main cast\", \"role\": \"subject\", \"selection\": \"Your lie in April | anime:20665\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20665",
+          "role": "subject",
+          "text": "Your Lie in April",
+          "name": "Your lie in April",
+          "meaning": "Main cast"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20665",
+          "role": "subject",
+          "text": "Your Lie in April",
+          "name": "Your lie in April",
+          "meaning": "Main cast"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Your lie in April"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20665",
+            "role": "subject",
+            "text": "Your Lie in April",
+            "name": "Your lie in April",
+            "meaning": "Main cast"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20665",
+            "role": "subject",
+            "text": "Your Lie in April",
+            "name": "Your lie in April",
+            "meaning": "Main cast"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Get main cast characters of Your Lie in April",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20665",
+            "section": "cast"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "20665",
+          "name": "Your lie in April"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:20665",
+          "fact": "The main cast of Your Lie in April includes Ryouta Watari, Kousei Arima, Tsubaki Sawabe, and Kaori Miyazono."
+        },
+        {
+          "subject": "anime:20665",
+          "fact": "Ryouta Watari is Kousei's childhood friend and the captain of the school's soccer team."
+        },
+        {
+          "subject": "anime:20665",
+          "fact": "Kousei Arima is a piano prodigy who dominated the competition and was known as the 'Human Metronome'."
+        },
+        {
+          "subject": "anime:20665",
+          "fact": "Tsubaki Sawabe is Kousei's childhood friend and next-door neighbor, who treats him like a little brother."
+        },
+        {
+          "subject": "anime:20665",
+          "fact": "Kaori Miyazono is a free-spirited violinist who helps Kousei return to the music world."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 6.8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001138
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 1.960523
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.01711
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.028339
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013589
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.621551
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Get main cast characters of Your Lie in April",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20665",
+              "section": "cast"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "20665",
+            "name": "Your lie in April"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20665",
+        "section": "cast"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.007873,
+      "arguments": {
+        "id": "20665",
+        "section": "cast"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "20665",
+        "title": "Your lie in April"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 5.790698
+    }
+  ]
+}

@@ -1,0 +1,348 @@
+{
+  "overall": {
+    "planned": 72,
+    "attempted": 72,
+    "pending": 0,
+    "scored": 53,
+    "status_counts": {
+      "scored": 53,
+      "model_error": 14,
+      "needs_review": 1,
+      "extraction_error": 4
+    },
+    "scoring_coverage": 0.7361111111111112,
+    "end_to_end_precision_at_k": 0.4217592592592593,
+    "scored_macro": {
+      "precision_at_k": 0.5729559748427673,
+      "graded_fit_at_k": 0.5971446540880503,
+      "ndcg_at_k": 0.6025702959327963,
+      "constraint_coverage": 0.8018867924528302,
+      "count_compliance": 0.37735849056603776,
+      "resolution_rate": 0.9311320754716982,
+      "duplicate_rate": 0.009433962264150943,
+      "extra_count": 1.0377358490566038,
+      "literal_precision_at_k": 0.5389937106918239,
+      "semantic_credit_at_k": 0.033962264150943396
+    }
+  },
+  "by_category": {
+    "formats": {
+      "planned": 6,
+      "attempted": 6,
+      "pending": 0,
+      "scored": 5,
+      "status_counts": {
+        "scored": 5,
+        "model_error": 1
+      },
+      "scoring_coverage": 0.8333333333333334,
+      "end_to_end_precision_at_k": 0.7027777777777778,
+      "scored_macro": {
+        "precision_at_k": 0.8433333333333334,
+        "graded_fit_at_k": 0.8433333333333334,
+        "ndcg_at_k": 0.8487258871117754,
+        "constraint_coverage": 1.0,
+        "count_compliance": 0.6,
+        "resolution_rate": 0.8699999999999999,
+        "duplicate_rate": 0.0,
+        "extra_count": 0.6,
+        "literal_precision_at_k": 0.8433333333333334,
+        "semantic_credit_at_k": 0.0
+      }
+    },
+    "genres": {
+      "planned": 12,
+      "attempted": 12,
+      "pending": 0,
+      "scored": 9,
+      "status_counts": {
+        "scored": 9,
+        "model_error": 3
+      },
+      "scoring_coverage": 0.75,
+      "end_to_end_precision_at_k": 0.5125000000000001,
+      "scored_macro": {
+        "precision_at_k": 0.6833333333333333,
+        "graded_fit_at_k": 0.6366666666666666,
+        "ndcg_at_k": 0.6277092592729105,
+        "constraint_coverage": 1.0,
+        "count_compliance": 0.5555555555555556,
+        "resolution_rate": 0.911111111111111,
+        "duplicate_rate": 0.0,
+        "extra_count": 0.7777777777777778,
+        "literal_precision_at_k": 0.5777777777777778,
+        "semantic_credit_at_k": 0.10555555555555556
+      }
+    },
+    "length": {
+      "planned": 6,
+      "attempted": 6,
+      "pending": 0,
+      "scored": 3,
+      "status_counts": {
+        "scored": 3,
+        "extraction_error": 1,
+        "model_error": 2
+      },
+      "scoring_coverage": 0.5,
+      "end_to_end_precision_at_k": 0.3333333333333333,
+      "scored_macro": {
+        "precision_at_k": 0.6666666666666666,
+        "graded_fit_at_k": 0.8333333333333334,
+        "ndcg_at_k": 0.8333333333333334,
+        "constraint_coverage": 0.8333333333333334,
+        "count_compliance": 0.3333333333333333,
+        "resolution_rate": 1.0,
+        "duplicate_rate": 0.0,
+        "extra_count": 1.0,
+        "literal_precision_at_k": 0.6666666666666666,
+        "semantic_credit_at_k": 0.0
+      }
+    },
+    "mixed_constraints": {
+      "planned": 3,
+      "attempted": 3,
+      "pending": 0,
+      "scored": 2,
+      "status_counts": {
+        "extraction_error": 1,
+        "scored": 2
+      },
+      "scoring_coverage": 0.6666666666666666,
+      "end_to_end_precision_at_k": 0.43333333333333335,
+      "scored_macro": {
+        "precision_at_k": 0.65,
+        "graded_fit_at_k": 0.8783333333333334,
+        "ndcg_at_k": 0.8874734266503066,
+        "constraint_coverage": 1.0,
+        "count_compliance": 0.5,
+        "resolution_rate": 1.0,
+        "duplicate_rate": 0.0,
+        "extra_count": 0.5,
+        "literal_precision_at_k": 0.55,
+        "semantic_credit_at_k": 0.1
+      }
+    },
+    "multiple_tags": {
+      "planned": 3,
+      "attempted": 3,
+      "pending": 0,
+      "scored": 3,
+      "status_counts": {
+        "scored": 3
+      },
+      "scoring_coverage": 1.0,
+      "end_to_end_precision_at_k": 0.3833333333333333,
+      "scored_macro": {
+        "precision_at_k": 0.3833333333333333,
+        "graded_fit_at_k": 0.5026666666666667,
+        "ndcg_at_k": 0.5204542789144163,
+        "constraint_coverage": 0.8333333333333334,
+        "count_compliance": 0.3333333333333333,
+        "resolution_rate": 0.9333333333333332,
+        "duplicate_rate": 0.0,
+        "extra_count": 1.0,
+        "literal_precision_at_k": 0.3833333333333333,
+        "semantic_credit_at_k": 0.0
+      }
+    },
+    "release_date": {
+      "planned": 3,
+      "attempted": 3,
+      "pending": 0,
+      "scored": 2,
+      "status_counts": {
+        "scored": 2,
+        "model_error": 1
+      },
+      "scoring_coverage": 0.6666666666666666,
+      "end_to_end_precision_at_k": 0.6666666666666666,
+      "scored_macro": {
+        "precision_at_k": 1.0,
+        "graded_fit_at_k": 1.0,
+        "ndcg_at_k": 1.0,
+        "constraint_coverage": 1.0,
+        "count_compliance": 0.0,
+        "resolution_rate": 1.0,
+        "duplicate_rate": 0.25,
+        "extra_count": 4.0,
+        "literal_precision_at_k": 1.0,
+        "semantic_credit_at_k": 0.0
+      }
+    },
+    "release_year": {
+      "planned": 6,
+      "attempted": 6,
+      "pending": 0,
+      "scored": 4,
+      "status_counts": {
+        "scored": 4,
+        "model_error": 2
+      },
+      "scoring_coverage": 0.6666666666666666,
+      "end_to_end_precision_at_k": 0.3333333333333333,
+      "scored_macro": {
+        "precision_at_k": 0.5,
+        "graded_fit_at_k": 0.725,
+        "ndcg_at_k": 0.7317414562696617,
+        "constraint_coverage": 0.75,
+        "count_compliance": 0.25,
+        "resolution_rate": 0.8500000000000001,
+        "duplicate_rate": 0.0,
+        "extra_count": 1.25,
+        "literal_precision_at_k": 0.5,
+        "semantic_credit_at_k": 0.0
+      }
+    },
+    "source_material": {
+      "planned": 3,
+      "attempted": 3,
+      "pending": 0,
+      "scored": 3,
+      "status_counts": {
+        "scored": 3
+      },
+      "scoring_coverage": 1.0,
+      "end_to_end_precision_at_k": 0.8888888888888888,
+      "scored_macro": {
+        "precision_at_k": 0.8888888888888888,
+        "graded_fit_at_k": 0.8888888888888888,
+        "ndcg_at_k": 0.9217868789962073,
+        "constraint_coverage": 1.0,
+        "count_compliance": 0.3333333333333333,
+        "resolution_rate": 0.9333333333333332,
+        "duplicate_rate": 0.0,
+        "extra_count": 1.0,
+        "literal_precision_at_k": 0.8888888888888888,
+        "semantic_credit_at_k": 0.0
+      }
+    },
+    "studios": {
+      "planned": 6,
+      "attempted": 6,
+      "pending": 0,
+      "scored": 2,
+      "status_counts": {
+        "model_error": 3,
+        "scored": 2,
+        "extraction_error": 1
+      },
+      "scoring_coverage": 0.3333333333333333,
+      "end_to_end_precision_at_k": 0.0,
+      "scored_macro": {
+        "precision_at_k": 0.0,
+        "graded_fit_at_k": 0.0,
+        "ndcg_at_k": 0.0,
+        "constraint_coverage": 0.0,
+        "count_compliance": 0.5,
+        "resolution_rate": 1.0,
+        "duplicate_rate": 0.0,
+        "extra_count": 0.5,
+        "literal_precision_at_k": 0.0,
+        "semantic_credit_at_k": 0.0
+      }
+    },
+    "tag_exclusions": {
+      "planned": 3,
+      "attempted": 3,
+      "pending": 0,
+      "scored": 3,
+      "status_counts": {
+        "scored": 3
+      },
+      "scoring_coverage": 1.0,
+      "end_to_end_precision_at_k": 0.39999999999999997,
+      "scored_macro": {
+        "precision_at_k": 0.39999999999999997,
+        "graded_fit_at_k": 0.6216666666666667,
+        "ndcg_at_k": 0.6164457776923159,
+        "constraint_coverage": 0.8333333333333334,
+        "count_compliance": 0.3333333333333333,
+        "resolution_rate": 1.0,
+        "duplicate_rate": 0.0,
+        "extra_count": 1.0,
+        "literal_precision_at_k": 0.3333333333333333,
+        "semantic_credit_at_k": 0.06666666666666667
+      }
+    },
+    "tags": {
+      "planned": 21,
+      "attempted": 21,
+      "pending": 0,
+      "scored": 17,
+      "status_counts": {
+        "scored": 17,
+        "model_error": 2,
+        "needs_review": 1,
+        "extraction_error": 1
+      },
+      "scoring_coverage": 0.8095238095238095,
+      "end_to_end_precision_at_k": 0.3658730158730159,
+      "scored_macro": {
+        "precision_at_k": 0.4519607843137255,
+        "graded_fit_at_k": 0.3826862745098039,
+        "ndcg_at_k": 0.39207290766088565,
+        "constraint_coverage": 0.6470588235294118,
+        "count_compliance": 0.29411764705882354,
+        "resolution_rate": 0.9294117647058824,
+        "duplicate_rate": 0.0,
+        "extra_count": 1.0588235294117647,
+        "literal_precision_at_k": 0.42549019607843136,
+        "semantic_credit_at_k": 0.026470588235294117
+      }
+    }
+  },
+  "by_wording": {
+    "explicit": {
+      "planned": 24,
+      "attempted": 24,
+      "pending": 0,
+      "scored": 17,
+      "status_counts": {
+        "scored": 17,
+        "extraction_error": 2,
+        "model_error": 5
+      },
+      "scoring_coverage": 0.7083333333333334,
+      "end_to_end_precision_at_k": 0.5277777777777778,
+      "scored_macro": {
+        "precision_at_k": 0.7450980392156863,
+        "graded_fit_at_k": 0.7305882352941176,
+        "ndcg_at_k": 0.7477479557405363,
+        "constraint_coverage": 0.8823529411764706,
+        "count_compliance": 0.0,
+        "resolution_rate": 0.9176470588235294,
+        "duplicate_rate": 0.0,
+        "extra_count": 2.0,
+        "literal_precision_at_k": 0.7450980392156863,
+        "semantic_credit_at_k": 0.0
+      }
+    },
+    "indirect": {
+      "planned": 48,
+      "attempted": 48,
+      "pending": 0,
+      "scored": 36,
+      "status_counts": {
+        "scored": 36,
+        "model_error": 9,
+        "needs_review": 1,
+        "extraction_error": 2
+      },
+      "scoring_coverage": 0.75,
+      "end_to_end_precision_at_k": 0.36874999999999997,
+      "scored_macro": {
+        "precision_at_k": 0.49166666666666664,
+        "graded_fit_at_k": 0.5341296296296296,
+        "ndcg_at_k": 0.5340141788013636,
+        "constraint_coverage": 0.7638888888888888,
+        "count_compliance": 0.5555555555555556,
+        "resolution_rate": 0.9375,
+        "duplicate_rate": 0.013888888888888888,
+        "extra_count": 0.5833333333333334,
+        "literal_precision_at_k": 0.44166666666666665,
+        "semantic_credit_at_k": 0.05
+      }
+    }
+  }
+}

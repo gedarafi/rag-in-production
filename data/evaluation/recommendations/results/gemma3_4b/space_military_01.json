@@ -1,0 +1,832 @@
+{
+  "question_id": "space_military_01",
+  "category": "multiple_tags",
+  "intent_family": "space_military",
+  "wording": "explicit",
+  "question_origin": "authored_naturalistic",
+  "question": "Recommend three anime with both Space and Military themes.",
+  "k": 3,
+  "constraints": [
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Space"
+      ]
+    },
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Military"
+      ]
+    }
+  ],
+  "label_rationale": "Both space setting and military organization must hold for each recommendation.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 196,
+  "reference_examples": [
+    {
+      "id": "21893",
+      "title": "Mobile Suit Gundam Thunderbolt: December Sky"
+    },
+    {
+      "id": "2002",
+      "title": "Heroic Age"
+    },
+    {
+      "id": "3079",
+      "title": "Blue Comet SPT Layzner"
+    }
+  ],
+  "answer_text": "Catalog matches. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **SPY x FAMILY** — Everyone has a part of themselves they cannot show to anyone else. At a time when all nations of the world were involved in a fierce war of information happening behind closed doors, Ostania and Westalis had been in a state of cold war against one another for decades. The Westalis Intelligence Services' Eastern-Focused Division (WISE) sends their most talented spy, \"Twilight,\" on a top-secret mission to investigate the movements of Donovan…\n\n2. **Attack on Titan Season 3 Part 2** — The battle to retake Wall Maria begins now! With Eren’s new hardening ability, the Scouts are confident they can seal the wall and take back Shiganshina District. If they succeed, Eren can finally unlock the secrets of the basement—and the world. But danger lies in wait as Reiner, Bertholdt, and the Beast Titan have plans of their own. Could this be humanity’s final battle for survival? (Source: Funimation)\n\n3. **Assassination Classroom** — The students of class 3-E have a mission: kill their teacher before graduation. He has already destroyed the moon, and has promised to destroy the Earth if he can not be killed within a year. But how can this class of misfits kill a tentacled monster, capable of reaching Mach 20 speed, who may be the best teacher any of them have ever had?\n\n4. **Attack on Titan Final Season** — It’s been four years since the Scout Regiment reached the shoreline, and the world looks different now. Things are heating up as the fate of the Scout Regiment—and the people of Paradis—are determined at last. However, Eren is missing. Will he reappear before age-old tensions between Marleyans and Eldians result in the war of all wars? (Source: Crunchyroll)\n\n5. **My Hero Academia Season 3** — Summer is here, and the heroes of Class 1-A and 1-B are in for the toughest training camp of their lives! A group of seasoned pros pushes everyone's Quirks to new heights as the students face one overwhelming challenge after another. Braving the elements in this secret location becomes the least of their worries when routine training turns into a critical struggle for survival. (Source: Crunchyroll)",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "SPY x FAMILY",
+      "Attack on Titan Season 3 Part 2",
+      "Assassination Classroom",
+      "Attack on Titan Final Season",
+      "My Hero Academia Season 3"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "SPY x FAMILY",
+      "anime_id": "140960",
+      "canonical_title": "SPY x FAMILY",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "140960"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Attack on Titan Season 3 Part 2",
+      "anime_id": "104578",
+      "canonical_title": "Attack on Titan Season 3 Part 2",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "104578"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        0.93
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 0.93,
+          "met": true,
+          "literal_score": 0.93,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.93,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.465,
+      "gain": 0.465,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Assassination Classroom",
+      "anime_id": null,
+      "canonical_title": null,
+      "resolution": "ambiguous",
+      "candidate_ids": [
+        "19759",
+        "20755"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        0.0
+      ],
+      "constraint_evidence": [],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Attack on Titan Final Season",
+      "anime_id": "110277",
+      "canonical_title": "Attack on Titan Final Season",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "110277"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        0.93
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 0.93,
+          "met": true,
+          "literal_score": 0.93,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.93,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.465,
+      "gain": 0.465,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 5,
+      "extracted_title": "My Hero Academia Season 3",
+      "anime_id": "100166",
+      "canonical_title": "My Hero Academia Season 3",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "100166"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.0,
+    "graded_fit_at_k": 0.155,
+    "ndcg_at_k": 0.1408692859527069,
+    "constraint_coverage": 0.5,
+    "count_compliance": 0,
+    "resolution_rate": 0.8,
+    "duplicate_rate": 0.0,
+    "extra_count": 2,
+    "literal_precision_at_k": 0.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 16.363634415999513,
+  "extraction_seconds": 1.6500691250003001,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 3.8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000772
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 8.788201
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.00155
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.00758
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.017776
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.979512
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "Recommend three anime with both Space and Military themes.",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "tags",
+                  "operator": "contains",
+                  "value": "Space"
+                },
+                {
+                  "field": "tags",
+                  "operator": "contains",
+                  "value": "Military"
+                }
+              ]
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "Space Military",
+              "kind": "tag"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "contains",
+            "value": "Space"
+          },
+          {
+            "field": "tags",
+            "operator": "contains",
+            "value": "Military"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.554618,
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "contains",
+            "value": "Space"
+          },
+          {
+            "field": "tags",
+            "operator": "contains",
+            "value": "Military"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": []
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": []
+        },
+        "items": [
+          {
+            "id": "140960",
+            "title": "SPY x FAMILY",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.2604
+          },
+          {
+            "id": "104578",
+            "title": "Attack on Titan Season 3 Part 2",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.2155
+          },
+          {
+            "id": "20755",
+            "title": "Assassination Classroom",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.211
+          },
+          {
+            "id": "110277",
+            "title": "Attack on Titan Final Season",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.1842
+          },
+          {
+            "id": "100166",
+            "title": "My Hero Academia Season 3",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.1833
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "Space Military",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.011205,
+      "arguments": {
+        "query": "Space Military",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "military",
+            "name": "Military",
+            "description": "Centered around the life and activities of military personnel.",
+            "category": "Theme-Other-Organisations",
+            "similarity": 0.5653
+          },
+          {
+            "kind": "tag",
+            "id": "space opera",
+            "name": "Space Opera",
+            "description": "Centers around space warfare, advanced technology, chivalric romance and adventure.",
+            "category": "Theme-Sci-Fi",
+            "similarity": 0.4612
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000583
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "tags",
+              "operator": "contains",
+              "value": "Space"
+            },
+            {
+              "field": "tags",
+              "operator": "contains",
+              "value": "Military"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": []
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": []
+          },
+          "items": [
+            {
+              "id": "140960",
+              "title": "SPY x FAMILY",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.2604
+            },
+            {
+              "id": "104578",
+              "title": "Attack on Titan Season 3 Part 2",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.2155
+            },
+            {
+              "id": "20755",
+              "title": "Assassination Classroom",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.211
+            },
+            {
+              "id": "110277",
+              "title": "Attack on Titan Final Season",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.1842
+            },
+            {
+              "id": "100166",
+              "title": "My Hero Academia Season 3",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.1833
+            }
+          ]
+        },
+        "elapsed_seconds": 0.554618
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "Space Military",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "military",
+              "name": "Military",
+              "description": "Centered around the life and activities of military personnel.",
+              "category": "Theme-Other-Organisations",
+              "similarity": 0.5653
+            },
+            {
+              "kind": "tag",
+              "id": "space opera",
+              "name": "Space Opera",
+              "description": "Centers around space warfare, advanced technology, chivalric romance and adventure.",
+              "category": "Theme-Sci-Fi",
+              "similarity": 0.4612
+            }
+          ]
+        },
+        "elapsed_seconds": 0.011205
+      }
+    ],
+    "llm_calls": 5,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 8.788201,
+      "prepare_context": 0.00155,
+      "retrieve_guides": 0.00758,
+      "feature_candidates": 0.017776,
+      "planning": 6.979512,
+      "tools": 0.565823,
+      "generate_answer": 0.000583
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Space\", \"query\": \"Space\", \"kind\": \"genre\", \"role\": \"preferred\", \"meaning\": \"Desired genre\"}, {\"text\": \"Military\", \"query\": \"Military\", \"kind\": \"genre\", \"role\": \"preferred\", \"meaning\": \"Desired genre\"}]}",
+      "{\"role\": \"preferred\"}",
+      "{\"role\": \"preferred\"}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Space",
+        "query": "Space",
+        "kind": "genre",
+        "role": "preferred",
+        "meaning": "Desired genre"
+      },
+      {
+        "text": "Military",
+        "query": "Military",
+        "kind": "genre",
+        "role": "preferred",
+        "meaning": "Desired genre"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"To clarify, you are requesting anime with both 'Space' and 'Military' themes. Please confirm if you have any specific preferences regarding the type of military themes (e.g., sci-fi warfare, naval battles, etc.) or the level of space exploration (e.g., interstellar travel, colonization).\", \"decisions\": {\"p0\": {\"meaning\": \"Desired genre\", \"role\": \"preferred\", \"selection\": \"unmapped description\" }, \"p1\": {\"meaning\": \"Desired genre\", \"role\": \"preferred\", \"selection\": \"unmapped description\" }}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "Space",
+          "name": "",
+          "meaning": "Desired genre"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "Military",
+          "name": "",
+          "meaning": "Desired genre"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [],
+      "preferred": [
+        "Space",
+        "Military"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [],
+      "soft_query": "Space Military",
+      "limitations": [],
+      "mappings": [],
+      "preference_hierarchy": [
+        {
+          "phrase": "Space",
+          "candidate": {
+            "field": "tags",
+            "value": "Space",
+            "meaning": "Space"
+          },
+          "role": "preferred",
+          "mapping": "exact"
+        },
+        {
+          "phrase": "Military",
+          "candidate": {
+            "field": "tags",
+            "value": "Military",
+            "meaning": "Military"
+          },
+          "role": "preferred",
+          "mapping": "exact"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "Space",
+            "name": "",
+            "meaning": "Desired genre"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "Military",
+            "name": "",
+            "meaning": "Desired genre"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "Recommend three anime with both Space and Military themes.",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "tags",
+                "operator": "contains",
+                "value": "Space"
+              },
+              {
+                "field": "tags",
+                "operator": "contains",
+                "value": "Military"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "Space Military",
+            "kind": "tag"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

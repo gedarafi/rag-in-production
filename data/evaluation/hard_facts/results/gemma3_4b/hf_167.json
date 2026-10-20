@@ -1,0 +1,450 @@
+{
+  "question_id": "hf_167",
+  "anime_id": "21519",
+  "title": "Your Name.",
+  "field": "main_characters",
+  "question": "Who are all the main characters in Your Name, according to the catalog?",
+  "expected_values": [
+    "Mitsuha Miyamizu",
+    "Taki Tachibana"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The main characters in Your Name are Taki Tachibana and Mitsuha Miyamizu.",
+  "extracted_values": [
+    "Taki Tachibana",
+    "Mitsuha Miyamizu"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 14.626938374999554,
+  "extraction_seconds": 0.6340509999999995,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Taki Tachibana",
+        "quote": "The main characters in Your Name are Taki Tachibana and Mitsuha Miyamizu."
+      },
+      {
+        "value": "Mitsuha Miyamizu",
+        "quote": "The main characters in Your Name are Taki Tachibana and Mitsuha Miyamizu."
+      }
+    ],
+    "note": "",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 2,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21519"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21519",
+          "title": "Your Name."
+        },
+        "elapsed_seconds": 0.016999
+      },
+      {
+        "step": 1,
+        "tool": "get_character",
+        "arguments": {
+          "id": "121514",
+          "offset": 0
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "121514",
+          "name": "Mitsuha Miyamizu"
+        },
+        "elapsed_seconds": 0.002718
+      },
+      {
+        "step": 2,
+        "tool": "get_character",
+        "arguments": {
+          "id": "121516",
+          "offset": 0
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "121516",
+          "name": "Taki Tachibana"
+        },
+        "elapsed_seconds": 0.001146
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 3.283429,
+      "prepare_context": 0.032378,
+      "retrieve_guides": 0.047685,
+      "feature_candidates": 0.019283,
+      "planning": 6.775688,
+      "tools": 0.020863,
+      "generate_answer": 4.435953
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Your Name\", \"query\": \"Your Name\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Your Name",
+        "query": "Your Name",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"To clarify, you are asking for the main characters in the anime \\\"Your Name\\\".\", \"decisions\": {\"p0\": {\"meaning\": \"Your Name\", \"role\": \"subject\", \"selection\": \"Your Name. | anime:21519\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21519",
+          "role": "subject",
+          "text": "Your Name",
+          "name": "Your Name.",
+          "meaning": "Your Name"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21519",
+          "role": "subject",
+          "text": "Your Name",
+          "name": "Your Name.",
+          "meaning": "Your Name"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Your Name."
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21519",
+            "role": "subject",
+            "text": "Your Name",
+            "name": "Your Name.",
+            "meaning": "Your Name"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21519",
+            "role": "subject",
+            "text": "Your Name",
+            "name": "Your Name.",
+            "meaning": "Your Name"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Retrieve main characters from the anime 'Your Name.'",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21519"
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "121514",
+            "offset": 0
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "121516",
+            "offset": 0
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21519",
+          "name": "Your Name."
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:21519",
+          "fact": "Taki Tachibana is a MAIN character."
+        },
+        {
+          "subject": "anime:21519",
+          "fact": "Mitsuha Miyamizu is a MAIN character."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 3.9e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001113
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.283429
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.032378
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.047685
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.019283
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.775688
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Retrieve main characters from the anime 'Your Name.'",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21519"
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "121514",
+              "offset": 0
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "121516",
+              "offset": 0
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21519",
+            "name": "Your Name."
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21519"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.016999,
+      "arguments": {
+        "id": "21519"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21519",
+        "title": "Your Name."
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_character",
+      "arguments": {
+        "id": "121514",
+        "offset": 0
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.002718,
+      "arguments": {
+        "id": "121514",
+        "offset": 0
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "121514",
+        "name": "Mitsuha Miyamizu"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "get_character",
+      "arguments": {
+        "id": "121516",
+        "offset": 0
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.001146,
+      "arguments": {
+        "id": "121516",
+        "offset": 0
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "121516",
+        "name": "Taki Tachibana"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.435953
+    }
+  ]
+}

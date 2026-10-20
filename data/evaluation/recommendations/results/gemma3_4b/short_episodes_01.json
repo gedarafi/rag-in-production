@@ -1,0 +1,593 @@
+{
+  "question_id": "short_episodes_01",
+  "category": "length",
+  "intent_family": "short_episodes",
+  "wording": "explicit",
+  "question_origin": "authored_naturalistic",
+  "question": "Recommend three TV anime or TV shorts whose episodes run no more than 15 minutes each.",
+  "k": 3,
+  "constraints": [
+    {
+      "field": "format",
+      "op": "any",
+      "value": [
+        "TV",
+        "TV_SHORT"
+      ]
+    },
+    {
+      "field": "duration",
+      "op": "lte",
+      "value": 15
+    }
+  ],
+  "label_rationale": "Duration is minutes per episode, not total series runtime.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 1310,
+  "reference_examples": [
+    {
+      "id": "100009",
+      "title": "Space Battleship Tiramisu"
+    },
+    {
+      "id": "100093",
+      "title": "Skull-face Bookseller Honda-san"
+    },
+    {
+      "id": "100133",
+      "title": "One Room SECOND SEASON"
+    }
+  ],
+  "answer_text": "",
+  "status": "model_error",
+  "error": "RuntimeError: No supported recommendations were retrieved. Please rephrase your preferences and retry.",
+  "extraction": null,
+  "recommendations": [],
+  "metrics": null,
+  "model_seconds": 20.493166166000265,
+  "extraction_seconds": 0.0,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.6e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000874
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 9.82475
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.001813
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.008003
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.010149
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.334679
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "duration",
+                  "operator": "lt",
+                  "value": "15"
+                },
+                {
+                  "field": "format",
+                  "operator": "eq",
+                  "value": "TV"
+                }
+              ]
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "ensemble cast"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "duration",
+            "operator": "lt",
+            "value": "15"
+          },
+          {
+            "field": "format",
+            "operator": "eq",
+            "value": "TV"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.08014,
+      "arguments": {
+        "filters": [
+          {
+            "field": "duration",
+            "operator": "lt",
+            "value": "15"
+          },
+          {
+            "field": "format",
+            "operator": "eq",
+            "value": "TV"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "duration",
+              "operator": "lt",
+              "value": "15"
+            },
+            {
+              "field": "format",
+              "operator": "eq",
+              "value": "TV"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 0,
+          "retained": 0,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "duration",
+              "operator": "lt",
+              "value": "15",
+              "source_text": "episodes run no more than 15 minutes each",
+              "mapping": "exact"
+            },
+            {
+              "field": "format",
+              "operator": "eq",
+              "value": "TV",
+              "source_text": "Recommend three TV anime or TV shorts whose episodes run no more than 15 minutes each.",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "ensemble cast"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.030156,
+      "arguments": {
+        "query": "ensemble cast"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "ensemble cast",
+            "name": "Ensemble Cast",
+            "description": "Features a large cast of characters with (almost) equal screen time and importance to the plot.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.6933
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "error",
+      "elapsed_seconds": 4.201422,
+      "error": "No supported recommendations were retrieved. Please rephrase your preferences and retry."
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "duration",
+              "operator": "lt",
+              "value": "15"
+            },
+            {
+              "field": "format",
+              "operator": "eq",
+              "value": "TV"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "duration",
+                "operator": "lt",
+                "value": "15"
+              },
+              {
+                "field": "format",
+                "operator": "eq",
+                "value": "TV"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 0,
+            "retained": 0,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "duration",
+                "operator": "lt",
+                "value": "15",
+                "source_text": "episodes run no more than 15 minutes each",
+                "mapping": "exact"
+              },
+              {
+                "field": "format",
+                "operator": "eq",
+                "value": "TV",
+                "source_text": "Recommend three TV anime or TV shorts whose episodes run no more than 15 minutes each.",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": []
+        },
+        "elapsed_seconds": 0.08014
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "ensemble cast"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "ensemble cast",
+              "name": "Ensemble Cast",
+              "description": "Features a large cast of characters with (almost) equal screen time and importance to the plot.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.6933
+            }
+          ]
+        },
+        "elapsed_seconds": 0.030156
+      }
+    ],
+    "llm_calls": 6,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 9.82475,
+      "prepare_context": 0.001813,
+      "retrieve_guides": 0.008003,
+      "feature_candidates": 0.010149,
+      "planning": 6.334679,
+      "tools": 0.110296,
+      "generate_answer": 4.201422
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"TV anime\", \"query\": \"TV anime\", \"kind\": \"genre\", \"role\": \"preferred\", \"meaning\": \"Preferred format\"}, {\"text\": \"episodes run no more than 15 minutes each\", \"query\": \"15 minutes\", \"kind\": \"genre\", \"role\": \"required\", \"meaning\": \"Episode length\"}, {\"text\": \"TV shorts\", \"query\": \"TV shorts\", \"kind\": \"genre\", \"role\": \"preferred\", \"meaning\": \"Preferred format\"}]}",
+      "{\"min\": 0, \"max\": 15}",
+      "{\"applies\": true, \"operator\": \"eq\", \"value\": \"TV\"}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "TV anime",
+        "query": "TV anime",
+        "kind": "genre",
+        "role": "preferred",
+        "meaning": "Preferred format"
+      },
+      {
+        "text": "episodes run no more than 15 minutes each",
+        "query": "15 minutes",
+        "kind": "genre",
+        "role": "required",
+        "meaning": "Episode length"
+      },
+      {
+        "text": "TV shorts",
+        "query": "TV shorts",
+        "kind": "genre",
+        "role": "preferred",
+        "meaning": "Preferred format"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify which TV anime or TV shorts you would like recommendations for.\", \"decisions\": {\"p0\": {\"meaning\": \"TV anime\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}, \"p1\": {\"meaning\": \"episodes run no more than 15 minutes each\", \"role\": \"required\", \"selection\": \"unmapped description\"}, \"p2\": {\"meaning\": \"TV shorts\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "TV anime",
+          "name": "",
+          "meaning": "TV anime"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "episodes run no more than 15 minutes each",
+          "name": "",
+          "meaning": "episodes run no more than 15 minutes each"
+        },
+        {
+          "phrase_index": 2,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "TV shorts",
+          "name": "",
+          "meaning": "TV shorts"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {
+      "duration": {
+        "sources": [
+          "Recommend three TV anime or TV shorts whose episodes run no more than 15 minutes each.",
+          "episodes run no more than 15 minutes each"
+        ],
+        "interpretations": [
+          "brief",
+          "range"
+        ]
+      }
+    },
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [
+        "episodes run no more than 15 minutes each"
+      ],
+      "excluded": [],
+      "preferred": [
+        "TV anime",
+        "TV shorts"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "duration",
+          "operator": "lt",
+          "value": "15"
+        },
+        {
+          "field": "format",
+          "operator": "eq",
+          "value": "TV"
+        }
+      ],
+      "soft_query": "TV shorts",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "duration",
+          "operator": "lt",
+          "value": "15",
+          "source_text": "episodes run no more than 15 minutes each",
+          "mapping": "exact"
+        },
+        {
+          "field": "format",
+          "operator": "eq",
+          "value": "TV",
+          "source_text": "Recommend three TV anime or TV shorts whose episodes run no more than 15 minutes each.",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "TV shorts",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "TV anime",
+            "name": "",
+            "meaning": "TV anime"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "episodes run no more than 15 minutes each",
+            "name": "",
+            "meaning": "episodes run no more than 15 minutes each"
+          },
+          {
+            "phrase_index": 2,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "TV shorts",
+            "name": "",
+            "meaning": "TV shorts"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "duration",
+                "operator": "lt",
+                "value": "15"
+              },
+              {
+                "field": "format",
+                "operator": "eq",
+                "value": "TV"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "ensemble cast"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

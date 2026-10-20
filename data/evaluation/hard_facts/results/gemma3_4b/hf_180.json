@@ -1,0 +1,495 @@
+{
+  "question_id": "hf_180",
+  "anime_id": "154587",
+  "title": "Frieren: Beyond Journey’s End",
+  "field": "main_characters",
+  "question": "Can you give the complete catalog main cast for Frieren: Beyond Journey's End?",
+  "expected_values": [
+    "Frieren",
+    "Fern",
+    "Stark"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The main cast for Frieren: Beyond Journey’s End consists of Frieren, Fern, and Stark.",
+  "extracted_values": [
+    "Frieren",
+    "Fern",
+    "Stark"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 16.717768458000137,
+  "extraction_seconds": 0.8055748329998096,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Frieren",
+        "quote": "The main cast for Frieren: Beyond Journey’s End consists of Frieren, Fern, and Stark."
+      },
+      {
+        "value": "Fern",
+        "quote": "The main cast for Frieren: Beyond Journey’s End consists of Frieren, Fern, and Stark."
+      },
+      {
+        "value": "Stark",
+        "quote": "The main cast for Frieren: Beyond Journey’s End consists of Frieren, Fern, and Stark."
+      }
+    ],
+    "note": "assertion for main_characters field for Frieren: Beyond Journey's End",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 3,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "154587"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "154587",
+          "title": "Frieren: Beyond Journey’s End"
+        },
+        "elapsed_seconds": 0.014358
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "main cast",
+          "kind": "tag",
+          "limit": 5
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "female protagonist",
+              "name": "Female Protagonist",
+              "description": "Main character is female.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.7073
+            },
+            {
+              "kind": "tag",
+              "id": "male protagonist",
+              "name": "Male Protagonist",
+              "description": "Main character is male.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.7054
+            },
+            {
+              "kind": "tag",
+              "id": "primarily female cast",
+              "name": "Primarily Female Cast",
+              "description": "Main cast is mostly composed of female characters.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.6826
+            },
+            {
+              "kind": "tag",
+              "id": "primarily male cast",
+              "name": "Primarily Male Cast",
+              "description": "Main cast is mostly composed of male characters.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.6788
+            },
+            {
+              "kind": "tag",
+              "id": "primarily teen cast",
+              "name": "Primarily Teen Cast",
+              "description": "Main cast is mostly composed of teen characters.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.6545
+            }
+          ]
+        },
+        "elapsed_seconds": 0.036475
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 4.839136,
+      "prepare_context": 0.026367,
+      "retrieve_guides": 0.043186,
+      "feature_candidates": 0.016908,
+      "planning": 6.488821,
+      "tools": 0.050833,
+      "generate_answer": 5.250211
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Frieren: Beyond Journey's End\", \"query\": \"Frieren: Beyond Journey's End\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Frieren: Beyond Journey's End",
+        "query": "Frieren: Beyond Journey's End",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify which cast you are referring to for Frieren: Beyond Journey’s End.\", \"decisions\": {\"p0\": {\"meaning\": \"Frieren: Beyond Journey’s End\", \"role\": \"subject\", \"selection\": \"Frieren: Beyond Journey’s End | anime:154587\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "154587",
+          "role": "subject",
+          "text": "Frieren: Beyond Journey's End",
+          "name": "Frieren: Beyond Journey’s End",
+          "meaning": "Frieren: Beyond Journey’s End"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "154587",
+          "role": "subject",
+          "text": "Frieren: Beyond Journey's End",
+          "name": "Frieren: Beyond Journey’s End",
+          "meaning": "Frieren: Beyond Journey’s End"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Frieren: Beyond Journey’s End"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "154587",
+            "role": "subject",
+            "text": "Frieren: Beyond Journey's End",
+            "name": "Frieren: Beyond Journey’s End",
+            "meaning": "Frieren: Beyond Journey’s End"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "154587",
+            "role": "subject",
+            "text": "Frieren: Beyond Journey's End",
+            "name": "Frieren: Beyond Journey’s End",
+            "meaning": "Frieren: Beyond Journey’s End"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Retrieve the complete main cast for Frieren: Beyond Journey’s End.",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "154587"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "main cast",
+            "kind": "tag",
+            "limit": 5
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "154587",
+          "name": "Frieren: Beyond Journey’s End"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:154587",
+          "fact": "The main characters are Frieren, Fern, and Stark."
+        },
+        {
+          "subject": "anime:154587",
+          "fact": "Frieren is the MAIN character, an elf mage."
+        },
+        {
+          "subject": "anime:154587",
+          "fact": "Fern is the MAIN character, an adventurer."
+        },
+        {
+          "subject": "anime:154587",
+          "fact": "Stark is the MAIN character, an adventurer."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.1e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000796
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.839136
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.026367
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.043186
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.016908
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.488821
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Retrieve the complete main cast for Frieren: Beyond Journey’s End.",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "154587"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "main cast",
+              "kind": "tag",
+              "limit": 5
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "154587",
+            "name": "Frieren: Beyond Journey’s End"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "154587"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.014358,
+      "arguments": {
+        "id": "154587"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "154587",
+        "title": "Frieren: Beyond Journey’s End"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "main cast",
+        "kind": "tag",
+        "limit": 5
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.036475,
+      "arguments": {
+        "query": "main cast",
+        "kind": "tag",
+        "limit": 5
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "female protagonist",
+            "name": "Female Protagonist",
+            "description": "Main character is female.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.7073
+          },
+          {
+            "kind": "tag",
+            "id": "male protagonist",
+            "name": "Male Protagonist",
+            "description": "Main character is male.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.7054
+          },
+          {
+            "kind": "tag",
+            "id": "primarily female cast",
+            "name": "Primarily Female Cast",
+            "description": "Main cast is mostly composed of female characters.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.6826
+          },
+          {
+            "kind": "tag",
+            "id": "primarily male cast",
+            "name": "Primarily Male Cast",
+            "description": "Main cast is mostly composed of male characters.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.6788
+          },
+          {
+            "kind": "tag",
+            "id": "primarily teen cast",
+            "name": "Primarily Teen Cast",
+            "description": "Main cast is mostly composed of teen characters.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.6545
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 5.250211
+    }
+  ]
+}

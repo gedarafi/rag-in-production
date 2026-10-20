@@ -1,0 +1,925 @@
+{
+  "question_id": "hf_004",
+  "anime_id": "1535",
+  "title": "Death Note",
+  "field": "year",
+  "question": "When was Death Note first released as an anime? I'd like the year.",
+  "expected_values": [
+    2006.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Death Note was first released in 2006.",
+  "extracted_values": [
+    "2006"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 15.93614645799994,
+  "extraction_seconds": 0.4964086669999688,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "2006",
+        "quote": "Death Note was first released in 2006."
+      }
+    ],
+    "note": "year",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1535"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "1535",
+          "title": "Death Note"
+        },
+        "elapsed_seconds": 0.014358
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "release year",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "anthology",
+              "name": "Anthology",
+              "description": "A collection of separate works collated into a single release.",
+              "category": "Technical",
+              "similarity": 0.2866
+            },
+            {
+              "kind": "tag",
+              "id": "coming of age",
+              "name": "Coming of Age",
+              "description": "Centers around a character's transition from childhood to adulthood.",
+              "category": "Theme-Drama",
+              "similarity": 0.272
+            },
+            {
+              "kind": "tag",
+              "id": "guns",
+              "name": "Guns",
+              "description": "Prominently features the use of guns in combat.",
+              "category": "Theme-Action",
+              "similarity": 0.2442
+            },
+            {
+              "kind": "tag",
+              "id": "mopeds",
+              "name": "Mopeds",
+              "description": "Prominently features mopeds.",
+              "category": "Theme-Other-Vehicle",
+              "similarity": 0.2408
+            },
+            {
+              "kind": "tag",
+              "id": "age gap",
+              "name": "Age Gap",
+              "description": "Prominently features romantic relations between people with a significant age difference.",
+              "category": "Theme-Romance",
+              "similarity": 0.2366
+            }
+          ]
+        },
+        "elapsed_seconds": 0.036738
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "release year"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.010317
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1535"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "1535",
+          "title": "Death Note"
+        },
+        "elapsed_seconds": 0.000123
+      },
+      {
+        "step": 4,
+        "tool": "search_features",
+        "arguments": {
+          "query": "start_date",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "time skip",
+              "name": "Time Skip",
+              "description": "Features a gap in time used to advance the story.",
+              "category": "Setting-Time",
+              "similarity": 0.2533
+            },
+            {
+              "kind": "tag",
+              "id": "age gap",
+              "name": "Age Gap",
+              "description": "Prominently features romantic relations between people with a significant age difference.",
+              "category": "Theme-Romance",
+              "similarity": 0.2277
+            },
+            {
+              "kind": "tag",
+              "id": "achronological order",
+              "name": "Achronological Order",
+              "description": "Chapters or episodes do not occur in chronological order.",
+              "category": "Setting-Time",
+              "similarity": 0.2095
+            }
+          ]
+        },
+        "elapsed_seconds": 0.0116
+      },
+      {
+        "step": 5,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1535"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "1535",
+          "title": "Death Note"
+        },
+        "elapsed_seconds": 0.000117
+      },
+      {
+        "step": 6,
+        "tool": "search_features",
+        "arguments": {
+          "query": "year",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "age gap",
+              "name": "Age Gap",
+              "description": "Prominently features romantic relations between people with a significant age difference.",
+              "category": "Theme-Romance",
+              "similarity": 0.2377
+            },
+            {
+              "kind": "tag",
+              "id": "coming of age",
+              "name": "Coming of Age",
+              "description": "Centers around a character's transition from childhood to adulthood.",
+              "category": "Theme-Drama",
+              "similarity": 0.2334
+            },
+            {
+              "kind": "tag",
+              "id": "historical",
+              "name": "Historical",
+              "description": "Partly or completely set during a real period of world history.",
+              "category": "Setting-Time",
+              "similarity": 0.2276
+            },
+            {
+              "kind": "tag",
+              "id": "cycling",
+              "name": "Cycling",
+              "description": "Centers around the sport of cycling.",
+              "category": "Theme-Game-Sport",
+              "similarity": 0.1924
+            },
+            {
+              "kind": "tag",
+              "id": "graduation project",
+              "name": "Graduation Project",
+              "description": "A work made by students in place of an exam, typically at higher levels of education, either as a work for the entire course or as a work for a specific year of a course.",
+              "category": "Technical",
+              "similarity": 0.1907
+            }
+          ]
+        },
+        "elapsed_seconds": 0.012499
+      },
+      {
+        "step": 7,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1535"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "1535",
+          "title": "Death Note"
+        },
+        "elapsed_seconds": 0.000119
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 8,
+    "executed_tools": 5,
+    "timings_seconds": {
+      "interpret_request": 3.730238,
+      "prepare_context": 0.017378,
+      "retrieve_guides": 0.068749,
+      "feature_candidates": 0.1685,
+      "planning": 8.47882,
+      "tools": 0.085871,
+      "generate_answer": 3.382797
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Death Note\", \"query\": \"Death Note\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Death Note",
+        "query": "Death Note",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"To clarify, you are asking for the year of the first release of the anime series Death Note.\", \"decisions\": {\"p0\": {\"meaning\": \"Death Note\", \"role\": \"subject\", \"selection\": \"Death Note | anime:1535\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "1535",
+          "role": "subject",
+          "text": "Death Note",
+          "name": "Death Note",
+          "meaning": "Death Note"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "1535",
+          "role": "subject",
+          "text": "Death Note",
+          "name": "Death Note",
+          "meaning": "Death Note"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Death Note"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "1535",
+            "role": "subject",
+            "text": "Death Note",
+            "name": "Death Note",
+            "meaning": "Death Note"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "1535",
+            "role": "subject",
+            "text": "Death Note",
+            "name": "Death Note",
+            "meaning": "Death Note"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "retrieve_anime_release_year",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1535"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "release year",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "release year"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1535"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "start_date",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1535"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "year",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1535"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "1535",
+          "name": "Death Note"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:1535",
+          "fact": "year"
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 0.000111
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.002321
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.730238
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.017378
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.068749
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.1685
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 8.47882
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "retrieve_anime_release_year",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1535"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "release year",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "release year"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1535"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "start_date",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1535"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "year",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1535"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "1535",
+            "name": "Death Note"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1535"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.014358,
+      "arguments": {
+        "id": "1535"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "1535",
+        "title": "Death Note"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "release year",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.036738,
+      "arguments": {
+        "query": "release year",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "anthology",
+            "name": "Anthology",
+            "description": "A collection of separate works collated into a single release.",
+            "category": "Technical",
+            "similarity": 0.2866
+          },
+          {
+            "kind": "tag",
+            "id": "coming of age",
+            "name": "Coming of Age",
+            "description": "Centers around a character's transition from childhood to adulthood.",
+            "category": "Theme-Drama",
+            "similarity": 0.272
+          },
+          {
+            "kind": "tag",
+            "id": "guns",
+            "name": "Guns",
+            "description": "Prominently features the use of guns in combat.",
+            "category": "Theme-Action",
+            "similarity": 0.2442
+          },
+          {
+            "kind": "tag",
+            "id": "mopeds",
+            "name": "Mopeds",
+            "description": "Prominently features mopeds.",
+            "category": "Theme-Other-Vehicle",
+            "similarity": 0.2408
+          },
+          {
+            "kind": "tag",
+            "id": "age gap",
+            "name": "Age Gap",
+            "description": "Prominently features romantic relations between people with a significant age difference.",
+            "category": "Theme-Romance",
+            "similarity": 0.2366
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "release year"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.010317,
+      "arguments": {
+        "kind": "tag",
+        "query": "release year"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1535"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000123,
+      "arguments": {
+        "id": "1535"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "1535",
+        "title": "Death Note"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "search_features",
+      "arguments": {
+        "query": "start_date",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.0116,
+      "arguments": {
+        "query": "start_date",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "time skip",
+            "name": "Time Skip",
+            "description": "Features a gap in time used to advance the story.",
+            "category": "Setting-Time",
+            "similarity": 0.2533
+          },
+          {
+            "kind": "tag",
+            "id": "age gap",
+            "name": "Age Gap",
+            "description": "Prominently features romantic relations between people with a significant age difference.",
+            "category": "Theme-Romance",
+            "similarity": 0.2277
+          },
+          {
+            "kind": "tag",
+            "id": "achronological order",
+            "name": "Achronological Order",
+            "description": "Chapters or episodes do not occur in chronological order.",
+            "category": "Setting-Time",
+            "similarity": 0.2095
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1535"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000117,
+      "arguments": {
+        "id": "1535"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "1535",
+        "title": "Death Note"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 6,
+      "tool": "search_features",
+      "arguments": {
+        "query": "year",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 6,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.012499,
+      "arguments": {
+        "query": "year",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "age gap",
+            "name": "Age Gap",
+            "description": "Prominently features romantic relations between people with a significant age difference.",
+            "category": "Theme-Romance",
+            "similarity": 0.2377
+          },
+          {
+            "kind": "tag",
+            "id": "coming of age",
+            "name": "Coming of Age",
+            "description": "Centers around a character's transition from childhood to adulthood.",
+            "category": "Theme-Drama",
+            "similarity": 0.2334
+          },
+          {
+            "kind": "tag",
+            "id": "historical",
+            "name": "Historical",
+            "description": "Partly or completely set during a real period of world history.",
+            "category": "Setting-Time",
+            "similarity": 0.2276
+          },
+          {
+            "kind": "tag",
+            "id": "cycling",
+            "name": "Cycling",
+            "description": "Centers around the sport of cycling.",
+            "category": "Theme-Game-Sport",
+            "similarity": 0.1924
+          },
+          {
+            "kind": "tag",
+            "id": "graduation project",
+            "name": "Graduation Project",
+            "description": "A work made by students in place of an exam, typically at higher levels of education, either as a work for the entire course or as a work for a specific year of a course.",
+            "category": "Technical",
+            "similarity": 0.1907
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 7,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1535"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 7,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000119,
+      "arguments": {
+        "id": "1535"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "1535",
+        "title": "Death Note"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.382797
+    }
+  ]
+}

@@ -1,0 +1,779 @@
+{
+  "question_id": "comedy_03",
+  "category": "genres",
+  "intent_family": "comedy",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "I need five funny shows to brighten up the evening. Which anime would you pick?",
+  "k": 5,
+  "constraints": [
+    {
+      "field": "genres",
+      "op": "any",
+      "value": [
+        "Comedy"
+      ],
+      "alternatives": [
+        {
+          "reason": "Prominent slapstick, surreal comedy, or parody supports a general request for funny viewing without requiring the broad Comedy genre.",
+          "constraints": [
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Slapstick",
+                "Surreal Comedy",
+                "Parody"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "The broad request to laugh maps to Comedy rather than a specific joke style.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 7022,
+  "reference_examples": [
+    {
+      "id": "100",
+      "title": "Prétear: The New Legend of Snow White"
+    },
+    {
+      "id": "10000",
+      "title": "Esper Mami Special: My Angel Mami-chan"
+    },
+    {
+      "id": "100009",
+      "title": "Space Battleship Tiramisu"
+    }
+  ],
+  "answer_text": "Catalog matches — episode count: at least 5; Comedy.\n\n1. **My Hero Academia** (13 episodes) — What would the world be like if 80 percent of the population manifested extraordinary superpowers called “Quirks” at age four? Heroes and villains would be battling it out everywhere! Becoming a hero would mean learning to use your power, but where would you go to study? U.A. High's Hero Program of course! But what would you do if you were one of the 20 percent who were born Quirkless? Middle school student Izuku Midoriya wants to be a hero more…\n\n2. **One-Punch Man** (12 episodes) — Saitama has a rather peculiar hobby, being a superhero, but despite his heroic deeds and superhuman abilities, a shadow looms over his life. He's become much too powerful, to the point that every opponent ends up defeated with a single punch. The lack of challenge has driven him into a state of apathy, as he watches his life pass by having lost all enthusiasm, at least until he's unwillingly thrust in the role of being a mentor to the young and…\n\n3. **Naruto** (220 episodes) — Naruto Uzumaki, a hyperactive and knuckle-headed ninja, lives in Konohagakure, the Hidden Leaf village. Moments prior to his birth, a huge demon known as the Kyuubi, the Nine-tailed Fox, attacked Konohagakure and wreaked havoc. In order to put an end to the Kyuubi's rampage, the leader of the village, the 4th Hokage, sacrificed his life and sealed the monstrous beast inside the newborn Naruto. Shunned because of the presence of the Kyuubi inside…\n\n4. **My Hero Academia Season 2** (25 episodes) — Taking off right after the last episode of the first season. The school is temporarily closed due to security. When U.A. restarts, it is announced that the highly anticipated School Sports Festival will soon be taking place. All classes: Hero, Support, General and Business will be participating. Tournaments all round will decide who is the top Hero in training. (Source: Anime News Network)\n\n5. **Assassination Classroom** (22 episodes) — The students of class 3-E have a mission: kill their teacher before graduation. He has already destroyed the moon, and has promised to destroy the Earth if he can not be killed within a year. But how can this class of misfits kill a tentacled monster, capable of reaching Mach 20 speed, who may be the best teacher any of them have ever had?\n\nA broader catalog category was used: Comedy.",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "My Hero Academia",
+      "One-Punch Man",
+      "Naruto",
+      "My Hero Academia Season 2",
+      "Assassination Classroom"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "My Hero Academia",
+      "anime_id": "21459",
+      "canonical_title": "My Hero Academia",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21459"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Prominent slapstick, surreal comedy, or parody supports a general request for funny viewing without requiring the broad Comedy genre.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Slapstick",
+                      "Surreal Comedy",
+                      "Parody"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 2,
+      "extracted_title": "One-Punch Man",
+      "anime_id": "21087",
+      "canonical_title": "One-Punch Man",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21087"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Prominent slapstick, surreal comedy, or parody supports a general request for funny viewing without requiring the broad Comedy genre.",
+              "score": 0.91,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Slapstick",
+                      "Surreal Comedy",
+                      "Parody"
+                    ]
+                  },
+                  "score": 0.91
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Naruto",
+      "anime_id": "20",
+      "canonical_title": "Naruto",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Prominent slapstick, surreal comedy, or parody supports a general request for funny viewing without requiring the broad Comedy genre.",
+              "score": 0.63,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Slapstick",
+                      "Surreal Comedy",
+                      "Parody"
+                    ]
+                  },
+                  "score": 0.63
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 4,
+      "extracted_title": "My Hero Academia Season 2",
+      "anime_id": "21856",
+      "canonical_title": "My Hero Academia Season 2",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21856"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Prominent slapstick, surreal comedy, or parody supports a general request for funny viewing without requiring the broad Comedy genre.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Slapstick",
+                      "Surreal Comedy",
+                      "Parody"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Assassination Classroom",
+      "anime_id": null,
+      "canonical_title": null,
+      "resolution": "ambiguous",
+      "candidate_ids": [
+        "19759",
+        "20755"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.8,
+    "graded_fit_at_k": 0.8,
+    "ndcg_at_k": 0.8687949224876582,
+    "constraint_coverage": 1.0,
+    "count_compliance": 1,
+    "resolution_rate": 0.8,
+    "duplicate_rate": 0.0,
+    "extra_count": 0,
+    "literal_precision_at_k": 0.8,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 8.276288958000805,
+  "extraction_seconds": 1.6738086660006957,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.1e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000753
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.75356
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.001791
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.01074
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.017824
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.319455
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "genres",
+                  "operator": "eq",
+                  "value": "Comedy"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "eq",
+            "value": "Comedy"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.16971,
+      "arguments": {
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "eq",
+            "value": "Comedy"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "episodes",
+              "operator": "gte",
+              "value": "5"
+            },
+            {
+              "field": "genres",
+              "operator": "eq",
+              "value": "Comedy"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "episodes",
+              "operator": "gte",
+              "value": "5",
+              "source_text": "shows",
+              "mapping": "exact"
+            },
+            {
+              "field": "genres",
+              "operator": "eq",
+              "value": "Comedy",
+              "source_text": "I need five funny shows to brighten up the evening. Which anime would you pick?",
+              "mapping": "broader"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "21459",
+            "title": "My Hero Academia",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '5'}, {'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]"
+          },
+          {
+            "id": "21087",
+            "title": "One-Punch Man",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '5'}, {'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]"
+          },
+          {
+            "id": "20",
+            "title": "Naruto",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '5'}, {'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]"
+          },
+          {
+            "id": "21856",
+            "title": "My Hero Academia Season 2",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '5'}, {'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]"
+          },
+          {
+            "id": "20755",
+            "title": "Assassination Classroom",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '5'}, {'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000372
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "genres",
+              "operator": "eq",
+              "value": "Comedy"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "episodes",
+                "operator": "gte",
+                "value": "5"
+              },
+              {
+                "field": "genres",
+                "operator": "eq",
+                "value": "Comedy"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "episodes",
+                "operator": "gte",
+                "value": "5",
+                "source_text": "shows",
+                "mapping": "exact"
+              },
+              {
+                "field": "genres",
+                "operator": "eq",
+                "value": "Comedy",
+                "source_text": "I need five funny shows to brighten up the evening. Which anime would you pick?",
+                "mapping": "broader"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "21459",
+              "title": "My Hero Academia",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '5'}, {'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]"
+            },
+            {
+              "id": "21087",
+              "title": "One-Punch Man",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '5'}, {'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]"
+            },
+            {
+              "id": "20",
+              "title": "Naruto",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '5'}, {'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]"
+            },
+            {
+              "id": "21856",
+              "title": "My Hero Academia Season 2",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '5'}, {'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]"
+            },
+            {
+              "id": "20755",
+              "title": "Assassination Classroom",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '5'}, {'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.16971
+      }
+    ],
+    "llm_calls": 5,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 4.75356,
+      "prepare_context": 0.001791,
+      "retrieve_guides": 0.01074,
+      "feature_candidates": 0.017824,
+      "planning": 3.319455,
+      "tools": 0.16971,
+      "generate_answer": 0.000372
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"funny\", \"query\": \"funny\", \"kind\": \"genre\", \"role\": \"required\", \"meaning\": \"Desired genre\"}]}",
+      "{\n  \"min\": 5,\n  \"max\": null\n}",
+      "{\n  \"role\": \"required\"\n}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "funny",
+        "query": "funny",
+        "kind": "genre",
+        "role": "required",
+        "meaning": "Desired genre"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Desired genre\", \"role\": \"required\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "funny",
+          "name": "",
+          "meaning": "Desired genre"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {
+      "episodes": {
+        "sources": [
+          "shows"
+        ],
+        "interpretations": [
+          "range"
+        ]
+      }
+    },
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [
+        "funny"
+      ],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "episodes",
+          "operator": "gte",
+          "value": "5"
+        },
+        {
+          "field": "genres",
+          "operator": "eq",
+          "value": "Comedy"
+        }
+      ],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "episodes",
+          "operator": "gte",
+          "value": "5",
+          "source_text": "shows",
+          "mapping": "exact"
+        },
+        {
+          "field": "genres",
+          "operator": "eq",
+          "value": "Comedy",
+          "source_text": "I need five funny shows to brighten up the evening. Which anime would you pick?",
+          "mapping": "broader"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "funny",
+          "candidate": {
+            "field": "genres",
+            "value": "Comedy",
+            "meaning": "Comedy",
+            "coverage": 1.0
+          },
+          "role": "required",
+          "mapping": "broader"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "funny",
+            "name": "",
+            "meaning": "Desired genre"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "genres",
+                "operator": "eq",
+                "value": "Comedy"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

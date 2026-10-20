@@ -1,0 +1,529 @@
+{
+  "question_id": "hf_130",
+  "anime_id": "6547",
+  "title": "Angel Beats!",
+  "field": "source_material",
+  "question": "Was Angel Beats! created as an original anime or adapted from another medium?",
+  "expected_values": [
+    "ORIGINAL"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Angel Beats! is an original anime. The source material indicates that it was created as an original anime.",
+  "extracted_values": [
+    "original",
+    "original anime"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 14.143901749999714,
+  "extraction_seconds": 0.6711543749997873,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "original",
+        "quote": "Angel Beats! is an original anime. The source material indicates that it was created as an original anime."
+      },
+      {
+        "value": "original anime",
+        "quote": "Angel Beats! is an original anime. The source material indicates that it was created as an original anime."
+      }
+    ],
+    "note": "The source material indicates that it was created as an original anime.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.5,
+    "recall": 1.0,
+    "f1": 0.6666666666666666,
+    "tp": 1,
+    "fp": 1,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": [
+      "original anime"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "6547"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "6547",
+          "title": "Angel Beats!"
+        },
+        "elapsed_seconds": 0.015581
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "source material",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "anthology",
+              "name": "Anthology",
+              "description": "A collection of separate works collated into a single release.",
+              "category": "Technical",
+              "similarity": 0.4049
+            },
+            {
+              "kind": "tag",
+              "id": "makeup",
+              "name": "Makeup",
+              "description": "Centers around the makeup industry.",
+              "category": "Theme-Arts",
+              "similarity": 0.3508
+            },
+            {
+              "kind": "tag",
+              "id": "advertisement",
+              "name": "Advertisement",
+              "description": "Produced in order to promote the products of a certain company.",
+              "category": "Technical",
+              "similarity": 0.3332
+            },
+            {
+              "kind": "tag",
+              "id": "achromatic",
+              "name": "Achromatic",
+              "description": "Contains animation that is primarily done in black and white.",
+              "category": "Technical",
+              "similarity": 0.327
+            },
+            {
+              "kind": "tag",
+              "id": "educational",
+              "name": "Educational",
+              "description": "Primary aim is to educate the audience.",
+              "category": "Theme-Other",
+              "similarity": 0.3118
+            }
+          ]
+        },
+        "elapsed_seconds": 0.034503
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "source material"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.017838
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 3.705639,
+      "prepare_context": 0.016387,
+      "retrieve_guides": 0.031269,
+      "feature_candidates": 0.013802,
+      "planning": 6.66083,
+      "tools": 0.067922,
+      "generate_answer": 3.645414
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Angel Beats!\", \"query\": \"Angel Beats!\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Anime title\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Angel Beats!",
+        "query": "Angel Beats!",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Anime title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"To clarify, are you asking about the original anime series or an adaptation of Angel Beats!?\", \"decisions\": {\"p0\": {\"meaning\": \"Angel Beats!\", \"role\": \"subject\", \"selection\": \"Angel Beats! | anime:6547\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "6547",
+          "role": "subject",
+          "text": "Angel Beats!",
+          "name": "Angel Beats!",
+          "meaning": "Angel Beats!"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "6547",
+          "role": "subject",
+          "text": "Angel Beats!",
+          "name": "Angel Beats!",
+          "meaning": "Angel Beats!"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Angel Beats!"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "6547",
+            "role": "subject",
+            "text": "Angel Beats!",
+            "name": "Angel Beats!",
+            "meaning": "Angel Beats!"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "6547",
+            "role": "subject",
+            "text": "Angel Beats!",
+            "name": "Angel Beats!",
+            "meaning": "Angel Beats!"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine the source material of Angel Beats!",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "6547"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "source material",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "source material"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "6547",
+          "name": "Angel Beats!"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:6547",
+          "fact": "Angel Beats! is an original anime."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000951
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.705639
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.016387
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.031269
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013802
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.66083
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine the source material of Angel Beats!",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "6547"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "source material",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "source material"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "6547",
+            "name": "Angel Beats!"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "6547"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.015581,
+      "arguments": {
+        "id": "6547"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "6547",
+        "title": "Angel Beats!"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "source material",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.034503,
+      "arguments": {
+        "query": "source material",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "anthology",
+            "name": "Anthology",
+            "description": "A collection of separate works collated into a single release.",
+            "category": "Technical",
+            "similarity": 0.4049
+          },
+          {
+            "kind": "tag",
+            "id": "makeup",
+            "name": "Makeup",
+            "description": "Centers around the makeup industry.",
+            "category": "Theme-Arts",
+            "similarity": 0.3508
+          },
+          {
+            "kind": "tag",
+            "id": "advertisement",
+            "name": "Advertisement",
+            "description": "Produced in order to promote the products of a certain company.",
+            "category": "Technical",
+            "similarity": 0.3332
+          },
+          {
+            "kind": "tag",
+            "id": "achromatic",
+            "name": "Achromatic",
+            "description": "Contains animation that is primarily done in black and white.",
+            "category": "Technical",
+            "similarity": 0.327
+          },
+          {
+            "kind": "tag",
+            "id": "educational",
+            "name": "Educational",
+            "description": "Primary aim is to educate the audience.",
+            "category": "Theme-Other",
+            "similarity": 0.3118
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "source material"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.017838,
+      "arguments": {
+        "kind": "tag",
+        "query": "source material"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.645414
+    }
+  ]
+}

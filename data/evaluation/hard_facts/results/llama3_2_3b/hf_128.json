@@ -1,0 +1,389 @@
+{
+  "question_id": "hf_128",
+  "anime_id": "99263",
+  "title": "The Rising of the Shield Hero",
+  "field": "source_material",
+  "question": "Which kind of source work did The Rising of the Shield Hero adapt?",
+  "expected_values": [
+    "LIGHT_NOVEL"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The Rising of the Shield Hero adapted from LIGHT NOVEL.",
+  "extracted_values": [
+    "LIGHT NOVEL"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 9.156596374999936,
+  "extraction_seconds": 0.49988879100055783,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "LIGHT NOVEL",
+        "quote": "The Rising of the Shield Hero adapted from LIGHT NOVEL."
+      }
+    ],
+    "note": "",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "99263",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "99263",
+          "title": "The Rising of the Shield Hero"
+        },
+        "elapsed_seconds": 0.013014
+      },
+      {
+        "step": 1,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "anime",
+          "query": "adaptation source"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "anime",
+          "matches": []
+        },
+        "elapsed_seconds": 0.066973
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 2.046348,
+      "prepare_context": 0.021886,
+      "retrieve_guides": 0.027916,
+      "feature_candidates": 0.013499,
+      "planning": 4.181222,
+      "tools": 0.079987,
+      "generate_answer": 2.782944
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"The Rising of the Shield Hero\", \"query\": \"The Rising of the Shield Hero\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Adaptation source\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "The Rising of the Shield Hero",
+        "query": "The Rising of the Shield Hero",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Adaptation source"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"None\", \"decisions\": {\"p0\": {\"meaning\": \"Adaptation source\", \"role\": \"subject\", \"selection\": \"The Rising of the Shield Hero | anime:99263\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "99263",
+          "role": "subject",
+          "text": "The Rising of the Shield Hero",
+          "name": "The Rising of the Shield Hero",
+          "meaning": "Adaptation source"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "99263",
+          "role": "subject",
+          "text": "The Rising of the Shield Hero",
+          "name": "The Rising of the Shield Hero",
+          "meaning": "Adaptation source"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "The Rising of the Shield Hero"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "99263",
+            "role": "subject",
+            "text": "The Rising of the Shield Hero",
+            "name": "The Rising of the Shield Hero",
+            "meaning": "Adaptation source"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "99263",
+            "role": "subject",
+            "text": "The Rising of the Shield Hero",
+            "name": "The Rising of the Shield Hero",
+            "meaning": "Adaptation source"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "adaptation source",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "99263",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "anime",
+            "query": "adaptation source"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "99263",
+          "name": "The Rising of the Shield Hero"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:99263",
+          "fact": "adapted from LIGHT NOVEL"
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.9e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001132
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.046348
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.021886
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.027916
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013499
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.181222
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "adaptation source",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "99263",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "anime",
+              "query": "adaptation source"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "99263",
+            "name": "The Rising of the Shield Hero"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "99263",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.013014,
+      "arguments": {
+        "id": "99263",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "99263",
+        "title": "The Rising of the Shield Hero"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "anime",
+        "query": "adaptation source"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.066973,
+      "arguments": {
+        "kind": "anime",
+        "query": "adaptation source"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "anime",
+        "matches": []
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 2.782944
+    }
+  ]
+}

@@ -1,0 +1,501 @@
+{
+  "question_id": "hf_034",
+  "anime_id": "104578",
+  "title": "Attack on Titan Season 3 Part 2",
+  "field": "episodes",
+  "question": "Can you tell me the number of episodes in Attack on Titan Season 3 Part 2?",
+  "expected_values": [
+    10.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "number of episodes: 25 episodes.",
+  "extracted_values": [
+    "25"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 15.525722874999929,
+  "extraction_seconds": 0.5105856250002034,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "25",
+        "quote": "number of episodes: 25 episodes."
+      }
+    ],
+    "note": "units: episodes",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "missing_values": [
+      "1E+1"
+    ],
+    "extra_values": [
+      "25"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "16498"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "16498",
+          "title": "Attack on Titan"
+        },
+        "elapsed_seconds": 0.016906
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "episodes",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "episodic",
+              "name": "Episodic",
+              "description": "Features story arcs that are loosely tied or lack an overarching plot.",
+              "category": "Technical",
+              "similarity": 0.4696
+            },
+            {
+              "kind": "tag",
+              "id": "pov",
+              "name": "POV",
+              "description": "Point of View; features scenes shown from the perspective of the series protagonist.",
+              "category": "Technical",
+              "similarity": 0.4291
+            },
+            {
+              "kind": "tag",
+              "id": "kingdom management",
+              "name": "Kingdom Management",
+              "description": "Characters in these series take on the responsibility of running a town or kingdom, whether they take control of an existing one, or build their own from the ground up.",
+              "category": "Theme-Drama",
+              "similarity": 0.357
+            }
+          ]
+        },
+        "elapsed_seconds": 0.03549
+      },
+      {
+        "step": 2,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "16498"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "16498",
+          "title": "Attack on Titan"
+        },
+        "elapsed_seconds": 0.000121
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 3.916322,
+      "prepare_context": 0.013154,
+      "retrieve_guides": 0.0279,
+      "feature_candidates": 0.013302,
+      "planning": 6.708089,
+      "tools": 0.052517,
+      "generate_answer": 4.79207
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Attack on Titan\", \"query\": \"Attack on Titan\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; season is a qualifier\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Attack on Titan",
+        "query": "Attack on Titan",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; season is a qualifier"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"The question asks for the number of episodes in a specific season of a TV series.\", \"decisions\": {\"p0\": {\"meaning\": \"Attack on Titan\", \"role\": \"subject\", \"selection\": \"Attack on Titan | anime:16498\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "16498",
+          "role": "subject",
+          "text": "Attack on Titan",
+          "name": "Attack on Titan",
+          "meaning": "Attack on Titan"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "16498",
+          "role": "subject",
+          "text": "Attack on Titan",
+          "name": "Attack on Titan",
+          "meaning": "Attack on Titan"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Attack on Titan"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "16498",
+            "role": "subject",
+            "text": "Attack on Titan",
+            "name": "Attack on Titan",
+            "meaning": "Attack on Titan"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "16498",
+            "role": "subject",
+            "text": "Attack on Titan",
+            "name": "Attack on Titan",
+            "meaning": "Attack on Titan"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Retrieve the number of episodes in Attack on Titan Season 3 Part 2.",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "16498"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "episodes",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "16498"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "16498",
+          "name": "Attack on Titan"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:16498",
+          "fact": "episodes: 25.0"
+        },
+        {
+          "subject": "anime:16498",
+          "fact": "duration: 24.0"
+        }
+      ],
+      "calculations": [
+        {
+          "expression": "25.0",
+          "value": "25",
+          "unit": "episodes"
+        }
+      ]
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.4e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000776
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.916322
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.013154
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.0279
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013302
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.708089
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Retrieve the number of episodes in Attack on Titan Season 3 Part 2.",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "16498"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "episodes",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "16498"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "16498",
+            "name": "Attack on Titan"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "16498"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.016906,
+      "arguments": {
+        "id": "16498"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "16498",
+        "title": "Attack on Titan"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "episodes",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.03549,
+      "arguments": {
+        "query": "episodes",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "episodic",
+            "name": "Episodic",
+            "description": "Features story arcs that are loosely tied or lack an overarching plot.",
+            "category": "Technical",
+            "similarity": 0.4696
+          },
+          {
+            "kind": "tag",
+            "id": "pov",
+            "name": "POV",
+            "description": "Point of View; features scenes shown from the perspective of the series protagonist.",
+            "category": "Technical",
+            "similarity": 0.4291
+          },
+          {
+            "kind": "tag",
+            "id": "kingdom management",
+            "name": "Kingdom Management",
+            "description": "Characters in these series take on the responsibility of running a town or kingdom, whether they take control of an existing one, or build their own from the ground up.",
+            "category": "Theme-Drama",
+            "similarity": 0.357
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "16498"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000121,
+      "arguments": {
+        "id": "16498"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "16498",
+        "title": "Attack on Titan"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.79207
+    }
+  ]
+}

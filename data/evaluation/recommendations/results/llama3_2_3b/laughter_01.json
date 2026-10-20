@@ -1,0 +1,820 @@
+{
+  "question_id": "laughter_01",
+  "category": "tags",
+  "intent_family": "laughter",
+  "wording": "explicit",
+  "question_origin": "authored_naturalistic",
+  "question": "Recommend three anime with surreal comedy or slapstick.",
+  "k": 3,
+  "constraints": [
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Surreal Comedy",
+        "Slapstick"
+      ]
+    }
+  ],
+  "label_rationale": "Absurd and physical comedy are alternative acceptable routes to the requested laughter.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 1062,
+  "reference_examples": [
+    {
+      "id": "10191",
+      "title": "Katte ni Kaizou"
+    },
+    {
+      "id": "102010",
+      "title": "Docchi mo Maid"
+    },
+    {
+      "id": "103753",
+      "title": "Consultation Room"
+    }
+  ],
+  "answer_text": "Catalog matches — Surreal Comedy. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **Prison School** — Hachimitsu Private Academy was a revered and elite all-girls' boarding school on the outskirts of Tokyo...once upon a time. But with the new school year comes a revision to school policy: Boys are to be admitted into the student body for the first time ever. But on his first day at Hachimitsu, Kiyoshi Fujino discovers that he's one of only five boys enrolled at the school. Their numbers overwhelmed by the thousand girls in the student body, is…\n\n2. **One-Punch Man** — Saitama has a rather peculiar hobby, being a superhero, but despite his heroic deeds and superhuman abilities, a shadow looms over his life. He's become much too powerful, to the point that every opponent ends up defeated with a single punch. The lack of challenge has driven him into a state of apathy, as he watches his life pass by having lost all enthusiasm, at least until he's unwillingly thrust in the role of being a mentor to the young and…\n\n3. **FLCL** — Naota is a detached sixth grader afflicted by the pangs of puberty. He's fooling around with his brother's ex-girlfriend when a crazed girl on a motor scooter runs him over, brains him with a bass guitar, and moves into his house. This pink-haired girl, Haruko - who claims she's an alien - hurls Naota into the middle of a mega-corporation's secret agenda. Oh, and now giant battling robots shoot from his skull. Mix in mind-bending animation and…\n\n4. **One-Punch Man Season 2** — Saitama is a hero who only became a hero for fun. After three years of “special training,” he’s become so strong that he’s practically invincible. In fact, he’s too strong—even his mightiest opponents are taken out with a single punch. Now, the great seer Madame Shibabawa’s prediction about the Earth being doomed seems to be coming true as the frequency of monster incidents escalates. Alongside Genos, his faithful disciple, Saitama begins his…\n\n5. **Nichijou - My Ordinary Life** — Nichijou primarily focuses on the daily antics of a trio of childhood friends—high school girls Mio Naganohara, Yuuko Aioi and Mai Minakami—whose stories soon intertwine with the young genius Hakase Shinonome, her robot caretaker Nano, and their talking cat Sakamoto. With every passing day, the lives of these six, as well as of the many people around them, experience both the calms of normal life and the insanity of the absurd. Walking to…",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Prison School",
+      "One-Punch Man",
+      "FLCL",
+      "One-Punch Man Season 2",
+      "Nichijou - My Ordinary Life"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Prison School",
+      "anime_id": "20807",
+      "canonical_title": "Prison School",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20807"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.91
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.91,
+          "met": true,
+          "literal_score": 0.91,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.91,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.91,
+      "gain": 0.91,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 2,
+      "extracted_title": "One-Punch Man",
+      "anime_id": "21087",
+      "canonical_title": "One-Punch Man",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21087"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.78
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.78,
+          "met": true,
+          "literal_score": 0.78,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.78,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.78,
+      "gain": 0.78,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 3,
+      "extracted_title": "FLCL",
+      "anime_id": "227",
+      "canonical_title": "FLCL",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "227"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.92
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.92,
+          "met": true,
+          "literal_score": 0.92,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.92,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.92,
+      "gain": 0.92,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 4,
+      "extracted_title": "One-Punch Man Season 2",
+      "anime_id": "97668",
+      "canonical_title": "One-Punch Man Season 2",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "97668"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.65
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.65,
+          "met": true,
+          "literal_score": 0.65,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.65,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.65,
+      "gain": 0.65,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Nichijou - My Ordinary Life",
+      "anime_id": "10165",
+      "canonical_title": "Nichijou - My Ordinary Life",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "10165"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.97
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.97,
+          "met": true,
+          "literal_score": 0.97,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.97,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.97,
+      "gain": 0.97,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 1.0,
+    "graded_fit_at_k": 0.8700000000000001,
+    "ndcg_at_k": 0.8738557452045512,
+    "constraint_coverage": 1.0,
+    "count_compliance": 0,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "extra_count": 2,
+    "literal_precision_at_k": 1.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 11.234066917000746,
+  "extraction_seconds": 1.6160455830013234,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.5e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000756
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 5.635487
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.002233
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.008312
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.01969
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.565756
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "Recommend three anime with surreal comedy or slapstick.",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "surreal comedy or slapstick",
+              "kind": "tag",
+              "limit": 10
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "tags",
+                  "operator": "eq",
+                  "value": "Surreal Comedy"
+                },
+                {
+                  "field": "tags",
+                  "operator": "eq",
+                  "value": "Slapstick"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "surreal comedy or slapstick",
+        "kind": "tag",
+        "limit": 10
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.038566,
+      "arguments": {
+        "query": "surreal comedy or slapstick",
+        "kind": "tag",
+        "limit": 10
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "slapstick",
+            "name": "Slapstick",
+            "description": "Prominently features comedy based on deliberately clumsy actions or embarrassing events.",
+            "category": "Theme-Comedy",
+            "similarity": 0.7711
+          },
+          {
+            "kind": "tag",
+            "id": "surreal comedy",
+            "name": "Surreal Comedy",
+            "description": "Prominently features comedic moments that defy casual reasoning, resulting in illogical events.",
+            "category": "Theme-Comedy",
+            "similarity": 0.6043
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Surreal Comedy"
+          },
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Slapstick"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.960758,
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Surreal Comedy"
+          },
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Slapstick"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Surreal Comedy"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Surreal Comedy",
+              "source_text": "Recommend three anime with surreal comedy or slapstick.",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "20807",
+            "title": "Prison School",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Surreal Comedy'}]",
+            "preference_similarity": 0.2921
+          },
+          {
+            "id": "21087",
+            "title": "One-Punch Man",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Surreal Comedy'}]",
+            "preference_similarity": 0.277
+          },
+          {
+            "id": "227",
+            "title": "FLCL",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Surreal Comedy'}]",
+            "preference_similarity": 0.2516
+          },
+          {
+            "id": "97668",
+            "title": "One-Punch Man Season 2",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Surreal Comedy'}]",
+            "preference_similarity": 0.2298
+          },
+          {
+            "id": "10165",
+            "title": "Nichijou - My Ordinary Life",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Surreal Comedy'}]",
+            "preference_similarity": 0.2273
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000465
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "surreal comedy or slapstick",
+          "kind": "tag",
+          "limit": 10
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "slapstick",
+              "name": "Slapstick",
+              "description": "Prominently features comedy based on deliberately clumsy actions or embarrassing events.",
+              "category": "Theme-Comedy",
+              "similarity": 0.7711
+            },
+            {
+              "kind": "tag",
+              "id": "surreal comedy",
+              "name": "Surreal Comedy",
+              "description": "Prominently features comedic moments that defy casual reasoning, resulting in illogical events.",
+              "category": "Theme-Comedy",
+              "similarity": 0.6043
+            }
+          ]
+        },
+        "elapsed_seconds": 0.038566
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Surreal Comedy"
+            },
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Slapstick"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Surreal Comedy"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Surreal Comedy",
+                "source_text": "Recommend three anime with surreal comedy or slapstick.",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "20807",
+              "title": "Prison School",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Surreal Comedy'}]",
+              "preference_similarity": 0.2921
+            },
+            {
+              "id": "21087",
+              "title": "One-Punch Man",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Surreal Comedy'}]",
+              "preference_similarity": 0.277
+            },
+            {
+              "id": "227",
+              "title": "FLCL",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Surreal Comedy'}]",
+              "preference_similarity": 0.2516
+            },
+            {
+              "id": "97668",
+              "title": "One-Punch Man Season 2",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Surreal Comedy'}]",
+              "preference_similarity": 0.2298
+            },
+            {
+              "id": "10165",
+              "title": "Nichijou - My Ordinary Life",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Surreal Comedy'}]",
+              "preference_similarity": 0.2273
+            }
+          ]
+        },
+        "elapsed_seconds": 0.960758
+      }
+    ],
+    "llm_calls": 5,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 5.635487,
+      "prepare_context": 0.002233,
+      "retrieve_guides": 0.008312,
+      "feature_candidates": 0.01969,
+      "planning": 4.565756,
+      "tools": 0.999324,
+      "generate_answer": 0.000465
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"surreal comedy\", \"query\": \"surreal comedy\", \"kind\": \"genre\", \"role\": \"preferred\", \"meaning\": \"Desired genre\"}, {\"text\": \"slapstick\", \"query\": \"slapstick\", \"kind\": \"genre\", \"role\": \"preferred\", \"meaning\": \"Desired genre\"}]}",
+      "{\n  \"role\": \"required\"\n}",
+      "{\n  \"role\": \"preferred\"\n}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "surreal comedy",
+        "query": "surreal comedy",
+        "kind": "genre",
+        "role": "preferred",
+        "meaning": "Desired genre"
+      },
+      {
+        "text": "slapstick",
+        "query": "slapstick",
+        "kind": "genre",
+        "role": "preferred",
+        "meaning": "Desired genre"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Desired genre\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}, \"p1\": {\"meaning\": \"Desired genre\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "surreal comedy",
+          "name": "",
+          "meaning": "Desired genre"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "slapstick",
+          "name": "",
+          "meaning": "Desired genre"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [],
+      "preferred": [
+        "surreal comedy",
+        "slapstick"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "tags",
+          "operator": "eq",
+          "value": "Surreal Comedy"
+        }
+      ],
+      "soft_query": "slapstick Slapstick",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "tags",
+          "operator": "eq",
+          "value": "Surreal Comedy",
+          "source_text": "Recommend three anime with surreal comedy or slapstick.",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "surreal comedy",
+          "candidate": {
+            "field": "tags",
+            "value": "Surreal Comedy",
+            "meaning": "Surreal Comedy"
+          },
+          "role": "required",
+          "mapping": "exact"
+        },
+        {
+          "phrase": "slapstick",
+          "candidate": {
+            "field": "tags",
+            "value": "Slapstick",
+            "meaning": "Slapstick"
+          },
+          "role": "preferred",
+          "mapping": "exact"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "surreal comedy",
+            "name": "",
+            "meaning": "Desired genre"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "slapstick",
+            "name": "",
+            "meaning": "Desired genre"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "Recommend three anime with surreal comedy or slapstick.",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "surreal comedy or slapstick",
+            "kind": "tag",
+            "limit": 10
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Surreal Comedy"
+              },
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Slapstick"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

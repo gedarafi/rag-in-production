@@ -1,0 +1,331 @@
+{
+  "question_id": "hf_142",
+  "anime_id": "21519",
+  "title": "Your Name.",
+  "field": "main_animation_studios",
+  "question": "Which studio is credited as Your Name's main animation studio?",
+  "expected_values": [
+    "CoMix Wave"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "CoMix Wave",
+  "extracted_values": [
+    "CoMix Wave"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 8.32072212499952,
+  "extraction_seconds": 0.6432042080014071,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "CoMix Wave",
+        "quote": "CoMix Wave"
+      }
+    ],
+    "note": "assertion for 'main_animation_studios' for 'Your Name'",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21519",
+          "section": "staff"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "21519",
+          "title": "Your Name."
+        },
+        "elapsed_seconds": 0.004285
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 1.833646,
+      "prepare_context": 0.013779,
+      "retrieve_guides": 0.028233,
+      "feature_candidates": 0.014223,
+      "planning": 3.619433,
+      "tools": 0.004285,
+      "generate_answer": 2.80467
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Your Name\", \"query\": \"Your Name\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Your Name",
+        "query": "Your Name",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Requested title\", \"role\": \"subject\", \"selection\": \"Your Name. | anime:21519\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21519",
+          "role": "subject",
+          "text": "Your Name",
+          "name": "Your Name.",
+          "meaning": "Requested title"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21519",
+          "role": "subject",
+          "text": "Your Name",
+          "name": "Your Name.",
+          "meaning": "Requested title"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Your Name."
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21519",
+            "role": "subject",
+            "text": "Your Name",
+            "name": "Your Name.",
+            "meaning": "Requested title"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21519",
+            "role": "subject",
+            "text": "Your Name",
+            "name": "Your Name.",
+            "meaning": "Requested title"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Find the main animation studio for 'Your Name'.",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21519",
+            "section": "staff"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21519",
+          "name": "Your Name."
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:21519",
+          "fact": "The main animation studio for 'Your Name' is CoMix Wave."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.5e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000835
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 1.833646
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.013779
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.028233
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014223
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.619433
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Find the main animation studio for 'Your Name'.",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21519",
+              "section": "staff"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21519",
+            "name": "Your Name."
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21519",
+        "section": "staff"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.004285,
+      "arguments": {
+        "id": "21519",
+        "section": "staff"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "21519",
+        "title": "Your Name."
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 2.80467
+    }
+  ]
+}

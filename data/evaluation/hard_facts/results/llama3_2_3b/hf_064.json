@@ -1,0 +1,459 @@
+{
+  "question_id": "hf_064",
+  "anime_id": "101759",
+  "title": "The Promised Neverland",
+  "field": "duration",
+  "question": "What runtime does the catalog list for each episode of The Promised Neverland season one?",
+  "expected_values": [
+    23.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Runtime for each episode of The Promised Neverland season one: 23 minutes per episode.",
+  "extracted_values": [
+    "23 minutes"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 10.660226833000706,
+  "extraction_seconds": 0.6224885420015198,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "23 minutes",
+        "quote": "Runtime for each episode of The Promised Neverland season one: 23 minutes per episode."
+      }
+    ],
+    "note": "set unclear=true when requested assertions cannot be interpreted reliably",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "missing_values": [
+      "23"
+    ],
+    "extra_values": [
+      "invalid-number:23 minutes"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101759",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101759",
+          "title": "The Promised Neverland"
+        },
+        "elapsed_seconds": 0.013579
+      },
+      {
+        "step": 1,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101759",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101759",
+          "title": "The Promised Neverland"
+        },
+        "elapsed_seconds": 8.9e-05
+      },
+      {
+        "step": 2,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101759",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101759",
+          "title": "The Promised Neverland"
+        },
+        "elapsed_seconds": 7.8e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 2.76288,
+      "prepare_context": 0.017214,
+      "retrieve_guides": 0.029202,
+      "feature_candidates": 0.014083,
+      "planning": 4.688034,
+      "tools": 0.013746,
+      "generate_answer": 3.13156
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"The Promised Neverland\", \"query\": \"The Promised Neverland season 1\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Episode runtime\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "The Promised Neverland",
+        "query": "The Promised Neverland season 1",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Episode runtime"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"What is the runtime for each episode of The Promised Neverland season one?\", \"decisions\": {\"p0\": {\"meaning\": \"Episode runtime\", \"role\": \"subject\", \"selection\": \"The Promised Neverland | anime:101759\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101759",
+          "role": "subject",
+          "text": "The Promised Neverland",
+          "name": "The Promised Neverland",
+          "meaning": "Episode runtime"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101759",
+          "role": "subject",
+          "text": "The Promised Neverland",
+          "name": "The Promised Neverland",
+          "meaning": "Episode runtime"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "The Promised Neverland"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101759",
+            "role": "subject",
+            "text": "The Promised Neverland",
+            "name": "The Promised Neverland",
+            "meaning": "Episode runtime"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101759",
+            "role": "subject",
+            "text": "The Promised Neverland",
+            "name": "The Promised Neverland",
+            "meaning": "Episode runtime"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Find the runtime for each episode of The Promised Neverland season one",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101759",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101759",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101759",
+            "section": "overview"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "101759",
+          "name": "The Promised Neverland"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:101759",
+          "fact": "duration = 23.0 minutes per episode"
+        }
+      ],
+      "calculations": [
+        {
+          "expression": "23.0 * 1",
+          "value": "23",
+          "unit": "minutes per episode"
+        }
+      ]
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 0.000105
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00164
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.76288
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.017214
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.029202
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014083
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.688034
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Find the runtime for each episode of The Promised Neverland season one",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101759",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101759",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101759",
+              "section": "overview"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "101759",
+            "name": "The Promised Neverland"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101759",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.013579,
+      "arguments": {
+        "id": "101759",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101759",
+        "title": "The Promised Neverland"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101759",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 8.9e-05,
+      "arguments": {
+        "id": "101759",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101759",
+        "title": "The Promised Neverland"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101759",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 7.8e-05,
+      "arguments": {
+        "id": "101759",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101759",
+        "title": "The Promised Neverland"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.13156
+    }
+  ]
+}

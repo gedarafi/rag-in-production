@@ -1,0 +1,384 @@
+{
+  "question_id": "hf_001",
+  "anime_id": "16498",
+  "title": "Attack on Titan",
+  "field": "year",
+  "question": "What year did the first season of Attack on Titan start airing?",
+  "expected_values": [
+    2013.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "2013",
+  "extracted_values": [
+    "2013"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 18.51112691599974,
+  "extraction_seconds": 0.9291559169996617,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "2013",
+        "quote": "2013"
+      }
+    ],
+    "note": "assertion for year of first season of Attack on Titan",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "16498",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "16498",
+          "title": "Attack on Titan"
+        },
+        "elapsed_seconds": 0.014729
+      },
+      {
+        "step": 1,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "first season air year of Attack on Titan"
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.099245
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 3.768169,
+      "prepare_context": 0.025388,
+      "retrieve_guides": 3.680246,
+      "feature_candidates": 0.169714,
+      "planning": 5.738432,
+      "tools": 0.113974,
+      "generate_answer": 4.905241
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Attack on Titan\", \"query\": \"Attack on Titan\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; first season air year\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Attack on Titan",
+        "query": "Attack on Titan",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; first season air year"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"TV series; first season air year\", \"role\": \"subject\", \"selection\": \"Attack on Titan | anime:16498\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "16498",
+          "role": "subject",
+          "text": "Attack on Titan",
+          "name": "Attack on Titan",
+          "meaning": "TV series; first season air year"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "16498",
+          "role": "subject",
+          "text": "Attack on Titan",
+          "name": "Attack on Titan",
+          "meaning": "TV series; first season air year"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Attack on Titan"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "16498",
+            "role": "subject",
+            "text": "Attack on Titan",
+            "name": "Attack on Titan",
+            "meaning": "TV series; first season air year"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "16498",
+            "role": "subject",
+            "text": "Attack on Titan",
+            "name": "Attack on Titan",
+            "meaning": "TV series; first season air year"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Get the year the first season of Attack on Titan started airing",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "16498",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "first season air year of Attack on Titan"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "16498",
+          "name": "Attack on Titan"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:16498",
+          "fact": "The first season of Attack on Titan started airing in 2013."
+        },
+        {
+          "subject": "anime:16498",
+          "fact": "The first season of Attack on Titan started airing in 2013."
+        },
+        {
+          "subject": "anime:16498",
+          "fact": "The first season of Attack on Titan started airing in 2013."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 0.106881
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000777
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.768169
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.025388
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 3.680246
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.169714
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 5.738432
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Get the year the first season of Attack on Titan started airing",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "16498",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "first season air year of Attack on Titan"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "16498",
+            "name": "Attack on Titan"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "16498",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.014729,
+      "arguments": {
+        "id": "16498",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "16498",
+        "title": "Attack on Titan"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "first season air year of Attack on Titan"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.099245,
+      "arguments": {
+        "query": "first season air year of Attack on Titan"
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.905241
+    }
+  ]
+}

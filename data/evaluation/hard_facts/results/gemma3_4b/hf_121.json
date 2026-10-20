@@ -1,0 +1,879 @@
+{
+  "question_id": "hf_121",
+  "anime_id": "1575",
+  "title": "Code Geass: Lelouch of the Rebellion",
+  "field": "source_material",
+  "question": "Is Code Geass: Lelouch of the Rebellion an original anime or an adaptation?",
+  "expected_values": [
+    "ORIGINAL"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Code Geass: Lelouch of the Rebellion is an original anime. The source material details a campaign of conquest by the Holy Empire of Britannia, with Lelouch as an exiled prince using a power to undermine the empire from within. This establishes the core premise of the series.",
+  "extracted_values": [
+    "original",
+    "manga",
+    "light novel",
+    "visual novel"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 19.380140082999787,
+  "extraction_seconds": 0.8257841669997106,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "original",
+        "quote": "Code Geass: Lelouch of the Rebellion is an original anime. The source material details a campaign of conquest by the Holy Empire of Britannia, with Lelouch as an exiled prince using a power to undermine the empire from within. This establishes the core premise of the series."
+      },
+      {
+        "value": "manga",
+        "quote": "Code Geass: Lelouch of the Rebellion is an original anime. The source material details a campaign of conquest by the Holy Empire of Britannia, with Lelouch as an exiled prince using a power to undermine the empire from within. This establishes the core premise of the series."
+      },
+      {
+        "value": "light novel",
+        "quote": "Code Geass: Lelouch of the Rebellion is an original anime. The source material details a campaign of conquest by the Holy Empire of Britannia, with Lelouch as an exiled prince using a power to undermine the empire from within. This establishes the core premise of the series."
+      },
+      {
+        "value": "visual novel",
+        "quote": "Code Geass: Lelouch of the Rebellion is an original anime. The source material details a campaign of conquest by the Holy Empire of Britannia, with Lelouch as an exiled prince using a power to undermine the empire from within. This establishes the core premise of the series."
+      }
+    ],
+    "note": "Multiple source materials are mentioned, but only one is explicitly stated as the original.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.25,
+    "recall": 1.0,
+    "f1": 0.4,
+    "tp": 1,
+    "fp": 3,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": [
+      "light novel",
+      "manga",
+      "visual novel"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "Code Geass: Lelouch of the Rebellion origin",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "samurai",
+              "name": "Samurai",
+              "description": "Prominently features warriors of medieval Japanese nobility bound by a code of honor.",
+              "category": "Cast-Traits",
+              "similarity": 0.3262
+            },
+            {
+              "kind": "tag",
+              "id": "espionage",
+              "name": "Espionage",
+              "description": "Prominently features characters infiltrating an organization in order to steal sensitive information.",
+              "category": "Theme-Action",
+              "similarity": 0.3041
+            },
+            {
+              "kind": "tag",
+              "id": "anti hero",
+              "name": "Anti-Hero",
+              "description": "Features a protagonist who lacks conventional heroic attributes and may be considered a borderline villain.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.2921
+            },
+            {
+              "kind": "tag",
+              "id": "conspiracy",
+              "name": "Conspiracy",
+              "description": "Contains one or more factions controlling or attempting to control the world from the shadows.",
+              "category": "Theme-Drama",
+              "similarity": 0.2751
+            },
+            {
+              "kind": "tag",
+              "id": "guns",
+              "name": "Guns",
+              "description": "Prominently features the use of guns in combat.",
+              "category": "Theme-Action",
+              "similarity": 0.2494
+            }
+          ]
+        },
+        "elapsed_seconds": 0.040385
+      },
+      {
+        "step": 1,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1575"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "1575",
+          "title": "Code Geass: Lelouch of the Rebellion"
+        },
+        "elapsed_seconds": 0.012787
+      },
+      {
+        "step": 2,
+        "tool": "search_features",
+        "arguments": {
+          "query": "Code Geass: Lelouch of the Rebellion source material",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "espionage",
+              "name": "Espionage",
+              "description": "Prominently features characters infiltrating an organization in order to steal sensitive information.",
+              "category": "Theme-Action",
+              "similarity": 0.3205
+            },
+            {
+              "kind": "tag",
+              "id": "anti hero",
+              "name": "Anti-Hero",
+              "description": "Features a protagonist who lacks conventional heroic attributes and may be considered a borderline villain.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.3093
+            },
+            {
+              "kind": "tag",
+              "id": "blackmail",
+              "name": "Blackmail",
+              "description": "Features a character blackmailing another.",
+              "category": "Theme-Other",
+              "similarity": 0.3062
+            },
+            {
+              "kind": "tag",
+              "id": "conspiracy",
+              "name": "Conspiracy",
+              "description": "Contains one or more factions controlling or attempting to control the world from the shadows.",
+              "category": "Theme-Drama",
+              "similarity": 0.3022
+            },
+            {
+              "kind": "tag",
+              "id": "samurai",
+              "name": "Samurai",
+              "description": "Prominently features warriors of medieval Japanese nobility bound by a code of honor.",
+              "category": "Cast-Traits",
+              "similarity": 0.299
+            }
+          ]
+        },
+        "elapsed_seconds": 0.010281
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1575"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "1575",
+          "title": "Code Geass: Lelouch of the Rebellion"
+        },
+        "elapsed_seconds": 0.000107
+      },
+      {
+        "step": 4,
+        "tool": "search_features",
+        "arguments": {
+          "query": "Code Geass: Lelouch of the Rebellion adaptation",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "samurai",
+              "name": "Samurai",
+              "description": "Prominently features warriors of medieval Japanese nobility bound by a code of honor.",
+              "category": "Cast-Traits",
+              "similarity": 0.3311
+            },
+            {
+              "kind": "tag",
+              "id": "anti hero",
+              "name": "Anti-Hero",
+              "description": "Features a protagonist who lacks conventional heroic attributes and may be considered a borderline villain.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.3267
+            },
+            {
+              "kind": "tag",
+              "id": "henshin",
+              "name": "Henshin",
+              "description": "Prominently features character or costume transformations which often grant special abilities.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.3104
+            },
+            {
+              "kind": "tag",
+              "id": "blackmail",
+              "name": "Blackmail",
+              "description": "Features a character blackmailing another.",
+              "category": "Theme-Other",
+              "similarity": 0.3014
+            },
+            {
+              "kind": "tag",
+              "id": "espionage",
+              "name": "Espionage",
+              "description": "Prominently features characters infiltrating an organization in order to steal sensitive information.",
+              "category": "Theme-Action",
+              "similarity": 0.2943
+            }
+          ]
+        },
+        "elapsed_seconds": 0.010198
+      },
+      {
+        "step": 5,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1575"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "1575",
+          "title": "Code Geass: Lelouch of the Rebellion"
+        },
+        "elapsed_seconds": 0.000109
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 6,
+    "executed_tools": 4,
+    "timings_seconds": {
+      "interpret_request": 4.088952,
+      "prepare_context": 0.016454,
+      "retrieve_guides": 0.029997,
+      "feature_candidates": 0.013265,
+      "planning": 8.227525,
+      "tools": 0.073867,
+      "generate_answer": 6.926978
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Code Geass: Lelouch of the Rebellion\", \"query\": \"Code Geass: Lelouch of the Rebellion\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Anime title\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Code Geass: Lelouch of the Rebellion",
+        "query": "Code Geass: Lelouch of the Rebellion",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Anime title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Is Code Geass: Lelouch of the Rebellion an original anime or an adaptation?\", \"decisions\": {\"p0\": {\"meaning\": \"Anime title\", \"role\": \"subject\", \"selection\": \"Code Geass: Lelouch of the Rebellion | anime:1575\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "1575",
+          "role": "subject",
+          "text": "Code Geass: Lelouch of the Rebellion",
+          "name": "Code Geass: Lelouch of the Rebellion",
+          "meaning": "Anime title"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "1575",
+          "role": "subject",
+          "text": "Code Geass: Lelouch of the Rebellion",
+          "name": "Code Geass: Lelouch of the Rebellion",
+          "meaning": "Anime title"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Code Geass: Lelouch of the Rebellion"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "1575",
+            "role": "subject",
+            "text": "Code Geass: Lelouch of the Rebellion",
+            "name": "Code Geass: Lelouch of the Rebellion",
+            "meaning": "Anime title"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "1575",
+            "role": "subject",
+            "text": "Code Geass: Lelouch of the Rebellion",
+            "name": "Code Geass: Lelouch of the Rebellion",
+            "meaning": "Anime title"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine if Code Geass: Lelouch of the Rebellion is an original anime or an adaptation",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "Code Geass: Lelouch of the Rebellion origin",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1575"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "Code Geass: Lelouch of the Rebellion source material",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1575"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "Code Geass: Lelouch of the Rebellion adaptation",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1575"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "1575",
+          "name": "Code Geass: Lelouch of the Rebellion"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:1575",
+          "fact": "The source material states that \"On August 10th of the year 2010 the Holy Empire of Britannia began a campaign of conquest, its sights set on Japan.\" This indicates an original premise."
+        },
+        {
+          "subject": "anime:1575",
+          "fact": "The source material describes Lelouch as \"an exiled Imperial Prince of Britannia posing as a student.\" This establishes a foundational element of the story."
+        },
+        {
+          "subject": "anime:1575",
+          "fact": "The source material details Lelouch gaining the \"Geass,\" a power that allows him to dominate others, which is central to the plot's development."
+        },
+        {
+          "subject": "anime:1575",
+          "fact": "The source material explicitly states that the story is about \"bringing down Britannia from within!\" This confirms the original narrative focus."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 8.8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001488
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.088952
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.016454
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.029997
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013265
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 8.227525
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine if Code Geass: Lelouch of the Rebellion is an original anime or an adaptation",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "Code Geass: Lelouch of the Rebellion origin",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1575"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "Code Geass: Lelouch of the Rebellion source material",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1575"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "Code Geass: Lelouch of the Rebellion adaptation",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1575"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "1575",
+            "name": "Code Geass: Lelouch of the Rebellion"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "Code Geass: Lelouch of the Rebellion origin",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.040385,
+      "arguments": {
+        "query": "Code Geass: Lelouch of the Rebellion origin",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "samurai",
+            "name": "Samurai",
+            "description": "Prominently features warriors of medieval Japanese nobility bound by a code of honor.",
+            "category": "Cast-Traits",
+            "similarity": 0.3262
+          },
+          {
+            "kind": "tag",
+            "id": "espionage",
+            "name": "Espionage",
+            "description": "Prominently features characters infiltrating an organization in order to steal sensitive information.",
+            "category": "Theme-Action",
+            "similarity": 0.3041
+          },
+          {
+            "kind": "tag",
+            "id": "anti hero",
+            "name": "Anti-Hero",
+            "description": "Features a protagonist who lacks conventional heroic attributes and may be considered a borderline villain.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.2921
+          },
+          {
+            "kind": "tag",
+            "id": "conspiracy",
+            "name": "Conspiracy",
+            "description": "Contains one or more factions controlling or attempting to control the world from the shadows.",
+            "category": "Theme-Drama",
+            "similarity": 0.2751
+          },
+          {
+            "kind": "tag",
+            "id": "guns",
+            "name": "Guns",
+            "description": "Prominently features the use of guns in combat.",
+            "category": "Theme-Action",
+            "similarity": 0.2494
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1575"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.012787,
+      "arguments": {
+        "id": "1575"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "1575",
+        "title": "Code Geass: Lelouch of the Rebellion"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "search_features",
+      "arguments": {
+        "query": "Code Geass: Lelouch of the Rebellion source material",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.010281,
+      "arguments": {
+        "query": "Code Geass: Lelouch of the Rebellion source material",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "espionage",
+            "name": "Espionage",
+            "description": "Prominently features characters infiltrating an organization in order to steal sensitive information.",
+            "category": "Theme-Action",
+            "similarity": 0.3205
+          },
+          {
+            "kind": "tag",
+            "id": "anti hero",
+            "name": "Anti-Hero",
+            "description": "Features a protagonist who lacks conventional heroic attributes and may be considered a borderline villain.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.3093
+          },
+          {
+            "kind": "tag",
+            "id": "blackmail",
+            "name": "Blackmail",
+            "description": "Features a character blackmailing another.",
+            "category": "Theme-Other",
+            "similarity": 0.3062
+          },
+          {
+            "kind": "tag",
+            "id": "conspiracy",
+            "name": "Conspiracy",
+            "description": "Contains one or more factions controlling or attempting to control the world from the shadows.",
+            "category": "Theme-Drama",
+            "similarity": 0.3022
+          },
+          {
+            "kind": "tag",
+            "id": "samurai",
+            "name": "Samurai",
+            "description": "Prominently features warriors of medieval Japanese nobility bound by a code of honor.",
+            "category": "Cast-Traits",
+            "similarity": 0.299
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1575"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000107,
+      "arguments": {
+        "id": "1575"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "1575",
+        "title": "Code Geass: Lelouch of the Rebellion"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "search_features",
+      "arguments": {
+        "query": "Code Geass: Lelouch of the Rebellion adaptation",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.010198,
+      "arguments": {
+        "query": "Code Geass: Lelouch of the Rebellion adaptation",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "samurai",
+            "name": "Samurai",
+            "description": "Prominently features warriors of medieval Japanese nobility bound by a code of honor.",
+            "category": "Cast-Traits",
+            "similarity": 0.3311
+          },
+          {
+            "kind": "tag",
+            "id": "anti hero",
+            "name": "Anti-Hero",
+            "description": "Features a protagonist who lacks conventional heroic attributes and may be considered a borderline villain.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.3267
+          },
+          {
+            "kind": "tag",
+            "id": "henshin",
+            "name": "Henshin",
+            "description": "Prominently features character or costume transformations which often grant special abilities.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.3104
+          },
+          {
+            "kind": "tag",
+            "id": "blackmail",
+            "name": "Blackmail",
+            "description": "Features a character blackmailing another.",
+            "category": "Theme-Other",
+            "similarity": 0.3014
+          },
+          {
+            "kind": "tag",
+            "id": "espionage",
+            "name": "Espionage",
+            "description": "Prominently features characters infiltrating an organization in order to steal sensitive information.",
+            "category": "Theme-Action",
+            "similarity": 0.2943
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1575"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000109,
+      "arguments": {
+        "id": "1575"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "1575",
+        "title": "Code Geass: Lelouch of the Rebellion"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 6.926978
+    }
+  ]
+}

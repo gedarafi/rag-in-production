@@ -1,0 +1,68 @@
+{
+  "question_id": "hf_147",
+  "anime_id": "21234",
+  "title": "ERASED",
+  "field": "main_animation_studios",
+  "question": "Which studio animated ERASED?",
+  "expected_values": [
+    "A-1 Pictures"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "",
+  "extracted_values": [],
+  "status": "model_error",
+  "error": "ValueError: Mention must be supported by the user request or selected user history: ['ERASE']",
+  "model_seconds": 2.961231790999591,
+  "extraction_seconds": 0.0,
+  "extraction": null,
+  "metrics": null,
+  "rag_usage": {
+    "agent_trace": [],
+    "llm_calls": 2,
+    "planned_tools": 0,
+    "executed_tools": 0,
+    "timings_seconds": {
+      "interpret_request": 2.959377
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"ERASE\", \"query\": \"ERASE\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}]}",
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"ERASE\", \"query\": \"ERASE\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}]}"
+    ],
+    "mention_classification_corrections": [
+      "Mention must be supported by the user request or selected user history: ['ERASE']"
+    ]
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001673
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "error",
+      "elapsed_seconds": 2.959377,
+      "error": "Mention must be supported by the user request or selected user history: ['ERASE']"
+    }
+  ]
+}

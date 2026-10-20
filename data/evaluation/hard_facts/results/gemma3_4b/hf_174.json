@@ -1,0 +1,434 @@
+{
+  "question_id": "hf_174",
+  "anime_id": "1735",
+  "title": "Naruto: Shippuden",
+  "field": "main_characters",
+  "question": "What is the full list of main characters for Naruto: Shippuden?",
+  "expected_values": [
+    "Sasuke Uchiha",
+    "Sakura Haruno",
+    "Naruto Uzumaki",
+    "Kakashi Hatake"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The main characters for Naruto: Shippuden are Naruto Uzumaki, Sasuke Uchiha, Sakura Haruno, and Kakashi Hatake.",
+  "extracted_values": [
+    "Naruto Uzumaki",
+    "Sasuke Uchiha",
+    "Sakura Haruno",
+    "Kakashi Hatake"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 20.60994266600028,
+  "extraction_seconds": 1.0235107919997972,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Naruto Uzumaki",
+        "quote": "The main characters for Naruto: Shippuden are Naruto Uzumaki, Sasuke Uchiha, Sakura Haruno, and Kakashi Hatake."
+      },
+      {
+        "value": "Sasuke Uchiha",
+        "quote": "The main characters for Naruto: Shippuden are Naruto Uzumaki, Sasuke Uchiha, Sakura Haruno, and Kakashi Hatake."
+      },
+      {
+        "value": "Sakura Haruno",
+        "quote": "The main characters for Naruto: Shippuden are Naruto Uzumaki, Sasuke Uchiha, Sakura Haruno, and Kakashi Hatake."
+      },
+      {
+        "value": "Kakashi Hatake",
+        "quote": "The main characters for Naruto: Shippuden are Naruto Uzumaki, Sasuke Uchiha, Sakura Haruno, and Kakashi Hatake."
+      }
+    ],
+    "note": "No other characters are asserted as main characters for Naruto: Shippuden.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 4,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "status": "error",
+        "step": 0,
+        "tool": "get_character",
+        "error": "Use character IDs from dictionary or tool results first",
+        "elapsed_seconds": 5.8e-05
+      },
+      {
+        "step": 1,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "Naruto: Shippuden main characters"
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.020308
+      },
+      {
+        "step": 2,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "Naruto: Shippuden cast"
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.004142
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 4.064335,
+      "prepare_context": 0.032321,
+      "retrieve_guides": 0.05255,
+      "feature_candidates": 0.016412,
+      "planning": 6.793428,
+      "tools": 0.024508,
+      "generate_answer": 9.623499
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Naruto: Shippuden\", \"query\": \"Naruto: Shippuden\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; main characters\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Naruto: Shippuden",
+        "query": "Naruto: Shippuden",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; main characters"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify which characters you are referring to within Naruto: Shippuden.\", \"decisions\": {\"p0\": {\"meaning\": \"Naruto: Shippuden\", \"role\": \"subject\", \"selection\": \"Naruto: Shippuden | anime:1735\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "1735",
+          "role": "subject",
+          "text": "Naruto: Shippuden",
+          "name": "Naruto: Shippuden",
+          "meaning": "Naruto: Shippuden"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "1735",
+          "role": "subject",
+          "text": "Naruto: Shippuden",
+          "name": "Naruto: Shippuden",
+          "meaning": "Naruto: Shippuden"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Naruto: Shippuden"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "1735",
+            "role": "subject",
+            "text": "Naruto: Shippuden",
+            "name": "Naruto: Shippuden",
+            "meaning": "Naruto: Shippuden"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "1735",
+            "role": "subject",
+            "text": "Naruto: Shippuden",
+            "name": "Naruto: Shippuden",
+            "meaning": "Naruto: Shippuden"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Retrieve the full list of main characters for Naruto: Shippuden.",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "1735",
+            "section": "cast"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "Naruto: Shippuden main characters"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "Naruto: Shippuden cast"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "1735",
+          "name": "Naruto: Shippuden"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:1735",
+          "fact": "Naruto: Shippuden features Naruto Uzumaki, Sasuke Uchiha, Sakura Haruno, and Kakashi Hatake as main characters."
+        },
+        {
+          "subject": "anime:1735",
+          "fact": "Naruto Uzumaki is the protagonist, a young ninja striving to become Hokage."
+        },
+        {
+          "subject": "anime:1735",
+          "fact": "Sasuke Uchiha is Naruto's rival, driven by a desire for revenge."
+        },
+        {
+          "subject": "anime:1735",
+          "fact": "Sakura Haruno is a skilled medical-nin and Naruto's teammate."
+        },
+        {
+          "subject": "anime:1735",
+          "fact": "Kakashi Hatake is a legendary Jonin and a mentor figure to Naruto and his team."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 6.4e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.0013
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.064335
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.032321
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.05255
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.016412
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.793428
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Retrieve the full list of main characters for Naruto: Shippuden.",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "1735",
+              "section": "cast"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "Naruto: Shippuden main characters"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "Naruto: Shippuden cast"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "1735",
+            "name": "Naruto: Shippuden"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_character",
+      "arguments": {
+        "id": "1735",
+        "section": "cast"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_character",
+      "status": "error",
+      "elapsed_seconds": 5.8e-05,
+      "error": "Use character IDs from dictionary or tool results first"
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "Naruto: Shippuden main characters"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.020308,
+      "arguments": {
+        "query": "Naruto: Shippuden main characters"
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "Naruto: Shippuden cast"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.004142,
+      "arguments": {
+        "query": "Naruto: Shippuden cast"
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 9.623499
+    }
+  ]
+}

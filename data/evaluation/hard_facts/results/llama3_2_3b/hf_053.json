@@ -1,0 +1,738 @@
+{
+  "question_id": "hf_053",
+  "anime_id": "101922",
+  "title": "Demon Slayer: Kimetsu no Yaiba",
+  "field": "duration",
+  "question": "About how many minutes is one episode of Demon Slayer's first season?",
+  "expected_values": [
+    24.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Demon Slayer's first season: 24 minutes per episode.",
+  "extracted_values": [
+    "24",
+    "per episode"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 14.562722832999498,
+  "extraction_seconds": 0.6613166660008574,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "24",
+        "quote": "Demon Slayer's first season: 24 minutes per episode."
+      },
+      {
+        "value": "per episode",
+        "quote": "Demon Slayer's first season: 24 minutes per episode."
+      }
+    ],
+    "note": "set unclear=true only when the requested assertions cannot be interpreted reliably.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.5,
+    "recall": 1.0,
+    "f1": 0.6666666666666666,
+    "tp": 1,
+    "fp": 1,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": [
+      "invalid-number:per episode"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101922",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101922",
+          "title": "Demon Slayer: Kimetsu no Yaiba"
+        },
+        "elapsed_seconds": 0.014217
+      },
+      {
+        "step": 1,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101922",
+          "section": "staff"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "101922",
+          "title": "Demon Slayer: Kimetsu no Yaiba"
+        },
+        "elapsed_seconds": 0.002468
+      },
+      {
+        "step": 2,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101922",
+          "section": "staff"
+        },
+        "cached": true,
+        "result": {
+          "kind": "anime",
+          "id": "101922",
+          "title": "Demon Slayer: Kimetsu no Yaiba"
+        },
+        "elapsed_seconds": 1.5e-05
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101922",
+          "section": "staff"
+        },
+        "cached": true,
+        "result": {
+          "kind": "anime",
+          "id": "101922",
+          "title": "Demon Slayer: Kimetsu no Yaiba"
+        },
+        "elapsed_seconds": 8e-06
+      },
+      {
+        "step": 4,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101922",
+          "section": "staff"
+        },
+        "cached": true,
+        "result": {
+          "kind": "anime",
+          "id": "101922",
+          "title": "Demon Slayer: Kimetsu no Yaiba"
+        },
+        "elapsed_seconds": 6e-06
+      },
+      {
+        "step": 5,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101922",
+          "section": "staff"
+        },
+        "cached": true,
+        "result": {
+          "kind": "anime",
+          "id": "101922",
+          "title": "Demon Slayer: Kimetsu no Yaiba"
+        },
+        "elapsed_seconds": 6e-06
+      },
+      {
+        "step": 6,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101922",
+          "section": "staff"
+        },
+        "cached": true,
+        "result": {
+          "kind": "anime",
+          "id": "101922",
+          "title": "Demon Slayer: Kimetsu no Yaiba"
+        },
+        "elapsed_seconds": 6e-06
+      },
+      {
+        "step": 7,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101922",
+          "section": "staff"
+        },
+        "cached": true,
+        "result": {
+          "kind": "anime",
+          "id": "101922",
+          "title": "Demon Slayer: Kimetsu no Yaiba"
+        },
+        "elapsed_seconds": 6e-06
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 8,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 4.023211,
+      "prepare_context": 0.017513,
+      "retrieve_guides": 0.028019,
+      "feature_candidates": 0.014395,
+      "planning": 6.973553,
+      "tools": 0.016732,
+      "generate_answer": 3.485811
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Demon Slayer\", \"query\": \"Demon Slayer\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; season is a noun\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Demon Slayer",
+        "query": "Demon Slayer",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; season is a noun"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"TV series; season is a noun\", \"role\": \"subject\", \"selection\": \"Demon Slayer: Kimetsu no Yaiba | anime:101922\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101922",
+          "role": "subject",
+          "text": "Demon Slayer",
+          "name": "Demon Slayer: Kimetsu no Yaiba",
+          "meaning": "TV series; season is a noun"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101922",
+          "role": "subject",
+          "text": "Demon Slayer",
+          "name": "Demon Slayer: Kimetsu no Yaiba",
+          "meaning": "TV series; season is a noun"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Demon Slayer: Kimetsu no Yaiba"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101922",
+            "role": "subject",
+            "text": "Demon Slayer",
+            "name": "Demon Slayer: Kimetsu no Yaiba",
+            "meaning": "TV series; season is a noun"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101922",
+            "role": "subject",
+            "text": "Demon Slayer",
+            "name": "Demon Slayer: Kimetsu no Yaiba",
+            "meaning": "TV series; season is a noun"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "Find the duration of one episode of Demon Slayer's first season",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101922",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101922",
+            "section": "staff"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101922",
+            "section": "staff"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101922",
+            "section": "staff"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101922",
+            "section": "staff"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101922",
+            "section": "staff"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101922",
+            "section": "staff"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101922",
+            "section": "staff"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "101922",
+          "name": "Demon Slayer: Kimetsu no Yaiba"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:101922",
+          "fact": "duration = 24.0 minutes"
+        }
+      ],
+      "calculations": [
+        {
+          "expression": "24.0",
+          "value": "24",
+          "unit": "minutes per episode"
+        }
+      ]
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 8.9e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001613
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.023211
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.017513
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.028019
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014395
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.973553
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "Find the duration of one episode of Demon Slayer's first season",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101922",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101922",
+              "section": "staff"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101922",
+              "section": "staff"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101922",
+              "section": "staff"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101922",
+              "section": "staff"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101922",
+              "section": "staff"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101922",
+              "section": "staff"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101922",
+              "section": "staff"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "101922",
+            "name": "Demon Slayer: Kimetsu no Yaiba"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101922",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.014217,
+      "arguments": {
+        "id": "101922",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101922",
+        "title": "Demon Slayer: Kimetsu no Yaiba"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101922",
+        "section": "staff"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.002468,
+      "arguments": {
+        "id": "101922",
+        "section": "staff"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "101922",
+        "title": "Demon Slayer: Kimetsu no Yaiba"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101922",
+        "section": "staff"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 1.5e-05,
+      "arguments": {
+        "id": "101922",
+        "section": "staff"
+      },
+      "cached": true,
+      "result": {
+        "kind": "anime",
+        "id": "101922",
+        "title": "Demon Slayer: Kimetsu no Yaiba"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101922",
+        "section": "staff"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 8e-06,
+      "arguments": {
+        "id": "101922",
+        "section": "staff"
+      },
+      "cached": true,
+      "result": {
+        "kind": "anime",
+        "id": "101922",
+        "title": "Demon Slayer: Kimetsu no Yaiba"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101922",
+        "section": "staff"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 6e-06,
+      "arguments": {
+        "id": "101922",
+        "section": "staff"
+      },
+      "cached": true,
+      "result": {
+        "kind": "anime",
+        "id": "101922",
+        "title": "Demon Slayer: Kimetsu no Yaiba"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101922",
+        "section": "staff"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 6e-06,
+      "arguments": {
+        "id": "101922",
+        "section": "staff"
+      },
+      "cached": true,
+      "result": {
+        "kind": "anime",
+        "id": "101922",
+        "title": "Demon Slayer: Kimetsu no Yaiba"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 6,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101922",
+        "section": "staff"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 6,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 6e-06,
+      "arguments": {
+        "id": "101922",
+        "section": "staff"
+      },
+      "cached": true,
+      "result": {
+        "kind": "anime",
+        "id": "101922",
+        "title": "Demon Slayer: Kimetsu no Yaiba"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 7,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101922",
+        "section": "staff"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 7,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 6e-06,
+      "arguments": {
+        "id": "101922",
+        "section": "staff"
+      },
+      "cached": true,
+      "result": {
+        "kind": "anime",
+        "id": "101922",
+        "title": "Demon Slayer: Kimetsu no Yaiba"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.485811
+    }
+  ]
+}

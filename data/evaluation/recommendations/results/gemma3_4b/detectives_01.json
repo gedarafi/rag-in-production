@@ -1,0 +1,521 @@
+{
+  "question_id": "detectives_01",
+  "category": "tags",
+  "intent_family": "detectives",
+  "wording": "explicit",
+  "question_origin": "authored_naturalistic",
+  "question": "Give me three anime that carry the Detective tag.",
+  "k": 3,
+  "constraints": [
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Detective"
+      ]
+    }
+  ],
+  "label_rationale": "A central investigator solving cases maps to Detective.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 339,
+  "reference_examples": [
+    {
+      "id": "1079",
+      "title": "Armitage III"
+    },
+    {
+      "id": "10798",
+      "title": "UN-GO"
+    },
+    {
+      "id": "169778",
+      "title": "Kurayukaba"
+    }
+  ],
+  "answer_text": "Catalog matches — Detective.\n\n1. **Death Note** — Light Yagami is a genius high school student who is about to learn about life through a book of death. When a bored shinigami, a God of Death, named Ryuk drops a black notepad called a Death Note, Light receives power over life and death with the stroke of a pen. Determined to use this dark gift for the best, Light sets out to rid the world of evil… namely, the people he believes to be evil. Should anyone hold such power? The consequences of…\n\n2. **Tokyo Ghoul** — The suspense horror/dark fantasy story is set in Tokyo, which is haunted by mysterious \"ghouls\" who are devouring humans. People are gripped by the fear of these ghouls whose identities are masked in mystery. An ordinary college student named Kaneki encounters Rize, a girl who is an avid reader like him, at the café he frequents. Little does he realize that his fate will change overnight. (Source: Anime News Network)\n\n3. **ERASED** — Satoru Fujinuma is a 29 year old manga artist struggling to make a name for himself following his debut. But, that was not the only thing in his life that Satoru was feeling frustrated about… He has a unique supernatural ability of being forced to prevent deaths and catastrophes by being sent back in time before the incident occurred, repeating time until the accident is prevented. One day, he gets involved in an accident that has him framed as…\n\n4. **Steins;Gate** — Self-proclaimed mad scientist Okabe Rintarou lives in a small room in Akihabara, where he invents \"future gadgets\" with fellow lab members Shiina Mayuri, his air-headed childhood friend, and Hashida Itaru, an otaku hacker. The three pass the time by tinkering with their latest creation, a \"Phone Microwave\" that can be controlled through text messages. The lab members soon face a string of mysterious incidents that lead to a game-changing…\n\n5. **Parasyte -the maxim-** — They arrive in silence and darkness. They descend from the skies. They have a hunger for human flesh. They are everywhere. They are parasites, alien creatures who must invade–and take control of–a human host to survive. And once they have infected their victims, they can assume any deadly form they choose: monsters with giant teeth, winged demons, creatures with blades for hands. But most have chosen to conceal their lethal purpose behind…",
+  "status": "extraction_error",
+  "error": "ValueError: Title extraction failed after two attempts: Unterminated string starting at: line 1 column 3771 (char 3770); Unterminated string starting at: line 1 column 3771 (char 3770)",
+  "extraction": null,
+  "recommendations": [],
+  "metrics": null,
+  "model_seconds": 12.869315832999746,
+  "extraction_seconds": 36.35026162500071,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 3.8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000761
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 6.262731
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.003769
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.010811
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.02579
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 5.638113
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "Detective",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "tags",
+                  "operator": "eq",
+                  "value": "Detective"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "Detective",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.055582,
+      "arguments": {
+        "query": "Detective",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "detective",
+            "name": "Detective",
+            "description": "Features a character who investigates and solves crimes.",
+            "category": "Cast-Traits",
+            "similarity": 0.7374
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Detective"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.86946,
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Detective"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Detective"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Detective",
+              "source_text": "Give me three anime that carry the Detective tag.",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "1535",
+            "title": "Death Note",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Detective'}]"
+          },
+          {
+            "id": "20605",
+            "title": "Tokyo Ghoul",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Detective'}]"
+          },
+          {
+            "id": "21234",
+            "title": "ERASED",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Detective'}]"
+          },
+          {
+            "id": "9253",
+            "title": "Steins;Gate",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Detective'}]"
+          },
+          {
+            "id": "20623",
+            "title": "Parasyte -the maxim-",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Detective'}]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000371
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "Detective",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "detective",
+              "name": "Detective",
+              "description": "Features a character who investigates and solves crimes.",
+              "category": "Cast-Traits",
+              "similarity": 0.7374
+            }
+          ]
+        },
+        "elapsed_seconds": 0.055582
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Detective"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Detective"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Detective",
+                "source_text": "Give me three anime that carry the Detective tag.",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "1535",
+              "title": "Death Note",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Detective'}]"
+            },
+            {
+              "id": "20605",
+              "title": "Tokyo Ghoul",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Detective'}]"
+            },
+            {
+              "id": "21234",
+              "title": "ERASED",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Detective'}]"
+            },
+            {
+              "id": "9253",
+              "title": "Steins;Gate",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Detective'}]"
+            },
+            {
+              "id": "20623",
+              "title": "Parasyte -the maxim-",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Detective'}]"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.86946
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 6.262731,
+      "prepare_context": 0.003769,
+      "retrieve_guides": 0.010811,
+      "feature_candidates": 0.02579,
+      "planning": 5.638113,
+      "tools": 0.925042,
+      "generate_answer": 0.000371
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Detective\", \"query\": \"Detective\", \"kind\": \"genre\", \"role\": \"required\", \"meaning\": \"Desired genre\"}]}",
+      "{\"role\": \"required\"}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Detective",
+        "query": "Detective",
+        "kind": "genre",
+        "role": "required",
+        "meaning": "Desired genre"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify the desired anime genre.\", \"decisions\": {\"p0\": {\"meaning\": \"Detective\", \"role\": \"required\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "Detective",
+          "name": "",
+          "meaning": "Detective"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [
+        "Detective"
+      ],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "tags",
+          "operator": "eq",
+          "value": "Detective"
+        }
+      ],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "tags",
+          "operator": "eq",
+          "value": "Detective",
+          "source_text": "Give me three anime that carry the Detective tag.",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "Detective",
+          "candidate": {
+            "field": "tags",
+            "value": "Detective",
+            "meaning": "Detective"
+          },
+          "role": "required",
+          "mapping": "exact"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "Detective",
+            "name": "",
+            "meaning": "Detective"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "Detective",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Detective"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

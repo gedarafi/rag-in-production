@@ -1,0 +1,399 @@
+{
+  "question_id": "hf_013",
+  "anime_id": "101759",
+  "title": "The Promised Neverland",
+  "field": "year",
+  "question": "What year marked the start of The Promised Neverland anime?",
+  "expected_values": [
+    2019.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "2019",
+  "extracted_values": [
+    "2019"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 11.230995750000147,
+  "extraction_seconds": 0.5686402500014083,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "2019",
+        "quote": "2019"
+      }
+    ],
+    "note": "assertion for year of start of anime",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101759",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101759",
+          "title": "The Promised Neverland"
+        },
+        "elapsed_seconds": 0.015954
+      },
+      {
+        "step": 1,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "start year of The Promised Neverland anime",
+          "anime_ids": [
+            "101759"
+          ]
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.024905
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 1.994529,
+      "prepare_context": 0.016206,
+      "retrieve_guides": 0.027837,
+      "feature_candidates": 0.509454,
+      "planning": 4.21379,
+      "tools": 0.040859,
+      "generate_answer": 4.424284
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"The Promised Neverland\", \"query\": \"The Promised Neverland\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Original TV adaptation\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "The Promised Neverland",
+        "query": "The Promised Neverland",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Original TV adaptation"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Original TV adaptation\", \"role\": \"subject\", \"selection\": \"The Promised Neverland | anime:101759\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101759",
+          "role": "subject",
+          "text": "The Promised Neverland",
+          "name": "The Promised Neverland",
+          "meaning": "Original TV adaptation"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101759",
+          "role": "subject",
+          "text": "The Promised Neverland",
+          "name": "The Promised Neverland",
+          "meaning": "Original TV adaptation"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "The Promised Neverland"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101759",
+            "role": "subject",
+            "text": "The Promised Neverland",
+            "name": "The Promised Neverland",
+            "meaning": "Original TV adaptation"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101759",
+            "role": "subject",
+            "text": "The Promised Neverland",
+            "name": "The Promised Neverland",
+            "meaning": "Original TV adaptation"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Find the start year of The Promised Neverland anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101759",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "start year of The Promised Neverland anime",
+            "anime_ids": [
+              "101759"
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "101759",
+          "name": "The Promised Neverland"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:101759",
+          "fact": "The Promised Neverland anime started in the year 2019."
+        },
+        {
+          "subject": "anime:101759",
+          "fact": "The anime has a total of 12 episodes."
+        },
+        {
+          "subject": "anime:101759",
+          "fact": "Each episode of The Promised Neverland anime is approximately 23 minutes long."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 0.000105
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00217
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 1.994529
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.016206
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.027837
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.509454
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.21379
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Find the start year of The Promised Neverland anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101759",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "start year of The Promised Neverland anime",
+              "anime_ids": [
+                "101759"
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "101759",
+            "name": "The Promised Neverland"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101759",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.015954,
+      "arguments": {
+        "id": "101759",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101759",
+        "title": "The Promised Neverland"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "start year of The Promised Neverland anime",
+        "anime_ids": [
+          "101759"
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.024905,
+      "arguments": {
+        "query": "start year of The Promised Neverland anime",
+        "anime_ids": [
+          "101759"
+        ]
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.424284
+    }
+  ]
+}

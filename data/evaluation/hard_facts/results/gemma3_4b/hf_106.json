@@ -1,0 +1,390 @@
+{
+  "question_id": "hf_106",
+  "anime_id": "20954",
+  "title": "A Silent Voice",
+  "field": "source_material",
+  "question": "Was A Silent Voice based on a manga, a novel, or an original screenplay?",
+  "expected_values": [
+    "MANGA"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "A Silent Voice is based on a manga.",
+  "extracted_values": [
+    "manga"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 16.54199537500017,
+  "extraction_seconds": 0.4655631660002655,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "manga",
+        "quote": "A Silent Voice is based on a manga."
+      }
+    ],
+    "note": "",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20954"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20954",
+          "title": "A Silent Voice"
+        },
+        "elapsed_seconds": 0.017713
+      },
+      {
+        "step": 1,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "source material",
+          "anime_ids": [
+            "20954"
+          ]
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.411791
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 3.279438,
+      "prepare_context": 0.019154,
+      "retrieve_guides": 0.03111,
+      "feature_candidates": 0.013373,
+      "planning": 6.741786,
+      "tools": 0.429504,
+      "generate_answer": 6.025033
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"A Silent Voice\", \"query\": \"A Silent Voice\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "A Silent Voice",
+        "query": "A Silent Voice",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"To clarify, 'A Silent Voice' refers to the anime film.\", \"decisions\": {\"p0\": {\"meaning\": \"A Silent Voice\", \"role\": \"subject\", \"selection\": \"A Silent Voice | anime:20954\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20954",
+          "role": "subject",
+          "text": "A Silent Voice",
+          "name": "A Silent Voice",
+          "meaning": "A Silent Voice"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20954",
+          "role": "subject",
+          "text": "A Silent Voice",
+          "name": "A Silent Voice",
+          "meaning": "A Silent Voice"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "A Silent Voice"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20954",
+            "role": "subject",
+            "text": "A Silent Voice",
+            "name": "A Silent Voice",
+            "meaning": "A Silent Voice"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20954",
+            "role": "subject",
+            "text": "A Silent Voice",
+            "name": "A Silent Voice",
+            "meaning": "A Silent Voice"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "uncertain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine source material for A Silent Voice",
+      "clarification": "To determine if A Silent Voice is based on a manga, a novel, or an original screenplay, I need to investigate the anime's metadata.",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20954"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "source material",
+            "anime_ids": [
+              "20954"
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "uncertain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "20954",
+          "name": "A Silent Voice"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:20954",
+          "fact": "Anime: A Silent Voice. Aliases: A Silent Voice, Koe no Katachi, 聲の形, The Shape of Voice, A Voz do Silêncio, A Forma da Voz, La Forma della Voce, צורתו של קול, 声之形, الحزن الصامت, Una voz silenciosa, La Forme de la voix, Форма голоса, Форма голосу, Tylus balsas, Balss forma, Дауыс пішіні, Sakit səs, รักไร้เสียง, Dáng hình thanh âm. After transferring into a new school, a deaf girl, Shouko Nishimiya, is bullied by the popular Shouya Ishida. As Shouya continues to bully Shouko, the class turns its…"
+        },
+        {
+          "subject": "anime:20954",
+          "fact": "Source: Eleven Arts"
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000807
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.279438
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.019154
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.03111
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013373
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.741786
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "uncertain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "uncertain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine source material for A Silent Voice",
+        "clarification": "To determine if A Silent Voice is based on a manga, a novel, or an original screenplay, I need to investigate the anime's metadata.",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20954"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "source material",
+              "anime_ids": [
+                "20954"
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "20954",
+            "name": "A Silent Voice"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20954"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.017713,
+      "arguments": {
+        "id": "20954"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20954",
+        "title": "A Silent Voice"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "source material",
+        "anime_ids": [
+          "20954"
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.411791,
+      "arguments": {
+        "query": "source material",
+        "anime_ids": [
+          "20954"
+        ]
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 6.025033
+    }
+  ]
+}

@@ -1,0 +1,454 @@
+{
+  "question_id": "hf_170",
+  "anime_id": "20755",
+  "title": "Assassination Classroom",
+  "field": "main_characters",
+  "question": "Who are the main characters in the first Assassination Classroom season?",
+  "expected_values": [
+    "Koro-sensei",
+    "Nagisa Shiota"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The main characters in the first Assassination Classroom season are Nagisa Shiota and Koro-sensei.",
+  "extracted_values": [
+    "Nagisa Shiota",
+    "Koro-sensei"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 15.536465375000262,
+  "extraction_seconds": 0.6943053340000915,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Nagisa Shiota",
+        "quote": "The main characters in the first Assassination Classroom season are Nagisa Shiota and Koro-sensei."
+      },
+      {
+        "value": "Koro-sensei",
+        "quote": "The main characters in the first Assassination Classroom season are Nagisa Shiota and Koro-sensei."
+      }
+    ],
+    "note": "The character class is not specified.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 2,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20755"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20755",
+          "title": "Assassination Classroom"
+        },
+        "elapsed_seconds": 0.016221
+      },
+      {
+        "step": 1,
+        "tool": "get_character",
+        "arguments": {
+          "id": "65643",
+          "offset": 0
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "65643",
+          "name": "Koro-sensei"
+        },
+        "elapsed_seconds": 0.00275
+      },
+      {
+        "step": 2,
+        "tool": "get_character",
+        "arguments": {
+          "id": "65645",
+          "offset": 0
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "65645",
+          "name": "Nagisa Shiota"
+        },
+        "elapsed_seconds": 0.001774
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 3.534543,
+      "prepare_context": 0.03072,
+      "retrieve_guides": 0.057676,
+      "feature_candidates": 0.03746,
+      "planning": 6.669228,
+      "tools": 0.020745,
+      "generate_answer": 5.183998
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Assassination Classroom\", \"query\": \"Assassination Classroom\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"First season\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Assassination Classroom",
+        "query": "Assassination Classroom",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "First season"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"To clarify, you are asking about the main characters in the first season of the anime \\\"Assassination Classroom\\\".\", \"decisions\": {\"p0\": {\"meaning\": \"Assassination Classroom\", \"role\": \"subject\", \"selection\": \"Assassination Classroom | anime:20755\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20755",
+          "role": "subject",
+          "text": "Assassination Classroom",
+          "name": "Assassination Classroom",
+          "meaning": "Assassination Classroom"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20755",
+          "role": "subject",
+          "text": "Assassination Classroom",
+          "name": "Assassination Classroom",
+          "meaning": "Assassination Classroom"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Assassination Classroom"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20755",
+            "role": "subject",
+            "text": "Assassination Classroom",
+            "name": "Assassination Classroom",
+            "meaning": "Assassination Classroom"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20755",
+            "role": "subject",
+            "text": "Assassination Classroom",
+            "name": "Assassination Classroom",
+            "meaning": "Assassination Classroom"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Retrieve main characters from Assassination Classroom",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20755"
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "65643",
+            "offset": 0
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "65645",
+            "offset": 0
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "20755",
+          "name": "Assassination Classroom"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:20755",
+          "fact": "Nagisa Shiota is one of the students in Class 3-E."
+        },
+        {
+          "subject": "anime:20755",
+          "fact": "Koro-sensei is a teacher for class 3-E of Kunugigaoka Junior High School."
+        },
+        {
+          "subject": "anime:20755",
+          "fact": "Nagisa Shiota and Koro-sensei are the main characters."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.2e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00082
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.534543
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.03072
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.057676
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.03746
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.669228
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Retrieve main characters from Assassination Classroom",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20755"
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "65643",
+              "offset": 0
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "65645",
+              "offset": 0
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "20755",
+            "name": "Assassination Classroom"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20755"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.016221,
+      "arguments": {
+        "id": "20755"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20755",
+        "title": "Assassination Classroom"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_character",
+      "arguments": {
+        "id": "65643",
+        "offset": 0
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.00275,
+      "arguments": {
+        "id": "65643",
+        "offset": 0
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "65643",
+        "name": "Koro-sensei"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "get_character",
+      "arguments": {
+        "id": "65645",
+        "offset": 0
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.001774,
+      "arguments": {
+        "id": "65645",
+        "offset": 0
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "65645",
+        "name": "Nagisa Shiota"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 5.183998
+    }
+  ]
+}

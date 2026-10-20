@@ -1,0 +1,414 @@
+{
+  "question_id": "hf_150",
+  "anime_id": "140960",
+  "title": "SPY x FAMILY",
+  "field": "main_animation_studios",
+  "question": "Can you list all main animation studios credited for SPY x FAMILY's first season?",
+  "expected_values": [
+    "CloverWorks",
+    "WIT STUDIO"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "CloverWorks, WIT STUDIO, Toho, Shueisha, and TV Tokyo",
+  "extracted_values": [
+    "CloverWorks",
+    "WIT STUDIO",
+    "Toho",
+    "Shueisha",
+    "TV Tokyo"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 10.65559949999988,
+  "extraction_seconds": 0.8619890410009248,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "CloverWorks",
+        "quote": "CloverWorks, WIT STUDIO, Toho, Shueisha, and TV Tokyo"
+      },
+      {
+        "value": "WIT STUDIO",
+        "quote": "CloverWorks, WIT STUDIO, Toho, Shueisha, and TV Tokyo"
+      },
+      {
+        "value": "Toho",
+        "quote": "CloverWorks, WIT STUDIO, Toho, Shueisha, and TV Tokyo"
+      },
+      {
+        "value": "Shueisha",
+        "quote": "CloverWorks, WIT STUDIO, Toho, Shueisha, and TV Tokyo"
+      },
+      {
+        "value": "TV Tokyo",
+        "quote": "CloverWorks, WIT STUDIO, Toho, Shueisha, and TV Tokyo"
+      }
+    ],
+    "note": "assertion for Toho as a main animation studio is unclear",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.4,
+    "recall": 1.0,
+    "f1": 0.5714285714285715,
+    "tp": 2,
+    "fp": 3,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": [
+      "shueisha",
+      "toho",
+      "tv tokyo"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "140960",
+          "section": "studios"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "140960",
+          "title": "SPY x FAMILY"
+        },
+        "elapsed_seconds": 0.006037
+      },
+      {
+        "step": 1,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "main animation studios for SPY x FAMILY's first season",
+          "anime_ids": [
+            "140960"
+          ]
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.060662
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 1.92915,
+      "prepare_context": 0.014576,
+      "retrieve_guides": 0.029821,
+      "feature_candidates": 0.014271,
+      "planning": 4.30827,
+      "tools": 0.066699,
+      "generate_answer": 4.289227
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"SPY x FAMILY\", \"query\": \"SPY x FAMILY\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"First season credits\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "SPY x FAMILY",
+        "query": "SPY x FAMILY",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "First season credits"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"First season credits\", \"role\": \"subject\", \"selection\": \"SPY x FAMILY | anime:140960\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "140960",
+          "role": "subject",
+          "text": "SPY x FAMILY",
+          "name": "SPY x FAMILY",
+          "meaning": "First season credits"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "140960",
+          "role": "subject",
+          "text": "SPY x FAMILY",
+          "name": "SPY x FAMILY",
+          "meaning": "First season credits"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "SPY x FAMILY"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "140960",
+            "role": "subject",
+            "text": "SPY x FAMILY",
+            "name": "SPY x FAMILY",
+            "meaning": "First season credits"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "140960",
+            "role": "subject",
+            "text": "SPY x FAMILY",
+            "name": "SPY x FAMILY",
+            "meaning": "First season credits"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "list main animation studios credited for SPY x FAMILY's first season",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "140960",
+            "section": "studios"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "main animation studios for SPY x FAMILY's first season",
+            "anime_ids": [
+              "140960"
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "140960",
+          "name": "SPY x FAMILY"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:140960",
+          "fact": "The main animation studios credited for SPY x FAMILY's first season are CloverWorks, WIT STUDIO, Toho, Shueisha, and TV Tokyo."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 6.4e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001281
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 1.92915
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.014576
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.029821
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014271
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.30827
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "list main animation studios credited for SPY x FAMILY's first season",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "140960",
+              "section": "studios"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "main animation studios for SPY x FAMILY's first season",
+              "anime_ids": [
+                "140960"
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "140960",
+            "name": "SPY x FAMILY"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "140960",
+        "section": "studios"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.006037,
+      "arguments": {
+        "id": "140960",
+        "section": "studios"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "140960",
+        "title": "SPY x FAMILY"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "main animation studios for SPY x FAMILY's first season",
+        "anime_ids": [
+          "140960"
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.060662,
+      "arguments": {
+        "query": "main animation studios for SPY x FAMILY's first season",
+        "anime_ids": [
+          "140960"
+        ]
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.289227
+    }
+  ]
+}

@@ -1,0 +1,654 @@
+{
+  "question_id": "tearjerker_03",
+  "category": "tags",
+  "intent_family": "tearjerker",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "What are five anime that will leave me emotionally wrecked rather than wrapping everything up happily?",
+  "k": 5,
+  "constraints": [
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Tragedy"
+      ]
+    }
+  ],
+  "label_rationale": "An emotionally devastating or unhappy story is approximated by Tragedy, not by a nonexistent Sad tag.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 1356,
+  "reference_examples": [
+    {
+      "id": "1130",
+      "title": "Once Upon A Time"
+    },
+    {
+      "id": "136400",
+      "title": "Faithful Dog \"Hachi\""
+    },
+    {
+      "id": "1488",
+      "title": "Area 88"
+    }
+  ],
+  "answer_text": "Catalog matches. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **Violet Evergarden** — A certain point in time, in the continent of Telesis. The great war which divided the continent into North and South has ended after four years, and the people are welcoming a new generation. Violet Evergarden, a young girl formerly known as “the weapon”, has left the battlefield to start a new life at CH Postal Service. There, she is deeply moved by the work of “Auto Memories Dolls”, who carry people's thoughts and convert them into words.…\n\n2. **Chainsaw Man** — Denji is a teenage boy living with a Chainsaw Devil named Pochita. Due to the debt his father left behind, he has been living a rock-bottom life while repaying his debt by harvesting devil corpses with Pochita. One day, Denji is betrayed and killed. As his consciousness fades, he makes a contract with Pochita and gets revived as \"Chainsaw Man\" — a man with a devil's heart. (Source: Crunchyroll)\n\n3. **Mob Psycho 100** — The story revolves around \"Mob,\" a boy who will explode if his emotional capacity reaches 100%. This boy with psychic powers earned his nickname \"Mob\" because he does not stand out among other people. He keeps his psychic powers bottled up so he can live normally, but if his emotional level reaches 100, something will overwhelm his entire body. (Source: Anime News Network)\n\n4. **ERASED** — Satoru Fujinuma is a 29 year old manga artist struggling to make a name for himself following his debut. But, that was not the only thing in his life that Satoru was feeling frustrated about… He has a unique supernatural ability of being forced to prevent deaths and catastrophes by being sent back in time before the incident occurred, repeating time until the accident is prevented. One day, he gets involved in an accident that has him framed as…\n\n5. **Kaguya-sama: Love is War** — Known for being both brilliant and powerful, Miyuki Shirogane and Kaguya Shinomiya lead the illustrious Shuchiin Academy as near equals. And everyone thinks they’d make a great couple. Pride and arrogance are in ample supply, so the only logical move is to trick the other into instigating a date! Who will come out on top in this psychological war where the first move is the only one that matters? (Source: Aniplex)",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Violet Evergarden",
+      "Chainsaw Man",
+      "Mob Psycho 100",
+      "ERASED",
+      "Kaguya-sama: Love is War"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Violet Evergarden",
+      "anime_id": "21827",
+      "canonical_title": "Violet Evergarden",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21827"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.92
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.92,
+          "met": true,
+          "literal_score": 0.92,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.92,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.92,
+      "gain": 0.92,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Chainsaw Man",
+      "anime_id": "127230",
+      "canonical_title": "Chainsaw Man",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "127230"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.87
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.87,
+          "met": true,
+          "literal_score": 0.87,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.87,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.87,
+      "gain": 0.87,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Mob Psycho 100",
+      "anime_id": "21507",
+      "canonical_title": "Mob Psycho 100",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21507"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 4,
+      "extracted_title": "ERASED",
+      "anime_id": "21234",
+      "canonical_title": "ERASED",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21234"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.89
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.89,
+          "met": true,
+          "literal_score": 0.89,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.89,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.89,
+      "gain": 0.89,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Kaguya-sama: Love is War",
+      "anime_id": null,
+      "canonical_title": null,
+      "resolution": "ambiguous",
+      "candidate_ids": [
+        "101921",
+        "112641"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.6,
+    "graded_fit_at_k": 0.536,
+    "ndcg_at_k": 0.6281962705307745,
+    "constraint_coverage": 1.0,
+    "count_compliance": 1,
+    "resolution_rate": 0.8,
+    "duplicate_rate": 0.0,
+    "extra_count": 0,
+    "literal_precision_at_k": 0.6,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 8.696541749999597,
+  "extraction_seconds": 1.5877592079996248,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 3.6e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000671
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.31947
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.001365
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.007176
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.009447
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.147331
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "query": "Emotionally Wrecked",
+              "filters": [
+                {
+                  "field": "genres",
+                  "operator": "contains",
+                  "value": "tragedy"
+                },
+                {
+                  "field": "genres",
+                  "operator": "contains",
+                  "value": "romance"
+                },
+                {
+                  "field": "genres",
+                  "operator": "contains",
+                  "value": "drama"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "query": "Emotionally Wrecked",
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "tragedy"
+          },
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "romance"
+          },
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "drama"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.209214,
+      "arguments": {
+        "query": "Emotionally Wrecked",
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "tragedy"
+          },
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "romance"
+          },
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "drama"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": []
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": []
+        },
+        "items": [
+          {
+            "id": "21827",
+            "title": "Violet Evergarden",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.2265
+          },
+          {
+            "id": "127230",
+            "title": "Chainsaw Man",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.2243
+          },
+          {
+            "id": "21507",
+            "title": "Mob Psycho 100",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.2242
+          },
+          {
+            "id": "21234",
+            "title": "ERASED",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.2202
+          },
+          {
+            "id": "101921",
+            "title": "Kaguya-sama: Love is War",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.212
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000446
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "query": "Emotionally Wrecked",
+          "filters": [
+            {
+              "field": "genres",
+              "operator": "contains",
+              "value": "tragedy"
+            },
+            {
+              "field": "genres",
+              "operator": "contains",
+              "value": "romance"
+            },
+            {
+              "field": "genres",
+              "operator": "contains",
+              "value": "drama"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": []
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": []
+          },
+          "items": [
+            {
+              "id": "21827",
+              "title": "Violet Evergarden",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.2265
+            },
+            {
+              "id": "127230",
+              "title": "Chainsaw Man",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.2243
+            },
+            {
+              "id": "21507",
+              "title": "Mob Psycho 100",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.2242
+            },
+            {
+              "id": "21234",
+              "title": "ERASED",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.2202
+            },
+            {
+              "id": "101921",
+              "title": "Kaguya-sama: Love is War",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.212
+            }
+          ]
+        },
+        "elapsed_seconds": 0.209214
+      }
+    ],
+    "llm_calls": 3,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 4.31947,
+      "prepare_context": 0.001365,
+      "retrieve_guides": 0.007176,
+      "feature_candidates": 0.009447,
+      "planning": 4.147331,
+      "tools": 0.209214,
+      "generate_answer": 0.000446
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Emotionally Wrecked\", \"query\": \"Emotionally Wrecked\", \"kind\": \"tag\", \"role\": \"preferred\", \"meaning\": \"Preferred theme\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Emotionally Wrecked",
+        "query": "Emotionally Wrecked",
+        "kind": "tag",
+        "role": "preferred",
+        "meaning": "Preferred theme"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Leaving the viewer emotionally wrecked\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "Emotionally Wrecked",
+          "name": "",
+          "meaning": "Leaving the viewer emotionally wrecked"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [],
+      "preferred": [
+        "Emotionally Wrecked"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [],
+      "soft_query": "Emotionally Wrecked",
+      "limitations": [],
+      "mappings": [],
+      "preference_hierarchy": [
+        {
+          "phrase": "Emotionally Wrecked",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "Emotionally Wrecked",
+            "name": "",
+            "meaning": "Leaving the viewer emotionally wrecked"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "query": "Emotionally Wrecked",
+            "filters": [
+              {
+                "field": "genres",
+                "operator": "contains",
+                "value": "tragedy"
+              },
+              {
+                "field": "genres",
+                "operator": "contains",
+                "value": "romance"
+              },
+              {
+                "field": "genres",
+                "operator": "contains",
+                "value": "drama"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

@@ -1,0 +1,880 @@
+{
+  "question_id": "time_02",
+  "category": "tags",
+  "intent_family": "time",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "What are four anime where someone can rewind events or change what happens by going back in time?",
+  "k": 4,
+  "constraints": [
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Time Manipulation"
+      ]
+    }
+  ],
+  "label_rationale": "Rewinding, looping, and changing time map to Time Manipulation.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 444,
+  "reference_examples": [
+    {
+      "id": "104257",
+      "title": "Is Lupin Still Burning?"
+    },
+    {
+      "id": "12321",
+      "title": "Thermae Romae"
+    },
+    {
+      "id": "4124",
+      "title": "Futari wa Precure: Splash☆Star - Tick Tack Kiki Ippatsu!"
+    }
+  ],
+  "answer_text": "Catalog matches — release year: over 1980. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **Re:ZERO -Starting Life in Another World-** (2016) — In the story, Subaru Natsuki is an ordinary high school student who is lost in an alternate world, where he is rescued by a beautiful, silver-haired girl. He stays near her to return the favor, but the destiny she is burdened with is more than Subaru can imagine. Enemies attack one by one, and both of them are killed. He then finds out he has the power to rewind death, back to the time he first came to this world. But only he remembers what has…\n\n2. **Violet Evergarden** (2018) — A certain point in time, in the continent of Telesis. The great war which divided the continent into North and South has ended after four years, and the people are welcoming a new generation. Violet Evergarden, a young girl formerly known as “the weapon”, has left the battlefield to start a new life at CH Postal Service. There, she is deeply moved by the work of “Auto Memories Dolls”, who carry people's thoughts and convert them into words.…\n\n3. **Steins;Gate** (2011) — Self-proclaimed mad scientist Okabe Rintarou lives in a small room in Akihabara, where he invents \"future gadgets\" with fellow lab members Shiina Mayuri, his air-headed childhood friend, and Hashida Itaru, an otaku hacker. The three pass the time by tinkering with their latest creation, a \"Phone Microwave\" that can be controlled through text messages. The lab members soon face a string of mysterious incidents that lead to a game-changing…\n\n4. **ERASED** (2016) — Satoru Fujinuma is a 29 year old manga artist struggling to make a name for himself following his debut. But, that was not the only thing in his life that Satoru was feeling frustrated about… He has a unique supernatural ability of being forced to prevent deaths and catastrophes by being sent back in time before the incident occurred, repeating time until the accident is prevented. One day, he gets involved in an accident that has him framed as…\n\n5. **Attack on Titan Final Season** (2020) — It’s been four years since the Scout Regiment reached the shoreline, and the world looks different now. Things are heating up as the fate of the Scout Regiment—and the people of Paradis—are determined at last. However, Eren is missing. Will he reappear before age-old tensions between Marleyans and Eldians result in the war of all wars? (Source: Crunchyroll)",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Re:ZERO -Starting Life in Another World-",
+      "Violet Evergarden",
+      "Steins;Gate",
+      "ERASED",
+      "Attack on Titan Final Season"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Re:ZERO -Starting Life in Another World-",
+      "anime_id": "21355",
+      "canonical_title": "Re:ZERO -Starting Life in Another World-",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21355"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.96
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.96,
+          "met": true,
+          "literal_score": 0.96,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.96,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.96,
+      "gain": 0.96,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Violet Evergarden",
+      "anime_id": "21827",
+      "canonical_title": "Violet Evergarden",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21827"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Steins;Gate",
+      "anime_id": "9253",
+      "canonical_title": "Steins;Gate",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "9253"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.98
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.98,
+          "met": true,
+          "literal_score": 0.98,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.98,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.98,
+      "gain": 0.98,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 4,
+      "extracted_title": "ERASED",
+      "anime_id": "21234",
+      "canonical_title": "ERASED",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21234"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.93
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.93,
+          "met": true,
+          "literal_score": 0.93,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.93,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.93,
+      "gain": 0.93,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Attack on Titan Final Season",
+      "anime_id": "110277",
+      "canonical_title": "Attack on Titan Final Season",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "110277"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.75,
+    "graded_fit_at_k": 0.7175,
+    "ndcg_at_k": 0.7224096812206867,
+    "constraint_coverage": 1.0,
+    "count_compliance": 0,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "extra_count": 1,
+    "literal_precision_at_k": 0.75,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 11.986462999999276,
+  "extraction_seconds": 1.6403387079990353,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000834
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 6.934057
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.001283
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.007379
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.009115
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.803939
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "rewind events change what happens",
+              "kind": "tag",
+              "limit": 4
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "year",
+                  "operator": "gt",
+                  "value": "1980"
+                },
+                {
+                  "field": "description",
+                  "operator": "contains",
+                  "value": "rewind events"
+                },
+                {
+                  "field": "description",
+                  "operator": "contains",
+                  "value": "change what happens"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "rewind events change what happens",
+        "kind": "tag",
+        "limit": 4
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.037642,
+      "arguments": {
+        "query": "rewind events change what happens",
+        "kind": "tag",
+        "limit": 4
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "time loop",
+            "name": "Time Loop",
+            "description": "A character is stuck in a repetitive cycle that they are attempting to break out of. This is distinct from a manipulating time of their own choice.",
+            "category": "Theme-Sci-Fi",
+            "similarity": 0.322
+          },
+          {
+            "kind": "tag",
+            "id": "reincarnation",
+            "name": "Reincarnation",
+            "description": "Features a character being born again after death, typically as another person or in another world.",
+            "category": "Theme-Other",
+            "similarity": 0.2476
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "year",
+            "operator": "gt",
+            "value": "1980"
+          },
+          {
+            "field": "description",
+            "operator": "contains",
+            "value": "rewind events"
+          },
+          {
+            "field": "description",
+            "operator": "contains",
+            "value": "change what happens"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.190294,
+      "arguments": {
+        "filters": [
+          {
+            "field": "year",
+            "operator": "gt",
+            "value": "1980"
+          },
+          {
+            "field": "description",
+            "operator": "contains",
+            "value": "rewind events"
+          },
+          {
+            "field": "description",
+            "operator": "contains",
+            "value": "change what happens"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "year",
+              "operator": "gt",
+              "value": "1980"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "year",
+              "operator": "gt",
+              "value": "1980",
+              "source_text": "back in time",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "21355",
+            "title": "Re:ZERO -Starting Life in Another World-",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gt', 'value': '1980'}]",
+            "preference_similarity": 0.2808
+          },
+          {
+            "id": "21827",
+            "title": "Violet Evergarden",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gt', 'value': '1980'}]",
+            "preference_similarity": 0.2057
+          },
+          {
+            "id": "9253",
+            "title": "Steins;Gate",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gt', 'value': '1980'}]",
+            "preference_similarity": 0.1455
+          },
+          {
+            "id": "21234",
+            "title": "ERASED",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gt', 'value': '1980'}]",
+            "preference_similarity": 0.1057
+          },
+          {
+            "id": "110277",
+            "title": "Attack on Titan Final Season",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gt', 'value': '1980'}]",
+            "preference_similarity": 0.0957
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000479
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "rewind events change what happens",
+          "kind": "tag",
+          "limit": 4
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "time loop",
+              "name": "Time Loop",
+              "description": "A character is stuck in a repetitive cycle that they are attempting to break out of. This is distinct from a manipulating time of their own choice.",
+              "category": "Theme-Sci-Fi",
+              "similarity": 0.322
+            },
+            {
+              "kind": "tag",
+              "id": "reincarnation",
+              "name": "Reincarnation",
+              "description": "Features a character being born again after death, typically as another person or in another world.",
+              "category": "Theme-Other",
+              "similarity": 0.2476
+            }
+          ]
+        },
+        "elapsed_seconds": 0.037642
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "year",
+              "operator": "gt",
+              "value": "1980"
+            },
+            {
+              "field": "description",
+              "operator": "contains",
+              "value": "rewind events"
+            },
+            {
+              "field": "description",
+              "operator": "contains",
+              "value": "change what happens"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "year",
+                "operator": "gt",
+                "value": "1980"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "year",
+                "operator": "gt",
+                "value": "1980",
+                "source_text": "back in time",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "21355",
+              "title": "Re:ZERO -Starting Life in Another World-",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gt', 'value': '1980'}]",
+              "preference_similarity": 0.2808
+            },
+            {
+              "id": "21827",
+              "title": "Violet Evergarden",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gt', 'value': '1980'}]",
+              "preference_similarity": 0.2057
+            },
+            {
+              "id": "9253",
+              "title": "Steins;Gate",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gt', 'value': '1980'}]",
+              "preference_similarity": 0.1455
+            },
+            {
+              "id": "21234",
+              "title": "ERASED",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gt', 'value': '1980'}]",
+              "preference_similarity": 0.1057
+            },
+            {
+              "id": "110277",
+              "title": "Attack on Titan Final Season",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gt', 'value': '1980'}]",
+              "preference_similarity": 0.0957
+            }
+          ]
+        },
+        "elapsed_seconds": 0.190294
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 6.934057,
+      "prepare_context": 0.001283,
+      "retrieve_guides": 0.007379,
+      "feature_candidates": 0.009115,
+      "planning": 4.803939,
+      "tools": 0.227936,
+      "generate_answer": 0.000479
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"rewind events\", \"query\": \"rewind events\", \"kind\": \"tag\", \"role\": \"preferred\", \"meaning\": \"Preferred theme\"}, {\"text\": \"change what happens\", \"query\": \"change what happens\", \"kind\": \"tag\", \"role\": \"preferred\", \"meaning\": \"Preferred theme\"}, {\"text\": \"time travel\", \"query\": \"time travel\", \"kind\": \"tag\", \"role\": \"preferred\", \"meaning\": \"Preferred theme\"}, {\"text\": \"back in time\", \"query\": \"back in time\", \"kind\": \"tag\", \"role\": \"excluded\", \"meaning\": \"Excluded phrase\"}]}",
+      "{\n  \"min\": 1970,\n  \"max\": 1980\n}"
+    ],
+    "unsupported_mentions": [
+      {
+        "text": "time travel",
+        "query": "time travel",
+        "kind": "tag",
+        "role": "preferred",
+        "meaning": "Preferred theme"
+      }
+    ],
+    "typed_mentions": [
+      {
+        "text": "rewind events",
+        "query": "rewind events",
+        "kind": "tag",
+        "role": "preferred",
+        "meaning": "Preferred theme"
+      },
+      {
+        "text": "change what happens",
+        "query": "change what happens",
+        "kind": "tag",
+        "role": "preferred",
+        "meaning": "Preferred theme"
+      },
+      {
+        "text": "back in time",
+        "query": "back in time",
+        "kind": "tag",
+        "role": "excluded",
+        "meaning": "Excluded phrase"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Change past events\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}, \"p1\": {\"meaning\": \"Change future events\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}, \"p2\": {\"meaning\": \"Time travel\", \"role\": \"excluded\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "rewind events",
+          "name": "",
+          "meaning": "Change past events"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "change what happens",
+          "name": "",
+          "meaning": "Change future events"
+        },
+        {
+          "phrase_index": 2,
+          "kind": "description",
+          "id": "",
+          "role": "excluded",
+          "text": "back in time",
+          "name": "",
+          "meaning": "Time travel"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {
+      "year": {
+        "sources": [
+          "back in time"
+        ],
+        "interpretations": [
+          "decade"
+        ]
+      }
+    },
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [
+        "back in time"
+      ],
+      "preferred": [
+        "rewind events",
+        "change what happens"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "year",
+          "operator": "gt",
+          "value": "1980"
+        }
+      ],
+      "soft_query": "rewind events change what happens",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "year",
+          "operator": "gt",
+          "value": "1980",
+          "source_text": "back in time",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "rewind events",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        },
+        {
+          "phrase": "change what happens",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "rewind events",
+            "name": "",
+            "meaning": "Change past events"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "change what happens",
+            "name": "",
+            "meaning": "Change future events"
+          },
+          {
+            "phrase_index": 2,
+            "kind": "description",
+            "id": "",
+            "role": "excluded",
+            "text": "back in time",
+            "name": "",
+            "meaning": "Time travel"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "rewind events change what happens",
+            "kind": "tag",
+            "limit": 4
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "year",
+                "operator": "gt",
+                "value": "1980"
+              },
+              {
+                "field": "description",
+                "operator": "contains",
+                "value": "rewind events"
+              },
+              {
+                "field": "description",
+                "operator": "contains",
+                "value": "change what happens"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

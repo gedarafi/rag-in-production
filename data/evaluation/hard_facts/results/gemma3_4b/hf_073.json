@@ -1,0 +1,463 @@
+{
+  "question_id": "hf_073",
+  "anime_id": "21827",
+  "title": "Violet Evergarden",
+  "field": "duration",
+  "question": "What's Violet Evergarden's TV runtime per episode, in minutes?",
+  "expected_values": [
+    24.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Violet Evergarden's TV runtime per episode: 312 minutes.",
+  "extracted_values": [
+    "312"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 14.106379833000119,
+  "extraction_seconds": 0.5175687499995547,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "312",
+        "quote": "Violet Evergarden's TV runtime per episode: 312 minutes."
+      }
+    ],
+    "note": "minutes",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "missing_values": [
+      "24"
+    ],
+    "extra_values": [
+      "312"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21827"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21827",
+          "title": "Violet Evergarden"
+        },
+        "elapsed_seconds": 0.016784
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "TV runtime per episode"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "ensemble cast",
+              "name": "Ensemble Cast",
+              "description": "Features a large cast of characters with (almost) equal screen time and importance to the plot.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.3825
+            }
+          ]
+        },
+        "elapsed_seconds": 0.033558
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "TV runtime per episode"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.025476
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 3.311973,
+      "prepare_context": 0.020558,
+      "retrieve_guides": 0.030174,
+      "feature_candidates": 0.013191,
+      "planning": 6.61108,
+      "tools": 0.075818,
+      "generate_answer": 4.0401
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Violet Evergarden\", \"query\": \"Violet Evergarden\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Violet Evergarden",
+        "query": "Violet Evergarden",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"To clarify, you are asking about the episode runtime of the anime Violet Evergarden.\", \"decisions\": {\"p0\": {\"meaning\": \"Violet Evergarden\", \"role\": \"subject\", \"selection\": \"Violet Evergarden | anime:21827\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21827",
+          "role": "subject",
+          "text": "Violet Evergarden",
+          "name": "Violet Evergarden",
+          "meaning": "Violet Evergarden"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21827",
+          "role": "subject",
+          "text": "Violet Evergarden",
+          "name": "Violet Evergarden",
+          "meaning": "Violet Evergarden"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Violet Evergarden"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21827",
+            "role": "subject",
+            "text": "Violet Evergarden",
+            "name": "Violet Evergarden",
+            "meaning": "Violet Evergarden"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21827",
+            "role": "subject",
+            "text": "Violet Evergarden",
+            "name": "Violet Evergarden",
+            "meaning": "Violet Evergarden"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "retrieve anime runtime per episode",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21827"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "TV runtime per episode"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "TV runtime per episode"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21827",
+          "name": "Violet Evergarden"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:21827",
+          "fact": "duration: 24.0, units: minute, episode: 13.0"
+        }
+      ],
+      "calculations": [
+        {
+          "expression": "q1 * q0",
+          "value": "312",
+          "unit": "minutes"
+        }
+      ]
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 6.2e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001986
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.311973
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.020558
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.030174
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013191
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.61108
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "retrieve anime runtime per episode",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21827"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "TV runtime per episode"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "TV runtime per episode"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21827",
+            "name": "Violet Evergarden"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21827"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.016784,
+      "arguments": {
+        "id": "21827"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21827",
+        "title": "Violet Evergarden"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "TV runtime per episode"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.033558,
+      "arguments": {
+        "query": "TV runtime per episode"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "ensemble cast",
+            "name": "Ensemble Cast",
+            "description": "Features a large cast of characters with (almost) equal screen time and importance to the plot.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.3825
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "TV runtime per episode"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.025476,
+      "arguments": {
+        "kind": "tag",
+        "query": "TV runtime per episode"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.0401
+    }
+  ]
+}

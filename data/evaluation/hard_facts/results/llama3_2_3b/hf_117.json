@@ -1,0 +1,399 @@
+{
+  "question_id": "hf_117",
+  "anime_id": "124080",
+  "title": "Horimiya",
+  "field": "source_material",
+  "question": "Is Horimiya's anime based on a manga, game, or original story?",
+  "expected_values": [
+    "MANGA"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Horimiya is based on a manga.",
+  "extracted_values": [
+    "manga"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 9.831044292001025,
+  "extraction_seconds": 0.46558704099879833,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "manga",
+        "quote": "Horimiya is based on a manga."
+      }
+    ],
+    "note": "",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "124080",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "124080",
+          "title": "Horimiya"
+        },
+        "elapsed_seconds": 0.016353
+      },
+      {
+        "step": 1,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "manga or game or original story",
+          "anime_ids": [
+            "124080"
+          ]
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.033528
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 2.064202,
+      "prepare_context": 0.016954,
+      "retrieve_guides": 0.028393,
+      "feature_candidates": 0.013914,
+      "planning": 4.309262,
+      "tools": 0.049881,
+      "generate_answer": 3.345629
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Horimiya\", \"query\": \"Horimiya\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Adaptation of manga\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Horimiya",
+        "query": "Horimiya",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Adaptation of manga"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"None\", \"decisions\": {\"p0\": {\"meaning\": \"Adaptation of manga\", \"role\": \"subject\", \"selection\": \"Horimiya | anime:124080\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "124080",
+          "role": "subject",
+          "text": "Horimiya",
+          "name": "Horimiya",
+          "meaning": "Adaptation of manga"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "124080",
+          "role": "subject",
+          "text": "Horimiya",
+          "name": "Horimiya",
+          "meaning": "Adaptation of manga"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Horimiya"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "124080",
+            "role": "subject",
+            "text": "Horimiya",
+            "name": "Horimiya",
+            "meaning": "Adaptation of manga"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "124080",
+            "role": "subject",
+            "text": "Horimiya",
+            "name": "Horimiya",
+            "meaning": "Adaptation of manga"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Is Horimiya's anime based on a manga, game, or original story?",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "124080",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "manga or game or original story",
+            "anime_ids": [
+              "124080"
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "124080",
+          "name": "Horimiya"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:124080",
+          "fact": "Horimiya is based on a manga."
+        },
+        {
+          "subject": "anime:124080",
+          "fact": "Horimiya is not based on a game."
+        },
+        {
+          "subject": "anime:124080",
+          "fact": "Horimiya is not based on an original story."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 6.2e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001097
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.064202
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.016954
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.028393
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013914
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.309262
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Is Horimiya's anime based on a manga, game, or original story?",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "124080",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "manga or game or original story",
+              "anime_ids": [
+                "124080"
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "124080",
+            "name": "Horimiya"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "124080",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.016353,
+      "arguments": {
+        "id": "124080",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "124080",
+        "title": "Horimiya"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "manga or game or original story",
+        "anime_ids": [
+          "124080"
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.033528,
+      "arguments": {
+        "query": "manga or game or original story",
+        "anime_ids": [
+          "124080"
+        ]
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.345629
+    }
+  ]
+}

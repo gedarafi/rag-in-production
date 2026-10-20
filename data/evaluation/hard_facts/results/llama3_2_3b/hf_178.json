@@ -1,0 +1,401 @@
+{
+  "question_id": "hf_178",
+  "anime_id": "4224",
+  "title": "Toradora!",
+  "field": "main_characters",
+  "question": "Which characters are listed as main rather than supporting in Toradora!?",
+  "expected_values": [
+    "Taiga Aisaka",
+    "Ryuuji Takasu",
+    "Minori Kushieda",
+    "Yuusaku Kitamura",
+    "Ami Kawashima"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Taiga Aisaka, Ryuuji Takasu, Minori Kushieda, and Yuusaku Kitamura",
+  "extracted_values": [
+    "Taiga Aisaka",
+    "Ryuuji Takasu",
+    "Minori Kushieda",
+    "Yuusaku Kitamura"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 11.595072832998994,
+  "extraction_seconds": 0.8700417500003823,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Taiga Aisaka",
+        "quote": "Taiga Aisaka, Ryuuji Takasu, Minori Kushieda, and Yuusaku Kitamura"
+      },
+      {
+        "value": "Ryuuji Takasu",
+        "quote": "Taiga Aisaka, Ryuuji Takasu, Minori Kushieda, and Yuusaku Kitamura"
+      },
+      {
+        "value": "Minori Kushieda",
+        "quote": "Taiga Aisaka, Ryuuji Takasu, Minori Kushieda, and Yuusaku Kitamura"
+      },
+      {
+        "value": "Yuusaku Kitamura",
+        "quote": "Taiga Aisaka, Ryuuji Takasu, Minori Kushieda, and Yuusaku Kitamura"
+      }
+    ],
+    "note": "assertions for requested field and anime",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 1.0,
+    "recall": 0.8,
+    "f1": 0.888888888888889,
+    "tp": 4,
+    "fp": 0,
+    "fn": 1,
+    "missing_values": [
+      "ami kawashima"
+    ],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "4224",
+          "section": "cast"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "4224",
+          "title": "Toradora!"
+        },
+        "elapsed_seconds": 0.005793
+      },
+      {
+        "status": "error",
+        "step": 1,
+        "tool": "get_character",
+        "error": "Use character IDs from dictionary or tool results first",
+        "elapsed_seconds": 2e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 2.28867,
+      "prepare_context": 0.021694,
+      "retrieve_guides": 0.03711,
+      "feature_candidates": 0.014023,
+      "planning": 3.952255,
+      "tools": 0.005813,
+      "generate_answer": 5.272653
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Toradora!\", \"query\": \"Toradora!\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}, {\"text\": \"Main characters\", \"query\": \"Main characters\", \"kind\": \"description\", \"role\": \"preferred\", \"meaning\": \"Character roles\"}]}"
+    ],
+    "unsupported_mentions": [
+      {
+        "text": "Main characters",
+        "query": "Main characters",
+        "kind": "description",
+        "role": "preferred",
+        "meaning": "Character roles"
+      }
+    ],
+    "typed_mentions": [
+      {
+        "text": "Toradora!",
+        "query": "Toradora!",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Requested title\", \"role\": \"subject\", \"selection\": \"Toradora! | anime:4224\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "4224",
+          "role": "subject",
+          "text": "Toradora!",
+          "name": "Toradora!",
+          "meaning": "Requested title"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "4224",
+          "role": "subject",
+          "text": "Toradora!",
+          "name": "Toradora!",
+          "meaning": "Requested title"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Toradora!"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "4224",
+            "role": "subject",
+            "text": "Toradora!",
+            "name": "Toradora!",
+            "meaning": "Requested title"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "4224",
+            "role": "subject",
+            "text": "Toradora!",
+            "name": "Toradora!",
+            "meaning": "Requested title"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Find main characters in Toradora!",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "4224",
+            "section": "cast"
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "main_characters"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "4224",
+          "name": "Toradora!"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:4224",
+          "fact": "The main characters in Toradora! are Taiga Aisaka, Ryuuji Takasu, Minori Kushieda, and Yuusaku Kitamura."
+        },
+        {
+          "subject": "anime:4224",
+          "fact": "Taiga Aisaka, Ryuuji Takasu, Minori Kushieda, and Yuusaku Kitamura are listed as main characters in the anime Toradora!."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 9.1e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001256
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.28867
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.021694
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.03711
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014023
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.952255
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Find main characters in Toradora!",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "4224",
+              "section": "cast"
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "main_characters"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "4224",
+            "name": "Toradora!"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "4224",
+        "section": "cast"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.005793,
+      "arguments": {
+        "id": "4224",
+        "section": "cast"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "4224",
+        "title": "Toradora!"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_character",
+      "arguments": {
+        "id": "main_characters"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_character",
+      "status": "error",
+      "elapsed_seconds": 2e-05,
+      "error": "Use character IDs from dictionary or tool results first"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 5.272653
+    }
+  ]
+}

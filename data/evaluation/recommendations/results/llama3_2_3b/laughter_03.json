@@ -1,0 +1,517 @@
+{
+  "question_id": "laughter_03",
+  "category": "tags",
+  "intent_family": "laughter",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "Give me five anime where the joke is often something completely absurd happening on screen.",
+  "k": 5,
+  "constraints": [
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Surreal Comedy",
+        "Slapstick"
+      ],
+      "alternatives": [
+        {
+          "reason": "Comedy with Parody or Meta humor is another reasonable interpretation of an absurd, ridiculous watch; unrelated comedy subtypes are not automatically equivalent.",
+          "constraints": [
+            {
+              "field": "genres",
+              "op": "any",
+              "value": [
+                "Comedy"
+              ]
+            },
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Parody",
+                "Meta"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "Absurd and physical comedy are alternative acceptable routes to the requested laughter.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 1622,
+  "reference_examples": [
+    {
+      "id": "10012",
+      "title": "Carnival Phantasm"
+    },
+    {
+      "id": "10191",
+      "title": "Katte ni Kaizou"
+    },
+    {
+      "id": "102010",
+      "title": "Docchi mo Maid"
+    }
+  ],
+  "answer_text": "",
+  "status": "model_error",
+  "error": "RuntimeError: No supported recommendations were retrieved. Please rephrase your preferences and retry.",
+  "extraction": null,
+  "recommendations": [],
+  "metrics": null,
+  "model_seconds": 22.9981592919994,
+  "extraction_seconds": 0.0,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.1e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000679
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.105579
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.001514
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.007437
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.008936
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.964501
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "absurd joke",
+              "kind": "tag",
+              "limit": 5
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "query": "absurd joke",
+              "filters": [
+                {
+                  "field": "tag_details",
+                  "operator": "contains",
+                  "value": "absurd"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "absurd joke",
+        "kind": "tag",
+        "limit": 5
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.040632,
+      "arguments": {
+        "query": "absurd joke",
+        "kind": "tag",
+        "limit": 5
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "surreal comedy",
+            "name": "Surreal Comedy",
+            "description": "Prominently features comedic moments that defy casual reasoning, resulting in illogical events.",
+            "category": "Theme-Comedy",
+            "similarity": 0.3986
+          },
+          {
+            "kind": "tag",
+            "id": "parody",
+            "name": "Parody",
+            "description": "Features deliberate exaggeration of popular tropes or a particular genre to comedic effect.",
+            "category": "Theme-Comedy",
+            "similarity": 0.3211
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "query": "absurd joke",
+        "filters": [
+          {
+            "field": "tag_details",
+            "operator": "contains",
+            "value": "absurd"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 7.291012,
+      "arguments": {
+        "query": "absurd joke",
+        "filters": [
+          {
+            "field": "tag_details",
+            "operator": "contains",
+            "value": "absurd"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "absurd"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 0,
+          "retained": 0,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "absurd",
+              "source_text": "Give me five anime where the joke is often something completely absurd happening on screen.",
+              "mapping": "exact",
+              "origin": "structured_attribute_plan"
+            }
+          ]
+        },
+        "items": []
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "error",
+      "elapsed_seconds": 7.576451,
+      "error": "No supported recommendations were retrieved. Please rephrase your preferences and retry."
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "absurd joke",
+          "kind": "tag",
+          "limit": 5
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "surreal comedy",
+              "name": "Surreal Comedy",
+              "description": "Prominently features comedic moments that defy casual reasoning, resulting in illogical events.",
+              "category": "Theme-Comedy",
+              "similarity": 0.3986
+            },
+            {
+              "kind": "tag",
+              "id": "parody",
+              "name": "Parody",
+              "description": "Features deliberate exaggeration of popular tropes or a particular genre to comedic effect.",
+              "category": "Theme-Comedy",
+              "similarity": 0.3211
+            }
+          ]
+        },
+        "elapsed_seconds": 0.040632
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "query": "absurd joke",
+          "filters": [
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "absurd"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "absurd"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 0,
+            "retained": 0,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "absurd",
+                "source_text": "Give me five anime where the joke is often something completely absurd happening on screen.",
+                "mapping": "exact",
+                "origin": "structured_attribute_plan"
+              }
+            ]
+          },
+          "items": []
+        },
+        "elapsed_seconds": 7.291012
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 4.105579,
+      "prepare_context": 0.001514,
+      "retrieve_guides": 0.007437,
+      "feature_candidates": 0.008936,
+      "planning": 3.964501,
+      "tools": 7.331644,
+      "generate_answer": 7.576451
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"absurd\", \"query\": \"absurd\", \"kind\": \"tag\", \"role\": \"preferred\", \"meaning\": \"Humor style\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "absurd",
+        "query": "absurd",
+        "kind": "tag",
+        "role": "preferred",
+        "meaning": "Humor style"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Humor style\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "absurd",
+          "name": "",
+          "meaning": "Humor style"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [],
+      "preferred": [
+        "absurd"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "tag_details",
+          "operator": "contains",
+          "value": "absurd"
+        }
+      ],
+      "soft_query": "absurd",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "tag_details",
+          "operator": "contains",
+          "value": "absurd",
+          "source_text": "Give me five anime where the joke is often something completely absurd happening on screen.",
+          "mapping": "exact",
+          "origin": "structured_attribute_plan"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "absurd",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "absurd",
+            "name": "",
+            "meaning": "Humor style"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "absurd joke",
+            "kind": "tag",
+            "limit": 5
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "query": "absurd joke",
+            "filters": [
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "absurd"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

@@ -1,0 +1,749 @@
+{
+  "question_id": "hf_055",
+  "anime_id": "1535",
+  "title": "Death Note",
+  "field": "duration",
+  "question": "How long does a single Death Note episode run, in minutes?",
+  "expected_values": [
+    23.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Duration of a single Death Note episode in minutes: 23 minutes per episode.",
+  "extracted_values": [
+    "23 minutes"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 12.355785916999594,
+  "extraction_seconds": 0.5433494579992839,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "23 minutes",
+        "quote": "Duration of a single Death Note episode in minutes: 23 minutes per episode."
+      }
+    ],
+    "note": "assertion about duration",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "missing_values": [
+      "23"
+    ],
+    "extra_values": [
+      "invalid-number:23 minutes"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1535",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "1535",
+          "title": "Death Note"
+        },
+        "elapsed_seconds": 0.01732
+      },
+      {
+        "step": 1,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1535",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "1535",
+          "title": "Death Note"
+        },
+        "elapsed_seconds": 0.000134
+      },
+      {
+        "step": 2,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1535",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "1535",
+          "title": "Death Note"
+        },
+        "elapsed_seconds": 8.1e-05
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1535",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "1535",
+          "title": "Death Note"
+        },
+        "elapsed_seconds": 7.9e-05
+      },
+      {
+        "step": 4,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1535",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "1535",
+          "title": "Death Note"
+        },
+        "elapsed_seconds": 7.9e-05
+      },
+      {
+        "step": 5,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1535",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "1535",
+          "title": "Death Note"
+        },
+        "elapsed_seconds": 7.9e-05
+      },
+      {
+        "step": 6,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1535",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "1535",
+          "title": "Death Note"
+        },
+        "elapsed_seconds": 7.9e-05
+      },
+      {
+        "step": 7,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1535",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "1535",
+          "title": "Death Note"
+        },
+        "elapsed_seconds": 7.9e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 8,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 2.049378,
+      "prepare_context": 0.022013,
+      "retrieve_guides": 0.027954,
+      "feature_candidates": 0.013283,
+      "planning": 6.916891,
+      "tools": 0.01793,
+      "generate_answer": 3.305489
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Death Note\", \"query\": \"Death Note\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; episode length is a numeric criterion\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Death Note",
+        "query": "Death Note",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; episode length is a numeric criterion"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"TV series; episode length is a numeric criterion\", \"role\": \"subject\", \"selection\": \"Death Note | anime:1535\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "1535",
+          "role": "subject",
+          "text": "Death Note",
+          "name": "Death Note",
+          "meaning": "TV series; episode length is a numeric criterion"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "1535",
+          "role": "subject",
+          "text": "Death Note",
+          "name": "Death Note",
+          "meaning": "TV series; episode length is a numeric criterion"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Death Note"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "1535",
+            "role": "subject",
+            "text": "Death Note",
+            "name": "Death Note",
+            "meaning": "TV series; episode length is a numeric criterion"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "1535",
+            "role": "subject",
+            "text": "Death Note",
+            "name": "Death Note",
+            "meaning": "TV series; episode length is a numeric criterion"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Find the duration of a single Death Note episode in minutes",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1535",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1535",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1535",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1535",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1535",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1535",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1535",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1535",
+            "section": "overview"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "1535",
+          "name": "Death Note"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:1535",
+          "fact": "duration = 23.0 minutes per episode"
+        }
+      ],
+      "calculations": [
+        {
+          "expression": "q1",
+          "value": "23",
+          "unit": "minutes per episode"
+        }
+      ]
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001105
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.049378
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.022013
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.027954
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013283
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.916891
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Find the duration of a single Death Note episode in minutes",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1535",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1535",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1535",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1535",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1535",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1535",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1535",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1535",
+              "section": "overview"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "1535",
+            "name": "Death Note"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1535",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.01732,
+      "arguments": {
+        "id": "1535",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "1535",
+        "title": "Death Note"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1535",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000134,
+      "arguments": {
+        "id": "1535",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "1535",
+        "title": "Death Note"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1535",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 8.1e-05,
+      "arguments": {
+        "id": "1535",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "1535",
+        "title": "Death Note"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1535",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 7.9e-05,
+      "arguments": {
+        "id": "1535",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "1535",
+        "title": "Death Note"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1535",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 7.9e-05,
+      "arguments": {
+        "id": "1535",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "1535",
+        "title": "Death Note"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1535",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 7.9e-05,
+      "arguments": {
+        "id": "1535",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "1535",
+        "title": "Death Note"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 6,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1535",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 6,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 7.9e-05,
+      "arguments": {
+        "id": "1535",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "1535",
+        "title": "Death Note"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 7,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1535",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 7,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 7.9e-05,
+      "arguments": {
+        "id": "1535",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "1535",
+        "title": "Death Note"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.305489
+    }
+  ]
+}

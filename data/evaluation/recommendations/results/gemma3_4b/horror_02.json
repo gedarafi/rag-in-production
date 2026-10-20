@@ -1,0 +1,783 @@
+{
+  "question_id": "horror_02",
+  "category": "genres",
+  "intent_family": "horror",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "Which four anime would make a good lights-off viewing session if I want to be genuinely scared?",
+  "k": 4,
+  "constraints": [
+    {
+      "field": "genres",
+      "op": "any",
+      "value": [
+        "Horror"
+      ],
+      "alternatives": [
+        {
+          "reason": "Body Horror and Cosmic Horror are specific horror themes and valid alternatives to a missing broad Horror genre. Gore alone is not evidence that a show aims to scare.",
+          "constraints": [
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Body Horror",
+                "Cosmic Horror"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "Frightening viewing maps to Horror, not every dark or sad story.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 836,
+  "reference_examples": [
+    {
+      "id": "100010",
+      "title": "MAGICAL GIRL SITE"
+    },
+    {
+      "id": "100226",
+      "title": "EVIL OR LIVE"
+    },
+    {
+      "id": "100240",
+      "title": "Tokyo Ghoul:re"
+    }
+  ],
+  "answer_text": "Catalog matches. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **Frieren: Beyond Journey’s End** — The adventure is over but life goes on for an elf mage just beginning to learn what living is all about. Elf mage Frieren and her courageous fellow adventurers have defeated the Demon King and brought peace to the land. But Frieren will long outlive the rest of her former party. How will she come to understand what life means to the people around her? Decades after their victory, the funeral of one her friends confronts Frieren with her own near…\n\n2. **Fullmetal Alchemist: Brotherhood** — \"In order for something to be obtained, something of equal value must be lost.\" Alchemy is bound by this Law of Equivalent Exchange—something the young brothers Edward and Alphonse Elric only realize after attempting human transmutation: the one forbidden act of alchemy. They pay a terrible price for their transgression—Edward loses his left leg, Alphonse his physical body. It is only by the desperate sacrifice of Edward's right arm that he is…\n\n3. **Chainsaw Man – The Movie: Reze Arc** — Denji became “Chainsaw Man”, a boy with a devil’s heart, and is now part of Special Division 4’s devil hunters. After a date with Makima, the woman of his dreams, Denji takes shelter from the rain. There he meets Reze, a girl who works in a café. (Source: MAPPA CHANNEL)\n\n4. **Gintama Season 3** — Gintoki, Shinpachi, and Kagura return as the fun-loving but broke members of the Yorozuya team! Living in an alternate-reality Edo, where swords are prohibited and alien overlords have conquered Japan, they try to thrive on doing whatever work they can get their hands on. However, Shinpachi and Kagura still haven't been paid... Does Gin-chan really spend all that cash playing pachinko? Meanwhile, when Gintoki drunkenly staggers home one night…\n\n5. **Gintama: THE VERY FINAL** — Two years have passed following the Tendoshuu's invasion of the O-Edo Central Terminal. Since then, the Yorozuya have gone their separate ways. Foreseeing Utsuro's return, Gintoki Sakata begins surveying Earth's ley lines for traces of the other man's Altana. After an encounter with the remnants of the Tendoshuu—who continue to press on in search of immortality—Gintoki returns to Edo. Later, the regrouped Shinsengumi and Yorozuya begin an attack…",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Frieren: Beyond Journey's End",
+      "Fullmetal Alchemist: Brotherhood",
+      "Chainsaw Man – The Movie: Reze Arc",
+      "Gintama Season 3"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Frieren: Beyond Journey's End",
+      "anime_id": "154587",
+      "canonical_title": "Frieren: Beyond Journey’s End",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "154587"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Body Horror and Cosmic Horror are specific horror themes and valid alternatives to a missing broad Horror genre. Gore alone is not evidence that a show aims to scare.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Body Horror",
+                      "Cosmic Horror"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Fullmetal Alchemist: Brotherhood",
+      "anime_id": "5114",
+      "canonical_title": "Fullmetal Alchemist: Brotherhood",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "5114"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.57
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.57,
+          "met": true,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "alternative_1",
+          "graded_path": "alternative_1",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Body Horror and Cosmic Horror are specific horror themes and valid alternatives to a missing broad Horror genre. Gore alone is not evidence that a show aims to scare.",
+              "score": 0.57,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Body Horror",
+                      "Cosmic Horror"
+                    ]
+                  },
+                  "score": 0.57
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.57,
+      "gain": 0.57,
+      "strict_match": 1,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Chainsaw Man – The Movie: Reze Arc",
+      "anime_id": "171627",
+      "canonical_title": "Chainsaw Man – The Movie: Reze Arc",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "171627"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Body Horror and Cosmic Horror are specific horror themes and valid alternatives to a missing broad Horror genre. Gore alone is not evidence that a show aims to scare.",
+              "score": 0.82,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Body Horror",
+                      "Cosmic Horror"
+                    ]
+                  },
+                  "score": 0.82
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Gintama Season 3",
+      "anime_id": "20996",
+      "canonical_title": "Gintama Season 3",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20996"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Body Horror and Cosmic Horror are specific horror themes and valid alternatives to a missing broad Horror genre. Gore alone is not evidence that a show aims to scare.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Body Horror",
+                      "Cosmic Horror"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.5,
+    "graded_fit_at_k": 0.39249999999999996,
+    "ndcg_at_k": 0.3355823865782669,
+    "constraint_coverage": 1.0,
+    "count_compliance": 1,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "extra_count": 0,
+    "literal_precision_at_k": 0.25,
+    "semantic_credit_at_k": 0.25
+  },
+  "model_seconds": 15.553482375000385,
+  "extraction_seconds": 1.5364078339998741,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.2e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000879
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 7.352286
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.00156
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.008665
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.009784
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 8.110447
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend anime based on user preference for a genuinely scared lights-off viewing session",
+        "clarification": "The user wants a list of anime that will provide a genuinely scared experience, suitable for a lights-off viewing session. The preference is for a strong, unsettling atmosphere.",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "query": "lights-off viewing session genuinely scared",
+              "limit": 5,
+              "sort_by": "score",
+              "filters": [
+                {
+                  "field": "genres",
+                  "operator": "contains",
+                  "value": "horror"
+                },
+                {
+                  "field": "genres",
+                  "operator": "contains",
+                  "value": "supernatural"
+                },
+                {
+                  "field": "genres",
+                  "operator": "contains",
+                  "value": "thriller"
+                },
+                {
+                  "field": "genres",
+                  "operator": "contains",
+                  "value": "action"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "query": "lights-off viewing session genuinely scared",
+        "limit": 5,
+        "sort_by": "score",
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "horror"
+          },
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "supernatural"
+          },
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "thriller"
+          },
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "action"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.067839,
+      "arguments": {
+        "query": "lights-off viewing session genuinely scared",
+        "limit": 5,
+        "sort_by": "score",
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "horror"
+          },
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "supernatural"
+          },
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "thriller"
+          },
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "action"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "sort_by": "score",
+          "filters": []
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": []
+        },
+        "items": [
+          {
+            "id": "154587",
+            "title": "Frieren: Beyond Journey’s End",
+            "reason": "Matches: sort_by=score, filters=[]"
+          },
+          {
+            "id": "5114",
+            "title": "Fullmetal Alchemist: Brotherhood",
+            "reason": "Matches: sort_by=score, filters=[]"
+          },
+          {
+            "id": "171627",
+            "title": "Chainsaw Man – The Movie: Reze Arc",
+            "reason": "Matches: sort_by=score, filters=[]"
+          },
+          {
+            "id": "20996",
+            "title": "Gintama Season 3",
+            "reason": "Matches: sort_by=score, filters=[]"
+          },
+          {
+            "id": "114129",
+            "title": "Gintama: THE VERY FINAL",
+            "reason": "Matches: sort_by=score, filters=[]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000419
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "query": "lights-off viewing session genuinely scared",
+          "limit": 5,
+          "sort_by": "score",
+          "filters": [
+            {
+              "field": "genres",
+              "operator": "contains",
+              "value": "horror"
+            },
+            {
+              "field": "genres",
+              "operator": "contains",
+              "value": "supernatural"
+            },
+            {
+              "field": "genres",
+              "operator": "contains",
+              "value": "thriller"
+            },
+            {
+              "field": "genres",
+              "operator": "contains",
+              "value": "action"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "sort_by": "score",
+            "filters": []
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": []
+          },
+          "items": [
+            {
+              "id": "154587",
+              "title": "Frieren: Beyond Journey’s End",
+              "reason": "Matches: sort_by=score, filters=[]"
+            },
+            {
+              "id": "5114",
+              "title": "Fullmetal Alchemist: Brotherhood",
+              "reason": "Matches: sort_by=score, filters=[]"
+            },
+            {
+              "id": "171627",
+              "title": "Chainsaw Man – The Movie: Reze Arc",
+              "reason": "Matches: sort_by=score, filters=[]"
+            },
+            {
+              "id": "20996",
+              "title": "Gintama Season 3",
+              "reason": "Matches: sort_by=score, filters=[]"
+            },
+            {
+              "id": "114129",
+              "title": "Gintama: THE VERY FINAL",
+              "reason": "Matches: sort_by=score, filters=[]"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.067839
+      }
+    ],
+    "llm_calls": 3,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 7.352286,
+      "prepare_context": 0.00156,
+      "retrieve_guides": 0.008665,
+      "feature_candidates": 0.009784,
+      "planning": 8.110447,
+      "tools": 0.067839,
+      "generate_answer": 0.000419
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"lights-off viewing session\", \"query\": \"lights-off viewing session\", \"kind\": \"description\", \"role\": \"preferred\", \"meaning\": \"Viewing preference\"}, {\"text\": \"genuinely scared\", \"query\": \"genuinely scared\", \"kind\": \"description\", \"role\": \"preferred\", \"meaning\": \"Desired effect\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "lights-off viewing session",
+        "query": "lights-off viewing session",
+        "kind": "description",
+        "role": "preferred",
+        "meaning": "Viewing preference"
+      },
+      {
+        "text": "genuinely scared",
+        "query": "genuinely scared",
+        "kind": "description",
+        "role": "preferred",
+        "meaning": "Desired effect"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"To clarify, you are requesting a list of four anime titles that are known for being genuinely frightening when viewed in a dark room.\",\"decisions\": {\"p0\": {\"meaning\": \"lights-off viewing session\", \"role\": \"preferred\", \"selection\": \"unmapped description\" }, \"p1\": {\"meaning\": \"genuinely scared\", \"role\": \"preferred\", \"selection\": \"unmapped description\" }}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "lights-off viewing session",
+          "name": "",
+          "meaning": "lights-off viewing session"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "genuinely scared",
+          "name": "",
+          "meaning": "genuinely scared"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [],
+      "preferred": [
+        "lights-off viewing session",
+        "genuinely scared"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [],
+      "soft_query": "lights-off viewing session genuinely scared",
+      "limitations": [],
+      "mappings": [],
+      "preference_hierarchy": [
+        {
+          "phrase": "lights-off viewing session",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        },
+        {
+          "phrase": "genuinely scared",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "lights-off viewing session",
+            "name": "",
+            "meaning": "lights-off viewing session"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "genuinely scared",
+            "name": "",
+            "meaning": "genuinely scared"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend anime based on user preference for a genuinely scared lights-off viewing session",
+      "clarification": "The user wants a list of anime that will provide a genuinely scared experience, suitable for a lights-off viewing session. The preference is for a strong, unsettling atmosphere.",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "query": "lights-off viewing session genuinely scared",
+            "limit": 5,
+            "sort_by": "score",
+            "filters": [
+              {
+                "field": "genres",
+                "operator": "contains",
+                "value": "horror"
+              },
+              {
+                "field": "genres",
+                "operator": "contains",
+                "value": "supernatural"
+              },
+              {
+                "field": "genres",
+                "operator": "contains",
+                "value": "thriller"
+              },
+              {
+                "field": "genres",
+                "operator": "contains",
+                "value": "action"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

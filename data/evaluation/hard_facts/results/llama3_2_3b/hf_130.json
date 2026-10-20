@@ -1,0 +1,393 @@
+{
+  "question_id": "hf_130",
+  "anime_id": "6547",
+  "title": "Angel Beats!",
+  "field": "source_material",
+  "question": "Was Angel Beats! created as an original anime or adapted from another medium?",
+  "expected_values": [
+    "ORIGINAL"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Angel Beats! was created as an original anime.",
+  "extracted_values": [
+    "original"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 9.3765854580015,
+  "extraction_seconds": 0.46176008399925195,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "original",
+        "quote": "Angel Beats! was created as an original anime."
+      }
+    ],
+    "note": "",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "6547",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "6547",
+          "title": "Angel Beats!"
+        },
+        "elapsed_seconds": 0.0124
+      },
+      {
+        "step": 1,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "anime",
+          "query": "origin of Angel Beats!"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "anime",
+          "matches": []
+        },
+        "elapsed_seconds": 0.08401
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 1.811263,
+      "prepare_context": 0.015494,
+      "retrieve_guides": 0.028376,
+      "feature_candidates": 0.014051,
+      "planning": 4.301718,
+      "tools": 0.09641,
+      "generate_answer": 3.106883
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Angel Beats!\", \"query\": \"Angel Beats!\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Original anime\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Angel Beats!",
+        "query": "Angel Beats!",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Original anime"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Original anime\", \"role\": \"subject\", \"selection\": \"Angel Beats! | anime:6547\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "6547",
+          "role": "subject",
+          "text": "Angel Beats!",
+          "name": "Angel Beats!",
+          "meaning": "Original anime"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "6547",
+          "role": "subject",
+          "text": "Angel Beats!",
+          "name": "Angel Beats!",
+          "meaning": "Original anime"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Angel Beats!"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "6547",
+            "role": "subject",
+            "text": "Angel Beats!",
+            "name": "Angel Beats!",
+            "meaning": "Original anime"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "6547",
+            "role": "subject",
+            "text": "Angel Beats!",
+            "name": "Angel Beats!",
+            "meaning": "Original anime"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine if Angel Beats! was created as an original anime or adapted from another medium",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "6547",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "anime",
+            "query": "origin of Angel Beats!"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "6547",
+          "name": "Angel Beats!"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:6547",
+          "fact": "The source material is ORIGINAL."
+        },
+        {
+          "subject": "anime:6547",
+          "fact": "The format is TV, indicating it is an original anime."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.4e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000759
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 1.811263
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.015494
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.028376
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014051
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.301718
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine if Angel Beats! was created as an original anime or adapted from another medium",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "6547",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "anime",
+              "query": "origin of Angel Beats!"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "6547",
+            "name": "Angel Beats!"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "6547",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.0124,
+      "arguments": {
+        "id": "6547",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "6547",
+        "title": "Angel Beats!"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "anime",
+        "query": "origin of Angel Beats!"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.08401,
+      "arguments": {
+        "kind": "anime",
+        "query": "origin of Angel Beats!"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "anime",
+        "matches": []
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.106883
+    }
+  ]
+}

@@ -1,0 +1,623 @@
+{
+  "question_id": "trigger_03",
+  "category": "studios",
+  "intent_family": "trigger",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "Give me five anime made by the animation company that produced Promare.",
+  "k": 5,
+  "constraints": [
+    {
+      "field": "studios",
+      "op": "any",
+      "value": [
+        "Trigger"
+      ]
+    }
+  ],
+  "label_rationale": "Trigger must be a main animation studio; perceived visual similarity is insufficient.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 38,
+  "reference_examples": [
+    {
+      "id": "101817",
+      "title": "Inferno Cop Specials"
+    },
+    {
+      "id": "102337",
+      "title": "Hacka Doll"
+    },
+    {
+      "id": "102406",
+      "title": "Bishoujo Mobage: Mobami-chan"
+    }
+  ],
+  "answer_text": "",
+  "status": "model_error",
+  "error": "RuntimeError: No supported recommendations were retrieved. Please rephrase your preferences and retry.",
+  "extraction": null,
+  "recommendations": [],
+  "metrics": null,
+  "model_seconds": 22.47880129100122,
+  "extraction_seconds": 0.0,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.5e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000742
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 9.334801
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.018508
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.030476
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.010671
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 5.2065
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "animation company",
+              "anime_ids": [
+                "99425"
+              ]
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "99425"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "query": "animation company",
+              "studio": "animation company",
+              "filters": [
+                {
+                  "field": "studios",
+                  "operator": "eq",
+                  "value": "animation company"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "99425",
+            "name": "Promare"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "animation company",
+        "anime_ids": [
+          "99425"
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.06998,
+      "arguments": {
+        "query": "animation company",
+        "anime_ids": [
+          "99425"
+        ]
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "99425"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.011117,
+      "arguments": {
+        "id": "99425"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "99425",
+        "title": "Promare"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "recommend_anime",
+      "arguments": {
+        "query": "animation company",
+        "studio": "animation company",
+        "filters": [
+          {
+            "field": "studios",
+            "operator": "eq",
+            "value": "animation company"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.756644,
+      "arguments": {
+        "query": "animation company",
+        "studio": "animation company",
+        "filters": [
+          {
+            "field": "studios",
+            "operator": "eq",
+            "value": "animation company"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "studio": "animation company",
+          "filters": [
+            {
+              "field": "studios",
+              "operator": "eq",
+              "value": "animation company"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 0,
+          "retained": 0,
+          "limitations": [
+            "The exact requirement 'animation company' is assessed semantically from descriptions, not verified by a catalog category.",
+            "The exact requirement 'five anime' is assessed semantically from descriptions, not verified by a catalog category."
+          ],
+          "mappings": [
+            {
+              "field": "studios",
+              "operator": "eq",
+              "value": "animation company",
+              "source_text": "Give me five anime made by the animation company that produced Promare.",
+              "mapping": "exact",
+              "origin": "structured_attribute_plan"
+            }
+          ]
+        },
+        "items": []
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "error",
+      "elapsed_seconds": 7.03781,
+      "error": "No supported recommendations were retrieved. Please rephrase your preferences and retry."
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "animation company",
+          "anime_ids": [
+            "99425"
+          ]
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.06998
+      },
+      {
+        "step": 1,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "99425"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "99425",
+          "title": "Promare"
+        },
+        "elapsed_seconds": 0.011117
+      },
+      {
+        "step": 2,
+        "tool": "recommend_anime",
+        "arguments": {
+          "query": "animation company",
+          "studio": "animation company",
+          "filters": [
+            {
+              "field": "studios",
+              "operator": "eq",
+              "value": "animation company"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "studio": "animation company",
+            "filters": [
+              {
+                "field": "studios",
+                "operator": "eq",
+                "value": "animation company"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 0,
+            "retained": 0,
+            "limitations": [
+              "The exact requirement 'animation company' is assessed semantically from descriptions, not verified by a catalog category.",
+              "The exact requirement 'five anime' is assessed semantically from descriptions, not verified by a catalog category."
+            ],
+            "mappings": [
+              {
+                "field": "studios",
+                "operator": "eq",
+                "value": "animation company",
+                "source_text": "Give me five anime made by the animation company that produced Promare.",
+                "mapping": "exact",
+                "origin": "structured_attribute_plan"
+              }
+            ]
+          },
+          "items": []
+        },
+        "elapsed_seconds": 0.756644
+      }
+    ],
+    "llm_calls": 8,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 9.334801,
+      "prepare_context": 0.018508,
+      "retrieve_guides": 0.030476,
+      "feature_candidates": 0.010671,
+      "planning": 5.2065,
+      "tools": 0.837741,
+      "generate_answer": 7.03781
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Promare\", \"query\": \"Promare\", \"kind\": \"anime\", \"role\": \"reference\", \"meaning\": \"Reference title\"}, {\"text\": \"animation company\", \"query\": \"Promare studio\", \"kind\": \"genre\", \"role\": \"excluded\", \"meaning\": \"Studio\"}, {\"text\": \"five anime\", \"query\": \"Promare studio anime\", \"kind\": \"genre\", \"role\": \"excluded\", \"meaning\": \"Studio works\"}]}",
+      "{\n  \"choice\": 1,\n  \"role\": \"excluded\",\n  \"operator\": \"ne\",\n  \"value\": \"Hentai\",\n  \"mapping\": \"exact\"\n}",
+      "{\n  \"role\": \"required\"\n}",
+      "{\n  \"choice\": 1,\n  \"role\": \"excluded\",\n  \"operator\": \"ne\",\n  \"value\": \"Comedy\",\n  \"mapping\": \"exact\"\n}",
+      "{\n  \"role\": \"required\"\n}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Promare",
+        "query": "Promare",
+        "kind": "anime",
+        "role": "reference",
+        "meaning": "Reference title"
+      },
+      {
+        "text": "animation company",
+        "query": "Promare studio",
+        "kind": "genre",
+        "role": "excluded",
+        "meaning": "Studio"
+      },
+      {
+        "text": "five anime",
+        "query": "Promare studio anime",
+        "kind": "genre",
+        "role": "excluded",
+        "meaning": "Studio works"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Reference title\", \"role\": \"reference\", \"selection\": \"Promare | anime:99425\"}, \"p1\": {\"meaning\": \"Studio\", \"role\": \"excluded\", \"selection\": \"unmapped description\"}, \"p2\": {\"meaning\": \"Studio works\", \"role\": \"excluded\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "99425",
+          "role": "reference",
+          "text": "Promare",
+          "name": "Promare",
+          "meaning": "Reference title"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "excluded",
+          "text": "animation company",
+          "name": "",
+          "meaning": "Studio"
+        },
+        {
+          "phrase_index": 2,
+          "kind": "description",
+          "id": "",
+          "role": "excluded",
+          "text": "five anime",
+          "name": "",
+          "meaning": "Studio works"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "99425",
+          "role": "reference",
+          "text": "Promare",
+          "name": "Promare",
+          "meaning": "Reference title"
+        }
+      ],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Promare"
+      ],
+      "required": [],
+      "excluded": [
+        "animation company",
+        "five anime"
+      ],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Promare"
+      ],
+      "filters": [
+        {
+          "field": "studios",
+          "operator": "eq",
+          "value": "animation company"
+        }
+      ],
+      "soft_query": "animation company five anime",
+      "limitations": [
+        "The exact requirement 'animation company' is assessed semantically from descriptions, not verified by a catalog category.",
+        "The exact requirement 'five anime' is assessed semantically from descriptions, not verified by a catalog category."
+      ],
+      "mappings": [
+        {
+          "field": "studios",
+          "operator": "eq",
+          "value": "animation company",
+          "source_text": "Give me five anime made by the animation company that produced Promare.",
+          "mapping": "exact",
+          "origin": "structured_attribute_plan"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "animation company",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "exact"
+        },
+        {
+          "phrase": "five anime",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "exact"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "99425",
+            "role": "reference",
+            "text": "Promare",
+            "name": "Promare",
+            "meaning": "Reference title"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "excluded",
+            "text": "animation company",
+            "name": "",
+            "meaning": "Studio"
+          },
+          {
+            "phrase_index": 2,
+            "kind": "description",
+            "id": "",
+            "role": "excluded",
+            "text": "five anime",
+            "name": "",
+            "meaning": "Studio works"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "99425",
+            "role": "reference",
+            "text": "Promare",
+            "name": "Promare",
+            "meaning": "Reference title"
+          }
+        ],
+        "clarification": ""
+      },
+      "structured_attributes": {
+        "studio": "animation company"
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "animation company",
+            "anime_ids": [
+              "99425"
+            ]
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "99425"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "query": "animation company",
+            "studio": "animation company",
+            "filters": [
+              {
+                "field": "studios",
+                "operator": "eq",
+                "value": "animation company"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "99425",
+          "name": "Promare"
+        }
+      ],
+      "characters": []
+    }
+  }
+}

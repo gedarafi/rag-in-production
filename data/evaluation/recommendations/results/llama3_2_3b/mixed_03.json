@@ -1,0 +1,1409 @@
+{
+  "question_id": "mixed_03",
+  "category": "mixed_constraints",
+  "intent_family": "mixed",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "Give me five anime with enchanted worlds, an original manga to read, and a first release no earlier than 2020.",
+  "k": 5,
+  "constraints": [
+    {
+      "field": "genres",
+      "op": "any",
+      "value": [
+        "Fantasy"
+      ],
+      "alternatives": [
+        {
+          "reason": "Magic, mythology, or dragons can substantiate the requested enchanted world even when Fantasy is not recorded as a genre. Other mixed-request date and source constraints still apply.",
+          "constraints": [
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Magic",
+                "Mythology",
+                "Dragons"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "field": "year",
+      "op": "gte",
+      "value": 2020
+    },
+    {
+      "field": "source_material",
+      "op": "any",
+      "value": [
+        "MANGA"
+      ]
+    }
+  ],
+  "label_rationale": "Fantasy genre, release from 2020, and manga source are jointly required.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 366,
+  "reference_examples": [
+    {
+      "id": "100643",
+      "title": "Made in Abyss: Dawn of the Deep Soul"
+    },
+    {
+      "id": "101168",
+      "title": "Plunderer"
+    },
+    {
+      "id": "103712",
+      "title": "Pretty Guardian Sailor Moon Eternal The Movie Part 2"
+    }
+  ],
+  "answer_text": "Catalog matches — release year: at least 2020; source material: ORIGINAL. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **That Time I Got Reincarnated as a Slime the Movie: Scarlet Bond** (2022) — A long-running conspiracy is swirling over a mysterious power known as “Queen” in Raja, a small country west of Tempest. When a slime who evolved into a Demon Lord named Rimuru Tempest crosses paths with Hiiro, a survivor of the Ogre race, an incredible adventure packed with new characters begins. The power of bonds will be put to the test! (Source: Crunchyroll)\n\n2. **BELLE** (2021) — The protagonist of this story, Suzu, is a 17-year old high school girl living with her father in a rural town of Kochi — their town is a textbook definition of depopulation in the Japanese countryside. Wounded by the loss of her mother at a young age, Suzu one day discovers the massive online world, “U,” and dives into this alternate reality as her avatar, Belle. Before long, all of U’s eyes are fixed on Belle (Suzu), when one day the mysterious…\n\n3. **WONDER EGG PRIORITY** (2021) — This is the story of Ai, an introverted girl whose fate is forever changed when she acquires a mysterious “Wonder Egg” from a deserted arcade. That night, her dreams blend into reality, and as other girls obtain their own Wonder Eggs, Ai discovers new friends—and the magic within herself. (Source: Funimation)\n\n4. **Fena: Pirate Princess** (2021) — Fena Houtman is a young orphan girl that has been raised on an Island where there is no hope of becoming anything more than chattel, to be used and discarded by soldiers of the British Empire. But Fena is more than just another powerless orphan. When her mysterious past comes knocking, Fena will break the chains of her oppressors. Her goal: forge a new identity, free of bondage, and search for a place where she can truly belong and find out the…\n\n5. **Jellyfish Can’t Swim in the Night** (2024) — \"I want to find what I enjoy.\" Shibuya is a city full of identity. It is here on Shibuya’s late night streets that illustrator Mahiru Kozuki, former idol Kano Yamanouchi, Vtuber Kiui Watase and composer Mei Kim Anouk Takanashi — four young women who are slightly outside the world — join together and form an anonymous artist group called JELEE. “I” also want to shine like someone else. If it's not me but “we” then we might be able to shine.…",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "That Time I Got Reincarnated as a Slime the Movie: Scarlet Bond",
+      "BELLE",
+      "WONDER EGG PRIORITY",
+      "Fena: Pirate Princess",
+      "Jellyfish Can't Swim in the Night"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "That Time I Got Reincarnated as a Slime the Movie: Scarlet Bond",
+      "anime_id": "139498",
+      "canonical_title": "That Time I Got Reincarnated as a Slime the Movie: Scarlet Bond",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "139498"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        1.0,
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Magic, mythology, or dragons can substantiate the requested enchanted world even when Fantasy is not recorded as a genre. Other mixed-request date and source constraints still apply.",
+              "score": 0.89,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Magic",
+                      "Mythology",
+                      "Dragons"
+                    ]
+                  },
+                  "score": 0.89
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.6666666666666666,
+      "gain": 0.6666666666666666,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 2,
+      "extracted_title": "BELLE",
+      "anime_id": "127271",
+      "canonical_title": "BELLE",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "127271"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.46,
+        1.0,
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.46,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "alternative_1",
+          "graded_path": "alternative_1",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Magic, mythology, or dragons can substantiate the requested enchanted world even when Fantasy is not recorded as a genre. Other mixed-request date and source constraints still apply.",
+              "score": 0.46,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Magic",
+                      "Mythology",
+                      "Dragons"
+                    ]
+                  },
+                  "score": 0.46
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.48666666666666664,
+      "gain": 0.48666666666666664,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 3,
+      "extracted_title": "WONDER EGG PRIORITY",
+      "anime_id": "124845",
+      "canonical_title": "WONDER EGG PRIORITY",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "124845"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        1.0,
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Magic, mythology, or dragons can substantiate the requested enchanted world even when Fantasy is not recorded as a genre. Other mixed-request date and source constraints still apply.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Magic",
+                      "Mythology",
+                      "Dragons"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.6666666666666666,
+      "gain": 0.6666666666666666,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Fena: Pirate Princess",
+      "anime_id": "122052",
+      "canonical_title": "Fena: Pirate Princess",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "122052"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.5,
+        1.0,
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.5,
+          "met": true,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "alternative_1",
+          "graded_path": "alternative_1",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Magic, mythology, or dragons can substantiate the requested enchanted world even when Fantasy is not recorded as a genre. Other mixed-request date and source constraints still apply.",
+              "score": 0.5,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Magic",
+                      "Mythology",
+                      "Dragons"
+                    ]
+                  },
+                  "score": 0.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.5,
+      "gain": 0.5,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Jellyfish Can't Swim in the Night",
+      "anime_id": "163078",
+      "canonical_title": "Jellyfish Can’t Swim in the Night",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "163078"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Magic, mythology, or dragons can substantiate the requested enchanted world even when Fantasy is not recorded as a genre. Other mixed-request date and source constraints still apply.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Magic",
+                      "Mythology",
+                      "Dragons"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.3333333333333333,
+      "gain": 0.3333333333333333,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.0,
+    "graded_fit_at_k": 0.5306666666666666,
+    "ndcg_at_k": 0.5600693882032199,
+    "constraint_coverage": 0.6666666666666666,
+    "count_compliance": 1,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "extra_count": 0,
+    "literal_precision_at_k": 0.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 10.56647108299876,
+  "extraction_seconds": 1.972668624999642,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.5e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000801
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.94956
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.00163
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.007459
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.009932
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 5.207689
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "enchanted worlds",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "original manga",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "release no earlier than 2020",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "year",
+                  "operator": "gte",
+                  "value": "2020"
+                },
+                {
+                  "field": "source_material",
+                  "operator": "eq",
+                  "value": "ORIGINAL"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "enchanted worlds",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.039442,
+      "arguments": {
+        "query": "enchanted worlds",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "magic",
+            "name": "Magic",
+            "description": "Prominently features magical elements or the use of magic.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.5015
+          },
+          {
+            "kind": "tag",
+            "id": "urban fantasy",
+            "name": "Urban Fantasy",
+            "description": "Set in a world similar to the real world, but with the existence of magic or other supernatural elements.",
+            "category": "Setting-Universe",
+            "similarity": 0.4725
+          },
+          {
+            "kind": "tag",
+            "id": "virtual world",
+            "name": "Virtual World",
+            "description": "Partly or completely set in the world inside a video game.",
+            "category": "Setting-Universe",
+            "similarity": 0.3869
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "original manga",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.012248,
+      "arguments": {
+        "query": "original manga",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "4 koma",
+            "name": "4-koma",
+            "description": "A manga in the 'yonkoma' format, which consists of four equal-sized panels arranged in a vertical strip.",
+            "category": "Technical",
+            "similarity": 0.4809
+          },
+          {
+            "kind": "tag",
+            "id": "rakugo",
+            "name": "Rakugo",
+            "description": "Rakugo is the traditional Japanese performance art of comic storytelling.",
+            "category": "Theme-Arts",
+            "similarity": 0.4771
+          },
+          {
+            "kind": "tag",
+            "id": "drawing",
+            "name": "Drawing",
+            "description": "Centers around the art of drawing, including manga and doujinshi.",
+            "category": "Theme-Arts",
+            "similarity": 0.4597
+          },
+          {
+            "kind": "tag",
+            "id": "reverse isekai",
+            "name": "Reverse Isekai",
+            "description": "Features a character from a fantasy world who is transported into a modern-day setting.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.4308
+          },
+          {
+            "kind": "tag",
+            "id": "isekai",
+            "name": "Isekai",
+            "description": "Features a character from a modern-day setting being transported into an alternate world and has to adapt to their new surroundings.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.4303
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "search_features",
+      "arguments": {
+        "query": "release no earlier than 2020",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.012194,
+      "arguments": {
+        "query": "release no earlier than 2020",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "shoujo",
+            "name": "Shoujo",
+            "description": "Target demographic is teenage and young adult females.",
+            "category": "Demographic",
+            "similarity": 0.1934
+          },
+          {
+            "kind": "tag",
+            "id": "anthology",
+            "name": "Anthology",
+            "description": "A collection of separate works collated into a single release.",
+            "category": "Technical",
+            "similarity": 0.1784
+          },
+          {
+            "kind": "tag",
+            "id": "coming of age",
+            "name": "Coming of Age",
+            "description": "Centers around a character's transition from childhood to adulthood.",
+            "category": "Theme-Drama",
+            "similarity": 0.1779
+          },
+          {
+            "kind": "tag",
+            "id": "kids",
+            "name": "Kids",
+            "description": "Target demographic is young children.",
+            "category": "Demographic",
+            "similarity": 0.1608
+          },
+          {
+            "kind": "tag",
+            "id": "prophecy",
+            "name": "Prophecy",
+            "description": "Features characters or plot elements that revolve around predicting the future.",
+            "category": "Theme-Other",
+            "similarity": 0.1561
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "year",
+            "operator": "gte",
+            "value": "2020"
+          },
+          {
+            "field": "source_material",
+            "operator": "eq",
+            "value": "ORIGINAL"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.32356,
+      "arguments": {
+        "filters": [
+          {
+            "field": "year",
+            "operator": "gte",
+            "value": "2020"
+          },
+          {
+            "field": "source_material",
+            "operator": "eq",
+            "value": "ORIGINAL"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "year",
+              "operator": "gte",
+              "value": "2020"
+            },
+            {
+              "field": "source_material",
+              "operator": "eq",
+              "value": "ORIGINAL"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "year",
+              "operator": "gte",
+              "value": "2020",
+              "source_text": "release",
+              "mapping": "exact"
+            },
+            {
+              "field": "source_material",
+              "operator": "eq",
+              "value": "ORIGINAL",
+              "source_text": "Give me five anime with enchanted worlds, an original manga to read, and a first release no earlier than 2020.",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "139498",
+            "title": "That Time I Got Reincarnated as a Slime the Movie: Scarlet Bond",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}, {'field': 'source_material', 'operator': 'eq', 'value': 'ORIGINAL'}]",
+            "preference_similarity": 0.2952
+          },
+          {
+            "id": "127271",
+            "title": "BELLE",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}, {'field': 'source_material', 'operator': 'eq', 'value': 'ORIGINAL'}]",
+            "preference_similarity": 0.269
+          },
+          {
+            "id": "124845",
+            "title": "WONDER EGG PRIORITY",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}, {'field': 'source_material', 'operator': 'eq', 'value': 'ORIGINAL'}]",
+            "preference_similarity": 0.2618
+          },
+          {
+            "id": "122052",
+            "title": "Fena: Pirate Princess",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}, {'field': 'source_material', 'operator': 'eq', 'value': 'ORIGINAL'}]",
+            "preference_similarity": 0.2516
+          },
+          {
+            "id": "163078",
+            "title": "Jellyfish Can’t Swim in the Night",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}, {'field': 'source_material', 'operator': 'eq', 'value': 'ORIGINAL'}]",
+            "preference_similarity": 0.2508
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.00044
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "enchanted worlds",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "magic",
+              "name": "Magic",
+              "description": "Prominently features magical elements or the use of magic.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.5015
+            },
+            {
+              "kind": "tag",
+              "id": "urban fantasy",
+              "name": "Urban Fantasy",
+              "description": "Set in a world similar to the real world, but with the existence of magic or other supernatural elements.",
+              "category": "Setting-Universe",
+              "similarity": 0.4725
+            },
+            {
+              "kind": "tag",
+              "id": "virtual world",
+              "name": "Virtual World",
+              "description": "Partly or completely set in the world inside a video game.",
+              "category": "Setting-Universe",
+              "similarity": 0.3869
+            }
+          ]
+        },
+        "elapsed_seconds": 0.039442
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "original manga",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "4 koma",
+              "name": "4-koma",
+              "description": "A manga in the 'yonkoma' format, which consists of four equal-sized panels arranged in a vertical strip.",
+              "category": "Technical",
+              "similarity": 0.4809
+            },
+            {
+              "kind": "tag",
+              "id": "rakugo",
+              "name": "Rakugo",
+              "description": "Rakugo is the traditional Japanese performance art of comic storytelling.",
+              "category": "Theme-Arts",
+              "similarity": 0.4771
+            },
+            {
+              "kind": "tag",
+              "id": "drawing",
+              "name": "Drawing",
+              "description": "Centers around the art of drawing, including manga and doujinshi.",
+              "category": "Theme-Arts",
+              "similarity": 0.4597
+            },
+            {
+              "kind": "tag",
+              "id": "reverse isekai",
+              "name": "Reverse Isekai",
+              "description": "Features a character from a fantasy world who is transported into a modern-day setting.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.4308
+            },
+            {
+              "kind": "tag",
+              "id": "isekai",
+              "name": "Isekai",
+              "description": "Features a character from a modern-day setting being transported into an alternate world and has to adapt to their new surroundings.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.4303
+            }
+          ]
+        },
+        "elapsed_seconds": 0.012248
+      },
+      {
+        "step": 2,
+        "tool": "search_features",
+        "arguments": {
+          "query": "release no earlier than 2020",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "shoujo",
+              "name": "Shoujo",
+              "description": "Target demographic is teenage and young adult females.",
+              "category": "Demographic",
+              "similarity": 0.1934
+            },
+            {
+              "kind": "tag",
+              "id": "anthology",
+              "name": "Anthology",
+              "description": "A collection of separate works collated into a single release.",
+              "category": "Technical",
+              "similarity": 0.1784
+            },
+            {
+              "kind": "tag",
+              "id": "coming of age",
+              "name": "Coming of Age",
+              "description": "Centers around a character's transition from childhood to adulthood.",
+              "category": "Theme-Drama",
+              "similarity": 0.1779
+            },
+            {
+              "kind": "tag",
+              "id": "kids",
+              "name": "Kids",
+              "description": "Target demographic is young children.",
+              "category": "Demographic",
+              "similarity": 0.1608
+            },
+            {
+              "kind": "tag",
+              "id": "prophecy",
+              "name": "Prophecy",
+              "description": "Features characters or plot elements that revolve around predicting the future.",
+              "category": "Theme-Other",
+              "similarity": 0.1561
+            }
+          ]
+        },
+        "elapsed_seconds": 0.012194
+      },
+      {
+        "step": 3,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "year",
+              "operator": "gte",
+              "value": "2020"
+            },
+            {
+              "field": "source_material",
+              "operator": "eq",
+              "value": "ORIGINAL"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "year",
+                "operator": "gte",
+                "value": "2020"
+              },
+              {
+                "field": "source_material",
+                "operator": "eq",
+                "value": "ORIGINAL"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "year",
+                "operator": "gte",
+                "value": "2020",
+                "source_text": "release",
+                "mapping": "exact"
+              },
+              {
+                "field": "source_material",
+                "operator": "eq",
+                "value": "ORIGINAL",
+                "source_text": "Give me five anime with enchanted worlds, an original manga to read, and a first release no earlier than 2020.",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "139498",
+              "title": "That Time I Got Reincarnated as a Slime the Movie: Scarlet Bond",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}, {'field': 'source_material', 'operator': 'eq', 'value': 'ORIGINAL'}]",
+              "preference_similarity": 0.2952
+            },
+            {
+              "id": "127271",
+              "title": "BELLE",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}, {'field': 'source_material', 'operator': 'eq', 'value': 'ORIGINAL'}]",
+              "preference_similarity": 0.269
+            },
+            {
+              "id": "124845",
+              "title": "WONDER EGG PRIORITY",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}, {'field': 'source_material', 'operator': 'eq', 'value': 'ORIGINAL'}]",
+              "preference_similarity": 0.2618
+            },
+            {
+              "id": "122052",
+              "title": "Fena: Pirate Princess",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}, {'field': 'source_material', 'operator': 'eq', 'value': 'ORIGINAL'}]",
+              "preference_similarity": 0.2516
+            },
+            {
+              "id": "163078",
+              "title": "Jellyfish Can’t Swim in the Night",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}, {'field': 'source_material', 'operator': 'eq', 'value': 'ORIGINAL'}]",
+              "preference_similarity": 0.2508
+            }
+          ]
+        },
+        "elapsed_seconds": 0.32356
+      }
+    ],
+    "llm_calls": 5,
+    "planned_tools": 4,
+    "executed_tools": 4,
+    "timings_seconds": {
+      "interpret_request": 4.94956,
+      "prepare_context": 0.00163,
+      "retrieve_guides": 0.007459,
+      "feature_candidates": 0.009932,
+      "planning": 5.207689,
+      "tools": 0.387444,
+      "generate_answer": 0.00044
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"enchanted worlds\", \"query\": \"enchanted worlds\", \"kind\": \"genre\", \"role\": \"preferred\", \"meaning\": \"Preferred genre\"}]}",
+      "{\n  \"min\": 2020,\n  \"max\": null\n}",
+      "{\n  \"applies\": true,\n  \"operator\": \"eq\",\n  \"value\": \"ORIGINAL\"\n}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "enchanted worlds",
+        "query": "enchanted worlds",
+        "kind": "genre",
+        "role": "preferred",
+        "meaning": "Preferred genre"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Fantasy world\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "enchanted worlds",
+          "name": "",
+          "meaning": "Fantasy world"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {
+      "year": {
+        "sources": [
+          "release"
+        ],
+        "interpretations": [
+          "range"
+        ]
+      }
+    },
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [],
+      "preferred": [
+        "enchanted worlds"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "year",
+          "operator": "gte",
+          "value": "2020"
+        },
+        {
+          "field": "source_material",
+          "operator": "eq",
+          "value": "ORIGINAL"
+        }
+      ],
+      "soft_query": "enchanted worlds",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "year",
+          "operator": "gte",
+          "value": "2020",
+          "source_text": "release",
+          "mapping": "exact"
+        },
+        {
+          "field": "source_material",
+          "operator": "eq",
+          "value": "ORIGINAL",
+          "source_text": "Give me five anime with enchanted worlds, an original manga to read, and a first release no earlier than 2020.",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "enchanted worlds",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "enchanted worlds",
+            "name": "",
+            "meaning": "Fantasy world"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "enchanted worlds",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "original manga",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "release no earlier than 2020",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "year",
+                "operator": "gte",
+                "value": "2020"
+              },
+              {
+                "field": "source_material",
+                "operator": "eq",
+                "value": "ORIGINAL"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

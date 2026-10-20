@@ -1,0 +1,504 @@
+{
+  "question_id": "hf_157",
+  "anime_id": "101922",
+  "title": "Demon Slayer: Kimetsu no Yaiba",
+  "field": "main_characters",
+  "question": "Can you list the main characters of Demon Slayer season one?",
+  "expected_values": [
+    "Tanjirou Kamado",
+    "Nezuko Kamado",
+    "Inosuke Hashibira",
+    "Zenitsu Agatsuma"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The main characters of Demon Slayer: Kimetsu no Yaiba season one are Tanjirou Kamado, Nezuko Kamado, Inosuke Hashibira, and Zenitsu Agatsuma.",
+  "extracted_values": [
+    "Tanjirou Kamado",
+    "Nezuko Kamado",
+    "Inosuke Hashibira",
+    "Zenitsu Agatsuma"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 18.800146957999914,
+  "extraction_seconds": 0.919398665999779,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Tanjirou Kamado",
+        "quote": "The main characters of Demon Slayer: Kimetsu no Yaiba season one are Tanjirou Kamado, Nezuko Kamado, Inosuke Hashibira, and Zenitsu Agatsuma."
+      },
+      {
+        "value": "Nezuko Kamado",
+        "quote": "The main characters of Demon Slayer: Kimetsu no Yaiba season one are Tanjirou Kamado, Nezuko Kamado, Inosuke Hashibira, and Zenitsu Agatsuma."
+      },
+      {
+        "value": "Inosuke Hashibira",
+        "quote": "The main characters of Demon Slayer: Kimetsu no Yaiba season one are Tanjirou Kamado, Nezuko Kamado, Inosuke Hashibira, and Zenitsu Agatsuma."
+      },
+      {
+        "value": "Zenitsu Agatsuma",
+        "quote": "The main characters of Demon Slayer: Kimetsu no Yaiba season one are Tanjirou Kamado, Nezuko Kamado, Inosuke Hashibira, and Zenitsu Agatsuma."
+      }
+    ],
+    "note": "asserted",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 4,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_character",
+        "arguments": {
+          "id": "126071",
+          "section": "appearances"
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "126071",
+          "name": "Tanjirou Kamado"
+        },
+        "elapsed_seconds": 0.008911
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "main characters",
+          "kind": "tag",
+          "limit": 5
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "male protagonist",
+              "name": "Male Protagonist",
+              "description": "Main character is male.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.3698
+            },
+            {
+              "kind": "tag",
+              "id": "female protagonist",
+              "name": "Female Protagonist",
+              "description": "Main character is female.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.3356
+            },
+            {
+              "kind": "tag",
+              "id": "battle royale",
+              "name": "Battle Royale",
+              "description": "Centers around a fierce group competition, often violent and with only one winner.",
+              "category": "Theme-Action",
+              "similarity": 0.3306
+            },
+            {
+              "kind": "tag",
+              "id": "primarily male cast",
+              "name": "Primarily Male Cast",
+              "description": "Main cast is mostly composed of male characters.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.3235
+            },
+            {
+              "kind": "tag",
+              "id": "revenge",
+              "name": "Revenge",
+              "description": "Prominently features a character who aims to exact punishment in a resentful or vindictive manner.",
+              "category": "Theme-Drama",
+              "similarity": 0.3089
+            }
+          ]
+        },
+        "elapsed_seconds": 0.056784
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 5.634449,
+      "prepare_context": 0.020678,
+      "retrieve_guides": 0.079345,
+      "feature_candidates": 0.018456,
+      "planning": 6.635318,
+      "tools": 0.065695,
+      "generate_answer": 6.343572
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Demon Slayer\", \"query\": \"Demon Slayer\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Season One\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Demon Slayer",
+        "query": "Demon Slayer",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Season One"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please list the main characters of Demon Slayer season one. The question refers to the first season of the anime series.\", \"decisions\": {\"p0\": {\"meaning\": \"Demon Slayer season one\", \"role\": \"subject\", \"selection\": \"Demon Slayer: Kimetsu no Yaiba | anime:101922\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101922",
+          "role": "subject",
+          "text": "Demon Slayer",
+          "name": "Demon Slayer: Kimetsu no Yaiba",
+          "meaning": "Demon Slayer season one"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101922",
+          "role": "subject",
+          "text": "Demon Slayer",
+          "name": "Demon Slayer: Kimetsu no Yaiba",
+          "meaning": "Demon Slayer season one"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Demon Slayer: Kimetsu no Yaiba"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101922",
+            "role": "subject",
+            "text": "Demon Slayer",
+            "name": "Demon Slayer: Kimetsu no Yaiba",
+            "meaning": "Demon Slayer season one"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101922",
+            "role": "subject",
+            "text": "Demon Slayer",
+            "name": "Demon Slayer: Kimetsu no Yaiba",
+            "meaning": "Demon Slayer season one"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Retrieve main characters of Demon Slayer: Kimetsu no Yaiba season one.",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "126071",
+            "section": "appearances"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "main characters",
+            "kind": "tag",
+            "limit": 5
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "101922",
+          "name": "Demon Slayer: Kimetsu no Yaiba"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:101922",
+          "fact": "Tanjirou Kamado is the MAIN character."
+        },
+        {
+          "subject": "anime:101922",
+          "fact": "Nezuko Kamado is the MAIN character."
+        },
+        {
+          "subject": "anime:101922",
+          "fact": "Inosuke Hashibira is the MAIN character."
+        },
+        {
+          "subject": "anime:101922",
+          "fact": "Zenitsu Agatsuma is the MAIN character."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 6.4e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00129
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 5.634449
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.020678
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.079345
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.018456
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.635318
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Retrieve main characters of Demon Slayer: Kimetsu no Yaiba season one.",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "126071",
+              "section": "appearances"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "main characters",
+              "kind": "tag",
+              "limit": 5
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "101922",
+            "name": "Demon Slayer: Kimetsu no Yaiba"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_character",
+      "arguments": {
+        "id": "126071",
+        "section": "appearances"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.008911,
+      "arguments": {
+        "id": "126071",
+        "section": "appearances"
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "126071",
+        "name": "Tanjirou Kamado"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "main characters",
+        "kind": "tag",
+        "limit": 5
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.056784,
+      "arguments": {
+        "query": "main characters",
+        "kind": "tag",
+        "limit": 5
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "male protagonist",
+            "name": "Male Protagonist",
+            "description": "Main character is male.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.3698
+          },
+          {
+            "kind": "tag",
+            "id": "female protagonist",
+            "name": "Female Protagonist",
+            "description": "Main character is female.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.3356
+          },
+          {
+            "kind": "tag",
+            "id": "battle royale",
+            "name": "Battle Royale",
+            "description": "Centers around a fierce group competition, often violent and with only one winner.",
+            "category": "Theme-Action",
+            "similarity": 0.3306
+          },
+          {
+            "kind": "tag",
+            "id": "primarily male cast",
+            "name": "Primarily Male Cast",
+            "description": "Main cast is mostly composed of male characters.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.3235
+          },
+          {
+            "kind": "tag",
+            "id": "revenge",
+            "name": "Revenge",
+            "description": "Prominently features a character who aims to exact punishment in a resentful or vindictive manner.",
+            "category": "Theme-Drama",
+            "similarity": 0.3089
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 6.343572
+    }
+  ]
+}

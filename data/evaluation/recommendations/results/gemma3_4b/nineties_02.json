@@ -1,0 +1,915 @@
+{
+  "question_id": "nineties_02",
+  "category": "release_year",
+  "intent_family": "nineties",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "I am feeling nostalgic for the nineties. Can you suggest four anime that actually debuted back then?",
+  "k": 4,
+  "constraints": [
+    {
+      "field": "year",
+      "op": "gte",
+      "value": 1990
+    },
+    {
+      "field": "year",
+      "op": "lte",
+      "value": 1999
+    }
+  ],
+  "label_rationale": "The original entry must first release in the inclusive 1990-1999 interval.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 2030,
+  "reference_examples": [
+    {
+      "id": "1",
+      "title": "Cowboy Bebop"
+    },
+    {
+      "id": "100110",
+      "title": "Dragon Fist"
+    },
+    {
+      "id": "1004",
+      "title": "She and Her Cat: Their Standing Points"
+    }
+  ],
+  "answer_text": "",
+  "status": "model_error",
+  "error": "RuntimeError: No supported recommendations were retrieved. Please rephrase your preferences and retry.",
+  "extraction": null,
+  "recommendations": [],
+  "metrics": null,
+  "model_seconds": 36.72883008299959,
+  "extraction_seconds": 0.0,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 3.9e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000789
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 10.919004
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.018391
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.008717
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.012698
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 8.588919
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend anime based on user preference for 90s anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "anime debuted in the 1990s"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "year",
+                  "operator": "gt",
+                  "value": "1999"
+                }
+              ]
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "98607"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "240"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "109298"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20646"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20812"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "98607",
+            "name": "Anime-Gataris"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "anime debuted in the 1990s"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.033411,
+      "arguments": {
+        "query": "anime debuted in the 1990s"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "coming of age",
+            "name": "Coming of Age",
+            "description": "Centers around a character's transition from childhood to adulthood.",
+            "category": "Theme-Drama",
+            "similarity": 0.2353
+          },
+          {
+            "kind": "tag",
+            "id": "dinosaurs",
+            "name": "Dinosaurs",
+            "description": "Prominently features Dinosaurs, prehistoric reptiles that went extinct millions of years ago.",
+            "category": "Cast-Traits",
+            "similarity": 0.2164
+          },
+          {
+            "kind": "tag",
+            "id": "estranged family",
+            "name": "Estranged Family",
+            "description": "At least one family member of the MC intentionally distances themselves or a family distances themselves from a person related to the MC.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.1938
+          },
+          {
+            "kind": "tag",
+            "id": "band",
+            "name": "Band",
+            "description": "Main cast is a group of musicians.",
+            "category": "Theme-Arts-Music",
+            "similarity": 0.1924
+          },
+          {
+            "kind": "tag",
+            "id": "aromantic",
+            "name": "Aromantic",
+            "description": "Features a character who experiences little to no romantic attraction.",
+            "category": "Cast-Traits",
+            "similarity": 0.1887
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "year",
+            "operator": "gt",
+            "value": "1999"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.062365,
+      "arguments": {
+        "filters": [
+          {
+            "field": "year",
+            "operator": "gt",
+            "value": "1999"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "year",
+              "operator": "gt",
+              "value": "1999"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "year",
+              "operator": "gt",
+              "value": "1999",
+              "source_text": "debuted",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "16498",
+            "title": "Attack on Titan",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gt', 'value': '1999'}]"
+          },
+          {
+            "id": "101922",
+            "title": "Demon Slayer: Kimetsu no Yaiba",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gt', 'value': '1999'}]"
+          },
+          {
+            "id": "113415",
+            "title": "JUJUTSU KAISEN",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gt', 'value': '1999'}]"
+          },
+          {
+            "id": "1535",
+            "title": "Death Note",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gt', 'value': '1999'}]"
+          },
+          {
+            "id": "21459",
+            "title": "My Hero Academia",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gt', 'value': '1999'}]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "98607"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.010671,
+      "arguments": {
+        "id": "98607"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "98607",
+        "title": "Anime-Gataris"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "240"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.01322,
+      "arguments": {
+        "id": "240"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "240",
+        "title": "Genshiken"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "109298"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.011253,
+      "arguments": {
+        "id": "109298"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "109298",
+        "title": "Keep Your Hands Off Eizouken!"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20646"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.010397,
+      "arguments": {
+        "id": "20646"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20646",
+        "title": "When Supernatural Battles Became Commonplace"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 6,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20812"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 6,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.010323,
+      "arguments": {
+        "id": "20812"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20812",
+        "title": "SHIROBAKO"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "error",
+      "elapsed_seconds": 17.02717,
+      "error": "No supported recommendations were retrieved. Please rephrase your preferences and retry."
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "anime debuted in the 1990s"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "coming of age",
+              "name": "Coming of Age",
+              "description": "Centers around a character's transition from childhood to adulthood.",
+              "category": "Theme-Drama",
+              "similarity": 0.2353
+            },
+            {
+              "kind": "tag",
+              "id": "dinosaurs",
+              "name": "Dinosaurs",
+              "description": "Prominently features Dinosaurs, prehistoric reptiles that went extinct millions of years ago.",
+              "category": "Cast-Traits",
+              "similarity": 0.2164
+            },
+            {
+              "kind": "tag",
+              "id": "estranged family",
+              "name": "Estranged Family",
+              "description": "At least one family member of the MC intentionally distances themselves or a family distances themselves from a person related to the MC.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.1938
+            },
+            {
+              "kind": "tag",
+              "id": "band",
+              "name": "Band",
+              "description": "Main cast is a group of musicians.",
+              "category": "Theme-Arts-Music",
+              "similarity": 0.1924
+            },
+            {
+              "kind": "tag",
+              "id": "aromantic",
+              "name": "Aromantic",
+              "description": "Features a character who experiences little to no romantic attraction.",
+              "category": "Cast-Traits",
+              "similarity": 0.1887
+            }
+          ]
+        },
+        "elapsed_seconds": 0.033411
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "year",
+              "operator": "gt",
+              "value": "1999"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "year",
+                "operator": "gt",
+                "value": "1999"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "year",
+                "operator": "gt",
+                "value": "1999",
+                "source_text": "debuted",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "16498",
+              "title": "Attack on Titan",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gt', 'value': '1999'}]"
+            },
+            {
+              "id": "101922",
+              "title": "Demon Slayer: Kimetsu no Yaiba",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gt', 'value': '1999'}]"
+            },
+            {
+              "id": "113415",
+              "title": "JUJUTSU KAISEN",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gt', 'value': '1999'}]"
+            },
+            {
+              "id": "1535",
+              "title": "Death Note",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gt', 'value': '1999'}]"
+            },
+            {
+              "id": "21459",
+              "title": "My Hero Academia",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gt', 'value': '1999'}]"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.062365
+      },
+      {
+        "step": 2,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "98607"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "98607",
+          "title": "Anime-Gataris"
+        },
+        "elapsed_seconds": 0.010671
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "240"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "240",
+          "title": "Genshiken"
+        },
+        "elapsed_seconds": 0.01322
+      },
+      {
+        "step": 4,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "109298"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "109298",
+          "title": "Keep Your Hands Off Eizouken!"
+        },
+        "elapsed_seconds": 0.011253
+      },
+      {
+        "step": 5,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20646"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20646",
+          "title": "When Supernatural Battles Became Commonplace"
+        },
+        "elapsed_seconds": 0.010397
+      },
+      {
+        "step": 6,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20812"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20812",
+          "title": "SHIROBAKO"
+        },
+        "elapsed_seconds": 0.010323
+      }
+    ],
+    "llm_calls": 5,
+    "planned_tools": 7,
+    "executed_tools": 7,
+    "timings_seconds": {
+      "interpret_request": 10.919004,
+      "prepare_context": 0.018391,
+      "retrieve_guides": 0.008717,
+      "feature_candidates": 0.012698,
+      "planning": 8.588919,
+      "tools": 0.15164,
+      "generate_answer": 17.02717
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"ninety's\", \"query\": \"ninety's\", \"kind\": \"tag\", \"role\": \"reference\", \"meaning\": \"Time period\"}, {\"text\": \"anime\", \"query\": \"anime\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Anime genre\"}, {\"text\": \"debuted back then\", \"query\": \"debuted back then\", \"kind\": \"description\", \"role\": \"reference\", \"meaning\": \"Debut criteria\"}]}",
+      "{\"min\": 1990, \"max\": 1999}"
+    ],
+    "unsupported_mentions": [
+      {
+        "text": "ninety's",
+        "query": "ninety's",
+        "kind": "tag",
+        "role": "reference",
+        "meaning": "Time period"
+      }
+    ],
+    "typed_mentions": [
+      {
+        "text": "anime",
+        "query": "anime",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Anime genre"
+      },
+      {
+        "text": "debuted back then",
+        "query": "debuted back then",
+        "kind": "description",
+        "role": "reference",
+        "meaning": "Debut criteria"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify the year range you consider 'the nineties' to refine the anime selection. For example, 1990-1999?\",\"decisions\": {\"p0\": {\"meaning\": \"anime\", \"role\": \"subject\", \"selection\": \"Anime-Gataris | anime:98607\"}, \"p1\": {\"meaning\": \"debuted back then\", \"role\": \"reference\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "98607",
+          "role": "subject",
+          "text": "anime",
+          "name": "Anime-Gataris",
+          "meaning": "anime"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "reference",
+          "text": "debuted back then",
+          "name": "",
+          "meaning": "debuted back then"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "98607",
+          "role": "subject",
+          "text": "anime",
+          "name": "Anime-Gataris",
+          "meaning": "anime"
+        }
+      ],
+      "clarification": ""
+    },
+    "attribute_retrieval": {
+      "year": {
+        "sources": [
+          "nineties.",
+          "debuted"
+        ],
+        "interpretations": [
+          "decade",
+          "range"
+        ]
+      }
+    },
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Anime-Gataris"
+      ],
+      "required": [],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Anime-Gataris"
+      ],
+      "filters": [
+        {
+          "field": "year",
+          "operator": "gt",
+          "value": "1999"
+        }
+      ],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "year",
+          "operator": "gt",
+          "value": "1999",
+          "source_text": "debuted",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "98607",
+            "role": "subject",
+            "text": "anime",
+            "name": "Anime-Gataris",
+            "meaning": "anime"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "reference",
+            "text": "debuted back then",
+            "name": "",
+            "meaning": "debuted back then"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "98607",
+            "role": "subject",
+            "text": "anime",
+            "name": "Anime-Gataris",
+            "meaning": "anime"
+          }
+        ],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend anime based on user preference for 90s anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "anime debuted in the 1990s"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "year",
+                "operator": "gt",
+                "value": "1999"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "98607"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "240"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "109298"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20646"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20812"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "98607",
+          "name": "Anime-Gataris"
+        }
+      ],
+      "characters": []
+    }
+  }
+}

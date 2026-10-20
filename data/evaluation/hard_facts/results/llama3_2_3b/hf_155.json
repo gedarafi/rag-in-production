@@ -1,0 +1,393 @@
+{
+  "question_id": "hf_155",
+  "anime_id": "97668",
+  "title": "One-Punch Man Season 2",
+  "field": "main_animation_studios",
+  "question": "Who animated One-Punch Man's second season?",
+  "expected_values": [
+    "J.C.STAFF"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "MADHOUSE",
+  "extracted_values": [
+    "MADHOUSE"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 9.484635374999925,
+  "extraction_seconds": 0.48901445799856447,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "MADHOUSE",
+        "quote": "MADHOUSE"
+      }
+    ],
+    "note": "",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "missing_values": [
+      "j.c.staff"
+    ],
+    "extra_values": [
+      "madhouse"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21087",
+          "section": "staff"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "21087",
+          "title": "One-Punch Man"
+        },
+        "elapsed_seconds": 0.007172
+      },
+      {
+        "step": 1,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "One-Punch Man second season studio",
+          "anime_ids": [
+            "21087"
+          ]
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.062766
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 1.870645,
+      "prepare_context": 0.018695,
+      "retrieve_guides": 0.028002,
+      "feature_candidates": 0.014858,
+      "planning": 4.210991,
+      "tools": 0.069938,
+      "generate_answer": 3.268311
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"One-Punch Man\", \"query\": \"One-Punch Man\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "One-Punch Man",
+        "query": "One-Punch Man",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Requested title\", \"role\": \"subject\", \"selection\": \"One-Punch Man | anime:21087\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21087",
+          "role": "subject",
+          "text": "One-Punch Man",
+          "name": "One-Punch Man",
+          "meaning": "Requested title"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21087",
+          "role": "subject",
+          "text": "One-Punch Man",
+          "name": "One-Punch Man",
+          "meaning": "Requested title"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "One-Punch Man"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21087",
+            "role": "subject",
+            "text": "One-Punch Man",
+            "name": "One-Punch Man",
+            "meaning": "Requested title"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21087",
+            "role": "subject",
+            "text": "One-Punch Man",
+            "name": "One-Punch Man",
+            "meaning": "Requested title"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "find the studio responsible for One-Punch Man's second season",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21087",
+            "section": "staff"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "One-Punch Man second season studio",
+            "anime_ids": [
+              "21087"
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21087",
+          "name": "One-Punch Man"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:21087",
+          "fact": "The studio responsible for One-Punch Man's second season is MADHOUSE."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.7e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000889
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 1.870645
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.018695
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.028002
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014858
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.210991
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "find the studio responsible for One-Punch Man's second season",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21087",
+              "section": "staff"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "One-Punch Man second season studio",
+              "anime_ids": [
+                "21087"
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21087",
+            "name": "One-Punch Man"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21087",
+        "section": "staff"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.007172,
+      "arguments": {
+        "id": "21087",
+        "section": "staff"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "21087",
+        "title": "One-Punch Man"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "One-Punch Man second season studio",
+        "anime_ids": [
+          "21087"
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.062766,
+      "arguments": {
+        "query": "One-Punch Man second season studio",
+        "anime_ids": [
+          "21087"
+        ]
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.268311
+    }
+  ]
+}

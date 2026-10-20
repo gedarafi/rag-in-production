@@ -1,0 +1,1102 @@
+{
+  "question_id": "cyberpunk_03",
+  "category": "tags",
+  "intent_family": "cyberpunk",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "Suggest five anime set in a harsh wired-up future where advanced technology has not made ordinary life better.",
+  "k": 5,
+  "constraints": [
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Cyberpunk"
+      ],
+      "alternatives": [
+        {
+          "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+          "constraints": [
+            {
+              "field": "genres",
+              "op": "any",
+              "value": [
+                "Sci-Fi"
+              ]
+            },
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Dystopian"
+              ]
+            },
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Cyborg",
+                "Artificial Intelligence"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "High technology and a gritty unequal future are a Cyberpunk proxy.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 239,
+  "reference_examples": [
+    {
+      "id": "100168",
+      "title": "Blade Runner: Black Out 2022"
+    },
+    {
+      "id": "1079",
+      "title": "Armitage III"
+    },
+    {
+      "id": "1095",
+      "title": "Patlabor: The Movie"
+    }
+  ],
+  "answer_text": "Catalog matches — excluding Slice of Life. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **Steins;Gate** — Self-proclaimed mad scientist Okabe Rintarou lives in a small room in Akihabara, where he invents \"future gadgets\" with fellow lab members Shiina Mayuri, his air-headed childhood friend, and Hashida Itaru, an otaku hacker. The three pass the time by tinkering with their latest creation, a \"Phone Microwave\" that can be controlled through text messages. The lab members soon face a string of mysterious incidents that lead to a game-changing…\n\n2. **No Game, No Life** — Bored with life and considering the real world to be just a “crappy game,” savvy sibling shut-ins Sora and Shiro have withdrawn into their own fantasy world filled with video games. However, one day they find themselves summoned to another world by a boy who calls himself “God,” their abilities are about to be put to the ultimate test! Now not only their fates — but the fate of all of humanity — will be decided by a series of games that may just…\n\n3. **Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train** — This Demon Slayer movie sees Tanjiro Kamado and friends from the Demon Slayer corps board the Infinity Train on a new mission to investigate a mysterious series of disappearances, perpetrated by a demon who has been tormenting people and killing the demon slayers who oppose it.\n\n4. **Black Clover** — In a world where magic is everything, Asta and Yuno are both found abandoned at a church on the same day. While Yuno is gifted with exceptional magical powers, Asta is the only one in this world without any. At the age of fifteen, both receive grimoires, magic books that amplify their holder’s magic. Asta’s is a rare Grimoire of Anti-Magic that negates and repels his opponent’s spells. Being opposite but good rivals, Yuno and Asta are ready for…\n\n5. **Sword Art Online** — In the near future, a Virtual Reality Massive Multiplayer Online Role-Playing Game (VRMMORPG) called Sword Art Online has been released where players control their avatars with their bodies using a piece of technology called Nerve Gear. One day, players discover they cannot log out, as the game creator is holding them captive unless they reach the 100th floor of the game's tower and defeat the final boss. However, if they die in the game, they…\n\nDescription matching can downrank 'advanced technology', but the catalog cannot verify its complete absence. Description matching can downrank 'better', but the catalog cannot verify its complete absence. A broader catalog category was used: Slice of Life. Excluded labels are absent from these catalog records; this does not guarantee that every scene avoids the theme or setting.",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Steins;Gate",
+      "No Game, No Life",
+      "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train",
+      "Black Clover",
+      "Sword Art Online"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Steins;Gate",
+      "anime_id": "9253",
+      "canonical_title": "Steins;Gate",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "9253"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Sci-Fi"
+                    ]
+                  },
+                  "score": 1.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Dystopian"
+                    ]
+                  },
+                  "score": 0.78
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cyborg",
+                      "Artificial Intelligence"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 2,
+      "extracted_title": "No Game, No Life",
+      "anime_id": "19815",
+      "canonical_title": "No Game, No Life",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "19815"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Sci-Fi"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Dystopian"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cyborg",
+                      "Artificial Intelligence"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train",
+      "anime_id": "112151",
+      "canonical_title": "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "112151"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Sci-Fi"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Dystopian"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cyborg",
+                      "Artificial Intelligence"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Black Clover",
+      "anime_id": null,
+      "canonical_title": null,
+      "resolution": "ambiguous",
+      "candidate_ids": [
+        "155017",
+        "97940"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Sword Art Online",
+      "anime_id": "11757",
+      "canonical_title": "Sword Art Online",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "11757"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Sci-Fi"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Dystopian"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cyborg",
+                      "Artificial Intelligence"
+                    ]
+                  },
+                  "score": 0.61
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.0,
+    "graded_fit_at_k": 0.0,
+    "ndcg_at_k": 0.0,
+    "constraint_coverage": 0.0,
+    "count_compliance": 1,
+    "resolution_rate": 0.8,
+    "duplicate_rate": 0.0,
+    "extra_count": 0,
+    "literal_precision_at_k": 0.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 17.531850458000918,
+  "extraction_seconds": 1.8422284589996707,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.1e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00072
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 11.793612
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.001738
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.008516
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.011827
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.883725
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "harsh wired-up future where advanced technology has not made ordinary life better",
+              "kind": "tag",
+              "limit": 5
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "query": "harsh wired-up future where advanced technology has not made ordinary life better",
+              "filters": [
+                {
+                  "field": "genres",
+                  "operator": "ne",
+                  "value": "Slice of Life"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "harsh wired-up future where advanced technology has not made ordinary life better",
+        "kind": "tag",
+        "limit": 5
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.033944,
+      "arguments": {
+        "query": "harsh wired-up future where advanced technology has not made ordinary life better",
+        "kind": "tag",
+        "limit": 5
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "cyberpunk",
+            "name": "Cyberpunk",
+            "description": "Set in a future of advanced technological and scientific achievements that have resulted in social disorder.",
+            "category": "Theme-Sci-Fi",
+            "similarity": 0.3121
+          },
+          {
+            "kind": "tag",
+            "id": "no dialogue",
+            "name": "No Dialogue",
+            "description": "This work contains no dialogue.",
+            "category": "Technical",
+            "similarity": 0.2865
+          },
+          {
+            "kind": "tag",
+            "id": "non fiction",
+            "name": "Non-fiction",
+            "description": "A work that provides information regarding a real world topic and does not focus on an imaginary narrative.",
+            "category": "Technical",
+            "similarity": 0.2625
+          },
+          {
+            "kind": "tag",
+            "id": "post apocalyptic",
+            "name": "Post-Apocalyptic",
+            "description": "Partly or completely set in a world or civilization after a global disaster.",
+            "category": "Setting-Universe",
+            "similarity": 0.2518
+          },
+          {
+            "kind": "tag",
+            "id": "artificial intelligence",
+            "name": "Artificial Intelligence",
+            "description": "Intelligent non-organic machines that work and react similarly to humans.",
+            "category": "Cast-Traits",
+            "similarity": 0.2434
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "query": "harsh wired-up future where advanced technology has not made ordinary life better",
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "ne",
+            "value": "Slice of Life"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.795811,
+      "arguments": {
+        "query": "harsh wired-up future where advanced technology has not made ordinary life better",
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "ne",
+            "value": "Slice of Life"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "genres",
+              "operator": "ne",
+              "value": "Slice of Life"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [
+            "Description matching can downrank 'advanced technology', but the catalog cannot verify its complete absence.",
+            "Description matching can downrank 'better', but the catalog cannot verify its complete absence."
+          ],
+          "mappings": [
+            {
+              "field": "genres",
+              "operator": "ne",
+              "value": "Slice of Life",
+              "source_text": "Suggest five anime set in a harsh wired-up future where advanced technology has not made ordinary life better.",
+              "mapping": "broader"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "9253",
+            "title": "Steins;Gate",
+            "reason": "Matches: filters=[{'field': 'genres', 'operator': 'ne', 'value': 'Slice of Life'}]",
+            "preference_similarity": 0.213
+          },
+          {
+            "id": "19815",
+            "title": "No Game, No Life",
+            "reason": "Matches: filters=[{'field': 'genres', 'operator': 'ne', 'value': 'Slice of Life'}]",
+            "preference_similarity": 0.2016
+          },
+          {
+            "id": "112151",
+            "title": "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train",
+            "reason": "Matches: filters=[{'field': 'genres', 'operator': 'ne', 'value': 'Slice of Life'}]",
+            "preference_similarity": 0.1863
+          },
+          {
+            "id": "97940",
+            "title": "Black Clover",
+            "reason": "Matches: filters=[{'field': 'genres', 'operator': 'ne', 'value': 'Slice of Life'}]",
+            "preference_similarity": 0.1721
+          },
+          {
+            "id": "11757",
+            "title": "Sword Art Online",
+            "reason": "Matches: filters=[{'field': 'genres', 'operator': 'ne', 'value': 'Slice of Life'}]",
+            "preference_similarity": 0.1682
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000414
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "harsh wired-up future where advanced technology has not made ordinary life better",
+          "kind": "tag",
+          "limit": 5
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "cyberpunk",
+              "name": "Cyberpunk",
+              "description": "Set in a future of advanced technological and scientific achievements that have resulted in social disorder.",
+              "category": "Theme-Sci-Fi",
+              "similarity": 0.3121
+            },
+            {
+              "kind": "tag",
+              "id": "no dialogue",
+              "name": "No Dialogue",
+              "description": "This work contains no dialogue.",
+              "category": "Technical",
+              "similarity": 0.2865
+            },
+            {
+              "kind": "tag",
+              "id": "non fiction",
+              "name": "Non-fiction",
+              "description": "A work that provides information regarding a real world topic and does not focus on an imaginary narrative.",
+              "category": "Technical",
+              "similarity": 0.2625
+            },
+            {
+              "kind": "tag",
+              "id": "post apocalyptic",
+              "name": "Post-Apocalyptic",
+              "description": "Partly or completely set in a world or civilization after a global disaster.",
+              "category": "Setting-Universe",
+              "similarity": 0.2518
+            },
+            {
+              "kind": "tag",
+              "id": "artificial intelligence",
+              "name": "Artificial Intelligence",
+              "description": "Intelligent non-organic machines that work and react similarly to humans.",
+              "category": "Cast-Traits",
+              "similarity": 0.2434
+            }
+          ]
+        },
+        "elapsed_seconds": 0.033944
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "query": "harsh wired-up future where advanced technology has not made ordinary life better",
+          "filters": [
+            {
+              "field": "genres",
+              "operator": "ne",
+              "value": "Slice of Life"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "genres",
+                "operator": "ne",
+                "value": "Slice of Life"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [
+              "Description matching can downrank 'advanced technology', but the catalog cannot verify its complete absence.",
+              "Description matching can downrank 'better', but the catalog cannot verify its complete absence."
+            ],
+            "mappings": [
+              {
+                "field": "genres",
+                "operator": "ne",
+                "value": "Slice of Life",
+                "source_text": "Suggest five anime set in a harsh wired-up future where advanced technology has not made ordinary life better.",
+                "mapping": "broader"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "9253",
+              "title": "Steins;Gate",
+              "reason": "Matches: filters=[{'field': 'genres', 'operator': 'ne', 'value': 'Slice of Life'}]",
+              "preference_similarity": 0.213
+            },
+            {
+              "id": "19815",
+              "title": "No Game, No Life",
+              "reason": "Matches: filters=[{'field': 'genres', 'operator': 'ne', 'value': 'Slice of Life'}]",
+              "preference_similarity": 0.2016
+            },
+            {
+              "id": "112151",
+              "title": "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train",
+              "reason": "Matches: filters=[{'field': 'genres', 'operator': 'ne', 'value': 'Slice of Life'}]",
+              "preference_similarity": 0.1863
+            },
+            {
+              "id": "97940",
+              "title": "Black Clover",
+              "reason": "Matches: filters=[{'field': 'genres', 'operator': 'ne', 'value': 'Slice of Life'}]",
+              "preference_similarity": 0.1721
+            },
+            {
+              "id": "11757",
+              "title": "Sword Art Online",
+              "reason": "Matches: filters=[{'field': 'genres', 'operator': 'ne', 'value': 'Slice of Life'}]",
+              "preference_similarity": 0.1682
+            }
+          ]
+        },
+        "elapsed_seconds": 0.795811
+      }
+    ],
+    "llm_calls": 8,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 11.793612,
+      "prepare_context": 0.001738,
+      "retrieve_guides": 0.008516,
+      "feature_candidates": 0.011827,
+      "planning": 4.883725,
+      "tools": 0.829755,
+      "generate_answer": 0.000414
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"harsh wired-up future\", \"query\": \"harsh wired-up future\", \"kind\": \"description\", \"role\": \"preferred\", \"meaning\": \"Setting\"}, {\"text\": \"advanced technology\", \"query\": \"advanced technology\", \"kind\": \"tag\", \"role\": \"excluded\", \"meaning\": \"Excluded theme\"}, {\"text\": \"ordinary life\", \"query\": \"ordinary life\", \"kind\": \"tag\", \"role\": \"excluded\", \"meaning\": \"Excluded theme\"}, {\"text\": \"better\", \"query\": \"better\", \"kind\": \"tag\", \"role\": \"excluded\", \"meaning\": \"Excluded theme\"}, {\"text\": \"suggested anime\", \"query\": \"suggested anime\", \"kind\": \"anime\", \"role\": \"reference\", \"meaning\": \"Reference titles: Akira, Ghost in the Shell: Stand Alone Complex, Serial Experiments Lain, Psycho-Pass, Ergo Proxy\"}]}",
+      "{\n  \"choice\": 1,\n  \"role\": \"preferred\",\n  \"operator\": \"eq\",\n  \"value\": \"Sci-Fi\",\n  \"mapping\": \"exact\"\n}",
+      "{\n  \"role\": \"excluded\"\n}",
+      "{\n  \"role\": \"excluded\"\n}",
+      "{\n  \"choice\": 1,\n  \"role\": \"preferred\",\n  \"operator\": \"not_contains\",\n  \"value\": \"better\",\n  \"mapping\": \"exact\"\n}",
+      "{\n  \"role\": \"excluded\"\n}"
+    ],
+    "unsupported_mentions": [
+      {
+        "text": "suggested anime",
+        "query": "suggested anime",
+        "kind": "anime",
+        "role": "reference",
+        "meaning": "Reference titles: Akira, Ghost in the Shell: Stand Alone Complex, Serial Experiments Lain, Psycho-Pass, Ergo Proxy"
+      }
+    ],
+    "typed_mentions": [
+      {
+        "text": "harsh wired-up future",
+        "query": "harsh wired-up future",
+        "kind": "description",
+        "role": "preferred",
+        "meaning": "Setting"
+      },
+      {
+        "text": "advanced technology",
+        "query": "advanced technology",
+        "kind": "tag",
+        "role": "excluded",
+        "meaning": "Excluded theme"
+      },
+      {
+        "text": "ordinary life",
+        "query": "ordinary life",
+        "kind": "tag",
+        "role": "excluded",
+        "meaning": "Excluded theme"
+      },
+      {
+        "text": "better",
+        "query": "better",
+        "kind": "tag",
+        "role": "excluded",
+        "meaning": "Excluded theme"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"None\", \"decisions\": {\"p0\": {\"meaning\": \"A harsh and deteriorated future\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}, \"p1\": {\"meaning\": \"Advanced technology has not improved everyday life\", \"role\": \"excluded\", \"selection\": \"unmapped description\"}, \"p2\": {\"meaning\": \"Life in the future is not better\", \"role\": \"excluded\", \"selection\": \"unmapped description\"}, \"p3\": {\"meaning\": \"The future is not better\", \"role\": \"excluded\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "harsh wired-up future",
+          "name": "",
+          "meaning": "A harsh and deteriorated future"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "excluded",
+          "text": "advanced technology",
+          "name": "",
+          "meaning": "Advanced technology has not improved everyday life"
+        },
+        {
+          "phrase_index": 2,
+          "kind": "description",
+          "id": "",
+          "role": "excluded",
+          "text": "ordinary life",
+          "name": "",
+          "meaning": "Life in the future is not better"
+        },
+        {
+          "phrase_index": 3,
+          "kind": "description",
+          "id": "",
+          "role": "excluded",
+          "text": "better",
+          "name": "",
+          "meaning": "The future is not better"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [
+        "advanced technology",
+        "ordinary life",
+        "better"
+      ],
+      "preferred": [
+        "harsh wired-up future"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "genres",
+          "operator": "ne",
+          "value": "Slice of Life"
+        }
+      ],
+      "soft_query": "harsh wired-up future",
+      "limitations": [
+        "Description matching can downrank 'advanced technology', but the catalog cannot verify its complete absence.",
+        "Description matching can downrank 'better', but the catalog cannot verify its complete absence."
+      ],
+      "mappings": [
+        {
+          "field": "genres",
+          "operator": "ne",
+          "value": "Slice of Life",
+          "source_text": "Suggest five anime set in a harsh wired-up future where advanced technology has not made ordinary life better.",
+          "mapping": "broader"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "advanced technology",
+          "candidate": null,
+          "role": "irrelevant",
+          "mapping": "exact"
+        },
+        {
+          "phrase": "ordinary life",
+          "candidate": {
+            "field": "genres",
+            "value": "Slice of Life",
+            "meaning": "Slice of Life",
+            "coverage": 1.0
+          },
+          "role": "excluded",
+          "mapping": "broader"
+        },
+        {
+          "phrase": "better",
+          "candidate": null,
+          "role": "irrelevant",
+          "mapping": "exact"
+        },
+        {
+          "phrase": "harsh wired-up future",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        }
+      ],
+      "description_exclusions": [
+        "advanced technology",
+        "better"
+      ],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "harsh wired-up future",
+            "name": "",
+            "meaning": "A harsh and deteriorated future"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "excluded",
+            "text": "advanced technology",
+            "name": "",
+            "meaning": "Advanced technology has not improved everyday life"
+          },
+          {
+            "phrase_index": 2,
+            "kind": "description",
+            "id": "",
+            "role": "excluded",
+            "text": "ordinary life",
+            "name": "",
+            "meaning": "Life in the future is not better"
+          },
+          {
+            "phrase_index": 3,
+            "kind": "description",
+            "id": "",
+            "role": "excluded",
+            "text": "better",
+            "name": "",
+            "meaning": "The future is not better"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "harsh wired-up future where advanced technology has not made ordinary life better",
+            "kind": "tag",
+            "limit": 5
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "query": "harsh wired-up future where advanced technology has not made ordinary life better",
+            "filters": [
+              {
+                "field": "genres",
+                "operator": "ne",
+                "value": "Slice of Life"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

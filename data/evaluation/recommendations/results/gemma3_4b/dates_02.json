@@ -1,0 +1,1230 @@
+{
+  "question_id": "dates_02",
+  "category": "release_date",
+  "intent_family": "dates",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "What are four anime that debuted during 2018 or 2019? I am catching up on what I missed just before 2020.",
+  "k": 4,
+  "constraints": [
+    {
+      "field": "start_date",
+      "op": "gte",
+      "value": "2018-01-01"
+    },
+    {
+      "field": "start_date",
+      "op": "lte",
+      "value": "2019-12-31"
+    }
+  ],
+  "label_rationale": "Uses complete known start dates, inclusive; partial dates are unknown and fail.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 1505,
+  "reference_examples": [
+    {
+      "id": "100009",
+      "title": "Space Battleship Tiramisu"
+    },
+    {
+      "id": "100010",
+      "title": "MAGICAL GIRL SITE"
+    },
+    {
+      "id": "100049",
+      "title": "Re:ZERO -Starting Life in Another World- OVAs"
+    }
+  ],
+  "answer_text": "Catalog matches — release year: at least 2018; release year: under 2019.\n\n1. **Attack on Titan Season 3** (2018) — Eren and his companions in the 104th are assigned to the newly-formed Levi Squad, whose assignment is to keep Eren and Historia safe given Eren's newly-discovered power and Historia's knowledge and pedigree. Levi and Erwin have good reason to be concerned, because the priest of the Church that Hanji had hidden away was found tortured to death, making it clear that the Military Police are involved with the cover-up. Things get more harrowing when…\n\n2. **My Hero Academia Season 3** (2018) — Summer is here, and the heroes of Class 1-A and 1-B are in for the toughest training camp of their lives! A group of seasoned pros pushes everyone's Quirks to new heights as the students face one overwhelming challenge after another. Braving the elements in this secret location becomes the least of their worries when routine training turns into a critical struggle for survival. (Source: Crunchyroll)\n\n3. **Rascal Does Not Dream of Bunny Girl Senpai** (2018) — There's a rumor about a mysterious phenomenon called \"puberty syndrome.\" For example, Sakuta Azusagawa is a high school student who suddenly sees a bunny girl appear in front of him. The girl is actually a girl named Mai Sakurajima, who is Sakuta's upperclassman who is also a famous actress who has gone on hiatus from the entertainment industry. For some reason, the people around Mai cannot see her bunny-girl figure. Sakuta sets out to solve…\n\n4. **Violet Evergarden** (2018) — A certain point in time, in the continent of Telesis. The great war which divided the continent into North and South has ended after four years, and the people are welcoming a new generation. Violet Evergarden, a young girl formerly known as “the weapon”, has left the battlefield to start a new life at CH Postal Service. There, she is deeply moved by the work of “Auto Memories Dolls”, who carry people's thoughts and convert them into words.…\n\n5. **DARLING in the FRANXX** (2018) — The distant future: Humanity established the mobile fort city, Plantation, upon the ruined wasteland. Within the city were pilot quarters, Mistilteinn, otherwise known as the “Birdcage.” That is where the children live... Their only mission in life was the fight. Their enemies are the mysterious giant organisms known as Kyoryu. The children operate robots known as FRANXX in order to face these still unseen enemies. Among them was a boy who was…",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Attack on Titan Season 3",
+      "My Hero Academia Season 3",
+      "Rascal Does Not Dream of Bunny Girl Senpai",
+      "Violet Evergarden",
+      "DARLING in the FRANXX",
+      "Attack on Titan Season 3",
+      "My Hero Academia Season 3",
+      "Rascal Does Not Dream of Bunny Girl Senpai",
+      "Violet Evergarden",
+      "DARLING in the FRANXX"
+    ],
+    "unclear": false,
+    "note": "All titles are from 2018 or 2019.",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Attack on Titan Season 3",
+      "anime_id": "99147",
+      "canonical_title": "Attack on Titan Season 3",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "99147"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 2,
+      "extracted_title": "My Hero Academia Season 3",
+      "anime_id": "100166",
+      "canonical_title": "My Hero Academia Season 3",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "100166"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Rascal Does Not Dream of Bunny Girl Senpai",
+      "anime_id": "101291",
+      "canonical_title": "Rascal Does Not Dream of Bunny Girl Senpai",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "101291"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Violet Evergarden",
+      "anime_id": "21827",
+      "canonical_title": "Violet Evergarden",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21827"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 5,
+      "extracted_title": "DARLING in the FRANXX",
+      "anime_id": "99423",
+      "canonical_title": "DARLING in the FRANXX",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "99423"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 6,
+      "extracted_title": "Attack on Titan Season 3",
+      "anime_id": "99147",
+      "canonical_title": "Attack on Titan Season 3",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "99147"
+      ],
+      "duplicate": true,
+      "constraint_scores": [
+        1.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 7,
+      "extracted_title": "My Hero Academia Season 3",
+      "anime_id": "100166",
+      "canonical_title": "My Hero Academia Season 3",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "100166"
+      ],
+      "duplicate": true,
+      "constraint_scores": [
+        1.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 8,
+      "extracted_title": "Rascal Does Not Dream of Bunny Girl Senpai",
+      "anime_id": "101291",
+      "canonical_title": "Rascal Does Not Dream of Bunny Girl Senpai",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "101291"
+      ],
+      "duplicate": true,
+      "constraint_scores": [
+        1.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 9,
+      "extracted_title": "Violet Evergarden",
+      "anime_id": "21827",
+      "canonical_title": "Violet Evergarden",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21827"
+      ],
+      "duplicate": true,
+      "constraint_scores": [
+        1.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 10,
+      "extracted_title": "DARLING in the FRANXX",
+      "anime_id": "99423",
+      "canonical_title": "DARLING in the FRANXX",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "99423"
+      ],
+      "duplicate": true,
+      "constraint_scores": [
+        1.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 1.0,
+    "graded_fit_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "constraint_coverage": 1.0,
+    "count_compliance": 0,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.5,
+    "extra_count": 6,
+    "literal_precision_at_k": 1.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 14.702271208000639,
+  "extraction_seconds": 2.600970583000162,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 3.6e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000718
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 7.855358
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.002484
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.008681
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014944
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.731244
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "anime debuted 2018 or 2019",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "year",
+                  "operator": "gte",
+                  "value": "2018"
+                },
+                {
+                  "field": "year",
+                  "operator": "lt",
+                  "value": "2019"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "anime debuted 2018 or 2019",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.03262,
+      "arguments": {
+        "query": "anime debuted 2018 or 2019",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "coming of age",
+            "name": "Coming of Age",
+            "description": "Centers around a character's transition from childhood to adulthood.",
+            "category": "Theme-Drama",
+            "similarity": 0.2152
+          },
+          {
+            "kind": "tag",
+            "id": "battle royale",
+            "name": "Battle Royale",
+            "description": "Centers around a fierce group competition, often violent and with only one winner.",
+            "category": "Theme-Action",
+            "similarity": 0.1962
+          },
+          {
+            "kind": "tag",
+            "id": "shoujo",
+            "name": "Shoujo",
+            "description": "Target demographic is teenage and young adult females.",
+            "category": "Demographic",
+            "similarity": 0.1872
+          },
+          {
+            "kind": "tag",
+            "id": "e sports",
+            "name": "E-Sports",
+            "description": "Prominently features professional video game competitions, tournaments, players, etc.",
+            "category": "Theme-Game",
+            "similarity": 0.1635
+          },
+          {
+            "kind": "tag",
+            "id": "prophecy",
+            "name": "Prophecy",
+            "description": "Features characters or plot elements that revolve around predicting the future.",
+            "category": "Theme-Other",
+            "similarity": 0.1615
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "year",
+            "operator": "gte",
+            "value": "2018"
+          },
+          {
+            "field": "year",
+            "operator": "lt",
+            "value": "2019"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.054303,
+      "arguments": {
+        "filters": [
+          {
+            "field": "year",
+            "operator": "gte",
+            "value": "2018"
+          },
+          {
+            "field": "year",
+            "operator": "lt",
+            "value": "2019"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "year",
+              "operator": "gte",
+              "value": "2018"
+            },
+            {
+              "field": "year",
+              "operator": "lt",
+              "value": "2019"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "year",
+              "operator": "gte",
+              "value": "2018",
+              "source_text": "debuted",
+              "mapping": "exact"
+            },
+            {
+              "field": "year",
+              "operator": "lt",
+              "value": "2019",
+              "source_text": "debuted",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "99147",
+            "title": "Attack on Titan Season 3",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2018'}, {'field': 'year', 'operator': 'lt', 'value': '2019'}]"
+          },
+          {
+            "id": "100166",
+            "title": "My Hero Academia Season 3",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2018'}, {'field': 'year', 'operator': 'lt', 'value': '2019'}]"
+          },
+          {
+            "id": "101291",
+            "title": "Rascal Does Not Dream of Bunny Girl Senpai",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2018'}, {'field': 'year', 'operator': 'lt', 'value': '2019'}]"
+          },
+          {
+            "id": "21827",
+            "title": "Violet Evergarden",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2018'}, {'field': 'year', 'operator': 'lt', 'value': '2019'}]"
+          },
+          {
+            "id": "99423",
+            "title": "DARLING in the FRANXX",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2018'}, {'field': 'year', 'operator': 'lt', 'value': '2019'}]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000445
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "anime debuted 2018 or 2019",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "coming of age",
+              "name": "Coming of Age",
+              "description": "Centers around a character's transition from childhood to adulthood.",
+              "category": "Theme-Drama",
+              "similarity": 0.2152
+            },
+            {
+              "kind": "tag",
+              "id": "battle royale",
+              "name": "Battle Royale",
+              "description": "Centers around a fierce group competition, often violent and with only one winner.",
+              "category": "Theme-Action",
+              "similarity": 0.1962
+            },
+            {
+              "kind": "tag",
+              "id": "shoujo",
+              "name": "Shoujo",
+              "description": "Target demographic is teenage and young adult females.",
+              "category": "Demographic",
+              "similarity": 0.1872
+            },
+            {
+              "kind": "tag",
+              "id": "e sports",
+              "name": "E-Sports",
+              "description": "Prominently features professional video game competitions, tournaments, players, etc.",
+              "category": "Theme-Game",
+              "similarity": 0.1635
+            },
+            {
+              "kind": "tag",
+              "id": "prophecy",
+              "name": "Prophecy",
+              "description": "Features characters or plot elements that revolve around predicting the future.",
+              "category": "Theme-Other",
+              "similarity": 0.1615
+            }
+          ]
+        },
+        "elapsed_seconds": 0.03262
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "year",
+              "operator": "gte",
+              "value": "2018"
+            },
+            {
+              "field": "year",
+              "operator": "lt",
+              "value": "2019"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "year",
+                "operator": "gte",
+                "value": "2018"
+              },
+              {
+                "field": "year",
+                "operator": "lt",
+                "value": "2019"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "year",
+                "operator": "gte",
+                "value": "2018",
+                "source_text": "debuted",
+                "mapping": "exact"
+              },
+              {
+                "field": "year",
+                "operator": "lt",
+                "value": "2019",
+                "source_text": "debuted",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "99147",
+              "title": "Attack on Titan Season 3",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2018'}, {'field': 'year', 'operator': 'lt', 'value': '2019'}]"
+            },
+            {
+              "id": "100166",
+              "title": "My Hero Academia Season 3",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2018'}, {'field': 'year', 'operator': 'lt', 'value': '2019'}]"
+            },
+            {
+              "id": "101291",
+              "title": "Rascal Does Not Dream of Bunny Girl Senpai",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2018'}, {'field': 'year', 'operator': 'lt', 'value': '2019'}]"
+            },
+            {
+              "id": "21827",
+              "title": "Violet Evergarden",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2018'}, {'field': 'year', 'operator': 'lt', 'value': '2019'}]"
+            },
+            {
+              "id": "99423",
+              "title": "DARLING in the FRANXX",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2018'}, {'field': 'year', 'operator': 'lt', 'value': '2019'}]"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.054303
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 7.855358,
+      "prepare_context": 0.002484,
+      "retrieve_guides": 0.008681,
+      "feature_candidates": 0.014944,
+      "planning": 6.731244,
+      "tools": 0.086923,
+      "generate_answer": 0.000445
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"2018\", \"query\": \"2018\", \"kind\": \"genre\", \"role\": \"reference\", \"meaning\": \"Debut year\"}, {\"text\": \"2019\", \"query\": \"2019\", \"kind\": \"genre\", \"role\": \"reference\", \"meaning\": \"Debut year\"}]}",
+      "{\"min\": 2018, \"max\": 2019}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "2018",
+        "query": "2018",
+        "kind": "genre",
+        "role": "reference",
+        "meaning": "Debut year"
+      },
+      {
+        "text": "2019",
+        "query": "2019",
+        "kind": "genre",
+        "role": "reference",
+        "meaning": "Debut year"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify the kind of anime you are looking for.\",\"decisions\": {\"p0\": {\"meaning\": \"2018\", \"role\": \"reference\", \"selection\": \"unmapped description\" }, \"p1\": {\"meaning\": \"2019\", \"role\": \"reference\", \"selection\": \"unmapped description\" }}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "reference",
+          "text": "2018",
+          "name": "",
+          "meaning": "2018"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "reference",
+          "text": "2019",
+          "name": "",
+          "meaning": "2019"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {
+      "year": {
+        "sources": [
+          "debuted"
+        ],
+        "interpretations": [
+          "range"
+        ]
+      }
+    },
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "year",
+          "operator": "gte",
+          "value": "2018"
+        },
+        {
+          "field": "year",
+          "operator": "lt",
+          "value": "2019"
+        }
+      ],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "year",
+          "operator": "gte",
+          "value": "2018",
+          "source_text": "debuted",
+          "mapping": "exact"
+        },
+        {
+          "field": "year",
+          "operator": "lt",
+          "value": "2019",
+          "source_text": "debuted",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "reference",
+            "text": "2018",
+            "name": "",
+            "meaning": "2018"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "reference",
+            "text": "2019",
+            "name": "",
+            "meaning": "2019"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "anime debuted 2018 or 2019",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "year",
+                "operator": "gte",
+                "value": "2018"
+              },
+              {
+                "field": "year",
+                "operator": "lt",
+                "value": "2019"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

@@ -1,0 +1,517 @@
+{
+  "question_id": "hf_026",
+  "anime_id": "154587",
+  "title": "Frieren: Beyond Journey’s End",
+  "field": "year",
+  "question": "In what year did Frieren: Beyond Journey's End start airing?",
+  "expected_values": [
+    2023.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Frieren: Beyond Journey’s End started airing in 2023.",
+  "extracted_values": [
+    "2023"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 14.745930499999986,
+  "extraction_seconds": 0.5602072909998697,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "2023",
+        "quote": "Frieren: Beyond Journey’s End started airing in 2023."
+      }
+    ],
+    "note": "assertion for year of airing",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "154587"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "154587",
+          "title": "Frieren: Beyond Journey’s End"
+        },
+        "elapsed_seconds": 0.014891
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "start year"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "coming of age",
+              "name": "Coming of Age",
+              "description": "Centers around a character's transition from childhood to adulthood.",
+              "category": "Theme-Drama",
+              "similarity": 0.2385
+            },
+            {
+              "kind": "tag",
+              "id": "baseball",
+              "name": "Baseball",
+              "description": "Centers around the sport of baseball.",
+              "category": "Theme-Game-Sport",
+              "similarity": 0.211
+            },
+            {
+              "kind": "tag",
+              "id": "ice sports",
+              "name": "Ice Sports",
+              "description": "Centers around Ice Sports.",
+              "category": "Theme-Game-Sport",
+              "similarity": 0.2088
+            },
+            {
+              "kind": "tag",
+              "id": "basketball",
+              "name": "Basketball",
+              "description": "Centers around the sport of basketball.",
+              "category": "Theme-Game-Sport",
+              "similarity": 0.202
+            },
+            {
+              "kind": "tag",
+              "id": "american football",
+              "name": "American Football",
+              "description": "Centers around the sport of American football.",
+              "category": "Theme-Game-Sport",
+              "similarity": 0.2015
+            }
+          ]
+        },
+        "elapsed_seconds": 0.030202
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "anime",
+          "query": "154587"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "anime",
+          "matches": []
+        },
+        "elapsed_seconds": 0.036362
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 4.112162,
+      "prepare_context": 0.01567,
+      "retrieve_guides": 0.029389,
+      "feature_candidates": 0.014463,
+      "planning": 6.848323,
+      "tools": 0.081455,
+      "generate_answer": 3.64136
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Frieren: Beyond Journey's End\", \"query\": \"Frieren: Beyond Journey's End\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Frieren: Beyond Journey's End",
+        "query": "Frieren: Beyond Journey's End",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify the year Frieren: Beyond Journey’s End started airing.\", \"decisions\": {\"p0\": {\"meaning\": \"Frieren: Beyond Journey’s End\", \"role\": \"subject\", \"selection\": \"Frieren: Beyond Journey’s End | anime:154587\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "154587",
+          "role": "subject",
+          "text": "Frieren: Beyond Journey's End",
+          "name": "Frieren: Beyond Journey’s End",
+          "meaning": "Frieren: Beyond Journey’s End"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "154587",
+          "role": "subject",
+          "text": "Frieren: Beyond Journey's End",
+          "name": "Frieren: Beyond Journey’s End",
+          "meaning": "Frieren: Beyond Journey’s End"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Frieren: Beyond Journey’s End"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "154587",
+            "role": "subject",
+            "text": "Frieren: Beyond Journey's End",
+            "name": "Frieren: Beyond Journey’s End",
+            "meaning": "Frieren: Beyond Journey’s End"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "154587",
+            "role": "subject",
+            "text": "Frieren: Beyond Journey's End",
+            "name": "Frieren: Beyond Journey’s End",
+            "meaning": "Frieren: Beyond Journey’s End"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "retrieve_anime_start_year",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "154587"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "start year"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "anime",
+            "query": "154587"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "154587",
+          "name": "Frieren: Beyond Journey’s End"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:154587",
+          "fact": "year"
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.5e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000862
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.112162
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.01567
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.029389
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014463
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.848323
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "retrieve_anime_start_year",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "154587"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "start year"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "anime",
+              "query": "154587"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "154587",
+            "name": "Frieren: Beyond Journey’s End"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "154587"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.014891,
+      "arguments": {
+        "id": "154587"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "154587",
+        "title": "Frieren: Beyond Journey’s End"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "start year"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.030202,
+      "arguments": {
+        "query": "start year"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "coming of age",
+            "name": "Coming of Age",
+            "description": "Centers around a character's transition from childhood to adulthood.",
+            "category": "Theme-Drama",
+            "similarity": 0.2385
+          },
+          {
+            "kind": "tag",
+            "id": "baseball",
+            "name": "Baseball",
+            "description": "Centers around the sport of baseball.",
+            "category": "Theme-Game-Sport",
+            "similarity": 0.211
+          },
+          {
+            "kind": "tag",
+            "id": "ice sports",
+            "name": "Ice Sports",
+            "description": "Centers around Ice Sports.",
+            "category": "Theme-Game-Sport",
+            "similarity": 0.2088
+          },
+          {
+            "kind": "tag",
+            "id": "basketball",
+            "name": "Basketball",
+            "description": "Centers around the sport of basketball.",
+            "category": "Theme-Game-Sport",
+            "similarity": 0.202
+          },
+          {
+            "kind": "tag",
+            "id": "american football",
+            "name": "American Football",
+            "description": "Centers around the sport of American football.",
+            "category": "Theme-Game-Sport",
+            "similarity": 0.2015
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "anime",
+        "query": "154587"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.036362,
+      "arguments": {
+        "kind": "anime",
+        "query": "154587"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "anime",
+        "matches": []
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.64136
+    }
+  ]
+}

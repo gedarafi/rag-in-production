@@ -1,0 +1,806 @@
+{
+  "question_id": "comedy_01",
+  "category": "genres",
+  "intent_family": "comedy",
+  "wording": "explicit",
+  "question_origin": "authored_naturalistic",
+  "question": "Recommend three comedy anime.",
+  "k": 3,
+  "constraints": [
+    {
+      "field": "genres",
+      "op": "any",
+      "value": [
+        "Comedy"
+      ],
+      "alternatives": [
+        {
+          "reason": "Prominent slapstick, surreal comedy, or parody supports a general request for funny viewing without requiring the broad Comedy genre.",
+          "constraints": [
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Slapstick",
+                "Surreal Comedy",
+                "Parody"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "The broad request to laugh maps to Comedy rather than a specific joke style.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 7022,
+  "reference_examples": [
+    {
+      "id": "100",
+      "title": "Prétear: The New Legend of Snow White"
+    },
+    {
+      "id": "10000",
+      "title": "Esper Mami Special: My Angel Mami-chan"
+    },
+    {
+      "id": "100009",
+      "title": "Space Battleship Tiramisu"
+    }
+  ],
+  "answer_text": "Catalog matches — Comedy. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **My Hero Academia Season 3** — Summer is here, and the heroes of Class 1-A and 1-B are in for the toughest training camp of their lives! A group of seasoned pros pushes everyone's Quirks to new heights as the students face one overwhelming challenge after another. Braving the elements in this secret location becomes the least of their worries when routine training turns into a critical struggle for survival. (Source: Crunchyroll)\n\n2. **One-Punch Man** — Saitama has a rather peculiar hobby, being a superhero, but despite his heroic deeds and superhuman abilities, a shadow looms over his life. He's become much too powerful, to the point that every opponent ends up defeated with a single punch. The lack of challenge has driven him into a state of apathy, as he watches his life pass by having lost all enthusiasm, at least until he's unwillingly thrust in the role of being a mentor to the young and…\n\n3. **My Hero Academia Season 4** — The villain world teeters on the brink of war now that All For One is out of the picture. Shigaraki of the League of Villains squares off with Overhaul of the yakuza, vying for total control of the shadows. Meanwhile, Deku gets tangled in another dangerous internship as he struggles to keep pace with his upperclassman—Mirio. (Source: Crunchyroll)\n\n4. **Kaguya-sama: Love is War?** — After a slow but eventful summer vacation, Shuchiin Academy's second term is now starting in full force. As August transitions into September, Miyuki Shirogane's birthday looms ever closer, leaving Kaguya Shinomiya in a serious predicament as to how to celebrate it. Furthermore, the tenure of the school's 67th student council is coming to an end. Due to the council members being in different classes, the only time Kaguya and Miyuki have to be…\n\n5. **My Teen Romantic Comedy SNAFU** — This romantic comedy revolves around an antisocial high school student named Hikigaya Hachiman with a distorted view on life and no friends or girlfriend. When he sees his classmates talking excitedly about living their adolescent lives, he mutters: \"They're a bunch of liars.\" When he is asked about his future dreams, he responds: \"Not working.\" A teacher gets Hachiman to join the 'Volunteer Service' club, which happens to have the school's…",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "My Hero Academia Season 3",
+      "One-Punch Man",
+      "My Hero Academia Season 4",
+      "Kaguya-sama: Love is War?",
+      "My Teen Romantic Comedy SNAFU"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "My Hero Academia Season 3",
+      "anime_id": "100166",
+      "canonical_title": "My Hero Academia Season 3",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "100166"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Prominent slapstick, surreal comedy, or parody supports a general request for funny viewing without requiring the broad Comedy genre.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Slapstick",
+                      "Surreal Comedy",
+                      "Parody"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 2,
+      "extracted_title": "One-Punch Man",
+      "anime_id": "21087",
+      "canonical_title": "One-Punch Man",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21087"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Prominent slapstick, surreal comedy, or parody supports a general request for funny viewing without requiring the broad Comedy genre.",
+              "score": 0.91,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Slapstick",
+                      "Surreal Comedy",
+                      "Parody"
+                    ]
+                  },
+                  "score": 0.91
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 3,
+      "extracted_title": "My Hero Academia Season 4",
+      "anime_id": "104276",
+      "canonical_title": "My Hero Academia Season 4",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "104276"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Prominent slapstick, surreal comedy, or parody supports a general request for funny viewing without requiring the broad Comedy genre.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Slapstick",
+                      "Surreal Comedy",
+                      "Parody"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Kaguya-sama: Love is War?",
+      "anime_id": null,
+      "canonical_title": null,
+      "resolution": "ambiguous",
+      "candidate_ids": [
+        "101921",
+        "112641"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 5,
+      "extracted_title": "My Teen Romantic Comedy SNAFU",
+      "anime_id": "14813",
+      "canonical_title": "My Teen Romantic Comedy SNAFU",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "14813"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Prominent slapstick, surreal comedy, or parody supports a general request for funny viewing without requiring the broad Comedy genre.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Slapstick",
+                      "Surreal Comedy",
+                      "Parody"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 1.0,
+    "graded_fit_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "constraint_coverage": 1.0,
+    "count_compliance": 0,
+    "resolution_rate": 0.8,
+    "duplicate_rate": 0.0,
+    "extra_count": 2,
+    "literal_precision_at_k": 1.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 10.15297045800071,
+  "extraction_seconds": 1.7752041250005277,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 3.8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000755
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 6.142326
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.001922
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.008979
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.011396
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.579717
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_three_comedy_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "query": "comedy",
+              "filters": [
+                {
+                  "field": "genres",
+                  "operator": "eq",
+                  "value": "Comedy"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "query": "comedy",
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "eq",
+            "value": "Comedy"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.405818,
+      "arguments": {
+        "query": "comedy",
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "eq",
+            "value": "Comedy"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "genres",
+              "operator": "eq",
+              "value": "Comedy"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "genres",
+              "operator": "eq",
+              "value": "Comedy",
+              "source_text": "Recommend three comedy anime.",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "100166",
+            "title": "My Hero Academia Season 3",
+            "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]",
+            "preference_similarity": 0.1807
+          },
+          {
+            "id": "21087",
+            "title": "One-Punch Man",
+            "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]",
+            "preference_similarity": 0.1507
+          },
+          {
+            "id": "104276",
+            "title": "My Hero Academia Season 4",
+            "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]",
+            "preference_similarity": 0.1456
+          },
+          {
+            "id": "112641",
+            "title": "Kaguya-sama: Love is War?",
+            "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]",
+            "preference_similarity": 0.1395
+          },
+          {
+            "id": "14813",
+            "title": "My Teen Romantic Comedy SNAFU",
+            "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]",
+            "preference_similarity": 0.1345
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000456
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "query": "comedy",
+          "filters": [
+            {
+              "field": "genres",
+              "operator": "eq",
+              "value": "Comedy"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "genres",
+                "operator": "eq",
+                "value": "Comedy"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "genres",
+                "operator": "eq",
+                "value": "Comedy",
+                "source_text": "Recommend three comedy anime.",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "100166",
+              "title": "My Hero Academia Season 3",
+              "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]",
+              "preference_similarity": 0.1807
+            },
+            {
+              "id": "21087",
+              "title": "One-Punch Man",
+              "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]",
+              "preference_similarity": 0.1507
+            },
+            {
+              "id": "104276",
+              "title": "My Hero Academia Season 4",
+              "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]",
+              "preference_similarity": 0.1456
+            },
+            {
+              "id": "112641",
+              "title": "Kaguya-sama: Love is War?",
+              "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]",
+              "preference_similarity": 0.1395
+            },
+            {
+              "id": "14813",
+              "title": "My Teen Romantic Comedy SNAFU",
+              "reason": "Matches: filters=[{'field': 'genres', 'operator': 'eq', 'value': 'Comedy'}]",
+              "preference_similarity": 0.1345
+            }
+          ]
+        },
+        "elapsed_seconds": 0.405818
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 6.142326,
+      "prepare_context": 0.001922,
+      "retrieve_guides": 0.008979,
+      "feature_candidates": 0.011396,
+      "planning": 3.579717,
+      "tools": 0.405818,
+      "generate_answer": 0.000456
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"comedy\", \"query\": \"comedy\", \"kind\": \"genre\", \"role\": \"required\", \"meaning\": \"Desired genre\"}, {\"text\": \"three\", \"query\": \"three\", \"kind\": \"description\", \"role\": \"preferred\", \"meaning\": \"Quantity\"}, {\"text\": \"anime\", \"query\": \"anime\", \"kind\": \"genre\", \"role\": \"required\", \"meaning\": \"Desired genre\"}]}",
+      "{\n  \"role\": \"required\"\n}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "comedy",
+        "query": "comedy",
+        "kind": "genre",
+        "role": "required",
+        "meaning": "Desired genre"
+      },
+      {
+        "text": "three",
+        "query": "three",
+        "kind": "description",
+        "role": "preferred",
+        "meaning": "Quantity"
+      },
+      {
+        "text": "anime",
+        "query": "anime",
+        "kind": "genre",
+        "role": "required",
+        "meaning": "Desired genre"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Desired genre\", \"role\": \"required\", \"selection\": \"Comedy | genre:comedy\"}, \"p1\": {\"meaning\": \"Quantity\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}, \"p2\": {\"meaning\": \"Desired genre\", \"role\": \"required\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "genre",
+          "id": "comedy",
+          "role": "required",
+          "text": "comedy",
+          "name": "Comedy",
+          "meaning": "Desired genre"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "three",
+          "name": "",
+          "meaning": "Quantity"
+        },
+        {
+          "phrase_index": 2,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "anime",
+          "name": "",
+          "meaning": "Desired genre"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [
+        "comedy",
+        "anime"
+      ],
+      "excluded": [],
+      "preferred": [
+        "three"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "genres",
+          "operator": "eq",
+          "value": "Comedy"
+        }
+      ],
+      "soft_query": "three",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "genres",
+          "operator": "eq",
+          "value": "Comedy",
+          "source_text": "Recommend three comedy anime.",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "comedy",
+          "candidate": {
+            "field": "genres",
+            "value": "Comedy",
+            "meaning": "Comedy"
+          },
+          "role": "required",
+          "mapping": "exact"
+        },
+        {
+          "phrase": "three",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "genre",
+            "id": "comedy",
+            "role": "required",
+            "text": "comedy",
+            "name": "Comedy",
+            "meaning": "Desired genre"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "three",
+            "name": "",
+            "meaning": "Quantity"
+          },
+          {
+            "phrase_index": 2,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "anime",
+            "name": "",
+            "meaning": "Desired genre"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_three_comedy_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "query": "comedy",
+            "filters": [
+              {
+                "field": "genres",
+                "operator": "eq",
+                "value": "Comedy"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

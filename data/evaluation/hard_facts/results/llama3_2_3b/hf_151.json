@@ -1,0 +1,331 @@
+{
+  "question_id": "hf_151",
+  "anime_id": "21827",
+  "title": "Violet Evergarden",
+  "field": "main_animation_studios",
+  "question": "Which animation studio was behind the Violet Evergarden TV series?",
+  "expected_values": [
+    "Kyoto Animation"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Kyoto Animation",
+  "extracted_values": [
+    "Kyoto Animation"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 7.92635749999863,
+  "extraction_seconds": 0.5712978329993348,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Kyoto Animation",
+        "quote": "Kyoto Animation"
+      }
+    ],
+    "note": "assertion for main_animation_studios",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21827",
+          "section": "staff"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "21827",
+          "title": "Violet Evergarden"
+        },
+        "elapsed_seconds": 0.006012
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 2.307562,
+      "prepare_context": 0.016109,
+      "retrieve_guides": 0.027629,
+      "feature_candidates": 0.01443,
+      "planning": 3.596582,
+      "tools": 0.006012,
+      "generate_answer": 1.95468
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Violet Evergarden\", \"query\": \"Violet Evergarden\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; studio is a noun\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Violet Evergarden",
+        "query": "Violet Evergarden",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; studio is a noun"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Which studio was behind the Violet Evergarden TV series?\", \"decisions\": {\"p0\": {\"meaning\": \"studio behind the TV series\", \"role\": \"subject\", \"selection\": \"Violet Evergarden | anime:21827\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21827",
+          "role": "subject",
+          "text": "Violet Evergarden",
+          "name": "Violet Evergarden",
+          "meaning": "studio behind the TV series"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21827",
+          "role": "subject",
+          "text": "Violet Evergarden",
+          "name": "Violet Evergarden",
+          "meaning": "studio behind the TV series"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Violet Evergarden"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21827",
+            "role": "subject",
+            "text": "Violet Evergarden",
+            "name": "Violet Evergarden",
+            "meaning": "studio behind the TV series"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21827",
+            "role": "subject",
+            "text": "Violet Evergarden",
+            "name": "Violet Evergarden",
+            "meaning": "studio behind the TV series"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "find studio behind the TV series",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21827",
+            "section": "staff"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21827",
+          "name": "Violet Evergarden"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:21827",
+          "fact": "The studio behind the Violet Evergarden TV series is Kyoto Animation."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 9.2e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00184
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.307562
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.016109
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.027629
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.01443
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.596582
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "find studio behind the TV series",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21827",
+              "section": "staff"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21827",
+            "name": "Violet Evergarden"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21827",
+        "section": "staff"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.006012,
+      "arguments": {
+        "id": "21827",
+        "section": "staff"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "21827",
+        "title": "Violet Evergarden"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 1.95468
+    }
+  ]
+}

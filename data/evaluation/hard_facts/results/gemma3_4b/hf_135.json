@@ -1,0 +1,876 @@
+{
+  "question_id": "hf_135",
+  "anime_id": "21459",
+  "title": "My Hero Academia",
+  "field": "main_animation_studios",
+  "question": "Who was the main animation studio behind My Hero Academia's debut season?",
+  "expected_values": [
+    "bones"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "bones was the main animation studio behind My Hero Academia's debut season.",
+  "extracted_values": [
+    "bones"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 16.48049358299977,
+  "extraction_seconds": 0.6910436670000308,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "bones",
+        "quote": "bones was the main animation studio behind My Hero Academia's debut season."
+      }
+    ],
+    "note": "Debut season refers to the first season of the anime, not the manga or light novel.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21459"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21459",
+          "title": "My Hero Academia"
+        },
+        "elapsed_seconds": 0.014161
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "animation studio",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "flash",
+              "name": "Flash",
+              "description": "Created using Flash animation techniques.",
+              "category": "Technical",
+              "similarity": 0.4938
+            },
+            {
+              "kind": "tag",
+              "id": "achromatic",
+              "name": "Achromatic",
+              "description": "Contains animation that is primarily done in black and white.",
+              "category": "Technical",
+              "similarity": 0.4916
+            },
+            {
+              "kind": "tag",
+              "id": "puppetry",
+              "name": "Puppetry",
+              "description": "Animation style involving the manipulation of puppets to act out scenes.",
+              "category": "Technical",
+              "similarity": 0.4621
+            },
+            {
+              "kind": "tag",
+              "id": "tokusatsu",
+              "name": "Tokusatsu",
+              "description": "Prominently features elements that resemble special effects in Japanese live-action shows",
+              "category": "Theme-Sci-Fi",
+              "similarity": 0.4025
+            },
+            {
+              "kind": "tag",
+              "id": "software development",
+              "name": "Software Development",
+              "description": "Centers around characters developing or programming a piece of technology, software, gaming, etc.",
+              "category": "Theme-Other",
+              "similarity": 0.3775
+            }
+          ]
+        },
+        "elapsed_seconds": 0.034959
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "animation studio"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.017415
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21459"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21459",
+          "title": "My Hero Academia"
+        },
+        "elapsed_seconds": 0.000121
+      },
+      {
+        "step": 4,
+        "tool": "search_features",
+        "arguments": {
+          "query": "animation studio",
+          "kind": "tag"
+        },
+        "cached": true,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "flash",
+              "name": "Flash",
+              "description": "Created using Flash animation techniques.",
+              "category": "Technical",
+              "similarity": 0.4938
+            },
+            {
+              "kind": "tag",
+              "id": "achromatic",
+              "name": "Achromatic",
+              "description": "Contains animation that is primarily done in black and white.",
+              "category": "Technical",
+              "similarity": 0.4916
+            },
+            {
+              "kind": "tag",
+              "id": "puppetry",
+              "name": "Puppetry",
+              "description": "Animation style involving the manipulation of puppets to act out scenes.",
+              "category": "Technical",
+              "similarity": 0.4621
+            },
+            {
+              "kind": "tag",
+              "id": "tokusatsu",
+              "name": "Tokusatsu",
+              "description": "Prominently features elements that resemble special effects in Japanese live-action shows",
+              "category": "Theme-Sci-Fi",
+              "similarity": 0.4025
+            },
+            {
+              "kind": "tag",
+              "id": "software development",
+              "name": "Software Development",
+              "description": "Centers around characters developing or programming a piece of technology, software, gaming, etc.",
+              "category": "Theme-Other",
+              "similarity": 0.3775
+            }
+          ]
+        },
+        "elapsed_seconds": 1.4e-05
+      },
+      {
+        "step": 5,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21459"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21459",
+          "title": "My Hero Academia"
+        },
+        "elapsed_seconds": 8.3e-05
+      },
+      {
+        "step": 6,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21459"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21459",
+          "title": "My Hero Academia"
+        },
+        "elapsed_seconds": 8.2e-05
+      },
+      {
+        "step": 7,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21459"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21459",
+          "title": "My Hero Academia"
+        },
+        "elapsed_seconds": 8.2e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 8,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 3.685749,
+      "prepare_context": 0.016315,
+      "retrieve_guides": 0.031004,
+      "feature_candidates": 0.01377,
+      "planning": 8.491206,
+      "tools": 0.066917,
+      "generate_answer": 4.172247
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"My Hero Academia\", \"query\": \"My Hero Academia\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Debut season\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "My Hero Academia",
+        "query": "My Hero Academia",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Debut season"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify which debut season of My Hero Academia you are referring to.\", \"decisions\": {\"p0\": {\"meaning\": \"My Hero Academia\", \"role\": \"subject\", \"selection\": \"My Hero Academia | anime:21459\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21459",
+          "role": "subject",
+          "text": "My Hero Academia",
+          "name": "My Hero Academia",
+          "meaning": "My Hero Academia"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21459",
+          "role": "subject",
+          "text": "My Hero Academia",
+          "name": "My Hero Academia",
+          "meaning": "My Hero Academia"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "My Hero Academia"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21459",
+            "role": "subject",
+            "text": "My Hero Academia",
+            "name": "My Hero Academia",
+            "meaning": "My Hero Academia"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21459",
+            "role": "subject",
+            "text": "My Hero Academia",
+            "name": "My Hero Academia",
+            "meaning": "My Hero Academia"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "retrieve animation studio information for My Hero Academia",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21459"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "animation studio",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "animation studio"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21459"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "animation studio",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21459"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21459"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21459"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21459",
+          "name": "My Hero Academia"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:21459",
+          "fact": "bones was the main animation studio behind My Hero Academia's debut season."
+        },
+        {
+          "subject": "anime:21459",
+          "fact": "bones is a studio that specializes in animation."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.4e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001644
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.685749
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.016315
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.031004
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.01377
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 8.491206
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "retrieve animation studio information for My Hero Academia",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21459"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "animation studio",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "animation studio"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21459"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "animation studio",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21459"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21459"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21459"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21459",
+            "name": "My Hero Academia"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21459"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.014161,
+      "arguments": {
+        "id": "21459"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21459",
+        "title": "My Hero Academia"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "animation studio",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.034959,
+      "arguments": {
+        "query": "animation studio",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "flash",
+            "name": "Flash",
+            "description": "Created using Flash animation techniques.",
+            "category": "Technical",
+            "similarity": 0.4938
+          },
+          {
+            "kind": "tag",
+            "id": "achromatic",
+            "name": "Achromatic",
+            "description": "Contains animation that is primarily done in black and white.",
+            "category": "Technical",
+            "similarity": 0.4916
+          },
+          {
+            "kind": "tag",
+            "id": "puppetry",
+            "name": "Puppetry",
+            "description": "Animation style involving the manipulation of puppets to act out scenes.",
+            "category": "Technical",
+            "similarity": 0.4621
+          },
+          {
+            "kind": "tag",
+            "id": "tokusatsu",
+            "name": "Tokusatsu",
+            "description": "Prominently features elements that resemble special effects in Japanese live-action shows",
+            "category": "Theme-Sci-Fi",
+            "similarity": 0.4025
+          },
+          {
+            "kind": "tag",
+            "id": "software development",
+            "name": "Software Development",
+            "description": "Centers around characters developing or programming a piece of technology, software, gaming, etc.",
+            "category": "Theme-Other",
+            "similarity": 0.3775
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "animation studio"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.017415,
+      "arguments": {
+        "kind": "tag",
+        "query": "animation studio"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21459"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000121,
+      "arguments": {
+        "id": "21459"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21459",
+        "title": "My Hero Academia"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "search_features",
+      "arguments": {
+        "query": "animation studio",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 1.4e-05,
+      "arguments": {
+        "query": "animation studio",
+        "kind": "tag"
+      },
+      "cached": true,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "flash",
+            "name": "Flash",
+            "description": "Created using Flash animation techniques.",
+            "category": "Technical",
+            "similarity": 0.4938
+          },
+          {
+            "kind": "tag",
+            "id": "achromatic",
+            "name": "Achromatic",
+            "description": "Contains animation that is primarily done in black and white.",
+            "category": "Technical",
+            "similarity": 0.4916
+          },
+          {
+            "kind": "tag",
+            "id": "puppetry",
+            "name": "Puppetry",
+            "description": "Animation style involving the manipulation of puppets to act out scenes.",
+            "category": "Technical",
+            "similarity": 0.4621
+          },
+          {
+            "kind": "tag",
+            "id": "tokusatsu",
+            "name": "Tokusatsu",
+            "description": "Prominently features elements that resemble special effects in Japanese live-action shows",
+            "category": "Theme-Sci-Fi",
+            "similarity": 0.4025
+          },
+          {
+            "kind": "tag",
+            "id": "software development",
+            "name": "Software Development",
+            "description": "Centers around characters developing or programming a piece of technology, software, gaming, etc.",
+            "category": "Theme-Other",
+            "similarity": 0.3775
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21459"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 8.3e-05,
+      "arguments": {
+        "id": "21459"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21459",
+        "title": "My Hero Academia"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 6,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21459"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 6,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 8.2e-05,
+      "arguments": {
+        "id": "21459"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21459",
+        "title": "My Hero Academia"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 7,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21459"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 7,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 8.2e-05,
+      "arguments": {
+        "id": "21459"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21459",
+        "title": "My Hero Academia"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.172247
+    }
+  ]
+}

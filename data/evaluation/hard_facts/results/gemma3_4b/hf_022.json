@@ -1,0 +1,845 @@
+{
+  "question_id": "hf_022",
+  "anime_id": "101348",
+  "title": "Vinland Saga",
+  "field": "year",
+  "question": "Which year did Vinland Saga's first season debut?",
+  "expected_values": [
+    2019.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "year: 2019 years.",
+  "extracted_values": [
+    "2019"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 16.70338199999992,
+  "extraction_seconds": 0.49169829100014795,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "2019",
+        "quote": "year: 2019 years."
+      }
+    ],
+    "note": "years",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101348"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101348",
+          "title": "Vinland Saga"
+        },
+        "elapsed_seconds": 0.018687
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "debut year",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "coming of age",
+              "name": "Coming of Age",
+              "description": "Centers around a character's transition from childhood to adulthood.",
+              "category": "Theme-Drama",
+              "similarity": 0.2793
+            },
+            {
+              "kind": "tag",
+              "id": "tennis",
+              "name": "Tennis",
+              "description": "Centers around the sport of tennis.",
+              "category": "Theme-Game-Sport",
+              "similarity": 0.2249
+            }
+          ]
+        },
+        "elapsed_seconds": 0.034263
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "debut year"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.005879
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101348"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101348",
+          "title": "Vinland Saga"
+        },
+        "elapsed_seconds": 0.000122
+      },
+      {
+        "step": 4,
+        "tool": "search_features",
+        "arguments": {
+          "query": "release year",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "anthology",
+              "name": "Anthology",
+              "description": "A collection of separate works collated into a single release.",
+              "category": "Technical",
+              "similarity": 0.2866
+            },
+            {
+              "kind": "tag",
+              "id": "coming of age",
+              "name": "Coming of Age",
+              "description": "Centers around a character's transition from childhood to adulthood.",
+              "category": "Theme-Drama",
+              "similarity": 0.272
+            },
+            {
+              "kind": "tag",
+              "id": "guns",
+              "name": "Guns",
+              "description": "Prominently features the use of guns in combat.",
+              "category": "Theme-Action",
+              "similarity": 0.2442
+            },
+            {
+              "kind": "tag",
+              "id": "mopeds",
+              "name": "Mopeds",
+              "description": "Prominently features mopeds.",
+              "category": "Theme-Other-Vehicle",
+              "similarity": 0.2408
+            },
+            {
+              "kind": "tag",
+              "id": "age gap",
+              "name": "Age Gap",
+              "description": "Prominently features romantic relations between people with a significant age difference.",
+              "category": "Theme-Romance",
+              "similarity": 0.2366
+            }
+          ]
+        },
+        "elapsed_seconds": 0.011614
+      },
+      {
+        "step": 5,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101348",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101348",
+          "title": "Vinland Saga"
+        },
+        "elapsed_seconds": 0.011347
+      },
+      {
+        "step": 6,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101348",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101348",
+          "title": "Vinland Saga"
+        },
+        "elapsed_seconds": 9.5e-05
+      },
+      {
+        "step": 7,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101348",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101348",
+          "title": "Vinland Saga"
+        },
+        "elapsed_seconds": 8.9e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 8,
+    "executed_tools": 5,
+    "timings_seconds": {
+      "interpret_request": 3.637691,
+      "prepare_context": 0.0146,
+      "retrieve_guides": 0.030553,
+      "feature_candidates": 0.013751,
+      "planning": 9.222706,
+      "tools": 0.082096,
+      "generate_answer": 3.699629
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Vinland Saga\", \"query\": \"Vinland Saga\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"First season\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Vinland Saga",
+        "query": "Vinland Saga",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "First season"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Which year did Vinland Saga's first season debut?\", \"decisions\": {\"p0\": {\"meaning\": \"Vinland Saga\", \"role\": \"subject\", \"selection\": \"Vinland Saga | anime:101348\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101348",
+          "role": "subject",
+          "text": "Vinland Saga",
+          "name": "Vinland Saga",
+          "meaning": "Vinland Saga"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101348",
+          "role": "subject",
+          "text": "Vinland Saga",
+          "name": "Vinland Saga",
+          "meaning": "Vinland Saga"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Vinland Saga"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101348",
+            "role": "subject",
+            "text": "Vinland Saga",
+            "name": "Vinland Saga",
+            "meaning": "Vinland Saga"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101348",
+            "role": "subject",
+            "text": "Vinland Saga",
+            "name": "Vinland Saga",
+            "meaning": "Vinland Saga"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "uncertain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine the year of Vinland Saga's first season debut",
+      "clarification": "Confirm if the user is asking about the initial release year of the anime series or a specific season.",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101348"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "debut year",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "debut year"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101348"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "release year",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101348",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101348",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101348",
+            "section": "overview"
+          }
+        }
+      ]
+    },
+    "scope": "uncertain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "101348",
+          "name": "Vinland Saga"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:101348",
+          "fact": "year of 2019.0"
+        }
+      ],
+      "calculations": [
+        {
+          "expression": "2019.0",
+          "value": "2019",
+          "unit": "years"
+        }
+      ]
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 6e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000828
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.637691
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.0146
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.030553
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013751
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 9.222706
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "uncertain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "uncertain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine the year of Vinland Saga's first season debut",
+        "clarification": "Confirm if the user is asking about the initial release year of the anime series or a specific season.",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101348"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "debut year",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "debut year"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101348"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "release year",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101348",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101348",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101348",
+              "section": "overview"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "101348",
+            "name": "Vinland Saga"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101348"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.018687,
+      "arguments": {
+        "id": "101348"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101348",
+        "title": "Vinland Saga"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "debut year",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.034263,
+      "arguments": {
+        "query": "debut year",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "coming of age",
+            "name": "Coming of Age",
+            "description": "Centers around a character's transition from childhood to adulthood.",
+            "category": "Theme-Drama",
+            "similarity": 0.2793
+          },
+          {
+            "kind": "tag",
+            "id": "tennis",
+            "name": "Tennis",
+            "description": "Centers around the sport of tennis.",
+            "category": "Theme-Game-Sport",
+            "similarity": 0.2249
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "debut year"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.005879,
+      "arguments": {
+        "kind": "tag",
+        "query": "debut year"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101348"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000122,
+      "arguments": {
+        "id": "101348"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101348",
+        "title": "Vinland Saga"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "search_features",
+      "arguments": {
+        "query": "release year",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.011614,
+      "arguments": {
+        "query": "release year",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "anthology",
+            "name": "Anthology",
+            "description": "A collection of separate works collated into a single release.",
+            "category": "Technical",
+            "similarity": 0.2866
+          },
+          {
+            "kind": "tag",
+            "id": "coming of age",
+            "name": "Coming of Age",
+            "description": "Centers around a character's transition from childhood to adulthood.",
+            "category": "Theme-Drama",
+            "similarity": 0.272
+          },
+          {
+            "kind": "tag",
+            "id": "guns",
+            "name": "Guns",
+            "description": "Prominently features the use of guns in combat.",
+            "category": "Theme-Action",
+            "similarity": 0.2442
+          },
+          {
+            "kind": "tag",
+            "id": "mopeds",
+            "name": "Mopeds",
+            "description": "Prominently features mopeds.",
+            "category": "Theme-Other-Vehicle",
+            "similarity": 0.2408
+          },
+          {
+            "kind": "tag",
+            "id": "age gap",
+            "name": "Age Gap",
+            "description": "Prominently features romantic relations between people with a significant age difference.",
+            "category": "Theme-Romance",
+            "similarity": 0.2366
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101348",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.011347,
+      "arguments": {
+        "id": "101348",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101348",
+        "title": "Vinland Saga"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 6,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101348",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 6,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 9.5e-05,
+      "arguments": {
+        "id": "101348",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101348",
+        "title": "Vinland Saga"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 7,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101348",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 7,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 8.9e-05,
+      "arguments": {
+        "id": "101348",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101348",
+        "title": "Vinland Saga"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.699629
+    }
+  ]
+}

@@ -1,0 +1,575 @@
+{
+  "question_id": "hf_097",
+  "anime_id": "120120",
+  "title": "Tokyo Revengers",
+  "field": "format",
+  "question": "What type of release is the original Tokyo Revengers anime?",
+  "expected_values": [
+    "TV"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The original Tokyo Revengers anime is a TV format.",
+  "extracted_values": [
+    "TV"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 15.689598750000187,
+  "extraction_seconds": 0.5225507909999578,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "TV",
+        "quote": "The original Tokyo Revengers anime is a TV format."
+      }
+    ],
+    "note": "assertion for format",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "120120"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "120120",
+          "title": "Tokyo Revengers"
+        },
+        "elapsed_seconds": 0.019498
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "release type",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "anthology",
+              "name": "Anthology",
+              "description": "A collection of separate works collated into a single release.",
+              "category": "Technical",
+              "similarity": 0.2916
+            },
+            {
+              "kind": "tag",
+              "id": "amnesia",
+              "name": "Amnesia",
+              "description": "Prominently features a character(s) with memory loss.",
+              "category": "Cast-Traits",
+              "similarity": 0.2663
+            },
+            {
+              "kind": "tag",
+              "id": "exiled",
+              "name": "Exiled",
+              "description": "Features a character or characters that get banished or ostracized from a place or group they belonged to.",
+              "category": "Theme-Other",
+              "similarity": 0.251
+            },
+            {
+              "kind": "tag",
+              "id": "guns",
+              "name": "Guns",
+              "description": "Prominently features the use of guns in combat.",
+              "category": "Theme-Action",
+              "similarity": 0.2496
+            },
+            {
+              "kind": "tag",
+              "id": "flash",
+              "name": "Flash",
+              "description": "Created using Flash animation techniques.",
+              "category": "Technical",
+              "similarity": 0.247
+            }
+          ]
+        },
+        "elapsed_seconds": 0.032092
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "release type"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.010877
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "120120"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "120120",
+          "title": "Tokyo Revengers"
+        },
+        "elapsed_seconds": 0.000125
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 4,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 3.429654,
+      "prepare_context": 0.01775,
+      "retrieve_guides": 0.028372,
+      "feature_candidates": 0.014521,
+      "planning": 8.687116,
+      "tools": 0.062592,
+      "generate_answer": 3.446664
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Tokyo Revengers\", \"query\": \"Tokyo Revengers\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Original TV adaptation\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Tokyo Revengers",
+        "query": "Tokyo Revengers",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Original TV adaptation"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify if you are asking about the original TV series or a specific adaptation.\", \"decisions\": {\"p0\": {\"meaning\": \"Tokyo Revengers\", \"role\": \"subject\", \"selection\": \"Tokyo Revengers | anime:120120\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "120120",
+          "role": "subject",
+          "text": "Tokyo Revengers",
+          "name": "Tokyo Revengers",
+          "meaning": "Tokyo Revengers"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "120120",
+          "role": "subject",
+          "text": "Tokyo Revengers",
+          "name": "Tokyo Revengers",
+          "meaning": "Tokyo Revengers"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Tokyo Revengers"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "120120",
+            "role": "subject",
+            "text": "Tokyo Revengers",
+            "name": "Tokyo Revengers",
+            "meaning": "Tokyo Revengers"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "120120",
+            "role": "subject",
+            "text": "Tokyo Revengers",
+            "name": "Tokyo Revengers",
+            "meaning": "Tokyo Revengers"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "uncertain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine the release type of Tokyo Revengers",
+      "clarification": "The request is ambiguous; it asks for the 'type of release' without specifying what kind of release to consider (e.g., Blu-ray, streaming, etc.).",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "120120"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "release type",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "release type"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "120120"
+          }
+        }
+      ]
+    },
+    "scope": "uncertain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "120120",
+          "name": "Tokyo Revengers"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:120120",
+          "fact": "The source records state that the anime is in the format 'TV'"
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.7e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00135
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.429654
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.01775
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.028372
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014521
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 8.687116
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "uncertain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "uncertain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine the release type of Tokyo Revengers",
+        "clarification": "The request is ambiguous; it asks for the 'type of release' without specifying what kind of release to consider (e.g., Blu-ray, streaming, etc.).",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "120120"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "release type",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "release type"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "120120"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "120120",
+            "name": "Tokyo Revengers"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "120120"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.019498,
+      "arguments": {
+        "id": "120120"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "120120",
+        "title": "Tokyo Revengers"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "release type",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.032092,
+      "arguments": {
+        "query": "release type",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "anthology",
+            "name": "Anthology",
+            "description": "A collection of separate works collated into a single release.",
+            "category": "Technical",
+            "similarity": 0.2916
+          },
+          {
+            "kind": "tag",
+            "id": "amnesia",
+            "name": "Amnesia",
+            "description": "Prominently features a character(s) with memory loss.",
+            "category": "Cast-Traits",
+            "similarity": 0.2663
+          },
+          {
+            "kind": "tag",
+            "id": "exiled",
+            "name": "Exiled",
+            "description": "Features a character or characters that get banished or ostracized from a place or group they belonged to.",
+            "category": "Theme-Other",
+            "similarity": 0.251
+          },
+          {
+            "kind": "tag",
+            "id": "guns",
+            "name": "Guns",
+            "description": "Prominently features the use of guns in combat.",
+            "category": "Theme-Action",
+            "similarity": 0.2496
+          },
+          {
+            "kind": "tag",
+            "id": "flash",
+            "name": "Flash",
+            "description": "Created using Flash animation techniques.",
+            "category": "Technical",
+            "similarity": 0.247
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "release type"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.010877,
+      "arguments": {
+        "kind": "tag",
+        "query": "release type"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "120120"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000125,
+      "arguments": {
+        "id": "120120"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "120120",
+        "title": "Tokyo Revengers"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.446664
+    }
+  ]
+}

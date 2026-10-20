@@ -1,0 +1,395 @@
+{
+  "question_id": "hf_125",
+  "anime_id": "1",
+  "title": "Cowboy Bebop",
+  "field": "source_material",
+  "question": "What is the source type of the Cowboy Bebop TV series?",
+  "expected_values": [
+    "ORIGINAL"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Anime",
+  "extracted_values": [
+    "Anime"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 11.021066375000373,
+  "extraction_seconds": 0.48130683400086127,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Anime",
+        "quote": "Anime"
+      }
+    ],
+    "note": "",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "missing_values": [
+      "original"
+    ],
+    "extra_values": [
+      "anime"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "1",
+          "title": "Cowboy Bebop"
+        },
+        "elapsed_seconds": 0.016351
+      },
+      {
+        "step": 1,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "source type of Cowboy Bebop",
+          "anime_ids": [
+            "1"
+          ]
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.041774
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 2.229716,
+      "prepare_context": 0.014329,
+      "retrieve_guides": 0.029126,
+      "feature_candidates": 0.013937,
+      "planning": 4.242138,
+      "tools": 0.058125,
+      "generate_answer": 4.431304
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Cowboy Bebop\", \"query\": \"Cowboy Bebop\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; source is a noun\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Cowboy Bebop",
+        "query": "Cowboy Bebop",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; source is a noun"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"What is the source type of the Cowboy Bebop TV series?\", \"decisions\": {\"p0\": {\"meaning\": \"TV series; source is a noun\", \"role\": \"subject\", \"selection\": \"Cowboy Bebop | anime:1\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "1",
+          "role": "subject",
+          "text": "Cowboy Bebop",
+          "name": "Cowboy Bebop",
+          "meaning": "TV series; source is a noun"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "1",
+          "role": "subject",
+          "text": "Cowboy Bebop",
+          "name": "Cowboy Bebop",
+          "meaning": "TV series; source is a noun"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Cowboy Bebop"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "1",
+            "role": "subject",
+            "text": "Cowboy Bebop",
+            "name": "Cowboy Bebop",
+            "meaning": "TV series; source is a noun"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "1",
+            "role": "subject",
+            "text": "Cowboy Bebop",
+            "name": "Cowboy Bebop",
+            "meaning": "TV series; source is a noun"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Find the source type of the Cowboy Bebop TV series",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "source type of Cowboy Bebop",
+            "anime_ids": [
+              "1"
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "1",
+          "name": "Cowboy Bebop"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:1",
+          "fact": "Anime: Cowboy Bebop. Aliases: Cowboy Bebop, カウボーイビバップ, 카우보이 비밥, קאובויביבופ, คาวบอย บีบ๊อป, Ковбой Бибоп, Καουμπόηδες του Διαστήματος, Kowboj Bebop."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 6.2e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000852
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.229716
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.014329
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.029126
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013937
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.242138
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Find the source type of the Cowboy Bebop TV series",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "source type of Cowboy Bebop",
+              "anime_ids": [
+                "1"
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "1",
+            "name": "Cowboy Bebop"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.016351,
+      "arguments": {
+        "id": "1",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "1",
+        "title": "Cowboy Bebop"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "source type of Cowboy Bebop",
+        "anime_ids": [
+          "1"
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.041774,
+      "arguments": {
+        "query": "source type of Cowboy Bebop",
+        "anime_ids": [
+          "1"
+        ]
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.431304
+    }
+  ]
+}

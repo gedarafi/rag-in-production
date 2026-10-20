@@ -1,0 +1,331 @@
+{
+  "question_id": "hf_144",
+  "anime_id": "21507",
+  "title": "Mob Psycho 100",
+  "field": "main_animation_studios",
+  "question": "What animation studio worked on Mob Psycho 100's first season?",
+  "expected_values": [
+    "bones"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "bones",
+  "extracted_values": [
+    "bones"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 8.57842704200084,
+  "extraction_seconds": 0.6411666670010163,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "bones",
+        "quote": "bones"
+      }
+    ],
+    "note": "assertion about bones working on Mob Psycho 100's first season is correct",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21507",
+          "section": "staff"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "21507",
+          "title": "Mob Psycho 100"
+        },
+        "elapsed_seconds": 0.009154
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 2.122779,
+      "prepare_context": 0.020941,
+      "retrieve_guides": 0.028811,
+      "feature_candidates": 0.013526,
+      "planning": 3.741871,
+      "tools": 0.009154,
+      "generate_answer": 2.639143
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Mob Psycho 100\", \"query\": \"Mob Psycho 100\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; studio is a noun\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Mob Psycho 100",
+        "query": "Mob Psycho 100",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; studio is a noun"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"TV series; studio is a noun\", \"role\": \"subject\", \"selection\": \"Mob Psycho 100 | anime:21507\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21507",
+          "role": "subject",
+          "text": "Mob Psycho 100",
+          "name": "Mob Psycho 100",
+          "meaning": "TV series; studio is a noun"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21507",
+          "role": "subject",
+          "text": "Mob Psycho 100",
+          "name": "Mob Psycho 100",
+          "meaning": "TV series; studio is a noun"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Mob Psycho 100"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21507",
+            "role": "subject",
+            "text": "Mob Psycho 100",
+            "name": "Mob Psycho 100",
+            "meaning": "TV series; studio is a noun"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21507",
+            "role": "subject",
+            "text": "Mob Psycho 100",
+            "name": "Mob Psycho 100",
+            "meaning": "TV series; studio is a noun"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Find the animation studio that worked on Mob Psycho 100's first season",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21507",
+            "section": "staff"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21507",
+          "name": "Mob Psycho 100"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:21507",
+          "fact": "The studio that worked on Mob Psycho 100's first season is bones."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.9e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000759
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.122779
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.020941
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.028811
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013526
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.741871
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Find the animation studio that worked on Mob Psycho 100's first season",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21507",
+              "section": "staff"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21507",
+            "name": "Mob Psycho 100"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21507",
+        "section": "staff"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.009154,
+      "arguments": {
+        "id": "21507",
+        "section": "staff"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "21507",
+        "title": "Mob Psycho 100"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 2.639143
+    }
+  ]
+}

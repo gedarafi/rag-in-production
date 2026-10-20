@@ -1,0 +1,531 @@
+{
+  "question_id": "hf_129",
+  "anime_id": "108465",
+  "title": "Mushoku Tensei: Jobless Reincarnation",
+  "field": "source_material",
+  "question": "What source medium is listed for Mushoku Tensei: Jobless Reincarnation?",
+  "expected_values": [
+    "LIGHT_NOVEL"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Catalog matches.\n\n1. **Attack on Titan** — Several hundred years ago, humans were nearly exterminated by titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest of titans. Flash forward to the present and the city has not seen a…",
+  "extracted_values": [
+    "manga"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 11.601307749999705,
+  "extraction_seconds": 0.8178433750003933,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "manga",
+        "quote": "Catalog matches.\n\n1. **Attack on Titan** — Several hundred years ago, humans were nearly exterminated by titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest of titans. Flash forward to the present and the city has not seen a…"
+      }
+    ],
+    "note": "Source material for Mushoku Tensei: Jobless Reincarnation not found in answer",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "missing_values": [
+      "light novel"
+    ],
+    "extra_values": [
+      "manga"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "108465"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "108465",
+          "title": "Mushoku Tensei: Jobless Reincarnation"
+        },
+        "elapsed_seconds": 0.014514
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "source material",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "anthology",
+              "name": "Anthology",
+              "description": "A collection of separate works collated into a single release.",
+              "category": "Technical",
+              "similarity": 0.4049
+            },
+            {
+              "kind": "tag",
+              "id": "makeup",
+              "name": "Makeup",
+              "description": "Centers around the makeup industry.",
+              "category": "Theme-Arts",
+              "similarity": 0.3508
+            },
+            {
+              "kind": "tag",
+              "id": "advertisement",
+              "name": "Advertisement",
+              "description": "Produced in order to promote the products of a certain company.",
+              "category": "Technical",
+              "similarity": 0.3332
+            },
+            {
+              "kind": "tag",
+              "id": "achromatic",
+              "name": "Achromatic",
+              "description": "Contains animation that is primarily done in black and white.",
+              "category": "Technical",
+              "similarity": 0.327
+            },
+            {
+              "kind": "tag",
+              "id": "educational",
+              "name": "Educational",
+              "description": "Primary aim is to educate the audience.",
+              "category": "Theme-Other",
+              "similarity": 0.3118
+            }
+          ]
+        },
+        "elapsed_seconds": 0.035574
+      },
+      {
+        "step": 2,
+        "tool": "recommend_anime",
+        "arguments": {
+          "query": "source material",
+          "limit": 1
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "sort_by": "popularity"
+          },
+          "items": [
+            {
+              "id": "16498",
+              "title": "Attack on Titan",
+              "reason": "Matches: sort_by=popularity"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.043081
+      }
+    ],
+    "llm_calls": 3,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 4.418922,
+      "prepare_context": 0.019462,
+      "retrieve_guides": 0.031531,
+      "feature_candidates": 0.013763,
+      "planning": 7.021467,
+      "tools": 0.093169,
+      "generate_answer": 0.000591
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Mushoku Tensei: Jobless Reincarnation\", \"query\": \"Mushoku Tensei: Jobless Reincarnation\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Mushoku Tensei: Jobless Reincarnation",
+        "query": "Mushoku Tensei: Jobless Reincarnation",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"What source medium is listed for Mushoku Tensei: Jobless Reincarnation?\", \"decisions\": {\"p0\": {\"meaning\": \"Mushoku Tensei: Jobless Reincarnation\", \"role\": \"subject\", \"selection\": \"Mushoku Tensei: Jobless Reincarnation | anime:108465\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "108465",
+          "role": "subject",
+          "text": "Mushoku Tensei: Jobless Reincarnation",
+          "name": "Mushoku Tensei: Jobless Reincarnation",
+          "meaning": "Mushoku Tensei: Jobless Reincarnation"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "108465",
+          "role": "subject",
+          "text": "Mushoku Tensei: Jobless Reincarnation",
+          "name": "Mushoku Tensei: Jobless Reincarnation",
+          "meaning": "Mushoku Tensei: Jobless Reincarnation"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Mushoku Tensei: Jobless Reincarnation"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "108465",
+            "role": "subject",
+            "text": "Mushoku Tensei: Jobless Reincarnation",
+            "name": "Mushoku Tensei: Jobless Reincarnation",
+            "meaning": "Mushoku Tensei: Jobless Reincarnation"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "108465",
+            "role": "subject",
+            "text": "Mushoku Tensei: Jobless Reincarnation",
+            "name": "Mushoku Tensei: Jobless Reincarnation",
+            "meaning": "Mushoku Tensei: Jobless Reincarnation"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Retrieve source medium information for Mushoku Tensei: Jobless Reincarnation",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "108465"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "source material",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "query": "source material",
+            "limit": 1
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "108465",
+          "name": "Mushoku Tensei: Jobless Reincarnation"
+        }
+      ],
+      "characters": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.5e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000894
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.418922
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.019462
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.031531
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013763
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 7.021467
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Retrieve source medium information for Mushoku Tensei: Jobless Reincarnation",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "108465"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "source material",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "query": "source material",
+              "limit": 1
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "108465",
+            "name": "Mushoku Tensei: Jobless Reincarnation"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "108465"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.014514,
+      "arguments": {
+        "id": "108465"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "108465",
+        "title": "Mushoku Tensei: Jobless Reincarnation"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "source material",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.035574,
+      "arguments": {
+        "query": "source material",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "anthology",
+            "name": "Anthology",
+            "description": "A collection of separate works collated into a single release.",
+            "category": "Technical",
+            "similarity": 0.4049
+          },
+          {
+            "kind": "tag",
+            "id": "makeup",
+            "name": "Makeup",
+            "description": "Centers around the makeup industry.",
+            "category": "Theme-Arts",
+            "similarity": 0.3508
+          },
+          {
+            "kind": "tag",
+            "id": "advertisement",
+            "name": "Advertisement",
+            "description": "Produced in order to promote the products of a certain company.",
+            "category": "Technical",
+            "similarity": 0.3332
+          },
+          {
+            "kind": "tag",
+            "id": "achromatic",
+            "name": "Achromatic",
+            "description": "Contains animation that is primarily done in black and white.",
+            "category": "Technical",
+            "similarity": 0.327
+          },
+          {
+            "kind": "tag",
+            "id": "educational",
+            "name": "Educational",
+            "description": "Primary aim is to educate the audience.",
+            "category": "Theme-Other",
+            "similarity": 0.3118
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "recommend_anime",
+      "arguments": {
+        "query": "source material",
+        "limit": 1
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.043081,
+      "arguments": {
+        "query": "source material",
+        "limit": 1
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "sort_by": "popularity"
+        },
+        "items": [
+          {
+            "id": "16498",
+            "title": "Attack on Titan",
+            "reason": "Matches: sort_by=popularity"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000591
+    }
+  ]
+}

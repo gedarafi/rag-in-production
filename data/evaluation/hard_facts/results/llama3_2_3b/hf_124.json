@@ -1,0 +1,448 @@
+{
+  "question_id": "hf_124",
+  "anime_id": "199",
+  "title": "Spirited Away",
+  "field": "source_material",
+  "question": "Was Spirited Away adapted from a previously published work or made as an original anime?",
+  "expected_values": [
+    "ORIGINAL"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Spirited Away was made as an original anime.",
+  "extracted_values": [
+    "original"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 12.662758832999316,
+  "extraction_seconds": 0.46768695900027524,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "original",
+        "quote": "Spirited Away was made as an original anime."
+      }
+    ],
+    "note": "",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "199",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "199",
+          "title": "Spirited Away"
+        },
+        "elapsed_seconds": 0.013341
+      },
+      {
+        "step": 1,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "anime",
+          "query": "adaptation of Spirited Away"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "anime",
+          "matches": []
+        },
+        "elapsed_seconds": 0.089522
+      },
+      {
+        "step": 2,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "Spirited Away adaptation"
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.00701
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 1.716102,
+      "prepare_context": 0.01301,
+      "retrieve_guides": 0.027091,
+      "feature_candidates": 0.013442,
+      "planning": 4.556283,
+      "tools": 0.109873,
+      "generate_answer": 6.224316
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Spirited Away\", \"query\": \"Spirited Away\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Original anime\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Spirited Away",
+        "query": "Spirited Away",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Original anime"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Original anime\", \"role\": \"subject\", \"selection\": \"Spirited Away | anime:199\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "199",
+          "role": "subject",
+          "text": "Spirited Away",
+          "name": "Spirited Away",
+          "meaning": "Original anime"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "199",
+          "role": "subject",
+          "text": "Spirited Away",
+          "name": "Spirited Away",
+          "meaning": "Original anime"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Spirited Away"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "199",
+            "role": "subject",
+            "text": "Spirited Away",
+            "name": "Spirited Away",
+            "meaning": "Original anime"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "199",
+            "role": "subject",
+            "text": "Spirited Away",
+            "name": "Spirited Away",
+            "meaning": "Original anime"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Was Spirited Away adapted from a previously published work or made as an original anime?",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "199",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "anime",
+            "query": "adaptation of Spirited Away"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "Spirited Away adaptation"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "199",
+          "name": "Spirited Away"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:199",
+          "fact": "Spirited Away was made as an original anime."
+        },
+        {
+          "subject": "anime:199",
+          "fact": "The anime was created by Studio Ghibli, a renowned animation studio known for producing original works."
+        },
+        {
+          "subject": "anime:199",
+          "fact": "There is no evidence to suggest that Spirited Away was adapted from a previously published work."
+        },
+        {
+          "subject": "anime:199",
+          "fact": "The anime's director, Hayao Miyazaki, is a well-known animator and filmmaker who has created many original works throughout his career."
+        },
+        {
+          "subject": "anime:199",
+          "fact": "Spirited Away has won numerous awards and has been widely acclaimed for its original storytelling and animation."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 6.8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000931
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 1.716102
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.01301
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.027091
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013442
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.556283
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Was Spirited Away adapted from a previously published work or made as an original anime?",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "199",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "anime",
+              "query": "adaptation of Spirited Away"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "Spirited Away adaptation"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "199",
+            "name": "Spirited Away"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "199",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.013341,
+      "arguments": {
+        "id": "199",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "199",
+        "title": "Spirited Away"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "anime",
+        "query": "adaptation of Spirited Away"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.089522,
+      "arguments": {
+        "kind": "anime",
+        "query": "adaptation of Spirited Away"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "anime",
+        "matches": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "Spirited Away adaptation"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.00701,
+      "arguments": {
+        "query": "Spirited Away adaptation"
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 6.224316
+    }
+  ]
+}

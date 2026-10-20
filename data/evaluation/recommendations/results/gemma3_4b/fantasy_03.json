@@ -1,0 +1,492 @@
+{
+  "question_id": "fantasy_03",
+  "category": "genres",
+  "intent_family": "fantasy",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "Give me five anime where the world works by enchanted rules instead of ordinary reality.",
+  "k": 5,
+  "constraints": [
+    {
+      "field": "genres",
+      "op": "any",
+      "value": [
+        "Fantasy"
+      ],
+      "alternatives": [
+        {
+          "reason": "Magic, mythology, or dragons can substantiate the requested enchanted world even when Fantasy is not recorded as a genre. Other mixed-request date and source constraints still apply.",
+          "constraints": [
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Magic",
+                "Mythology",
+                "Dragons"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "Magic and impossible worlds map to the Fantasy genre.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 5157,
+  "reference_examples": [
+    {
+      "id": "100",
+      "title": "Prétear: The New Legend of Snow White"
+    },
+    {
+      "id": "100004",
+      "title": "Demoness of Dreams"
+    },
+    {
+      "id": "100049",
+      "title": "Re:ZERO -Starting Life in Another World- OVAs"
+    }
+  ],
+  "answer_text": "",
+  "status": "model_error",
+  "error": "RuntimeError: No supported recommendations were retrieved. Please rephrase your preferences and retry.",
+  "extraction": null,
+  "recommendations": [],
+  "metrics": null,
+  "model_seconds": 31.886798166000517,
+  "extraction_seconds": 0.0,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 3.9e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000775
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 7.972293
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.002691
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.034152
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.012987
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.582465
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "The user wants anime where the world operates according to 'enchanted rules'. This suggests a fantasy setting with magic or supernatural elements, potentially influenced by rules or systems beyond conventional reality. I will use the semantic feature candidates to refine the search.",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "enchanted rules",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "tag_details",
+                  "operator": "contains",
+                  "value": "enchanted rules"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "enchanted rules",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.037862,
+      "arguments": {
+        "query": "enchanted rules",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "magic",
+            "name": "Magic",
+            "description": "Prominently features magical elements or the use of magic.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.4046
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "tag_details",
+            "operator": "contains",
+            "value": "enchanted rules"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 7.385782,
+      "arguments": {
+        "filters": [
+          {
+            "field": "tag_details",
+            "operator": "contains",
+            "value": "enchanted rules"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "enchanted rules"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 0,
+          "retained": 0,
+          "limitations": [
+            "The exact requirement 'enchanted rules' is assessed semantically from descriptions, not verified by a catalog category."
+          ],
+          "mappings": [
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "enchanted rules",
+              "source_text": "Give me five anime where the world works by enchanted rules instead of ordinary reality.",
+              "mapping": "exact",
+              "origin": "structured_attribute_plan"
+            }
+          ]
+        },
+        "items": []
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "error",
+      "elapsed_seconds": 9.856001,
+      "error": "No supported recommendations were retrieved. Please rephrase your preferences and retry."
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "enchanted rules",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "magic",
+              "name": "Magic",
+              "description": "Prominently features magical elements or the use of magic.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.4046
+            }
+          ]
+        },
+        "elapsed_seconds": 0.037862
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "tag_details",
+              "operator": "contains",
+              "value": "enchanted rules"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "enchanted rules"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 0,
+            "retained": 0,
+            "limitations": [
+              "The exact requirement 'enchanted rules' is assessed semantically from descriptions, not verified by a catalog category."
+            ],
+            "mappings": [
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "enchanted rules",
+                "source_text": "Give me five anime where the world works by enchanted rules instead of ordinary reality.",
+                "mapping": "exact",
+                "origin": "structured_attribute_plan"
+              }
+            ]
+          },
+          "items": []
+        },
+        "elapsed_seconds": 7.385782
+      }
+    ],
+    "llm_calls": 6,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 7.972293,
+      "prepare_context": 0.002691,
+      "retrieve_guides": 0.034152,
+      "feature_candidates": 0.012987,
+      "planning": 6.582465,
+      "tools": 7.423644,
+      "generate_answer": 9.856001
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"enchanted rules\", \"query\": \"enchanted rules\", \"kind\": \"genre\", \"role\": \"required\", \"meaning\": \"Desired genre\"}]}",
+      "{\"choice\": 1, \"role\": \"required\", \"operator\": \"eq\", \"value\": \"Fantasy\", \"mapping\": \"exact\"}",
+      "{\"role\": \"required\"}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "enchanted rules",
+        "query": "enchanted rules",
+        "kind": "genre",
+        "role": "required",
+        "meaning": "Desired genre"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"To clarify, you are requesting five anime titles where the world operates based on magical or supernatural rules rather than conventional reality.\",\"decisions\": {\"p0\": {\"meaning\": \"enchanted rules\", \"role\": \"required\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "enchanted rules",
+          "name": "",
+          "meaning": "enchanted rules"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [
+        "enchanted rules"
+      ],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "tag_details",
+          "operator": "contains",
+          "value": "enchanted rules"
+        }
+      ],
+      "soft_query": "enchanted rules",
+      "limitations": [
+        "The exact requirement 'enchanted rules' is assessed semantically from descriptions, not verified by a catalog category."
+      ],
+      "mappings": [
+        {
+          "field": "tag_details",
+          "operator": "contains",
+          "value": "enchanted rules",
+          "source_text": "Give me five anime where the world works by enchanted rules instead of ordinary reality.",
+          "mapping": "exact",
+          "origin": "structured_attribute_plan"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "enchanted rules",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "exact"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "enchanted rules",
+            "name": "",
+            "meaning": "enchanted rules"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "The user wants anime where the world operates according to 'enchanted rules'. This suggests a fantasy setting with magic or supernatural elements, potentially influenced by rules or systems beyond conventional reality. I will use the semantic feature candidates to refine the search.",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "enchanted rules",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "tag_details",
+                "operator": "contains",
+                "value": "enchanted rules"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

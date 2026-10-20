@@ -1,0 +1,526 @@
+{
+  "question_id": "hf_105",
+  "anime_id": "16498",
+  "title": "Attack on Titan",
+  "field": "source_material",
+  "question": "What type of source material was Attack on Titan adapted from?",
+  "expected_values": [
+    "MANGA"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Attack on Titan is adapted from the MANGA.",
+  "extracted_values": [
+    "MANGA"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 14.528057875000286,
+  "extraction_seconds": 0.4765612500000316,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "MANGA",
+        "quote": "Attack on Titan is adapted from the MANGA."
+      }
+    ],
+    "note": "",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "16498"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "16498",
+          "title": "Attack on Titan"
+        },
+        "elapsed_seconds": 0.023732
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "source material",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "anthology",
+              "name": "Anthology",
+              "description": "A collection of separate works collated into a single release.",
+              "category": "Technical",
+              "similarity": 0.4049
+            },
+            {
+              "kind": "tag",
+              "id": "makeup",
+              "name": "Makeup",
+              "description": "Centers around the makeup industry.",
+              "category": "Theme-Arts",
+              "similarity": 0.3508
+            },
+            {
+              "kind": "tag",
+              "id": "advertisement",
+              "name": "Advertisement",
+              "description": "Produced in order to promote the products of a certain company.",
+              "category": "Technical",
+              "similarity": 0.3332
+            },
+            {
+              "kind": "tag",
+              "id": "achromatic",
+              "name": "Achromatic",
+              "description": "Contains animation that is primarily done in black and white.",
+              "category": "Technical",
+              "similarity": 0.327
+            },
+            {
+              "kind": "tag",
+              "id": "educational",
+              "name": "Educational",
+              "description": "Primary aim is to educate the audience.",
+              "category": "Theme-Other",
+              "similarity": 0.3118
+            }
+          ]
+        },
+        "elapsed_seconds": 0.035042
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "source material"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.019841
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 3.383909,
+      "prepare_context": 0.017669,
+      "retrieve_guides": 0.031398,
+      "feature_candidates": 0.01427,
+      "planning": 6.927221,
+      "tools": 0.078615,
+      "generate_answer": 4.071964
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Attack on Titan\", \"query\": \"Attack on Titan\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Attack on Titan",
+        "query": "Attack on Titan",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify if you are asking about the manga or the anime.\", \"decisions\": {\"p0\": {\"meaning\": \"Attack on Titan\", \"role\": \"subject\", \"selection\": \"Attack on Titan | anime:16498\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "16498",
+          "role": "subject",
+          "text": "Attack on Titan",
+          "name": "Attack on Titan",
+          "meaning": "Attack on Titan"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "16498",
+          "role": "subject",
+          "text": "Attack on Titan",
+          "name": "Attack on Titan",
+          "meaning": "Attack on Titan"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Attack on Titan"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "16498",
+            "role": "subject",
+            "text": "Attack on Titan",
+            "name": "Attack on Titan",
+            "meaning": "Attack on Titan"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "16498",
+            "role": "subject",
+            "text": "Attack on Titan",
+            "name": "Attack on Titan",
+            "meaning": "Attack on Titan"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "uncertain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine source material for Attack on Titan",
+      "clarification": "Confirm if the question is about the original manga or light novel.",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "16498"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "source material",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "source material"
+          }
+        }
+      ]
+    },
+    "scope": "uncertain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "16498",
+          "name": "Attack on Titan"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:16498",
+          "fact": "Attack on Titan is adapted from the MANGA."
+        },
+        {
+          "subject": "anime:16498",
+          "fact": "The source material is the Manga."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.7e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001319
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.383909
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.017669
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.031398
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.01427
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.927221
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "uncertain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "uncertain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine source material for Attack on Titan",
+        "clarification": "Confirm if the question is about the original manga or light novel.",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "16498"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "source material",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "source material"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "16498",
+            "name": "Attack on Titan"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "16498"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.023732,
+      "arguments": {
+        "id": "16498"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "16498",
+        "title": "Attack on Titan"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "source material",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.035042,
+      "arguments": {
+        "query": "source material",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "anthology",
+            "name": "Anthology",
+            "description": "A collection of separate works collated into a single release.",
+            "category": "Technical",
+            "similarity": 0.4049
+          },
+          {
+            "kind": "tag",
+            "id": "makeup",
+            "name": "Makeup",
+            "description": "Centers around the makeup industry.",
+            "category": "Theme-Arts",
+            "similarity": 0.3508
+          },
+          {
+            "kind": "tag",
+            "id": "advertisement",
+            "name": "Advertisement",
+            "description": "Produced in order to promote the products of a certain company.",
+            "category": "Technical",
+            "similarity": 0.3332
+          },
+          {
+            "kind": "tag",
+            "id": "achromatic",
+            "name": "Achromatic",
+            "description": "Contains animation that is primarily done in black and white.",
+            "category": "Technical",
+            "similarity": 0.327
+          },
+          {
+            "kind": "tag",
+            "id": "educational",
+            "name": "Educational",
+            "description": "Primary aim is to educate the audience.",
+            "category": "Theme-Other",
+            "similarity": 0.3118
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "source material"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.019841,
+      "arguments": {
+        "kind": "tag",
+        "query": "source material"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.071964
+    }
+  ]
+}

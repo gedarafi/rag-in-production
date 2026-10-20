@@ -1,0 +1,485 @@
+{
+  "question_id": "hf_060",
+  "anime_id": "5114",
+  "title": "Fullmetal Alchemist: Brotherhood",
+  "field": "duration",
+  "question": "What running time per episode is listed for Fullmetal Alchemist: Brotherhood?",
+  "expected_values": [
+    25.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Catalog matches.\n\n1. **Attack on Titan** — Several hundred years ago, humans were nearly exterminated by titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest of titans. Flash forward to the present and the city has not seen a…",
+  "extracted_values": [
+    "unknown"
+  ],
+  "status": "needs_review",
+  "error": "",
+  "model_seconds": 10.484410500000195,
+  "extraction_seconds": 0.6951107919999231,
+  "extraction": {
+    "status": "unclear",
+    "facts": [
+      {
+        "value": "unknown",
+        "quote": "Catalog matches.\n\n1. **Attack on Titan** — Several hundred years ago, humans were nearly exterminated by titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest of titans. Flash forward to the present and the city has not seen a…"
+      }
+    ],
+    "note": "No duration listed for Fullmetal Alchemist: Brotherhood",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": null,
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "5114"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "5114",
+          "title": "Fullmetal Alchemist: Brotherhood"
+        },
+        "elapsed_seconds": 0.014984
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "episode run time",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "time loop",
+              "name": "Time Loop",
+              "description": "A character is stuck in a repetitive cycle that they are attempting to break out of. This is distinct from a manipulating time of their own choice.",
+              "category": "Theme-Sci-Fi",
+              "similarity": 0.3993
+            },
+            {
+              "kind": "tag",
+              "id": "time skip",
+              "name": "Time Skip",
+              "description": "Features a gap in time used to advance the story.",
+              "category": "Setting-Time",
+              "similarity": 0.3903
+            },
+            {
+              "kind": "tag",
+              "id": "ensemble cast",
+              "name": "Ensemble Cast",
+              "description": "Features a large cast of characters with (almost) equal screen time and importance to the plot.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.3682
+            }
+          ]
+        },
+        "elapsed_seconds": 0.029735
+      },
+      {
+        "step": 2,
+        "tool": "recommend_anime",
+        "arguments": {
+          "query": "episode run time",
+          "limit": 1
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "sort_by": "popularity"
+          },
+          "items": [
+            {
+              "id": "16498",
+              "title": "Attack on Titan",
+              "reason": "Matches: sort_by=popularity"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.044353
+      }
+    ],
+    "llm_calls": 3,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 3.578502,
+      "prepare_context": 0.017867,
+      "retrieve_guides": 0.033347,
+      "feature_candidates": 0.013227,
+      "planning": 6.748891,
+      "tools": 0.089072,
+      "generate_answer": 0.00054
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Fullmetal Alchemist: Brotherhood\", \"query\": \"Fullmetal Alchemist: Brotherhood\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Fullmetal Alchemist: Brotherhood",
+        "query": "Fullmetal Alchemist: Brotherhood",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"To clarify, what running time per episode is listed for the anime Fullmetal Alchemist: Brotherhood?\", \"decisions\": {\"p0\": {\"meaning\": \"Fullmetal Alchemist: Brotherhood\", \"role\": \"subject\", \"selection\": \"Fullmetal Alchemist: Brotherhood | anime:5114\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "5114",
+          "role": "subject",
+          "text": "Fullmetal Alchemist: Brotherhood",
+          "name": "Fullmetal Alchemist: Brotherhood",
+          "meaning": "Fullmetal Alchemist: Brotherhood"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "5114",
+          "role": "subject",
+          "text": "Fullmetal Alchemist: Brotherhood",
+          "name": "Fullmetal Alchemist: Brotherhood",
+          "meaning": "Fullmetal Alchemist: Brotherhood"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Fullmetal Alchemist: Brotherhood"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "5114",
+            "role": "subject",
+            "text": "Fullmetal Alchemist: Brotherhood",
+            "name": "Fullmetal Alchemist: Brotherhood",
+            "meaning": "Fullmetal Alchemist: Brotherhood"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "5114",
+            "role": "subject",
+            "text": "Fullmetal Alchemist: Brotherhood",
+            "name": "Fullmetal Alchemist: Brotherhood",
+            "meaning": "Fullmetal Alchemist: Brotherhood"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Retrieve episode run time for Fullmetal Alchemist: Brotherhood",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "5114"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "episode run time",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "query": "episode run time",
+            "limit": 1
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "5114",
+          "name": "Fullmetal Alchemist: Brotherhood"
+        }
+      ],
+      "characters": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 8.8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001484
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.578502
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.017867
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.033347
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013227
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.748891
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Retrieve episode run time for Fullmetal Alchemist: Brotherhood",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "5114"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "episode run time",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "query": "episode run time",
+              "limit": 1
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "5114",
+            "name": "Fullmetal Alchemist: Brotherhood"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "5114"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.014984,
+      "arguments": {
+        "id": "5114"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "5114",
+        "title": "Fullmetal Alchemist: Brotherhood"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "episode run time",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.029735,
+      "arguments": {
+        "query": "episode run time",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "time loop",
+            "name": "Time Loop",
+            "description": "A character is stuck in a repetitive cycle that they are attempting to break out of. This is distinct from a manipulating time of their own choice.",
+            "category": "Theme-Sci-Fi",
+            "similarity": 0.3993
+          },
+          {
+            "kind": "tag",
+            "id": "time skip",
+            "name": "Time Skip",
+            "description": "Features a gap in time used to advance the story.",
+            "category": "Setting-Time",
+            "similarity": 0.3903
+          },
+          {
+            "kind": "tag",
+            "id": "ensemble cast",
+            "name": "Ensemble Cast",
+            "description": "Features a large cast of characters with (almost) equal screen time and importance to the plot.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.3682
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "recommend_anime",
+      "arguments": {
+        "query": "episode run time",
+        "limit": 1
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.044353,
+      "arguments": {
+        "query": "episode run time",
+        "limit": 1
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "sort_by": "popularity"
+        },
+        "items": [
+          {
+            "id": "16498",
+            "title": "Attack on Titan",
+            "reason": "Matches: sort_by=popularity"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.00054
+    }
+  ]
+}

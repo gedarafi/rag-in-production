@@ -1,0 +1,955 @@
+{
+  "question_id": "cyberpunk_01",
+  "category": "tags",
+  "intent_family": "cyberpunk",
+  "wording": "explicit",
+  "question_origin": "authored_naturalistic",
+  "question": "Can I get three cyberpunk anime recommendations?",
+  "k": 3,
+  "constraints": [
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Cyberpunk"
+      ],
+      "alternatives": [
+        {
+          "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+          "constraints": [
+            {
+              "field": "genres",
+              "op": "any",
+              "value": [
+                "Sci-Fi"
+              ]
+            },
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Dystopian"
+              ]
+            },
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Cyborg",
+                "Artificial Intelligence"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "High technology and a gritty unequal future are a Cyberpunk proxy.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 239,
+  "reference_examples": [
+    {
+      "id": "100168",
+      "title": "Blade Runner: Black Out 2022"
+    },
+    {
+      "id": "1079",
+      "title": "Armitage III"
+    },
+    {
+      "id": "1095",
+      "title": "Patlabor: The Movie"
+    }
+  ],
+  "answer_text": "Catalog matches — Cyberpunk.\n\n1. **Cowboy Bebop** — Enter a world in the distant future, where Bounty Hunters roam the solar system. Spike and Jet, bounty hunting partners, set out on journeys in an ever struggling effort to win bounty rewards to survive. While traveling, they meet up with other very interesting people. Could Faye, the beautiful and ridiculously poor gambler, Edward, the computer genius, and Ein, the engineered dog be a good addition to the group?\n\n2. **Cyberpunk: Edgerunners** — Cyberpunk: Edgerunners tells a standalone, 10-episode story about a street kid trying to survive in a technology and body modification-obsessed city of the future. Having everything to lose, he chooses to stay alive by becoming an edgerunner—a mercenary outlaw also known as a cyberpunk. (Source: CD PROJEKT RED) Note: The first episode received a pre-screening at Anime Expo on July 2, 2022. The first 3 dubbed episodes were streamed on Twitch as…\n\n3. **PSYCHO-PASS** — Justice, and the enforcement of it, has changed. In the 22nd century, Japan enforces the Sibyl System, an objective means of determining the threat level of each citizen by examining their mental state for signs of criminal intent, known as their Psycho-Pass. Inspectors uphold the law by subjugating, often with lethal force, anyone harboring the slightest ill-will; alongside them are Enforcers, jaded Inspectors that have become latent criminals…\n\n4. **Serial Experiments Lain** — We're all connected... There is the world around us, a world of people, tactile sensation, and culture. There is the wired world, inside the computer, of images, personalities, virtual experiences, and a culture all of its own. The day after a classmate commits suicide, Lain, a 14-year-old girl, discovers how closely the two worlds are linked when she receives an e-mail from the dead girl: I just abandoned my body. I still live here... Has the…\n\n5. **Akira** — It's the year 2019, thirty-one years have passed since the start of World War III. A top-secret child with amazing powers of the mind breaks free from custody and accidentally gets a motorcycle gang involved in the project. This incident triggers psychic powers within one of the gang members, Tetsuo, and he is taken by the army to be experimented on. His mind has been altered and is now on the path of war, seeking revenge on the society that…",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Cowboy Bebop",
+      "Cyberpunk: Edgerunners",
+      "PSYCHO-PASS",
+      "Serial Experiments Lain",
+      "Akira"
+    ],
+    "unclear": false,
+    "note": "Note: The first 3 dubbed episodes were streamed on Twitch as…",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Cowboy Bebop",
+      "anime_id": "1",
+      "canonical_title": "Cowboy Bebop",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "1"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.78
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.78,
+          "met": true,
+          "literal_score": 0.78,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.78,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Sci-Fi"
+                    ]
+                  },
+                  "score": 1.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Dystopian"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cyborg",
+                      "Artificial Intelligence"
+                    ]
+                  },
+                  "score": 0.66
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.78,
+      "gain": 0.78,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Cyberpunk: Edgerunners",
+      "anime_id": "120377",
+      "canonical_title": "Cyberpunk: Edgerunners",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "120377"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.97
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.97,
+          "met": true,
+          "literal_score": 0.97,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.97,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+              "score": 0.91,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Sci-Fi"
+                    ]
+                  },
+                  "score": 1.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Dystopian"
+                    ]
+                  },
+                  "score": 0.91
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cyborg",
+                      "Artificial Intelligence"
+                    ]
+                  },
+                  "score": 0.91
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.97,
+      "gain": 0.97,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 3,
+      "extracted_title": "PSYCHO-PASS",
+      "anime_id": "13601",
+      "canonical_title": "PSYCHO-PASS",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "13601"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.92
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.92,
+          "met": true,
+          "literal_score": 0.92,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.92,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+              "score": 0.8,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Sci-Fi"
+                    ]
+                  },
+                  "score": 1.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Dystopian"
+                    ]
+                  },
+                  "score": 0.93
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cyborg",
+                      "Artificial Intelligence"
+                    ]
+                  },
+                  "score": 0.8
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.92,
+      "gain": 0.92,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Serial Experiments Lain",
+      "anime_id": "339",
+      "canonical_title": "Serial Experiments Lain",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "339"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.83
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.83,
+          "met": true,
+          "literal_score": 0.83,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.83,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Sci-Fi"
+                    ]
+                  },
+                  "score": 1.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Dystopian"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cyborg",
+                      "Artificial Intelligence"
+                    ]
+                  },
+                  "score": 0.84
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.83,
+      "gain": 0.83,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Akira",
+      "anime_id": "47",
+      "canonical_title": "Akira",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "47"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.97
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.97,
+          "met": true,
+          "literal_score": 0.97,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.97,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Sci-Fi"
+                    ]
+                  },
+                  "score": 1.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Dystopian"
+                    ]
+                  },
+                  "score": 0.93
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cyborg",
+                      "Artificial Intelligence"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.97,
+      "gain": 0.97,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 1.0,
+    "graded_fit_at_k": 0.89,
+    "ndcg_at_k": 0.8691050739051073,
+    "constraint_coverage": 1.0,
+    "count_compliance": 0,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "extra_count": 2,
+    "literal_precision_at_k": 1.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 9.242271791999883,
+  "extraction_seconds": 1.859803749999628,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 3.6e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000711
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.485677
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.004205
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.010167
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.01792
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.865299
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "cyberpunk anime recommendations",
+              "kind": "tag",
+              "limit": 3
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "tags",
+                  "operator": "eq",
+                  "value": "Cyberpunk"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "cyberpunk anime recommendations",
+        "kind": "tag",
+        "limit": 3
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.041502,
+      "arguments": {
+        "query": "cyberpunk anime recommendations",
+        "kind": "tag",
+        "limit": 3
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "cyberpunk",
+            "name": "Cyberpunk",
+            "description": "Set in a future of advanced technological and scientific achievements that have resulted in social disorder.",
+            "category": "Theme-Sci-Fi",
+            "similarity": 0.7183
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Cyberpunk"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.814364,
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Cyberpunk"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Cyberpunk"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Cyberpunk",
+              "source_text": "Can I get three cyberpunk anime recommendations?",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "1",
+            "title": "Cowboy Bebop",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]"
+          },
+          {
+            "id": "120377",
+            "title": "Cyberpunk: Edgerunners",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]"
+          },
+          {
+            "id": "13601",
+            "title": "PSYCHO-PASS",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]"
+          },
+          {
+            "id": "339",
+            "title": "Serial Experiments Lain",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]"
+          },
+          {
+            "id": "47",
+            "title": "Akira",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000396
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "cyberpunk anime recommendations",
+          "kind": "tag",
+          "limit": 3
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "cyberpunk",
+              "name": "Cyberpunk",
+              "description": "Set in a future of advanced technological and scientific achievements that have resulted in social disorder.",
+              "category": "Theme-Sci-Fi",
+              "similarity": 0.7183
+            }
+          ]
+        },
+        "elapsed_seconds": 0.041502
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Cyberpunk"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Cyberpunk"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Cyberpunk",
+                "source_text": "Can I get three cyberpunk anime recommendations?",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "1",
+              "title": "Cowboy Bebop",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]"
+            },
+            {
+              "id": "120377",
+              "title": "Cyberpunk: Edgerunners",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]"
+            },
+            {
+              "id": "13601",
+              "title": "PSYCHO-PASS",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]"
+            },
+            {
+              "id": "339",
+              "title": "Serial Experiments Lain",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]"
+            },
+            {
+              "id": "47",
+              "title": "Akira",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.814364
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 4.485677,
+      "prepare_context": 0.004205,
+      "retrieve_guides": 0.010167,
+      "feature_candidates": 0.01792,
+      "planning": 3.865299,
+      "tools": 0.855866,
+      "generate_answer": 0.000396
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"cyberpunk\", \"query\": \"cyberpunk\", \"kind\": \"genre\", \"role\": \"required\", \"meaning\": \"Desired genre\"}]}",
+      "{\n  \"role\": \"required\"\n}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "cyberpunk",
+        "query": "cyberpunk",
+        "kind": "genre",
+        "role": "required",
+        "meaning": "Desired genre"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Can I get three cyberpunk anime recommendations?\", \"decisions\": {\"p0\": {\"meaning\": \"Desired genre\", \"role\": \"required\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "cyberpunk",
+          "name": "",
+          "meaning": "Desired genre"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [
+        "cyberpunk"
+      ],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "tags",
+          "operator": "eq",
+          "value": "Cyberpunk"
+        }
+      ],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "tags",
+          "operator": "eq",
+          "value": "Cyberpunk",
+          "source_text": "Can I get three cyberpunk anime recommendations?",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "cyberpunk",
+          "candidate": {
+            "field": "tags",
+            "value": "Cyberpunk",
+            "meaning": "Cyberpunk"
+          },
+          "role": "required",
+          "mapping": "exact"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "cyberpunk",
+            "name": "",
+            "meaning": "Desired genre"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "cyberpunk anime recommendations",
+            "kind": "tag",
+            "limit": 3
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Cyberpunk"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

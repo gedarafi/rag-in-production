@@ -1,0 +1,400 @@
+{
+  "question_id": "hf_177",
+  "anime_id": "20464",
+  "title": "HAIKYU!!",
+  "field": "main_characters",
+  "question": "Who is included in Haikyu season one's main character lineup?",
+  "expected_values": [
+    "Shouyou Hinata",
+    "Tobio Kageyama"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Shouyou Hinata and Tobio Kageyama",
+  "extracted_values": [
+    "Shouyou Hinata",
+    "Tobio Kageyama"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 14.120993250000538,
+  "extraction_seconds": 0.7299723749983968,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Shouyou Hinata",
+        "quote": "Shouyou Hinata and Tobio Kageyama"
+      },
+      {
+        "value": "Tobio Kageyama",
+        "quote": "Shouyou Hinata and Tobio Kageyama"
+      }
+    ],
+    "note": "No other main characters mentioned",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 2,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20464",
+          "section": "cast"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "20464",
+          "title": "HAIKYU!!"
+        },
+        "elapsed_seconds": 0.005858
+      },
+      {
+        "status": "error",
+        "step": 1,
+        "tool": "get_character",
+        "error": "Use character IDs from dictionary or tool results first",
+        "elapsed_seconds": 2.2e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 3.220427,
+      "prepare_context": 0.021704,
+      "retrieve_guides": 0.028355,
+      "feature_candidates": 0.013707,
+      "planning": 4.189234,
+      "tools": 0.00588,
+      "generate_answer": 6.63863
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Haikyu\", \"query\": \"Haikyu season 1\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; main characters\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Haikyu",
+        "query": "Haikyu season 1",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; main characters"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"TV series; main characters\", \"role\": \"subject\", \"selection\": \"HAIKYU!! | anime:20464\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20464",
+          "role": "subject",
+          "text": "Haikyu",
+          "name": "HAIKYU!!",
+          "meaning": "TV series; main characters"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20464",
+          "role": "subject",
+          "text": "Haikyu",
+          "name": "HAIKYU!!",
+          "meaning": "TV series; main characters"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "HAIKYU!!"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20464",
+            "role": "subject",
+            "text": "Haikyu",
+            "name": "HAIKYU!!",
+            "meaning": "TV series; main characters"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20464",
+            "role": "subject",
+            "text": "Haikyu",
+            "name": "HAIKYU!!",
+            "meaning": "TV series; main characters"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Who is included in Haikyu season one's main character lineup?",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20464",
+            "section": "cast"
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "main_characters",
+            "section": "appearances"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "20464",
+          "name": "HAIKYU!!"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:20464",
+          "fact": "The main characters in Haikyu season one's main character lineup are Shouyou Hinata and Tobio Kageyama."
+        },
+        {
+          "subject": "anime:20464",
+          "fact": "Hinata is the captain of the Karasuno High School Volleyball team and has an unusually high ability to jump."
+        },
+        {
+          "subject": "anime:20464",
+          "fact": "Kageyama is a famous setter in his middle school and joins the Karasuno High Volleyball team."
+        },
+        {
+          "subject": "anime:20464",
+          "fact": "Kageyama was known as the \"King of the Court\" in his middle school due to his arrogant demeanor."
+        },
+        {
+          "subject": "anime:20464",
+          "fact": "Sugawara is the vice captain of the Karasuno High School Volleyball team and has a soothing personality for his teammates."
+        },
+        {
+          "subject": "anime:20464",
+          "fact": "Sawamura is the captain of the Karasuno High School Volleyball team and is known for his determination."
+        },
+        {
+          "subject": "anime:20464",
+          "fact": "Tanaka is a supporting character in the Karasuno High School Volleyball team and is known for his height."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 7.3e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001583
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.220427
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.021704
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.028355
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013707
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.189234
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Who is included in Haikyu season one's main character lineup?",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20464",
+              "section": "cast"
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "main_characters",
+              "section": "appearances"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "20464",
+            "name": "HAIKYU!!"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20464",
+        "section": "cast"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.005858,
+      "arguments": {
+        "id": "20464",
+        "section": "cast"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "20464",
+        "title": "HAIKYU!!"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_character",
+      "arguments": {
+        "id": "main_characters",
+        "section": "appearances"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_character",
+      "status": "error",
+      "elapsed_seconds": 2.2e-05,
+      "error": "Use character IDs from dictionary or tool results first"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 6.63863
+    }
+  ]
+}

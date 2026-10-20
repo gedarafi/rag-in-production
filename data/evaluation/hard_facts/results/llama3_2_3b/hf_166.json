@@ -1,0 +1,336 @@
+{
+  "question_id": "hf_166",
+  "anime_id": "20954",
+  "title": "A Silent Voice",
+  "field": "main_characters",
+  "question": "What are the names of A Silent Voice's main characters?",
+  "expected_values": [
+    "Shouko Nishimiya",
+    "Shouya Ishida"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Shouko Nishimiya and Shouya Ishida",
+  "extracted_values": [
+    "Shouko Nishimiya",
+    "Shouya Ishida"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 8.752975792000143,
+  "extraction_seconds": 0.6371407919996273,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Shouko Nishimiya",
+        "quote": "Shouko Nishimiya and Shouya Ishida"
+      },
+      {
+        "value": "Shouya Ishida",
+        "quote": "Shouko Nishimiya and Shouya Ishida"
+      }
+    ],
+    "note": "",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 2,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "status": "error",
+        "step": 0,
+        "tool": "get_character",
+        "error": "Use character IDs from dictionary or tool results first",
+        "elapsed_seconds": 3.4e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 0,
+    "timings_seconds": {
+      "interpret_request": 3.034068,
+      "prepare_context": 0.016479,
+      "retrieve_guides": 0.028541,
+      "feature_candidates": 0.014842,
+      "planning": 3.609855,
+      "tools": 3.4e-05,
+      "generate_answer": 2.046233
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"A Silent Voice\", \"query\": \"A Silent Voice\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}, {\"text\": \"Shoya Ishida\", \"query\": \"Shoya Ishida\", \"kind\": \"character\", \"role\": \"subject\", \"meaning\": \"Main character\"}, {\"text\": \"Shoko Nishimiya\", \"query\": \"Shoko Nishimiya\", \"kind\": \"character\", \"role\": \"subject\", \"meaning\": \"Protagonist\"}]}"
+    ],
+    "unsupported_mentions": [
+      {
+        "text": "Shoya Ishida",
+        "query": "Shoya Ishida",
+        "kind": "character",
+        "role": "subject",
+        "meaning": "Main character"
+      },
+      {
+        "text": "Shoko Nishimiya",
+        "query": "Shoko Nishimiya",
+        "kind": "character",
+        "role": "subject",
+        "meaning": "Protagonist"
+      }
+    ],
+    "typed_mentions": [
+      {
+        "text": "A Silent Voice",
+        "query": "A Silent Voice",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"What are the names of A Silent Voice's main characters?\", \"decisions\": {\"p0\": {\"meaning\": \"Requested title\", \"role\": \"subject\", \"selection\": \"A Silent Voice | anime:20954\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20954",
+          "role": "subject",
+          "text": "A Silent Voice",
+          "name": "A Silent Voice",
+          "meaning": "Requested title"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20954",
+          "role": "subject",
+          "text": "A Silent Voice",
+          "name": "A Silent Voice",
+          "meaning": "Requested title"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "A Silent Voice"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20954",
+            "role": "subject",
+            "text": "A Silent Voice",
+            "name": "A Silent Voice",
+            "meaning": "Requested title"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20954",
+            "role": "subject",
+            "text": "A Silent Voice",
+            "name": "A Silent Voice",
+            "meaning": "Requested title"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Get main characters of A Silent Voice",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "20954",
+            "section": "cast"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "20954",
+          "name": "A Silent Voice"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:20954",
+          "fact": "The main characters of A Silent Voice are Shouko Nishimiya and Shouya Ishida."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 9.9e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001402
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.034068
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.016479
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.028541
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014842
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.609855
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Get main characters of A Silent Voice",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "20954",
+              "section": "cast"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "20954",
+            "name": "A Silent Voice"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_character",
+      "arguments": {
+        "id": "20954",
+        "section": "cast"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_character",
+      "status": "error",
+      "elapsed_seconds": 3.4e-05,
+      "error": "Use character IDs from dictionary or tool results first"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 2.046233
+    }
+  ]
+}

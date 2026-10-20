@@ -1,0 +1,528 @@
+{
+  "question_id": "hf_014",
+  "anime_id": "20755",
+  "title": "Assassination Classroom",
+  "field": "year",
+  "question": "Can you give me the year Assassination Classroom's first season premiered?",
+  "expected_values": [
+    2015.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "year: 2015 years.",
+  "extracted_values": [
+    "2015"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 13.740568875000008,
+  "extraction_seconds": 0.48930266700017455,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "2015",
+        "quote": "year: 2015 years."
+      }
+    ],
+    "note": "years",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20755"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20755",
+          "title": "Assassination Classroom"
+        },
+        "elapsed_seconds": 0.014039
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "year",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "age gap",
+              "name": "Age Gap",
+              "description": "Prominently features romantic relations between people with a significant age difference.",
+              "category": "Theme-Romance",
+              "similarity": 0.2377
+            },
+            {
+              "kind": "tag",
+              "id": "coming of age",
+              "name": "Coming of Age",
+              "description": "Centers around a character's transition from childhood to adulthood.",
+              "category": "Theme-Drama",
+              "similarity": 0.2334
+            },
+            {
+              "kind": "tag",
+              "id": "historical",
+              "name": "Historical",
+              "description": "Partly or completely set during a real period of world history.",
+              "category": "Setting-Time",
+              "similarity": 0.2276
+            },
+            {
+              "kind": "tag",
+              "id": "cycling",
+              "name": "Cycling",
+              "description": "Centers around the sport of cycling.",
+              "category": "Theme-Game-Sport",
+              "similarity": 0.1924
+            },
+            {
+              "kind": "tag",
+              "id": "graduation project",
+              "name": "Graduation Project",
+              "description": "A work made by students in place of an exam, typically at higher levels of education, either as a work for the entire course or as a work for a specific year of a course.",
+              "category": "Technical",
+              "similarity": 0.1907
+            }
+          ]
+        },
+        "elapsed_seconds": 0.028866
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "year"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.004356
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 3.826994,
+      "prepare_context": 0.01876,
+      "retrieve_guides": 0.033643,
+      "feature_candidates": 0.014664,
+      "planning": 6.528227,
+      "tools": 0.047261,
+      "generate_answer": 3.267081
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Assassination Classroom\", \"query\": \"Assassination Classroom\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"First season\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Assassination Classroom",
+        "query": "Assassination Classroom",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "First season"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"The question asks for the year of the first season premiere of Assassination Classroom.\", \"decisions\": {\"p0\": {\"meaning\": \"Assassination Classroom\", \"role\": \"subject\", \"selection\": \"Assassination Classroom | anime:20755\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20755",
+          "role": "subject",
+          "text": "Assassination Classroom",
+          "name": "Assassination Classroom",
+          "meaning": "Assassination Classroom"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20755",
+          "role": "subject",
+          "text": "Assassination Classroom",
+          "name": "Assassination Classroom",
+          "meaning": "Assassination Classroom"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Assassination Classroom"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20755",
+            "role": "subject",
+            "text": "Assassination Classroom",
+            "name": "Assassination Classroom",
+            "meaning": "Assassination Classroom"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20755",
+            "role": "subject",
+            "text": "Assassination Classroom",
+            "name": "Assassination Classroom",
+            "meaning": "Assassination Classroom"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "retrieve_anime_release_year",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20755"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "year",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "year"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "20755",
+          "name": "Assassination Classroom"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:20755",
+          "fact": "year"
+        }
+      ],
+      "calculations": [
+        {
+          "expression": "2015.0",
+          "value": "2015",
+          "unit": "years"
+        }
+      ]
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 0.000119
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.002179
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.826994
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.01876
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.033643
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014664
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.528227
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "retrieve_anime_release_year",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20755"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "year",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "year"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "20755",
+            "name": "Assassination Classroom"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20755"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.014039,
+      "arguments": {
+        "id": "20755"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20755",
+        "title": "Assassination Classroom"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "year",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.028866,
+      "arguments": {
+        "query": "year",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "age gap",
+            "name": "Age Gap",
+            "description": "Prominently features romantic relations between people with a significant age difference.",
+            "category": "Theme-Romance",
+            "similarity": 0.2377
+          },
+          {
+            "kind": "tag",
+            "id": "coming of age",
+            "name": "Coming of Age",
+            "description": "Centers around a character's transition from childhood to adulthood.",
+            "category": "Theme-Drama",
+            "similarity": 0.2334
+          },
+          {
+            "kind": "tag",
+            "id": "historical",
+            "name": "Historical",
+            "description": "Partly or completely set during a real period of world history.",
+            "category": "Setting-Time",
+            "similarity": 0.2276
+          },
+          {
+            "kind": "tag",
+            "id": "cycling",
+            "name": "Cycling",
+            "description": "Centers around the sport of cycling.",
+            "category": "Theme-Game-Sport",
+            "similarity": 0.1924
+          },
+          {
+            "kind": "tag",
+            "id": "graduation project",
+            "name": "Graduation Project",
+            "description": "A work made by students in place of an exam, typically at higher levels of education, either as a work for the entire course or as a work for a specific year of a course.",
+            "category": "Technical",
+            "similarity": 0.1907
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "year"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.004356,
+      "arguments": {
+        "kind": "tag",
+        "query": "year"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.267081
+    }
+  ]
+}

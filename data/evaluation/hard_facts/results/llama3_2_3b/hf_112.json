@@ -1,0 +1,398 @@
+{
+  "question_id": "hf_112",
+  "anime_id": "101291",
+  "title": "Rascal Does Not Dream of Bunny Girl Senpai",
+  "field": "source_material",
+  "question": "What's the source-material category for Rascal Does Not Dream of Bunny Girl Senpai?",
+  "expected_values": [
+    "LIGHT_NOVEL"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "LIGHT_NOVEL",
+  "extracted_values": [
+    "LIGHT_NOVEL",
+    "ORIGINAL"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 10.46460691700122,
+  "extraction_seconds": 0.7086153750005906,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "LIGHT_NOVEL",
+        "quote": "LIGHT_NOVEL"
+      },
+      {
+        "value": "ORIGINAL",
+        "quote": "LIGHT_NOVEL"
+      }
+    ],
+    "note": "assertion for LIGHT_NOVEL is correct, but ORIGINAL is also mentioned as source-material category.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.5,
+    "recall": 1.0,
+    "f1": 0.6666666666666666,
+    "tp": 1,
+    "fp": 1,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": [
+      "original"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101291",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101291",
+          "title": "Rascal Does Not Dream of Bunny Girl Senpai"
+        },
+        "elapsed_seconds": 0.016346
+      },
+      {
+        "step": 1,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101291",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101291",
+          "title": "Rascal Does Not Dream of Bunny Girl Senpai"
+        },
+        "elapsed_seconds": 8.6e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 2.904268,
+      "prepare_context": 0.021178,
+      "retrieve_guides": 0.02864,
+      "feature_candidates": 0.013564,
+      "planning": 4.480435,
+      "tools": 0.016432,
+      "generate_answer": 2.996874
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Rascal Does Not Dream of Bunny Girl Senpai\", \"query\": \"Rascal Does Not Dream of Bunny Girl Senpai\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Light novel series; manga adaptation; TV anime adaptation; source-material category: light novel, manga, TV anime adaptation\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Rascal Does Not Dream of Bunny Girl Senpai",
+        "query": "Rascal Does Not Dream of Bunny Girl Senpai",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Light novel series; manga adaptation; TV anime adaptation; source-material category: light novel, manga, TV anime adaptation"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"What is the source-material category for Rascal Does Not Dream of Bunny Girl Senpai?\", \"decisions\": {\"p0\": {\"meaning\": \"Light novel series; manga adaptation; TV anime adaptation\", \"role\": \"subject\", \"selection\": \"Rascal Does Not Dream of Bunny Girl Senpai | anime:101291\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101291",
+          "role": "subject",
+          "text": "Rascal Does Not Dream of Bunny Girl Senpai",
+          "name": "Rascal Does Not Dream of Bunny Girl Senpai",
+          "meaning": "Light novel series; manga adaptation; TV anime adaptation"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101291",
+          "role": "subject",
+          "text": "Rascal Does Not Dream of Bunny Girl Senpai",
+          "name": "Rascal Does Not Dream of Bunny Girl Senpai",
+          "meaning": "Light novel series; manga adaptation; TV anime adaptation"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Rascal Does Not Dream of Bunny Girl Senpai"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101291",
+            "role": "subject",
+            "text": "Rascal Does Not Dream of Bunny Girl Senpai",
+            "name": "Rascal Does Not Dream of Bunny Girl Senpai",
+            "meaning": "Light novel series; manga adaptation; TV anime adaptation"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101291",
+            "role": "subject",
+            "text": "Rascal Does Not Dream of Bunny Girl Senpai",
+            "name": "Rascal Does Not Dream of Bunny Girl Senpai",
+            "meaning": "Light novel series; manga adaptation; TV anime adaptation"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Find the source-material category for Rascal Does Not Dream of Bunny Girl Senpai",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101291",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101291",
+            "section": "overview"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "101291",
+          "name": "Rascal Does Not Dream of Bunny Girl Senpai"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:101291",
+          "fact": "The source-material category for Rascal Does Not Dream of Bunny Girl Senpai is LIGHT_NOVEL."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 0.000136
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001501
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.904268
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.021178
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.02864
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013564
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.480435
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Find the source-material category for Rascal Does Not Dream of Bunny Girl Senpai",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101291",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101291",
+              "section": "overview"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "101291",
+            "name": "Rascal Does Not Dream of Bunny Girl Senpai"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101291",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.016346,
+      "arguments": {
+        "id": "101291",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101291",
+        "title": "Rascal Does Not Dream of Bunny Girl Senpai"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101291",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 8.6e-05,
+      "arguments": {
+        "id": "101291",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101291",
+        "title": "Rascal Does Not Dream of Bunny Girl Senpai"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 2.996874
+    }
+  ]
+}

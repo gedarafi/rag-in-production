@@ -1,0 +1,557 @@
+{
+  "question_id": "hf_169",
+  "anime_id": "101759",
+  "title": "The Promised Neverland",
+  "field": "main_characters",
+  "question": "Can I get the main-character names for The Promised Neverland season one?",
+  "expected_values": [
+    "Norman",
+    "Ray",
+    "Emma"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The main characters of The Promised Neverland season one are Emma, Ray, and Norman.",
+  "extracted_values": [
+    "Emma",
+    "Ray",
+    "Norman"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 17.892993208000007,
+  "extraction_seconds": 0.6679066660008175,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Emma",
+        "quote": "The main characters of The Promised Neverland season one are Emma, Ray, and Norman."
+      },
+      {
+        "value": "Ray",
+        "quote": "The main characters of The Promised Neverland season one are Emma, Ray, and Norman."
+      },
+      {
+        "value": "Norman",
+        "quote": "The main characters of The Promised Neverland season one are Emma, Ray, and Norman."
+      }
+    ],
+    "note": "assertion",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 3,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101759"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101759",
+          "title": "The Promised Neverland"
+        },
+        "elapsed_seconds": 0.01797
+      },
+      {
+        "step": 1,
+        "tool": "get_character",
+        "arguments": {
+          "id": "121700",
+          "offset": 0
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "121700",
+          "name": "Norman"
+        },
+        "elapsed_seconds": 0.002504
+      },
+      {
+        "step": 2,
+        "tool": "get_character",
+        "arguments": {
+          "id": "121724",
+          "offset": 0
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "121724",
+          "name": "Ray"
+        },
+        "elapsed_seconds": 0.00123
+      },
+      {
+        "step": 3,
+        "tool": "get_character",
+        "arguments": {
+          "id": "121725",
+          "offset": 0
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "121725",
+          "name": "Emma"
+        },
+        "elapsed_seconds": 0.001153
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 4,
+    "executed_tools": 4,
+    "timings_seconds": {
+      "interpret_request": 5.555775,
+      "prepare_context": 0.025969,
+      "retrieve_guides": 0.055655,
+      "feature_candidates": 0.023043,
+      "planning": 7.421345,
+      "tools": 0.022857,
+      "generate_answer": 4.785811
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"The Promised Neverland season one\", \"query\": \"The Promised Neverland\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title and season\"}, {\"text\": \"main-character\", \"query\": \"main-character\", \"kind\": \"description\", \"role\": \"required\", \"meaning\": \"Desired character type\"}, {\"text\": \"Emma\", \"query\": \"Emma\", \"kind\": \"character\", \"role\": \"required\", \"meaning\": \"Main character\"}, {\"text\": \"Noah\", \"query\": \"Noah\", \"kind\": \"character\", \"role\": \"required\", \"meaning\": \"Main character\"}]}"
+    ],
+    "unsupported_mentions": [
+      {
+        "text": "Emma",
+        "query": "Emma",
+        "kind": "character",
+        "role": "required",
+        "meaning": "Main character"
+      },
+      {
+        "text": "Noah",
+        "query": "Noah",
+        "kind": "character",
+        "role": "required",
+        "meaning": "Main character"
+      }
+    ],
+    "typed_mentions": [
+      {
+        "text": "The Promised Neverland season one",
+        "query": "The Promised Neverland",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested title and season"
+      },
+      {
+        "text": "main-character",
+        "query": "main-character",
+        "kind": "description",
+        "role": "required",
+        "meaning": "Desired character type"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify which main characters you are referring to in The Promised Neverland season one.\", \"decisions\": {\"p0\": {\"meaning\": \"Requested title and season\", \"role\": \"subject\", \"selection\": \"The Promised Neverland | anime:101759\"}, \"p1\": {\"meaning\": \"Desired character type\", \"role\": \"required\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101759",
+          "role": "subject",
+          "text": "The Promised Neverland season one",
+          "name": "The Promised Neverland",
+          "meaning": "Requested title and season"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "main-character",
+          "name": "",
+          "meaning": "Desired character type"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101759",
+          "role": "subject",
+          "text": "The Promised Neverland season one",
+          "name": "The Promised Neverland",
+          "meaning": "Requested title and season"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "The Promised Neverland"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101759",
+            "role": "subject",
+            "text": "The Promised Neverland season one",
+            "name": "The Promised Neverland",
+            "meaning": "Requested title and season"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "main-character",
+            "name": "",
+            "meaning": "Desired character type"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101759",
+            "role": "subject",
+            "text": "The Promised Neverland season one",
+            "name": "The Promised Neverland",
+            "meaning": "Requested title and season"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Retrieve main character names for The Promised Neverland season one.",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101759"
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "121700",
+            "offset": 0
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "121724",
+            "offset": 0
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "121725",
+            "offset": 0
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "101759",
+          "name": "The Promised Neverland"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:101759",
+          "fact": "Emma is a main character."
+        },
+        {
+          "subject": "anime:101759",
+          "fact": "Ray is a main character."
+        },
+        {
+          "subject": "anime:101759",
+          "fact": "Norman is a main character."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.2e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001138
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 5.555775
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.025969
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.055655
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.023043
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 7.421345
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Retrieve main character names for The Promised Neverland season one.",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101759"
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "121700",
+              "offset": 0
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "121724",
+              "offset": 0
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "121725",
+              "offset": 0
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "101759",
+            "name": "The Promised Neverland"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101759"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.01797,
+      "arguments": {
+        "id": "101759"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101759",
+        "title": "The Promised Neverland"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_character",
+      "arguments": {
+        "id": "121700",
+        "offset": 0
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.002504,
+      "arguments": {
+        "id": "121700",
+        "offset": 0
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "121700",
+        "name": "Norman"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "get_character",
+      "arguments": {
+        "id": "121724",
+        "offset": 0
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.00123,
+      "arguments": {
+        "id": "121724",
+        "offset": 0
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "121724",
+        "name": "Ray"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_character",
+      "arguments": {
+        "id": "121725",
+        "offset": 0
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.001153,
+      "arguments": {
+        "id": "121725",
+        "offset": 0
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "121725",
+        "name": "Emma"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.785811
+    }
+  ]
+}

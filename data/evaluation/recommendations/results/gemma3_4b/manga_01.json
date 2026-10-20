@@ -1,0 +1,1656 @@
+{
+  "question_id": "manga_01",
+  "category": "source_material",
+  "intent_family": "manga",
+  "wording": "explicit",
+  "question_origin": "authored_naturalistic",
+  "question": "Recommend three anime adapted from manga.",
+  "k": 3,
+  "constraints": [
+    {
+      "field": "source_material",
+      "op": "any",
+      "value": [
+        "MANGA"
+      ]
+    }
+  ],
+  "label_rationale": "MANGA source medium is required; popularity or manga-like style is insufficient.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 5246,
+  "reference_examples": [
+    {
+      "id": "100",
+      "title": "Prétear: The New Legend of Snow White"
+    },
+    {
+      "id": "1000",
+      "title": "Captain Harlock Space Pirate"
+    },
+    {
+      "id": "100004",
+      "title": "Demoness of Dreams"
+    }
+  ],
+  "answer_text": "Catalog matches — source material: MANGA. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **A Silent Voice** — After transferring into a new school, a deaf girl, Shouko Nishimiya, is bullied by the popular Shouya Ishida. As Shouya continues to bully Shouko, the class turns its back on him. Shouko transfers and Shouya grows up as an outcast. Alone and depressed, the regretful Shouya finds Shouko to make amends. (Source: Eleven Arts)\n\n2. **ERASED** — Satoru Fujinuma is a 29 year old manga artist struggling to make a name for himself following his debut. But, that was not the only thing in his life that Satoru was feeling frustrated about… He has a unique supernatural ability of being forced to prevent deaths and catastrophes by being sent back in time before the incident occurred, repeating time until the accident is prevented. One day, he gets involved in an accident that has him framed as…\n\n3. **Kaguya-sama: Love is War** — Known for being both brilliant and powerful, Miyuki Shirogane and Kaguya Shinomiya lead the illustrious Shuchiin Academy as near equals. And everyone thinks they’d make a great couple. Pride and arrogance are in ample supply, so the only logical move is to trick the other into instigating a date! Who will come out on top in this psychological war where the first move is the only one that matters? (Source: Aniplex)\n\n4. **One-Punch Man** — Saitama has a rather peculiar hobby, being a superhero, but despite his heroic deeds and superhuman abilities, a shadow looms over his life. He's become much too powerful, to the point that every opponent ends up defeated with a single punch. The lack of challenge has driven him into a state of apathy, as he watches his life pass by having lost all enthusiasm, at least until he's unwillingly thrust in the role of being a mentor to the young and…\n\n5. **Naruto: Shippuden** — Naruto: Shippuuden is the continuation of the original animated TV series Naruto. The story revolves around an older and slightly more matured Uzumaki Naruto and his quest to save his friend Uchiha Sasuke from the grips of the snake-like Shinobi, Orochimaru. After 2 and a half years Naruto finally returns to his village of Konoha, and sets about putting his ambitions to work, though it will not be easy, as he has amassed a few (more dangerous)…",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "A Silent Voice",
+      "ERASED",
+      "Kaguya-sama: Love is War",
+      "One-Punch Man",
+      "Naruto: Shippuden"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "A Silent Voice",
+      "anime_id": "20954",
+      "canonical_title": "A Silent Voice",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20954"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 2,
+      "extracted_title": "ERASED",
+      "anime_id": "21234",
+      "canonical_title": "ERASED",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21234"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Kaguya-sama: Love is War",
+      "anime_id": null,
+      "canonical_title": null,
+      "resolution": "ambiguous",
+      "candidate_ids": [
+        "101921",
+        "112641"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 4,
+      "extracted_title": "One-Punch Man",
+      "anime_id": "21087",
+      "canonical_title": "One-Punch Man",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21087"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Naruto: Shippuden",
+      "anime_id": "1735",
+      "canonical_title": "Naruto: Shippuden",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "1735"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.6666666666666666,
+    "graded_fit_at_k": 0.6666666666666666,
+    "ndcg_at_k": 0.7653606369886217,
+    "constraint_coverage": 1.0,
+    "count_compliance": 0,
+    "resolution_rate": 0.8,
+    "duplicate_rate": 0.0,
+    "extra_count": 2,
+    "literal_precision_at_k": 0.6666666666666666,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 20.095643166000627,
+  "extraction_seconds": 1.4849657920003665,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00077
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 9.401444
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.001855
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.007393
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.010901
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 9.93485
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "source_material",
+                  "operator": "eq",
+                  "value": "MANGA"
+                }
+              ]
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "adapted from manga",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "adapted from manga",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "adapted from manga",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "adapted from manga",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "adapted from manga",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "adapted from manga",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "adapted from manga",
+              "kind": "tag"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "source_material",
+            "operator": "eq",
+            "value": "MANGA"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.72567,
+      "arguments": {
+        "filters": [
+          {
+            "field": "source_material",
+            "operator": "eq",
+            "value": "MANGA"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "source_material",
+              "operator": "eq",
+              "value": "MANGA"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "source_material",
+              "operator": "eq",
+              "value": "MANGA",
+              "source_text": "Recommend three anime adapted from manga.",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "20954",
+            "title": "A Silent Voice",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}]",
+            "preference_similarity": 0.4164
+          },
+          {
+            "id": "21234",
+            "title": "ERASED",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}]",
+            "preference_similarity": 0.4054
+          },
+          {
+            "id": "101921",
+            "title": "Kaguya-sama: Love is War",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}]",
+            "preference_similarity": 0.3792
+          },
+          {
+            "id": "21087",
+            "title": "One-Punch Man",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}]",
+            "preference_similarity": 0.3757
+          },
+          {
+            "id": "1735",
+            "title": "Naruto: Shippuden",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}]",
+            "preference_similarity": 0.3703
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "adapted from manga",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.010516,
+      "arguments": {
+        "query": "adapted from manga",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "drawing",
+            "name": "Drawing",
+            "description": "Centers around the art of drawing, including manga and doujinshi.",
+            "category": "Theme-Arts",
+            "similarity": 0.5021
+          },
+          {
+            "kind": "tag",
+            "id": "isekai",
+            "name": "Isekai",
+            "description": "Features a character from a modern-day setting being transported into an alternate world and has to adapt to their new surroundings.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.5007
+          },
+          {
+            "kind": "tag",
+            "id": "4 koma",
+            "name": "4-koma",
+            "description": "A manga in the 'yonkoma' format, which consists of four equal-sized panels arranged in a vertical strip.",
+            "category": "Technical",
+            "similarity": 0.4866
+          },
+          {
+            "kind": "tag",
+            "id": "reverse isekai",
+            "name": "Reverse Isekai",
+            "description": "Features a character from a fantasy world who is transported into a modern-day setting.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.4602
+          },
+          {
+            "kind": "tag",
+            "id": "rakugo",
+            "name": "Rakugo",
+            "description": "Rakugo is the traditional Japanese performance art of comic storytelling.",
+            "category": "Theme-Arts",
+            "similarity": 0.4326
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "search_features",
+      "arguments": {
+        "query": "adapted from manga",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 2.3e-05,
+      "arguments": {
+        "query": "adapted from manga",
+        "kind": "tag"
+      },
+      "cached": true,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "drawing",
+            "name": "Drawing",
+            "description": "Centers around the art of drawing, including manga and doujinshi.",
+            "category": "Theme-Arts",
+            "similarity": 0.5021
+          },
+          {
+            "kind": "tag",
+            "id": "isekai",
+            "name": "Isekai",
+            "description": "Features a character from a modern-day setting being transported into an alternate world and has to adapt to their new surroundings.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.5007
+          },
+          {
+            "kind": "tag",
+            "id": "4 koma",
+            "name": "4-koma",
+            "description": "A manga in the 'yonkoma' format, which consists of four equal-sized panels arranged in a vertical strip.",
+            "category": "Technical",
+            "similarity": 0.4866
+          },
+          {
+            "kind": "tag",
+            "id": "reverse isekai",
+            "name": "Reverse Isekai",
+            "description": "Features a character from a fantasy world who is transported into a modern-day setting.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.4602
+          },
+          {
+            "kind": "tag",
+            "id": "rakugo",
+            "name": "Rakugo",
+            "description": "Rakugo is the traditional Japanese performance art of comic storytelling.",
+            "category": "Theme-Arts",
+            "similarity": 0.4326
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "search_features",
+      "arguments": {
+        "query": "adapted from manga",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 9e-06,
+      "arguments": {
+        "query": "adapted from manga",
+        "kind": "tag"
+      },
+      "cached": true,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "drawing",
+            "name": "Drawing",
+            "description": "Centers around the art of drawing, including manga and doujinshi.",
+            "category": "Theme-Arts",
+            "similarity": 0.5021
+          },
+          {
+            "kind": "tag",
+            "id": "isekai",
+            "name": "Isekai",
+            "description": "Features a character from a modern-day setting being transported into an alternate world and has to adapt to their new surroundings.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.5007
+          },
+          {
+            "kind": "tag",
+            "id": "4 koma",
+            "name": "4-koma",
+            "description": "A manga in the 'yonkoma' format, which consists of four equal-sized panels arranged in a vertical strip.",
+            "category": "Technical",
+            "similarity": 0.4866
+          },
+          {
+            "kind": "tag",
+            "id": "reverse isekai",
+            "name": "Reverse Isekai",
+            "description": "Features a character from a fantasy world who is transported into a modern-day setting.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.4602
+          },
+          {
+            "kind": "tag",
+            "id": "rakugo",
+            "name": "Rakugo",
+            "description": "Rakugo is the traditional Japanese performance art of comic storytelling.",
+            "category": "Theme-Arts",
+            "similarity": 0.4326
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "search_features",
+      "arguments": {
+        "query": "adapted from manga",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 8e-06,
+      "arguments": {
+        "query": "adapted from manga",
+        "kind": "tag"
+      },
+      "cached": true,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "drawing",
+            "name": "Drawing",
+            "description": "Centers around the art of drawing, including manga and doujinshi.",
+            "category": "Theme-Arts",
+            "similarity": 0.5021
+          },
+          {
+            "kind": "tag",
+            "id": "isekai",
+            "name": "Isekai",
+            "description": "Features a character from a modern-day setting being transported into an alternate world and has to adapt to their new surroundings.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.5007
+          },
+          {
+            "kind": "tag",
+            "id": "4 koma",
+            "name": "4-koma",
+            "description": "A manga in the 'yonkoma' format, which consists of four equal-sized panels arranged in a vertical strip.",
+            "category": "Technical",
+            "similarity": 0.4866
+          },
+          {
+            "kind": "tag",
+            "id": "reverse isekai",
+            "name": "Reverse Isekai",
+            "description": "Features a character from a fantasy world who is transported into a modern-day setting.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.4602
+          },
+          {
+            "kind": "tag",
+            "id": "rakugo",
+            "name": "Rakugo",
+            "description": "Rakugo is the traditional Japanese performance art of comic storytelling.",
+            "category": "Theme-Arts",
+            "similarity": 0.4326
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "search_features",
+      "arguments": {
+        "query": "adapted from manga",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 8e-06,
+      "arguments": {
+        "query": "adapted from manga",
+        "kind": "tag"
+      },
+      "cached": true,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "drawing",
+            "name": "Drawing",
+            "description": "Centers around the art of drawing, including manga and doujinshi.",
+            "category": "Theme-Arts",
+            "similarity": 0.5021
+          },
+          {
+            "kind": "tag",
+            "id": "isekai",
+            "name": "Isekai",
+            "description": "Features a character from a modern-day setting being transported into an alternate world and has to adapt to their new surroundings.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.5007
+          },
+          {
+            "kind": "tag",
+            "id": "4 koma",
+            "name": "4-koma",
+            "description": "A manga in the 'yonkoma' format, which consists of four equal-sized panels arranged in a vertical strip.",
+            "category": "Technical",
+            "similarity": 0.4866
+          },
+          {
+            "kind": "tag",
+            "id": "reverse isekai",
+            "name": "Reverse Isekai",
+            "description": "Features a character from a fantasy world who is transported into a modern-day setting.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.4602
+          },
+          {
+            "kind": "tag",
+            "id": "rakugo",
+            "name": "Rakugo",
+            "description": "Rakugo is the traditional Japanese performance art of comic storytelling.",
+            "category": "Theme-Arts",
+            "similarity": 0.4326
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 6,
+      "tool": "search_features",
+      "arguments": {
+        "query": "adapted from manga",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 6,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 7e-06,
+      "arguments": {
+        "query": "adapted from manga",
+        "kind": "tag"
+      },
+      "cached": true,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "drawing",
+            "name": "Drawing",
+            "description": "Centers around the art of drawing, including manga and doujinshi.",
+            "category": "Theme-Arts",
+            "similarity": 0.5021
+          },
+          {
+            "kind": "tag",
+            "id": "isekai",
+            "name": "Isekai",
+            "description": "Features a character from a modern-day setting being transported into an alternate world and has to adapt to their new surroundings.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.5007
+          },
+          {
+            "kind": "tag",
+            "id": "4 koma",
+            "name": "4-koma",
+            "description": "A manga in the 'yonkoma' format, which consists of four equal-sized panels arranged in a vertical strip.",
+            "category": "Technical",
+            "similarity": 0.4866
+          },
+          {
+            "kind": "tag",
+            "id": "reverse isekai",
+            "name": "Reverse Isekai",
+            "description": "Features a character from a fantasy world who is transported into a modern-day setting.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.4602
+          },
+          {
+            "kind": "tag",
+            "id": "rakugo",
+            "name": "Rakugo",
+            "description": "Rakugo is the traditional Japanese performance art of comic storytelling.",
+            "category": "Theme-Arts",
+            "similarity": 0.4326
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 7,
+      "tool": "search_features",
+      "arguments": {
+        "query": "adapted from manga",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 7,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 8e-06,
+      "arguments": {
+        "query": "adapted from manga",
+        "kind": "tag"
+      },
+      "cached": true,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "drawing",
+            "name": "Drawing",
+            "description": "Centers around the art of drawing, including manga and doujinshi.",
+            "category": "Theme-Arts",
+            "similarity": 0.5021
+          },
+          {
+            "kind": "tag",
+            "id": "isekai",
+            "name": "Isekai",
+            "description": "Features a character from a modern-day setting being transported into an alternate world and has to adapt to their new surroundings.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.5007
+          },
+          {
+            "kind": "tag",
+            "id": "4 koma",
+            "name": "4-koma",
+            "description": "A manga in the 'yonkoma' format, which consists of four equal-sized panels arranged in a vertical strip.",
+            "category": "Technical",
+            "similarity": 0.4866
+          },
+          {
+            "kind": "tag",
+            "id": "reverse isekai",
+            "name": "Reverse Isekai",
+            "description": "Features a character from a fantasy world who is transported into a modern-day setting.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.4602
+          },
+          {
+            "kind": "tag",
+            "id": "rakugo",
+            "name": "Rakugo",
+            "description": "Rakugo is the traditional Japanese performance art of comic storytelling.",
+            "category": "Theme-Arts",
+            "similarity": 0.4326
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000474
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "source_material",
+              "operator": "eq",
+              "value": "MANGA"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "source_material",
+                "operator": "eq",
+                "value": "MANGA"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "source_material",
+                "operator": "eq",
+                "value": "MANGA",
+                "source_text": "Recommend three anime adapted from manga.",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "20954",
+              "title": "A Silent Voice",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}]",
+              "preference_similarity": 0.4164
+            },
+            {
+              "id": "21234",
+              "title": "ERASED",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}]",
+              "preference_similarity": 0.4054
+            },
+            {
+              "id": "101921",
+              "title": "Kaguya-sama: Love is War",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}]",
+              "preference_similarity": 0.3792
+            },
+            {
+              "id": "21087",
+              "title": "One-Punch Man",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}]",
+              "preference_similarity": 0.3757
+            },
+            {
+              "id": "1735",
+              "title": "Naruto: Shippuden",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}]",
+              "preference_similarity": 0.3703
+            }
+          ]
+        },
+        "elapsed_seconds": 0.72567
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "adapted from manga",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "drawing",
+              "name": "Drawing",
+              "description": "Centers around the art of drawing, including manga and doujinshi.",
+              "category": "Theme-Arts",
+              "similarity": 0.5021
+            },
+            {
+              "kind": "tag",
+              "id": "isekai",
+              "name": "Isekai",
+              "description": "Features a character from a modern-day setting being transported into an alternate world and has to adapt to their new surroundings.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.5007
+            },
+            {
+              "kind": "tag",
+              "id": "4 koma",
+              "name": "4-koma",
+              "description": "A manga in the 'yonkoma' format, which consists of four equal-sized panels arranged in a vertical strip.",
+              "category": "Technical",
+              "similarity": 0.4866
+            },
+            {
+              "kind": "tag",
+              "id": "reverse isekai",
+              "name": "Reverse Isekai",
+              "description": "Features a character from a fantasy world who is transported into a modern-day setting.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.4602
+            },
+            {
+              "kind": "tag",
+              "id": "rakugo",
+              "name": "Rakugo",
+              "description": "Rakugo is the traditional Japanese performance art of comic storytelling.",
+              "category": "Theme-Arts",
+              "similarity": 0.4326
+            }
+          ]
+        },
+        "elapsed_seconds": 0.010516
+      },
+      {
+        "step": 2,
+        "tool": "search_features",
+        "arguments": {
+          "query": "adapted from manga",
+          "kind": "tag"
+        },
+        "cached": true,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "drawing",
+              "name": "Drawing",
+              "description": "Centers around the art of drawing, including manga and doujinshi.",
+              "category": "Theme-Arts",
+              "similarity": 0.5021
+            },
+            {
+              "kind": "tag",
+              "id": "isekai",
+              "name": "Isekai",
+              "description": "Features a character from a modern-day setting being transported into an alternate world and has to adapt to their new surroundings.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.5007
+            },
+            {
+              "kind": "tag",
+              "id": "4 koma",
+              "name": "4-koma",
+              "description": "A manga in the 'yonkoma' format, which consists of four equal-sized panels arranged in a vertical strip.",
+              "category": "Technical",
+              "similarity": 0.4866
+            },
+            {
+              "kind": "tag",
+              "id": "reverse isekai",
+              "name": "Reverse Isekai",
+              "description": "Features a character from a fantasy world who is transported into a modern-day setting.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.4602
+            },
+            {
+              "kind": "tag",
+              "id": "rakugo",
+              "name": "Rakugo",
+              "description": "Rakugo is the traditional Japanese performance art of comic storytelling.",
+              "category": "Theme-Arts",
+              "similarity": 0.4326
+            }
+          ]
+        },
+        "elapsed_seconds": 2.3e-05
+      },
+      {
+        "step": 3,
+        "tool": "search_features",
+        "arguments": {
+          "query": "adapted from manga",
+          "kind": "tag"
+        },
+        "cached": true,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "drawing",
+              "name": "Drawing",
+              "description": "Centers around the art of drawing, including manga and doujinshi.",
+              "category": "Theme-Arts",
+              "similarity": 0.5021
+            },
+            {
+              "kind": "tag",
+              "id": "isekai",
+              "name": "Isekai",
+              "description": "Features a character from a modern-day setting being transported into an alternate world and has to adapt to their new surroundings.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.5007
+            },
+            {
+              "kind": "tag",
+              "id": "4 koma",
+              "name": "4-koma",
+              "description": "A manga in the 'yonkoma' format, which consists of four equal-sized panels arranged in a vertical strip.",
+              "category": "Technical",
+              "similarity": 0.4866
+            },
+            {
+              "kind": "tag",
+              "id": "reverse isekai",
+              "name": "Reverse Isekai",
+              "description": "Features a character from a fantasy world who is transported into a modern-day setting.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.4602
+            },
+            {
+              "kind": "tag",
+              "id": "rakugo",
+              "name": "Rakugo",
+              "description": "Rakugo is the traditional Japanese performance art of comic storytelling.",
+              "category": "Theme-Arts",
+              "similarity": 0.4326
+            }
+          ]
+        },
+        "elapsed_seconds": 9e-06
+      },
+      {
+        "step": 4,
+        "tool": "search_features",
+        "arguments": {
+          "query": "adapted from manga",
+          "kind": "tag"
+        },
+        "cached": true,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "drawing",
+              "name": "Drawing",
+              "description": "Centers around the art of drawing, including manga and doujinshi.",
+              "category": "Theme-Arts",
+              "similarity": 0.5021
+            },
+            {
+              "kind": "tag",
+              "id": "isekai",
+              "name": "Isekai",
+              "description": "Features a character from a modern-day setting being transported into an alternate world and has to adapt to their new surroundings.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.5007
+            },
+            {
+              "kind": "tag",
+              "id": "4 koma",
+              "name": "4-koma",
+              "description": "A manga in the 'yonkoma' format, which consists of four equal-sized panels arranged in a vertical strip.",
+              "category": "Technical",
+              "similarity": 0.4866
+            },
+            {
+              "kind": "tag",
+              "id": "reverse isekai",
+              "name": "Reverse Isekai",
+              "description": "Features a character from a fantasy world who is transported into a modern-day setting.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.4602
+            },
+            {
+              "kind": "tag",
+              "id": "rakugo",
+              "name": "Rakugo",
+              "description": "Rakugo is the traditional Japanese performance art of comic storytelling.",
+              "category": "Theme-Arts",
+              "similarity": 0.4326
+            }
+          ]
+        },
+        "elapsed_seconds": 8e-06
+      },
+      {
+        "step": 5,
+        "tool": "search_features",
+        "arguments": {
+          "query": "adapted from manga",
+          "kind": "tag"
+        },
+        "cached": true,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "drawing",
+              "name": "Drawing",
+              "description": "Centers around the art of drawing, including manga and doujinshi.",
+              "category": "Theme-Arts",
+              "similarity": 0.5021
+            },
+            {
+              "kind": "tag",
+              "id": "isekai",
+              "name": "Isekai",
+              "description": "Features a character from a modern-day setting being transported into an alternate world and has to adapt to their new surroundings.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.5007
+            },
+            {
+              "kind": "tag",
+              "id": "4 koma",
+              "name": "4-koma",
+              "description": "A manga in the 'yonkoma' format, which consists of four equal-sized panels arranged in a vertical strip.",
+              "category": "Technical",
+              "similarity": 0.4866
+            },
+            {
+              "kind": "tag",
+              "id": "reverse isekai",
+              "name": "Reverse Isekai",
+              "description": "Features a character from a fantasy world who is transported into a modern-day setting.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.4602
+            },
+            {
+              "kind": "tag",
+              "id": "rakugo",
+              "name": "Rakugo",
+              "description": "Rakugo is the traditional Japanese performance art of comic storytelling.",
+              "category": "Theme-Arts",
+              "similarity": 0.4326
+            }
+          ]
+        },
+        "elapsed_seconds": 8e-06
+      },
+      {
+        "step": 6,
+        "tool": "search_features",
+        "arguments": {
+          "query": "adapted from manga",
+          "kind": "tag"
+        },
+        "cached": true,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "drawing",
+              "name": "Drawing",
+              "description": "Centers around the art of drawing, including manga and doujinshi.",
+              "category": "Theme-Arts",
+              "similarity": 0.5021
+            },
+            {
+              "kind": "tag",
+              "id": "isekai",
+              "name": "Isekai",
+              "description": "Features a character from a modern-day setting being transported into an alternate world and has to adapt to their new surroundings.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.5007
+            },
+            {
+              "kind": "tag",
+              "id": "4 koma",
+              "name": "4-koma",
+              "description": "A manga in the 'yonkoma' format, which consists of four equal-sized panels arranged in a vertical strip.",
+              "category": "Technical",
+              "similarity": 0.4866
+            },
+            {
+              "kind": "tag",
+              "id": "reverse isekai",
+              "name": "Reverse Isekai",
+              "description": "Features a character from a fantasy world who is transported into a modern-day setting.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.4602
+            },
+            {
+              "kind": "tag",
+              "id": "rakugo",
+              "name": "Rakugo",
+              "description": "Rakugo is the traditional Japanese performance art of comic storytelling.",
+              "category": "Theme-Arts",
+              "similarity": 0.4326
+            }
+          ]
+        },
+        "elapsed_seconds": 7e-06
+      },
+      {
+        "step": 7,
+        "tool": "search_features",
+        "arguments": {
+          "query": "adapted from manga",
+          "kind": "tag"
+        },
+        "cached": true,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "drawing",
+              "name": "Drawing",
+              "description": "Centers around the art of drawing, including manga and doujinshi.",
+              "category": "Theme-Arts",
+              "similarity": 0.5021
+            },
+            {
+              "kind": "tag",
+              "id": "isekai",
+              "name": "Isekai",
+              "description": "Features a character from a modern-day setting being transported into an alternate world and has to adapt to their new surroundings.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.5007
+            },
+            {
+              "kind": "tag",
+              "id": "4 koma",
+              "name": "4-koma",
+              "description": "A manga in the 'yonkoma' format, which consists of four equal-sized panels arranged in a vertical strip.",
+              "category": "Technical",
+              "similarity": 0.4866
+            },
+            {
+              "kind": "tag",
+              "id": "reverse isekai",
+              "name": "Reverse Isekai",
+              "description": "Features a character from a fantasy world who is transported into a modern-day setting.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.4602
+            },
+            {
+              "kind": "tag",
+              "id": "rakugo",
+              "name": "Rakugo",
+              "description": "Rakugo is the traditional Japanese performance art of comic storytelling.",
+              "category": "Theme-Arts",
+              "similarity": 0.4326
+            }
+          ]
+        },
+        "elapsed_seconds": 8e-06
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 8,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 9.401444,
+      "prepare_context": 0.001855,
+      "retrieve_guides": 0.007393,
+      "feature_candidates": 0.010901,
+      "planning": 9.93485,
+      "tools": 0.736249,
+      "generate_answer": 0.000474
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"anime\", \"query\": \"anime\", \"kind\": \"genre\", \"role\": \"subject\", \"meaning\": \"Anime series\"}, {\"text\": \"adapted from manga\", \"query\": \"adapted from manga\", \"kind\": \"tag\", \"role\": \"preferred\", \"meaning\": \"Adaptation source\"}, {\"text\": \"Demon Slayer\", \"query\": \"Demon Slayer\", \"kind\": \"anime\", \"role\": \"reference\", \"meaning\": \"Example title\"}, {\"text\": \"Attack on Titan\", \"query\": \"Attack on Titan\", \"kind\": \"anime\", \"role\": \"reference\", \"meaning\": \"Example title\"}, {\"text\": \"Jujutsu Kaisen\", \"query\": \"Jujutsu Kaisen\", \"kind\": \"anime\", \"role\": \"reference\", \"meaning\": \"Example title\"}]}",
+      "{\"applies\": true, \"operator\": \"eq\", \"value\": \"MANGA\"}"
+    ],
+    "unsupported_mentions": [
+      {
+        "text": "Demon Slayer",
+        "query": "Demon Slayer",
+        "kind": "anime",
+        "role": "reference",
+        "meaning": "Example title"
+      },
+      {
+        "text": "Attack on Titan",
+        "query": "Attack on Titan",
+        "kind": "anime",
+        "role": "reference",
+        "meaning": "Example title"
+      },
+      {
+        "text": "Jujutsu Kaisen",
+        "query": "Jujutsu Kaisen",
+        "kind": "anime",
+        "role": "reference",
+        "meaning": "Example title"
+      }
+    ],
+    "typed_mentions": [
+      {
+        "text": "anime",
+        "query": "anime",
+        "kind": "genre",
+        "role": "subject",
+        "meaning": "Anime series"
+      },
+      {
+        "text": "adapted from manga",
+        "query": "adapted from manga",
+        "kind": "tag",
+        "role": "preferred",
+        "meaning": "Adaptation source"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify which manga you would like the anime to be adapted from.\", \"decisions\": {\"p0\": {\"meaning\": \"Anime series\", \"role\": \"subject\", \"selection\": \"unmapped description\" }, \"p1\": {\"meaning\": \"Adaptation source\", \"role\": \"preferred\", \"selection\": \"unmapped description\" } } }"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "subject",
+          "text": "anime",
+          "name": "",
+          "meaning": "Anime series"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "adapted from manga",
+          "name": "",
+          "meaning": "Adaptation source"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [],
+      "preferred": [
+        "adapted from manga"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "source_material",
+          "operator": "eq",
+          "value": "MANGA"
+        }
+      ],
+      "soft_query": "adapted from manga",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "source_material",
+          "operator": "eq",
+          "value": "MANGA",
+          "source_text": "Recommend three anime adapted from manga.",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "adapted from manga",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "subject",
+            "text": "anime",
+            "name": "",
+            "meaning": "Anime series"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "adapted from manga",
+            "name": "",
+            "meaning": "Adaptation source"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "source_material",
+                "operator": "eq",
+                "value": "MANGA"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "adapted from manga",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "adapted from manga",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "adapted from manga",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "adapted from manga",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "adapted from manga",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "adapted from manga",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "adapted from manga",
+            "kind": "tag"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

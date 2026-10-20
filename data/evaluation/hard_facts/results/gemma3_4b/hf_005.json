@@ -1,0 +1,930 @@
+{
+  "question_id": "hf_005",
+  "anime_id": "21459",
+  "title": "My Hero Academia",
+  "field": "year",
+  "question": "What was the premiere year for My Hero Academia season one?",
+  "expected_values": [
+    2016.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "My Hero Academia season one premiered in 2016.",
+  "extracted_values": [
+    "2016"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 16.135611375000053,
+  "extraction_seconds": 0.6078725419999955,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "2016",
+        "quote": "My Hero Academia season one premiered in 2016."
+      }
+    ],
+    "note": "set unclear=true when requested assertions cannot be interpreted reliably",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21459"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21459",
+          "title": "My Hero Academia"
+        },
+        "elapsed_seconds": 0.015185
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "premiere year",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "coming of age",
+              "name": "Coming of Age",
+              "description": "Centers around a character's transition from childhood to adulthood.",
+              "category": "Theme-Drama",
+              "similarity": 0.3038
+            },
+            {
+              "kind": "tag",
+              "id": "tragedy",
+              "name": "Tragedy",
+              "description": "Centers around tragic events and unhappy endings.",
+              "category": "Theme-Drama",
+              "similarity": 0.2572
+            },
+            {
+              "kind": "tag",
+              "id": "pov",
+              "name": "POV",
+              "description": "Point of View; features scenes shown from the perspective of the series protagonist.",
+              "category": "Technical",
+              "similarity": 0.247
+            },
+            {
+              "kind": "tag",
+              "id": "graduation project",
+              "name": "Graduation Project",
+              "description": "A work made by students in place of an exam, typically at higher levels of education, either as a work for the entire course or as a work for a specific year of a course.",
+              "category": "Technical",
+              "similarity": 0.2462
+            },
+            {
+              "kind": "tag",
+              "id": "filmmaking",
+              "name": "Filmmaking",
+              "description": "Centers around the art of filmmaking.",
+              "category": "Theme-Other",
+              "similarity": 0.2392
+            }
+          ]
+        },
+        "elapsed_seconds": 0.032042
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "premiere year"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.017058
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21459"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21459",
+          "title": "My Hero Academia"
+        },
+        "elapsed_seconds": 0.000132
+      },
+      {
+        "step": 4,
+        "tool": "search_features",
+        "arguments": {
+          "query": "season one",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "pov",
+              "name": "POV",
+              "description": "Point of View; features scenes shown from the perspective of the series protagonist.",
+              "category": "Technical",
+              "similarity": 0.3252
+            },
+            {
+              "kind": "tag",
+              "id": "kingdom management",
+              "name": "Kingdom Management",
+              "description": "Characters in these series take on the responsibility of running a town or kingdom, whether they take control of an existing one, or build their own from the ground up.",
+              "category": "Theme-Drama",
+              "similarity": 0.3202
+            },
+            {
+              "kind": "tag",
+              "id": "episodic",
+              "name": "Episodic",
+              "description": "Features story arcs that are loosely tied or lack an overarching plot.",
+              "category": "Technical",
+              "similarity": 0.318
+            },
+            {
+              "kind": "tag",
+              "id": "female protagonist",
+              "name": "Female Protagonist",
+              "description": "Main character is female.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.2984
+            },
+            {
+              "kind": "tag",
+              "id": "battle royale",
+              "name": "Battle Royale",
+              "description": "Centers around a fierce group competition, often violent and with only one winner.",
+              "category": "Theme-Action",
+              "similarity": 0.2882
+            }
+          ]
+        },
+        "elapsed_seconds": 0.011838
+      },
+      {
+        "step": 5,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21459"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21459",
+          "title": "My Hero Academia"
+        },
+        "elapsed_seconds": 0.000111
+      },
+      {
+        "step": 6,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21459",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21459",
+          "title": "My Hero Academia"
+        },
+        "elapsed_seconds": 0.012481
+      },
+      {
+        "step": 7,
+        "tool": "search_features",
+        "arguments": {
+          "query": "start_date",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "time skip",
+              "name": "Time Skip",
+              "description": "Features a gap in time used to advance the story.",
+              "category": "Setting-Time",
+              "similarity": 0.2533
+            },
+            {
+              "kind": "tag",
+              "id": "age gap",
+              "name": "Age Gap",
+              "description": "Prominently features romantic relations between people with a significant age difference.",
+              "category": "Theme-Romance",
+              "similarity": 0.2277
+            },
+            {
+              "kind": "tag",
+              "id": "achronological order",
+              "name": "Achronological Order",
+              "description": "Chapters or episodes do not occur in chronological order.",
+              "category": "Setting-Time",
+              "similarity": 0.2095
+            }
+          ]
+        },
+        "elapsed_seconds": 0.010643
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 8,
+    "executed_tools": 6,
+    "timings_seconds": {
+      "interpret_request": 3.608358,
+      "prepare_context": 0.016676,
+      "retrieve_guides": 0.191754,
+      "feature_candidates": 0.012161,
+      "planning": 8.786874,
+      "tools": 0.09949,
+      "generate_answer": 3.417006
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"My Hero Academia\", \"query\": \"My Hero Academia\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "My Hero Academia",
+        "query": "My Hero Academia",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify the season number for the premiere year.\", \"decisions\": {\"p0\": {\"meaning\": \"My Hero Academia\", \"role\": \"subject\", \"selection\": \"My Hero Academia | anime:21459\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21459",
+          "role": "subject",
+          "text": "My Hero Academia",
+          "name": "My Hero Academia",
+          "meaning": "My Hero Academia"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21459",
+          "role": "subject",
+          "text": "My Hero Academia",
+          "name": "My Hero Academia",
+          "meaning": "My Hero Academia"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "My Hero Academia"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21459",
+            "role": "subject",
+            "text": "My Hero Academia",
+            "name": "My Hero Academia",
+            "meaning": "My Hero Academia"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21459",
+            "role": "subject",
+            "text": "My Hero Academia",
+            "name": "My Hero Academia",
+            "meaning": "My Hero Academia"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "retrieve premiere year for My Hero Academia season one",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21459"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "premiere year",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "premiere year"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21459"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "season one",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21459"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21459",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "start_date",
+            "kind": "tag"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21459",
+          "name": "My Hero Academia"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:21459",
+          "fact": "year"
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 9.5e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00171
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.608358
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.016676
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.191754
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.012161
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 8.786874
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "retrieve premiere year for My Hero Academia season one",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21459"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "premiere year",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "premiere year"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21459"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "season one",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21459"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21459",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "start_date",
+              "kind": "tag"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21459",
+            "name": "My Hero Academia"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21459"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.015185,
+      "arguments": {
+        "id": "21459"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21459",
+        "title": "My Hero Academia"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "premiere year",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.032042,
+      "arguments": {
+        "query": "premiere year",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "coming of age",
+            "name": "Coming of Age",
+            "description": "Centers around a character's transition from childhood to adulthood.",
+            "category": "Theme-Drama",
+            "similarity": 0.3038
+          },
+          {
+            "kind": "tag",
+            "id": "tragedy",
+            "name": "Tragedy",
+            "description": "Centers around tragic events and unhappy endings.",
+            "category": "Theme-Drama",
+            "similarity": 0.2572
+          },
+          {
+            "kind": "tag",
+            "id": "pov",
+            "name": "POV",
+            "description": "Point of View; features scenes shown from the perspective of the series protagonist.",
+            "category": "Technical",
+            "similarity": 0.247
+          },
+          {
+            "kind": "tag",
+            "id": "graduation project",
+            "name": "Graduation Project",
+            "description": "A work made by students in place of an exam, typically at higher levels of education, either as a work for the entire course or as a work for a specific year of a course.",
+            "category": "Technical",
+            "similarity": 0.2462
+          },
+          {
+            "kind": "tag",
+            "id": "filmmaking",
+            "name": "Filmmaking",
+            "description": "Centers around the art of filmmaking.",
+            "category": "Theme-Other",
+            "similarity": 0.2392
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "premiere year"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.017058,
+      "arguments": {
+        "kind": "tag",
+        "query": "premiere year"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21459"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000132,
+      "arguments": {
+        "id": "21459"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21459",
+        "title": "My Hero Academia"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "search_features",
+      "arguments": {
+        "query": "season one",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.011838,
+      "arguments": {
+        "query": "season one",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "pov",
+            "name": "POV",
+            "description": "Point of View; features scenes shown from the perspective of the series protagonist.",
+            "category": "Technical",
+            "similarity": 0.3252
+          },
+          {
+            "kind": "tag",
+            "id": "kingdom management",
+            "name": "Kingdom Management",
+            "description": "Characters in these series take on the responsibility of running a town or kingdom, whether they take control of an existing one, or build their own from the ground up.",
+            "category": "Theme-Drama",
+            "similarity": 0.3202
+          },
+          {
+            "kind": "tag",
+            "id": "episodic",
+            "name": "Episodic",
+            "description": "Features story arcs that are loosely tied or lack an overarching plot.",
+            "category": "Technical",
+            "similarity": 0.318
+          },
+          {
+            "kind": "tag",
+            "id": "female protagonist",
+            "name": "Female Protagonist",
+            "description": "Main character is female.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.2984
+          },
+          {
+            "kind": "tag",
+            "id": "battle royale",
+            "name": "Battle Royale",
+            "description": "Centers around a fierce group competition, often violent and with only one winner.",
+            "category": "Theme-Action",
+            "similarity": 0.2882
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21459"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000111,
+      "arguments": {
+        "id": "21459"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21459",
+        "title": "My Hero Academia"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 6,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21459",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 6,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.012481,
+      "arguments": {
+        "id": "21459",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21459",
+        "title": "My Hero Academia"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 7,
+      "tool": "search_features",
+      "arguments": {
+        "query": "start_date",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 7,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.010643,
+      "arguments": {
+        "query": "start_date",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "time skip",
+            "name": "Time Skip",
+            "description": "Features a gap in time used to advance the story.",
+            "category": "Setting-Time",
+            "similarity": 0.2533
+          },
+          {
+            "kind": "tag",
+            "id": "age gap",
+            "name": "Age Gap",
+            "description": "Prominently features romantic relations between people with a significant age difference.",
+            "category": "Theme-Romance",
+            "similarity": 0.2277
+          },
+          {
+            "kind": "tag",
+            "id": "achronological order",
+            "name": "Achronological Order",
+            "description": "Chapters or episodes do not occur in chronological order.",
+            "category": "Setting-Time",
+            "similarity": 0.2095
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.417006
+    }
+  ]
+}

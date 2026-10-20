@@ -1,0 +1,728 @@
+{
+  "question_id": "time_03",
+  "category": "tags",
+  "intent_family": "time",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "I love stories where the same stretch of time can play out differently. Can you suggest five anime like that?",
+  "k": 5,
+  "constraints": [
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Time Manipulation"
+      ]
+    }
+  ],
+  "label_rationale": "Rewinding, looping, and changing time map to Time Manipulation.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 444,
+  "reference_examples": [
+    {
+      "id": "104257",
+      "title": "Is Lupin Still Burning?"
+    },
+    {
+      "id": "12321",
+      "title": "Thermae Romae"
+    },
+    {
+      "id": "4124",
+      "title": "Futari wa Precure: Splash☆Star - Tick Tack Kiki Ippatsu!"
+    }
+  ],
+  "answer_text": "Catalog matches. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **Your Name.** — Mitsuha Miyamizu, a high school girl, yearns to live the life of a boy in the bustling city of Tokyo—a dream that stands in stark contrast to her present life in the countryside. Meanwhile in the city, Taki Tachibana lives a busy life as a high school student while juggling his part-time job and hopes for a future in architecture. One day, Mitsuha awakens in a room that is not her own and suddenly finds herself living the dream life in Tokyo—but…\n\n2. **Violet Evergarden** — A certain point in time, in the continent of Telesis. The great war which divided the continent into North and South has ended after four years, and the people are welcoming a new generation. Violet Evergarden, a young girl formerly known as “the weapon”, has left the battlefield to start a new life at CH Postal Service. There, she is deeply moved by the work of “Auto Memories Dolls”, who carry people's thoughts and convert them into words.…\n\n3. **ERASED** — Satoru Fujinuma is a 29 year old manga artist struggling to make a name for himself following his debut. But, that was not the only thing in his life that Satoru was feeling frustrated about… He has a unique supernatural ability of being forced to prevent deaths and catastrophes by being sent back in time before the incident occurred, repeating time until the accident is prevented. One day, he gets involved in an accident that has him framed as…\n\n4. **Re:ZERO -Starting Life in Another World-** — In the story, Subaru Natsuki is an ordinary high school student who is lost in an alternate world, where he is rescued by a beautiful, silver-haired girl. He stays near her to return the favor, but the destiny she is burdened with is more than Subaru can imagine. Enemies attack one by one, and both of them are killed. He then finds out he has the power to rewind death, back to the time he first came to this world. But only he remembers what has…\n\n5. **Your lie in April** — Piano prodigy Arima Kousei dominated the competition and all child musicians knew his name. But after his mother, who was also his instructor, passed away, he had a mental breakdown while performing at a recital. This resulted in him no longer being able to hear the sound of his piano playing. Two years later, Kousei hasn’t touched the piano and views the world without any flair or color. He was content at living out his life with his good…",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Your Name.",
+      "Violet Evergarden",
+      "ERASED",
+      "Re:ZERO -Starting Life in Another World-",
+      "Your lie in April"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Your Name.",
+      "anime_id": null,
+      "canonical_title": null,
+      "resolution": "ambiguous",
+      "candidate_ids": [
+        "21519",
+        "97962"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Violet Evergarden",
+      "anime_id": "21827",
+      "canonical_title": "Violet Evergarden",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21827"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 3,
+      "extracted_title": "ERASED",
+      "anime_id": "21234",
+      "canonical_title": "ERASED",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21234"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.93
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.93,
+          "met": true,
+          "literal_score": 0.93,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.93,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.93,
+      "gain": 0.93,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Re:ZERO -Starting Life in Another World-",
+      "anime_id": "21355",
+      "canonical_title": "Re:ZERO -Starting Life in Another World-",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21355"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.96
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.96,
+          "met": true,
+          "literal_score": 0.96,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.96,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.96,
+      "gain": 0.96,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Your lie in April",
+      "anime_id": "20665",
+      "canonical_title": "Your lie in April",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20665"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.4,
+    "graded_fit_at_k": 0.378,
+    "ndcg_at_k": 0.2983265308572809,
+    "constraint_coverage": 1.0,
+    "count_compliance": 1,
+    "resolution_rate": 0.8,
+    "duplicate_rate": 0.0,
+    "extra_count": 0,
+    "literal_precision_at_k": 0.4,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 9.335373249999975,
+  "extraction_seconds": 1.6191626670006372,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000824
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.174944
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.00144
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.008192
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.009927
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.909916
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "stories where the same stretch of time can play out differently",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "stories where the same stretch of time can play out differently",
+              "kind": "tag",
+              "limit": 5
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "genres",
+                  "operator": "eq",
+                  "value": "time skip"
+                },
+                {
+                  "field": "genres",
+                  "operator": "eq",
+                  "value": "love triangle"
+                },
+                {
+                  "field": "genres",
+                  "operator": "eq",
+                  "value": "unrequited love"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "stories where the same stretch of time can play out differently",
+        "kind": "tag",
+        "limit": 5
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.038434,
+      "arguments": {
+        "query": "stories where the same stretch of time can play out differently",
+        "kind": "tag",
+        "limit": 5
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "time skip",
+            "name": "Time Skip",
+            "description": "Features a gap in time used to advance the story.",
+            "category": "Setting-Time",
+            "similarity": 0.6743
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "eq",
+            "value": "time skip"
+          },
+          {
+            "field": "genres",
+            "operator": "eq",
+            "value": "love triangle"
+          },
+          {
+            "field": "genres",
+            "operator": "eq",
+            "value": "unrequited love"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.189805,
+      "arguments": {
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "eq",
+            "value": "time skip"
+          },
+          {
+            "field": "genres",
+            "operator": "eq",
+            "value": "love triangle"
+          },
+          {
+            "field": "genres",
+            "operator": "eq",
+            "value": "unrequited love"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": []
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": []
+        },
+        "items": [
+          {
+            "id": "21519",
+            "title": "Your Name.",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.2921
+          },
+          {
+            "id": "21827",
+            "title": "Violet Evergarden",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.2786
+          },
+          {
+            "id": "21234",
+            "title": "ERASED",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.2722
+          },
+          {
+            "id": "21355",
+            "title": "Re:ZERO -Starting Life in Another World-",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.2598
+          },
+          {
+            "id": "20665",
+            "title": "Your lie in April",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.2338
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000534
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "stories where the same stretch of time can play out differently",
+          "kind": "tag",
+          "limit": 5
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "time skip",
+              "name": "Time Skip",
+              "description": "Features a gap in time used to advance the story.",
+              "category": "Setting-Time",
+              "similarity": 0.6743
+            }
+          ]
+        },
+        "elapsed_seconds": 0.038434
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "genres",
+              "operator": "eq",
+              "value": "time skip"
+            },
+            {
+              "field": "genres",
+              "operator": "eq",
+              "value": "love triangle"
+            },
+            {
+              "field": "genres",
+              "operator": "eq",
+              "value": "unrequited love"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": []
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": []
+          },
+          "items": [
+            {
+              "id": "21519",
+              "title": "Your Name.",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.2921
+            },
+            {
+              "id": "21827",
+              "title": "Violet Evergarden",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.2786
+            },
+            {
+              "id": "21234",
+              "title": "ERASED",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.2722
+            },
+            {
+              "id": "21355",
+              "title": "Re:ZERO -Starting Life in Another World-",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.2598
+            },
+            {
+              "id": "20665",
+              "title": "Your lie in April",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.2338
+            }
+          ]
+        },
+        "elapsed_seconds": 0.189805
+      }
+    ],
+    "llm_calls": 3,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 4.174944,
+      "prepare_context": 0.00144,
+      "retrieve_guides": 0.008192,
+      "feature_candidates": 0.009927,
+      "planning": 4.909916,
+      "tools": 0.228239,
+      "generate_answer": 0.000534
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"stories where the same stretch of time can play out differently\", \"query\": \"time loop anime\", \"kind\": \"genre\", \"role\": \"preferred\", \"meaning\": \"Story type\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "stories where the same stretch of time can play out differently",
+        "query": "time loop anime",
+        "kind": "genre",
+        "role": "preferred",
+        "meaning": "Story type"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Story type\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "stories where the same stretch of time can play out differently",
+          "name": "",
+          "meaning": "Story type"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [],
+      "preferred": [
+        "stories where the same stretch of time can play out differently"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [],
+      "soft_query": "stories where the same stretch of time can play out differently",
+      "limitations": [],
+      "mappings": [],
+      "preference_hierarchy": [
+        {
+          "phrase": "stories where the same stretch of time can play out differently",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "stories where the same stretch of time can play out differently",
+            "name": "",
+            "meaning": "Story type"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "stories where the same stretch of time can play out differently",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "stories where the same stretch of time can play out differently",
+            "kind": "tag",
+            "limit": 5
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "genres",
+                "operator": "eq",
+                "value": "time skip"
+              },
+              {
+                "field": "genres",
+                "operator": "eq",
+                "value": "love triangle"
+              },
+              {
+                "field": "genres",
+                "operator": "eq",
+                "value": "unrequited love"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

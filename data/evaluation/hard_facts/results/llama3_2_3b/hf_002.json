@@ -1,0 +1,333 @@
+{
+  "question_id": "hf_002",
+  "anime_id": "101922",
+  "title": "Demon Slayer: Kimetsu no Yaiba",
+  "field": "year",
+  "question": "When did Demon Slayer first come out? Just the year is fine.",
+  "expected_values": [
+    2019.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "2019",
+  "extracted_values": [
+    "2019"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 10.637506334000136,
+  "extraction_seconds": 0.6041358330003277,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "2019",
+        "quote": "2019"
+      }
+    ],
+    "note": "assertion for year of Demon Slayer's release",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101922",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101922",
+          "title": "Demon Slayer: Kimetsu no Yaiba"
+        },
+        "elapsed_seconds": 0.022104
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 3.968964,
+      "prepare_context": 0.014658,
+      "retrieve_guides": 0.05029,
+      "feature_candidates": 0.172187,
+      "planning": 3.687483,
+      "tools": 0.022104,
+      "generate_answer": 2.718215
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Demon Slayer\", \"query\": \"Demon Slayer\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; year is a numeric value\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Demon Slayer",
+        "query": "Demon Slayer",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; year is a numeric value"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"year of release\", \"role\": \"subject\", \"selection\": \"Demon Slayer: Kimetsu no Yaiba | anime:101922\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101922",
+          "role": "subject",
+          "text": "Demon Slayer",
+          "name": "Demon Slayer: Kimetsu no Yaiba",
+          "meaning": "year of release"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101922",
+          "role": "subject",
+          "text": "Demon Slayer",
+          "name": "Demon Slayer: Kimetsu no Yaiba",
+          "meaning": "year of release"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Demon Slayer: Kimetsu no Yaiba"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101922",
+            "role": "subject",
+            "text": "Demon Slayer",
+            "name": "Demon Slayer: Kimetsu no Yaiba",
+            "meaning": "year of release"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101922",
+            "role": "subject",
+            "text": "Demon Slayer",
+            "name": "Demon Slayer: Kimetsu no Yaiba",
+            "meaning": "year of release"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "find the release year of Demon Slayer: Kimetsu no Yaiba",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101922",
+            "section": "overview"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "101922",
+          "name": "Demon Slayer: Kimetsu no Yaiba"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:101922",
+          "fact": "The anime was first released in 2019."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 9.3e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00187
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.968964
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.014658
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.05029
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.172187
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.687483
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "find the release year of Demon Slayer: Kimetsu no Yaiba",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101922",
+              "section": "overview"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "101922",
+            "name": "Demon Slayer: Kimetsu no Yaiba"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101922",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.022104,
+      "arguments": {
+        "id": "101922",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101922",
+        "title": "Demon Slayer: Kimetsu no Yaiba"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 2.718215
+    }
+  ]
+}

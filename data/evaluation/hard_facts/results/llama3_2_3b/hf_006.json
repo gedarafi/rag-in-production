@@ -1,0 +1,395 @@
+{
+  "question_id": "hf_006",
+  "anime_id": "21087",
+  "title": "One-Punch Man",
+  "field": "year",
+  "question": "In what year did One-Punch Man make its anime debut?",
+  "expected_values": [
+    2015.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "2015",
+  "extracted_values": [
+    "2015"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 10.760604999999487,
+  "extraction_seconds": 0.6162105829998836,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "2015",
+        "quote": "2015"
+      }
+    ],
+    "note": "assertion for year of One-Punch Man anime debut",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21087",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21087",
+          "title": "One-Punch Man"
+        },
+        "elapsed_seconds": 0.021273
+      },
+      {
+        "step": 1,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "One-Punch Man anime debut year",
+          "anime_ids": [
+            "21087"
+          ]
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.063492
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 2.132784,
+      "prepare_context": 0.02168,
+      "retrieve_guides": 0.028011,
+      "feature_candidates": 0.013338,
+      "planning": 4.154462,
+      "tools": 0.084765,
+      "generate_answer": 4.322029
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"One-Punch Man\", \"query\": \"One-Punch Man\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; debut year is a specific year\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "One-Punch Man",
+        "query": "One-Punch Man",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; debut year is a specific year"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"TV series; debut year is a specific year\", \"role\": \"subject\", \"selection\": \"One-Punch Man | anime:21087\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21087",
+          "role": "subject",
+          "text": "One-Punch Man",
+          "name": "One-Punch Man",
+          "meaning": "TV series; debut year is a specific year"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21087",
+          "role": "subject",
+          "text": "One-Punch Man",
+          "name": "One-Punch Man",
+          "meaning": "TV series; debut year is a specific year"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "One-Punch Man"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21087",
+            "role": "subject",
+            "text": "One-Punch Man",
+            "name": "One-Punch Man",
+            "meaning": "TV series; debut year is a specific year"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21087",
+            "role": "subject",
+            "text": "One-Punch Man",
+            "name": "One-Punch Man",
+            "meaning": "TV series; debut year is a specific year"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "find the year One-Punch Man made its anime debut",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21087",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "One-Punch Man anime debut year",
+            "anime_ids": [
+              "21087"
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21087",
+          "name": "One-Punch Man"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:21087",
+          "fact": "The anime debuted in 2015."
+        },
+        {
+          "subject": "anime:21087",
+          "fact": "The anime was first released in 2015."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 0.000103
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001787
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.132784
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.02168
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.028011
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013338
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.154462
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "find the year One-Punch Man made its anime debut",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21087",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "One-Punch Man anime debut year",
+              "anime_ids": [
+                "21087"
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21087",
+            "name": "One-Punch Man"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21087",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.021273,
+      "arguments": {
+        "id": "21087",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21087",
+        "title": "One-Punch Man"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "One-Punch Man anime debut year",
+        "anime_ids": [
+          "21087"
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.063492,
+      "arguments": {
+        "query": "One-Punch Man anime debut year",
+        "anime_ids": [
+          "21087"
+        ]
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.322029
+    }
+  ]
+}

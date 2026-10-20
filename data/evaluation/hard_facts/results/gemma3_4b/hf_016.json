@@ -1,0 +1,968 @@
+{
+  "question_id": "hf_016",
+  "anime_id": "20665",
+  "title": "Your lie in April",
+  "field": "year",
+  "question": "Which year did Your Lie in April begin its TV run?",
+  "expected_values": [
+    2014.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Your Lie in April began its TV run in 2014.",
+  "extracted_values": [
+    "2014"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 17.56800800000019,
+  "extraction_seconds": 0.595247707999988,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "2014",
+        "quote": "Your Lie in April began its TV run in 2014."
+      }
+    ],
+    "note": "assertion for year is in units of years",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20665"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20665",
+          "title": "Your lie in April"
+        },
+        "elapsed_seconds": 0.014996
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "broadcast year",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "baseball",
+              "name": "Baseball",
+              "description": "Centers around the sport of baseball.",
+              "category": "Theme-Game-Sport",
+              "similarity": 0.271
+            },
+            {
+              "kind": "tag",
+              "id": "boxing",
+              "name": "Boxing",
+              "description": "Centers around the sport of boxing.",
+              "category": "Theme-Game-Sport",
+              "similarity": 0.2669
+            },
+            {
+              "kind": "tag",
+              "id": "cycling",
+              "name": "Cycling",
+              "description": "Centers around the sport of cycling.",
+              "category": "Theme-Game-Sport",
+              "similarity": 0.2576
+            },
+            {
+              "kind": "tag",
+              "id": "american football",
+              "name": "American Football",
+              "description": "Centers around the sport of American football.",
+              "category": "Theme-Game-Sport",
+              "similarity": 0.2537
+            },
+            {
+              "kind": "tag",
+              "id": "ice sports",
+              "name": "Ice Sports",
+              "description": "Centers around Ice Sports.",
+              "category": "Theme-Game-Sport",
+              "similarity": 0.2464
+            }
+          ]
+        },
+        "elapsed_seconds": 0.036924
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "broadcast year"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.01307
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20665"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20665",
+          "title": "Your lie in April"
+        },
+        "elapsed_seconds": 0.000112
+      },
+      {
+        "step": 4,
+        "tool": "search_features",
+        "arguments": {
+          "query": "release year",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "anthology",
+              "name": "Anthology",
+              "description": "A collection of separate works collated into a single release.",
+              "category": "Technical",
+              "similarity": 0.2866
+            },
+            {
+              "kind": "tag",
+              "id": "coming of age",
+              "name": "Coming of Age",
+              "description": "Centers around a character's transition from childhood to adulthood.",
+              "category": "Theme-Drama",
+              "similarity": 0.272
+            },
+            {
+              "kind": "tag",
+              "id": "guns",
+              "name": "Guns",
+              "description": "Prominently features the use of guns in combat.",
+              "category": "Theme-Action",
+              "similarity": 0.2442
+            },
+            {
+              "kind": "tag",
+              "id": "mopeds",
+              "name": "Mopeds",
+              "description": "Prominently features mopeds.",
+              "category": "Theme-Other-Vehicle",
+              "similarity": 0.2408
+            },
+            {
+              "kind": "tag",
+              "id": "age gap",
+              "name": "Age Gap",
+              "description": "Prominently features romantic relations between people with a significant age difference.",
+              "category": "Theme-Romance",
+              "similarity": 0.2366
+            }
+          ]
+        },
+        "elapsed_seconds": 0.011004
+      },
+      {
+        "step": 5,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "release year"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.009035
+      },
+      {
+        "step": 6,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20665"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20665",
+          "title": "Your lie in April"
+        },
+        "elapsed_seconds": 0.000111
+      },
+      {
+        "step": 7,
+        "tool": "search_features",
+        "arguments": {
+          "query": "first season",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "coming of age",
+              "name": "Coming of Age",
+              "description": "Centers around a character's transition from childhood to adulthood.",
+              "category": "Theme-Drama",
+              "similarity": 0.2857
+            },
+            {
+              "kind": "tag",
+              "id": "pov",
+              "name": "POV",
+              "description": "Point of View; features scenes shown from the perspective of the series protagonist.",
+              "category": "Technical",
+              "similarity": 0.2642
+            },
+            {
+              "kind": "tag",
+              "id": "female protagonist",
+              "name": "Female Protagonist",
+              "description": "Main character is female.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.2543
+            },
+            {
+              "kind": "tag",
+              "id": "primarily teen cast",
+              "name": "Primarily Teen Cast",
+              "description": "Main cast is mostly composed of teen characters.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.2426
+            },
+            {
+              "kind": "tag",
+              "id": "estranged family",
+              "name": "Estranged Family",
+              "description": "At least one family member of the MC intentionally distances themselves or a family distances themselves from a person related to the MC.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.2418
+            }
+          ]
+        },
+        "elapsed_seconds": 0.010812
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 8,
+    "executed_tools": 6,
+    "timings_seconds": {
+      "interpret_request": 3.723031,
+      "prepare_context": 0.016922,
+      "retrieve_guides": 0.032313,
+      "feature_candidates": 0.014063,
+      "planning": 8.861667,
+      "tools": 0.096064,
+      "generate_answer": 4.820343
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Your Lie in April\", \"query\": \"Your Lie in April\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Your Lie in April",
+        "query": "Your Lie in April",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please confirm if you are asking about the original TV series or a specific season/adaptation.\", \"decisions\": {\"p0\": {\"meaning\": \"Your Lie in April\", \"role\": \"subject\", \"selection\": \"Your lie in April | anime:20665\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20665",
+          "role": "subject",
+          "text": "Your Lie in April",
+          "name": "Your lie in April",
+          "meaning": "Your Lie in April"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20665",
+          "role": "subject",
+          "text": "Your Lie in April",
+          "name": "Your lie in April",
+          "meaning": "Your Lie in April"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Your lie in April"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20665",
+            "role": "subject",
+            "text": "Your Lie in April",
+            "name": "Your lie in April",
+            "meaning": "Your Lie in April"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20665",
+            "role": "subject",
+            "text": "Your Lie in April",
+            "name": "Your lie in April",
+            "meaning": "Your Lie in April"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "uncertain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine the year Your Lie in April began its TV run",
+      "clarification": "Confirm if the user is asking about the initial broadcast year or the first season release year.",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20665"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "broadcast year",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "broadcast year"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20665"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "release year",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "release year"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20665"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "first season",
+            "kind": "tag"
+          }
+        }
+      ]
+    },
+    "scope": "uncertain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "20665",
+          "name": "Your lie in April"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:20665",
+          "fact": "The anime began its TV run in 2014."
+        },
+        {
+          "subject": "anime:20665",
+          "fact": "The source material is a manga, which was first published in 2011."
+        },
+        {
+          "subject": "anime:20665",
+          "fact": "The anime is a TV series, and the first season began in 2014."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 0.0001
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001245
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.723031
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.016922
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.032313
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014063
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 8.861667
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "uncertain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "uncertain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine the year Your Lie in April began its TV run",
+        "clarification": "Confirm if the user is asking about the initial broadcast year or the first season release year.",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20665"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "broadcast year",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "broadcast year"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20665"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "release year",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "release year"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20665"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "first season",
+              "kind": "tag"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "20665",
+            "name": "Your lie in April"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20665"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.014996,
+      "arguments": {
+        "id": "20665"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20665",
+        "title": "Your lie in April"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "broadcast year",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.036924,
+      "arguments": {
+        "query": "broadcast year",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "baseball",
+            "name": "Baseball",
+            "description": "Centers around the sport of baseball.",
+            "category": "Theme-Game-Sport",
+            "similarity": 0.271
+          },
+          {
+            "kind": "tag",
+            "id": "boxing",
+            "name": "Boxing",
+            "description": "Centers around the sport of boxing.",
+            "category": "Theme-Game-Sport",
+            "similarity": 0.2669
+          },
+          {
+            "kind": "tag",
+            "id": "cycling",
+            "name": "Cycling",
+            "description": "Centers around the sport of cycling.",
+            "category": "Theme-Game-Sport",
+            "similarity": 0.2576
+          },
+          {
+            "kind": "tag",
+            "id": "american football",
+            "name": "American Football",
+            "description": "Centers around the sport of American football.",
+            "category": "Theme-Game-Sport",
+            "similarity": 0.2537
+          },
+          {
+            "kind": "tag",
+            "id": "ice sports",
+            "name": "Ice Sports",
+            "description": "Centers around Ice Sports.",
+            "category": "Theme-Game-Sport",
+            "similarity": 0.2464
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "broadcast year"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.01307,
+      "arguments": {
+        "kind": "tag",
+        "query": "broadcast year"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20665"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000112,
+      "arguments": {
+        "id": "20665"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20665",
+        "title": "Your lie in April"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "search_features",
+      "arguments": {
+        "query": "release year",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.011004,
+      "arguments": {
+        "query": "release year",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "anthology",
+            "name": "Anthology",
+            "description": "A collection of separate works collated into a single release.",
+            "category": "Technical",
+            "similarity": 0.2866
+          },
+          {
+            "kind": "tag",
+            "id": "coming of age",
+            "name": "Coming of Age",
+            "description": "Centers around a character's transition from childhood to adulthood.",
+            "category": "Theme-Drama",
+            "similarity": 0.272
+          },
+          {
+            "kind": "tag",
+            "id": "guns",
+            "name": "Guns",
+            "description": "Prominently features the use of guns in combat.",
+            "category": "Theme-Action",
+            "similarity": 0.2442
+          },
+          {
+            "kind": "tag",
+            "id": "mopeds",
+            "name": "Mopeds",
+            "description": "Prominently features mopeds.",
+            "category": "Theme-Other-Vehicle",
+            "similarity": 0.2408
+          },
+          {
+            "kind": "tag",
+            "id": "age gap",
+            "name": "Age Gap",
+            "description": "Prominently features romantic relations between people with a significant age difference.",
+            "category": "Theme-Romance",
+            "similarity": 0.2366
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "release year"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.009035,
+      "arguments": {
+        "kind": "tag",
+        "query": "release year"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 6,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20665"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 6,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000111,
+      "arguments": {
+        "id": "20665"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20665",
+        "title": "Your lie in April"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 7,
+      "tool": "search_features",
+      "arguments": {
+        "query": "first season",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 7,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.010812,
+      "arguments": {
+        "query": "first season",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "coming of age",
+            "name": "Coming of Age",
+            "description": "Centers around a character's transition from childhood to adulthood.",
+            "category": "Theme-Drama",
+            "similarity": 0.2857
+          },
+          {
+            "kind": "tag",
+            "id": "pov",
+            "name": "POV",
+            "description": "Point of View; features scenes shown from the perspective of the series protagonist.",
+            "category": "Technical",
+            "similarity": 0.2642
+          },
+          {
+            "kind": "tag",
+            "id": "female protagonist",
+            "name": "Female Protagonist",
+            "description": "Main character is female.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.2543
+          },
+          {
+            "kind": "tag",
+            "id": "primarily teen cast",
+            "name": "Primarily Teen Cast",
+            "description": "Main cast is mostly composed of teen characters.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.2426
+          },
+          {
+            "kind": "tag",
+            "id": "estranged family",
+            "name": "Estranged Family",
+            "description": "At least one family member of the MC intentionally distances themselves or a family distances themselves from a person related to the MC.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.2418
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.820343
+    }
+  ]
+}

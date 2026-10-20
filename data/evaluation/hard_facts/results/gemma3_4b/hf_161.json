@@ -1,0 +1,479 @@
+{
+  "question_id": "hf_161",
+  "anime_id": "11061",
+  "title": "Hunter x Hunter (2011)",
+  "field": "main_characters",
+  "question": "Give me the complete main-character list for Hunter x Hunter (2011).",
+  "expected_values": [
+    "Killua Zoldyck",
+    "Kurapika",
+    "Leorio Paradinight",
+    "Gon Freecss",
+    "Hisoka Morow"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The main characters of Hunter x Hunter (2011) are Killua Zoldyck, Kurapika, Leorio Paradinight, Gon Freecss, and Hisoka Morow.",
+  "extracted_values": [
+    "Killua Zoldyck",
+    "Kurapika",
+    "Leorio Paradinight",
+    "Gon Freecss",
+    "Hisoka Morow"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 14.738722667000275,
+  "extraction_seconds": 1.281676709000294,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Killua Zoldyck",
+        "quote": "The main characters of Hunter x Hunter (2011) are Killua Zoldyck, Kurapika, Leorio Paradinight, Gon Freecss, and Hisoka Morow."
+      },
+      {
+        "value": "Kurapika",
+        "quote": "The main characters of Hunter x Hunter (2011) are Killua Zoldyck, Kurapika, Leorio Paradinight, Gon Freecss, and Hisoka Morow."
+      },
+      {
+        "value": "Leorio Paradinight",
+        "quote": "The main characters of Hunter x Hunter (2011) are Killua Zoldyck, Kurapika, Leorio Paradinight, Gon Freecss, and Hisoka Morow."
+      },
+      {
+        "value": "Gon Freecss",
+        "quote": "The main characters of Hunter x Hunter (2011) are Killua Zoldyck, Kurapika, Leorio Paradinight, Gon Freecss, and Hisoka Morow."
+      },
+      {
+        "value": "Hisoka Morow",
+        "quote": "The main characters of Hunter x Hunter (2011) are Killua Zoldyck, Kurapika, Leorio Paradinight, Gon Freecss, and Hisoka Morow."
+      }
+    ],
+    "note": "assertion: Killua Zoldyck, Kurapika, Leorio Paradinight, Gon Freecss, Hisoka Morow",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 5,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "11061"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "11061",
+          "title": "Hunter x Hunter (2011)"
+        },
+        "elapsed_seconds": 0.019473
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "ensemble cast",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "ensemble cast",
+              "name": "Ensemble Cast",
+              "description": "Features a large cast of characters with (almost) equal screen time and importance to the plot.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.6933
+            }
+          ]
+        },
+        "elapsed_seconds": 0.037661
+      },
+      {
+        "step": 2,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "11061"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "11061",
+          "title": "Hunter x Hunter (2011)"
+        },
+        "elapsed_seconds": 0.000127
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 3.561798,
+      "prepare_context": 0.017524,
+      "retrieve_guides": 0.074385,
+      "feature_candidates": 0.015657,
+      "planning": 6.625981,
+      "tools": 0.057261,
+      "generate_answer": 4.380262
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Hunter x Hunter (2011)\", \"query\": \"Hunter x Hunter (2011)\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Hunter x Hunter (2011)",
+        "query": "Hunter x Hunter (2011)",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify which main characters you are referring to.\", \"decisions\": {\"p0\": {\"meaning\": \"Hunter x Hunter (2011)\", \"role\": \"subject\", \"selection\": \"Hunter x Hunter (2011) | anime:11061\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "11061",
+          "role": "subject",
+          "text": "Hunter x Hunter (2011)",
+          "name": "Hunter x Hunter (2011)",
+          "meaning": "Hunter x Hunter (2011)"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "11061",
+          "role": "subject",
+          "text": "Hunter x Hunter (2011)",
+          "name": "Hunter x Hunter (2011)",
+          "meaning": "Hunter x Hunter (2011)"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Hunter x Hunter (2011)"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "11061",
+            "role": "subject",
+            "text": "Hunter x Hunter (2011)",
+            "name": "Hunter x Hunter (2011)",
+            "meaning": "Hunter x Hunter (2011)"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "11061",
+            "role": "subject",
+            "text": "Hunter x Hunter (2011)",
+            "name": "Hunter x Hunter (2011)",
+            "meaning": "Hunter x Hunter (2011)"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Retrieve the full cast list for Hunter x Hunter (2011)",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "11061"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "ensemble cast",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "11061"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "11061",
+          "name": "Hunter x Hunter (2011)"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:11061",
+          "fact": "The main characters are Killua Zoldyck, Kurapika, Leorio Paradinight, Gon Freecss, and Hisoka Morow."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.6e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.004471
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.561798
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.017524
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.074385
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.015657
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.625981
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Retrieve the full cast list for Hunter x Hunter (2011)",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "11061"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "ensemble cast",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "11061"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "11061",
+            "name": "Hunter x Hunter (2011)"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "11061"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.019473,
+      "arguments": {
+        "id": "11061"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "11061",
+        "title": "Hunter x Hunter (2011)"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "ensemble cast",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.037661,
+      "arguments": {
+        "query": "ensemble cast",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "ensemble cast",
+            "name": "Ensemble Cast",
+            "description": "Features a large cast of characters with (almost) equal screen time and importance to the plot.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.6933
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "11061"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000127,
+      "arguments": {
+        "id": "11061"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "11061",
+        "title": "Hunter x Hunter (2011)"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.380262
+    }
+  ]
+}

@@ -1,0 +1,982 @@
+{
+  "question_id": "nineties_03",
+  "category": "release_year",
+  "intent_family": "nineties",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "Give me five anime that first came out after the eighties ended but before the new millennium began.",
+  "k": 5,
+  "constraints": [
+    {
+      "field": "year",
+      "op": "gte",
+      "value": 1990
+    },
+    {
+      "field": "year",
+      "op": "lte",
+      "value": 1999
+    }
+  ],
+  "label_rationale": "The original entry must first release in the inclusive 1990-1999 interval.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 2030,
+  "reference_examples": [
+    {
+      "id": "1",
+      "title": "Cowboy Bebop"
+    },
+    {
+      "id": "100110",
+      "title": "Dragon Fist"
+    },
+    {
+      "id": "1004",
+      "title": "She and Her Cat: Their Standing Points"
+    }
+  ],
+  "answer_text": "Catalog matches — release year: under 1980; status: FINISHED. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **Cleopatra** (1970) — Three people from the future are spiritually sent back in time to relive the era of Caesar, Marc Anthony and Cleopatra. As close companions to these key historical figures, they seek to understand the nature of an enemy's plan in their own time. (Source: Anime News Network) Note: This is the second major animated piece following the big hit \"A Thousand and One Night Stories\" in Japan. The distributor treated the film as an erotic animated work…\n\n2. **Galaxy Express 999** (1978) — After witnessing the death of his mother and being left for dead at the hands of Count Mecha, ten-year old Tetsuro Hoshino is awakened by a mysterious woman, Maetal. In exchange for only his company, Maetal offers him the ride of his life on the Galaxy Express 999. It is said that those who travel aboard the legendary train to the end of the line can receive a free mechanical body and with it, immortality. Impoverished and alone, Tetsuro leaps…\n\n3. **A Thousand & One Nights** (1969) — Beautifully constructed, 1001 Nights stays true to the lush and mysterious backdrop of the well known and age old story. Tezuka remolds the story into an escapist fantasy where a 60s-era working man is transported back to an era of entirely fictitious Arabian details. Seemingly at odds with itself, 1001 Nights consistently unfolds in a way that combines Playboy graphics, Arabian rug design and traditional Japanese scroll paintings. Sound like a…\n\n4. **Future Boy Conan** (1978) — July 2008. Mankind was faced with the threat of extinction. An ultra-magnetic weapon, far more devastating than any nuclear weapon known, destroyed half the world in an instant. The earth's crust was rocked by massive movements, the earth was thrown off its axis, and the five continents were torn completely apart and sank deep below the sea... The attempt by a number of people to flee to outer space failed. Their spaceships were forced back to…\n\n5. **Galaxy Express 999 (Movie)** (1979) — After the death of his mother at the hands of the evil robot Count Mecha, young Tetsuro has become a delinquent street urchin who dreams only of revenge. Tetsuro lives in a far future world in which humans have the choice to travel to another planet where they can exchange their bodies for immortal, robotic counterparts. His goal is to someday acquire (through theft) enough money to board the Galaxy Express 999, a train which is capable of…\n\nThe exact requirement 'new millennium' is assessed semantically from descriptions, not verified by a catalog category.",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Cleopatra",
+      "Galaxy Express 999",
+      "A Thousand & One Nights",
+      "Future Boy Conan",
+      "Galaxy Express 999 (Movie)"
+    ],
+    "unclear": false,
+    "note": "Note: This is the second major animated piece following the big hit \"A Thousand and One Night Stories\" in Japan. The distributor treated the film as an erotic animated work…\n\n2. **Galaxy Express 999** (1978) — After witnessing the death of his mother and being left for dead at the hands of Count Mecha, ten-year old Tetsuro Hoshino is awakened by a mysterious woman, Maetal. In exchange for only his company, Maetal offers him the ride of his life on the Galaxy Express 999. It is said that those who travel aboard the legendary train to the end of the line can receive a free mechanical body and with it, immortality. Impoverished and alone, Tetsuro leaps…\n\n3. **A Thousand & One Nights** (1969) — Beautifully constructed, 1001 Nights stays true to the lush and mysterious backdrop of the well known and age old story. Tezuka remolds the story into an escapist fantasy where a 60s-era working man is transported back to an era of entirely fictitious Arabian details. Seemingly at odds with itself, 1001 Nights consistently unfolds in a way that combines Playboy graphics, Arabian rug design and traditional Japanese scroll paintings. Sound like a…\n\n4. **Future Boy Conan** (1978) — July 2008. Mankind was faced with the threat of extinction. An ultra-magnetic weapon, far more devastating than any nuclear weapon known, destroyed half the world in an instant. The earth's crust was rocked by massive movements, the earth was thrown off its axis, and the five continents were torn completely apart and sank deep below the sea... The attempt by a number of people to flee to outer space failed. Their spaceships were forced back to…\n\n5. **Galaxy Express 999 (Movie)** (1979) — After the death of his mother at the hands of the evil robot Count Mecha, young Tetsuro has become a delinquent street urchin who dreams only of revenge. Tetsuro lives in a far future world in which humans have the choice to travel to another planet where they can exchange their bodies for immortal, robotic counterparts. His goal is to someday acquire (through theft) enough money to board the Galaxy Express 999, a train which is capable of…\n\nThe exact requirement 'new millennium' is assessed semantically from descriptions, not verified by a catalog category.",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Cleopatra",
+      "anime_id": "2755",
+      "canonical_title": "Cleopatra",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "2755"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.5,
+      "gain": 0.5,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Galaxy Express 999",
+      "anime_id": "1491",
+      "canonical_title": "Galaxy Express 999",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "1491"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.5,
+      "gain": 0.5,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 3,
+      "extracted_title": "A Thousand & One Nights",
+      "anime_id": "3038",
+      "canonical_title": "A Thousand & One Nights",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "3038"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.5,
+      "gain": 0.5,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Future Boy Conan",
+      "anime_id": null,
+      "canonical_title": null,
+      "resolution": "ambiguous",
+      "candidate_ids": [
+        "2614",
+        "302"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        0.0
+      ],
+      "constraint_evidence": [],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Galaxy Express 999 (Movie)",
+      "anime_id": "1301",
+      "canonical_title": "Galaxy Express 999 (Movie)",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "1301"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.5,
+      "gain": 0.5,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.0,
+    "graded_fit_at_k": 0.4,
+    "ndcg_at_k": 0.42696582507864683,
+    "constraint_coverage": 0.5,
+    "count_compliance": 1,
+    "resolution_rate": 0.8,
+    "duplicate_rate": 0.0,
+    "extra_count": 0,
+    "literal_precision_at_k": 0.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 18.96155354199982,
+  "extraction_seconds": 7.9549320419992,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.7e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000844
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 12.271709
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.002598
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.035937
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013012
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.398579
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "new millennium",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "year",
+                  "operator": "lt",
+                  "value": "1980"
+                },
+                {
+                  "field": "status",
+                  "operator": "eq",
+                  "value": "FINISHED"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "new millennium",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.037679,
+      "arguments": {
+        "query": "new millennium",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "post apocalyptic",
+            "name": "Post-Apocalyptic",
+            "description": "Partly or completely set in a world or civilization after a global disaster.",
+            "category": "Setting-Universe",
+            "similarity": 0.3139
+          },
+          {
+            "kind": "tag",
+            "id": "lost civilization",
+            "name": "Lost Civilization",
+            "description": "Featuring a civilization with few ruins or records that exist in present day knowledge.",
+            "category": "Theme-Other",
+            "similarity": 0.2861
+          },
+          {
+            "kind": "tag",
+            "id": "coming of age",
+            "name": "Coming of Age",
+            "description": "Centers around a character's transition from childhood to adulthood.",
+            "category": "Theme-Drama",
+            "similarity": 0.276
+          },
+          {
+            "kind": "tag",
+            "id": "isekai",
+            "name": "Isekai",
+            "description": "Features a character from a modern-day setting being transported into an alternate world and has to adapt to their new surroundings.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.2598
+          },
+          {
+            "kind": "tag",
+            "id": "dystopian",
+            "name": "Dystopian",
+            "description": "Partly or completely set in a society characterized by poverty, squalor or oppression.",
+            "category": "Setting-Time",
+            "similarity": 0.2558
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "year",
+            "operator": "lt",
+            "value": "1980"
+          },
+          {
+            "field": "status",
+            "operator": "eq",
+            "value": "FINISHED"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.198892,
+      "arguments": {
+        "filters": [
+          {
+            "field": "year",
+            "operator": "lt",
+            "value": "1980"
+          },
+          {
+            "field": "status",
+            "operator": "eq",
+            "value": "FINISHED"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "year",
+              "operator": "lt",
+              "value": "1980"
+            },
+            {
+              "field": "status",
+              "operator": "eq",
+              "value": "FINISHED"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [
+            "The exact requirement 'new millennium' is assessed semantically from descriptions, not verified by a catalog category."
+          ],
+          "mappings": [
+            {
+              "field": "year",
+              "operator": "lt",
+              "value": "1980",
+              "source_text": "eighties",
+              "mapping": "exact"
+            },
+            {
+              "field": "status",
+              "operator": "eq",
+              "value": "FINISHED",
+              "source_text": "Give me five anime that first came out after the eighties ended but before the new millennium began.",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "2755",
+            "title": "Cleopatra",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'lt', 'value': '1980'}, {'field': 'status', 'operator': 'eq', 'value': 'FINISHED'}]",
+            "preference_similarity": 0.2279
+          },
+          {
+            "id": "1491",
+            "title": "Galaxy Express 999",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'lt', 'value': '1980'}, {'field': 'status', 'operator': 'eq', 'value': 'FINISHED'}]",
+            "preference_similarity": 0.207
+          },
+          {
+            "id": "3038",
+            "title": "A Thousand & One Nights",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'lt', 'value': '1980'}, {'field': 'status', 'operator': 'eq', 'value': 'FINISHED'}]",
+            "preference_similarity": 0.2027
+          },
+          {
+            "id": "302",
+            "title": "Future Boy Conan",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'lt', 'value': '1980'}, {'field': 'status', 'operator': 'eq', 'value': 'FINISHED'}]",
+            "preference_similarity": 0.1706
+          },
+          {
+            "id": "1301",
+            "title": "Galaxy Express 999 (Movie)",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'lt', 'value': '1980'}, {'field': 'status', 'operator': 'eq', 'value': 'FINISHED'}]",
+            "preference_similarity": 0.1393
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000457
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "new millennium",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "post apocalyptic",
+              "name": "Post-Apocalyptic",
+              "description": "Partly or completely set in a world or civilization after a global disaster.",
+              "category": "Setting-Universe",
+              "similarity": 0.3139
+            },
+            {
+              "kind": "tag",
+              "id": "lost civilization",
+              "name": "Lost Civilization",
+              "description": "Featuring a civilization with few ruins or records that exist in present day knowledge.",
+              "category": "Theme-Other",
+              "similarity": 0.2861
+            },
+            {
+              "kind": "tag",
+              "id": "coming of age",
+              "name": "Coming of Age",
+              "description": "Centers around a character's transition from childhood to adulthood.",
+              "category": "Theme-Drama",
+              "similarity": 0.276
+            },
+            {
+              "kind": "tag",
+              "id": "isekai",
+              "name": "Isekai",
+              "description": "Features a character from a modern-day setting being transported into an alternate world and has to adapt to their new surroundings.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.2598
+            },
+            {
+              "kind": "tag",
+              "id": "dystopian",
+              "name": "Dystopian",
+              "description": "Partly or completely set in a society characterized by poverty, squalor or oppression.",
+              "category": "Setting-Time",
+              "similarity": 0.2558
+            }
+          ]
+        },
+        "elapsed_seconds": 0.037679
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "year",
+              "operator": "lt",
+              "value": "1980"
+            },
+            {
+              "field": "status",
+              "operator": "eq",
+              "value": "FINISHED"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "year",
+                "operator": "lt",
+                "value": "1980"
+              },
+              {
+                "field": "status",
+                "operator": "eq",
+                "value": "FINISHED"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [
+              "The exact requirement 'new millennium' is assessed semantically from descriptions, not verified by a catalog category."
+            ],
+            "mappings": [
+              {
+                "field": "year",
+                "operator": "lt",
+                "value": "1980",
+                "source_text": "eighties",
+                "mapping": "exact"
+              },
+              {
+                "field": "status",
+                "operator": "eq",
+                "value": "FINISHED",
+                "source_text": "Give me five anime that first came out after the eighties ended but before the new millennium began.",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "2755",
+              "title": "Cleopatra",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'lt', 'value': '1980'}, {'field': 'status', 'operator': 'eq', 'value': 'FINISHED'}]",
+              "preference_similarity": 0.2279
+            },
+            {
+              "id": "1491",
+              "title": "Galaxy Express 999",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'lt', 'value': '1980'}, {'field': 'status', 'operator': 'eq', 'value': 'FINISHED'}]",
+              "preference_similarity": 0.207
+            },
+            {
+              "id": "3038",
+              "title": "A Thousand & One Nights",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'lt', 'value': '1980'}, {'field': 'status', 'operator': 'eq', 'value': 'FINISHED'}]",
+              "preference_similarity": 0.2027
+            },
+            {
+              "id": "302",
+              "title": "Future Boy Conan",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'lt', 'value': '1980'}, {'field': 'status', 'operator': 'eq', 'value': 'FINISHED'}]",
+              "preference_similarity": 0.1706
+            },
+            {
+              "id": "1301",
+              "title": "Galaxy Express 999 (Movie)",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'lt', 'value': '1980'}, {'field': 'status', 'operator': 'eq', 'value': 'FINISHED'}]",
+              "preference_similarity": 0.1393
+            }
+          ]
+        },
+        "elapsed_seconds": 0.198892
+      }
+    ],
+    "llm_calls": 7,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 12.271709,
+      "prepare_context": 0.002598,
+      "retrieve_guides": 0.035937,
+      "feature_candidates": 0.013012,
+      "planning": 6.398579,
+      "tools": 0.236571,
+      "generate_answer": 0.000457
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"anime\", \"query\": \"anime\", \"kind\": \"genre\", \"role\": \"subject\", \"meaning\": \"Requested anime\"}, {\"text\": \"eighties\", \"query\": \"eighties\", \"kind\": \"tag\", \"role\": \"excluded\", \"meaning\": \"Excluded time period\"}, {\"text\": \"new millennium\", \"query\": \"new millennium\", \"kind\": \"tag\", \"role\": \"excluded\", \"meaning\": \"Excluded time period\"}]}",
+      "{\"min\": 1980, \"max\": 1989}",
+      "{\"applies\": true, \"operator\": \"eq\", \"value\": \"FINISHED\"}",
+      "{\"choice\": 1, \"role\": \"preferred\", \"operator\": \"eq\", \"value\": \"Neon Genesis Evangelion\", \"mapping\": \"exact\"}",
+      "{\"role\": \"required\"}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "anime",
+        "query": "anime",
+        "kind": "genre",
+        "role": "subject",
+        "meaning": "Requested anime"
+      },
+      {
+        "text": "eighties",
+        "query": "eighties",
+        "kind": "tag",
+        "role": "excluded",
+        "meaning": "Excluded time period"
+      },
+      {
+        "text": "new millennium",
+        "query": "new millennium",
+        "kind": "tag",
+        "role": "excluded",
+        "meaning": "Excluded time period"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify the start and end years for the requested anime.\",\"decisions\": {\"p0\": {\"meaning\": \"anime\", \"role\": \"subject\", \"selection\": \"unmapped description\" }, \"p1\": {\"meaning\": \"eighties\", \"role\": \"excluded\", \"selection\": \"unmapped description\"}, \"p2\": {\"meaning\": \"new millennium\", \"role\": \"excluded\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "subject",
+          "text": "anime",
+          "name": "",
+          "meaning": "anime"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "excluded",
+          "text": "eighties",
+          "name": "",
+          "meaning": "eighties"
+        },
+        {
+          "phrase_index": 2,
+          "kind": "description",
+          "id": "",
+          "role": "excluded",
+          "text": "new millennium",
+          "name": "",
+          "meaning": "new millennium"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {
+      "year": {
+        "sources": [
+          "eighties"
+        ],
+        "interpretations": [
+          "decade"
+        ]
+      }
+    },
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [
+        "eighties",
+        "new millennium"
+      ],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "year",
+          "operator": "lt",
+          "value": "1980"
+        },
+        {
+          "field": "status",
+          "operator": "eq",
+          "value": "FINISHED"
+        }
+      ],
+      "soft_query": "new millennium",
+      "limitations": [
+        "The exact requirement 'new millennium' is assessed semantically from descriptions, not verified by a catalog category."
+      ],
+      "mappings": [
+        {
+          "field": "year",
+          "operator": "lt",
+          "value": "1980",
+          "source_text": "eighties",
+          "mapping": "exact"
+        },
+        {
+          "field": "status",
+          "operator": "eq",
+          "value": "FINISHED",
+          "source_text": "Give me five anime that first came out after the eighties ended but before the new millennium began.",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "new millennium",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "exact"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "subject",
+            "text": "anime",
+            "name": "",
+            "meaning": "anime"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "excluded",
+            "text": "eighties",
+            "name": "",
+            "meaning": "eighties"
+          },
+          {
+            "phrase_index": 2,
+            "kind": "description",
+            "id": "",
+            "role": "excluded",
+            "text": "new millennium",
+            "name": "",
+            "meaning": "new millennium"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "new millennium",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "year",
+                "operator": "lt",
+                "value": "1980"
+              },
+              {
+                "field": "status",
+                "operator": "eq",
+                "value": "FINISHED"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

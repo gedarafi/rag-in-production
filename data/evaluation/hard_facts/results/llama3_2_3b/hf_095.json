@@ -1,0 +1,333 @@
+{
+  "question_id": "hf_095",
+  "anime_id": "101338",
+  "title": "Mob Psycho 100 II",
+  "field": "format",
+  "question": "What release format is Mob Psycho 100 II?",
+  "expected_values": [
+    "TV"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "TV",
+  "extracted_values": [
+    "TV"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 8.224457833000997,
+  "extraction_seconds": 0.522293083000477,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "TV",
+        "quote": "TV"
+      }
+    ],
+    "note": "No other release format is asserted",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101338",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101338",
+          "title": "Mob Psycho 100 II"
+        },
+        "elapsed_seconds": 0.015881
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 2.20095,
+      "prepare_context": 0.014928,
+      "retrieve_guides": 0.027258,
+      "feature_candidates": 0.01544,
+      "planning": 3.536755,
+      "tools": 0.015881,
+      "generate_answer": 2.410116
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Mob Psycho 100 II\", \"query\": \"Mob Psycho 100 II\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series release format\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Mob Psycho 100 II",
+        "query": "Mob Psycho 100 II",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series release format"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"What release format is Mob Psycho 100 II?\", \"decisions\": {\"p0\": {\"meaning\": \"TV series release format\", \"role\": \"subject\", \"selection\": \"Mob Psycho 100 II | anime:101338\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101338",
+          "role": "subject",
+          "text": "Mob Psycho 100 II",
+          "name": "Mob Psycho 100 II",
+          "meaning": "TV series release format"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101338",
+          "role": "subject",
+          "text": "Mob Psycho 100 II",
+          "name": "Mob Psycho 100 II",
+          "meaning": "TV series release format"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Mob Psycho 100 II"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101338",
+            "role": "subject",
+            "text": "Mob Psycho 100 II",
+            "name": "Mob Psycho 100 II",
+            "meaning": "TV series release format"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101338",
+            "role": "subject",
+            "text": "Mob Psycho 100 II",
+            "name": "Mob Psycho 100 II",
+            "meaning": "TV series release format"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "release format",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101338",
+            "section": "overview"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "101338",
+          "name": "Mob Psycho 100 II"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:101338",
+          "fact": "format: TV"
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 8.2e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001447
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.20095
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.014928
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.027258
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.01544
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.536755
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "release format",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101338",
+              "section": "overview"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "101338",
+            "name": "Mob Psycho 100 II"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101338",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.015881,
+      "arguments": {
+        "id": "101338",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101338",
+        "title": "Mob Psycho 100 II"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 2.410116
+    }
+  ]
+}

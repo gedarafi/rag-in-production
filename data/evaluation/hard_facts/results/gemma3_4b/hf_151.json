@@ -1,0 +1,881 @@
+{
+  "question_id": "hf_151",
+  "anime_id": "21827",
+  "title": "Violet Evergarden",
+  "field": "main_animation_studios",
+  "question": "Which animation studio was behind the Violet Evergarden TV series?",
+  "expected_values": [
+    "Kyoto Animation"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Kyoto Animation was the animation studio behind the Violet Evergarden TV series.",
+  "extracted_values": [
+    "Kyoto Animation"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 15.700259041999743,
+  "extraction_seconds": 0.58323108400009,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Kyoto Animation",
+        "quote": "Kyoto Animation was the animation studio behind the Violet Evergarden TV series."
+      }
+    ],
+    "note": "assertion is clear",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21827"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21827",
+          "title": "Violet Evergarden"
+        },
+        "elapsed_seconds": 0.015304
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "studio",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "office",
+              "name": "Office",
+              "description": "Features people who work in a business office.",
+              "category": "Setting-Scene",
+              "similarity": 0.4473
+            },
+            {
+              "kind": "tag",
+              "id": "dungeon",
+              "name": "Dungeon",
+              "description": "Prominently features a dungeon environment.",
+              "category": "Setting-Scene",
+              "similarity": 0.4212
+            },
+            {
+              "kind": "tag",
+              "id": "software development",
+              "name": "Software Development",
+              "description": "Centers around characters developing or programming a piece of technology, software, gaming, etc.",
+              "category": "Theme-Other",
+              "similarity": 0.4137
+            },
+            {
+              "kind": "tag",
+              "id": "photography",
+              "name": "Photography",
+              "description": "Centers around the use of cameras to capture photos.",
+              "category": "Theme-Arts",
+              "similarity": 0.4031
+            },
+            {
+              "kind": "tag",
+              "id": "makeup",
+              "name": "Makeup",
+              "description": "Centers around the makeup industry.",
+              "category": "Theme-Arts",
+              "similarity": 0.4025
+            }
+          ]
+        },
+        "elapsed_seconds": 0.053848
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "studio"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.004582
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21827"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21827",
+          "title": "Violet Evergarden"
+        },
+        "elapsed_seconds": 0.000106
+      },
+      {
+        "step": 4,
+        "tool": "search_features",
+        "arguments": {
+          "query": "studio",
+          "kind": "tag"
+        },
+        "cached": true,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "office",
+              "name": "Office",
+              "description": "Features people who work in a business office.",
+              "category": "Setting-Scene",
+              "similarity": 0.4473
+            },
+            {
+              "kind": "tag",
+              "id": "dungeon",
+              "name": "Dungeon",
+              "description": "Prominently features a dungeon environment.",
+              "category": "Setting-Scene",
+              "similarity": 0.4212
+            },
+            {
+              "kind": "tag",
+              "id": "software development",
+              "name": "Software Development",
+              "description": "Centers around characters developing or programming a piece of technology, software, gaming, etc.",
+              "category": "Theme-Other",
+              "similarity": 0.4137
+            },
+            {
+              "kind": "tag",
+              "id": "photography",
+              "name": "Photography",
+              "description": "Centers around the use of cameras to capture photos.",
+              "category": "Theme-Arts",
+              "similarity": 0.4031
+            },
+            {
+              "kind": "tag",
+              "id": "makeup",
+              "name": "Makeup",
+              "description": "Centers around the makeup industry.",
+              "category": "Theme-Arts",
+              "similarity": 0.4025
+            }
+          ]
+        },
+        "elapsed_seconds": 1.4e-05
+      },
+      {
+        "step": 5,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21827",
+          "section": "studios"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "21827",
+          "title": "Violet Evergarden"
+        },
+        "elapsed_seconds": 0.002933
+      },
+      {
+        "step": 6,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21827",
+          "section": "staff"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "21827",
+          "title": "Violet Evergarden"
+        },
+        "elapsed_seconds": 0.002744
+      },
+      {
+        "step": 7,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21827",
+          "section": "studios"
+        },
+        "cached": true,
+        "result": {
+          "kind": "anime",
+          "id": "21827",
+          "title": "Violet Evergarden"
+        },
+        "elapsed_seconds": 1.6e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 8,
+    "executed_tools": 5,
+    "timings_seconds": {
+      "interpret_request": 3.315232,
+      "prepare_context": 0.019817,
+      "retrieve_guides": 0.052609,
+      "feature_candidates": 0.023813,
+      "planning": 8.739813,
+      "tools": 0.079547,
+      "generate_answer": 3.465225
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Violet Evergarden\", \"query\": \"Violet Evergarden\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Violet Evergarden",
+        "query": "Violet Evergarden",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"The question asks about the animation studio behind the TV series Violet Evergarden.\", \"decisions\": {\"p0\": {\"meaning\": \"Violet Evergarden\", \"role\": \"subject\", \"selection\": \"Violet Evergarden | anime:21827\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21827",
+          "role": "subject",
+          "text": "Violet Evergarden",
+          "name": "Violet Evergarden",
+          "meaning": "Violet Evergarden"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21827",
+          "role": "subject",
+          "text": "Violet Evergarden",
+          "name": "Violet Evergarden",
+          "meaning": "Violet Evergarden"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Violet Evergarden"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21827",
+            "role": "subject",
+            "text": "Violet Evergarden",
+            "name": "Violet Evergarden",
+            "meaning": "Violet Evergarden"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21827",
+            "role": "subject",
+            "text": "Violet Evergarden",
+            "name": "Violet Evergarden",
+            "meaning": "Violet Evergarden"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Retrieve the animation studio behind Violet Evergarden.",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21827"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "studio",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "studio"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21827"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "studio",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21827",
+            "section": "studios"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21827",
+            "section": "staff"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21827",
+            "section": "studios"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21827",
+          "name": "Violet Evergarden"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:21827",
+          "fact": "Kyoto Animation was the animation studio behind the Violet Evergarden TV series."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 0.000106
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.002525
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.315232
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.019817
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.052609
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.023813
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 8.739813
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Retrieve the animation studio behind Violet Evergarden.",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21827"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "studio",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "studio"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21827"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "studio",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21827",
+              "section": "studios"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21827",
+              "section": "staff"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21827",
+              "section": "studios"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21827",
+            "name": "Violet Evergarden"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21827"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.015304,
+      "arguments": {
+        "id": "21827"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21827",
+        "title": "Violet Evergarden"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "studio",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.053848,
+      "arguments": {
+        "query": "studio",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "office",
+            "name": "Office",
+            "description": "Features people who work in a business office.",
+            "category": "Setting-Scene",
+            "similarity": 0.4473
+          },
+          {
+            "kind": "tag",
+            "id": "dungeon",
+            "name": "Dungeon",
+            "description": "Prominently features a dungeon environment.",
+            "category": "Setting-Scene",
+            "similarity": 0.4212
+          },
+          {
+            "kind": "tag",
+            "id": "software development",
+            "name": "Software Development",
+            "description": "Centers around characters developing or programming a piece of technology, software, gaming, etc.",
+            "category": "Theme-Other",
+            "similarity": 0.4137
+          },
+          {
+            "kind": "tag",
+            "id": "photography",
+            "name": "Photography",
+            "description": "Centers around the use of cameras to capture photos.",
+            "category": "Theme-Arts",
+            "similarity": 0.4031
+          },
+          {
+            "kind": "tag",
+            "id": "makeup",
+            "name": "Makeup",
+            "description": "Centers around the makeup industry.",
+            "category": "Theme-Arts",
+            "similarity": 0.4025
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "studio"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.004582,
+      "arguments": {
+        "kind": "tag",
+        "query": "studio"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21827"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000106,
+      "arguments": {
+        "id": "21827"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21827",
+        "title": "Violet Evergarden"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "search_features",
+      "arguments": {
+        "query": "studio",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 1.4e-05,
+      "arguments": {
+        "query": "studio",
+        "kind": "tag"
+      },
+      "cached": true,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "office",
+            "name": "Office",
+            "description": "Features people who work in a business office.",
+            "category": "Setting-Scene",
+            "similarity": 0.4473
+          },
+          {
+            "kind": "tag",
+            "id": "dungeon",
+            "name": "Dungeon",
+            "description": "Prominently features a dungeon environment.",
+            "category": "Setting-Scene",
+            "similarity": 0.4212
+          },
+          {
+            "kind": "tag",
+            "id": "software development",
+            "name": "Software Development",
+            "description": "Centers around characters developing or programming a piece of technology, software, gaming, etc.",
+            "category": "Theme-Other",
+            "similarity": 0.4137
+          },
+          {
+            "kind": "tag",
+            "id": "photography",
+            "name": "Photography",
+            "description": "Centers around the use of cameras to capture photos.",
+            "category": "Theme-Arts",
+            "similarity": 0.4031
+          },
+          {
+            "kind": "tag",
+            "id": "makeup",
+            "name": "Makeup",
+            "description": "Centers around the makeup industry.",
+            "category": "Theme-Arts",
+            "similarity": 0.4025
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21827",
+        "section": "studios"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.002933,
+      "arguments": {
+        "id": "21827",
+        "section": "studios"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "21827",
+        "title": "Violet Evergarden"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 6,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21827",
+        "section": "staff"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 6,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.002744,
+      "arguments": {
+        "id": "21827",
+        "section": "staff"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "21827",
+        "title": "Violet Evergarden"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 7,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21827",
+        "section": "studios"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 7,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 1.6e-05,
+      "arguments": {
+        "id": "21827",
+        "section": "studios"
+      },
+      "cached": true,
+      "result": {
+        "kind": "anime",
+        "id": "21827",
+        "title": "Violet Evergarden"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.465225
+    }
+  ]
+}

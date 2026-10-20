@@ -1,0 +1,1200 @@
+{
+  "question_id": "time_02",
+  "category": "tags",
+  "intent_family": "time",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "What are four anime where someone can rewind events or change what happens by going back in time?",
+  "k": 4,
+  "constraints": [
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Time Manipulation"
+      ]
+    }
+  ],
+  "label_rationale": "Rewinding, looping, and changing time map to Time Manipulation.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 444,
+  "reference_examples": [
+    {
+      "id": "104257",
+      "title": "Is Lupin Still Burning?"
+    },
+    {
+      "id": "12321",
+      "title": "Thermae Romae"
+    },
+    {
+      "id": "4124",
+      "title": "Futari wa Precure: Splash☆Star - Tick Tack Kiki Ippatsu!"
+    }
+  ],
+  "answer_text": "Catalog matches. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **Re:ZERO -Starting Life in Another World-** — In the story, Subaru Natsuki is an ordinary high school student who is lost in an alternate world, where he is rescued by a beautiful, silver-haired girl. He stays near her to return the favor, but the destiny she is burdened with is more than Subaru can imagine. Enemies attack one by one, and both of them are killed. He then finds out he has the power to rewind death, back to the time he first came to this world. But only he remembers what has…\n\n2. **Violet Evergarden** — A certain point in time, in the continent of Telesis. The great war which divided the continent into North and South has ended after four years, and the people are welcoming a new generation. Violet Evergarden, a young girl formerly known as “the weapon”, has left the battlefield to start a new life at CH Postal Service. There, she is deeply moved by the work of “Auto Memories Dolls”, who carry people's thoughts and convert them into words.…\n\n3. **Steins;Gate** — Self-proclaimed mad scientist Okabe Rintarou lives in a small room in Akihabara, where he invents \"future gadgets\" with fellow lab members Shiina Mayuri, his air-headed childhood friend, and Hashida Itaru, an otaku hacker. The three pass the time by tinkering with their latest creation, a \"Phone Microwave\" that can be controlled through text messages. The lab members soon face a string of mysterious incidents that lead to a game-changing…\n\n4. **ERASED** — Satoru Fujinuma is a 29 year old manga artist struggling to make a name for himself following his debut. But, that was not the only thing in his life that Satoru was feeling frustrated about… He has a unique supernatural ability of being forced to prevent deaths and catastrophes by being sent back in time before the incident occurred, repeating time until the accident is prevented. One day, he gets involved in an accident that has him framed as…\n\n5. **Attack on Titan Final Season** — It’s been four years since the Scout Regiment reached the shoreline, and the world looks different now. Things are heating up as the fate of the Scout Regiment—and the people of Paradis—are determined at last. However, Eren is missing. Will he reappear before age-old tensions between Marleyans and Eldians result in the war of all wars? (Source: Crunchyroll)\n\nThe exact requirement 'rewind events' is assessed semantically from descriptions, not verified by a catalog category. The exact requirement 'change what happens' is assessed semantically from descriptions, not verified by a catalog category.",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Re:ZERO -Starting Life in Another World-",
+      "Violet Evergarden",
+      "Steins;Gate",
+      "ERASED",
+      "Attack on Titan Final Season"
+    ],
+    "unclear": false,
+    "note": "Titles=[] for a refusal or no recommendations.",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Re:ZERO -Starting Life in Another World-",
+      "anime_id": "21355",
+      "canonical_title": "Re:ZERO -Starting Life in Another World-",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21355"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.96
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.96,
+          "met": true,
+          "literal_score": 0.96,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.96,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.96,
+      "gain": 0.96,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Violet Evergarden",
+      "anime_id": "21827",
+      "canonical_title": "Violet Evergarden",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21827"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Steins;Gate",
+      "anime_id": "9253",
+      "canonical_title": "Steins;Gate",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "9253"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.98
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.98,
+          "met": true,
+          "literal_score": 0.98,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.98,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.98,
+      "gain": 0.98,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 4,
+      "extracted_title": "ERASED",
+      "anime_id": "21234",
+      "canonical_title": "ERASED",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21234"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.93
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.93,
+          "met": true,
+          "literal_score": 0.93,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.93,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.93,
+      "gain": 0.93,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Attack on Titan Final Season",
+      "anime_id": "110277",
+      "canonical_title": "Attack on Titan Final Season",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "110277"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.75,
+    "graded_fit_at_k": 0.7175,
+    "ndcg_at_k": 0.7224096812206867,
+    "constraint_coverage": 1.0,
+    "count_compliance": 0,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "extra_count": 1,
+    "literal_precision_at_k": 0.75,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 22.12421962499957,
+  "extraction_seconds": 1.5839302499998666,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.1e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000798
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 12.289574
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.003807
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.036744
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.011793
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 9.531196
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend anime based on user preference for time manipulation themes",
+        "clarification": "The user wants anime where characters can rewind or change events through time travel or similar mechanisms. The phrase 'rewind events' and 'change what happens' are key indicators of this preference. The inclusion of 'someone' suggests a character-focused recommendation.",
+        "steps": [
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "time loop"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "time skip"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "time manipulation"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "reincarnation"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "memory manipulation"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "alternate universe"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "isekai"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {}
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "time loop"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.004247,
+      "arguments": {
+        "kind": "tag",
+        "query": "time loop"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "time loop",
+            "name": "Time Loop",
+            "aliases": [
+              "Time Loop"
+            ],
+            "match": "exact_or_name_order",
+            "similarity": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "time skip"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.0038,
+      "arguments": {
+        "kind": "tag",
+        "query": "time skip"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "time skip",
+            "name": "Time Skip",
+            "aliases": [
+              "Time Skip"
+            ],
+            "match": "exact_or_name_order",
+            "similarity": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "time manipulation"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.002096,
+      "arguments": {
+        "kind": "tag",
+        "query": "time manipulation"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "time manipulation",
+            "name": "Time Manipulation",
+            "aliases": [
+              "Time Manipulation"
+            ],
+            "match": "exact_or_name_order",
+            "similarity": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "reincarnation"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.001553,
+      "arguments": {
+        "kind": "tag",
+        "query": "reincarnation"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "reincarnation",
+            "name": "Reincarnation",
+            "aliases": [
+              "Reincarnation"
+            ],
+            "match": "exact_or_name_order",
+            "similarity": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "memory manipulation"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.002319,
+      "arguments": {
+        "kind": "tag",
+        "query": "memory manipulation"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "memory manipulation",
+            "name": "Memory Manipulation",
+            "aliases": [
+              "Memory Manipulation"
+            ],
+            "match": "exact_or_name_order",
+            "similarity": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "alternate universe"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.001227,
+      "arguments": {
+        "kind": "tag",
+        "query": "alternate universe"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "alternate universe",
+            "name": "Alternate Universe",
+            "aliases": [
+              "Alternate Universe"
+            ],
+            "match": "exact_or_name_order",
+            "similarity": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 6,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "isekai"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 6,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.001389,
+      "arguments": {
+        "kind": "tag",
+        "query": "isekai"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "isekai",
+            "name": "Isekai",
+            "aliases": [
+              "Isekai"
+            ],
+            "match": "exact_or_name_order",
+            "similarity": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 7,
+      "tool": "recommend_anime",
+      "arguments": {}
+    },
+    {
+      "stage": "tool",
+      "step": 7,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.231508,
+      "arguments": {},
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": []
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [
+            "The exact requirement 'rewind events' is assessed semantically from descriptions, not verified by a catalog category.",
+            "The exact requirement 'change what happens' is assessed semantically from descriptions, not verified by a catalog category."
+          ],
+          "mappings": []
+        },
+        "items": [
+          {
+            "id": "21355",
+            "title": "Re:ZERO -Starting Life in Another World-",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.2808
+          },
+          {
+            "id": "21827",
+            "title": "Violet Evergarden",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.2057
+          },
+          {
+            "id": "9253",
+            "title": "Steins;Gate",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.1455
+          },
+          {
+            "id": "21234",
+            "title": "ERASED",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.1057
+          },
+          {
+            "id": "110277",
+            "title": "Attack on Titan Final Season",
+            "reason": "Matches: filters=[]",
+            "preference_similarity": 0.0957
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000468
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "time loop"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "time loop",
+              "name": "Time Loop",
+              "aliases": [
+                "Time Loop"
+              ],
+              "match": "exact_or_name_order",
+              "similarity": 1.0
+            }
+          ]
+        },
+        "elapsed_seconds": 0.004247
+      },
+      {
+        "step": 1,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "time skip"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "time skip",
+              "name": "Time Skip",
+              "aliases": [
+                "Time Skip"
+              ],
+              "match": "exact_or_name_order",
+              "similarity": 1.0
+            }
+          ]
+        },
+        "elapsed_seconds": 0.0038
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "time manipulation"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "time manipulation",
+              "name": "Time Manipulation",
+              "aliases": [
+                "Time Manipulation"
+              ],
+              "match": "exact_or_name_order",
+              "similarity": 1.0
+            }
+          ]
+        },
+        "elapsed_seconds": 0.002096
+      },
+      {
+        "step": 3,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "reincarnation"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "reincarnation",
+              "name": "Reincarnation",
+              "aliases": [
+                "Reincarnation"
+              ],
+              "match": "exact_or_name_order",
+              "similarity": 1.0
+            }
+          ]
+        },
+        "elapsed_seconds": 0.001553
+      },
+      {
+        "step": 4,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "memory manipulation"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "memory manipulation",
+              "name": "Memory Manipulation",
+              "aliases": [
+                "Memory Manipulation"
+              ],
+              "match": "exact_or_name_order",
+              "similarity": 1.0
+            }
+          ]
+        },
+        "elapsed_seconds": 0.002319
+      },
+      {
+        "step": 5,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "alternate universe"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "alternate universe",
+              "name": "Alternate Universe",
+              "aliases": [
+                "Alternate Universe"
+              ],
+              "match": "exact_or_name_order",
+              "similarity": 1.0
+            }
+          ]
+        },
+        "elapsed_seconds": 0.001227
+      },
+      {
+        "step": 6,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "isekai"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "isekai",
+              "name": "Isekai",
+              "aliases": [
+                "Isekai"
+              ],
+              "match": "exact_or_name_order",
+              "similarity": 1.0
+            }
+          ]
+        },
+        "elapsed_seconds": 0.001389
+      },
+      {
+        "step": 7,
+        "tool": "recommend_anime",
+        "arguments": {},
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": []
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [
+              "The exact requirement 'rewind events' is assessed semantically from descriptions, not verified by a catalog category.",
+              "The exact requirement 'change what happens' is assessed semantically from descriptions, not verified by a catalog category."
+            ],
+            "mappings": []
+          },
+          "items": [
+            {
+              "id": "21355",
+              "title": "Re:ZERO -Starting Life in Another World-",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.2808
+            },
+            {
+              "id": "21827",
+              "title": "Violet Evergarden",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.2057
+            },
+            {
+              "id": "9253",
+              "title": "Steins;Gate",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.1455
+            },
+            {
+              "id": "21234",
+              "title": "ERASED",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.1057
+            },
+            {
+              "id": "110277",
+              "title": "Attack on Titan Final Season",
+              "reason": "Matches: filters=[]",
+              "preference_similarity": 0.0957
+            }
+          ]
+        },
+        "elapsed_seconds": 0.231508
+      }
+    ],
+    "llm_calls": 7,
+    "planned_tools": 8,
+    "executed_tools": 8,
+    "timings_seconds": {
+      "interpret_request": 12.289574,
+      "prepare_context": 0.003807,
+      "retrieve_guides": 0.036744,
+      "feature_candidates": 0.011793,
+      "planning": 9.531196,
+      "tools": 0.248139,
+      "generate_answer": 0.000468
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"rewind events\", \"query\": \"rewind events\", \"kind\": \"tag\", \"role\": \"required\", \"meaning\": \"Content criteria\"}, {\"text\": \"change what happens\", \"query\": \"change what happens\", \"kind\": \"tag\", \"role\": \"required\", \"meaning\": \"Content criteria\"}, {\"text\": \"go back in time\", \"query\": \"go back in time\", \"kind\": \"tag\", \"role\": \"required\", \"meaning\": \"Content criteria\"}, {\"text\": \"someone\", \"query\": \"someone\", \"kind\": \"description\", \"role\": \"subject\", \"meaning\": \"Character focus\"}]}",
+      "{\"choice\": 1, \"role\": \"required\", \"operator\": \"eq\", \"value\": \"Time Loop\", \"mapping\": \"exact\"}",
+      "{\"role\": \"required\"}",
+      "{\"choice\": 1, \"role\": \"required\", \"operator\": \"eq\", \"value\": \"Action\", \"mapping\": \"exact\"}",
+      "{\"role\": \"required\"}"
+    ],
+    "unsupported_mentions": [
+      {
+        "text": "go back in time",
+        "query": "go back in time",
+        "kind": "tag",
+        "role": "required",
+        "meaning": "Content criteria"
+      }
+    ],
+    "typed_mentions": [
+      {
+        "text": "rewind events",
+        "query": "rewind events",
+        "kind": "tag",
+        "role": "required",
+        "meaning": "Content criteria"
+      },
+      {
+        "text": "change what happens",
+        "query": "change what happens",
+        "kind": "tag",
+        "role": "required",
+        "meaning": "Content criteria"
+      },
+      {
+        "text": "someone",
+        "query": "someone",
+        "kind": "description",
+        "role": "subject",
+        "meaning": "Character focus"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify the anime titles you would like recommendations for.\", \"decisions\": {\"p0\": {\"meaning\": \"rewind events\", \"role\": \"required\", \"selection\": \"unmapped description\"}, \"p1\": {\"meaning\": \"change what happens\", \"role\": \"required\", \"selection\": \"unmapped description\"}, \"p2\": {\"meaning\": \"someone\", \"role\": \"subject\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "rewind events",
+          "name": "",
+          "meaning": "rewind events"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "change what happens",
+          "name": "",
+          "meaning": "change what happens"
+        },
+        {
+          "phrase_index": 2,
+          "kind": "description",
+          "id": "",
+          "role": "subject",
+          "text": "someone",
+          "name": "",
+          "meaning": "someone"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [
+        "rewind events",
+        "change what happens"
+      ],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [],
+      "soft_query": "rewind events change what happens",
+      "limitations": [
+        "The exact requirement 'rewind events' is assessed semantically from descriptions, not verified by a catalog category.",
+        "The exact requirement 'change what happens' is assessed semantically from descriptions, not verified by a catalog category."
+      ],
+      "mappings": [],
+      "preference_hierarchy": [
+        {
+          "phrase": "rewind events",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "exact"
+        },
+        {
+          "phrase": "change what happens",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "exact"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "rewind events",
+            "name": "",
+            "meaning": "rewind events"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "change what happens",
+            "name": "",
+            "meaning": "change what happens"
+          },
+          {
+            "phrase_index": 2,
+            "kind": "description",
+            "id": "",
+            "role": "subject",
+            "text": "someone",
+            "name": "",
+            "meaning": "someone"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend anime based on user preference for time manipulation themes",
+      "clarification": "The user wants anime where characters can rewind or change events through time travel or similar mechanisms. The phrase 'rewind events' and 'change what happens' are key indicators of this preference. The inclusion of 'someone' suggests a character-focused recommendation.",
+      "steps": [
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "time loop"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "time skip"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "time manipulation"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "reincarnation"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "memory manipulation"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "alternate universe"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "isekai"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {}
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

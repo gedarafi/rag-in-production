@@ -1,0 +1,130 @@
+{
+  "benchmark_questions": 180,
+  "overall": {
+    "attempted": 180,
+    "automatically_scored": 171,
+    "status_counts": {
+      "answered": 171,
+      "model_error": 9
+    },
+    "end_to_end_exact_accuracy": 0.7277777777777777,
+    "scoring_coverage": 0.95,
+    "scored_exact_accuracy": 0.7660818713450293,
+    "macro_precision": 0.8110136452241715,
+    "macro_recall": 0.8628654970760234,
+    "macro_f1": 0.8234103777963426,
+    "mean_model_seconds": 10.605599752288915,
+    "mean_extraction_seconds": 0.5791522170888634
+  },
+  "by_field": {
+    "duration": {
+      "attempted": 26,
+      "automatically_scored": 19,
+      "status_counts": {
+        "answered": 19,
+        "model_error": 7
+      },
+      "end_to_end_exact_accuracy": 0.2692307692307692,
+      "scoring_coverage": 0.7307692307692307,
+      "scored_exact_accuracy": 0.3684210526315789,
+      "macro_precision": 0.41228070175438597,
+      "macro_recall": 0.47368421052631576,
+      "macro_f1": 0.4298245614035087,
+      "mean_model_seconds": 11.644307221038407,
+      "mean_extraction_seconds": 0.42682032692307703
+    },
+    "episodes": {
+      "attempted": 26,
+      "automatically_scored": 25,
+      "status_counts": {
+        "answered": 25,
+        "model_error": 1
+      },
+      "end_to_end_exact_accuracy": 0.7692307692307693,
+      "scoring_coverage": 0.9615384615384616,
+      "scored_exact_accuracy": 0.8,
+      "macro_precision": 0.8466666666666667,
+      "macro_recall": 0.92,
+      "macro_f1": 0.8647619047619048,
+      "mean_model_seconds": 11.186544818884613,
+      "mean_extraction_seconds": 0.5509105657306114
+    },
+    "format": {
+      "attempted": 26,
+      "automatically_scored": 26,
+      "status_counts": {
+        "answered": 26
+      },
+      "end_to_end_exact_accuracy": 0.7307692307692307,
+      "scoring_coverage": 1.0,
+      "scored_exact_accuracy": 0.7307692307692307,
+      "macro_precision": 0.75,
+      "macro_recall": 0.7692307692307693,
+      "macro_f1": 0.7564102564102565,
+      "mean_model_seconds": 10.185610171423063,
+      "mean_extraction_seconds": 0.5447294678844907
+    },
+    "main_animation_studios": {
+      "attempted": 25,
+      "automatically_scored": 25,
+      "status_counts": {
+        "answered": 25
+      },
+      "end_to_end_exact_accuracy": 0.84,
+      "scoring_coverage": 1.0,
+      "scored_exact_accuracy": 0.84,
+      "macro_precision": 0.856,
+      "macro_recall": 0.88,
+      "macro_f1": 0.8628571428571429,
+      "mean_model_seconds": 9.080082861640186,
+      "mean_extraction_seconds": 0.5672560498401436
+    },
+    "main_characters": {
+      "attempted": 25,
+      "automatically_scored": 24,
+      "status_counts": {
+        "answered": 24,
+        "model_error": 1
+      },
+      "end_to_end_exact_accuracy": 0.88,
+      "scoring_coverage": 0.96,
+      "scored_exact_accuracy": 0.9166666666666666,
+      "macro_precision": 1.0,
+      "macro_recall": 0.9812500000000001,
+      "macro_f1": 0.9894179894179894,
+      "mean_model_seconds": 11.058488278440054,
+      "mean_extraction_seconds": 0.7630467015999602
+    },
+    "source_material": {
+      "attempted": 26,
+      "automatically_scored": 26,
+      "status_counts": {
+        "answered": 26
+      },
+      "end_to_end_exact_accuracy": 0.6153846153846154,
+      "scoring_coverage": 1.0,
+      "scored_exact_accuracy": 0.6153846153846154,
+      "macro_precision": 0.7224358974358975,
+      "macro_recall": 0.9230769230769231,
+      "macro_f1": 0.7705128205128206,
+      "mean_model_seconds": 10.497781270807817,
+      "mean_extraction_seconds": 0.6001948830768155
+    },
+    "year": {
+      "attempted": 26,
+      "automatically_scored": 26,
+      "status_counts": {
+        "answered": 26
+      },
+      "end_to_end_exact_accuracy": 1.0,
+      "scoring_coverage": 1.0,
+      "scored_exact_accuracy": 1.0,
+      "macro_precision": 1.0,
+      "macro_recall": 1.0,
+      "macro_f1": 1.0,
+      "mean_model_seconds": 10.545128706692209,
+      "mean_extraction_seconds": 0.6077228444616524
+    }
+  },
+  "warning": "Automatic extraction is model-dependent; review quotes and extraction errors. No human validation implied."
+}

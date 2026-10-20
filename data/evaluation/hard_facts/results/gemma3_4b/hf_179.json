@@ -1,0 +1,642 @@
+{
+  "question_id": "hf_179",
+  "anime_id": "30",
+  "title": "Neon Genesis Evangelion",
+  "field": "main_characters",
+  "question": "Who are all the main characters credited for Neon Genesis Evangelion?",
+  "expected_values": [
+    "Misato Katsuragi",
+    "Rei Ayanami",
+    "Shinji Ikari",
+    "Asuka Langley Souryuu"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The main characters of Neon Genesis Evangelion are Asuka Langley Souryuu, Shinji Ikari, Rei Ayanami, and Misato Katsuragi.",
+  "extracted_values": [
+    "Asuka Langley Souryuu",
+    "Shinji Ikari",
+    "Rei Ayanami",
+    "Misato Katsuragi"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 21.317871499999455,
+  "extraction_seconds": 0.949217165999471,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Asuka Langley Souryuu",
+        "quote": "The main characters of Neon Genesis Evangelion are Asuka Langley Souryuu, Shinji Ikari, Rei Ayanami, and Misato Katsuragi."
+      },
+      {
+        "value": "Shinji Ikari",
+        "quote": "The main characters of Neon Genesis Evangelion are Asuka Langley Souryuu, Shinji Ikari, Rei Ayanami, and Misato Katsuragi."
+      },
+      {
+        "value": "Rei Ayanami",
+        "quote": "The main characters of Neon Genesis Evangelion are Asuka Langley Souryuu, Shinji Ikari, Rei Ayanami, and Misato Katsuragi."
+      },
+      {
+        "value": "Misato Katsuragi",
+        "quote": "The main characters of Neon Genesis Evangelion are Asuka Langley Souryuu, Shinji Ikari, Rei Ayanami, and Misato Katsuragi."
+      }
+    ],
+    "note": "assertion confirmed",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 4,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "30"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "30",
+          "title": "Neon Genesis Evangelion"
+        },
+        "elapsed_seconds": 0.020404
+      },
+      {
+        "step": 1,
+        "tool": "get_character",
+        "arguments": {
+          "id": "1259",
+          "offset": 0
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "1259",
+          "name": "Misato Katsuragi"
+        },
+        "elapsed_seconds": 0.002218
+      },
+      {
+        "step": 2,
+        "tool": "get_character",
+        "arguments": {
+          "id": "86",
+          "offset": 0
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "86",
+          "name": "Rei Ayanami"
+        },
+        "elapsed_seconds": 0.001931
+      },
+      {
+        "step": 3,
+        "tool": "get_character",
+        "arguments": {
+          "id": "89",
+          "offset": 0
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "89",
+          "name": "Shinji Ikari"
+        },
+        "elapsed_seconds": 0.001457
+      },
+      {
+        "step": 4,
+        "tool": "get_character",
+        "arguments": {
+          "id": "94",
+          "offset": 0
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "94",
+          "name": "Asuka Langley Souryuu"
+        },
+        "elapsed_seconds": 0.001595
+      },
+      {
+        "step": 5,
+        "tool": "get_character",
+        "arguments": {
+          "id": "94",
+          "offset": 0
+        },
+        "cached": true,
+        "result": {
+          "kind": "character",
+          "id": "94",
+          "name": "Asuka Langley Souryuu"
+        },
+        "elapsed_seconds": 2.1e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 6,
+    "executed_tools": 5,
+    "timings_seconds": {
+      "interpret_request": 3.740632,
+      "prepare_context": 0.023197,
+      "retrieve_guides": 0.047476,
+      "feature_candidates": 0.018186,
+      "planning": 8.466328,
+      "tools": 0.027626,
+      "generate_answer": 8.991866
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Neon Genesis Evangelion\", \"query\": \"Neon Genesis Evangelion\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Neon Genesis Evangelion",
+        "query": "Neon Genesis Evangelion",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify if you are asking about the characters from the original anime series or any adaptations.\", \"decisions\": {\"p0\": {\"meaning\": \"Neon Genesis Evangelion\", \"role\": \"subject\", \"selection\": \"Neon Genesis Evangelion | anime:30\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "30",
+          "role": "subject",
+          "text": "Neon Genesis Evangelion",
+          "name": "Neon Genesis Evangelion",
+          "meaning": "Neon Genesis Evangelion"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "30",
+          "role": "subject",
+          "text": "Neon Genesis Evangelion",
+          "name": "Neon Genesis Evangelion",
+          "meaning": "Neon Genesis Evangelion"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Neon Genesis Evangelion"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "30",
+            "role": "subject",
+            "text": "Neon Genesis Evangelion",
+            "name": "Neon Genesis Evangelion",
+            "meaning": "Neon Genesis Evangelion"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "30",
+            "role": "subject",
+            "text": "Neon Genesis Evangelion",
+            "name": "Neon Genesis Evangelion",
+            "meaning": "Neon Genesis Evangelion"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Retrieve main characters from Neon Genesis Evangelion",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "30"
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "1259",
+            "offset": 0
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "86",
+            "offset": 0
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "89",
+            "offset": 0
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "94",
+            "offset": 0
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "94",
+            "offset": 0
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "30",
+          "name": "Neon Genesis Evangelion"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:30",
+          "fact": "Asuka Langley Souryuu is the Second Child and pilots Evangelion Unit 02. She is a German-American. Her height is 155 cm (5'1\")."
+        },
+        {
+          "subject": "anime:30",
+          "fact": "Shinji Ikari is the Third Child and pilots Unit 01. He is the son of Gendo Ikari and Yui Ikari. His height is 155 cm (5'1\")."
+        },
+        {
+          "subject": "anime:30",
+          "fact": "Rei Ayanami is the First Child and pilots Evangelion Unit 00. She is withdrawn and has a height of 149 cm (4'11\")."
+        },
+        {
+          "subject": "anime:30",
+          "fact": "Misato Katsuragi is the chief operations officer at NERV and a guardian to Shinji and Asuka. Her height is 163 cm (5'4\")."
+        },
+        {
+          "subject": "anime:30",
+          "fact": "The main characters are Asuka Langley Souryuu, Shinji Ikari, Rei Ayanami, and Misato Katsuragi."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 6.5e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001039
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.740632
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.023197
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.047476
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.018186
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 8.466328
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Retrieve main characters from Neon Genesis Evangelion",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "30"
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "1259",
+              "offset": 0
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "86",
+              "offset": 0
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "89",
+              "offset": 0
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "94",
+              "offset": 0
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "94",
+              "offset": 0
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "30",
+            "name": "Neon Genesis Evangelion"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "30"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.020404,
+      "arguments": {
+        "id": "30"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "30",
+        "title": "Neon Genesis Evangelion"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_character",
+      "arguments": {
+        "id": "1259",
+        "offset": 0
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.002218,
+      "arguments": {
+        "id": "1259",
+        "offset": 0
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "1259",
+        "name": "Misato Katsuragi"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "get_character",
+      "arguments": {
+        "id": "86",
+        "offset": 0
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.001931,
+      "arguments": {
+        "id": "86",
+        "offset": 0
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "86",
+        "name": "Rei Ayanami"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_character",
+      "arguments": {
+        "id": "89",
+        "offset": 0
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.001457,
+      "arguments": {
+        "id": "89",
+        "offset": 0
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "89",
+        "name": "Shinji Ikari"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "get_character",
+      "arguments": {
+        "id": "94",
+        "offset": 0
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.001595,
+      "arguments": {
+        "id": "94",
+        "offset": 0
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "94",
+        "name": "Asuka Langley Souryuu"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "get_character",
+      "arguments": {
+        "id": "94",
+        "offset": 0
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 2.1e-05,
+      "arguments": {
+        "id": "94",
+        "offset": 0
+      },
+      "cached": true,
+      "result": {
+        "kind": "character",
+        "id": "94",
+        "name": "Asuka Langley Souryuu"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 8.991866
+    }
+  ]
+}

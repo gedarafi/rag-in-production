@@ -1,0 +1,832 @@
+{
+  "question_id": "hf_094",
+  "anime_id": "151807",
+  "title": "Solo Leveling",
+  "field": "format",
+  "question": "What is Solo Leveling's first anime season classified as: TV, movie, or OVA?",
+  "expected_values": [
+    "TV"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Catalog matches.\n\n1. **Attack on Titan** — Several hundred years ago, humans were nearly exterminated by titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest of titans. Flash forward to the present and the city has not seen a…",
+  "extracted_values": [
+    "TV"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 12.114452834000076,
+  "extraction_seconds": 0.8038233339998442,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "TV",
+        "quote": "Catalog matches.\n\n1. **Attack on Titan** — Several hundred years ago, humans were nearly exterminated by titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest of titans. Flash forward to the present and the city has not seen a…"
+      }
+    ],
+    "note": "No information about the format of Solo Leveling's first anime season is provided in the answer.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "151807"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "151807",
+          "title": "Solo Leveling"
+        },
+        "elapsed_seconds": 0.019118
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "anime season classification",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "snowscape",
+              "name": "Snowscape",
+              "description": "Prominently or partially set in a snowy environment.",
+              "category": "Setting-Scene",
+              "similarity": 0.3305
+            },
+            {
+              "kind": "tag",
+              "id": "desert",
+              "name": "Desert",
+              "description": "Prominently features a desert environment.",
+              "category": "Setting-Scene",
+              "similarity": 0.2736
+            },
+            {
+              "kind": "tag",
+              "id": "astronomy",
+              "name": "Astronomy",
+              "description": "Relating or centered around the study of celestial objects and phenomena, space, or the universe.",
+              "category": "Theme-Other",
+              "similarity": 0.2506
+            },
+            {
+              "kind": "tag",
+              "id": "pov",
+              "name": "POV",
+              "description": "Point of View; features scenes shown from the perspective of the series protagonist.",
+              "category": "Technical",
+              "similarity": 0.2491
+            },
+            {
+              "kind": "tag",
+              "id": "episodic",
+              "name": "Episodic",
+              "description": "Features story arcs that are loosely tied or lack an overarching plot.",
+              "category": "Technical",
+              "similarity": 0.2481
+            }
+          ]
+        },
+        "elapsed_seconds": 0.032485
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "anime season classification"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.026971
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "151807"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "151807",
+          "title": "Solo Leveling"
+        },
+        "elapsed_seconds": 0.000125
+      },
+      {
+        "step": 4,
+        "tool": "search_features",
+        "arguments": {
+          "query": "Solo Leveling season classification",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "wilderness",
+              "name": "Wilderness",
+              "description": "Predominantly features a location with little to no human activity, such as a deserted island, a jungle, or a snowy mountain range.",
+              "category": "Setting-Scene",
+              "similarity": 0.2707
+            },
+            {
+              "kind": "tag",
+              "id": "ensemble cast",
+              "name": "Ensemble Cast",
+              "description": "Features a large cast of characters with (almost) equal screen time and importance to the plot.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.269
+            },
+            {
+              "kind": "tag",
+              "id": "mountaineering",
+              "name": "Mountaineering",
+              "description": "Prominently features characters discussing or hiking mountains.",
+              "category": "Theme-Other",
+              "similarity": 0.2605
+            },
+            {
+              "kind": "tag",
+              "id": "snowscape",
+              "name": "Snowscape",
+              "description": "Prominently or partially set in a snowy environment.",
+              "category": "Setting-Scene",
+              "similarity": 0.2571
+            },
+            {
+              "kind": "tag",
+              "id": "kingdom management",
+              "name": "Kingdom Management",
+              "description": "Characters in these series take on the responsibility of running a town or kingdom, whether they take control of an existing one, or build their own from the ground up.",
+              "category": "Theme-Drama",
+              "similarity": 0.2515
+            }
+          ]
+        },
+        "elapsed_seconds": 0.012535
+      },
+      {
+        "step": 5,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "151807",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "151807",
+          "title": "Solo Leveling"
+        },
+        "elapsed_seconds": 0.01185
+      },
+      {
+        "step": 6,
+        "tool": "recommend_anime",
+        "arguments": {
+          "query": "Solo Leveling season classification",
+          "limit": 1
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "sort_by": "popularity"
+          },
+          "items": [
+            {
+              "id": "16498",
+              "title": "Attack on Titan",
+              "reason": "Matches: sort_by=popularity"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.040511
+      }
+    ],
+    "llm_calls": 3,
+    "planned_tools": 7,
+    "executed_tools": 6,
+    "timings_seconds": {
+      "interpret_request": 3.397269,
+      "prepare_context": 0.019808,
+      "retrieve_guides": 0.030929,
+      "feature_candidates": 0.013449,
+      "planning": 8.504577,
+      "tools": 0.143595,
+      "generate_answer": 0.000865
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Solo Leveling\", \"query\": \"Solo Leveling\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Anime series\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Solo Leveling",
+        "query": "Solo Leveling",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Anime series"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify the year of the first anime season of Solo Leveling.\", \"decisions\": {\"p0\": {\"meaning\": \"Solo Leveling\", \"role\": \"subject\", \"selection\": \"Solo Leveling | anime:151807\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "151807",
+          "role": "subject",
+          "text": "Solo Leveling",
+          "name": "Solo Leveling",
+          "meaning": "Solo Leveling"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "151807",
+          "role": "subject",
+          "text": "Solo Leveling",
+          "name": "Solo Leveling",
+          "meaning": "Solo Leveling"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Solo Leveling"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "151807",
+            "role": "subject",
+            "text": "Solo Leveling",
+            "name": "Solo Leveling",
+            "meaning": "Solo Leveling"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "151807",
+            "role": "subject",
+            "text": "Solo Leveling",
+            "name": "Solo Leveling",
+            "meaning": "Solo Leveling"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Determine the classification of Solo Leveling's first anime season.",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "151807"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "anime season classification",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "anime season classification"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "151807"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "Solo Leveling season classification",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "151807",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "query": "Solo Leveling season classification",
+            "limit": 1
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "151807",
+          "name": "Solo Leveling"
+        }
+      ],
+      "characters": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 0.000109
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.002315
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.397269
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.019808
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.030929
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013449
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 8.504577
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Determine the classification of Solo Leveling's first anime season.",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "151807"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "anime season classification",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "anime season classification"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "151807"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "Solo Leveling season classification",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "151807",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "query": "Solo Leveling season classification",
+              "limit": 1
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "151807",
+            "name": "Solo Leveling"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "151807"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.019118,
+      "arguments": {
+        "id": "151807"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "151807",
+        "title": "Solo Leveling"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "anime season classification",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.032485,
+      "arguments": {
+        "query": "anime season classification",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "snowscape",
+            "name": "Snowscape",
+            "description": "Prominently or partially set in a snowy environment.",
+            "category": "Setting-Scene",
+            "similarity": 0.3305
+          },
+          {
+            "kind": "tag",
+            "id": "desert",
+            "name": "Desert",
+            "description": "Prominently features a desert environment.",
+            "category": "Setting-Scene",
+            "similarity": 0.2736
+          },
+          {
+            "kind": "tag",
+            "id": "astronomy",
+            "name": "Astronomy",
+            "description": "Relating or centered around the study of celestial objects and phenomena, space, or the universe.",
+            "category": "Theme-Other",
+            "similarity": 0.2506
+          },
+          {
+            "kind": "tag",
+            "id": "pov",
+            "name": "POV",
+            "description": "Point of View; features scenes shown from the perspective of the series protagonist.",
+            "category": "Technical",
+            "similarity": 0.2491
+          },
+          {
+            "kind": "tag",
+            "id": "episodic",
+            "name": "Episodic",
+            "description": "Features story arcs that are loosely tied or lack an overarching plot.",
+            "category": "Technical",
+            "similarity": 0.2481
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "anime season classification"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.026971,
+      "arguments": {
+        "kind": "tag",
+        "query": "anime season classification"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "151807"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000125,
+      "arguments": {
+        "id": "151807"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "151807",
+        "title": "Solo Leveling"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "search_features",
+      "arguments": {
+        "query": "Solo Leveling season classification",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.012535,
+      "arguments": {
+        "query": "Solo Leveling season classification",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "wilderness",
+            "name": "Wilderness",
+            "description": "Predominantly features a location with little to no human activity, such as a deserted island, a jungle, or a snowy mountain range.",
+            "category": "Setting-Scene",
+            "similarity": 0.2707
+          },
+          {
+            "kind": "tag",
+            "id": "ensemble cast",
+            "name": "Ensemble Cast",
+            "description": "Features a large cast of characters with (almost) equal screen time and importance to the plot.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.269
+          },
+          {
+            "kind": "tag",
+            "id": "mountaineering",
+            "name": "Mountaineering",
+            "description": "Prominently features characters discussing or hiking mountains.",
+            "category": "Theme-Other",
+            "similarity": 0.2605
+          },
+          {
+            "kind": "tag",
+            "id": "snowscape",
+            "name": "Snowscape",
+            "description": "Prominently or partially set in a snowy environment.",
+            "category": "Setting-Scene",
+            "similarity": 0.2571
+          },
+          {
+            "kind": "tag",
+            "id": "kingdom management",
+            "name": "Kingdom Management",
+            "description": "Characters in these series take on the responsibility of running a town or kingdom, whether they take control of an existing one, or build their own from the ground up.",
+            "category": "Theme-Drama",
+            "similarity": 0.2515
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "151807",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.01185,
+      "arguments": {
+        "id": "151807",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "151807",
+        "title": "Solo Leveling"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 6,
+      "tool": "recommend_anime",
+      "arguments": {
+        "query": "Solo Leveling season classification",
+        "limit": 1
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 6,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.040511,
+      "arguments": {
+        "query": "Solo Leveling season classification",
+        "limit": 1
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "sort_by": "popularity"
+        },
+        "items": [
+          {
+            "id": "16498",
+            "title": "Attack on Titan",
+            "reason": "Matches: sort_by=popularity"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000865
+    }
+  ]
+}

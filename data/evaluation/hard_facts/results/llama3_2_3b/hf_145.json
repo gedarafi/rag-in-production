@@ -1,0 +1,335 @@
+{
+  "question_id": "hf_145",
+  "anime_id": "21355",
+  "title": "Re:ZERO -Starting Life in Another World-",
+  "field": "main_animation_studios",
+  "question": "Which studio animated the original Re:ZERO TV season?",
+  "expected_values": [
+    "WHITE FOX"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "WHITE FOX",
+  "extracted_values": [
+    "WHITE FOX"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 11.049922791000427,
+  "extraction_seconds": 0.4734738330007531,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "WHITE FOX",
+        "quote": "WHITE FOX"
+      }
+    ],
+    "note": "",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21355",
+          "section": "studios"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "21355",
+          "title": "Re:ZERO -Starting Life in Another World-"
+        },
+        "elapsed_seconds": 0.006654
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 3.728614,
+      "prepare_context": 0.017841,
+      "retrieve_guides": 0.027138,
+      "feature_candidates": 0.013771,
+      "planning": 3.839567,
+      "tools": 0.006654,
+      "generate_answer": 3.413112
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Re:ZERO\", \"query\": \"Re:ZERO\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; studio is a noun\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Re:ZERO",
+        "query": "Re:ZERO",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; studio is a noun"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Which studio animated the original Re:ZERO TV season?\", \"decisions\": {\"p0\": {\"meaning\": \"studio that animated the Re:ZERO TV series\", \"role\": \"subject\", \"selection\": \"Re:ZERO -Starting Life in Another World- | anime:21355\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21355",
+          "role": "subject",
+          "text": "Re:ZERO",
+          "name": "Re:ZERO -Starting Life in Another World-",
+          "meaning": "studio that animated the Re:ZERO TV series"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21355",
+          "role": "subject",
+          "text": "Re:ZERO",
+          "name": "Re:ZERO -Starting Life in Another World-",
+          "meaning": "studio that animated the Re:ZERO TV series"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Re:ZERO -Starting Life in Another World-"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21355",
+            "role": "subject",
+            "text": "Re:ZERO",
+            "name": "Re:ZERO -Starting Life in Another World-",
+            "meaning": "studio that animated the Re:ZERO TV series"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21355",
+            "role": "subject",
+            "text": "Re:ZERO",
+            "name": "Re:ZERO -Starting Life in Another World-",
+            "meaning": "studio that animated the Re:ZERO TV series"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Find the studio that animated the original Re:ZERO TV season",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21355",
+            "section": "studios"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21355",
+          "name": "Re:ZERO -Starting Life in Another World-"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:21355",
+          "fact": "The studio that animated the original Re:ZERO TV season is WHITE FOX."
+        },
+        {
+          "subject": "anime:21355",
+          "fact": "WHITE FOX is the main studio responsible for the animation, with Funimation, Kadokawa Shoten, Media Factory, and AT-X also involved in the production."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 9.2e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001684
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.728614
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.017841
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.027138
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013771
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.839567
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Find the studio that animated the original Re:ZERO TV season",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21355",
+              "section": "studios"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21355",
+            "name": "Re:ZERO -Starting Life in Another World-"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21355",
+        "section": "studios"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.006654,
+      "arguments": {
+        "id": "21355",
+        "section": "studios"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "21355",
+        "title": "Re:ZERO -Starting Life in Another World-"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.413112
+    }
+  ]
+}

@@ -1,0 +1,519 @@
+{
+  "question_id": "hf_101",
+  "anime_id": "20997",
+  "title": "Charlotte",
+  "field": "format",
+  "question": "What is the release format of Charlotte's main anime entry?",
+  "expected_values": [
+    "TV"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Charlotte is a TV anime.",
+  "extracted_values": [
+    "TV anime"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 15.855759999999918,
+  "extraction_seconds": 0.46585316700020485,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "TV anime",
+        "quote": "Charlotte is a TV anime."
+      }
+    ],
+    "note": "",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "missing_values": [
+      "tv"
+    ],
+    "extra_values": [
+      "tv anime"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20997"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20997",
+          "title": "Charlotte"
+        },
+        "elapsed_seconds": 0.015188
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "Charlotte release format",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "anthology",
+              "name": "Anthology",
+              "description": "A collection of separate works collated into a single release.",
+              "category": "Technical",
+              "similarity": 0.2783
+            }
+          ]
+        },
+        "elapsed_seconds": 0.032942
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "format"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.007191
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20997"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20997",
+          "title": "Charlotte"
+        },
+        "elapsed_seconds": 0.000128
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 4,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 3.164623,
+      "prepare_context": 0.01744,
+      "retrieve_guides": 0.024298,
+      "feature_candidates": 0.013944,
+      "planning": 8.704838,
+      "tools": 0.055449,
+      "generate_answer": 3.871807
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Charlotte\", \"query\": \"Charlotte\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Charlotte",
+        "query": "Charlotte",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify if you are referring to the original anime or a specific season/adaptation.\", \"decisions\": {\"p0\": {\"meaning\": \"Charlotte\", \"role\": \"subject\", \"selection\": \"Charlotte | anime:20997\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20997",
+          "role": "subject",
+          "text": "Charlotte",
+          "name": "Charlotte",
+          "meaning": "Charlotte"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20997",
+          "role": "subject",
+          "text": "Charlotte",
+          "name": "Charlotte",
+          "meaning": "Charlotte"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Charlotte"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20997",
+            "role": "subject",
+            "text": "Charlotte",
+            "name": "Charlotte",
+            "meaning": "Charlotte"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20997",
+            "role": "subject",
+            "text": "Charlotte",
+            "name": "Charlotte",
+            "meaning": "Charlotte"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "uncertain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine anime release format",
+      "clarification": "The request is ambiguous. It asks for the 'release format' of an anime, which could refer to physical media, streaming availability, or other aspects. To clarify, I will focus on the primary release formats available for Charlotte.",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20997"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "Charlotte release format",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "format"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20997"
+          }
+        }
+      ]
+    },
+    "scope": "uncertain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "20997",
+          "name": "Charlotte"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:20997",
+          "fact": "Charlotte is a TV anime."
+        },
+        {
+          "subject": "anime:20997",
+          "fact": "The source records indicate the format is TV."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 7.8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001535
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.164623
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.01744
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.024298
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013944
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 8.704838
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "uncertain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "uncertain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine anime release format",
+        "clarification": "The request is ambiguous. It asks for the 'release format' of an anime, which could refer to physical media, streaming availability, or other aspects. To clarify, I will focus on the primary release formats available for Charlotte.",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20997"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "Charlotte release format",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "format"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20997"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "20997",
+            "name": "Charlotte"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20997"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.015188,
+      "arguments": {
+        "id": "20997"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20997",
+        "title": "Charlotte"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "Charlotte release format",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.032942,
+      "arguments": {
+        "query": "Charlotte release format",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "anthology",
+            "name": "Anthology",
+            "description": "A collection of separate works collated into a single release.",
+            "category": "Technical",
+            "similarity": 0.2783
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "format"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.007191,
+      "arguments": {
+        "kind": "tag",
+        "query": "format"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20997"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000128,
+      "arguments": {
+        "id": "20997"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20997",
+        "title": "Charlotte"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.871807
+    }
+  ]
+}

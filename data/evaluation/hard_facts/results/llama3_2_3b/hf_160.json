@@ -1,0 +1,349 @@
+{
+  "question_id": "hf_160",
+  "anime_id": "21459",
+  "title": "My Hero Academia",
+  "field": "main_characters",
+  "question": "Who are the main characters listed for My Hero Academia season one?",
+  "expected_values": [
+    "Katsuki Bakugou",
+    "Izuku Midoriya",
+    "Ochako Uraraka",
+    "Toshinori Yagi"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Katsuki Bakugou, Izuku Midoriya, Ochako Uraraka, and Toshinori Yagi",
+  "extracted_values": [
+    "Katsuki Bakugou",
+    "Izuku Midoriya",
+    "Ochako Uraraka",
+    "Toshinori Yagi"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 11.877357792000112,
+  "extraction_seconds": 0.9868270000006305,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Katsuki Bakugou",
+        "quote": "Katsuki Bakugou, Izuku Midoriya, Ochako Uraraka, and Toshinori Yagi"
+      },
+      {
+        "value": "Izuku Midoriya",
+        "quote": "Katsuki Bakugou, Izuku Midoriya, Ochako Uraraka, and Toshinori Yagi"
+      },
+      {
+        "value": "Ochako Uraraka",
+        "quote": "Katsuki Bakugou, Izuku Midoriya, Ochako Uraraka, and Toshinori Yagi"
+      },
+      {
+        "value": "Toshinori Yagi",
+        "quote": "Katsuki Bakugou, Izuku Midoriya, Ochako Uraraka, and Toshinori Yagi"
+      }
+    ],
+    "note": "asserted main characters for My Hero Academia season one",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 4,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21459",
+          "section": "cast"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "21459",
+          "title": "My Hero Academia"
+        },
+        "elapsed_seconds": 0.007567
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 4.148479,
+      "prepare_context": 0.018598,
+      "retrieve_guides": 0.028081,
+      "feature_candidates": 0.013611,
+      "planning": 3.676967,
+      "tools": 0.007567,
+      "generate_answer": 3.982033
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"My Hero Academia\", \"query\": \"My Hero Academia S1\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Season one\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "My Hero Academia",
+        "query": "My Hero Academia S1",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Season one"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Season one\", \"role\": \"subject\", \"selection\": \"My Hero Academia | anime:21459\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21459",
+          "role": "subject",
+          "text": "My Hero Academia",
+          "name": "My Hero Academia",
+          "meaning": "Season one"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21459",
+          "role": "subject",
+          "text": "My Hero Academia",
+          "name": "My Hero Academia",
+          "meaning": "Season one"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "My Hero Academia"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21459",
+            "role": "subject",
+            "text": "My Hero Academia",
+            "name": "My Hero Academia",
+            "meaning": "Season one"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21459",
+            "role": "subject",
+            "text": "My Hero Academia",
+            "name": "My Hero Academia",
+            "meaning": "Season one"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Get main characters for My Hero Academia season one",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21459",
+            "section": "cast"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21459",
+          "name": "My Hero Academia"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:21459",
+          "fact": "The main characters for My Hero Academia season one are Katsuki Bakugou, Izuku Midoriya, Ochako Uraraka, and Toshinori Yagi."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 3e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000542
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.148479
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.018598
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.028081
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013611
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.676967
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Get main characters for My Hero Academia season one",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21459",
+              "section": "cast"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21459",
+            "name": "My Hero Academia"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21459",
+        "section": "cast"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.007567,
+      "arguments": {
+        "id": "21459",
+        "section": "cast"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "21459",
+        "title": "My Hero Academia"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.982033
+    }
+  ]
+}

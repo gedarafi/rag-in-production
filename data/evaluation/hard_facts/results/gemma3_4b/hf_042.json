@@ -1,0 +1,581 @@
+{
+  "question_id": "hf_042",
+  "anime_id": "4224",
+  "title": "Toradora!",
+  "field": "episodes",
+  "question": "What episode count does the catalog give for Toradora!?",
+  "expected_values": [
+    25.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "episode count: 25 episodes.",
+  "extracted_values": [
+    "25"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 15.226212457999964,
+  "extraction_seconds": 0.49054887499983124,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "25",
+        "quote": "episode count: 25 episodes."
+      }
+    ],
+    "note": "episode count",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "4224"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "4224",
+          "title": "Toradora!"
+        },
+        "elapsed_seconds": 0.013607
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "episode count",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "pov",
+              "name": "POV",
+              "description": "Point of View; features scenes shown from the perspective of the series protagonist.",
+              "category": "Technical",
+              "similarity": 0.2719
+            },
+            {
+              "kind": "tag",
+              "id": "episodic",
+              "name": "Episodic",
+              "description": "Features story arcs that are loosely tied or lack an overarching plot.",
+              "category": "Technical",
+              "similarity": 0.2685
+            },
+            {
+              "kind": "tag",
+              "id": "ensemble cast",
+              "name": "Ensemble Cast",
+              "description": "Features a large cast of characters with (almost) equal screen time and importance to the plot.",
+              "category": "Cast-Main Cast",
+              "similarity": 0.2635
+            },
+            {
+              "kind": "tag",
+              "id": "4 koma",
+              "name": "4-koma",
+              "description": "A manga in the 'yonkoma' format, which consists of four equal-sized panels arranged in a vertical strip.",
+              "category": "Technical",
+              "similarity": 0.2618
+            },
+            {
+              "kind": "tag",
+              "id": "achronological order",
+              "name": "Achronological Order",
+              "description": "Chapters or episodes do not occur in chronological order.",
+              "category": "Setting-Time",
+              "similarity": 0.2446
+            }
+          ]
+        },
+        "elapsed_seconds": 0.027041
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "episode count"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.008776
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "4224"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "4224",
+          "title": "Toradora!"
+        },
+        "elapsed_seconds": 9e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 4,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 3.528857,
+      "prepare_context": 0.01677,
+      "retrieve_guides": 0.027539,
+      "feature_candidates": 0.017559,
+      "planning": 7.039186,
+      "tools": 0.049514,
+      "generate_answer": 4.544136
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Toradora!\", \"query\": \"Toradora!\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Toradora!",
+        "query": "Toradora!",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"The question asks for the episode count of the Toradora! catalog entry.\", \"decisions\": {\"p0\": {\"meaning\": \"Toradora!\", \"role\": \"subject\", \"selection\": \"Toradora! | anime:4224\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "4224",
+          "role": "subject",
+          "text": "Toradora!",
+          "name": "Toradora!",
+          "meaning": "Toradora!"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "4224",
+          "role": "subject",
+          "text": "Toradora!",
+          "name": "Toradora!",
+          "meaning": "Toradora!"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Toradora!"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "4224",
+            "role": "subject",
+            "text": "Toradora!",
+            "name": "Toradora!",
+            "meaning": "Toradora!"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "4224",
+            "role": "subject",
+            "text": "Toradora!",
+            "name": "Toradora!",
+            "meaning": "Toradora!"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Retrieve the episode count for the anime Toradora!",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "4224"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "episode count",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "episode count"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "4224"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "4224",
+          "name": "Toradora!"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:4224",
+          "fact": "episodes: 25.0, units: episode"
+        }
+      ],
+      "calculations": [
+        {
+          "expression": "25.0",
+          "value": "25",
+          "unit": "episodes"
+        }
+      ]
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 6e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000828
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.528857
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.01677
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.027539
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.017559
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 7.039186
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Retrieve the episode count for the anime Toradora!",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "4224"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "episode count",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "episode count"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "4224"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "4224",
+            "name": "Toradora!"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "4224"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.013607,
+      "arguments": {
+        "id": "4224"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "4224",
+        "title": "Toradora!"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "episode count",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.027041,
+      "arguments": {
+        "query": "episode count",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "pov",
+            "name": "POV",
+            "description": "Point of View; features scenes shown from the perspective of the series protagonist.",
+            "category": "Technical",
+            "similarity": 0.2719
+          },
+          {
+            "kind": "tag",
+            "id": "episodic",
+            "name": "Episodic",
+            "description": "Features story arcs that are loosely tied or lack an overarching plot.",
+            "category": "Technical",
+            "similarity": 0.2685
+          },
+          {
+            "kind": "tag",
+            "id": "ensemble cast",
+            "name": "Ensemble Cast",
+            "description": "Features a large cast of characters with (almost) equal screen time and importance to the plot.",
+            "category": "Cast-Main Cast",
+            "similarity": 0.2635
+          },
+          {
+            "kind": "tag",
+            "id": "4 koma",
+            "name": "4-koma",
+            "description": "A manga in the 'yonkoma' format, which consists of four equal-sized panels arranged in a vertical strip.",
+            "category": "Technical",
+            "similarity": 0.2618
+          },
+          {
+            "kind": "tag",
+            "id": "achronological order",
+            "name": "Achronological Order",
+            "description": "Chapters or episodes do not occur in chronological order.",
+            "category": "Setting-Time",
+            "similarity": 0.2446
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "episode count"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.008776,
+      "arguments": {
+        "kind": "tag",
+        "query": "episode count"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "4224"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 9e-05,
+      "arguments": {
+        "id": "4224"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "4224",
+        "title": "Toradora!"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.544136
+    }
+  ]
+}

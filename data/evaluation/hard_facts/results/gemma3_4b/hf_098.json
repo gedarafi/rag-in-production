@@ -1,0 +1,522 @@
+{
+  "question_id": "hf_098",
+  "anime_id": "6547",
+  "title": "Angel Beats!",
+  "field": "format",
+  "question": "Is Angel Beats! listed as a TV series, movie, or ONA?",
+  "expected_values": [
+    "TV"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Angel Beats! is categorized as a TV series based on the provided source records.",
+  "extracted_values": [
+    "TV series"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 13.596156958999927,
+  "extraction_seconds": 0.5172976250000829,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "TV series",
+        "quote": "Angel Beats! is categorized as a TV series based on the provided source records."
+      }
+    ],
+    "note": "ON A",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "6547"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "6547",
+          "title": "Angel Beats!"
+        },
+        "elapsed_seconds": 0.017339
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "anime type",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "robots",
+              "name": "Robots",
+              "description": "Prominently features humanoid machines.",
+              "category": "Cast-Traits",
+              "similarity": 0.3131
+            },
+            {
+              "kind": "tag",
+              "id": "seinen",
+              "name": "Seinen",
+              "description": "Target demographic is adult males.",
+              "category": "Demographic",
+              "similarity": 0.2908
+            },
+            {
+              "kind": "tag",
+              "id": "asexual",
+              "name": "Asexual",
+              "description": "Features a character who isn't sexually attracted to people of any sex or gender.",
+              "category": "Cast-Traits",
+              "similarity": 0.2891
+            },
+            {
+              "kind": "tag",
+              "id": "artificial intelligence",
+              "name": "Artificial Intelligence",
+              "description": "Intelligent non-organic machines that work and react similarly to humans.",
+              "category": "Cast-Traits",
+              "similarity": 0.2843
+            },
+            {
+              "kind": "tag",
+              "id": "ojou sama",
+              "name": "Ojou-sama",
+              "description": "Features a wealthy, high-class, oftentimes stuck up and demanding female character.",
+              "category": "Cast-Traits",
+              "similarity": 0.2816
+            }
+          ]
+        },
+        "elapsed_seconds": 0.033869
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "anime type"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.010756
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 3.270929,
+      "prepare_context": 0.018523,
+      "retrieve_guides": 0.029322,
+      "feature_candidates": 0.013753,
+      "planning": 6.59547,
+      "tools": 0.061964,
+      "generate_answer": 3.60365
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Angel Beats!\", \"query\": \"Angel Beats!\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Angel Beats!",
+        "query": "Angel Beats!",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"To clarify, are you asking about the TV series Angel Beats!?\", \"decisions\": {\"p0\": {\"meaning\": \"Requested title\", \"role\": \"subject\", \"selection\": \"Angel Beats! | anime:6547\"} }}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "6547",
+          "role": "subject",
+          "text": "Angel Beats!",
+          "name": "Angel Beats!",
+          "meaning": "Requested title"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "6547",
+          "role": "subject",
+          "text": "Angel Beats!",
+          "name": "Angel Beats!",
+          "meaning": "Requested title"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Angel Beats!"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "6547",
+            "role": "subject",
+            "text": "Angel Beats!",
+            "name": "Angel Beats!",
+            "meaning": "Requested title"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "6547",
+            "role": "subject",
+            "text": "Angel Beats!",
+            "name": "Angel Beats!",
+            "meaning": "Requested title"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine the type of anime Angel Beats!",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "6547"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "anime type",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "anime type"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "6547",
+          "name": "Angel Beats!"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:6547",
+          "fact": "Angel Beats! is listed as a TV series. The source records state that it is a \"TV\" format."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.2e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00082
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.270929
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.018523
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.029322
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013753
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.59547
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine the type of anime Angel Beats!",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "6547"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "anime type",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "anime type"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "6547",
+            "name": "Angel Beats!"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "6547"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.017339,
+      "arguments": {
+        "id": "6547"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "6547",
+        "title": "Angel Beats!"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "anime type",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.033869,
+      "arguments": {
+        "query": "anime type",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "robots",
+            "name": "Robots",
+            "description": "Prominently features humanoid machines.",
+            "category": "Cast-Traits",
+            "similarity": 0.3131
+          },
+          {
+            "kind": "tag",
+            "id": "seinen",
+            "name": "Seinen",
+            "description": "Target demographic is adult males.",
+            "category": "Demographic",
+            "similarity": 0.2908
+          },
+          {
+            "kind": "tag",
+            "id": "asexual",
+            "name": "Asexual",
+            "description": "Features a character who isn't sexually attracted to people of any sex or gender.",
+            "category": "Cast-Traits",
+            "similarity": 0.2891
+          },
+          {
+            "kind": "tag",
+            "id": "artificial intelligence",
+            "name": "Artificial Intelligence",
+            "description": "Intelligent non-organic machines that work and react similarly to humans.",
+            "category": "Cast-Traits",
+            "similarity": 0.2843
+          },
+          {
+            "kind": "tag",
+            "id": "ojou sama",
+            "name": "Ojou-sama",
+            "description": "Features a wealthy, high-class, oftentimes stuck up and demanding female character.",
+            "category": "Cast-Traits",
+            "similarity": 0.2816
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "anime type"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.010756,
+      "arguments": {
+        "kind": "tag",
+        "query": "anime type"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.60365
+    }
+  ]
+}

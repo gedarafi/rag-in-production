@@ -1,0 +1,459 @@
+{
+  "question_id": "hf_072",
+  "anime_id": "20464",
+  "title": "HAIKYU!!",
+  "field": "duration",
+  "question": "How long does one first-season Haikyu episode last according to the catalog?",
+  "expected_values": [
+    24.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "First-season Haikyu episode length: 24 minutes per episode.",
+  "extracted_values": [
+    "24 minutes"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 9.812657542001034,
+  "extraction_seconds": 0.6322838329997467,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "24 minutes",
+        "quote": "First-season Haikyu episode length: 24 minutes per episode."
+      }
+    ],
+    "note": "assertion about duration is transcribed in minutes per episode",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "missing_values": [
+      "24"
+    ],
+    "extra_values": [
+      "invalid-number:24 minutes"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20464",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20464",
+          "title": "HAIKYU!!"
+        },
+        "elapsed_seconds": 0.015502
+      },
+      {
+        "step": 1,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20464",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20464",
+          "title": "HAIKYU!!"
+        },
+        "elapsed_seconds": 0.000153
+      },
+      {
+        "step": 2,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20464",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20464",
+          "title": "HAIKYU!!"
+        },
+        "elapsed_seconds": 0.000134
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 2.065267,
+      "prepare_context": 0.0171,
+      "retrieve_guides": 0.026905,
+      "feature_candidates": 0.013603,
+      "planning": 4.6017,
+      "tools": 0.015789,
+      "generate_answer": 3.070042
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Haikyu\", \"query\": \"Haikyu\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"First season episode length\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Haikyu",
+        "query": "Haikyu",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "First season episode length"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\n  \"clarification\": \"ambiguous\",\n  \"decisions\": {\n    \"p0\": {\n      \"meaning\": \"First season episode length\",\n      \"role\": \"subject\",\n      \"selection\": \"HAIKYU!! | anime:20464\"\n    }\n  }\n}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20464",
+          "role": "subject",
+          "text": "Haikyu",
+          "name": "HAIKYU!!",
+          "meaning": "First season episode length"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20464",
+          "role": "subject",
+          "text": "Haikyu",
+          "name": "HAIKYU!!",
+          "meaning": "First season episode length"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "HAIKYU!!"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20464",
+            "role": "subject",
+            "text": "Haikyu",
+            "name": "HAIKYU!!",
+            "meaning": "First season episode length"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20464",
+            "role": "subject",
+            "text": "Haikyu",
+            "name": "HAIKYU!!",
+            "meaning": "First season episode length"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Get the length of a first-season Haikyu episode",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20464",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20464",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20464",
+            "section": "overview"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "20464",
+          "name": "HAIKYU!!"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:20464",
+          "fact": "duration = 24.0 minutes per episode"
+        }
+      ],
+      "calculations": [
+        {
+          "expression": "q1",
+          "value": "24",
+          "unit": "minutes per episode"
+        }
+      ]
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.9e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000731
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.065267
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.0171
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.026905
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013603
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.6017
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Get the length of a first-season Haikyu episode",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20464",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20464",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20464",
+              "section": "overview"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "20464",
+            "name": "HAIKYU!!"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20464",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.015502,
+      "arguments": {
+        "id": "20464",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20464",
+        "title": "HAIKYU!!"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20464",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000153,
+      "arguments": {
+        "id": "20464",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20464",
+        "title": "HAIKYU!!"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20464",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000134,
+      "arguments": {
+        "id": "20464",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20464",
+        "title": "HAIKYU!!"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.070042
+    }
+  ]
+}

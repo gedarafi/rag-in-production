@@ -1,0 +1,2045 @@
+{
+  "question_id": "cyberpunk_01",
+  "category": "tags",
+  "intent_family": "cyberpunk",
+  "wording": "explicit",
+  "question_origin": "authored_naturalistic",
+  "question": "Can I get three cyberpunk anime recommendations?",
+  "k": 3,
+  "constraints": [
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Cyberpunk"
+      ],
+      "alternatives": [
+        {
+          "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+          "constraints": [
+            {
+              "field": "genres",
+              "op": "any",
+              "value": [
+                "Sci-Fi"
+              ]
+            },
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Dystopian"
+              ]
+            },
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Cyborg",
+                "Artificial Intelligence"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "High technology and a gritty unequal future are a Cyberpunk proxy.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 239,
+  "reference_examples": [
+    {
+      "id": "100168",
+      "title": "Blade Runner: Black Out 2022"
+    },
+    {
+      "id": "1079",
+      "title": "Armitage III"
+    },
+    {
+      "id": "1095",
+      "title": "Patlabor: The Movie"
+    }
+  ],
+  "answer_text": "Catalog matches — Cyberpunk. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **PSYCHO-PASS 3** — \"Justice\" opens up a new world. In the near future, the Sybil System, a surveillance network that quantifies human souls, maintains public order. In a changing world, detectives with Dominators, guns that measure \"Crime Coefficients,\" pursue \"latent criminals\" before they commit crimes. The third series of PSYCHO-PASS follows two inspectors seeking the truth: Arata Shindou and Kei Mikhail Ignatov. (Source: Amazon)\n\n2. **Akira** — It's the year 2019, thirty-one years have passed since the start of World War III. A top-secret child with amazing powers of the mind breaks free from custody and accidentally gets a motorcycle gang involved in the project. This incident triggers psychic powers within one of the gang members, Tetsuo, and he is taken by the army to be experimented on. His mind has been altered and is now on the path of war, seeking revenge on the society that…\n\n3. **LAZARUS** — The year is 2052 — an era of unprecedented peace and prosperity prevails across the globe. The reason for this: mankind has been freed from sickness and pain. Nobel Prize winning neuroscientist Dr. Skinner has developed a miracle cure-all drug with no apparent drawbacks called Hapuna. Hapuna soon becomes ubiquitous… and essential. However, soon after Hapuna is officially introduced, Dr. Skinner vanishes. Three years later, the world has moved…\n\n4. **No.6** — In a near future world, after the last great war, most of mankind lives in a handful of city states. There, for the privileged elite, life should be perfect. But for young Shion, the only thing perfect has been the nightmare his life has become since letting a strange boy called Rat spend the night in his apartment. Banished to the outskirts of the city and stripped of all privileges for helping the mysterious stranger who has since disappeared…\n\n5. **Metallic Rouge** — In a world where humans coexist with androids called Neans, a group known as the Immortal Nine rises up against society. Tasked with disposing of the revolters, a Nean named Rouge Redstar (aka Metal Rouge) and investigator Naomi Orthmann head to Mars to track them down…but first, Rouge wants some chocolate. (Source: Crunchyroll)\n\nThe exact requirement 'three' is assessed semantically from descriptions, not verified by a catalog category.",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "PSYCHO-PASS 3",
+      "Akira",
+      "LAZARUS",
+      "No.6",
+      "Metallic Rouge"
+    ],
+    "unclear": false,
+    "note": "The exact requirement 'three' is assessed semantically from descriptions, not verified by a catalog category.",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "PSYCHO-PASS 3",
+      "anime_id": "108307",
+      "canonical_title": "PSYCHO-PASS 3",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "108307"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.86
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.86,
+          "met": true,
+          "literal_score": 0.86,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.86,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Sci-Fi"
+                    ]
+                  },
+                  "score": 1.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Dystopian"
+                    ]
+                  },
+                  "score": 0.81
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cyborg",
+                      "Artificial Intelligence"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.86,
+      "gain": 0.86,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Akira",
+      "anime_id": "47",
+      "canonical_title": "Akira",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "47"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.97
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.97,
+          "met": true,
+          "literal_score": 0.97,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.97,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Sci-Fi"
+                    ]
+                  },
+                  "score": 1.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Dystopian"
+                    ]
+                  },
+                  "score": 0.93
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cyborg",
+                      "Artificial Intelligence"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.97,
+      "gain": 0.97,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 3,
+      "extracted_title": "LAZARUS",
+      "anime_id": "167336",
+      "canonical_title": "LAZARUS",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "167336"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.78
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.78,
+          "met": true,
+          "literal_score": 0.78,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.78,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Sci-Fi"
+                    ]
+                  },
+                  "score": 1.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Dystopian"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cyborg",
+                      "Artificial Intelligence"
+                    ]
+                  },
+                  "score": 0.5
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.78,
+      "gain": 0.78,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 4,
+      "extracted_title": "No.6",
+      "anime_id": "10161",
+      "canonical_title": "No.6",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "10161"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.72
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.72,
+          "met": true,
+          "literal_score": 0.72,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.72,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Sci-Fi"
+                    ]
+                  },
+                  "score": 1.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Dystopian"
+                    ]
+                  },
+                  "score": 0.94
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cyborg",
+                      "Artificial Intelligence"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.72,
+      "gain": 0.72,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Metallic Rouge",
+      "anime_id": "162985",
+      "canonical_title": "Metallic Rouge",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "162985"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.92
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.92,
+          "met": true,
+          "literal_score": 0.92,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.92,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+              "score": 0.8,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Sci-Fi"
+                    ]
+                  },
+                  "score": 1.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Dystopian"
+                    ]
+                  },
+                  "score": 0.8
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cyborg",
+                      "Artificial Intelligence"
+                    ]
+                  },
+                  "score": 0.93
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.92,
+      "gain": 0.92,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 1.0,
+    "graded_fit_at_k": 0.87,
+    "ndcg_at_k": 0.8737978611653349,
+    "constraint_coverage": 1.0,
+    "count_compliance": 0,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "extra_count": 2,
+    "literal_precision_at_k": 1.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 21.260323292000066,
+  "extraction_seconds": 1.6526895000006334,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.4e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00087
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 9.999277
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.002968
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.040856
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013937
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 9.192618
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend anime",
+        "clarification": "The user wants three anime recommendations within the cyberpunk genre.",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "tags",
+                  "operator": "eq",
+                  "value": "Cyberpunk"
+                }
+              ]
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "Cyberpunk",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "three",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "tags",
+                  "operator": "eq",
+                  "value": "Cyberpunk"
+                }
+              ]
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "tags",
+                  "operator": "eq",
+                  "value": "three"
+                }
+              ]
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "tags",
+                  "operator": "eq",
+                  "value": "Cyberpunk"
+                }
+              ]
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "tags",
+                  "operator": "eq",
+                  "value": "three"
+                }
+              ]
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "tags",
+                  "operator": "eq",
+                  "value": "Cyberpunk"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Cyberpunk"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 1.015963,
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Cyberpunk"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Cyberpunk"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [
+            "The exact requirement 'three' is assessed semantically from descriptions, not verified by a catalog category."
+          ],
+          "mappings": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Cyberpunk",
+              "source_text": "Can I get three cyberpunk anime recommendations?",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "108307",
+            "title": "PSYCHO-PASS 3",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.2239
+          },
+          {
+            "id": "47",
+            "title": "Akira",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.1699
+          },
+          {
+            "id": "167336",
+            "title": "LAZARUS",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.1505
+          },
+          {
+            "id": "10161",
+            "title": "No.6",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.1469
+          },
+          {
+            "id": "162985",
+            "title": "Metallic Rouge",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.144
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "Cyberpunk",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.011045,
+      "arguments": {
+        "query": "Cyberpunk",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "cyberpunk",
+            "name": "Cyberpunk",
+            "description": "Set in a future of advanced technological and scientific achievements that have resulted in social disorder.",
+            "category": "Theme-Sci-Fi",
+            "similarity": 0.7636
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "search_features",
+      "arguments": {
+        "query": "three",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.010638,
+      "arguments": {
+        "query": "three",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "threesome",
+            "name": "Threesome",
+            "description": "Features sexual acts between three people.",
+            "category": "Sexual Content",
+            "similarity": 0.4135
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Cyberpunk"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.001845,
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Cyberpunk"
+          }
+        ]
+      },
+      "cached": true,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Cyberpunk"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [
+            "The exact requirement 'three' is assessed semantically from descriptions, not verified by a catalog category."
+          ],
+          "mappings": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Cyberpunk",
+              "source_text": "Can I get three cyberpunk anime recommendations?",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "108307",
+            "title": "PSYCHO-PASS 3",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.2239
+          },
+          {
+            "id": "47",
+            "title": "Akira",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.1699
+          },
+          {
+            "id": "167336",
+            "title": "LAZARUS",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.1505
+          },
+          {
+            "id": "10161",
+            "title": "No.6",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.1469
+          },
+          {
+            "id": "162985",
+            "title": "Metallic Rouge",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.144
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "three"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.961948,
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "three"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Cyberpunk"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [
+            "The exact requirement 'three' is assessed semantically from descriptions, not verified by a catalog category."
+          ],
+          "mappings": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Cyberpunk",
+              "source_text": "Can I get three cyberpunk anime recommendations?",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "108307",
+            "title": "PSYCHO-PASS 3",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.2239
+          },
+          {
+            "id": "47",
+            "title": "Akira",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.1699
+          },
+          {
+            "id": "167336",
+            "title": "LAZARUS",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.1505
+          },
+          {
+            "id": "10161",
+            "title": "No.6",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.1469
+          },
+          {
+            "id": "162985",
+            "title": "Metallic Rouge",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.144
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Cyberpunk"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.001467,
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Cyberpunk"
+          }
+        ]
+      },
+      "cached": true,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Cyberpunk"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [
+            "The exact requirement 'three' is assessed semantically from descriptions, not verified by a catalog category."
+          ],
+          "mappings": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Cyberpunk",
+              "source_text": "Can I get three cyberpunk anime recommendations?",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "108307",
+            "title": "PSYCHO-PASS 3",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.2239
+          },
+          {
+            "id": "47",
+            "title": "Akira",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.1699
+          },
+          {
+            "id": "167336",
+            "title": "LAZARUS",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.1505
+          },
+          {
+            "id": "10161",
+            "title": "No.6",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.1469
+          },
+          {
+            "id": "162985",
+            "title": "Metallic Rouge",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.144
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 6,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "three"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 6,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.001348,
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "three"
+          }
+        ]
+      },
+      "cached": true,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Cyberpunk"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [
+            "The exact requirement 'three' is assessed semantically from descriptions, not verified by a catalog category."
+          ],
+          "mappings": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Cyberpunk",
+              "source_text": "Can I get three cyberpunk anime recommendations?",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "108307",
+            "title": "PSYCHO-PASS 3",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.2239
+          },
+          {
+            "id": "47",
+            "title": "Akira",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.1699
+          },
+          {
+            "id": "167336",
+            "title": "LAZARUS",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.1505
+          },
+          {
+            "id": "10161",
+            "title": "No.6",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.1469
+          },
+          {
+            "id": "162985",
+            "title": "Metallic Rouge",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.144
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 7,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Cyberpunk"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 7,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.001362,
+      "arguments": {
+        "filters": [
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Cyberpunk"
+          }
+        ]
+      },
+      "cached": true,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Cyberpunk"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [
+            "The exact requirement 'three' is assessed semantically from descriptions, not verified by a catalog category."
+          ],
+          "mappings": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Cyberpunk",
+              "source_text": "Can I get three cyberpunk anime recommendations?",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "108307",
+            "title": "PSYCHO-PASS 3",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.2239
+          },
+          {
+            "id": "47",
+            "title": "Akira",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.1699
+          },
+          {
+            "id": "167336",
+            "title": "LAZARUS",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.1505
+          },
+          {
+            "id": "10161",
+            "title": "No.6",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.1469
+          },
+          {
+            "id": "162985",
+            "title": "Metallic Rouge",
+            "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+            "preference_similarity": 0.144
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.001149
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Cyberpunk"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Cyberpunk"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [
+              "The exact requirement 'three' is assessed semantically from descriptions, not verified by a catalog category."
+            ],
+            "mappings": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Cyberpunk",
+                "source_text": "Can I get three cyberpunk anime recommendations?",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "108307",
+              "title": "PSYCHO-PASS 3",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.2239
+            },
+            {
+              "id": "47",
+              "title": "Akira",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.1699
+            },
+            {
+              "id": "167336",
+              "title": "LAZARUS",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.1505
+            },
+            {
+              "id": "10161",
+              "title": "No.6",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.1469
+            },
+            {
+              "id": "162985",
+              "title": "Metallic Rouge",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.144
+            }
+          ]
+        },
+        "elapsed_seconds": 1.015963
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "Cyberpunk",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "cyberpunk",
+              "name": "Cyberpunk",
+              "description": "Set in a future of advanced technological and scientific achievements that have resulted in social disorder.",
+              "category": "Theme-Sci-Fi",
+              "similarity": 0.7636
+            }
+          ]
+        },
+        "elapsed_seconds": 0.011045
+      },
+      {
+        "step": 2,
+        "tool": "search_features",
+        "arguments": {
+          "query": "three",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "threesome",
+              "name": "Threesome",
+              "description": "Features sexual acts between three people.",
+              "category": "Sexual Content",
+              "similarity": 0.4135
+            }
+          ]
+        },
+        "elapsed_seconds": 0.010638
+      },
+      {
+        "step": 3,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Cyberpunk"
+            }
+          ]
+        },
+        "cached": true,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Cyberpunk"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [
+              "The exact requirement 'three' is assessed semantically from descriptions, not verified by a catalog category."
+            ],
+            "mappings": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Cyberpunk",
+                "source_text": "Can I get three cyberpunk anime recommendations?",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "108307",
+              "title": "PSYCHO-PASS 3",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.2239
+            },
+            {
+              "id": "47",
+              "title": "Akira",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.1699
+            },
+            {
+              "id": "167336",
+              "title": "LAZARUS",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.1505
+            },
+            {
+              "id": "10161",
+              "title": "No.6",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.1469
+            },
+            {
+              "id": "162985",
+              "title": "Metallic Rouge",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.144
+            }
+          ]
+        },
+        "elapsed_seconds": 0.001845
+      },
+      {
+        "step": 4,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "three"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Cyberpunk"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [
+              "The exact requirement 'three' is assessed semantically from descriptions, not verified by a catalog category."
+            ],
+            "mappings": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Cyberpunk",
+                "source_text": "Can I get three cyberpunk anime recommendations?",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "108307",
+              "title": "PSYCHO-PASS 3",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.2239
+            },
+            {
+              "id": "47",
+              "title": "Akira",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.1699
+            },
+            {
+              "id": "167336",
+              "title": "LAZARUS",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.1505
+            },
+            {
+              "id": "10161",
+              "title": "No.6",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.1469
+            },
+            {
+              "id": "162985",
+              "title": "Metallic Rouge",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.144
+            }
+          ]
+        },
+        "elapsed_seconds": 0.961948
+      },
+      {
+        "step": 5,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Cyberpunk"
+            }
+          ]
+        },
+        "cached": true,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Cyberpunk"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [
+              "The exact requirement 'three' is assessed semantically from descriptions, not verified by a catalog category."
+            ],
+            "mappings": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Cyberpunk",
+                "source_text": "Can I get three cyberpunk anime recommendations?",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "108307",
+              "title": "PSYCHO-PASS 3",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.2239
+            },
+            {
+              "id": "47",
+              "title": "Akira",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.1699
+            },
+            {
+              "id": "167336",
+              "title": "LAZARUS",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.1505
+            },
+            {
+              "id": "10161",
+              "title": "No.6",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.1469
+            },
+            {
+              "id": "162985",
+              "title": "Metallic Rouge",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.144
+            }
+          ]
+        },
+        "elapsed_seconds": 0.001467
+      },
+      {
+        "step": 6,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "three"
+            }
+          ]
+        },
+        "cached": true,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Cyberpunk"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [
+              "The exact requirement 'three' is assessed semantically from descriptions, not verified by a catalog category."
+            ],
+            "mappings": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Cyberpunk",
+                "source_text": "Can I get three cyberpunk anime recommendations?",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "108307",
+              "title": "PSYCHO-PASS 3",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.2239
+            },
+            {
+              "id": "47",
+              "title": "Akira",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.1699
+            },
+            {
+              "id": "167336",
+              "title": "LAZARUS",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.1505
+            },
+            {
+              "id": "10161",
+              "title": "No.6",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.1469
+            },
+            {
+              "id": "162985",
+              "title": "Metallic Rouge",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.144
+            }
+          ]
+        },
+        "elapsed_seconds": 0.001348
+      },
+      {
+        "step": 7,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Cyberpunk"
+            }
+          ]
+        },
+        "cached": true,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Cyberpunk"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [
+              "The exact requirement 'three' is assessed semantically from descriptions, not verified by a catalog category."
+            ],
+            "mappings": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Cyberpunk",
+                "source_text": "Can I get three cyberpunk anime recommendations?",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "108307",
+              "title": "PSYCHO-PASS 3",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.2239
+            },
+            {
+              "id": "47",
+              "title": "Akira",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.1699
+            },
+            {
+              "id": "167336",
+              "title": "LAZARUS",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.1505
+            },
+            {
+              "id": "10161",
+              "title": "No.6",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.1469
+            },
+            {
+              "id": "162985",
+              "title": "Metallic Rouge",
+              "reason": "Matches: filters=[{'field': 'tags', 'operator': 'eq', 'value': 'Cyberpunk'}]",
+              "preference_similarity": 0.144
+            }
+          ]
+        },
+        "elapsed_seconds": 0.001362
+      }
+    ],
+    "llm_calls": 6,
+    "planned_tools": 8,
+    "executed_tools": 4,
+    "timings_seconds": {
+      "interpret_request": 9.999277,
+      "prepare_context": 0.002968,
+      "retrieve_guides": 0.040856,
+      "feature_candidates": 0.013937,
+      "planning": 9.192618,
+      "tools": 2.005616,
+      "generate_answer": 0.001149
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"cyberpunk\", \"query\": \"cyberpunk\", \"kind\": \"genre\", \"role\": \"required\", \"meaning\": \"Desired genre\"}, {\"text\": \"anime\", \"query\": \"anime\", \"kind\": \"genre\", \"role\": \"required\", \"meaning\": \"Desired media type\"}, {\"text\": \"three\", \"query\": \"three\", \"kind\": \"genre\", \"role\": \"required\", \"meaning\": \"Number of recommendations\"}]}",
+      "{\"role\": \"required\"}",
+      "{\"choice\": 3, \"role\": \"required\", \"operator\": \"eq\", \"value\": \"anime\", \"mapping\": \"exact\"}",
+      "{\"role\": \"required\"}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "cyberpunk",
+        "query": "cyberpunk",
+        "kind": "genre",
+        "role": "required",
+        "meaning": "Desired genre"
+      },
+      {
+        "text": "anime",
+        "query": "anime",
+        "kind": "genre",
+        "role": "required",
+        "meaning": "Desired media type"
+      },
+      {
+        "text": "three",
+        "query": "three",
+        "kind": "genre",
+        "role": "required",
+        "meaning": "Number of recommendations"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify any preferred anime titles or characteristics for the recommendations.\", \"decisions\": {\"p0\": {\"meaning\": \"cyberpunk\", \"role\": \"required\", \"selection\": \"unmapped description\"}, \"p1\": {\"meaning\": \"anime\", \"role\": \"required\", \"selection\": \"unmapped description\"}, \"p2\": {\"meaning\": \"three\", \"role\": \"required\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "cyberpunk",
+          "name": "",
+          "meaning": "cyberpunk"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "anime",
+          "name": "",
+          "meaning": "anime"
+        },
+        {
+          "phrase_index": 2,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "three",
+          "name": "",
+          "meaning": "three"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [
+        "cyberpunk",
+        "anime",
+        "three"
+      ],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "tags",
+          "operator": "eq",
+          "value": "Cyberpunk"
+        }
+      ],
+      "soft_query": "three",
+      "limitations": [
+        "The exact requirement 'three' is assessed semantically from descriptions, not verified by a catalog category."
+      ],
+      "mappings": [
+        {
+          "field": "tags",
+          "operator": "eq",
+          "value": "Cyberpunk",
+          "source_text": "Can I get three cyberpunk anime recommendations?",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "cyberpunk",
+          "candidate": {
+            "field": "tags",
+            "value": "Cyberpunk",
+            "meaning": "Cyberpunk"
+          },
+          "role": "required",
+          "mapping": "exact"
+        },
+        {
+          "phrase": "three",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "exact"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "cyberpunk",
+            "name": "",
+            "meaning": "cyberpunk"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "anime",
+            "name": "",
+            "meaning": "anime"
+          },
+          {
+            "phrase_index": 2,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "three",
+            "name": "",
+            "meaning": "three"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend anime",
+      "clarification": "The user wants three anime recommendations within the cyberpunk genre.",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Cyberpunk"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "Cyberpunk",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "three",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Cyberpunk"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "three"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Cyberpunk"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "three"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Cyberpunk"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

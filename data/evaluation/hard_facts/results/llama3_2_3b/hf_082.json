@@ -1,0 +1,391 @@
+{
+  "question_id": "hf_082",
+  "anime_id": "199",
+  "title": "Spirited Away",
+  "field": "format",
+  "question": "How is Spirited Away classified by release format?",
+  "expected_values": [
+    "MOVIE"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Spirited Away is classified as a MOVIE.",
+  "extracted_values": [
+    "MOVIE"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 12.209775833000094,
+  "extraction_seconds": 0.561826375000237,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "MOVIE",
+        "quote": "Spirited Away is classified as a MOVIE."
+      }
+    ],
+    "note": "No other release format is mentioned.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "199",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "199",
+          "title": "Spirited Away"
+        },
+        "elapsed_seconds": 0.018391
+      },
+      {
+        "step": 1,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "release format",
+          "anime_ids": [
+            "199"
+          ]
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 1.302113
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 2.174839,
+      "prepare_context": 0.014885,
+      "retrieve_guides": 0.027726,
+      "feature_candidates": 0.015107,
+      "planning": 4.039717,
+      "tools": 1.320504,
+      "generate_answer": 4.614669
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Spirited Away\", \"query\": \"Spirited Away\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Film; Studio Ghibli; 2001 release\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Spirited Away",
+        "query": "Spirited Away",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Film; Studio Ghibli; 2001 release"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Film; Studio Ghibli; 2001 release\", \"role\": \"subject\", \"selection\": \"Spirited Away | anime:199\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "199",
+          "role": "subject",
+          "text": "Spirited Away",
+          "name": "Spirited Away",
+          "meaning": "Film; Studio Ghibli; 2001 release"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "199",
+          "role": "subject",
+          "text": "Spirited Away",
+          "name": "Spirited Away",
+          "meaning": "Film; Studio Ghibli; 2001 release"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Spirited Away"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "199",
+            "role": "subject",
+            "text": "Spirited Away",
+            "name": "Spirited Away",
+            "meaning": "Film; Studio Ghibli; 2001 release"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "199",
+            "role": "subject",
+            "text": "Spirited Away",
+            "name": "Spirited Away",
+            "meaning": "Film; Studio Ghibli; 2001 release"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "classify by release format",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "199",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "release format",
+            "anime_ids": [
+              "199"
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "199",
+          "name": "Spirited Away"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:199",
+          "fact": "Spirited Away is classified as a MOVIE."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.9e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000759
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.174839
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.014885
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.027726
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.015107
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.039717
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "classify by release format",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "199",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "release format",
+              "anime_ids": [
+                "199"
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "199",
+            "name": "Spirited Away"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "199",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.018391,
+      "arguments": {
+        "id": "199",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "199",
+        "title": "Spirited Away"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "release format",
+        "anime_ids": [
+          "199"
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 1.302113,
+      "arguments": {
+        "query": "release format",
+        "anime_ids": [
+          "199"
+        ]
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.614669
+    }
+  ]
+}

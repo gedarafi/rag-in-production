@@ -1,0 +1,391 @@
+{
+  "question_id": "hf_127",
+  "anime_id": "101280",
+  "title": "That Time I Got Reincarnated as a Slime",
+  "field": "source_material",
+  "question": "What medium was That Time I Got Reincarnated as a Slime's first anime adapted from?",
+  "expected_values": [
+    "LIGHT_NOVEL"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "LIGHT NOVEL",
+  "extracted_values": [
+    "LIGHT NOVEL"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 10.899636832999022,
+  "extraction_seconds": 0.5192354579994571,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "LIGHT NOVEL",
+        "quote": "LIGHT NOVEL"
+      }
+    ],
+    "note": "",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101280",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101280",
+          "title": "That Time I Got Reincarnated as a Slime"
+        },
+        "elapsed_seconds": 0.017395
+      },
+      {
+        "step": 1,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "first anime adaptation medium",
+          "anime_ids": [
+            "101280"
+          ]
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.030757
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 2.510328,
+      "prepare_context": 0.013982,
+      "retrieve_guides": 0.028352,
+      "feature_candidates": 0.014005,
+      "planning": 4.502173,
+      "tools": 0.048152,
+      "generate_answer": 3.780141
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"That Time I Got Reincarnated as a Slime\", \"query\": \"That Time I Got Reincarnated as a Slime\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Light novel adaptation\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "That Time I Got Reincarnated as a Slime",
+        "query": "That Time I Got Reincarnated as a Slime",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Light novel adaptation"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"What is the medium That Time I Got Reincarnated as a Slime was adapted from?\", \"decisions\": {\"p0\": {\"meaning\": \"Light novel\", \"role\": \"subject\", \"selection\": \"That Time I Got Reincarnated as a Slime | anime:101280\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101280",
+          "role": "subject",
+          "text": "That Time I Got Reincarnated as a Slime",
+          "name": "That Time I Got Reincarnated as a Slime",
+          "meaning": "Light novel"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101280",
+          "role": "subject",
+          "text": "That Time I Got Reincarnated as a Slime",
+          "name": "That Time I Got Reincarnated as a Slime",
+          "meaning": "Light novel"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "That Time I Got Reincarnated as a Slime"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101280",
+            "role": "subject",
+            "text": "That Time I Got Reincarnated as a Slime",
+            "name": "That Time I Got Reincarnated as a Slime",
+            "meaning": "Light novel"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101280",
+            "role": "subject",
+            "text": "That Time I Got Reincarnated as a Slime",
+            "name": "That Time I Got Reincarnated as a Slime",
+            "meaning": "Light novel"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Find the medium that the anime 'That Time I Got Reincarnated as a Slime' was first adapted from.",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101280",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "first anime adaptation medium",
+            "anime_ids": [
+              "101280"
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "101280",
+          "name": "That Time I Got Reincarnated as a Slime"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:101280",
+          "fact": "The anime was first adapted from a LIGHT NOVEL."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.3e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00085
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.510328
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.013982
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.028352
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014005
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.502173
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Find the medium that the anime 'That Time I Got Reincarnated as a Slime' was first adapted from.",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101280",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "first anime adaptation medium",
+              "anime_ids": [
+                "101280"
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "101280",
+            "name": "That Time I Got Reincarnated as a Slime"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101280",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.017395,
+      "arguments": {
+        "id": "101280",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101280",
+        "title": "That Time I Got Reincarnated as a Slime"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "first anime adaptation medium",
+        "anime_ids": [
+          "101280"
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.030757,
+      "arguments": {
+        "query": "first anime adaptation medium",
+        "anime_ids": [
+          "101280"
+        ]
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.780141
+    }
+  ]
+}

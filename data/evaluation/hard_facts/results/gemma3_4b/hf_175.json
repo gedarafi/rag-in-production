@@ -1,0 +1,622 @@
+{
+  "question_id": "hf_175",
+  "anime_id": "21234",
+  "title": "ERASED",
+  "field": "main_characters",
+  "question": "Who has a main character role in ERASED?",
+  "expected_values": [
+    "Satoru Fujinuma",
+    "Kayo Hinazuki"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Satoru Fujinuma and Kayo Hinazuki both have a main character role in ERASED.",
+  "extracted_values": [
+    "Satoru Fujinuma",
+    "Kayo Hinazuki"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 15.851828040999862,
+  "extraction_seconds": 0.6730587920001199,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Satoru Fujinuma",
+        "quote": "Satoru Fujinuma and Kayo Hinazuki both have a main character role in ERASED."
+      },
+      {
+        "value": "Kayo Hinazuki",
+        "quote": "Satoru Fujinuma and Kayo Hinazuki both have a main character role in ERASED."
+      }
+    ],
+    "note": "ERASED",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 2,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_character",
+        "arguments": {
+          "id": "89275"
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "89275",
+          "name": "Satoru Fujinuma"
+        },
+        "elapsed_seconds": 0.004463
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "Satoru Fujinuma",
+          "kind": "tag",
+          "limit": 5
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "oiran",
+              "name": "Oiran",
+              "description": "Prominently features a courtesan character of the Japanese Edo Period.",
+              "category": "Cast-Traits",
+              "similarity": 0.3546
+            },
+            {
+              "kind": "tag",
+              "id": "yakuza",
+              "name": "Yakuza",
+              "description": "Centered around Japanese organised crime syndicates.",
+              "category": "Theme-Other-Organisations",
+              "similarity": 0.3513
+            },
+            {
+              "kind": "tag",
+              "id": "shimaidon",
+              "name": "Shimaidon",
+              "description": "Features a character who has sexual relations with two sisters.",
+              "category": "Sexual Content",
+              "similarity": 0.3317
+            },
+            {
+              "kind": "tag",
+              "id": "ojou sama",
+              "name": "Ojou-sama",
+              "description": "Features a wealthy, high-class, oftentimes stuck up and demanding female character.",
+              "category": "Cast-Traits",
+              "similarity": 0.328
+            },
+            {
+              "kind": "tag",
+              "id": "iyashikei",
+              "name": "Iyashikei",
+              "description": "Primary aim is to heal the audience through serene depictions of characters' daily lives.",
+              "category": "Theme-Slice of Life",
+              "similarity": 0.3275
+            }
+          ]
+        },
+        "elapsed_seconds": 0.064354
+      },
+      {
+        "step": 2,
+        "tool": "search_features",
+        "arguments": {
+          "query": "Satoru Fujinuma",
+          "kind": "tag",
+          "limit": 5
+        },
+        "cached": true,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "oiran",
+              "name": "Oiran",
+              "description": "Prominently features a courtesan character of the Japanese Edo Period.",
+              "category": "Cast-Traits",
+              "similarity": 0.3546
+            },
+            {
+              "kind": "tag",
+              "id": "yakuza",
+              "name": "Yakuza",
+              "description": "Centered around Japanese organised crime syndicates.",
+              "category": "Theme-Other-Organisations",
+              "similarity": 0.3513
+            },
+            {
+              "kind": "tag",
+              "id": "shimaidon",
+              "name": "Shimaidon",
+              "description": "Features a character who has sexual relations with two sisters.",
+              "category": "Sexual Content",
+              "similarity": 0.3317
+            },
+            {
+              "kind": "tag",
+              "id": "ojou sama",
+              "name": "Ojou-sama",
+              "description": "Features a wealthy, high-class, oftentimes stuck up and demanding female character.",
+              "category": "Cast-Traits",
+              "similarity": 0.328
+            },
+            {
+              "kind": "tag",
+              "id": "iyashikei",
+              "name": "Iyashikei",
+              "description": "Primary aim is to heal the audience through serene depictions of characters' daily lives.",
+              "category": "Theme-Slice of Life",
+              "similarity": 0.3275
+            }
+          ]
+        },
+        "elapsed_seconds": 2.8e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 4.278967,
+      "prepare_context": 0.030536,
+      "retrieve_guides": 0.037696,
+      "feature_candidates": 0.123169,
+      "planning": 6.932594,
+      "tools": 0.068845,
+      "generate_answer": 4.377137
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"ERASED\", \"query\": \"ERASED\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "ERASED",
+        "query": "ERASED",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"The question asks for the main character of the anime ERASED.\", \"decisions\": {\"p0\": {\"meaning\": \"ERASED\", \"role\": \"subject\", \"selection\": \"ERASED | anime:21234\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21234",
+          "role": "subject",
+          "text": "ERASED",
+          "name": "ERASED",
+          "meaning": "ERASED"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21234",
+          "role": "subject",
+          "text": "ERASED",
+          "name": "ERASED",
+          "meaning": "ERASED"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "ERASED"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21234",
+            "role": "subject",
+            "text": "ERASED",
+            "name": "ERASED",
+            "meaning": "ERASED"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21234",
+            "role": "subject",
+            "text": "ERASED",
+            "name": "ERASED",
+            "meaning": "ERASED"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Retrieve character information for the anime ERASED",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "89275"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "Satoru Fujinuma",
+            "kind": "tag",
+            "limit": 5
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "Satoru Fujinuma",
+            "kind": "tag",
+            "limit": 5
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21234",
+          "name": "ERASED"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:21234",
+          "fact": "Satoru Fujinuma is the MAIN character in ERASED."
+        },
+        {
+          "subject": "anime:21234",
+          "fact": "Kayo Hinazuki is the MAIN character in ERASED."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001443
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.278967
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.030536
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.037696
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.123169
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.932594
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Retrieve character information for the anime ERASED",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "89275"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "Satoru Fujinuma",
+              "kind": "tag",
+              "limit": 5
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "Satoru Fujinuma",
+              "kind": "tag",
+              "limit": 5
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21234",
+            "name": "ERASED"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_character",
+      "arguments": {
+        "id": "89275"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.004463,
+      "arguments": {
+        "id": "89275"
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "89275",
+        "name": "Satoru Fujinuma"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "Satoru Fujinuma",
+        "kind": "tag",
+        "limit": 5
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.064354,
+      "arguments": {
+        "query": "Satoru Fujinuma",
+        "kind": "tag",
+        "limit": 5
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "oiran",
+            "name": "Oiran",
+            "description": "Prominently features a courtesan character of the Japanese Edo Period.",
+            "category": "Cast-Traits",
+            "similarity": 0.3546
+          },
+          {
+            "kind": "tag",
+            "id": "yakuza",
+            "name": "Yakuza",
+            "description": "Centered around Japanese organised crime syndicates.",
+            "category": "Theme-Other-Organisations",
+            "similarity": 0.3513
+          },
+          {
+            "kind": "tag",
+            "id": "shimaidon",
+            "name": "Shimaidon",
+            "description": "Features a character who has sexual relations with two sisters.",
+            "category": "Sexual Content",
+            "similarity": 0.3317
+          },
+          {
+            "kind": "tag",
+            "id": "ojou sama",
+            "name": "Ojou-sama",
+            "description": "Features a wealthy, high-class, oftentimes stuck up and demanding female character.",
+            "category": "Cast-Traits",
+            "similarity": 0.328
+          },
+          {
+            "kind": "tag",
+            "id": "iyashikei",
+            "name": "Iyashikei",
+            "description": "Primary aim is to heal the audience through serene depictions of characters' daily lives.",
+            "category": "Theme-Slice of Life",
+            "similarity": 0.3275
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "search_features",
+      "arguments": {
+        "query": "Satoru Fujinuma",
+        "kind": "tag",
+        "limit": 5
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 2.8e-05,
+      "arguments": {
+        "query": "Satoru Fujinuma",
+        "kind": "tag",
+        "limit": 5
+      },
+      "cached": true,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "oiran",
+            "name": "Oiran",
+            "description": "Prominently features a courtesan character of the Japanese Edo Period.",
+            "category": "Cast-Traits",
+            "similarity": 0.3546
+          },
+          {
+            "kind": "tag",
+            "id": "yakuza",
+            "name": "Yakuza",
+            "description": "Centered around Japanese organised crime syndicates.",
+            "category": "Theme-Other-Organisations",
+            "similarity": 0.3513
+          },
+          {
+            "kind": "tag",
+            "id": "shimaidon",
+            "name": "Shimaidon",
+            "description": "Features a character who has sexual relations with two sisters.",
+            "category": "Sexual Content",
+            "similarity": 0.3317
+          },
+          {
+            "kind": "tag",
+            "id": "ojou sama",
+            "name": "Ojou-sama",
+            "description": "Features a wealthy, high-class, oftentimes stuck up and demanding female character.",
+            "category": "Cast-Traits",
+            "similarity": 0.328
+          },
+          {
+            "kind": "tag",
+            "id": "iyashikei",
+            "name": "Iyashikei",
+            "description": "Primary aim is to heal the audience through serene depictions of characters' daily lives.",
+            "category": "Theme-Slice of Life",
+            "similarity": 0.3275
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.377137
+    }
+  ]
+}

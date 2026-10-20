@@ -1,0 +1,401 @@
+{
+  "question_id": "kyoani_03",
+  "category": "studios",
+  "intent_family": "kyoani",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "Can you give me five anime by the team at KyoAni?",
+  "k": 5,
+  "constraints": [
+    {
+      "field": "studios",
+      "op": "any",
+      "value": [
+        "Kyoto Animation"
+      ]
+    }
+  ],
+  "label_rationale": "Only studios marked main=true AND animation=true in the local export count.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 119,
+  "reference_examples": [
+    {
+      "id": "100178",
+      "title": "Liz and the Blue Bird"
+    },
+    {
+      "id": "100402",
+      "title": "Tsurune"
+    },
+    {
+      "id": "101",
+      "title": "Air"
+    }
+  ],
+  "answer_text": "",
+  "status": "model_error",
+  "error": "RuntimeError: No supported recommendations were retrieved. Please rephrase your preferences and retry.",
+  "extraction": null,
+  "recommendations": [],
+  "metrics": null,
+  "model_seconds": 14.112484833000053,
+  "extraction_seconds": 0.0,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.5e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000777
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.354656
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.00421
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.007842
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.011709
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.511931
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "KyoAni"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "seed_anime_ids": [
+                "KyoAni"
+              ],
+              "genre_ids": [],
+              "studio": "KyoAni",
+              "filters": [
+                {
+                  "field": "studios",
+                  "operator": "eq",
+                  "value": "KyoAni"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "148125",
+            "name": "Kani-san Kani-san"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "KyoAni"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "error",
+      "elapsed_seconds": 5.9e-05,
+      "error": "Use anime IDs from dictionary or tool results first"
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "seed_anime_ids": [
+          "KyoAni"
+        ],
+        "genre_ids": [],
+        "studio": "KyoAni",
+        "filters": [
+          {
+            "field": "studios",
+            "operator": "eq",
+            "value": "KyoAni"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "error",
+      "elapsed_seconds": 0.003383,
+      "error": "Use anime IDs from dictionary or tool results first"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "error",
+      "elapsed_seconds": 5.216448,
+      "error": "No supported recommendations were retrieved. Please rephrase your preferences and retry."
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "status": "error",
+        "step": 0,
+        "tool": "get_anime",
+        "error": "Use anime IDs from dictionary or tool results first",
+        "elapsed_seconds": 5.9e-05
+      },
+      {
+        "status": "error",
+        "step": 1,
+        "tool": "recommend_anime",
+        "error": "Use anime IDs from dictionary or tool results first",
+        "elapsed_seconds": 0.003383
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 0,
+    "timings_seconds": {
+      "interpret_request": 4.354656,
+      "prepare_context": 0.00421,
+      "retrieve_guides": 0.007842,
+      "feature_candidates": 0.011709,
+      "planning": 4.511931,
+      "tools": 0.003442,
+      "generate_answer": 5.216448
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"KyoAni\", \"query\": \"KyoAni\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Studio\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "KyoAni",
+        "query": "KyoAni",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Studio"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Studio\", \"role\": \"subject\", \"selection\": \"Kani-san Kani-san | anime:148125\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "148125",
+          "role": "subject",
+          "text": "KyoAni",
+          "name": "Kani-san Kani-san",
+          "meaning": "Studio"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "148125",
+          "role": "subject",
+          "text": "KyoAni",
+          "name": "Kani-san Kani-san",
+          "meaning": "Studio"
+        }
+      ],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Kani-san Kani-san"
+      ],
+      "required": [],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Kani-san Kani-san"
+      ],
+      "filters": [
+        {
+          "field": "studios",
+          "operator": "eq",
+          "value": "KyoAni"
+        }
+      ],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "studios",
+          "operator": "eq",
+          "value": "KyoAni",
+          "source_text": "Can you give me five anime by the team at KyoAni?",
+          "mapping": "exact",
+          "origin": "structured_attribute_plan"
+        }
+      ],
+      "preference_hierarchy": [],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "148125",
+            "role": "subject",
+            "text": "KyoAni",
+            "name": "Kani-san Kani-san",
+            "meaning": "Studio"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "148125",
+            "role": "subject",
+            "text": "KyoAni",
+            "name": "Kani-san Kani-san",
+            "meaning": "Studio"
+          }
+        ],
+        "clarification": ""
+      },
+      "structured_attributes": {
+        "studio": "KyoAni"
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "KyoAni"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "seed_anime_ids": [
+              "KyoAni"
+            ],
+            "genre_ids": [],
+            "studio": "KyoAni",
+            "filters": [
+              {
+                "field": "studios",
+                "operator": "eq",
+                "value": "KyoAni"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "148125",
+          "name": "Kani-san Kani-san"
+        }
+      ],
+      "characters": []
+    }
+  }
+}

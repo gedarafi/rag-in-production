@@ -1,0 +1,71 @@
+{
+  "question_id": "hf_158",
+  "anime_id": "113415",
+  "title": "JUJUTSU KAISEN",
+  "field": "main_characters",
+  "question": "Who makes up the main cast of JUJUTSU KAISEN's first season? Character names only.",
+  "expected_values": [
+    "Megumi Fushiguro",
+    "Yuuji Itadori",
+    "Satoru Gojou",
+    "Nobara Kugisaki"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "",
+  "extracted_values": [],
+  "status": "model_error",
+  "error": "ValueError: Mention must be supported by the user request or selected user history: ['Yuta Okutani', 'Megumi Fushiguro', 'Nobara Kugisaki']",
+  "model_seconds": 5.929341667000244,
+  "extraction_seconds": 0.0,
+  "extraction": null,
+  "metrics": null,
+  "rag_usage": {
+    "agent_trace": [],
+    "llm_calls": 2,
+    "planned_tools": 0,
+    "executed_tools": 0,
+    "timings_seconds": {
+      "interpret_request": 5.928396
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Yuta Okutani\", \"query\": \"Yuta Okutani\", \"kind\": \"character\", \"role\": \"subject\", \"meaning\": \"Main character\"}, {\"text\": \"Megumi Fushiguro\", \"query\": \"Megumi Fushiguro\", \"kind\": \"character\", \"role\": \"subject\", \"meaning\": \"Main character\"}, {\"text\": \"Nobara Kugisaki\", \"query\": \"Nobara Kugisaki\", \"kind\": \"character\", \"role\": \"subject\", \"meaning\": \"Main character\"}]}",
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Yuta Okutani\", \"query\": \"Yuta Okutani\", \"kind\": \"character\", \"role\": \"subject\", \"meaning\": \"Main character\"}, {\"text\": \"Megumi Fushiguro\", \"query\": \"Megumi Fushiguro\", \"kind\": \"character\", \"role\": \"subject\", \"meaning\": \"Main character\"}, {\"text\": \"Nobara Kugisaki\", \"query\": \"Nobara Kugisaki\", \"kind\": \"character\", \"role\": \"subject\", \"meaning\": \"Main character\"}]}"
+    ],
+    "mention_classification_corrections": [
+      "Mention must be supported by the user request or selected user history: ['Yuta Okutani', 'Megumi Fushiguro', 'Nobara Kugisaki']"
+    ]
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.9e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000831
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "error",
+      "elapsed_seconds": 5.928396,
+      "error": "Mention must be supported by the user request or selected user history: ['Yuta Okutani', 'Megumi Fushiguro', 'Nobara Kugisaki']"
+    }
+  ]
+}

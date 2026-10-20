@@ -1,0 +1,936 @@
+{
+  "question_id": "hf_015",
+  "anime_id": "21507",
+  "title": "Mob Psycho 100",
+  "field": "year",
+  "question": "What year did the Mob Psycho 100 anime originally launch?",
+  "expected_values": [
+    2016.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "anime launch year: 2016 years.",
+  "extracted_values": [
+    "2016"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 16.372704957999986,
+  "extraction_seconds": 0.48963366600014524,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "2016",
+        "quote": "anime launch year: 2016 years."
+      }
+    ],
+    "note": "years",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21507"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21507",
+          "title": "Mob Psycho 100"
+        },
+        "elapsed_seconds": 0.015757
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "launch year",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "trains",
+              "name": "Trains",
+              "description": "Prominently features trains.",
+              "category": "Theme-Other-Vehicle",
+              "similarity": 0.2613
+            },
+            {
+              "kind": "tag",
+              "id": "shoujo",
+              "name": "Shoujo",
+              "description": "Target demographic is teenage and young adult females.",
+              "category": "Demographic",
+              "similarity": 0.2469
+            },
+            {
+              "kind": "tag",
+              "id": "coming of age",
+              "name": "Coming of Age",
+              "description": "Centers around a character's transition from childhood to adulthood.",
+              "category": "Theme-Drama",
+              "similarity": 0.2459
+            },
+            {
+              "kind": "tag",
+              "id": "e sports",
+              "name": "E-Sports",
+              "description": "Prominently features professional video game competitions, tournaments, players, etc.",
+              "category": "Theme-Game",
+              "similarity": 0.2399
+            },
+            {
+              "kind": "tag",
+              "id": "airsoft",
+              "name": "Airsoft",
+              "description": "Centers around the sport of airsoft.",
+              "category": "Theme-Game-Sport",
+              "similarity": 0.2369
+            }
+          ]
+        },
+        "elapsed_seconds": 0.035879
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "launch year"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.011512
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21507"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21507",
+          "title": "Mob Psycho 100"
+        },
+        "elapsed_seconds": 0.000122
+      },
+      {
+        "step": 4,
+        "tool": "search_features",
+        "arguments": {
+          "query": "release year",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "anthology",
+              "name": "Anthology",
+              "description": "A collection of separate works collated into a single release.",
+              "category": "Technical",
+              "similarity": 0.2866
+            },
+            {
+              "kind": "tag",
+              "id": "coming of age",
+              "name": "Coming of Age",
+              "description": "Centers around a character's transition from childhood to adulthood.",
+              "category": "Theme-Drama",
+              "similarity": 0.272
+            },
+            {
+              "kind": "tag",
+              "id": "guns",
+              "name": "Guns",
+              "description": "Prominently features the use of guns in combat.",
+              "category": "Theme-Action",
+              "similarity": 0.2442
+            },
+            {
+              "kind": "tag",
+              "id": "mopeds",
+              "name": "Mopeds",
+              "description": "Prominently features mopeds.",
+              "category": "Theme-Other-Vehicle",
+              "similarity": 0.2408
+            },
+            {
+              "kind": "tag",
+              "id": "age gap",
+              "name": "Age Gap",
+              "description": "Prominently features romantic relations between people with a significant age difference.",
+              "category": "Theme-Romance",
+              "similarity": 0.2366
+            }
+          ]
+        },
+        "elapsed_seconds": 0.011768
+      },
+      {
+        "step": 5,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21507"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21507",
+          "title": "Mob Psycho 100"
+        },
+        "elapsed_seconds": 0.000109
+      },
+      {
+        "step": 6,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21507",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21507",
+          "title": "Mob Psycho 100"
+        },
+        "elapsed_seconds": 0.012242
+      },
+      {
+        "step": 7,
+        "tool": "search_features",
+        "arguments": {
+          "query": "start_date",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "time skip",
+              "name": "Time Skip",
+              "description": "Features a gap in time used to advance the story.",
+              "category": "Setting-Time",
+              "similarity": 0.2533
+            },
+            {
+              "kind": "tag",
+              "id": "age gap",
+              "name": "Age Gap",
+              "description": "Prominently features romantic relations between people with a significant age difference.",
+              "category": "Theme-Romance",
+              "similarity": 0.2277
+            },
+            {
+              "kind": "tag",
+              "id": "achronological order",
+              "name": "Achronological Order",
+              "description": "Chapters or episodes do not occur in chronological order.",
+              "category": "Setting-Time",
+              "similarity": 0.2095
+            }
+          ]
+        },
+        "elapsed_seconds": 0.010364
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 8,
+    "executed_tools": 6,
+    "timings_seconds": {
+      "interpret_request": 4.041124,
+      "prepare_context": 0.018324,
+      "retrieve_guides": 0.031597,
+      "feature_candidates": 0.013392,
+      "planning": 8.619823,
+      "tools": 0.097753,
+      "generate_answer": 3.54685
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Mob Psycho 100\", \"query\": \"Mob Psycho 100\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Original TV adaptation\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Mob Psycho 100",
+        "query": "Mob Psycho 100",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Original TV adaptation"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"To clarify, you are asking for the launch year of the original Mob Psycho 100 TV anime.\", \"decisions\": {\"p0\": {\"meaning\": \"Mob Psycho 100\", \"role\": \"subject\", \"selection\": \"Mob Psycho 100 | anime:21507\"} }}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21507",
+          "role": "subject",
+          "text": "Mob Psycho 100",
+          "name": "Mob Psycho 100",
+          "meaning": "Mob Psycho 100"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21507",
+          "role": "subject",
+          "text": "Mob Psycho 100",
+          "name": "Mob Psycho 100",
+          "meaning": "Mob Psycho 100"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Mob Psycho 100"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21507",
+            "role": "subject",
+            "text": "Mob Psycho 100",
+            "name": "Mob Psycho 100",
+            "meaning": "Mob Psycho 100"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21507",
+            "role": "subject",
+            "text": "Mob Psycho 100",
+            "name": "Mob Psycho 100",
+            "meaning": "Mob Psycho 100"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "retrieve_anime_launch_year",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21507"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "launch year",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "launch year"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21507"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "release year",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21507"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21507",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "start_date",
+            "kind": "tag"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21507",
+          "name": "Mob Psycho 100"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:21507",
+          "fact": "year"
+        }
+      ],
+      "calculations": [
+        {
+          "expression": "2016.0",
+          "value": "2016",
+          "unit": "years"
+        }
+      ]
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 0.000101
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001985
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.041124
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.018324
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.031597
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013392
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 8.619823
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "retrieve_anime_launch_year",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21507"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "launch year",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "launch year"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21507"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "release year",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21507"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21507",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "start_date",
+              "kind": "tag"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21507",
+            "name": "Mob Psycho 100"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21507"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.015757,
+      "arguments": {
+        "id": "21507"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21507",
+        "title": "Mob Psycho 100"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "launch year",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.035879,
+      "arguments": {
+        "query": "launch year",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "trains",
+            "name": "Trains",
+            "description": "Prominently features trains.",
+            "category": "Theme-Other-Vehicle",
+            "similarity": 0.2613
+          },
+          {
+            "kind": "tag",
+            "id": "shoujo",
+            "name": "Shoujo",
+            "description": "Target demographic is teenage and young adult females.",
+            "category": "Demographic",
+            "similarity": 0.2469
+          },
+          {
+            "kind": "tag",
+            "id": "coming of age",
+            "name": "Coming of Age",
+            "description": "Centers around a character's transition from childhood to adulthood.",
+            "category": "Theme-Drama",
+            "similarity": 0.2459
+          },
+          {
+            "kind": "tag",
+            "id": "e sports",
+            "name": "E-Sports",
+            "description": "Prominently features professional video game competitions, tournaments, players, etc.",
+            "category": "Theme-Game",
+            "similarity": 0.2399
+          },
+          {
+            "kind": "tag",
+            "id": "airsoft",
+            "name": "Airsoft",
+            "description": "Centers around the sport of airsoft.",
+            "category": "Theme-Game-Sport",
+            "similarity": 0.2369
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "launch year"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.011512,
+      "arguments": {
+        "kind": "tag",
+        "query": "launch year"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21507"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000122,
+      "arguments": {
+        "id": "21507"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21507",
+        "title": "Mob Psycho 100"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "search_features",
+      "arguments": {
+        "query": "release year",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.011768,
+      "arguments": {
+        "query": "release year",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "anthology",
+            "name": "Anthology",
+            "description": "A collection of separate works collated into a single release.",
+            "category": "Technical",
+            "similarity": 0.2866
+          },
+          {
+            "kind": "tag",
+            "id": "coming of age",
+            "name": "Coming of Age",
+            "description": "Centers around a character's transition from childhood to adulthood.",
+            "category": "Theme-Drama",
+            "similarity": 0.272
+          },
+          {
+            "kind": "tag",
+            "id": "guns",
+            "name": "Guns",
+            "description": "Prominently features the use of guns in combat.",
+            "category": "Theme-Action",
+            "similarity": 0.2442
+          },
+          {
+            "kind": "tag",
+            "id": "mopeds",
+            "name": "Mopeds",
+            "description": "Prominently features mopeds.",
+            "category": "Theme-Other-Vehicle",
+            "similarity": 0.2408
+          },
+          {
+            "kind": "tag",
+            "id": "age gap",
+            "name": "Age Gap",
+            "description": "Prominently features romantic relations between people with a significant age difference.",
+            "category": "Theme-Romance",
+            "similarity": 0.2366
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21507"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000109,
+      "arguments": {
+        "id": "21507"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21507",
+        "title": "Mob Psycho 100"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 6,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21507",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 6,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.012242,
+      "arguments": {
+        "id": "21507",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21507",
+        "title": "Mob Psycho 100"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 7,
+      "tool": "search_features",
+      "arguments": {
+        "query": "start_date",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 7,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.010364,
+      "arguments": {
+        "query": "start_date",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "time skip",
+            "name": "Time Skip",
+            "description": "Features a gap in time used to advance the story.",
+            "category": "Setting-Time",
+            "similarity": 0.2533
+          },
+          {
+            "kind": "tag",
+            "id": "age gap",
+            "name": "Age Gap",
+            "description": "Prominently features romantic relations between people with a significant age difference.",
+            "category": "Theme-Romance",
+            "similarity": 0.2277
+          },
+          {
+            "kind": "tag",
+            "id": "achronological order",
+            "name": "Achronological Order",
+            "description": "Chapters or episodes do not occur in chronological order.",
+            "category": "Setting-Time",
+            "similarity": 0.2095
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.54685
+    }
+  ]
+}

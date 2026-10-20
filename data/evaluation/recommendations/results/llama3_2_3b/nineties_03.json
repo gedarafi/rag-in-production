@@ -1,0 +1,798 @@
+{
+  "question_id": "nineties_03",
+  "category": "release_year",
+  "intent_family": "nineties",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "Give me five anime that first came out after the eighties ended but before the new millennium began.",
+  "k": 5,
+  "constraints": [
+    {
+      "field": "year",
+      "op": "gte",
+      "value": 1990
+    },
+    {
+      "field": "year",
+      "op": "lte",
+      "value": 1999
+    }
+  ],
+  "label_rationale": "The original entry must first release in the inclusive 1990-1999 interval.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 2030,
+  "reference_examples": [
+    {
+      "id": "1",
+      "title": "Cowboy Bebop"
+    },
+    {
+      "id": "100110",
+      "title": "Dragon Fist"
+    },
+    {
+      "id": "1004",
+      "title": "She and Her Cat: Their Standing Points"
+    }
+  ],
+  "answer_text": "Catalog matches — release year: under 1980; status: FINISHED.\n\n1. **Mobile Suit Gundam** (1979) — What would you do if you suddenly found yourself in the middle of a war? Teenager Amuro Ray sees his life shattered when war comes to his home. During the chaos, Amuro finds himself inside the mobile suit Gundam, the Earth Federation's new secret weapon, and he somehow gets it to work. Amuro and the other refugees flee their homeland on the warship White Base. This group of children and inexperienced soldiers will change the outcome of the war.…\n\n2. **Tomorrow's Joe** (1970) — Joe, a teenage orphan in the slums of the Doya streets, meets Danpei, a homeless, alcoholic ex-boxing coach. Danpei, seeing Joe's boxing talent, decides to train him. When Joe is sent to a terrible juvenile home for petty crimes, he meets Rikiishi who becomes his boxing rival. Danpei arrives at the home to help Joe to train in order to defeat Rikiishi. When Joe decides to seriously pursue boxing, Danpei cannot get a coaching license because of…\n\n3. **Lady Oscar: The Rose of Versailles** (1979) — Raised from birth as a man, the Lady Oscar commands the palace guards at Versailles in the years before the French Revolution. Her beauty and noble spirit make her a shining figure in the eyes of both men and women but she is torn between her chosen life of service and duty to class and country and her own heart and desires. She lives as a noble amidst the opulence of Versailles but her keen senses and compassion are not blinded to the poverty…\n\n4. **Lupin the 3rd** (1971) — Hard-boiled, cocky, classy and silly. These words only begin to describe the amazing master thief Lupin the Third. With the help of some quick gunplay by his partner Jigen, Lupin takes on the world in elaborate heists, classic car chases, and nasty explosions. Fujiko, a buxom redhead with a penchant for betrayal, always gets tangled up in Lupin's capers. The stoic but swift swordsman Goemon is just as inclined to kill Lupin as he is to help him.…\n\n5. **Lupin The 3rd: The Castle of Cagliostro** (1979) — In the twilight of his career, master thief Lupin the Third's latest and greatest caper has hit a snag. What should've been bags of cash from a national casino turns out to be expert counterfeits! Together with his partner-in-crime Jigen, Lupin heads to the remote European nation of Cagliostro to exact revenge. Not everything goes as planned; the two encounter Clarisse, a royal damsel in distress being forced to marry the sinister Count…",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Mobile Suit Gundam",
+      "Tomorrow's Joe",
+      "Lady Oscar: The Rose of Versailles",
+      "Lupin the 3rd",
+      "Lupin The 3rd: The Castle of Cagliostro"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Mobile Suit Gundam",
+      "anime_id": "80",
+      "canonical_title": "Mobile Suit Gundam",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "80"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.5,
+      "gain": 0.5,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Tomorrow's Joe",
+      "anime_id": "2402",
+      "canonical_title": "Tomorrow's Joe",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "2402"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.5,
+      "gain": 0.5,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Lady Oscar: The Rose of Versailles",
+      "anime_id": "338",
+      "canonical_title": "Lady Oscar: The Rose of Versailles",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "338"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.5,
+      "gain": 0.5,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Lupin the 3rd",
+      "anime_id": "1412",
+      "canonical_title": "Lupin the 3rd",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "1412"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.5,
+      "gain": 0.5,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Lupin The 3rd: The Castle of Cagliostro",
+      "anime_id": "1430",
+      "canonical_title": "Lupin The 3rd: The Castle of Cagliostro",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "1430"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0,
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            }
+          ]
+        },
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.5,
+      "gain": 0.5,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.0,
+    "graded_fit_at_k": 0.5,
+    "ndcg_at_k": 0.5,
+    "constraint_coverage": 0.5,
+    "count_compliance": 1,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "extra_count": 0,
+    "literal_precision_at_k": 0.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 8.65649299999859,
+  "extraction_seconds": 1.8193667079995066,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 3.8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000716
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.898648
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.002477
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.009049
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.015429
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.659945
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "year",
+                  "operator": "gt",
+                  "value": "1989"
+                },
+                {
+                  "field": "year",
+                  "operator": "lt",
+                  "value": "2000"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "year",
+            "operator": "gt",
+            "value": "1989"
+          },
+          {
+            "field": "year",
+            "operator": "lt",
+            "value": "2000"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.068133,
+      "arguments": {
+        "filters": [
+          {
+            "field": "year",
+            "operator": "gt",
+            "value": "1989"
+          },
+          {
+            "field": "year",
+            "operator": "lt",
+            "value": "2000"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "year",
+              "operator": "lt",
+              "value": "1980"
+            },
+            {
+              "field": "status",
+              "operator": "eq",
+              "value": "FINISHED"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "year",
+              "operator": "lt",
+              "value": "1980",
+              "source_text": "eighties",
+              "mapping": "exact"
+            },
+            {
+              "field": "status",
+              "operator": "eq",
+              "value": "FINISHED",
+              "source_text": "Give me five anime that first came out after the eighties ended but before the new millennium began.",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "80",
+            "title": "Mobile Suit Gundam",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'lt', 'value': '1980'}, {'field': 'status', 'operator': 'eq', 'value': 'FINISHED'}]"
+          },
+          {
+            "id": "2402",
+            "title": "Tomorrow's Joe",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'lt', 'value': '1980'}, {'field': 'status', 'operator': 'eq', 'value': 'FINISHED'}]"
+          },
+          {
+            "id": "338",
+            "title": "Lady Oscar: The Rose of Versailles",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'lt', 'value': '1980'}, {'field': 'status', 'operator': 'eq', 'value': 'FINISHED'}]"
+          },
+          {
+            "id": "1412",
+            "title": "Lupin the 3rd",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'lt', 'value': '1980'}, {'field': 'status', 'operator': 'eq', 'value': 'FINISHED'}]"
+          },
+          {
+            "id": "1430",
+            "title": "Lupin The 3rd: The Castle of Cagliostro",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'lt', 'value': '1980'}, {'field': 'status', 'operator': 'eq', 'value': 'FINISHED'}]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000364
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "year",
+              "operator": "gt",
+              "value": "1989"
+            },
+            {
+              "field": "year",
+              "operator": "lt",
+              "value": "2000"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "year",
+                "operator": "lt",
+                "value": "1980"
+              },
+              {
+                "field": "status",
+                "operator": "eq",
+                "value": "FINISHED"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "year",
+                "operator": "lt",
+                "value": "1980",
+                "source_text": "eighties",
+                "mapping": "exact"
+              },
+              {
+                "field": "status",
+                "operator": "eq",
+                "value": "FINISHED",
+                "source_text": "Give me five anime that first came out after the eighties ended but before the new millennium began.",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "80",
+              "title": "Mobile Suit Gundam",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'lt', 'value': '1980'}, {'field': 'status', 'operator': 'eq', 'value': 'FINISHED'}]"
+            },
+            {
+              "id": "2402",
+              "title": "Tomorrow's Joe",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'lt', 'value': '1980'}, {'field': 'status', 'operator': 'eq', 'value': 'FINISHED'}]"
+            },
+            {
+              "id": "338",
+              "title": "Lady Oscar: The Rose of Versailles",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'lt', 'value': '1980'}, {'field': 'status', 'operator': 'eq', 'value': 'FINISHED'}]"
+            },
+            {
+              "id": "1412",
+              "title": "Lupin the 3rd",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'lt', 'value': '1980'}, {'field': 'status', 'operator': 'eq', 'value': 'FINISHED'}]"
+            },
+            {
+              "id": "1430",
+              "title": "Lupin The 3rd: The Castle of Cagliostro",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'lt', 'value': '1980'}, {'field': 'status', 'operator': 'eq', 'value': 'FINISHED'}]"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.068133
+      }
+    ],
+    "llm_calls": 5,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 4.898648,
+      "prepare_context": 0.002477,
+      "retrieve_guides": 0.009049,
+      "feature_candidates": 0.015429,
+      "planning": 3.659945,
+      "tools": 0.068133,
+      "generate_answer": 0.000364
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"eighties\", \"query\": \"eighties\", \"kind\": \"tag\", \"role\": \"reference\", \"meaning\": \"Time period\"}]}",
+      "{\n  \"min\": 1980,\n  \"max\": 1989\n}",
+      "{\n  \"applies\": true,\n  \"operator\": \"eq\",\n  \"value\": \"FINISHED\"\n}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "eighties",
+        "query": "eighties",
+        "kind": "tag",
+        "role": "reference",
+        "meaning": "Time period"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Time period\", \"role\": \"reference\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "reference",
+          "text": "eighties",
+          "name": "",
+          "meaning": "Time period"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {
+      "year": {
+        "sources": [
+          "eighties"
+        ],
+        "interpretations": [
+          "decade"
+        ]
+      }
+    },
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "year",
+          "operator": "lt",
+          "value": "1980"
+        },
+        {
+          "field": "status",
+          "operator": "eq",
+          "value": "FINISHED"
+        }
+      ],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "year",
+          "operator": "lt",
+          "value": "1980",
+          "source_text": "eighties",
+          "mapping": "exact"
+        },
+        {
+          "field": "status",
+          "operator": "eq",
+          "value": "FINISHED",
+          "source_text": "Give me five anime that first came out after the eighties ended but before the new millennium began.",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "reference",
+            "text": "eighties",
+            "name": "",
+            "meaning": "Time period"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "year",
+                "operator": "gt",
+                "value": "1989"
+              },
+              {
+                "field": "year",
+                "operator": "lt",
+                "value": "2000"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

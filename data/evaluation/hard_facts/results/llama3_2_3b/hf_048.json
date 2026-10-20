@@ -1,0 +1,455 @@
+{
+  "question_id": "hf_048",
+  "anime_id": "21202",
+  "title": "KONOSUBA -God's blessing on this wonderful world!",
+  "field": "episodes",
+  "question": "How many episodes does the first KONOSUBA TV season run for?",
+  "expected_values": [
+    10.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Number of episodes in the first KONOSUBA TV season: 10 episodes.",
+  "extracted_values": [
+    "10"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 12.460591332999684,
+  "extraction_seconds": 0.6964301250009157,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "10",
+        "quote": "Number of episodes in the first KONOSUBA TV season: 10 episodes."
+      }
+    ],
+    "note": "Number of episodes in the first KONOSUBA TV season: 10 episodes.",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21202",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21202",
+          "title": "KONOSUBA -God's blessing on this wonderful world!"
+        },
+        "elapsed_seconds": 0.019518
+      },
+      {
+        "step": 1,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21202",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21202",
+          "title": "KONOSUBA -God's blessing on this wonderful world!"
+        },
+        "elapsed_seconds": 7.8e-05
+      },
+      {
+        "step": 2,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21202",
+          "section": "overview"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21202",
+          "title": "KONOSUBA -God's blessing on this wonderful world!"
+        },
+        "elapsed_seconds": 6.7e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 4.271062,
+      "prepare_context": 0.017386,
+      "retrieve_guides": 0.028619,
+      "feature_candidates": 0.013672,
+      "planning": 4.885472,
+      "tools": 0.019663,
+      "generate_answer": 3.222436
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"KONOSUBA\", \"query\": \"KONOSUBA\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; first season\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "KONOSUBA",
+        "query": "KONOSUBA",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; first season"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"None\", \"decisions\": {\"p0\": {\"meaning\": \"TV series; first season\", \"role\": \"subject\", \"selection\": \"KONOSUBA -God's blessing on this wonderful world! | anime:21202\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21202",
+          "role": "subject",
+          "text": "KONOSUBA",
+          "name": "KONOSUBA -God's blessing on this wonderful world!",
+          "meaning": "TV series; first season"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21202",
+          "role": "subject",
+          "text": "KONOSUBA",
+          "name": "KONOSUBA -God's blessing on this wonderful world!",
+          "meaning": "TV series; first season"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "KONOSUBA -God's blessing on this wonderful world!"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21202",
+            "role": "subject",
+            "text": "KONOSUBA",
+            "name": "KONOSUBA -God's blessing on this wonderful world!",
+            "meaning": "TV series; first season"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21202",
+            "role": "subject",
+            "text": "KONOSUBA",
+            "name": "KONOSUBA -God's blessing on this wonderful world!",
+            "meaning": "TV series; first season"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Get the number of episodes for the first KONOSUBA TV season",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21202",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21202",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21202",
+            "section": "overview"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21202",
+          "name": "KONOSUBA -God's blessing on this wonderful world!"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:21202",
+          "fact": "episodes"
+        }
+      ],
+      "calculations": [
+        {
+          "expression": "q0",
+          "value": "10",
+          "unit": "episodes"
+        }
+      ]
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.9e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000772
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.271062
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.017386
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.028619
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013672
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.885472
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Get the number of episodes for the first KONOSUBA TV season",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21202",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21202",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21202",
+              "section": "overview"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21202",
+            "name": "KONOSUBA -God's blessing on this wonderful world!"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21202",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.019518,
+      "arguments": {
+        "id": "21202",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21202",
+        "title": "KONOSUBA -God's blessing on this wonderful world!"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21202",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 7.8e-05,
+      "arguments": {
+        "id": "21202",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21202",
+        "title": "KONOSUBA -God's blessing on this wonderful world!"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21202",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 6.7e-05,
+      "arguments": {
+        "id": "21202",
+        "section": "overview"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21202",
+        "title": "KONOSUBA -God's blessing on this wonderful world!"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.222436
+    }
+  ]
+}

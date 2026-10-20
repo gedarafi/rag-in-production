@@ -1,0 +1,391 @@
+{
+  "question_id": "hf_017",
+  "anime_id": "1735",
+  "title": "Naruto: Shippuden",
+  "field": "year",
+  "question": "What is Naruto: Shippuden's first airing year?",
+  "expected_values": [
+    2007.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "2007.0 year",
+  "extracted_values": [
+    "2007"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 10.83041674999913,
+  "extraction_seconds": 0.5141321659993991,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "2007",
+        "quote": "2007.0 year"
+      }
+    ],
+    "note": "year",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1735",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "1735",
+          "title": "Naruto: Shippuden"
+        },
+        "elapsed_seconds": 0.014218
+      },
+      {
+        "step": 1,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "first airing year of Naruto: Shippuden",
+          "anime_ids": [
+            "1735"
+          ]
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.038284
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 2.23977,
+      "prepare_context": 0.022773,
+      "retrieve_guides": 0.026868,
+      "feature_candidates": 0.013458,
+      "planning": 4.30338,
+      "tools": 0.052502,
+      "generate_answer": 4.168961
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Naruto: Shippuden\", \"query\": \"Naruto: Shippuden\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; Shippuden is a subtitle\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Naruto: Shippuden",
+        "query": "Naruto: Shippuden",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; Shippuden is a subtitle"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"TV series; Shippuden is a subtitle\", \"role\": \"subject\", \"selection\": \"Naruto: Shippuden | anime:1735\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "1735",
+          "role": "subject",
+          "text": "Naruto: Shippuden",
+          "name": "Naruto: Shippuden",
+          "meaning": "TV series; Shippuden is a subtitle"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "1735",
+          "role": "subject",
+          "text": "Naruto: Shippuden",
+          "name": "Naruto: Shippuden",
+          "meaning": "TV series; Shippuden is a subtitle"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Naruto: Shippuden"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "1735",
+            "role": "subject",
+            "text": "Naruto: Shippuden",
+            "name": "Naruto: Shippuden",
+            "meaning": "TV series; Shippuden is a subtitle"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "1735",
+            "role": "subject",
+            "text": "Naruto: Shippuden",
+            "name": "Naruto: Shippuden",
+            "meaning": "TV series; Shippuden is a subtitle"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Find Naruto: Shippuden's first airing year",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1735",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "first airing year of Naruto: Shippuden",
+            "anime_ids": [
+              "1735"
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "1735",
+          "name": "Naruto: Shippuden"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:1735",
+          "fact": "2007.0"
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 7.2e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00092
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.23977
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.022773
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.026868
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013458
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.30338
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Find Naruto: Shippuden's first airing year",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1735",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "first airing year of Naruto: Shippuden",
+              "anime_ids": [
+                "1735"
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "1735",
+            "name": "Naruto: Shippuden"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1735",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.014218,
+      "arguments": {
+        "id": "1735",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "1735",
+        "title": "Naruto: Shippuden"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "first airing year of Naruto: Shippuden",
+        "anime_ids": [
+          "1735"
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.038284,
+      "arguments": {
+        "query": "first airing year of Naruto: Shippuden",
+        "anime_ids": [
+          "1735"
+        ]
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.168961
+    }
+  ]
+}

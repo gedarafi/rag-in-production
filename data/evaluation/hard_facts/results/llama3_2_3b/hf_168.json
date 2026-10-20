@@ -1,0 +1,385 @@
+{
+  "question_id": "hf_168",
+  "anime_id": "127230",
+  "title": "Chainsaw Man",
+  "field": "main_characters",
+  "question": "Which characters have main billing in Chainsaw Man's first anime season?",
+  "expected_values": [
+    "Denji",
+    "Power",
+    "Makima",
+    "Aki Hayakawa"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Denji, Power, Makima, and Aki Hayakawa.",
+  "extracted_values": [
+    "Denji",
+    "Power",
+    "Makima",
+    "Aki Hayakawa"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 9.983054667000033,
+  "extraction_seconds": 0.9011407080015488,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Denji",
+        "quote": "Denji, Power, Makima, and Aki Hayakawa."
+      },
+      {
+        "value": "Power",
+        "quote": "Denji, Power, Makima, and Aki Hayakawa."
+      },
+      {
+        "value": "Makima",
+        "quote": "Denji, Power, Makima, and Aki Hayakawa."
+      },
+      {
+        "value": "Aki Hayakawa",
+        "quote": "Denji, Power, Makima, and Aki Hayakawa."
+      }
+    ],
+    "note": "Aki Hayakawa is sometimes referred to as Aki Hayashikawa",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 4,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "127230",
+          "section": "cast"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "127230",
+          "title": "Chainsaw Man"
+        },
+        "elapsed_seconds": 0.007246
+      },
+      {
+        "status": "error",
+        "step": 1,
+        "tool": "get_character",
+        "error": "Use character IDs from dictionary or tool results first",
+        "elapsed_seconds": 2.1e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 1.950525,
+      "prepare_context": 0.019945,
+      "retrieve_guides": 0.028017,
+      "feature_candidates": 0.014271,
+      "planning": 3.974992,
+      "tools": 0.007267,
+      "generate_answer": 3.984981
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Chainsaw Man\", \"query\": \"Chainsaw Man\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; main billing\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Chainsaw Man",
+        "query": "Chainsaw Man",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; main billing"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"None\", \"decisions\": {\"p0\": {\"meaning\": \"TV series; main billing\", \"role\": \"subject\", \"selection\": \"Chainsaw Man | anime:127230\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "127230",
+          "role": "subject",
+          "text": "Chainsaw Man",
+          "name": "Chainsaw Man",
+          "meaning": "TV series; main billing"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "127230",
+          "role": "subject",
+          "text": "Chainsaw Man",
+          "name": "Chainsaw Man",
+          "meaning": "TV series; main billing"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Chainsaw Man"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "127230",
+            "role": "subject",
+            "text": "Chainsaw Man",
+            "name": "Chainsaw Man",
+            "meaning": "TV series; main billing"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "127230",
+            "role": "subject",
+            "text": "Chainsaw Man",
+            "name": "Chainsaw Man",
+            "meaning": "TV series; main billing"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Get main billing characters in Chainsaw Man's first anime season",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "127230",
+            "section": "cast"
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "main_billing_characters"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "127230",
+          "name": "Chainsaw Man"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:127230",
+          "fact": "The main billing characters in Chainsaw Man's first anime season are Denji, Power, Makima, and Aki Hayakawa."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 8.8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001538
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 1.950525
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.019945
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.028017
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014271
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.974992
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Get main billing characters in Chainsaw Man's first anime season",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "127230",
+              "section": "cast"
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "main_billing_characters"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "127230",
+            "name": "Chainsaw Man"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "127230",
+        "section": "cast"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.007246,
+      "arguments": {
+        "id": "127230",
+        "section": "cast"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "127230",
+        "title": "Chainsaw Man"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_character",
+      "arguments": {
+        "id": "main_billing_characters"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_character",
+      "status": "error",
+      "elapsed_seconds": 2.1e-05,
+      "error": "Use character IDs from dictionary or tool results first"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.984981
+    }
+  ]
+}

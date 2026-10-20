@@ -1,0 +1,380 @@
+{
+  "question_id": "hf_093",
+  "anime_id": "20594",
+  "title": "Sword Art Online II",
+  "field": "format",
+  "question": "Is Sword Art Online II a television release or a film?",
+  "expected_values": [
+    "TV"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Sword Art Online II is a television release.",
+  "extracted_values": [
+    "television release"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 10.259196125000017,
+  "extraction_seconds": 0.569213791999573,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "television release",
+        "quote": "Sword Art Online II is a television release."
+      }
+    ],
+    "note": "No film release mentioned",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "missing_values": [
+      "tv"
+    ],
+    "extra_values": [
+      "television release"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20594",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20594",
+          "title": "Sword Art Online II"
+        },
+        "elapsed_seconds": 0.022416
+      },
+      {
+        "step": 1,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "television release or film Sword Art Online II"
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.01713
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 2.181764,
+      "prepare_context": 0.021144,
+      "retrieve_guides": 0.028423,
+      "feature_candidates": 0.013829,
+      "planning": 4.148752,
+      "tools": 0.039546,
+      "generate_answer": 3.822718
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Sword Art Online II\", \"query\": \"Sword Art Online II\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Series release type\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Sword Art Online II",
+        "query": "Sword Art Online II",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Series release type"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Is Sword Art Online II a television release or a film?\", \"decisions\": {\"p0\": {\"meaning\": \"Series release type\", \"role\": \"subject\", \"selection\": \"Sword Art Online II | anime:20594\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20594",
+          "role": "subject",
+          "text": "Sword Art Online II",
+          "name": "Sword Art Online II",
+          "meaning": "Series release type"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20594",
+          "role": "subject",
+          "text": "Sword Art Online II",
+          "name": "Sword Art Online II",
+          "meaning": "Series release type"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Sword Art Online II"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20594",
+            "role": "subject",
+            "text": "Sword Art Online II",
+            "name": "Sword Art Online II",
+            "meaning": "Series release type"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20594",
+            "role": "subject",
+            "text": "Sword Art Online II",
+            "name": "Sword Art Online II",
+            "meaning": "Series release type"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine if Sword Art Online II is a television release or a film",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20594",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "television release or film Sword Art Online II"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "20594",
+          "name": "Sword Art Online II"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:20594",
+          "fact": "format: TV"
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.9e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001189
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.181764
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.021144
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.028423
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013829
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.148752
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine if Sword Art Online II is a television release or a film",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20594",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "television release or film Sword Art Online II"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "20594",
+            "name": "Sword Art Online II"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20594",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.022416,
+      "arguments": {
+        "id": "20594",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20594",
+        "title": "Sword Art Online II"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "television release or film Sword Art Online II"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.01713,
+      "arguments": {
+        "query": "television release or film Sword Art Online II"
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.822718
+    }
+  ]
+}

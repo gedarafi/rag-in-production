@@ -1,0 +1,344 @@
+{
+  "question_id": "hf_148",
+  "anime_id": "9253",
+  "title": "Steins;Gate",
+  "field": "main_animation_studios",
+  "question": "Which studio made the animation for the original Steins;Gate series?",
+  "expected_values": [
+    "WHITE FOX"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Frontier Works",
+  "extracted_values": [
+    "Frontier Works"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 8.880338875000234,
+  "extraction_seconds": 0.477963749999617,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Frontier Works",
+        "quote": "Frontier Works"
+      }
+    ],
+    "note": "",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "missing_values": [
+      "white fox"
+    ],
+    "extra_values": [
+      "frontier works"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "9253",
+          "section": "studios"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "9253",
+          "title": "Steins;Gate"
+        },
+        "elapsed_seconds": 0.007813
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 2.405925,
+      "prepare_context": 0.020469,
+      "retrieve_guides": 0.026339,
+      "feature_candidates": 0.01391,
+      "planning": 3.76449,
+      "tools": 0.007813,
+      "generate_answer": 2.638844
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Steins;Gate\", \"query\": \"Steins;Gate\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Original TV adaptation\"}, {\"text\": \"Mushishi\", \"query\": \"Mushishi\", \"kind\": \"anime\", \"role\": \"reference\", \"meaning\": \"Production studio\"}]}"
+    ],
+    "unsupported_mentions": [
+      {
+        "text": "Mushishi",
+        "query": "Mushishi",
+        "kind": "anime",
+        "role": "reference",
+        "meaning": "Production studio"
+      }
+    ],
+    "typed_mentions": [
+      {
+        "text": "Steins;Gate",
+        "query": "Steins;Gate",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Original TV adaptation"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Original TV adaptation\", \"role\": \"subject\", \"selection\": \"Steins;Gate | anime:9253\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "9253",
+          "role": "subject",
+          "text": "Steins;Gate",
+          "name": "Steins;Gate",
+          "meaning": "Original TV adaptation"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "9253",
+          "role": "subject",
+          "text": "Steins;Gate",
+          "name": "Steins;Gate",
+          "meaning": "Original TV adaptation"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Steins;Gate"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "9253",
+            "role": "subject",
+            "text": "Steins;Gate",
+            "name": "Steins;Gate",
+            "meaning": "Original TV adaptation"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "9253",
+            "role": "subject",
+            "text": "Steins;Gate",
+            "name": "Steins;Gate",
+            "meaning": "Original TV adaptation"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Find the studio that made the original Steins;Gate series",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "9253",
+            "section": "studios"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "9253",
+          "name": "Steins;Gate"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:9253",
+          "fact": "The original Steins;Gate series was produced by Frontier Works."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.9e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00102
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.405925
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.020469
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.026339
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.01391
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.76449
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Find the studio that made the original Steins;Gate series",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "9253",
+              "section": "studios"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "9253",
+            "name": "Steins;Gate"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "9253",
+        "section": "studios"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.007813,
+      "arguments": {
+        "id": "9253",
+        "section": "studios"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "9253",
+        "title": "Steins;Gate"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 2.638844
+    }
+  ]
+}

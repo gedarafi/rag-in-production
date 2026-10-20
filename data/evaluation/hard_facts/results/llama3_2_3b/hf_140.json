@@ -1,0 +1,391 @@
+{
+  "question_id": "hf_140",
+  "anime_id": "20",
+  "title": "Naruto",
+  "field": "main_animation_studios",
+  "question": "Which company was responsible for the main animation of the original Naruto series?",
+  "expected_values": [
+    "Studio Pierrot"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Studio Pierrot",
+  "extracted_values": [
+    "Studio Pierrot"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 9.64062741700036,
+  "extraction_seconds": 0.4773353330001555,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Studio Pierrot",
+        "quote": "Studio Pierrot"
+      }
+    ],
+    "note": "",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20",
+          "section": "staff"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "20",
+          "title": "Naruto"
+        },
+        "elapsed_seconds": 0.006262
+      },
+      {
+        "step": 1,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "anime",
+          "query": "Studio Pierrot"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "anime",
+          "matches": []
+        },
+        "elapsed_seconds": 0.066943
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 2.0896,
+      "prepare_context": 0.018439,
+      "retrieve_guides": 0.02702,
+      "feature_candidates": 0.014039,
+      "planning": 4.153862,
+      "tools": 0.073205,
+      "generate_answer": 3.261192
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Naruto\", \"query\": \"Naruto\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Original TV adaptation; Studio Pierrot\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Naruto",
+        "query": "Naruto",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Original TV adaptation; Studio Pierrot"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Original TV adaptation; Studio Pierrot\", \"role\": \"subject\", \"selection\": \"Naruto | anime:20\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20",
+          "role": "subject",
+          "text": "Naruto",
+          "name": "Naruto",
+          "meaning": "Original TV adaptation; Studio Pierrot"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20",
+          "role": "subject",
+          "text": "Naruto",
+          "name": "Naruto",
+          "meaning": "Original TV adaptation; Studio Pierrot"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Naruto"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20",
+            "role": "subject",
+            "text": "Naruto",
+            "name": "Naruto",
+            "meaning": "Original TV adaptation; Studio Pierrot"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20",
+            "role": "subject",
+            "text": "Naruto",
+            "name": "Naruto",
+            "meaning": "Original TV adaptation; Studio Pierrot"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "find the company responsible for the main animation of the original Naruto series",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20",
+            "section": "staff"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "anime",
+            "query": "Studio Pierrot"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "20",
+          "name": "Naruto"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:20",
+          "fact": "The main animation of the original Naruto series was produced by Studio Pierrot."
+        },
+        {
+          "subject": "anime:20",
+          "fact": "Studio Pierrot is a Japanese animation studio that has produced many notable anime series, including Naruto, One Piece, and Bleach."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 0.000101
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00166
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.0896
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.018439
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.02702
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014039
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.153862
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "find the company responsible for the main animation of the original Naruto series",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20",
+              "section": "staff"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "anime",
+              "query": "Studio Pierrot"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "20",
+            "name": "Naruto"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20",
+        "section": "staff"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.006262,
+      "arguments": {
+        "id": "20",
+        "section": "staff"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "20",
+        "title": "Naruto"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "anime",
+        "query": "Studio Pierrot"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.066943,
+      "arguments": {
+        "kind": "anime",
+        "query": "Studio Pierrot"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "anime",
+        "matches": []
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.261192
+    }
+  ]
+}

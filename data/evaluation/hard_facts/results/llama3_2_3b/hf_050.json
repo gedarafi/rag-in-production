@@ -1,0 +1,339 @@
+{
+  "question_id": "hf_050",
+  "anime_id": "20623",
+  "title": "Parasyte -the maxim-",
+  "field": "episodes",
+  "question": "How many episodes are in Parasyte -the maxim- altogether?",
+  "expected_values": [
+    24.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Total number of episodes in Parasyte -the maxim-: 24 episodes.",
+  "extracted_values": [
+    "24"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 8.98634145899996,
+  "extraction_seconds": 0.6270733749988722,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "24",
+        "quote": "Total number of episodes in Parasyte -the maxim-: 24 episodes."
+      }
+    ],
+    "note": "Total number of episodes in Parasyte -the maxim-",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20623",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20623",
+          "title": "Parasyte -the maxim-"
+        },
+        "elapsed_seconds": 0.017022
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 2.117059,
+      "prepare_context": 0.024064,
+      "retrieve_guides": 0.027069,
+      "feature_candidates": 0.013526,
+      "planning": 3.652442,
+      "tools": 0.017022,
+      "generate_answer": 3.132554
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Parasyte -the maxim-\", \"query\": \"Parasyte -the maxim-\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; total episodes\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Parasyte -the maxim-",
+        "query": "Parasyte -the maxim-",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; total episodes"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"total episodes\", \"role\": \"subject\", \"selection\": \"Parasyte -the maxim- | anime:20623\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20623",
+          "role": "subject",
+          "text": "Parasyte -the maxim-",
+          "name": "Parasyte -the maxim-",
+          "meaning": "total episodes"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20623",
+          "role": "subject",
+          "text": "Parasyte -the maxim-",
+          "name": "Parasyte -the maxim-",
+          "meaning": "total episodes"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Parasyte -the maxim-"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20623",
+            "role": "subject",
+            "text": "Parasyte -the maxim-",
+            "name": "Parasyte -the maxim-",
+            "meaning": "total episodes"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20623",
+            "role": "subject",
+            "text": "Parasyte -the maxim-",
+            "name": "Parasyte -the maxim-",
+            "meaning": "total episodes"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Get the total number of episodes in Parasyte -the maxim-",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20623",
+            "section": "overview"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "20623",
+          "name": "Parasyte -the maxim-"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:20623",
+          "fact": "episodes"
+        }
+      ],
+      "calculations": [
+        {
+          "expression": "q0",
+          "value": "24",
+          "unit": "episodes"
+        }
+      ]
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000896
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.117059
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.024064
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.027069
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013526
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.652442
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Get the total number of episodes in Parasyte -the maxim-",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20623",
+              "section": "overview"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "20623",
+            "name": "Parasyte -the maxim-"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20623",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.017022,
+      "arguments": {
+        "id": "20623",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20623",
+        "title": "Parasyte -the maxim-"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.132554
+    }
+  ]
+}

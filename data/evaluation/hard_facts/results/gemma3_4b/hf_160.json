@@ -1,0 +1,582 @@
+{
+  "question_id": "hf_160",
+  "anime_id": "21459",
+  "title": "My Hero Academia",
+  "field": "main_characters",
+  "question": "Who are the main characters listed for My Hero Academia season one?",
+  "expected_values": [
+    "Katsuki Bakugou",
+    "Izuku Midoriya",
+    "Ochako Uraraka",
+    "Toshinori Yagi"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "The main characters for My Hero Academia season one are Toshinori Yagi, Ochako Uraraka, Izuku Midoriya, and Katsuki Bakugou.",
+  "extracted_values": [
+    "Toshinori Yagi",
+    "Ochako Uraraka",
+    "Izuku Midoriya",
+    "Katsuki Bakugou"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 18.6025612909998,
+  "extraction_seconds": 0.9959611670001323,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Toshinori Yagi",
+        "quote": "The main characters for My Hero Academia season one are Toshinori Yagi, Ochako Uraraka, Izuku Midoriya, and Katsuki Bakugou."
+      },
+      {
+        "value": "Ochako Uraraka",
+        "quote": "The main characters for My Hero Academia season one are Toshinori Yagi, Ochako Uraraka, Izuku Midoriya, and Katsuki Bakugou."
+      },
+      {
+        "value": "Izuku Midoriya",
+        "quote": "The main characters for My Hero Academia season one are Toshinori Yagi, Ochako Uraraka, Izuku Midoriya, and Katsuki Bakugou."
+      },
+      {
+        "value": "Katsuki Bakugou",
+        "quote": "The main characters for My Hero Academia season one are Toshinori Yagi, Ochako Uraraka, Izuku Midoriya, and Katsuki Bakugou."
+      }
+    ],
+    "note": "asserted",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 4,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21459"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21459",
+          "title": "My Hero Academia"
+        },
+        "elapsed_seconds": 0.01948
+      },
+      {
+        "step": 1,
+        "tool": "get_character",
+        "arguments": {
+          "id": "88892",
+          "offset": 0
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "88892",
+          "name": "Katsuki Bakugou"
+        },
+        "elapsed_seconds": 0.003695
+      },
+      {
+        "step": 2,
+        "tool": "get_character",
+        "arguments": {
+          "id": "89028",
+          "offset": 0
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "89028",
+          "name": "Izuku Midoriya"
+        },
+        "elapsed_seconds": 0.001896
+      },
+      {
+        "step": 3,
+        "tool": "get_character",
+        "arguments": {
+          "id": "89221",
+          "offset": 0
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "89221",
+          "name": "Ochako Uraraka"
+        },
+        "elapsed_seconds": 0.001497
+      },
+      {
+        "step": 4,
+        "tool": "get_character",
+        "arguments": {
+          "id": "89224",
+          "offset": 0
+        },
+        "cached": false,
+        "result": {
+          "kind": "character",
+          "id": "89224",
+          "name": "Toshinori Yagi"
+        },
+        "elapsed_seconds": 0.001682
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 5,
+    "executed_tools": 5,
+    "timings_seconds": {
+      "interpret_request": 3.459712,
+      "prepare_context": 0.025098,
+      "retrieve_guides": 0.13079,
+      "feature_candidates": 0.019671,
+      "planning": 7.66726,
+      "tools": 0.02825,
+      "generate_answer": 7.269249
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"My Hero Academia\", \"query\": \"My Hero Academia\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Season one\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "My Hero Academia",
+        "query": "My Hero Academia",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Season one"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify if you are referring to the first season of My Hero Academia or a specific season.\", \"decisions\": {\"p0\": {\"meaning\": \"My Hero Academia\", \"role\": \"subject\", \"selection\": \"My Hero Academia | anime:21459\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21459",
+          "role": "subject",
+          "text": "My Hero Academia",
+          "name": "My Hero Academia",
+          "meaning": "My Hero Academia"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21459",
+          "role": "subject",
+          "text": "My Hero Academia",
+          "name": "My Hero Academia",
+          "meaning": "My Hero Academia"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "My Hero Academia"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21459",
+            "role": "subject",
+            "text": "My Hero Academia",
+            "name": "My Hero Academia",
+            "meaning": "My Hero Academia"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21459",
+            "role": "subject",
+            "text": "My Hero Academia",
+            "name": "My Hero Academia",
+            "meaning": "My Hero Academia"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Retrieve main characters for My Hero Academia season one.",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21459"
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "88892",
+            "offset": 0
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "89028",
+            "offset": 0
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "89221",
+            "offset": 0
+          }
+        },
+        {
+          "tool": "get_character",
+          "arguments": {
+            "id": "89224",
+            "offset": 0
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21459",
+          "name": "My Hero Academia"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:21459",
+          "fact": "Toshinori Yagi is a MAIN character."
+        },
+        {
+          "subject": "anime:21459",
+          "fact": "Ochako Uraraka is a MAIN character."
+        },
+        {
+          "subject": "anime:21459",
+          "fact": "Izuku Midoriya is a MAIN character."
+        },
+        {
+          "subject": "anime:21459",
+          "fact": "Katsuki Bakugou is a MAIN character."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.1e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000922
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.459712
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.025098
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.13079
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.019671
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 7.66726
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Retrieve main characters for My Hero Academia season one.",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21459"
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "88892",
+              "offset": 0
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "89028",
+              "offset": 0
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "89221",
+              "offset": 0
+            }
+          },
+          {
+            "tool": "get_character",
+            "arguments": {
+              "id": "89224",
+              "offset": 0
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21459",
+            "name": "My Hero Academia"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21459"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.01948,
+      "arguments": {
+        "id": "21459"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21459",
+        "title": "My Hero Academia"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "get_character",
+      "arguments": {
+        "id": "88892",
+        "offset": 0
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.003695,
+      "arguments": {
+        "id": "88892",
+        "offset": 0
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "88892",
+        "name": "Katsuki Bakugou"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "get_character",
+      "arguments": {
+        "id": "89028",
+        "offset": 0
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.001896,
+      "arguments": {
+        "id": "89028",
+        "offset": 0
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "89028",
+        "name": "Izuku Midoriya"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_character",
+      "arguments": {
+        "id": "89221",
+        "offset": 0
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.001497,
+      "arguments": {
+        "id": "89221",
+        "offset": 0
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "89221",
+        "name": "Ochako Uraraka"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "get_character",
+      "arguments": {
+        "id": "89224",
+        "offset": 0
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "get_character",
+      "status": "completed",
+      "elapsed_seconds": 0.001682,
+      "arguments": {
+        "id": "89224",
+        "offset": 0
+      },
+      "cached": false,
+      "result": {
+        "kind": "character",
+        "id": "89224",
+        "name": "Toshinori Yagi"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 7.269249
+    }
+  ]
+}

@@ -1,0 +1,376 @@
+{
+  "question_id": "hf_008",
+  "anime_id": "5114",
+  "title": "Fullmetal Alchemist: Brotherhood",
+  "field": "year",
+  "question": "What year did Fullmetal Alchemist: Brotherhood first air?",
+  "expected_values": [
+    2009.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "2009",
+  "extracted_values": [
+    "2009"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 11.035690499999873,
+  "extraction_seconds": 0.6457775830003811,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "2009",
+        "quote": "2009"
+      }
+    ],
+    "note": "assertion for year of first airing of Fullmetal Alchemist: Brotherhood",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "5114",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "5114",
+          "title": "Fullmetal Alchemist: Brotherhood"
+        },
+        "elapsed_seconds": 0.019043
+      },
+      {
+        "step": 1,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "first air year of Fullmetal Alchemist: Brotherhood"
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.026043
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 2.150281,
+      "prepare_context": 0.022216,
+      "retrieve_guides": 0.026841,
+      "feature_candidates": 0.013926,
+      "planning": 4.125844,
+      "tools": 0.045086,
+      "generate_answer": 4.647735
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Fullmetal Alchemist: Brotherhood\", \"query\": \"Fullmetal Alchemist: Brotherhood\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; air is a verb\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Fullmetal Alchemist: Brotherhood",
+        "query": "Fullmetal Alchemist: Brotherhood",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; air is a verb"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"TV series; air is a verb\", \"role\": \"subject\", \"selection\": \"Fullmetal Alchemist: Brotherhood | anime:5114\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "5114",
+          "role": "subject",
+          "text": "Fullmetal Alchemist: Brotherhood",
+          "name": "Fullmetal Alchemist: Brotherhood",
+          "meaning": "TV series; air is a verb"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "5114",
+          "role": "subject",
+          "text": "Fullmetal Alchemist: Brotherhood",
+          "name": "Fullmetal Alchemist: Brotherhood",
+          "meaning": "TV series; air is a verb"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Fullmetal Alchemist: Brotherhood"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "5114",
+            "role": "subject",
+            "text": "Fullmetal Alchemist: Brotherhood",
+            "name": "Fullmetal Alchemist: Brotherhood",
+            "meaning": "TV series; air is a verb"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "5114",
+            "role": "subject",
+            "text": "Fullmetal Alchemist: Brotherhood",
+            "name": "Fullmetal Alchemist: Brotherhood",
+            "meaning": "TV series; air is a verb"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "find the year Fullmetal Alchemist: Brotherhood first aired",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "5114",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "first air year of Fullmetal Alchemist: Brotherhood"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "5114",
+          "name": "Fullmetal Alchemist: Brotherhood"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:5114",
+          "fact": "Fullmetal Alchemist: Brotherhood first aired in 2009."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 9.7e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.002118
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 2.150281
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.022216
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.026841
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013926
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.125844
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "find the year Fullmetal Alchemist: Brotherhood first aired",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "5114",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "first air year of Fullmetal Alchemist: Brotherhood"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "5114",
+            "name": "Fullmetal Alchemist: Brotherhood"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "5114",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.019043,
+      "arguments": {
+        "id": "5114",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "5114",
+        "title": "Fullmetal Alchemist: Brotherhood"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "first air year of Fullmetal Alchemist: Brotherhood"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.026043,
+      "arguments": {
+        "query": "first air year of Fullmetal Alchemist: Brotherhood"
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.647735
+    }
+  ]
+}

@@ -1,0 +1,957 @@
+{
+  "question_id": "hf_118",
+  "anime_id": "4224",
+  "title": "Toradora!",
+  "field": "source_material",
+  "question": "What medium is credited as Toradora!'s source material?",
+  "expected_values": [
+    "LIGHT_NOVEL"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Toradora!’s source material is a LIGHT_NOVEL.",
+  "extracted_values": [
+    "LIGHT_NOVEL"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 16.02957062500036,
+  "extraction_seconds": 0.5074620000000323,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "LIGHT_NOVEL",
+        "quote": "Toradora!’s source material is a LIGHT_NOVEL."
+      }
+    ],
+    "note": "",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "4224"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "4224",
+          "title": "Toradora!"
+        },
+        "elapsed_seconds": 0.020396
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "source material",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "anthology",
+              "name": "Anthology",
+              "description": "A collection of separate works collated into a single release.",
+              "category": "Technical",
+              "similarity": 0.4049
+            },
+            {
+              "kind": "tag",
+              "id": "makeup",
+              "name": "Makeup",
+              "description": "Centers around the makeup industry.",
+              "category": "Theme-Arts",
+              "similarity": 0.3508
+            },
+            {
+              "kind": "tag",
+              "id": "advertisement",
+              "name": "Advertisement",
+              "description": "Produced in order to promote the products of a certain company.",
+              "category": "Technical",
+              "similarity": 0.3332
+            },
+            {
+              "kind": "tag",
+              "id": "achromatic",
+              "name": "Achromatic",
+              "description": "Contains animation that is primarily done in black and white.",
+              "category": "Technical",
+              "similarity": 0.327
+            },
+            {
+              "kind": "tag",
+              "id": "educational",
+              "name": "Educational",
+              "description": "Primary aim is to educate the audience.",
+              "category": "Theme-Other",
+              "similarity": 0.3118
+            }
+          ]
+        },
+        "elapsed_seconds": 0.035779
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "source material"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.018791
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "4224"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "4224",
+          "title": "Toradora!"
+        },
+        "elapsed_seconds": 0.000122
+      },
+      {
+        "step": 4,
+        "tool": "search_features",
+        "arguments": {
+          "query": "source material",
+          "kind": "tag"
+        },
+        "cached": true,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "anthology",
+              "name": "Anthology",
+              "description": "A collection of separate works collated into a single release.",
+              "category": "Technical",
+              "similarity": 0.4049
+            },
+            {
+              "kind": "tag",
+              "id": "makeup",
+              "name": "Makeup",
+              "description": "Centers around the makeup industry.",
+              "category": "Theme-Arts",
+              "similarity": 0.3508
+            },
+            {
+              "kind": "tag",
+              "id": "advertisement",
+              "name": "Advertisement",
+              "description": "Produced in order to promote the products of a certain company.",
+              "category": "Technical",
+              "similarity": 0.3332
+            },
+            {
+              "kind": "tag",
+              "id": "achromatic",
+              "name": "Achromatic",
+              "description": "Contains animation that is primarily done in black and white.",
+              "category": "Technical",
+              "similarity": 0.327
+            },
+            {
+              "kind": "tag",
+              "id": "educational",
+              "name": "Educational",
+              "description": "Primary aim is to educate the audience.",
+              "category": "Theme-Other",
+              "similarity": 0.3118
+            }
+          ]
+        },
+        "elapsed_seconds": 1.5e-05
+      },
+      {
+        "step": 5,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "4224"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "4224",
+          "title": "Toradora!"
+        },
+        "elapsed_seconds": 7.5e-05
+      },
+      {
+        "step": 6,
+        "tool": "search_features",
+        "arguments": {
+          "query": "source material",
+          "kind": "tag"
+        },
+        "cached": true,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "anthology",
+              "name": "Anthology",
+              "description": "A collection of separate works collated into a single release.",
+              "category": "Technical",
+              "similarity": 0.4049
+            },
+            {
+              "kind": "tag",
+              "id": "makeup",
+              "name": "Makeup",
+              "description": "Centers around the makeup industry.",
+              "category": "Theme-Arts",
+              "similarity": 0.3508
+            },
+            {
+              "kind": "tag",
+              "id": "advertisement",
+              "name": "Advertisement",
+              "description": "Produced in order to promote the products of a certain company.",
+              "category": "Technical",
+              "similarity": 0.3332
+            },
+            {
+              "kind": "tag",
+              "id": "achromatic",
+              "name": "Achromatic",
+              "description": "Contains animation that is primarily done in black and white.",
+              "category": "Technical",
+              "similarity": 0.327
+            },
+            {
+              "kind": "tag",
+              "id": "educational",
+              "name": "Educational",
+              "description": "Primary aim is to educate the audience.",
+              "category": "Theme-Other",
+              "similarity": 0.3118
+            }
+          ]
+        },
+        "elapsed_seconds": 1e-05
+      },
+      {
+        "step": 7,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "4224"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "4224",
+          "title": "Toradora!"
+        },
+        "elapsed_seconds": 7.4e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 8,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 3.400799,
+      "prepare_context": 0.015132,
+      "retrieve_guides": 0.030476,
+      "feature_candidates": 0.014212,
+      "planning": 8.832117,
+      "tools": 0.075262,
+      "generate_answer": 3.658969
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Toradora!\", \"query\": \"Toradora!\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Toradora!",
+        "query": "Toradora!",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"The question asks about the source material of the anime Toradora!\", \"decisions\": {\"p0\": {\"meaning\": \"Toradora!\", \"role\": \"subject\", \"selection\": \"Toradora! | anime:4224\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "4224",
+          "role": "subject",
+          "text": "Toradora!",
+          "name": "Toradora!",
+          "meaning": "Toradora!"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "4224",
+          "role": "subject",
+          "text": "Toradora!",
+          "name": "Toradora!",
+          "meaning": "Toradora!"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Toradora!"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "4224",
+            "role": "subject",
+            "text": "Toradora!",
+            "name": "Toradora!",
+            "meaning": "Toradora!"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "4224",
+            "role": "subject",
+            "text": "Toradora!",
+            "name": "Toradora!",
+            "meaning": "Toradora!"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "uncertain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine source material for Toradora!",
+      "clarification": "Confirm if the question is about the anime's source material or the anime itself.",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "4224"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "source material",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "source material"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "4224"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "source material",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "4224"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "source material",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "4224"
+          }
+        }
+      ]
+    },
+    "scope": "uncertain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "4224",
+          "name": "Toradora!"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:4224",
+          "fact": "Toradora! is a LIGHT_NOVEL source material."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000854
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.400799
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.015132
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.030476
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.014212
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 8.832117
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "uncertain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "uncertain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine source material for Toradora!",
+        "clarification": "Confirm if the question is about the anime's source material or the anime itself.",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "4224"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "source material",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "source material"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "4224"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "source material",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "4224"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "source material",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "4224"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "4224",
+            "name": "Toradora!"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "4224"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.020396,
+      "arguments": {
+        "id": "4224"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "4224",
+        "title": "Toradora!"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "source material",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.035779,
+      "arguments": {
+        "query": "source material",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "anthology",
+            "name": "Anthology",
+            "description": "A collection of separate works collated into a single release.",
+            "category": "Technical",
+            "similarity": 0.4049
+          },
+          {
+            "kind": "tag",
+            "id": "makeup",
+            "name": "Makeup",
+            "description": "Centers around the makeup industry.",
+            "category": "Theme-Arts",
+            "similarity": 0.3508
+          },
+          {
+            "kind": "tag",
+            "id": "advertisement",
+            "name": "Advertisement",
+            "description": "Produced in order to promote the products of a certain company.",
+            "category": "Technical",
+            "similarity": 0.3332
+          },
+          {
+            "kind": "tag",
+            "id": "achromatic",
+            "name": "Achromatic",
+            "description": "Contains animation that is primarily done in black and white.",
+            "category": "Technical",
+            "similarity": 0.327
+          },
+          {
+            "kind": "tag",
+            "id": "educational",
+            "name": "Educational",
+            "description": "Primary aim is to educate the audience.",
+            "category": "Theme-Other",
+            "similarity": 0.3118
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "source material"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.018791,
+      "arguments": {
+        "kind": "tag",
+        "query": "source material"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "4224"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000122,
+      "arguments": {
+        "id": "4224"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "4224",
+        "title": "Toradora!"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "search_features",
+      "arguments": {
+        "query": "source material",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 1.5e-05,
+      "arguments": {
+        "query": "source material",
+        "kind": "tag"
+      },
+      "cached": true,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "anthology",
+            "name": "Anthology",
+            "description": "A collection of separate works collated into a single release.",
+            "category": "Technical",
+            "similarity": 0.4049
+          },
+          {
+            "kind": "tag",
+            "id": "makeup",
+            "name": "Makeup",
+            "description": "Centers around the makeup industry.",
+            "category": "Theme-Arts",
+            "similarity": 0.3508
+          },
+          {
+            "kind": "tag",
+            "id": "advertisement",
+            "name": "Advertisement",
+            "description": "Produced in order to promote the products of a certain company.",
+            "category": "Technical",
+            "similarity": 0.3332
+          },
+          {
+            "kind": "tag",
+            "id": "achromatic",
+            "name": "Achromatic",
+            "description": "Contains animation that is primarily done in black and white.",
+            "category": "Technical",
+            "similarity": 0.327
+          },
+          {
+            "kind": "tag",
+            "id": "educational",
+            "name": "Educational",
+            "description": "Primary aim is to educate the audience.",
+            "category": "Theme-Other",
+            "similarity": 0.3118
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "4224"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 7.5e-05,
+      "arguments": {
+        "id": "4224"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "4224",
+        "title": "Toradora!"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 6,
+      "tool": "search_features",
+      "arguments": {
+        "query": "source material",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 6,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 1e-05,
+      "arguments": {
+        "query": "source material",
+        "kind": "tag"
+      },
+      "cached": true,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "anthology",
+            "name": "Anthology",
+            "description": "A collection of separate works collated into a single release.",
+            "category": "Technical",
+            "similarity": 0.4049
+          },
+          {
+            "kind": "tag",
+            "id": "makeup",
+            "name": "Makeup",
+            "description": "Centers around the makeup industry.",
+            "category": "Theme-Arts",
+            "similarity": 0.3508
+          },
+          {
+            "kind": "tag",
+            "id": "advertisement",
+            "name": "Advertisement",
+            "description": "Produced in order to promote the products of a certain company.",
+            "category": "Technical",
+            "similarity": 0.3332
+          },
+          {
+            "kind": "tag",
+            "id": "achromatic",
+            "name": "Achromatic",
+            "description": "Contains animation that is primarily done in black and white.",
+            "category": "Technical",
+            "similarity": 0.327
+          },
+          {
+            "kind": "tag",
+            "id": "educational",
+            "name": "Educational",
+            "description": "Primary aim is to educate the audience.",
+            "category": "Theme-Other",
+            "similarity": 0.3118
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 7,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "4224"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 7,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 7.4e-05,
+      "arguments": {
+        "id": "4224"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "4224",
+        "title": "Toradora!"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.658969
+    }
+  ]
+}

@@ -1,0 +1,1081 @@
+{
+  "question_id": "manga_03",
+  "category": "source_material",
+  "intent_family": "manga",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "Give me five anime where I could go read the original manga afterward.",
+  "k": 5,
+  "constraints": [
+    {
+      "field": "source_material",
+      "op": "any",
+      "value": [
+        "MANGA"
+      ]
+    }
+  ],
+  "label_rationale": "MANGA source medium is required; popularity or manga-like style is insufficient.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 5246,
+  "reference_examples": [
+    {
+      "id": "100",
+      "title": "Prétear: The New Legend of Snow White"
+    },
+    {
+      "id": "1000",
+      "title": "Captain Harlock Space Pirate"
+    },
+    {
+      "id": "100004",
+      "title": "Demoness of Dreams"
+    }
+  ],
+  "answer_text": "Catalog matches — source material: MANGA; Go.\n\n1. **Tonari no Seki-kun: The Master of Killing Time** — The original manga revolves around a girl named Yokoi who sits next to a boy only known as Seki-kun. During class, Seki-kun continues to not pay attention and instead creates amazing little distractions, such as a detailed golf course with the course's hole being a dent in his desk, or an entire dramatic war being played out by paper shogi pieces. Yokoi often finds herself getting reluctantly interested in his games, even though they always seem…\n\n2. **Hikaru no Go** — With a two-tone hairstyle and a streak of immaturity, Hikaru Shindou finds an old Go board with a hidden surprise - trapped within the Go Board is Fujiwara-no-Sai, the ghost of an ancient Go master! In the blink of an eye, Sai becomes part of Hikaru's consciousness and soon begins to learn the true essence behind this ancient game of skill and strategy. (Source: VIZ Media)\n\n3. **Mahoromatic: Automatic Maiden** — Vesper is a secret agency fighting an army of alien invaders by using super-powerful battle androids. Mahoro is Vesper's most powerful battle android and has won many battles, but she has little operating time left and soon will cease to function. However, if she lays down her arms and conserves her remaining power, the time she has left can be prolonged to just over a year. Mahoro is given an opportunity to live the remaining time she has as a…\n\n4. **Hikaru no Go: Hokuto Hai e no Michi** — Hikaru is given a phone call asking him to appear in the Japan/China/Korea Junior's Tournament but he finds out he will have to take place in a preliminary tournament to choose Japan's three contestants. Upon discussing this with Akira, he discovers that Akira has already been chosen for the tournament and will not be taking place in the preliminaries. Hikaru then decides not to visit Akira's Go Salon until he takes his place on the team with…\n\n5. **Hikaru no Go Special** — Alternate version of the story featured in episode 64 that was shown at Jump Festa 2002 and later included with the DVD-BOX. Unlike the TV series which is digitally processed, this episode is shot on cels.",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Tonari no Seki-kun: The Master of Killing Time",
+      "Hikaru no Go: Hokuto Hai e no Michi",
+      "Hikaru no Go Special",
+      "Mahoromatic: Automatic Maiden",
+      "Hikaru no Go"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Tonari no Seki-kun: The Master of Killing Time",
+      "anime_id": "18139",
+      "canonical_title": "Tonari no Seki-kun: The Master of Killing Time",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "18139"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Hikaru no Go: Hokuto Hai e no Michi",
+      "anime_id": "645",
+      "canonical_title": "Hikaru no Go: Hokuto Hai e no Michi",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "645"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Hikaru no Go Special",
+      "anime_id": "10765",
+      "canonical_title": "Hikaru no Go Special",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "10765"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Mahoromatic: Automatic Maiden",
+      "anime_id": "276",
+      "canonical_title": "Mahoromatic: Automatic Maiden",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "276"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Hikaru no Go",
+      "anime_id": "135",
+      "canonical_title": "Hikaru no Go",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "135"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 1.0,
+    "graded_fit_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "constraint_coverage": 1.0,
+    "count_compliance": 1,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "extra_count": 0,
+    "literal_precision_at_k": 1.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 16.360713416999715,
+  "extraction_seconds": 1.6742956250000134,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.7e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00081
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 8.203567
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.002192
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.011305
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.016497
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 7.223153
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "source_material",
+                  "operator": "eq",
+                  "value": "MANGA"
+                },
+                {
+                  "field": "tags",
+                  "operator": "eq",
+                  "value": "Go"
+                }
+              ]
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "Go manga recommendations"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "source_material",
+                  "operator": "eq",
+                  "value": "MANGA"
+                },
+                {
+                  "field": "tags",
+                  "operator": "eq",
+                  "value": "Go"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "source_material",
+            "operator": "eq",
+            "value": "MANGA"
+          },
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Go"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.872935,
+      "arguments": {
+        "filters": [
+          {
+            "field": "source_material",
+            "operator": "eq",
+            "value": "MANGA"
+          },
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Go"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "source_material",
+              "operator": "eq",
+              "value": "MANGA"
+            },
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Go"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "source_material",
+              "operator": "eq",
+              "value": "MANGA",
+              "source_text": "Give me five anime where I could go read the original manga afterward.",
+              "mapping": "exact"
+            },
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Go",
+              "source_text": "Give me five anime where I could go read the original manga afterward.",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "18139",
+            "title": "Tonari no Seki-kun: The Master of Killing Time",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}, {'field': 'tags', 'operator': 'eq', 'value': 'Go'}]"
+          },
+          {
+            "id": "135",
+            "title": "Hikaru no Go",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}, {'field': 'tags', 'operator': 'eq', 'value': 'Go'}]"
+          },
+          {
+            "id": "276",
+            "title": "Mahoromatic: Automatic Maiden",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}, {'field': 'tags', 'operator': 'eq', 'value': 'Go'}]"
+          },
+          {
+            "id": "645",
+            "title": "Hikaru no Go: Hokuto Hai e no Michi",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}, {'field': 'tags', 'operator': 'eq', 'value': 'Go'}]"
+          },
+          {
+            "id": "10765",
+            "title": "Hikaru no Go Special",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}, {'field': 'tags', 'operator': 'eq', 'value': 'Go'}]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "Go manga recommendations"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.025413,
+      "arguments": {
+        "query": "Go manga recommendations"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "drawing",
+            "name": "Drawing",
+            "description": "Centers around the art of drawing, including manga and doujinshi.",
+            "category": "Theme-Arts",
+            "similarity": 0.5116
+          },
+          {
+            "kind": "tag",
+            "id": "ero guro",
+            "name": "Ero Guro",
+            "description": "Japanese literary and artistic movement originating in the 1930's. Works have a focus on grotesque eroticism, sexual corruption, and decadence.",
+            "category": "Theme-Other",
+            "similarity": 0.4383
+          },
+          {
+            "kind": "tag",
+            "id": "rakugo",
+            "name": "Rakugo",
+            "description": "Rakugo is the traditional Japanese performance art of comic storytelling.",
+            "category": "Theme-Arts",
+            "similarity": 0.4232
+          },
+          {
+            "kind": "tag",
+            "id": "4 koma",
+            "name": "4-koma",
+            "description": "A manga in the 'yonkoma' format, which consists of four equal-sized panels arranged in a vertical strip.",
+            "category": "Technical",
+            "similarity": 0.411
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "source_material",
+            "operator": "eq",
+            "value": "MANGA"
+          },
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Go"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.001986,
+      "arguments": {
+        "filters": [
+          {
+            "field": "source_material",
+            "operator": "eq",
+            "value": "MANGA"
+          },
+          {
+            "field": "tags",
+            "operator": "eq",
+            "value": "Go"
+          }
+        ]
+      },
+      "cached": true,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "source_material",
+              "operator": "eq",
+              "value": "MANGA"
+            },
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Go"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "source_material",
+              "operator": "eq",
+              "value": "MANGA",
+              "source_text": "Give me five anime where I could go read the original manga afterward.",
+              "mapping": "exact"
+            },
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Go",
+              "source_text": "Give me five anime where I could go read the original manga afterward.",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "18139",
+            "title": "Tonari no Seki-kun: The Master of Killing Time",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}, {'field': 'tags', 'operator': 'eq', 'value': 'Go'}]"
+          },
+          {
+            "id": "135",
+            "title": "Hikaru no Go",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}, {'field': 'tags', 'operator': 'eq', 'value': 'Go'}]"
+          },
+          {
+            "id": "276",
+            "title": "Mahoromatic: Automatic Maiden",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}, {'field': 'tags', 'operator': 'eq', 'value': 'Go'}]"
+          },
+          {
+            "id": "645",
+            "title": "Hikaru no Go: Hokuto Hai e no Michi",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}, {'field': 'tags', 'operator': 'eq', 'value': 'Go'}]"
+          },
+          {
+            "id": "10765",
+            "title": "Hikaru no Go Special",
+            "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}, {'field': 'tags', 'operator': 'eq', 'value': 'Go'}]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000515
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "source_material",
+              "operator": "eq",
+              "value": "MANGA"
+            },
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Go"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "source_material",
+                "operator": "eq",
+                "value": "MANGA"
+              },
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Go"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "source_material",
+                "operator": "eq",
+                "value": "MANGA",
+                "source_text": "Give me five anime where I could go read the original manga afterward.",
+                "mapping": "exact"
+              },
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Go",
+                "source_text": "Give me five anime where I could go read the original manga afterward.",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "18139",
+              "title": "Tonari no Seki-kun: The Master of Killing Time",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}, {'field': 'tags', 'operator': 'eq', 'value': 'Go'}]"
+            },
+            {
+              "id": "135",
+              "title": "Hikaru no Go",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}, {'field': 'tags', 'operator': 'eq', 'value': 'Go'}]"
+            },
+            {
+              "id": "276",
+              "title": "Mahoromatic: Automatic Maiden",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}, {'field': 'tags', 'operator': 'eq', 'value': 'Go'}]"
+            },
+            {
+              "id": "645",
+              "title": "Hikaru no Go: Hokuto Hai e no Michi",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}, {'field': 'tags', 'operator': 'eq', 'value': 'Go'}]"
+            },
+            {
+              "id": "10765",
+              "title": "Hikaru no Go Special",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}, {'field': 'tags', 'operator': 'eq', 'value': 'Go'}]"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.872935
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "Go manga recommendations"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "drawing",
+              "name": "Drawing",
+              "description": "Centers around the art of drawing, including manga and doujinshi.",
+              "category": "Theme-Arts",
+              "similarity": 0.5116
+            },
+            {
+              "kind": "tag",
+              "id": "ero guro",
+              "name": "Ero Guro",
+              "description": "Japanese literary and artistic movement originating in the 1930's. Works have a focus on grotesque eroticism, sexual corruption, and decadence.",
+              "category": "Theme-Other",
+              "similarity": 0.4383
+            },
+            {
+              "kind": "tag",
+              "id": "rakugo",
+              "name": "Rakugo",
+              "description": "Rakugo is the traditional Japanese performance art of comic storytelling.",
+              "category": "Theme-Arts",
+              "similarity": 0.4232
+            },
+            {
+              "kind": "tag",
+              "id": "4 koma",
+              "name": "4-koma",
+              "description": "A manga in the 'yonkoma' format, which consists of four equal-sized panels arranged in a vertical strip.",
+              "category": "Technical",
+              "similarity": 0.411
+            }
+          ]
+        },
+        "elapsed_seconds": 0.025413
+      },
+      {
+        "step": 2,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "source_material",
+              "operator": "eq",
+              "value": "MANGA"
+            },
+            {
+              "field": "tags",
+              "operator": "eq",
+              "value": "Go"
+            }
+          ]
+        },
+        "cached": true,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "source_material",
+                "operator": "eq",
+                "value": "MANGA"
+              },
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Go"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "source_material",
+                "operator": "eq",
+                "value": "MANGA",
+                "source_text": "Give me five anime where I could go read the original manga afterward.",
+                "mapping": "exact"
+              },
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Go",
+                "source_text": "Give me five anime where I could go read the original manga afterward.",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "18139",
+              "title": "Tonari no Seki-kun: The Master of Killing Time",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}, {'field': 'tags', 'operator': 'eq', 'value': 'Go'}]"
+            },
+            {
+              "id": "135",
+              "title": "Hikaru no Go",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}, {'field': 'tags', 'operator': 'eq', 'value': 'Go'}]"
+            },
+            {
+              "id": "276",
+              "title": "Mahoromatic: Automatic Maiden",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}, {'field': 'tags', 'operator': 'eq', 'value': 'Go'}]"
+            },
+            {
+              "id": "645",
+              "title": "Hikaru no Go: Hokuto Hai e no Michi",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}, {'field': 'tags', 'operator': 'eq', 'value': 'Go'}]"
+            },
+            {
+              "id": "10765",
+              "title": "Hikaru no Go Special",
+              "reason": "Matches: filters=[{'field': 'source_material', 'operator': 'eq', 'value': 'MANGA'}, {'field': 'tags', 'operator': 'eq', 'value': 'Go'}]"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.001986
+      }
+    ],
+    "llm_calls": 5,
+    "planned_tools": 3,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 8.203567,
+      "prepare_context": 0.002192,
+      "retrieve_guides": 0.011305,
+      "feature_candidates": 0.016497,
+      "planning": 7.223153,
+      "tools": 0.900334,
+      "generate_answer": 0.000515
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"anime\", \"query\": \"anime\", \"kind\": \"genre\", \"role\": \"required\", \"meaning\": \"Desired genre\"}, {\"text\": \"manga\", \"query\": \"manga\", \"kind\": \"genre\", \"role\": \"required\", \"meaning\": \"Desired media\"}]}",
+      "{\"applies\": true, \"operator\": \"eq\", \"value\": \"MANGA\"}",
+      "{\"role\": \"required\"}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "anime",
+        "query": "anime",
+        "kind": "genre",
+        "role": "required",
+        "meaning": "Desired genre"
+      },
+      {
+        "text": "manga",
+        "query": "manga",
+        "kind": "genre",
+        "role": "required",
+        "meaning": "Desired media"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify which anime you are referring to.\", \"decisions\": {\"p0\": {\"meaning\": \"anime\", \"role\": \"required\", \"selection\": \"unmapped description\" }, \"p1\": {\"meaning\": \"manga\", \"role\": \"required\", \"selection\": \"unmapped description\" }}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "anime",
+          "name": "",
+          "meaning": "anime"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "manga",
+          "name": "",
+          "meaning": "manga"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [
+        "anime",
+        "manga"
+      ],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "source_material",
+          "operator": "eq",
+          "value": "MANGA"
+        },
+        {
+          "field": "tags",
+          "operator": "eq",
+          "value": "Go"
+        }
+      ],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "source_material",
+          "operator": "eq",
+          "value": "MANGA",
+          "source_text": "Give me five anime where I could go read the original manga afterward.",
+          "mapping": "exact"
+        },
+        {
+          "field": "tags",
+          "operator": "eq",
+          "value": "Go",
+          "source_text": "Give me five anime where I could go read the original manga afterward.",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "Go",
+          "candidate": {
+            "field": "tags",
+            "value": "Go",
+            "meaning": "Go"
+          },
+          "role": "required",
+          "mapping": "exact"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "anime",
+            "name": "",
+            "meaning": "anime"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "manga",
+            "name": "",
+            "meaning": "manga"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "source_material",
+                "operator": "eq",
+                "value": "MANGA"
+              },
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Go"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "Go manga recommendations"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "source_material",
+                "operator": "eq",
+                "value": "MANGA"
+              },
+              {
+                "field": "tags",
+                "operator": "eq",
+                "value": "Go"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

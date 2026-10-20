@@ -1,0 +1,885 @@
+{
+  "question_id": "hf_154",
+  "anime_id": "1",
+  "title": "Cowboy Bebop",
+  "field": "main_animation_studios",
+  "question": "Which studio is responsible for Cowboy Bebop's TV animation?",
+  "expected_values": [
+    "Sunrise"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Sunrise was the studio responsible for Cowboy Bebop's TV animation.",
+  "extracted_values": [
+    "Sunrise"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 16.06578783299983,
+  "extraction_seconds": 0.6950591670001813,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Sunrise",
+        "quote": "Sunrise was the studio responsible for Cowboy Bebop's TV animation."
+      }
+    ],
+    "note": "assertion about Sunrise being the studio for Cowboy Bebop's TV animation",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "1",
+          "title": "Cowboy Bebop"
+        },
+        "elapsed_seconds": 0.012777
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "studio",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "office",
+              "name": "Office",
+              "description": "Features people who work in a business office.",
+              "category": "Setting-Scene",
+              "similarity": 0.4473
+            },
+            {
+              "kind": "tag",
+              "id": "dungeon",
+              "name": "Dungeon",
+              "description": "Prominently features a dungeon environment.",
+              "category": "Setting-Scene",
+              "similarity": 0.4212
+            },
+            {
+              "kind": "tag",
+              "id": "software development",
+              "name": "Software Development",
+              "description": "Centers around characters developing or programming a piece of technology, software, gaming, etc.",
+              "category": "Theme-Other",
+              "similarity": 0.4137
+            },
+            {
+              "kind": "tag",
+              "id": "photography",
+              "name": "Photography",
+              "description": "Centers around the use of cameras to capture photos.",
+              "category": "Theme-Arts",
+              "similarity": 0.4031
+            },
+            {
+              "kind": "tag",
+              "id": "makeup",
+              "name": "Makeup",
+              "description": "Centers around the makeup industry.",
+              "category": "Theme-Arts",
+              "similarity": 0.4025
+            }
+          ]
+        },
+        "elapsed_seconds": 0.058632
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "studio"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.003583
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "1",
+          "title": "Cowboy Bebop"
+        },
+        "elapsed_seconds": 9.2e-05
+      },
+      {
+        "step": 4,
+        "tool": "search_features",
+        "arguments": {
+          "query": "studio",
+          "kind": "tag"
+        },
+        "cached": true,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "office",
+              "name": "Office",
+              "description": "Features people who work in a business office.",
+              "category": "Setting-Scene",
+              "similarity": 0.4473
+            },
+            {
+              "kind": "tag",
+              "id": "dungeon",
+              "name": "Dungeon",
+              "description": "Prominently features a dungeon environment.",
+              "category": "Setting-Scene",
+              "similarity": 0.4212
+            },
+            {
+              "kind": "tag",
+              "id": "software development",
+              "name": "Software Development",
+              "description": "Centers around characters developing or programming a piece of technology, software, gaming, etc.",
+              "category": "Theme-Other",
+              "similarity": 0.4137
+            },
+            {
+              "kind": "tag",
+              "id": "photography",
+              "name": "Photography",
+              "description": "Centers around the use of cameras to capture photos.",
+              "category": "Theme-Arts",
+              "similarity": 0.4031
+            },
+            {
+              "kind": "tag",
+              "id": "makeup",
+              "name": "Makeup",
+              "description": "Centers around the makeup industry.",
+              "category": "Theme-Arts",
+              "similarity": 0.4025
+            }
+          ]
+        },
+        "elapsed_seconds": 1.3e-05
+      },
+      {
+        "step": 5,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1",
+          "section": "studios"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "1",
+          "title": "Cowboy Bebop"
+        },
+        "elapsed_seconds": 0.002231
+      },
+      {
+        "step": 6,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1",
+          "section": "staff"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "1",
+          "title": "Cowboy Bebop"
+        },
+        "elapsed_seconds": 0.002023
+      },
+      {
+        "step": 7,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "1",
+          "section": "studios"
+        },
+        "cached": true,
+        "result": {
+          "kind": "anime",
+          "id": "1",
+          "title": "Cowboy Bebop"
+        },
+        "elapsed_seconds": 1.3e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 8,
+    "executed_tools": 5,
+    "timings_seconds": {
+      "interpret_request": 3.429053,
+      "prepare_context": 0.025689,
+      "retrieve_guides": 0.156928,
+      "feature_candidates": 0.022643,
+      "planning": 8.408183,
+      "tools": 0.079364,
+      "generate_answer": 3.938871
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Cowboy Bebop\", \"query\": \"Cowboy Bebop\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; studio is a noun\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Cowboy Bebop",
+        "query": "Cowboy Bebop",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; studio is a noun"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Which studio is responsible for the TV animation of Cowboy Bebop?\", \"decisions\": {\"p0\": {\"meaning\": \"Cowboy Bebop\", \"role\": \"subject\", \"selection\": \"Cowboy Bebop | anime:1\"} }}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "1",
+          "role": "subject",
+          "text": "Cowboy Bebop",
+          "name": "Cowboy Bebop",
+          "meaning": "Cowboy Bebop"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "1",
+          "role": "subject",
+          "text": "Cowboy Bebop",
+          "name": "Cowboy Bebop",
+          "meaning": "Cowboy Bebop"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Cowboy Bebop"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "1",
+            "role": "subject",
+            "text": "Cowboy Bebop",
+            "name": "Cowboy Bebop",
+            "meaning": "Cowboy Bebop"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "1",
+            "role": "subject",
+            "text": "Cowboy Bebop",
+            "name": "Cowboy Bebop",
+            "meaning": "Cowboy Bebop"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Retrieve the studio responsible for Cowboy Bebop's TV animation.",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "studio",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "studio"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "studio",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1",
+            "section": "studios"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1",
+            "section": "staff"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "1",
+            "section": "studios"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "1",
+          "name": "Cowboy Bebop"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:1",
+          "fact": "Sunrise was the primary studio responsible for Cowboy Bebop's TV animation."
+        },
+        {
+          "subject": "anime:1",
+          "fact": "Bandai Visual and Bandai Entertainment were also involved in the animation production."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.6e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.003632
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.429053
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.025689
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.156928
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.022643
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 8.408183
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Retrieve the studio responsible for Cowboy Bebop's TV animation.",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "studio",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "studio"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "studio",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1",
+              "section": "studios"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1",
+              "section": "staff"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "1",
+              "section": "studios"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "1",
+            "name": "Cowboy Bebop"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.012777,
+      "arguments": {
+        "id": "1"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "1",
+        "title": "Cowboy Bebop"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "studio",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.058632,
+      "arguments": {
+        "query": "studio",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "office",
+            "name": "Office",
+            "description": "Features people who work in a business office.",
+            "category": "Setting-Scene",
+            "similarity": 0.4473
+          },
+          {
+            "kind": "tag",
+            "id": "dungeon",
+            "name": "Dungeon",
+            "description": "Prominently features a dungeon environment.",
+            "category": "Setting-Scene",
+            "similarity": 0.4212
+          },
+          {
+            "kind": "tag",
+            "id": "software development",
+            "name": "Software Development",
+            "description": "Centers around characters developing or programming a piece of technology, software, gaming, etc.",
+            "category": "Theme-Other",
+            "similarity": 0.4137
+          },
+          {
+            "kind": "tag",
+            "id": "photography",
+            "name": "Photography",
+            "description": "Centers around the use of cameras to capture photos.",
+            "category": "Theme-Arts",
+            "similarity": 0.4031
+          },
+          {
+            "kind": "tag",
+            "id": "makeup",
+            "name": "Makeup",
+            "description": "Centers around the makeup industry.",
+            "category": "Theme-Arts",
+            "similarity": 0.4025
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "studio"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.003583,
+      "arguments": {
+        "kind": "tag",
+        "query": "studio"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 9.2e-05,
+      "arguments": {
+        "id": "1"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "1",
+        "title": "Cowboy Bebop"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "search_features",
+      "arguments": {
+        "query": "studio",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 1.3e-05,
+      "arguments": {
+        "query": "studio",
+        "kind": "tag"
+      },
+      "cached": true,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "office",
+            "name": "Office",
+            "description": "Features people who work in a business office.",
+            "category": "Setting-Scene",
+            "similarity": 0.4473
+          },
+          {
+            "kind": "tag",
+            "id": "dungeon",
+            "name": "Dungeon",
+            "description": "Prominently features a dungeon environment.",
+            "category": "Setting-Scene",
+            "similarity": 0.4212
+          },
+          {
+            "kind": "tag",
+            "id": "software development",
+            "name": "Software Development",
+            "description": "Centers around characters developing or programming a piece of technology, software, gaming, etc.",
+            "category": "Theme-Other",
+            "similarity": 0.4137
+          },
+          {
+            "kind": "tag",
+            "id": "photography",
+            "name": "Photography",
+            "description": "Centers around the use of cameras to capture photos.",
+            "category": "Theme-Arts",
+            "similarity": 0.4031
+          },
+          {
+            "kind": "tag",
+            "id": "makeup",
+            "name": "Makeup",
+            "description": "Centers around the makeup industry.",
+            "category": "Theme-Arts",
+            "similarity": 0.4025
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1",
+        "section": "studios"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.002231,
+      "arguments": {
+        "id": "1",
+        "section": "studios"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "1",
+        "title": "Cowboy Bebop"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 6,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1",
+        "section": "staff"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 6,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.002023,
+      "arguments": {
+        "id": "1",
+        "section": "staff"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "1",
+        "title": "Cowboy Bebop"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 7,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "1",
+        "section": "studios"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 7,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 1.3e-05,
+      "arguments": {
+        "id": "1",
+        "section": "studios"
+      },
+      "cached": true,
+      "result": {
+        "kind": "anime",
+        "id": "1",
+        "title": "Cowboy Bebop"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.938871
+    }
+  ]
+}

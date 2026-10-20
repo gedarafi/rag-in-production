@@ -1,0 +1,786 @@
+{
+  "question_id": "hf_006",
+  "anime_id": "21087",
+  "title": "One-Punch Man",
+  "field": "year",
+  "question": "In what year did One-Punch Man make its anime debut?",
+  "expected_values": [
+    2015.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "anime debut year: 2015 years.",
+  "extracted_values": [
+    "2015"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 16.54065962499999,
+  "extraction_seconds": 0.49324220799985596,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "2015",
+        "quote": "anime debut year: 2015 years."
+      }
+    ],
+    "note": "years",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21087"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21087",
+          "title": "One-Punch Man"
+        },
+        "elapsed_seconds": 0.014034
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "debut year",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "coming of age",
+              "name": "Coming of Age",
+              "description": "Centers around a character's transition from childhood to adulthood.",
+              "category": "Theme-Drama",
+              "similarity": 0.2793
+            },
+            {
+              "kind": "tag",
+              "id": "tennis",
+              "name": "Tennis",
+              "description": "Centers around the sport of tennis.",
+              "category": "Theme-Game-Sport",
+              "similarity": 0.2249
+            }
+          ]
+        },
+        "elapsed_seconds": 0.03384
+      },
+      {
+        "step": 2,
+        "tool": "resolve_entity",
+        "arguments": {
+          "kind": "tag",
+          "query": "debut year"
+        },
+        "cached": false,
+        "result": {
+          "status": "no_matches",
+          "kind": "tag",
+          "matches": []
+        },
+        "elapsed_seconds": 0.008118
+      },
+      {
+        "step": 3,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21087"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21087",
+          "title": "One-Punch Man"
+        },
+        "elapsed_seconds": 0.000109
+      },
+      {
+        "step": 4,
+        "tool": "search_features",
+        "arguments": {
+          "query": "anime debut year",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "coming of age",
+              "name": "Coming of Age",
+              "description": "Centers around a character's transition from childhood to adulthood.",
+              "category": "Theme-Drama",
+              "similarity": 0.2793
+            },
+            {
+              "kind": "tag",
+              "id": "tennis",
+              "name": "Tennis",
+              "description": "Centers around the sport of tennis.",
+              "category": "Theme-Game-Sport",
+              "similarity": 0.2249
+            }
+          ]
+        },
+        "elapsed_seconds": 0.011629
+      },
+      {
+        "step": 5,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21087"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21087",
+          "title": "One-Punch Man"
+        },
+        "elapsed_seconds": 9.8e-05
+      },
+      {
+        "step": 6,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21087"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21087",
+          "title": "One-Punch Man"
+        },
+        "elapsed_seconds": 7.6e-05
+      },
+      {
+        "step": 7,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21087"
+        },
+        "cached": true,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "21087",
+          "title": "One-Punch Man"
+        },
+        "elapsed_seconds": 7.4e-05
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 8,
+    "executed_tools": 4,
+    "timings_seconds": {
+      "interpret_request": 3.829244,
+      "prepare_context": 0.016249,
+      "retrieve_guides": 0.029458,
+      "feature_candidates": 0.013584,
+      "planning": 8.419525,
+      "tools": 0.067978,
+      "generate_answer": 4.161763
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"One-Punch Man\", \"query\": \"One-Punch Man\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Anime adaptation\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "One-Punch Man",
+        "query": "One-Punch Man",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Anime adaptation"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify the year of the anime debut.\", \"decisions\": {\"p0\": {\"meaning\": \"One-Punch Man\", \"role\": \"subject\", \"selection\": \"One-Punch Man | anime:21087\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21087",
+          "role": "subject",
+          "text": "One-Punch Man",
+          "name": "One-Punch Man",
+          "meaning": "One-Punch Man"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21087",
+          "role": "subject",
+          "text": "One-Punch Man",
+          "name": "One-Punch Man",
+          "meaning": "One-Punch Man"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "One-Punch Man"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21087",
+            "role": "subject",
+            "text": "One-Punch Man",
+            "name": "One-Punch Man",
+            "meaning": "One-Punch Man"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21087",
+            "role": "subject",
+            "text": "One-Punch Man",
+            "name": "One-Punch Man",
+            "meaning": "One-Punch Man"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine the anime debut year",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21087"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "debut year",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "resolve_entity",
+          "arguments": {
+            "kind": "tag",
+            "query": "debut year"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21087"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "anime debut year",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21087"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21087"
+          }
+        },
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21087"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21087",
+          "name": "One-Punch Man"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:21087",
+          "fact": "year of debut"
+        },
+        {
+          "subject": "anime:21087",
+          "fact": "2015.0"
+        }
+      ],
+      "calculations": [
+        {
+          "expression": "2015.0",
+          "value": "2015",
+          "unit": "years"
+        }
+      ]
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 0.000128
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00118
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.829244
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.016249
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.029458
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013584
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 8.419525
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine the anime debut year",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21087"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "debut year",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "resolve_entity",
+            "arguments": {
+              "kind": "tag",
+              "query": "debut year"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21087"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "anime debut year",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21087"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21087"
+            }
+          },
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21087"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21087",
+            "name": "One-Punch Man"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21087"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.014034,
+      "arguments": {
+        "id": "21087"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21087",
+        "title": "One-Punch Man"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "debut year",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.03384,
+      "arguments": {
+        "query": "debut year",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "coming of age",
+            "name": "Coming of Age",
+            "description": "Centers around a character's transition from childhood to adulthood.",
+            "category": "Theme-Drama",
+            "similarity": 0.2793
+          },
+          {
+            "kind": "tag",
+            "id": "tennis",
+            "name": "Tennis",
+            "description": "Centers around the sport of tennis.",
+            "category": "Theme-Game-Sport",
+            "similarity": 0.2249
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "resolve_entity",
+      "arguments": {
+        "kind": "tag",
+        "query": "debut year"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "resolve_entity",
+      "status": "completed",
+      "elapsed_seconds": 0.008118,
+      "arguments": {
+        "kind": "tag",
+        "query": "debut year"
+      },
+      "cached": false,
+      "result": {
+        "status": "no_matches",
+        "kind": "tag",
+        "matches": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 3,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21087"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 3,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.000109,
+      "arguments": {
+        "id": "21087"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21087",
+        "title": "One-Punch Man"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 4,
+      "tool": "search_features",
+      "arguments": {
+        "query": "anime debut year",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 4,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.011629,
+      "arguments": {
+        "query": "anime debut year",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "coming of age",
+            "name": "Coming of Age",
+            "description": "Centers around a character's transition from childhood to adulthood.",
+            "category": "Theme-Drama",
+            "similarity": 0.2793
+          },
+          {
+            "kind": "tag",
+            "id": "tennis",
+            "name": "Tennis",
+            "description": "Centers around the sport of tennis.",
+            "category": "Theme-Game-Sport",
+            "similarity": 0.2249
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 5,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21087"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 5,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 9.8e-05,
+      "arguments": {
+        "id": "21087"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21087",
+        "title": "One-Punch Man"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 6,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21087"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 6,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 7.6e-05,
+      "arguments": {
+        "id": "21087"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21087",
+        "title": "One-Punch Man"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 7,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21087"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 7,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 7.4e-05,
+      "arguments": {
+        "id": "21087"
+      },
+      "cached": true,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "21087",
+        "title": "One-Punch Man"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.161763
+    }
+  ]
+}

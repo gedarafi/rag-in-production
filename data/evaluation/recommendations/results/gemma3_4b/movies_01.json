@@ -1,0 +1,641 @@
+{
+  "question_id": "movies_01",
+  "category": "formats",
+  "intent_family": "movies",
+  "wording": "explicit",
+  "question_origin": "authored_naturalistic",
+  "question": "Recommend three anime movies.",
+  "k": 3,
+  "constraints": [
+    {
+      "field": "format",
+      "op": "any",
+      "value": [
+        "MOVIE"
+      ]
+    }
+  ],
+  "label_rationale": "Movie format only; no runtime cap is implied.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 3268,
+  "reference_examples": [
+    {
+      "id": "10005",
+      "title": "Tetsujin 28: Morning Moon of Midday"
+    },
+    {
+      "id": "10013",
+      "title": "Shouwa Monogatari (Movie)"
+    },
+    {
+      "id": "10016",
+      "title": "Kizuna Ichigeki"
+    }
+  ],
+  "answer_text": "Catalog matches — format: MOVIE.\n\n1. **A Silent Voice** — After transferring into a new school, a deaf girl, Shouko Nishimiya, is bullied by the popular Shouya Ishida. As Shouya continues to bully Shouko, the class turns its back on him. Shouko transfers and Shouya grows up as an outcast. Alone and depressed, the regretful Shouya finds Shouko to make amends. (Source: Eleven Arts)\n\n2. **Your Name.** — Mitsuha Miyamizu, a high school girl, yearns to live the life of a boy in the bustling city of Tokyo—a dream that stands in stark contrast to her present life in the countryside. Meanwhile in the city, Taki Tachibana lives a busy life as a high school student while juggling his part-time job and hopes for a future in architecture. One day, Mitsuha awakens in a room that is not her own and suddenly finds herself living the dream life in Tokyo—but…\n\n3. **Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train** — This Demon Slayer movie sees Tanjiro Kamado and friends from the Demon Slayer corps board the Infinity Train on a new mission to investigate a mysterious series of disappearances, perpetrated by a demon who has been tormenting people and killing the demon slayers who oppose it.\n\n4. **Spirited Away** — On the way to their new home, 10-year-old Chihiro Ogino's family stumbles upon a deserted theme park. Intrigued, the family investigates the park, though unbeknownst to them, it is secretly inhabited by spirits who sleep by day and appear at night. When Chihiro's mother and father eat food from a restaurant in the street, angry spirits turn them into pigs. Furthermore, a wide sea has appeared between the spirit world and the human one, trapping…\n\n5. **JUJUTSU KAISEN 0** — Yuta Okkotsu is a nervous high school student who is suffering from a serious problem—his childhood friend Rika has turned into a curse and won't leave him alone. Since Rika is no ordinary curse, his plight is noticed by Satoru Gojo, a teacher at Jujutsu High, a school where fledgling exorcists learn how to combat curses. Gojo convinces Yuta to enroll, but can he learn enough in time to confront the curse that haunts him? (Source: VIZ Media)",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "A Silent Voice",
+      "Your Name.",
+      "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train",
+      "Spirited Away",
+      "JUJUTSU KAISEN 0"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "A Silent Voice",
+      "anime_id": "20954",
+      "canonical_title": "A Silent Voice",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20954"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Your Name.",
+      "anime_id": null,
+      "canonical_title": null,
+      "resolution": "ambiguous",
+      "candidate_ids": [
+        "21519",
+        "97962"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train",
+      "anime_id": "112151",
+      "canonical_title": "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "112151"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Spirited Away",
+      "anime_id": "199",
+      "canonical_title": "Spirited Away",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "199"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 5,
+      "extracted_title": "JUJUTSU KAISEN 0",
+      "anime_id": "131573",
+      "canonical_title": "JUJUTSU KAISEN 0",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "131573"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.6666666666666666,
+    "graded_fit_at_k": 0.6666666666666666,
+    "ndcg_at_k": 0.7039180890341347,
+    "constraint_coverage": 1.0,
+    "count_compliance": 0,
+    "resolution_rate": 0.8,
+    "duplicate_rate": 0.0,
+    "extra_count": 2,
+    "literal_precision_at_k": 0.6666666666666666,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 13.342085708000013,
+  "extraction_seconds": 1.5467622090000077,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 6.2e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000869
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 7.640706
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.002405
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.009655
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.015964
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 5.543854
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "format",
+                  "operator": "eq",
+                  "value": "MOVIE"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "format",
+            "operator": "eq",
+            "value": "MOVIE"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.126303,
+      "arguments": {
+        "filters": [
+          {
+            "field": "format",
+            "operator": "eq",
+            "value": "MOVIE"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "format",
+              "operator": "eq",
+              "value": "MOVIE"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "format",
+              "operator": "eq",
+              "value": "MOVIE",
+              "source_text": "Recommend three anime movies.",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "20954",
+            "title": "A Silent Voice",
+            "reason": "Matches: filters=[{'field': 'format', 'operator': 'eq', 'value': 'MOVIE'}]"
+          },
+          {
+            "id": "21519",
+            "title": "Your Name.",
+            "reason": "Matches: filters=[{'field': 'format', 'operator': 'eq', 'value': 'MOVIE'}]"
+          },
+          {
+            "id": "112151",
+            "title": "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train",
+            "reason": "Matches: filters=[{'field': 'format', 'operator': 'eq', 'value': 'MOVIE'}]"
+          },
+          {
+            "id": "199",
+            "title": "Spirited Away",
+            "reason": "Matches: filters=[{'field': 'format', 'operator': 'eq', 'value': 'MOVIE'}]"
+          },
+          {
+            "id": "131573",
+            "title": "JUJUTSU KAISEN 0",
+            "reason": "Matches: filters=[{'field': 'format', 'operator': 'eq', 'value': 'MOVIE'}]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000371
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "format",
+              "operator": "eq",
+              "value": "MOVIE"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "format",
+                "operator": "eq",
+                "value": "MOVIE"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "format",
+                "operator": "eq",
+                "value": "MOVIE",
+                "source_text": "Recommend three anime movies.",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "20954",
+              "title": "A Silent Voice",
+              "reason": "Matches: filters=[{'field': 'format', 'operator': 'eq', 'value': 'MOVIE'}]"
+            },
+            {
+              "id": "21519",
+              "title": "Your Name.",
+              "reason": "Matches: filters=[{'field': 'format', 'operator': 'eq', 'value': 'MOVIE'}]"
+            },
+            {
+              "id": "112151",
+              "title": "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train",
+              "reason": "Matches: filters=[{'field': 'format', 'operator': 'eq', 'value': 'MOVIE'}]"
+            },
+            {
+              "id": "199",
+              "title": "Spirited Away",
+              "reason": "Matches: filters=[{'field': 'format', 'operator': 'eq', 'value': 'MOVIE'}]"
+            },
+            {
+              "id": "131573",
+              "title": "JUJUTSU KAISEN 0",
+              "reason": "Matches: filters=[{'field': 'format', 'operator': 'eq', 'value': 'MOVIE'}]"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.126303
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 7.640706,
+      "prepare_context": 0.002405,
+      "retrieve_guides": 0.009655,
+      "feature_candidates": 0.015964,
+      "planning": 5.543854,
+      "tools": 0.126303,
+      "generate_answer": 0.000371
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"anime movies\", \"query\": \"anime movies\", \"kind\": \"genre\", \"role\": \"preferred\", \"meaning\": \"Preferred format\"}, {\"text\": \"Parallel Worlds\", \"query\": \"Parallel Worlds\", \"kind\": \"tag\", \"role\": \"preferred\", \"meaning\": \"Preferred theme\"}, {\"text\": \"Ghost in the Shell\", \"query\": \"Ghost in the Shell\", \"kind\": \"anime\", \"role\": \"reference\", \"meaning\": \"Reference title\"}]}",
+      "{\"applies\": true, \"operator\": \"eq\", \"value\": \"MOVIE\"}"
+    ],
+    "unsupported_mentions": [
+      {
+        "text": "Parallel Worlds",
+        "query": "Parallel Worlds",
+        "kind": "tag",
+        "role": "preferred",
+        "meaning": "Preferred theme"
+      },
+      {
+        "text": "Ghost in the Shell",
+        "query": "Ghost in the Shell",
+        "kind": "anime",
+        "role": "reference",
+        "meaning": "Reference title"
+      }
+    ],
+    "typed_mentions": [
+      {
+        "text": "anime movies",
+        "query": "anime movies",
+        "kind": "genre",
+        "role": "preferred",
+        "meaning": "Preferred format"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify the anime movies you would like recommendations for.\", \"decisions\": {\"p0\": {\"meaning\": \"anime movies\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "anime movies",
+          "name": "",
+          "meaning": "anime movies"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [],
+      "preferred": [
+        "anime movies"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "format",
+          "operator": "eq",
+          "value": "MOVIE"
+        }
+      ],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "format",
+          "operator": "eq",
+          "value": "MOVIE",
+          "source_text": "Recommend three anime movies.",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "anime movies",
+            "name": "",
+            "meaning": "anime movies"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "format",
+                "operator": "eq",
+                "value": "MOVIE"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

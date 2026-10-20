@@ -1,0 +1,1177 @@
+{
+  "question_id": "laughter_02",
+  "category": "tags",
+  "intent_family": "laughter",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "I could use a laugh. What are four shows full of ridiculous situations and over-the-top physical gags?",
+  "k": 4,
+  "constraints": [
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Surreal Comedy",
+        "Slapstick"
+      ],
+      "alternatives": [
+        {
+          "reason": "Comedy with Parody or Meta humor is another reasonable interpretation of an absurd, ridiculous watch; unrelated comedy subtypes are not automatically equivalent.",
+          "constraints": [
+            {
+              "field": "genres",
+              "op": "any",
+              "value": [
+                "Comedy"
+              ]
+            },
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Parody",
+                "Meta"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "Absurd and physical comedy are alternative acceptable routes to the requested laughter.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 1622,
+  "reference_examples": [
+    {
+      "id": "10012",
+      "title": "Carnival Phantasm"
+    },
+    {
+      "id": "10191",
+      "title": "Katte ni Kaizou"
+    },
+    {
+      "id": "102010",
+      "title": "Docchi mo Maid"
+    }
+  ],
+  "answer_text": "Catalog matches — episode count: at least 4. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **No Game, No Life** (12 episodes) — Bored with life and considering the real world to be just a “crappy game,” savvy sibling shut-ins Sora and Shiro have withdrawn into their own fantasy world filled with video games. However, one day they find themselves summoned to another world by a boy who calls himself “God,” their abilities are about to be put to the ultimate test! Now not only their fates — but the fate of all of humanity — will be decided by a series of games that may just…\n\n2. **My Hero Academia** (13 episodes) — What would the world be like if 80 percent of the population manifested extraordinary superpowers called “Quirks” at age four? Heroes and villains would be battling it out everywhere! Becoming a hero would mean learning to use your power, but where would you go to study? U.A. High's Hero Program of course! But what would you do if you were one of the 20 percent who were born Quirkless? Middle school student Izuku Midoriya wants to be a hero more…\n\n3. **Mob Psycho 100** (12 episodes) — The story revolves around \"Mob,\" a boy who will explode if his emotional capacity reaches 100%. This boy with psychic powers earned his nickname \"Mob\" because he does not stand out among other people. He keeps his psychic powers bottled up so he can live normally, but if his emotional level reaches 100, something will overwhelm his entire body. (Source: Anime News Network)\n\n4. **Tokyo Ghoul** (12 episodes) — The suspense horror/dark fantasy story is set in Tokyo, which is haunted by mysterious \"ghouls\" who are devouring humans. People are gripped by the fear of these ghouls whose identities are masked in mystery. An ordinary college student named Kaneki encounters Rize, a girl who is an avid reader like him, at the café he frequents. Little does he realize that his fate will change overnight. (Source: Anime News Network)\n\n5. **Kaguya-sama: Love is War** (12 episodes) — Known for being both brilliant and powerful, Miyuki Shirogane and Kaguya Shinomiya lead the illustrious Shuchiin Academy as near equals. And everyone thinks they’d make a great couple. Pride and arrogance are in ample supply, so the only logical move is to trick the other into instigating a date! Who will come out on top in this psychological war where the first move is the only one that matters? (Source: Aniplex)",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "No Game, No Life",
+      "My Hero Academia",
+      "Mob Psycho 100",
+      "Tokyo Ghoul",
+      "Kaguya-sama: Love is War"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "No Game, No Life",
+      "anime_id": "19815",
+      "canonical_title": "No Game, No Life",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "19815"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.68
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.68,
+          "met": true,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "alternative_1",
+          "graded_path": "alternative_1",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Comedy with Parody or Meta humor is another reasonable interpretation of an absurd, ridiculous watch; unrelated comedy subtypes are not automatically equivalent.",
+              "score": 0.68,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Comedy"
+                    ]
+                  },
+                  "score": 1.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Parody",
+                      "Meta"
+                    ]
+                  },
+                  "score": 0.68
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.68,
+      "gain": 0.68,
+      "strict_match": 1,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 2,
+      "extracted_title": "My Hero Academia",
+      "anime_id": "21459",
+      "canonical_title": "My Hero Academia",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21459"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Comedy with Parody or Meta humor is another reasonable interpretation of an absurd, ridiculous watch; unrelated comedy subtypes are not automatically equivalent.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Comedy"
+                    ]
+                  },
+                  "score": 1.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Parody",
+                      "Meta"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 3,
+      "extracted_title": "Mob Psycho 100",
+      "anime_id": "21507",
+      "canonical_title": "Mob Psycho 100",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21507"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.76
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.76,
+          "met": true,
+          "literal_score": 0.76,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.76,
+              "met": true,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Comedy with Parody or Meta humor is another reasonable interpretation of an absurd, ridiculous watch; unrelated comedy subtypes are not automatically equivalent.",
+              "score": 0.75,
+              "met": true,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Comedy"
+                    ]
+                  },
+                  "score": 1.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Parody",
+                      "Meta"
+                    ]
+                  },
+                  "score": 0.75
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.76,
+      "gain": 0.76,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Tokyo Ghoul",
+      "anime_id": "20605",
+      "canonical_title": "Tokyo Ghoul",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "20605"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "Comedy with Parody or Meta humor is another reasonable interpretation of an absurd, ridiculous watch; unrelated comedy subtypes are not automatically equivalent.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Comedy"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Parody",
+                      "Meta"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Kaguya-sama: Love is War",
+      "anime_id": null,
+      "canonical_title": null,
+      "resolution": "ambiguous",
+      "candidate_ids": [
+        "101921",
+        "112641"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.5,
+    "graded_fit_at_k": 0.36,
+    "ndcg_at_k": 0.4138028529916278,
+    "constraint_coverage": 1.0,
+    "count_compliance": 0,
+    "resolution_rate": 0.8,
+    "duplicate_rate": 0.0,
+    "extra_count": 1,
+    "literal_precision_at_k": 0.25,
+    "semantic_credit_at_k": 0.25
+  },
+  "model_seconds": 11.32097050000084,
+  "extraction_seconds": 1.712560416000997,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.1e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000768
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 5.297806
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.001457
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.007127
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.009109
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 5.588817
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "ridiculous situations",
+              "kind": "tag",
+              "limit": 10
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "genres",
+                  "operator": "contains",
+                  "value": "slapstick"
+                },
+                {
+                  "field": "genres",
+                  "operator": "contains",
+                  "value": "surreal comedy"
+                },
+                {
+                  "field": "genres",
+                  "operator": "contains",
+                  "value": "parody"
+                },
+                {
+                  "field": "genres",
+                  "operator": "contains",
+                  "value": "satire"
+                }
+              ]
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "episodes",
+                  "operator": "gte",
+                  "value": "4"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "search_features",
+      "arguments": {
+        "query": "ridiculous situations",
+        "kind": "tag",
+        "limit": 10
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.041528,
+      "arguments": {
+        "query": "ridiculous situations",
+        "kind": "tag",
+        "limit": 10
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "surreal comedy",
+            "name": "Surreal Comedy",
+            "description": "Prominently features comedic moments that defy casual reasoning, resulting in illogical events.",
+            "category": "Theme-Comedy",
+            "similarity": 0.4069
+          },
+          {
+            "kind": "tag",
+            "id": "fake relationship",
+            "name": "Fake Relationship",
+            "description": "When two characters enter a fake relationship that mutually benefits one or both involved.",
+            "category": "Theme-Drama",
+            "similarity": 0.3397
+          },
+          {
+            "kind": "tag",
+            "id": "augmented reality",
+            "name": "Augmented Reality",
+            "description": "Prominently features events with augmented reality as the main setting.",
+            "category": "Setting-Universe",
+            "similarity": 0.3113
+          },
+          {
+            "kind": "tag",
+            "id": "parody",
+            "name": "Parody",
+            "description": "Features deliberate exaggeration of popular tropes or a particular genre to comedic effect.",
+            "category": "Theme-Comedy",
+            "similarity": 0.307
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "slapstick"
+          },
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "surreal comedy"
+          },
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "parody"
+          },
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "satire"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.189802,
+      "arguments": {
+        "filters": [
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "slapstick"
+          },
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "surreal comedy"
+          },
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "parody"
+          },
+          {
+            "field": "genres",
+            "operator": "contains",
+            "value": "satire"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "episodes",
+              "operator": "gte",
+              "value": "4"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "episodes",
+              "operator": "gte",
+              "value": "4",
+              "source_text": "shows",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "19815",
+            "title": "No Game, No Life",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '4'}]",
+            "preference_similarity": 0.2123
+          },
+          {
+            "id": "21459",
+            "title": "My Hero Academia",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '4'}]",
+            "preference_similarity": 0.1773
+          },
+          {
+            "id": "21507",
+            "title": "Mob Psycho 100",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '4'}]",
+            "preference_similarity": 0.1589
+          },
+          {
+            "id": "20605",
+            "title": "Tokyo Ghoul",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '4'}]",
+            "preference_similarity": 0.1536
+          },
+          {
+            "id": "101921",
+            "title": "Kaguya-sama: Love is War",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '4'}]",
+            "preference_similarity": 0.149
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "episodes",
+            "operator": "gte",
+            "value": "4"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.182482,
+      "arguments": {
+        "filters": [
+          {
+            "field": "episodes",
+            "operator": "gte",
+            "value": "4"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "episodes",
+              "operator": "gte",
+              "value": "4"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": [
+            {
+              "field": "episodes",
+              "operator": "gte",
+              "value": "4",
+              "source_text": "shows",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "19815",
+            "title": "No Game, No Life",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '4'}]",
+            "preference_similarity": 0.2123
+          },
+          {
+            "id": "21459",
+            "title": "My Hero Academia",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '4'}]",
+            "preference_similarity": 0.1773
+          },
+          {
+            "id": "21507",
+            "title": "Mob Psycho 100",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '4'}]",
+            "preference_similarity": 0.1589
+          },
+          {
+            "id": "20605",
+            "title": "Tokyo Ghoul",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '4'}]",
+            "preference_similarity": 0.1536
+          },
+          {
+            "id": "101921",
+            "title": "Kaguya-sama: Love is War",
+            "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '4'}]",
+            "preference_similarity": 0.149
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000551
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "search_features",
+        "arguments": {
+          "query": "ridiculous situations",
+          "kind": "tag",
+          "limit": 10
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "surreal comedy",
+              "name": "Surreal Comedy",
+              "description": "Prominently features comedic moments that defy casual reasoning, resulting in illogical events.",
+              "category": "Theme-Comedy",
+              "similarity": 0.4069
+            },
+            {
+              "kind": "tag",
+              "id": "fake relationship",
+              "name": "Fake Relationship",
+              "description": "When two characters enter a fake relationship that mutually benefits one or both involved.",
+              "category": "Theme-Drama",
+              "similarity": 0.3397
+            },
+            {
+              "kind": "tag",
+              "id": "augmented reality",
+              "name": "Augmented Reality",
+              "description": "Prominently features events with augmented reality as the main setting.",
+              "category": "Setting-Universe",
+              "similarity": 0.3113
+            },
+            {
+              "kind": "tag",
+              "id": "parody",
+              "name": "Parody",
+              "description": "Features deliberate exaggeration of popular tropes or a particular genre to comedic effect.",
+              "category": "Theme-Comedy",
+              "similarity": 0.307
+            }
+          ]
+        },
+        "elapsed_seconds": 0.041528
+      },
+      {
+        "step": 1,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "genres",
+              "operator": "contains",
+              "value": "slapstick"
+            },
+            {
+              "field": "genres",
+              "operator": "contains",
+              "value": "surreal comedy"
+            },
+            {
+              "field": "genres",
+              "operator": "contains",
+              "value": "parody"
+            },
+            {
+              "field": "genres",
+              "operator": "contains",
+              "value": "satire"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "episodes",
+                "operator": "gte",
+                "value": "4"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "episodes",
+                "operator": "gte",
+                "value": "4",
+                "source_text": "shows",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "19815",
+              "title": "No Game, No Life",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '4'}]",
+              "preference_similarity": 0.2123
+            },
+            {
+              "id": "21459",
+              "title": "My Hero Academia",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '4'}]",
+              "preference_similarity": 0.1773
+            },
+            {
+              "id": "21507",
+              "title": "Mob Psycho 100",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '4'}]",
+              "preference_similarity": 0.1589
+            },
+            {
+              "id": "20605",
+              "title": "Tokyo Ghoul",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '4'}]",
+              "preference_similarity": 0.1536
+            },
+            {
+              "id": "101921",
+              "title": "Kaguya-sama: Love is War",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '4'}]",
+              "preference_similarity": 0.149
+            }
+          ]
+        },
+        "elapsed_seconds": 0.189802
+      },
+      {
+        "step": 2,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "episodes",
+              "operator": "gte",
+              "value": "4"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "episodes",
+                "operator": "gte",
+                "value": "4"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": [
+              {
+                "field": "episodes",
+                "operator": "gte",
+                "value": "4",
+                "source_text": "shows",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "19815",
+              "title": "No Game, No Life",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '4'}]",
+              "preference_similarity": 0.2123
+            },
+            {
+              "id": "21459",
+              "title": "My Hero Academia",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '4'}]",
+              "preference_similarity": 0.1773
+            },
+            {
+              "id": "21507",
+              "title": "Mob Psycho 100",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '4'}]",
+              "preference_similarity": 0.1589
+            },
+            {
+              "id": "20605",
+              "title": "Tokyo Ghoul",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '4'}]",
+              "preference_similarity": 0.1536
+            },
+            {
+              "id": "101921",
+              "title": "Kaguya-sama: Love is War",
+              "reason": "Matches: filters=[{'field': 'episodes', 'operator': 'gte', 'value': '4'}]",
+              "preference_similarity": 0.149
+            }
+          ]
+        },
+        "elapsed_seconds": 0.182482
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 5.297806,
+      "prepare_context": 0.001457,
+      "retrieve_guides": 0.007127,
+      "feature_candidates": 0.009109,
+      "planning": 5.588817,
+      "tools": 0.413812,
+      "generate_answer": 0.000551
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"ridiculous situations\", \"query\": \"ridiculous situations\", \"kind\": \"genre\", \"role\": \"preferred\", \"meaning\": \"Desired tone\"}]}",
+      "{\n  \"min\": 4,\n  \"max\": null\n}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "ridiculous situations",
+        "query": "ridiculous situations",
+        "kind": "genre",
+        "role": "preferred",
+        "meaning": "Desired tone"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Comedic situations\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "ridiculous situations",
+          "name": "",
+          "meaning": "Comedic situations"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {
+      "episodes": {
+        "sources": [
+          "shows"
+        ],
+        "interpretations": [
+          "range"
+        ]
+      }
+    },
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [],
+      "excluded": [],
+      "preferred": [
+        "ridiculous situations"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "episodes",
+          "operator": "gte",
+          "value": "4"
+        }
+      ],
+      "soft_query": "ridiculous situations",
+      "limitations": [],
+      "mappings": [
+        {
+          "field": "episodes",
+          "operator": "gte",
+          "value": "4",
+          "source_text": "shows",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "ridiculous situations",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "ridiculous situations",
+            "name": "",
+            "meaning": "Comedic situations"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "ridiculous situations",
+            "kind": "tag",
+            "limit": 10
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "genres",
+                "operator": "contains",
+                "value": "slapstick"
+              },
+              {
+                "field": "genres",
+                "operator": "contains",
+                "value": "surreal comedy"
+              },
+              {
+                "field": "genres",
+                "operator": "contains",
+                "value": "parody"
+              },
+              {
+                "field": "genres",
+                "operator": "contains",
+                "value": "satire"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "episodes",
+                "operator": "gte",
+                "value": "4"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

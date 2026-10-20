@@ -1,0 +1,929 @@
+{
+  "question_id": "cyberpunk_02",
+  "category": "tags",
+  "intent_family": "cyberpunk",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "Which four anime have grimy high-tech cities, body upgrades, and a future that feels pretty broken?",
+  "k": 4,
+  "constraints": [
+    {
+      "field": "tags",
+      "op": "any",
+      "value": [
+        "Cyberpunk"
+      ],
+      "alternatives": [
+        {
+          "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+          "constraints": [
+            {
+              "field": "genres",
+              "op": "any",
+              "value": [
+                "Sci-Fi"
+              ]
+            },
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Dystopian"
+              ]
+            },
+            {
+              "field": "tags",
+              "op": "any",
+              "value": [
+                "Cyborg",
+                "Artificial Intelligence"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "label_rationale": "High technology and a gritty unequal future are a Cyberpunk proxy.",
+  "semantic_policy": "reviewed_alternatives",
+  "strict_catalog_matches": 239,
+  "reference_examples": [
+    {
+      "id": "100168",
+      "title": "Blade Runner: Black Out 2022"
+    },
+    {
+      "id": "1079",
+      "title": "Armitage III"
+    },
+    {
+      "id": "1095",
+      "title": "Patlabor: The Movie"
+    }
+  ],
+  "answer_text": "Catalog matches. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **Attack on Titan** — Several hundred years ago, humans were nearly exterminated by titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest of titans. Flash forward to the present and the city has not seen a…\n\n2. **Demon Slayer: Kimetsu no Yaiba** — It is the Taisho Period in Japan. Tanjiro, a kindhearted boy who sells charcoal for a living, finds his family slaughtered by a demon. To make matters worse, his younger sister Nezuko, the sole survivor, has been transformed into a demon herself. Though devastated by this grim reality, Tanjiro resolves to become a “demon slayer” so that he can turn his sister back into a human, and kill the demon that massacred his family. (Source: Crunchyroll)\n\n3. **JUJUTSU KAISEN** — A boy fights... for \"the right death.\" Hardship, regret, shame: the negative feelings that humans feel become Curses that lurk in our everyday lives. The Curses run rampant throughout the world, capable of leading people to terrible misfortune and even death. What's more, the Curses can only be exorcised by another Curse. Itadori Yuji is a boy with tremendous physical strength, though he lives a completely ordinary high school life. One day, to…\n\n4. **Death Note** — Light Yagami is a genius high school student who is about to learn about life through a book of death. When a bored shinigami, a God of Death, named Ryuk drops a black notepad called a Death Note, Light receives power over life and death with the stroke of a pen. Determined to use this dark gift for the best, Light sets out to rid the world of evil… namely, the people he believes to be evil. Should anyone hold such power? The consequences of…\n\n5. **My Hero Academia** — What would the world be like if 80 percent of the population manifested extraordinary superpowers called “Quirks” at age four? Heroes and villains would be battling it out everywhere! Becoming a hero would mean learning to use your power, but where would you go to study? U.A. High's Hero Program of course! But what would you do if you were one of the 20 percent who were born Quirkless? Middle school student Izuku Midoriya wants to be a hero more…",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "Attack on Titan",
+      "Demon Slayer: Kimetsu no Yaiba",
+      "JUJUTSU KAISEN",
+      "Death Note",
+      "My Hero Academia"
+    ],
+    "unclear": false,
+    "note": "None",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "Attack on Titan",
+      "anime_id": "16498",
+      "canonical_title": "Attack on Titan",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "16498"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Sci-Fi"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Dystopian"
+                    ]
+                  },
+                  "score": 0.77
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cyborg",
+                      "Artificial Intelligence"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Demon Slayer: Kimetsu no Yaiba",
+      "anime_id": "101922",
+      "canonical_title": "Demon Slayer: Kimetsu no Yaiba",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "101922"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Sci-Fi"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Dystopian"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cyborg",
+                      "Artificial Intelligence"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 3,
+      "extracted_title": "JUJUTSU KAISEN",
+      "anime_id": "113415",
+      "canonical_title": "JUJUTSU KAISEN",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "113415"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Sci-Fi"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Dystopian"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cyborg",
+                      "Artificial Intelligence"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Death Note",
+      "anime_id": "1535",
+      "canonical_title": "Death Note",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "1535"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Sci-Fi"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Dystopian"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cyborg",
+                      "Artificial Intelligence"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 5,
+      "extracted_title": "My Hero Academia",
+      "anime_id": "21459",
+      "canonical_title": "My Hero Academia",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "21459"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 0.0,
+          "met": false,
+          "literal_score": 0.0,
+          "literal_met": false,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 0.0,
+              "met": false,
+              "support": []
+            },
+            {
+              "path": "alternative_1",
+              "reason": "A dystopian science-fiction setting combined with cyborgs or artificial intelligence supports the described harsh technological future without a Cyberpunk tag. Sci-Fi alone is insufficient.",
+              "score": 0.0,
+              "met": false,
+              "support": [
+                {
+                  "constraint": {
+                    "field": "genres",
+                    "op": "any",
+                    "value": [
+                      "Sci-Fi"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Dystopian"
+                    ]
+                  },
+                  "score": 0.0
+                },
+                {
+                  "constraint": {
+                    "field": "tags",
+                    "op": "any",
+                    "value": [
+                      "Cyborg",
+                      "Artificial Intelligence"
+                    ]
+                  },
+                  "score": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 0.0,
+    "graded_fit_at_k": 0.0,
+    "ndcg_at_k": 0.0,
+    "constraint_coverage": 0.0,
+    "count_compliance": 0,
+    "resolution_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "extra_count": 1,
+    "literal_precision_at_k": 0.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 18.679562958999668,
+  "extraction_seconds": 1.5731704170002558,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.4e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001055
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 10.779463
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.012465
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.009314
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.010648
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 7.794406
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "Recommend anime based on user preferences",
+        "clarification": "The user is requesting anime recommendations with specific themes: grimy high-tech cities, body upgrades, and a future that feels pretty broken. I will use the `recommend_anime` tool to find suitable anime based on these criteria.",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "query": "grimy high-tech cities body upgrades future that feels pretty broken",
+              "limit": 5,
+              "sort_by": "popularity"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "98607",
+            "name": "Anime-Gataris"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "query": "grimy high-tech cities body upgrades future that feels pretty broken",
+        "limit": 5,
+        "sort_by": "popularity"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.070379,
+      "arguments": {
+        "query": "grimy high-tech cities body upgrades future that feels pretty broken",
+        "limit": 5,
+        "sort_by": "popularity"
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "sort_by": "popularity",
+          "filters": []
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [],
+          "mappings": []
+        },
+        "items": [
+          {
+            "id": "16498",
+            "title": "Attack on Titan",
+            "reason": "Matches: sort_by=popularity, filters=[]"
+          },
+          {
+            "id": "101922",
+            "title": "Demon Slayer: Kimetsu no Yaiba",
+            "reason": "Matches: sort_by=popularity, filters=[]"
+          },
+          {
+            "id": "113415",
+            "title": "JUJUTSU KAISEN",
+            "reason": "Matches: sort_by=popularity, filters=[]"
+          },
+          {
+            "id": "1535",
+            "title": "Death Note",
+            "reason": "Matches: sort_by=popularity, filters=[]"
+          },
+          {
+            "id": "21459",
+            "title": "My Hero Academia",
+            "reason": "Matches: sort_by=popularity, filters=[]"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.00061
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "query": "grimy high-tech cities body upgrades future that feels pretty broken",
+          "limit": 5,
+          "sort_by": "popularity"
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "sort_by": "popularity",
+            "filters": []
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [],
+            "mappings": []
+          },
+          "items": [
+            {
+              "id": "16498",
+              "title": "Attack on Titan",
+              "reason": "Matches: sort_by=popularity, filters=[]"
+            },
+            {
+              "id": "101922",
+              "title": "Demon Slayer: Kimetsu no Yaiba",
+              "reason": "Matches: sort_by=popularity, filters=[]"
+            },
+            {
+              "id": "113415",
+              "title": "JUJUTSU KAISEN",
+              "reason": "Matches: sort_by=popularity, filters=[]"
+            },
+            {
+              "id": "1535",
+              "title": "Death Note",
+              "reason": "Matches: sort_by=popularity, filters=[]"
+            },
+            {
+              "id": "21459",
+              "title": "My Hero Academia",
+              "reason": "Matches: sort_by=popularity, filters=[]"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.070379
+      }
+    ],
+    "llm_calls": 3,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 10.779463,
+      "prepare_context": 0.012465,
+      "retrieve_guides": 0.009314,
+      "feature_candidates": 0.010648,
+      "planning": 7.794406,
+      "tools": 0.070379,
+      "generate_answer": 0.00061
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"grimy high-tech cities\", \"query\": \"grimy high-tech cities\", \"kind\": \"genre\", \"role\": \"preferred\", \"meaning\": \"Setting\"}, {\"text\": \"body upgrades\", \"query\": \"body upgrades\", \"kind\": \"genre\", \"role\": \"preferred\", \"meaning\": \"Theme\"}, {\"text\": \"future that feels pretty broken\", \"query\": \"future that feels pretty broken\", \"kind\": \"description\", \"role\": \"preferred\", \"meaning\": \"Tone\"}, {\"text\": \"anime\", \"query\": \"anime\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Anime type\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "grimy high-tech cities",
+        "query": "grimy high-tech cities",
+        "kind": "genre",
+        "role": "preferred",
+        "meaning": "Setting"
+      },
+      {
+        "text": "body upgrades",
+        "query": "body upgrades",
+        "kind": "genre",
+        "role": "preferred",
+        "meaning": "Theme"
+      },
+      {
+        "text": "future that feels pretty broken",
+        "query": "future that feels pretty broken",
+        "kind": "description",
+        "role": "preferred",
+        "meaning": "Tone"
+      },
+      {
+        "text": "anime",
+        "query": "anime",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Anime type"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"None\", \"decisions\": {\"p0\": {\"meaning\": \"Setting\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}, \"p1\": {\"meaning\": \"Theme\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}, \"p2\": {\"meaning\": \"Tone\", \"role\": \"preferred\", \"selection\": \"unmapped description\"}, \"p3\": {\"meaning\": \"Anime type\", \"role\": \"subject\", \"selection\": \"Anime-Gataris | anime:98607\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "grimy high-tech cities",
+          "name": "",
+          "meaning": "Setting"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "body upgrades",
+          "name": "",
+          "meaning": "Theme"
+        },
+        {
+          "phrase_index": 2,
+          "kind": "description",
+          "id": "",
+          "role": "preferred",
+          "text": "future that feels pretty broken",
+          "name": "",
+          "meaning": "Tone"
+        },
+        {
+          "phrase_index": 3,
+          "kind": "anime",
+          "id": "98607",
+          "role": "subject",
+          "text": "anime",
+          "name": "Anime-Gataris",
+          "meaning": "Anime type"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 3,
+          "kind": "anime",
+          "id": "98607",
+          "role": "subject",
+          "text": "anime",
+          "name": "Anime-Gataris",
+          "meaning": "Anime type"
+        }
+      ],
+      "clarification": ""
+    },
+    "attribute_retrieval": {},
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Anime-Gataris"
+      ],
+      "required": [],
+      "excluded": [],
+      "preferred": [
+        "grimy high-tech cities",
+        "body upgrades",
+        "future that feels pretty broken"
+      ]
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Anime-Gataris"
+      ],
+      "filters": [],
+      "soft_query": "grimy high-tech cities body upgrades future that feels pretty broken",
+      "limitations": [],
+      "mappings": [],
+      "preference_hierarchy": [
+        {
+          "phrase": "grimy high-tech cities",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        },
+        {
+          "phrase": "body upgrades",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        },
+        {
+          "phrase": "future that feels pretty broken",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "broader"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "grimy high-tech cities",
+            "name": "",
+            "meaning": "Setting"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "body upgrades",
+            "name": "",
+            "meaning": "Theme"
+          },
+          {
+            "phrase_index": 2,
+            "kind": "description",
+            "id": "",
+            "role": "preferred",
+            "text": "future that feels pretty broken",
+            "name": "",
+            "meaning": "Tone"
+          },
+          {
+            "phrase_index": 3,
+            "kind": "anime",
+            "id": "98607",
+            "role": "subject",
+            "text": "anime",
+            "name": "Anime-Gataris",
+            "meaning": "Anime type"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 3,
+            "kind": "anime",
+            "id": "98607",
+            "role": "subject",
+            "text": "anime",
+            "name": "Anime-Gataris",
+            "meaning": "Anime type"
+          }
+        ],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "Recommend anime based on user preferences",
+      "clarification": "The user is requesting anime recommendations with specific themes: grimy high-tech cities, body upgrades, and a future that feels pretty broken. I will use the `recommend_anime` tool to find suitable anime based on these criteria.",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "query": "grimy high-tech cities body upgrades future that feels pretty broken",
+            "limit": 5,
+            "sort_by": "popularity"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

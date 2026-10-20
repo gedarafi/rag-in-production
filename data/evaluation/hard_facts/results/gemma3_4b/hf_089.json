@@ -1,0 +1,555 @@
+{
+  "question_id": "hf_089",
+  "anime_id": "101280",
+  "title": "That Time I Got Reincarnated as a Slime",
+  "field": "format",
+  "question": "Is That Time I Got Reincarnated as a Slime's original adaptation a TV anime or movie?",
+  "expected_values": [
+    "TV"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Catalog matches.\n\n1. **Attack on Titan** — Several hundred years ago, humans were nearly exterminated by titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest of titans. Flash forward to the present and the city has not seen a…\n\n2. **Demon Slayer: Kimetsu no Yaiba** — It is the Taisho Period in Japan. Tanjiro, a kindhearted boy who sells charcoal for a living, finds his family slaughtered by a demon. To make matters worse, his younger sister Nezuko, the sole survivor, has been transformed into a demon herself. Though devastated by this grim reality, Tanjiro resolves to become a “demon slayer” so that he can turn his sister back into a human, and kill the demon that massacred his family. (Source: Crunchyroll)\n\n3. **JUJUTSU KAISEN** — A boy fights... for \"the right death.\" Hardship, regret, shame: the negative feelings that humans feel become Curses that lurk in our everyday lives. The Curses run rampant throughout the world, capable of leading people to terrible misfortune and even death. What's more, the Curses can only be exorcised by another Curse. Itadori Yuji is a boy with tremendous physical strength, though he lives a completely ordinary high school life. One day, to…\n\n4. **Death Note** — Light Yagami is a genius high school student who is about to learn about life through a book of death. When a bored shinigami, a God of Death, named Ryuk drops a black notepad called a Death Note, Light receives power over life and death with the stroke of a pen. Determined to use this dark gift for the best, Light sets out to rid the world of evil… namely, the people he believes to be evil. Should anyone hold such power? The consequences of…\n\n5. **My Hero Academia** — What would the world be like if 80 percent of the population manifested extraordinary superpowers called “Quirks” at age four? Heroes and villains would be battling it out everywhere! Becoming a hero would mean learning to use your power, but where would you go to study? U.A. High's Hero Program of course! But what would you do if you were one of the 20 percent who were born Quirkless? Middle school student Izuku Midoriya wants to be a hero more…",
+  "extracted_values": [
+    "TV anime"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 11.71215812499986,
+  "extraction_seconds": 1.1113702090001425,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "TV anime",
+        "quote": "Catalog matches.\n\n1. **Attack on Titan** — Several hundred years ago, humans were nearly exterminated by titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest of titans. Flash forward to the present and the city has not seen a…\n\n2. **Demon Slayer: Kimetsu no Yaiba** — It is the Taisho Period in Japan. Tanjiro, a kindhearted boy who sells charcoal for a living, finds his family slaughtered by a demon. To make matters worse, his younger sister Nezuko, the sole survivor, has been transformed into a demon herself. Though devastated by this grim reality, Tanjiro resolves to become a “demon slayer” so that he can turn his sister back into a human, and kill the demon that massacred his family. (Source: Crunchyroll)\n\n3. **JUJUTSU KAISEN** — A boy fights... for \"the right death.\" Hardship, regret, shame: the negative feelings that humans feel become Curses that lurk in our everyday lives. The Curses run rampant throughout the world, capable of leading people to terrible misfortune and even death. What's more, the Curses can only be exorcised by another Curse. Itadori Yuji is a boy with tremendous physical strength, though he lives a completely ordinary high school life. One day, to…\n\n4. **Death Note** — Light Yagami is a genius high school student who is about to learn about life through a book of death. When a bored shinigami, a God of Death, named Ryuk drops a black notepad called a Death Note, Light receives power over life and death with the stroke of a pen. Determined to use this dark gift for the best, Light sets out to rid the world of evil… namely, the people he believes to be evil. Should anyone hold such power? The consequences of…\n\n5. **My Hero Academia** — What would the world be like if 80 percent of the population manifested extraordinary superpowers called “Quirks” at age four? Heroes and villains would be battling it out everywhere! Becoming a hero would mean learning to use your power, but where would you go to study? U.A. High's Hero Program of course! But what would you do if you were one of the 20 percent who were born Quirkless? Middle school student Izuku Midoriya wants to be a hero more…"
+      }
+    ],
+    "note": "original adaptation",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "missing_values": [
+      "tv"
+    ],
+    "extra_values": [
+      "tv anime"
+    ]
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101280"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "101280",
+          "title": "That Time I Got Reincarnated as a Slime"
+        },
+        "elapsed_seconds": 0.01438
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "anime adaptation type",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "clone",
+              "name": "Clone",
+              "description": "Prominently features a character who is an artificial exact copy of another organism.",
+              "category": "Cast-Traits",
+              "similarity": 0.4428
+            },
+            {
+              "kind": "tag",
+              "id": "shapeshifting",
+              "name": "Shapeshifting",
+              "description": "Features character(s) who changes one's appearance or form.",
+              "category": "Theme-Fantasy",
+              "similarity": 0.4223
+            },
+            {
+              "kind": "tag",
+              "id": "artificial intelligence",
+              "name": "Artificial Intelligence",
+              "description": "Intelligent non-organic machines that work and react similarly to humans.",
+              "category": "Cast-Traits",
+              "similarity": 0.3885
+            },
+            {
+              "kind": "tag",
+              "id": "robots",
+              "name": "Robots",
+              "description": "Prominently features humanoid machines.",
+              "category": "Cast-Traits",
+              "similarity": 0.3567
+            }
+          ]
+        },
+        "elapsed_seconds": 0.03274
+      },
+      {
+        "step": 2,
+        "tool": "recommend_anime",
+        "arguments": {
+          "query": "anime adaptation type",
+          "limit": 5
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "sort_by": "popularity"
+          },
+          "items": [
+            {
+              "id": "16498",
+              "title": "Attack on Titan",
+              "reason": "Matches: sort_by=popularity"
+            },
+            {
+              "id": "101922",
+              "title": "Demon Slayer: Kimetsu no Yaiba",
+              "reason": "Matches: sort_by=popularity"
+            },
+            {
+              "id": "113415",
+              "title": "JUJUTSU KAISEN",
+              "reason": "Matches: sort_by=popularity"
+            },
+            {
+              "id": "1535",
+              "title": "Death Note",
+              "reason": "Matches: sort_by=popularity"
+            },
+            {
+              "id": "21459",
+              "title": "My Hero Academia",
+              "reason": "Matches: sort_by=popularity"
+            }
+          ]
+        },
+        "elapsed_seconds": 0.050575
+      }
+    ],
+    "llm_calls": 3,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 4.408522,
+      "prepare_context": 0.018151,
+      "retrieve_guides": 0.033012,
+      "feature_candidates": 0.022657,
+      "planning": 7.128296,
+      "tools": 0.097695,
+      "generate_answer": 0.000739
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"That Time I Got Reincarnated as a Slime\", \"query\": \"That Time I Got Reincarnated as a Slime\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Requested title\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "That Time I Got Reincarnated as a Slime",
+        "query": "That Time I Got Reincarnated as a Slime",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Requested title"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"To clarify, are you asking about the initial TV anime adaptation of That Time I Got Reincarnated as a Slime, or the movie adaptation?\", \"decisions\": {\"p0\": {\"meaning\": \"That Time I Got Reincarnated as a Slime\", \"role\": \"subject\", \"selection\": \"That Time I Got Reincarnated as a Slime | anime:101280\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101280",
+          "role": "subject",
+          "text": "That Time I Got Reincarnated as a Slime",
+          "name": "That Time I Got Reincarnated as a Slime",
+          "meaning": "That Time I Got Reincarnated as a Slime"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101280",
+          "role": "subject",
+          "text": "That Time I Got Reincarnated as a Slime",
+          "name": "That Time I Got Reincarnated as a Slime",
+          "meaning": "That Time I Got Reincarnated as a Slime"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "That Time I Got Reincarnated as a Slime"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101280",
+            "role": "subject",
+            "text": "That Time I Got Reincarnated as a Slime",
+            "name": "That Time I Got Reincarnated as a Slime",
+            "meaning": "That Time I Got Reincarnated as a Slime"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101280",
+            "role": "subject",
+            "text": "That Time I Got Reincarnated as a Slime",
+            "name": "That Time I Got Reincarnated as a Slime",
+            "meaning": "That Time I Got Reincarnated as a Slime"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "determine the original adaptation type of That Time I Got Reincarnated as a Slime",
+      "clarification": "Confirm if the initial adaptation was a TV anime or a movie.",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101280"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "anime adaptation type",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "query": "anime adaptation type",
+            "limit": 5
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "101280",
+          "name": "That Time I Got Reincarnated as a Slime"
+        }
+      ],
+      "characters": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.7e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00098
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 4.408522
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.018151
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.033012
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.022657
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 7.128296
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "determine the original adaptation type of That Time I Got Reincarnated as a Slime",
+        "clarification": "Confirm if the initial adaptation was a TV anime or a movie.",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101280"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "anime adaptation type",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "query": "anime adaptation type",
+              "limit": 5
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "101280",
+            "name": "That Time I Got Reincarnated as a Slime"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101280"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.01438,
+      "arguments": {
+        "id": "101280"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "101280",
+        "title": "That Time I Got Reincarnated as a Slime"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "anime adaptation type",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.03274,
+      "arguments": {
+        "query": "anime adaptation type",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "clone",
+            "name": "Clone",
+            "description": "Prominently features a character who is an artificial exact copy of another organism.",
+            "category": "Cast-Traits",
+            "similarity": 0.4428
+          },
+          {
+            "kind": "tag",
+            "id": "shapeshifting",
+            "name": "Shapeshifting",
+            "description": "Features character(s) who changes one's appearance or form.",
+            "category": "Theme-Fantasy",
+            "similarity": 0.4223
+          },
+          {
+            "kind": "tag",
+            "id": "artificial intelligence",
+            "name": "Artificial Intelligence",
+            "description": "Intelligent non-organic machines that work and react similarly to humans.",
+            "category": "Cast-Traits",
+            "similarity": 0.3885
+          },
+          {
+            "kind": "tag",
+            "id": "robots",
+            "name": "Robots",
+            "description": "Prominently features humanoid machines.",
+            "category": "Cast-Traits",
+            "similarity": 0.3567
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "recommend_anime",
+      "arguments": {
+        "query": "anime adaptation type",
+        "limit": 5
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.050575,
+      "arguments": {
+        "query": "anime adaptation type",
+        "limit": 5
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "sort_by": "popularity"
+        },
+        "items": [
+          {
+            "id": "16498",
+            "title": "Attack on Titan",
+            "reason": "Matches: sort_by=popularity"
+          },
+          {
+            "id": "101922",
+            "title": "Demon Slayer: Kimetsu no Yaiba",
+            "reason": "Matches: sort_by=popularity"
+          },
+          {
+            "id": "113415",
+            "title": "JUJUTSU KAISEN",
+            "reason": "Matches: sort_by=popularity"
+          },
+          {
+            "id": "1535",
+            "title": "Death Note",
+            "reason": "Matches: sort_by=popularity"
+          },
+          {
+            "id": "21459",
+            "title": "My Hero Academia",
+            "reason": "Matches: sort_by=popularity"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000739
+    }
+  ]
+}

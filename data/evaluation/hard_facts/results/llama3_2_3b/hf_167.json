@@ -1,0 +1,345 @@
+{
+  "question_id": "hf_167",
+  "anime_id": "21519",
+  "title": "Your Name.",
+  "field": "main_characters",
+  "question": "Who are all the main characters in Your Name, according to the catalog?",
+  "expected_values": [
+    "Mitsuha Miyamizu",
+    "Taki Tachibana"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "Mitsuha Miyamizu and Taki Tachibana",
+  "extracted_values": [
+    "Mitsuha Miyamizu",
+    "Taki Tachibana"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 9.956741791998866,
+  "extraction_seconds": 0.6640761250000651,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "Mitsuha Miyamizu",
+        "quote": "Mitsuha Miyamizu and Taki Tachibana"
+      },
+      {
+        "value": "Taki Tachibana",
+        "quote": "Mitsuha Miyamizu and Taki Tachibana"
+      }
+    ],
+    "note": "catalog",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 2,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "21519",
+          "section": "cast"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "21519",
+          "title": "Your Name."
+        },
+        "elapsed_seconds": 0.007781
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 1.885373,
+      "prepare_context": 0.015343,
+      "retrieve_guides": 0.029343,
+      "feature_candidates": 0.015868,
+      "planning": 3.586513,
+      "tools": 0.007781,
+      "generate_answer": 4.414288
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Your Name\", \"query\": \"Your Name\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Main characters\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Your Name",
+        "query": "Your Name",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Main characters"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"None\", \"decisions\": {\"p0\": {\"meaning\": \"Main characters\", \"role\": \"subject\", \"selection\": \"Your Name. | anime:21519\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21519",
+          "role": "subject",
+          "text": "Your Name",
+          "name": "Your Name.",
+          "meaning": "Main characters"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "21519",
+          "role": "subject",
+          "text": "Your Name",
+          "name": "Your Name.",
+          "meaning": "Main characters"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Your Name."
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21519",
+            "role": "subject",
+            "text": "Your Name",
+            "name": "Your Name.",
+            "meaning": "Main characters"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "21519",
+            "role": "subject",
+            "text": "Your Name",
+            "name": "Your Name.",
+            "meaning": "Main characters"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Get main characters in Your Name",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "21519",
+            "section": "cast"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "21519",
+          "name": "Your Name."
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:21519",
+          "fact": "The main characters in Your Name are Mitsuha Miyamizu and Taki Tachibana."
+        },
+        {
+          "subject": "anime:21519",
+          "fact": "Mitsuha Miyamizu is a high school girl who yearns to live the life of a boy in the bustling city of Tokyo."
+        },
+        {
+          "subject": "anime:21519",
+          "fact": "Taki Tachibana lives a busy life as a high school student while juggling his part-time job and hopes for a future in architecture."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 5.3e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000784
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 1.885373
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.015343
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.029343
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.015868
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.586513
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Get main characters in Your Name",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "21519",
+              "section": "cast"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "21519",
+            "name": "Your Name."
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "21519",
+        "section": "cast"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.007781,
+      "arguments": {
+        "id": "21519",
+        "section": "cast"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "21519",
+        "title": "Your Name."
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.414288
+    }
+  ]
+}

@@ -1,0 +1,391 @@
+{
+  "question_id": "hf_010",
+  "anime_id": "20954",
+  "title": "A Silent Voice",
+  "field": "year",
+  "question": "Which year was the anime film A Silent Voice released?",
+  "expected_values": [
+    2016.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "2016",
+  "extracted_values": [
+    "2016"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 11.158403417000045,
+  "extraction_seconds": 0.5946922500006622,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "2016",
+        "quote": "2016"
+      }
+    ],
+    "note": "assertion for year of A Silent Voice film release",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20954",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20954",
+          "title": "A Silent Voice"
+        },
+        "elapsed_seconds": 0.012259
+      },
+      {
+        "step": 1,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "release year of A Silent Voice",
+          "anime_ids": [
+            "20954"
+          ]
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.025056
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 1.956509,
+      "prepare_context": 0.016806,
+      "retrieve_guides": 0.028391,
+      "feature_candidates": 0.971645,
+      "planning": 4.225723,
+      "tools": 0.037315,
+      "generate_answer": 3.918412
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"A Silent Voice\", \"query\": \"A Silent Voice\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Film; 2016 release\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "A Silent Voice",
+        "query": "A Silent Voice",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Film; 2016 release"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Film; 2016 release\", \"role\": \"subject\", \"selection\": \"A Silent Voice | anime:20954\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20954",
+          "role": "subject",
+          "text": "A Silent Voice",
+          "name": "A Silent Voice",
+          "meaning": "Film; 2016 release"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20954",
+          "role": "subject",
+          "text": "A Silent Voice",
+          "name": "A Silent Voice",
+          "meaning": "Film; 2016 release"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "A Silent Voice"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20954",
+            "role": "subject",
+            "text": "A Silent Voice",
+            "name": "A Silent Voice",
+            "meaning": "Film; 2016 release"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20954",
+            "role": "subject",
+            "text": "A Silent Voice",
+            "name": "A Silent Voice",
+            "meaning": "Film; 2016 release"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "find the release year of the anime film A Silent Voice",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20954",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "release year of A Silent Voice",
+            "anime_ids": [
+              "20954"
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "20954",
+          "name": "A Silent Voice"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:20954",
+          "fact": "The anime film A Silent Voice was released in 2016."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 8.5e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.001909
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 1.956509
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.016806
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.028391
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.971645
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.225723
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "find the release year of the anime film A Silent Voice",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20954",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "release year of A Silent Voice",
+              "anime_ids": [
+                "20954"
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "20954",
+            "name": "A Silent Voice"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20954",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.012259,
+      "arguments": {
+        "id": "20954",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20954",
+        "title": "A Silent Voice"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "release year of A Silent Voice",
+        "anime_ids": [
+          "20954"
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.025056,
+      "arguments": {
+        "query": "release year of A Silent Voice",
+        "anime_ids": [
+          "20954"
+        ]
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.918412
+    }
+  ]
+}

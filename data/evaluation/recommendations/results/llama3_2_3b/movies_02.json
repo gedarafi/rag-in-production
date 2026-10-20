@@ -1,0 +1,90 @@
+{
+  "question_id": "movies_02",
+  "category": "formats",
+  "intent_family": "movies",
+  "wording": "indirect",
+  "question_origin": "authored_naturalistic",
+  "question": "I do not want to start a series. What are four animated films from the anime catalog I could watch?",
+  "k": 4,
+  "constraints": [
+    {
+      "field": "format",
+      "op": "any",
+      "value": [
+        "MOVIE"
+      ]
+    }
+  ],
+  "label_rationale": "Movie format only; no runtime cap is implied.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 3268,
+  "reference_examples": [
+    {
+      "id": "10005",
+      "title": "Tetsujin 28: Morning Moon of Midday"
+    },
+    {
+      "id": "10013",
+      "title": "Shouwa Monogatari (Movie)"
+    },
+    {
+      "id": "10016",
+      "title": "Kizuna Ichigeki"
+    }
+  ],
+  "answer_text": "",
+  "status": "model_error",
+  "error": "ValueError: Mention must be supported by the user request or selected user history: ['animated film']",
+  "extraction": null,
+  "recommendations": [],
+  "metrics": null,
+  "model_seconds": 1.8235936670007504,
+  "extraction_seconds": 0.0,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.5e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00069
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "error",
+      "elapsed_seconds": 1.822772,
+      "error": "Mention must be supported by the user request or selected user history: ['animated film']"
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [],
+    "llm_calls": 2,
+    "planned_tools": 0,
+    "executed_tools": 0,
+    "timings_seconds": {
+      "interpret_request": 1.822772
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"animated film\", \"query\": \"animated film\", \"kind\": \"genre\", \"role\": \"preferred\", \"meaning\": \"Four animated films from the anime catalog\"}]}",
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"animated film\", \"query\": \"animated film\", \"kind\": \"genre\", \"role\": \"preferred\", \"meaning\": \"Four animated films from the anime catalog\"}]}"
+    ],
+    "mention_classification_corrections": [
+      "Mention must be supported by the user request or selected user history: ['animated film']"
+    ]
+  }
+}

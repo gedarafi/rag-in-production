@@ -1,0 +1,951 @@
+{
+  "question_id": "recent_01",
+  "category": "release_year",
+  "intent_family": "recent",
+  "wording": "explicit",
+  "question_origin": "authored_naturalistic",
+  "question": "Recommend three anime first released in 2020 or later.",
+  "k": 3,
+  "constraints": [
+    {
+      "field": "year",
+      "op": "gte",
+      "value": 2020
+    }
+  ],
+  "label_rationale": "First release year of the specific catalog entry, inclusive from 2020.",
+  "semantic_policy": "literal",
+  "strict_catalog_matches": 5100,
+  "reference_examples": [
+    {
+      "id": "100643",
+      "title": "Made in Abyss: Dawn of the Deep Soul"
+    },
+    {
+      "id": "101168",
+      "title": "Plunderer"
+    },
+    {
+      "id": "101216",
+      "title": "Etotama: Nyankyaku Banrai"
+    }
+  ],
+  "answer_text": "Catalog matches — release year: at least 2020; release year: at most 2023. Ranked by your stated preferences; mood and tone are approximate matches.\n\n1. **BLUE LOCK** (2022) — Japan’s desire for World Cup glory leads the Japanese Football Association to launch a new rigorous training program to find the national team’s next striker. Three hundred high school players are pitted against each other for the position, but only one will come out on top. Who among them will be the striker to usher in a new era of Japanese soccer? (Source: Crunchyroll)\n\n2. **Komi Can’t Communicate** (2021) — Timid Tadano is a total wallflower, and that’s just the way he likes it. But all that changes when he finds himself alone in a classroom on the first day of high school with the legendary Komi. He quickly realizes she isn’t aloof—she’s just super awkward. Now he’s made it his mission to help her on her quest to make 100 friends! (Source: VIZ Media)\n\n3. **86 EIGHTY-SIX** (2021) — Called “Juggernaut,” these are the unmanned combat drones developed by the Republic of San Magnolia in answer to the attacks by the autonomous unmanned drones of the neighboring Empire of Giad, the “Legion”. But they’re only unmanned in name. In reality, they are piloted by the Eighty-sixers—those considered to be less than human and treated as mere tools. Determined to achieve his own mysterious ends, Shin, the captain of Spearhead Squadron…\n\n4. **Kaguya-sama: Love is War?** (2020) — After a slow but eventful summer vacation, Shuchiin Academy's second term is now starting in full force. As August transitions into September, Miyuki Shirogane's birthday looms ever closer, leaving Kaguya Shinomiya in a serious predicament as to how to celebrate it. Furthermore, the tenure of the school's 67th student council is coming to an end. Due to the council members being in different classes, the only time Kaguya and Miyuki have to be…\n\n5. **Re:ZERO -Starting Life in Another World- Season 2 Part 2** (2021) — After learning more behind the Death Loop and Witches of Sin, Subaru vows to save Emilia and his friends from further doom. (Source: Crunchyroll)\n\nThe exact requirement 'three' is assessed semantically from descriptions, not verified by a catalog category.",
+  "status": "scored",
+  "error": "",
+  "extraction": {
+    "titles": [
+      "BLUE LOCK",
+      "Komi Can’t Communicate",
+      "86 EIGHTY-SIX",
+      "Kaguya-sama: Love is War?",
+      "Re:ZERO -Starting Life in Another World- Season 2 Part 2"
+    ],
+    "unclear": false,
+    "note": "",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "extracted_title": "BLUE LOCK",
+      "anime_id": "137822",
+      "canonical_title": "BLUE LOCK",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "137822"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 2,
+      "extracted_title": "Komi Can’t Communicate",
+      "anime_id": "133965",
+      "canonical_title": "Komi Can’t Communicate",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "133965"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 3,
+      "extracted_title": "86 EIGHTY-SIX",
+      "anime_id": "116589",
+      "canonical_title": "86 EIGHTY-SIX",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "116589"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    },
+    {
+      "rank": 4,
+      "extracted_title": "Kaguya-sama: Love is War?",
+      "anime_id": null,
+      "canonical_title": null,
+      "resolution": "ambiguous",
+      "candidate_ids": [
+        "101921",
+        "112641"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        0.0
+      ],
+      "constraint_evidence": [],
+      "raw_fit": 0.0,
+      "gain": 0.0,
+      "strict_match": 0,
+      "literal_strict_match": 0
+    },
+    {
+      "rank": 5,
+      "extracted_title": "Re:ZERO -Starting Life in Another World- Season 2 Part 2",
+      "anime_id": "119661",
+      "canonical_title": "Re:ZERO -Starting Life in Another World- Season 2 Part 2",
+      "resolution": "resolved",
+      "candidate_ids": [
+        "119661"
+      ],
+      "duplicate": false,
+      "constraint_scores": [
+        1.0
+      ],
+      "constraint_evidence": [
+        {
+          "score": 1.0,
+          "met": true,
+          "literal_score": 1.0,
+          "literal_met": true,
+          "credited_path": "literal",
+          "graded_path": "literal",
+          "paths": [
+            {
+              "path": "literal",
+              "score": 1.0,
+              "met": true,
+              "support": []
+            }
+          ]
+        }
+      ],
+      "raw_fit": 1.0,
+      "gain": 1.0,
+      "strict_match": 1,
+      "literal_strict_match": 1
+    }
+  ],
+  "metrics": {
+    "precision_at_k": 1.0,
+    "graded_fit_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "constraint_coverage": 1.0,
+    "count_compliance": 0,
+    "resolution_rate": 0.8,
+    "duplicate_rate": 0.0,
+    "extra_count": 2,
+    "literal_precision_at_k": 1.0,
+    "semantic_credit_at_k": 0.0
+  },
+  "model_seconds": 18.34636116599995,
+  "extraction_seconds": 1.5995203749998836,
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.000747
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 11.210136
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "independent_recommendation",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.002355
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.034833
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013028
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 6.849078
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "recommend_anime",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "recommend_anime",
+            "arguments": {
+              "filters": [
+                {
+                  "field": "year",
+                  "operator": "gte",
+                  "value": "2020"
+                },
+                {
+                  "field": "year",
+                  "operator": "lte",
+                  "value": "2023"
+                }
+              ]
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "three",
+              "kind": "tag"
+            }
+          },
+          {
+            "tool": "search_features",
+            "arguments": {
+              "query": "first released in 2020 or later",
+              "kind": "tag"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "recommend_anime",
+      "arguments": {
+        "filters": [
+          {
+            "field": "year",
+            "operator": "gte",
+            "value": "2020"
+          },
+          {
+            "field": "year",
+            "operator": "lte",
+            "value": "2023"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "recommend_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.208194,
+      "arguments": {
+        "filters": [
+          {
+            "field": "year",
+            "operator": "gte",
+            "value": "2020"
+          },
+          {
+            "field": "year",
+            "operator": "lte",
+            "value": "2023"
+          }
+        ]
+      },
+      "cached": false,
+      "result": {
+        "applied_filters": {
+          "filters": [
+            {
+              "field": "year",
+              "operator": "gte",
+              "value": "2020"
+            },
+            {
+              "field": "year",
+              "operator": "lte",
+              "value": "2023"
+            }
+          ]
+        },
+        "constraint_verification": {
+          "checked": 5,
+          "retained": 5,
+          "limitations": [
+            "The exact requirement 'three' is assessed semantically from descriptions, not verified by a catalog category."
+          ],
+          "mappings": [
+            {
+              "field": "year",
+              "operator": "gte",
+              "value": "2020",
+              "source_text": "released",
+              "mapping": "exact"
+            },
+            {
+              "field": "year",
+              "operator": "lte",
+              "value": "2023",
+              "source_text": "released",
+              "mapping": "exact"
+            }
+          ]
+        },
+        "items": [
+          {
+            "id": "137822",
+            "title": "BLUE LOCK",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}, {'field': 'year', 'operator': 'lte', 'value': '2023'}]",
+            "preference_similarity": 0.154
+          },
+          {
+            "id": "133965",
+            "title": "Komi Can’t Communicate",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}, {'field': 'year', 'operator': 'lte', 'value': '2023'}]",
+            "preference_similarity": 0.1529
+          },
+          {
+            "id": "116589",
+            "title": "86 EIGHTY-SIX",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}, {'field': 'year', 'operator': 'lte', 'value': '2023'}]",
+            "preference_similarity": 0.14
+          },
+          {
+            "id": "112641",
+            "title": "Kaguya-sama: Love is War?",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}, {'field': 'year', 'operator': 'lte', 'value': '2023'}]",
+            "preference_similarity": 0.1395
+          },
+          {
+            "id": "119661",
+            "title": "Re:ZERO -Starting Life in Another World- Season 2 Part 2",
+            "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}, {'field': 'year', 'operator': 'lte', 'value': '2023'}]",
+            "preference_similarity": 0.1389
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_features",
+      "arguments": {
+        "query": "three",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.013336,
+      "arguments": {
+        "query": "three",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "threesome",
+            "name": "Threesome",
+            "description": "Features sexual acts between three people.",
+            "category": "Sexual Content",
+            "similarity": 0.4135
+          }
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 2,
+      "tool": "search_features",
+      "arguments": {
+        "query": "first released in 2020 or later",
+        "kind": "tag"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 2,
+      "tool": "search_features",
+      "status": "completed",
+      "elapsed_seconds": 0.012336,
+      "arguments": {
+        "query": "first released in 2020 or later",
+        "kind": "tag"
+      },
+      "cached": false,
+      "result": {
+        "status": "ok",
+        "kind": "tag",
+        "matches": [
+          {
+            "kind": "tag",
+            "id": "coming of age",
+            "name": "Coming of Age",
+            "description": "Centers around a character's transition from childhood to adulthood.",
+            "category": "Theme-Drama",
+            "similarity": 0.2555
+          },
+          {
+            "kind": "tag",
+            "id": "anthology",
+            "name": "Anthology",
+            "description": "A collection of separate works collated into a single release.",
+            "category": "Technical",
+            "similarity": 0.2187
+          },
+          {
+            "kind": "tag",
+            "id": "cyberpunk",
+            "name": "Cyberpunk",
+            "description": "Set in a future of advanced technological and scientific achievements that have resulted in social disorder.",
+            "category": "Theme-Sci-Fi",
+            "similarity": 0.2041
+          }
+        ]
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 0.000452
+    }
+  ],
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "recommend_anime",
+        "arguments": {
+          "filters": [
+            {
+              "field": "year",
+              "operator": "gte",
+              "value": "2020"
+            },
+            {
+              "field": "year",
+              "operator": "lte",
+              "value": "2023"
+            }
+          ]
+        },
+        "cached": false,
+        "result": {
+          "applied_filters": {
+            "filters": [
+              {
+                "field": "year",
+                "operator": "gte",
+                "value": "2020"
+              },
+              {
+                "field": "year",
+                "operator": "lte",
+                "value": "2023"
+              }
+            ]
+          },
+          "constraint_verification": {
+            "checked": 5,
+            "retained": 5,
+            "limitations": [
+              "The exact requirement 'three' is assessed semantically from descriptions, not verified by a catalog category."
+            ],
+            "mappings": [
+              {
+                "field": "year",
+                "operator": "gte",
+                "value": "2020",
+                "source_text": "released",
+                "mapping": "exact"
+              },
+              {
+                "field": "year",
+                "operator": "lte",
+                "value": "2023",
+                "source_text": "released",
+                "mapping": "exact"
+              }
+            ]
+          },
+          "items": [
+            {
+              "id": "137822",
+              "title": "BLUE LOCK",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}, {'field': 'year', 'operator': 'lte', 'value': '2023'}]",
+              "preference_similarity": 0.154
+            },
+            {
+              "id": "133965",
+              "title": "Komi Can’t Communicate",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}, {'field': 'year', 'operator': 'lte', 'value': '2023'}]",
+              "preference_similarity": 0.1529
+            },
+            {
+              "id": "116589",
+              "title": "86 EIGHTY-SIX",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}, {'field': 'year', 'operator': 'lte', 'value': '2023'}]",
+              "preference_similarity": 0.14
+            },
+            {
+              "id": "112641",
+              "title": "Kaguya-sama: Love is War?",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}, {'field': 'year', 'operator': 'lte', 'value': '2023'}]",
+              "preference_similarity": 0.1395
+            },
+            {
+              "id": "119661",
+              "title": "Re:ZERO -Starting Life in Another World- Season 2 Part 2",
+              "reason": "Matches: filters=[{'field': 'year', 'operator': 'gte', 'value': '2020'}, {'field': 'year', 'operator': 'lte', 'value': '2023'}]",
+              "preference_similarity": 0.1389
+            }
+          ]
+        },
+        "elapsed_seconds": 0.208194
+      },
+      {
+        "step": 1,
+        "tool": "search_features",
+        "arguments": {
+          "query": "three",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "threesome",
+              "name": "Threesome",
+              "description": "Features sexual acts between three people.",
+              "category": "Sexual Content",
+              "similarity": 0.4135
+            }
+          ]
+        },
+        "elapsed_seconds": 0.013336
+      },
+      {
+        "step": 2,
+        "tool": "search_features",
+        "arguments": {
+          "query": "first released in 2020 or later",
+          "kind": "tag"
+        },
+        "cached": false,
+        "result": {
+          "status": "ok",
+          "kind": "tag",
+          "matches": [
+            {
+              "kind": "tag",
+              "id": "coming of age",
+              "name": "Coming of Age",
+              "description": "Centers around a character's transition from childhood to adulthood.",
+              "category": "Theme-Drama",
+              "similarity": 0.2555
+            },
+            {
+              "kind": "tag",
+              "id": "anthology",
+              "name": "Anthology",
+              "description": "A collection of separate works collated into a single release.",
+              "category": "Technical",
+              "similarity": 0.2187
+            },
+            {
+              "kind": "tag",
+              "id": "cyberpunk",
+              "name": "Cyberpunk",
+              "description": "Set in a future of advanced technological and scientific achievements that have resulted in social disorder.",
+              "category": "Theme-Sci-Fi",
+              "similarity": 0.2041
+            }
+          ]
+        },
+        "elapsed_seconds": 0.012336
+      }
+    ],
+    "llm_calls": 6,
+    "planned_tools": 3,
+    "executed_tools": 3,
+    "timings_seconds": {
+      "interpret_request": 11.210136,
+      "prepare_context": 0.002355,
+      "retrieve_guides": 0.034833,
+      "feature_candidates": 0.013028,
+      "planning": 6.849078,
+      "tools": 0.233866,
+      "generate_answer": 0.000452
+    },
+    "history_policy": "independent_recommendation",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"recommendation\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"anime\", \"query\": \"anime\", \"kind\": \"genre\", \"role\": \"subject\", \"meaning\": \"Anime series\"}, {\"text\": \"first released in 2020 or later\", \"query\": \"2020..later\", \"kind\": \"genre\", \"role\": \"required\", \"meaning\": \"Release year criteria\"}, {\"text\": \"three\", \"query\": \"three\", \"kind\": \"genre\", \"role\": \"required\", \"meaning\": \"Number of recommendations\"}]}",
+      "{\"min\": 2020, \"max\": 2023}",
+      "{\"choice\": 1, \"role\": \"required\", \"operator\": \"eq\", \"value\": \"2020\", \"mapping\": \"exact\"}",
+      "{\"role\": \"required\"}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "anime",
+        "query": "anime",
+        "kind": "genre",
+        "role": "subject",
+        "meaning": "Anime series"
+      },
+      {
+        "text": "first released in 2020 or later",
+        "query": "2020..later",
+        "kind": "genre",
+        "role": "required",
+        "meaning": "Release year criteria"
+      },
+      {
+        "text": "three",
+        "query": "three",
+        "kind": "genre",
+        "role": "required",
+        "meaning": "Number of recommendations"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"Please specify the anime titles you would like recommendations for.\", \"decisions\": {\"p0\": {\"meaning\": \"Anime series\", \"role\": \"subject\", \"selection\": \"unmapped description\"}, \"p1\": {\"meaning\": \"Release year criteria\", \"role\": \"required\", \"selection\": \"unmapped description\"}, \"p2\": {\"meaning\": \"Number of recommendations\", \"role\": \"required\", \"selection\": \"unmapped description\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "description",
+          "id": "",
+          "role": "subject",
+          "text": "anime",
+          "name": "",
+          "meaning": "Anime series"
+        },
+        {
+          "phrase_index": 1,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "first released in 2020 or later",
+          "name": "",
+          "meaning": "Release year criteria"
+        },
+        {
+          "phrase_index": 2,
+          "kind": "description",
+          "id": "",
+          "role": "required",
+          "text": "three",
+          "name": "",
+          "meaning": "Number of recommendations"
+        }
+      ],
+      "subjects": [],
+      "clarification": ""
+    },
+    "attribute_retrieval": {
+      "year": {
+        "sources": [
+          "first released in 2020 or later",
+          "released"
+        ],
+        "interpretations": [
+          "range",
+          "range"
+        ]
+      }
+    },
+    "request_decomposition": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "required": [
+        "first released in 2020 or later",
+        "three"
+      ],
+      "excluded": [],
+      "preferred": []
+    },
+    "request_constraints": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "entity_queries": [],
+      "filters": [
+        {
+          "field": "year",
+          "operator": "gte",
+          "value": "2020"
+        },
+        {
+          "field": "year",
+          "operator": "lte",
+          "value": "2023"
+        }
+      ],
+      "soft_query": "three",
+      "limitations": [
+        "The exact requirement 'three' is assessed semantically from descriptions, not verified by a catalog category."
+      ],
+      "mappings": [
+        {
+          "field": "year",
+          "operator": "gte",
+          "value": "2020",
+          "source_text": "released",
+          "mapping": "exact"
+        },
+        {
+          "field": "year",
+          "operator": "lte",
+          "value": "2023",
+          "source_text": "released",
+          "mapping": "exact"
+        }
+      ],
+      "preference_hierarchy": [
+        {
+          "phrase": "three",
+          "candidate": null,
+          "role": "preferred",
+          "mapping": "exact"
+        }
+      ],
+      "description_exclusions": [],
+      "numeric_preferences": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "description",
+            "id": "",
+            "role": "subject",
+            "text": "anime",
+            "name": "",
+            "meaning": "Anime series"
+          },
+          {
+            "phrase_index": 1,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "first released in 2020 or later",
+            "name": "",
+            "meaning": "Release year criteria"
+          },
+          {
+            "phrase_index": 2,
+            "kind": "description",
+            "id": "",
+            "role": "required",
+            "text": "three",
+            "name": "",
+            "meaning": "Number of recommendations"
+          }
+        ],
+        "subjects": [],
+        "clarification": ""
+      },
+      "structured_attributes": {}
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "recommend_anime",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "recommend_anime",
+          "arguments": {
+            "filters": [
+              {
+                "field": "year",
+                "operator": "gte",
+                "value": "2020"
+              },
+              {
+                "field": "year",
+                "operator": "lte",
+                "value": "2023"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "three",
+            "kind": "tag"
+          }
+        },
+        {
+          "tool": "search_features",
+          "arguments": {
+            "query": "first released in 2020 or later",
+            "kind": "tag"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [],
+      "characters": []
+    }
+  }
+}

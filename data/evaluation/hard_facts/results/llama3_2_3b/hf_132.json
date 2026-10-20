@@ -1,0 +1,335 @@
+{
+  "question_id": "hf_132",
+  "anime_id": "101922",
+  "title": "Demon Slayer: Kimetsu no Yaiba",
+  "field": "main_animation_studios",
+  "question": "Who did the main animation on Demon Slayer's first season?",
+  "expected_values": [
+    "ufotable"
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "ufotable",
+  "extracted_values": [
+    "ufotable"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 11.22907883300104,
+  "extraction_seconds": 0.49224950000098033,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "ufotable",
+        "quote": "ufotable"
+      }
+    ],
+    "note": "",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "101922",
+          "section": "staff"
+        },
+        "cached": false,
+        "result": {
+          "kind": "anime",
+          "id": "101922",
+          "title": "Demon Slayer: Kimetsu no Yaiba"
+        },
+        "elapsed_seconds": 0.004793
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 1,
+    "executed_tools": 1,
+    "timings_seconds": {
+      "interpret_request": 3.86582,
+      "prepare_context": 0.016571,
+      "retrieve_guides": 0.028762,
+      "feature_candidates": 0.013771,
+      "planning": 3.65228,
+      "tools": 0.004793,
+      "generate_answer": 3.644741
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": false, \"mentions\": [{\"text\": \"Demon Slayer\", \"query\": \"Demon Slayer\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"TV series; first season\"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Demon Slayer",
+        "query": "Demon Slayer",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "TV series; first season"
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"TV series; first season\", \"role\": \"subject\", \"selection\": \"Demon Slayer: Kimetsu no Yaiba | anime:101922\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101922",
+          "role": "subject",
+          "text": "Demon Slayer",
+          "name": "Demon Slayer: Kimetsu no Yaiba",
+          "meaning": "TV series; first season"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "101922",
+          "role": "subject",
+          "text": "Demon Slayer",
+          "name": "Demon Slayer: Kimetsu no Yaiba",
+          "meaning": "TV series; first season"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Demon Slayer: Kimetsu no Yaiba"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101922",
+            "role": "subject",
+            "text": "Demon Slayer",
+            "name": "Demon Slayer: Kimetsu no Yaiba",
+            "meaning": "TV series; first season"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "101922",
+            "role": "subject",
+            "text": "Demon Slayer",
+            "name": "Demon Slayer: Kimetsu no Yaiba",
+            "meaning": "TV series; first season"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": true,
+      "goal": "Who did the main animation on Demon Slayer's first season?",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "101922",
+            "section": "staff"
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": true,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "101922",
+          "name": "Demon Slayer: Kimetsu no Yaiba"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:101922",
+          "fact": "The main animation on Demon Slayer's first season was done by ufotable."
+        },
+        {
+          "subject": "anime:101922",
+          "fact": "Haruo Sotozaki, the director of Demon Slayer: Kimetsu no Yaiba, is also credited for the storyboarding of the opening and several episodes."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 4.9e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00082
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.86582
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.016571
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.028762
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.013771
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 3.65228
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": true,
+        "goal": "Who did the main animation on Demon Slayer's first season?",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "101922",
+              "section": "staff"
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "101922",
+            "name": "Demon Slayer: Kimetsu no Yaiba"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "101922",
+        "section": "staff"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.004793,
+      "arguments": {
+        "id": "101922",
+        "section": "staff"
+      },
+      "cached": false,
+      "result": {
+        "kind": "anime",
+        "id": "101922",
+        "title": "Demon Slayer: Kimetsu no Yaiba"
+      }
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 3.644741
+    }
+  ]
+}

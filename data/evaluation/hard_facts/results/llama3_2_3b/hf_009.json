@@ -1,0 +1,395 @@
+{
+  "question_id": "hf_009",
+  "anime_id": "20",
+  "title": "Naruto",
+  "field": "year",
+  "question": "What year did the original Naruto anime begin?",
+  "expected_values": [
+    2002.0
+  ],
+  "question_origin": "authored_naturalistic",
+  "answer_source": "local_anilist_catalog",
+  "benchmark_version": "1",
+  "answer_text": "2002",
+  "extracted_values": [
+    "2002"
+  ],
+  "status": "answered",
+  "error": "",
+  "model_seconds": 12.074917333000485,
+  "extraction_seconds": 0.5867162919994371,
+  "extraction": {
+    "status": "answered",
+    "facts": [
+      {
+        "value": "2002",
+        "quote": "2002"
+      }
+    ],
+    "note": "assertion for year of original Naruto anime",
+    "evidence_scope": "full_answer",
+    "method": "llm",
+    "attempts": 1,
+    "validation_errors": []
+  },
+  "metrics": {
+    "exact_match": 1,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "missing_values": [],
+    "extra_values": []
+  },
+  "rag_usage": {
+    "agent_trace": [
+      {
+        "step": 0,
+        "tool": "get_anime",
+        "arguments": {
+          "id": "20",
+          "section": "overview"
+        },
+        "cached": false,
+        "result": {
+          "status": "FINISHED",
+          "kind": "anime",
+          "id": "20",
+          "title": "Naruto"
+        },
+        "elapsed_seconds": 0.019848
+      },
+      {
+        "step": 1,
+        "tool": "search_passages",
+        "arguments": {
+          "query": "original Naruto anime start year",
+          "anime_ids": [
+            "20"
+          ]
+        },
+        "cached": false,
+        "result": {},
+        "elapsed_seconds": 0.027567
+      }
+    ],
+    "llm_calls": 4,
+    "planned_tools": 2,
+    "executed_tools": 2,
+    "timings_seconds": {
+      "interpret_request": 3.366724,
+      "prepare_context": 0.015975,
+      "retrieve_guides": 0.194767,
+      "feature_candidates": 0.012236,
+      "planning": 4.199744,
+      "tools": 0.047415,
+      "generate_answer": 4.234194
+    },
+    "history_policy": "planner",
+    "request_interpretation_outputs": [
+      "{\"intent\": \"factual\", \"use_previous_context\": true, \"mentions\": [{\"text\": \"Naruto\", \"query\": \"Naruto\", \"kind\": \"anime\", \"role\": \"subject\", \"meaning\": \"Original TV adaptation; 2002; 2009; 2012; 2017; 2020; 2023; 2024; 2025; 2026; 2027; 2028; 2029; 2030; 2031; 2032; 2033; 2034; 2035; 2036; 2037; 2038; 2039; 2040; 2041; 2042; 2043; \"}]}"
+    ],
+    "typed_mentions": [
+      {
+        "text": "Naruto",
+        "query": "Naruto",
+        "kind": "anime",
+        "role": "subject",
+        "meaning": "Original TV adaptation; 2002; 2009; 2012; 2017; 2020; 2023; 2024; 2025; 2026; 2027; 2028; 2029; 2030; 2031; 2032; 2033; 2034; 2035; 2036; 2037; 2038; 2039; 2040; 2041; 2042; 2043; "
+      }
+    ],
+    "entity_resolution_outputs": [
+      "{\"clarification\": \"ambiguous\", \"decisions\": {\"p0\": {\"meaning\": \"Original TV adaptation\", \"role\": \"subject\", \"selection\": \"Naruto | anime:20\"}}}"
+    ],
+    "entity_resolution": {
+      "mentions": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20",
+          "role": "subject",
+          "text": "Naruto",
+          "name": "Naruto",
+          "meaning": "Original TV adaptation"
+        }
+      ],
+      "subjects": [
+        {
+          "phrase_index": 0,
+          "kind": "anime",
+          "id": "20",
+          "role": "subject",
+          "text": "Naruto",
+          "name": "Naruto",
+          "meaning": "Original TV adaptation"
+        }
+      ],
+      "clarification": ""
+    },
+    "request_constraints": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "entity_queries": [
+        "Naruto"
+      ],
+      "filters": [],
+      "soft_query": "",
+      "limitations": [],
+      "mappings": [],
+      "entity_resolution": {
+        "mentions": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20",
+            "role": "subject",
+            "text": "Naruto",
+            "name": "Naruto",
+            "meaning": "Original TV adaptation"
+          }
+        ],
+        "subjects": [
+          {
+            "phrase_index": 0,
+            "kind": "anime",
+            "id": "20",
+            "role": "subject",
+            "text": "Naruto",
+            "name": "Naruto",
+            "meaning": "Original TV adaptation"
+          }
+        ],
+        "clarification": ""
+      }
+    },
+    "router_plan": {
+      "scope": "in_domain",
+      "direct_response": "",
+      "use_previous_context": false,
+      "goal": "find the year the original Naruto anime began",
+      "clarification": "",
+      "steps": [
+        {
+          "tool": "get_anime",
+          "arguments": {
+            "id": "20",
+            "section": "overview"
+          }
+        },
+        {
+          "tool": "search_passages",
+          "arguments": {
+            "query": "original Naruto anime start year",
+            "anime_ids": [
+              "20"
+            ]
+          }
+        }
+      ]
+    },
+    "scope": "in_domain",
+    "use_previous_context": false,
+    "selected_context": {
+      "anime": [
+        {
+          "id": "20",
+          "name": "Naruto"
+        }
+      ],
+      "characters": []
+    },
+    "answer_grounding": {
+      "supporting_facts": [
+        {
+          "subject": "anime:20",
+          "fact": "The original Naruto anime began in the year 2002."
+        },
+        {
+          "subject": "anime:20",
+          "fact": "The anime was first broadcast on October 3, 2002."
+        }
+      ],
+      "calculations": []
+    }
+  },
+  "debug_events": [
+    {
+      "stage": "load_catalog",
+      "status": "running"
+    },
+    {
+      "stage": "load_catalog",
+      "status": "completed",
+      "elapsed_seconds": 9.8e-05
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "running"
+    },
+    {
+      "stage": "initialize_agent",
+      "status": "completed",
+      "elapsed_seconds": 0.00217
+    },
+    {
+      "stage": "interpret_request",
+      "status": "running"
+    },
+    {
+      "stage": "interpret_request",
+      "status": "completed",
+      "elapsed_seconds": 3.366724
+    },
+    {
+      "stage": "history_selection",
+      "status": "completed",
+      "policy": "planner",
+      "messages_selected": 0
+    },
+    {
+      "stage": "prepare_context",
+      "status": "running"
+    },
+    {
+      "stage": "prepare_context",
+      "status": "completed",
+      "elapsed_seconds": 0.015975
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "running"
+    },
+    {
+      "stage": "retrieve_guides",
+      "status": "completed",
+      "elapsed_seconds": 0.194767
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "running"
+    },
+    {
+      "stage": "feature_candidates",
+      "status": "completed",
+      "elapsed_seconds": 0.012236
+    },
+    {
+      "stage": "planning",
+      "status": "running"
+    },
+    {
+      "stage": "planning",
+      "status": "completed",
+      "elapsed_seconds": 4.199744
+    },
+    {
+      "stage": "scope_decision",
+      "status": "completed",
+      "scope": "in_domain"
+    },
+    {
+      "stage": "plan_ready",
+      "status": "completed",
+      "router_plan": {
+        "scope": "in_domain",
+        "direct_response": "",
+        "use_previous_context": false,
+        "goal": "find the year the original Naruto anime began",
+        "clarification": "",
+        "steps": [
+          {
+            "tool": "get_anime",
+            "arguments": {
+              "id": "20",
+              "section": "overview"
+            }
+          },
+          {
+            "tool": "search_passages",
+            "arguments": {
+              "query": "original Naruto anime start year",
+              "anime_ids": [
+                "20"
+              ]
+            }
+          }
+        ]
+      },
+      "selected_context": {
+        "anime": [
+          {
+            "id": "20",
+            "name": "Naruto"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 0,
+      "tool": "get_anime",
+      "arguments": {
+        "id": "20",
+        "section": "overview"
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 0,
+      "tool": "get_anime",
+      "status": "completed",
+      "elapsed_seconds": 0.019848,
+      "arguments": {
+        "id": "20",
+        "section": "overview"
+      },
+      "cached": false,
+      "result": {
+        "status": "FINISHED",
+        "kind": "anime",
+        "id": "20",
+        "title": "Naruto"
+      }
+    },
+    {
+      "stage": "tool",
+      "status": "running",
+      "step": 1,
+      "tool": "search_passages",
+      "arguments": {
+        "query": "original Naruto anime start year",
+        "anime_ids": [
+          "20"
+        ]
+      }
+    },
+    {
+      "stage": "tool",
+      "step": 1,
+      "tool": "search_passages",
+      "status": "completed",
+      "elapsed_seconds": 0.027567,
+      "arguments": {
+        "query": "original Naruto anime start year",
+        "anime_ids": [
+          "20"
+        ]
+      },
+      "cached": false,
+      "result": {}
+    },
+    {
+      "stage": "generate_answer",
+      "status": "running"
+    },
+    {
+      "stage": "generate_answer",
+      "status": "completed",
+      "elapsed_seconds": 4.234194
+    }
+  ]
+}
