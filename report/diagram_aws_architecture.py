@@ -25,7 +25,8 @@ cloudfront = draw_box(axes, CDN_COLUMN, REQUEST_ROW, WIDTH, HEIGHT, "CloudFront"
 bucket = draw_box(axes, CDN_COLUMN, STORAGE_ROW, WIDTH, HEIGHT, "S3 bucket", "static web page")
 gateway = draw_box(axes, API_COLUMN, REQUEST_ROW, WIDTH, HEIGHT, "API Gateway", "HTTP API,\nJWT authorizer")
 chat = draw_box(axes, LAMBDA_COLUMN, REQUEST_ROW, WIDTH, HEIGHT, "Lambda", "chat handler")
-bedrock = draw_box(axes, MODEL_COLUMN, REQUEST_ROW, WIDTH, HEIGHT, "Bedrock", "Gemma 3 4B", kind="llm")
+# Narrower and shifted right, so that the "Chat Completions" label fits between the two boxes.
+bedrock = draw_box(axes, MODEL_COLUMN + 0.15, REQUEST_ROW, 2.0, HEIGHT, "Bedrock", "Gemma 3 4B", kind="llm")
 draw_box(axes, MODEL_COLUMN, STORAGE_ROW, WIDTH, HEIGHT, "AWS Budgets", "e-mail alerts at\n80 % and 100 %")
 
 # Sign-in

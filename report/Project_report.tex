@@ -8,6 +8,9 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
 
 %\usepackage{listings} %Alternative to minted
 \usepackage{minted}
@@ -21,8 +24,8 @@
 \setlength{\parskip}{1em}
 
 \title{\textbf{1RT730 Project Report}
-	\\ Anime Watching Companion: a tool-planning LLM agent in production \TODO{confirm title}}
-\author{Tommi Bimbato, Muhammad Aufa Helfiandri, German David \TODO{full names}}
+	\\ Anime Watching Companion: a tool-planning LLM agent (almost) in production}
+\author{Tommi Bimbato, Muhammad Aufa Helfiandri, German David Ramirez Figueroa}
 \date{\today}
 
 \begin{document}
@@ -36,7 +39,7 @@ Asked what to watch or who a character is, general-purpose chatbots answer from 
 
 We present the \emph{Anime Watching Companion}, an assistant that answers questions about anime and characters and recommends titles from a structured snapshot of the AniList catalogue~\cite{anilist_kaggle}. A bounded number of LLM calls, typically four, identify the titles and characters a message names, plan catalogue tool calls (SQL look-ups, attribute filters and semantic search) and write the answer from the retrieved evidence alone. The same pattern could serve library or public-service catalogues.
 
-Our contributions are this agent; a deployment on Amazon Web Services (AWS), into which the agent is being integrated \TODO{update once the agent runs behind the chat Lambda}; an evaluation against the catalogue that compares the agent with the same models without tools, Gemma~3~4B~\cite{gemma3} (used locally and on Amazon Bedrock) and \texttt{llama3.2:3b}~\cite{llama32}; and an analysis of societal impact.
+Our contributions are this agent; a deployment on Amazon Web Services (AWS) that serves a chat model to university users; an evaluation against the catalogue that compares the agent with the same models without tools, Gemma~3~4B~\cite{gemma3} (used locally and on Amazon Bedrock) and \texttt{llama3.2:3b}~\cite{llama32}; and an analysis of societal impact.
 
 	
 \section{Dataset}
@@ -44,7 +47,14 @@ Our contributions are this agent; a deployment on Amazon Web Services (AWS), int
 
 \textbf{Source and size.} We use version 100 (11 October 2026) of the \emph{AniList Anime Dataset}~\cite{anilist_kaggle}, a 439\,MB CSV file with one row per title, from which our setup pipeline prepares 20,428 anime documents; the agent and the evaluation share this snapshot. Rows combine free text (synopses, character and tag descriptions) with metadata such as genres, tags, dates, scores, studios and user recommendations.
 
-\textbf{Preprocessing.} No model is trained or fine-tuned. A setup pipeline converts each title into a Markdown document and a JSON record, loads the records into an SQLite catalogue with full-text search and dictionaries of names, aliases, genres and tags, and embeds document chunks, character biographies, tool descriptions and genre and tag names with \texttt{all-MiniLM-L6-v2}~\cite{minilm_card}, a Sentence-BERT model~\cite{reimers2019sbert}.
+\textbf{Preprocessing.} No model is trained or fine-tuned. A setup pipeline converts each title into a Markdown document and a JSON record, loads the records into an SQLite catalogue with full-text search and dictionaries of names, aliases, genres and tags, and embeds document chunks, tool descriptions and genre and tag names with \texttt{all-MiniLM-L6-v2}~\cite{minilm_card}, a Sentence-BERT model~\cite{reimers2019sbert} (Figure~\ref{fig:setup}); character biographies are embedded when first needed and then cached.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{figures/setup_pipeline.pdf}
+    \caption{Setup pipeline: each AniList record feeds a SQL catalogue for exact look-ups and keyword search, an embedding index of its text for search by meaning, and a routing index of genre, tag and tool descriptions for planning.}
+    \label{fig:setup}
+\end{figure}
 
 \textbf{Licence and provenance.} Kaggle lists the dataset under CC0, but its content is a bulk copy of the AniList API, whose terms prohibit ``hoarding or mass collection of data'' while stating that AniList is lenient towards purely educational projects, and require a licence for commercial use above a revenue threshold~\cite{anilist_terms}. Many synopses are also third-party texts: on 17 October 2026, 39 of the 50 most popular titles on AniList credited an external source such as Crunchyroll, Funimation or VIZ Media. A CC0 label applied by the uploader cannot waive the publishers' copyright in these texts~\cite{cc0}; we therefore use the data only for this non-commercial course project, and we keep the raw data and generated documents out of the repository.
 
@@ -57,11 +67,11 @@ Our contributions are this agent; a deployment on Amazon Web Services (AWS), int
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{figures/agent_flow.pdf}
-    \caption{Query flow inside the agent. Dark boxes are LLM stages (Gemma~3~4B); the tools make no LLM calls. Recommendations are rendered from verified catalogue records without an LLM call. Dashed arrow: one correction call.}
+    \caption{Query flow inside the agent. Dark boxes are separate calls to the same LLM (\texttt{llama3.2:3b} or Gemma~3~4B); the tools make no LLM calls. Recommendations are rendered from verified catalogue records without an LLM call. Dashed arrow: one correction call.}
     \label{fig:agent}
 \end{figure}
 
-\textbf{Agent.} Each request passes through four stages (Figure~\ref{fig:agent}). \emph{Interpretation:} one LLM call classifies the titles, characters and criteria named in the message and whether earlier messages apply; a second call selects their catalogue identities among dictionary candidates. Only confirmed entities are preloaded, so a tag name that is also a title becomes a reference anime only if the message refers to the work. For recommendations, up to two small calls per criterion map it to a genre, tag or metadata filter (studio, source material, release date, episode count or length) or a soft preference, marked required, excluded or preferred. \emph{Planning:} from the eight tool descriptions, these constraints and up to ten genres and tags nearest to the message in embedding space, the planner LLM writes one JSON plan of up to eight tool steps. \emph{Execution:} the validated plan runs locally without LLM calls; the tools combine SQL queries, embedding similarity and BM25 passage search, and a step may reuse an earlier step's output. \emph{Answering:} recommendations are re-checked against the constraints and rendered from catalogue records, noting approximations and exclusion limits. Otherwise, the answer LLM must state a supporting fact per requested subject and write calculations as arithmetic over source values, which code evaluates with units; names in the reply must match the retrieved identities. A failed check triggers one correction call; a second failure returns an error. The model is set by an environment variable: we use \texttt{llama3.2:3b}~\cite{llama32}, with which the agent was developed, and Gemma~3~4B~\cite{gemma3}, the model deployed on Bedrock \TODO{state which model the demo uses}; all calls use an 8,192-token context, and structured calls use temperature 0 and schema-constrained JSON.
+\textbf{Agent.} Each request passes through four stages (Figure~\ref{fig:agent}). \emph{Interpretation:} one LLM call classifies the titles, characters and criteria named in the message and whether earlier messages apply; a second call selects their catalogue identities among dictionary candidates. Only confirmed entities are preloaded, so a tag name that is also a title becomes a reference anime only if the message refers to the work. For recommendations, up to two small calls per criterion map it to a genre, tag or metadata filter (studio, source material, release date, episode count or length) or a soft preference, marked required, excluded or preferred. \emph{Planning:} from the eight tool descriptions, these constraints and up to ten genres and tags nearest to the message in embedding space, the planner LLM writes one JSON plan of up to eight tool steps. \emph{Execution:} the validated plan runs locally without LLM calls; the tools combine SQL queries, embedding similarity and BM25 passage search, and a step may reuse an earlier step's output. \emph{Answering:} recommendations are re-checked against the constraints and rendered from catalogue records, noting approximations and exclusion limits. Otherwise, the answer LLM must state a supporting fact per requested subject and write calculations as arithmetic over source values, which code evaluates with units; names in the reply must match the retrieved identities. A failed check triggers one correction call; a second failure returns an error. The model is set by an environment variable: we use \texttt{llama3.2:3b}~\cite{llama32}, with which the agent was developed, and Gemma~3~4B~\cite{gemma3}, the model deployed on Bedrock; the demonstration uses \texttt{llama3.2:3b}; all calls use an 8,192-token context, and structured calls use temperature 0 and schema-constrained JSON.
 
 \textbf{Design choices.} Planning all tool steps in one call, as in ReWOO~\cite{xu2023rewoo}, adds no LLM call per step, unlike a reasoning-and-acting loop~\cite{yao2023react}; a factual question about one named title normally needs four calls in total. For factual questions, exact SQL look-ups return the single correct answer, which nearest-neighbour search may miss. Small constrained decisions, with arithmetic and recommendation lists produced by code, are intended to suit small locally run models, at the cost of sequential calls.
 
@@ -72,7 +82,7 @@ Our contributions are this agent; a deployment on Amazon Web Services (AWS), int
     \label{fig:aws}
 \end{figure}
 
-\textbf{Deployment.} Sign-in is passwordless (Figure~\ref{fig:aws}): Amazon Cognito sends a one-time code through Amazon SES, and a pre-sign-up Lambda function rejects addresses outside \texttt{uu.se} and \texttt{student.uu.se}. CloudFront serves a static page from a private S3 bucket and forwards \texttt{/api/*} to an API Gateway HTTP API, whose JWT authorizer validates the Cognito token before a chat Lambda function calls Gemma~3~4B on Amazon Bedrock via the OpenAI-compatible Chat Completions endpoint (\texttt{bedrock-mantle}) with IAM-signed requests instead of an API key. This Lambda does not yet run the agent, which runs locally behind a browser interface. \TODO{German: describe how the agent runs behind the chat Lambda in the final demo, or state that the demo uses the local agent} An AWS budget e-mails alerts when actual spend exceeds 80\% or forecast spend 100\% of the monthly limit. The infrastructure is defined as code with OpenTofu and Terragrunt, tested in GitHub Actions and emulated without AWS cost on LocalStack, with \texttt{qwen2.5:0.5b} in place of Bedrock. OpenTelemetry traces in the OpenInference format go from the chat Lambda to a local Arize Phoenix under LocalStack or, opt-in, to Arize AX on AWS; Phoenix can also trace the project's initial retrieve-then-generate pipeline, while the agent only logs its plan, tool calls and stage timings. Serverless components cost almost nothing when idle and need no maintenance, suiting the low, irregular load of a demonstration; university-only sign-in also limits the audience (Section~\ref{sec:societal}).
+\textbf{Deployment.} Sign-in is passwordless (Figure~\ref{fig:aws}): Amazon Cognito sends a one-time code through Amazon SES, and a pre-sign-up Lambda function rejects addresses outside \texttt{uu.se} and \texttt{student.uu.se}. CloudFront serves a static page from a private S3 bucket and forwards \texttt{/api/*} to an API Gateway HTTP API, whose JWT authorizer validates the Cognito token before a chat Lambda function calls Gemma~3~4B on Amazon Bedrock via the OpenAI-compatible Chat Completions endpoint (\texttt{bedrock-mantle}) with IAM-signed requests instead of an API key. This Lambda does not run the agent: hosting its catalogue, indexes and several model calls per answer on AWS proved too expensive for this project, so the agent runs locally behind a browser interface. An AWS budget e-mails alerts when actual spend exceeds 80\% or forecast spend 100\% of the monthly limit. The infrastructure is defined as code with OpenTofu and Terragrunt, tested in GitHub Actions and emulated without AWS cost on LocalStack, with \texttt{qwen2.5:0.5b} in place of Bedrock. OpenTelemetry traces in the OpenInference format go from the chat Lambda to a local Arize Phoenix under LocalStack or, opt-in, to Arize AX on AWS; Phoenix can also trace the project's initial retrieve-then-generate pipeline, while the agent only logs its plan, tool calls and stage timings. Serverless components cost almost nothing when idle and need no maintenance, suiting the low, irregular load of a demonstration; university-only sign-in also limits the audience (Section~\ref{sec:societal}).
 
 
 \section{Results}
@@ -85,49 +95,58 @@ Our contributions are this agent; a deployment on Amazon Web Services (AWS), int
 
 \begin{table}[H]
     \centering
-    \footnotesize
-    \caption{Agent results on the factual and natural-request benchmarks, sets (i) and (ii).}
+    \small
+    \caption{Agent results on the factual questions, set (i), and the natural recommendation requests, set (ii).}
     \label{tab:results}
-    \begin{tabular}{@{}lcc@{}}
-        \hline
+    \begin{tabularx}{\textwidth}{@{}l*{2}{C}@{}}
+        \toprule
          & \texttt{llama3.2:3b} & Gemma~3~4B \\
-        \hline
+        \midrule
         \multicolumn{3}{@{}l}{\emph{(i) Factual questions, $n=180$}} \\
-        Exact accuracy, end-to-end (\%) & 72.8 & 50.0 \\
-        Value F1, scored answers (macro) & 0.82 & 0.70 \\
-        Scored answers & 171 & 140 \\
-        Mean seconds per answer & 10.6 & 15.0 \\
-        \hline
+        \quad Exact accuracy, end-to-end (\%) & 72.8 & 50.0 \\
+        \quad Value F1, scored answers (macro) & 0.82 & 0.70 \\
+        \quad Scored answers (of 180) & 171 & 140 \\
+        \quad Median seconds per answer & 10.2 & 15.7 \\
+        \midrule
         \multicolumn{3}{@{}l}{\emph{(ii) Natural recommendation requests, $n=72$}} \\
-        Strict P@$k$, end-to-end (\%) & 52.6 & 42.2 \\
-        \quad explicit / indirect wording (\%) & 83.3 / 37.2 & 52.8 / 36.9 \\
-        nDCG@$k$, scored answers & 0.63 & 0.60 \\
-        Constraint coverage, scored (\%) & 82.0 & 80.2 \\
-        Exactly $k$ titles, scored (\%) & 34.9 & 37.7 \\
-        Scored answers & 63 & 53 \\
-        \hline
-    \end{tabular}
+        \quad Strict P@$k$, end-to-end (\%) & 52.6 & 42.2 \\
+        \quad Strict P@$k$, explicit / indirect wording (\%) & 83.3 / 37.2 & 52.8 / 36.9 \\
+        \quad nDCG@$k$, scored answers & 0.63 & 0.60 \\
+        \quad Constraint coverage, scored answers (\%) & 82.0 & 80.2 \\
+        \quad Exactly $k$ titles, scored answers (\%) & 34.9 & 37.7 \\
+        \quad Scored answers (of 72) & 63 & 53 \\
+        \bottomrule
+    \end{tabularx}
 \end{table}
 
 \begin{table}[H]
     \centering
-    \footnotesize
-    \caption{Agent against the same model without tools (asked directly for a numbered list of titles) on the catalogue-sampled requests, set (iii); values are explicit / vague / seed requests, $n=30$ each.}
+    \small
+    \caption{Agent against the same model without tools on the catalogue-sampled requests, set (iii), 30 requests of each type. \emph{No tools}: the model is asked directly for a numbered list of titles.}
     \label{tab:baseline}
-    \begin{tabular}{@{}lcccc@{}}
-        \hline
-         & \multicolumn{2}{c}{\texttt{llama3.2:3b}} & \multicolumn{2}{c}{Gemma~3~4B} \\
-         & agent & no tools & agent & no tools \\
-        \hline
-        Exactly five titles (\%) & 100 / 90 / 90 & 97 / 70 / 23 & 97 / 93 / 87 & 100 / 83 / 0 \\
-        Hallucination rate (\%) & 0 / 0 / 0 & 16 / 16 / 4 & 0 / 0 / 0 & 26 / 28 / 15 \\
-        Constraint precision (\%) & 99 / 43 / 99 & 19 / 22 / 95 & 72 / 38 / 100 & 21 / 17 / 84 \\
-        Median seconds per answer & 6.2 / 8.1 / 6.3 & 0.5 / 0.5 / 0.9 & 10.8 / 13.3 / 10.4 & 0.9 / 0.9 / 3.1 \\
-        \hline
-    \end{tabular}
+    \begin{tabularx}{\textwidth}{@{}l*{6}{C}@{}}
+        \toprule
+         & \multicolumn{2}{c}{Explicit tag or genre} & \multicolumn{2}{c}{Vague (tag description)} & \multicolumn{2}{c}{Seed (``after X'')} \\
+        \cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(l){6-7}
+         & agent & no tools & agent & no tools & agent & no tools \\
+        \midrule
+        \multicolumn{7}{@{}l}{\emph{Exactly five titles (\%)}} \\
+        \quad \texttt{llama3.2:3b} & 100 & 97 & 90 & 70 & 90 & 23 \\
+        \quad Gemma~3~4B & 97 & 100 & 93 & 83 & 87 & 0 \\
+        \multicolumn{7}{@{}l}{\emph{Hallucination rate (\%)}} \\
+        \quad \texttt{llama3.2:3b} & 0 & 16 & 0 & 16 & 0 & 4 \\
+        \quad Gemma~3~4B & 0 & 26 & 0 & 28 & 0 & 15 \\
+        \multicolumn{7}{@{}l}{\emph{Constraint precision (\%)}} \\
+        \quad \texttt{llama3.2:3b} & 99 & 19 & 43 & 22 & 99 & 95 \\
+        \quad Gemma~3~4B & 72 & 21 & 38 & 17 & 100 & 84 \\
+        \multicolumn{7}{@{}l}{\emph{Median seconds per answer}} \\
+        \quad \texttt{llama3.2:3b} & 6.2 & 0.5 & 8.1 & 0.5 & 6.3 & 0.9 \\
+        \quad Gemma~3~4B & 10.8 & 0.9 & 13.3 & 0.9 & 10.4 & 3.1 \\
+        \bottomrule
+    \end{tabularx}
 \end{table}
 
-\textbf{Results.} Tables~\ref{tab:results} and~\ref{tab:baseline} report all measures. On factual questions, the agent answered 72.8\% exactly with \texttt{llama3.2:3b} and 50.0\% with Gemma~3~4B; release year was almost always correct (100\% and 96\%) and minutes per episode rarely (27\% and 4\%). On natural recommendation requests, end-to-end strict P@$k$ was 52.6\% and 42.2\%; explicitly worded requests reached 83.3\% and 52.8\%, indirect ones 37.2\% and 36.9\%. On catalogue-sampled requests, none of the titles listed by the agent was missing from the catalogue, whereas 4--28\% of those listed by the models without tools were; constraint precision rose from 17--22\% without tools to 99\% and 72\% for explicit and to 43\% and 38\% for vague requests. The agent identified the seed title in 29 of 30 seed requests with both models. A tool-backed answer took a median of 6--8\,s with \texttt{llama3.2:3b} and 10--13\,s with Gemma~3~4B, against at most 3.1\,s without tools. Failed answers were raised by the agent's own validation (an invalid grounded answer, no supported recommendation retrieved, or an unsupported reading of the request). With Gemma~3~4B, 57 of the 180 factual answers were the same popularity-ranked recommendation list, because its planner added a recommendation step to factual questions; this never happened with \texttt{llama3.2:3b}.
+\textbf{Results.} Tables~\ref{tab:results} and~\ref{tab:baseline} report all measures. On factual questions, the agent answered 72.8\% exactly with \texttt{llama3.2:3b} and 50.0\% with Gemma~3~4B; release year was almost always correct (100\% and 96\%) and minutes per episode rarely (27\% and 4\%). On natural recommendation requests, end-to-end strict P@$k$ was 52.6\% and 42.2\%; explicitly worded requests reached 83.3\% and 52.8\%, indirect ones 37.2\% and 36.9\%. On catalogue-sampled requests, none of the titles listed by the agent was missing from the catalogue, whereas 4--28\% of those listed by the models without tools were: asked for five shogi anime, \texttt{llama3.2:3b} without tools invented all five (``Shogi King'', ``Shogi Master'', ``Shogi: The Game of Strategy'' twice and ``Shogi''), while the agent listed five catalogue titles tagged \emph{Shogi}, among them \emph{March comes in like a lion}; constraint precision rose from 17--22\% without tools to 99\% and 72\% for explicit and to 43\% and 38\% for vague requests. The agent identified the seed title in 29 of 30 seed requests with both models. A tool-backed answer took a median of 6--8\,s with \texttt{llama3.2:3b} and 10--13\,s with Gemma~3~4B, against at most 3.1\,s without tools. Failed answers were raised by the agent's own validation (an invalid grounded answer, no supported recommendation retrieved, or an unsupported reading of the request). With Gemma~3~4B, 57 of the 180 factual answers were the same popularity-ranked recommendation list, because its planner added a recommendation step to factual questions; this never happened with \texttt{llama3.2:3b}.
 
 \textbf{Discussion and limitations.} The catalogue tools remove hallucinated titles, largely by construction, since recommendation lists are rendered from catalogue records, and they raise constraint precision several-fold, at the cost of roughly ten times the latency. The agent works best with the model it was developed with: Gemma~3~4B recommends almost as well once an answer is scored (strict P@$k$ 57.3\% against 60.1\%), but it fails validation more often and misroutes factual questions, which suggests that prompts and checks tuned on one model do not transfer unchanged to another. The scores measure adherence to catalogue facts and constraints, not whether a recommendation is enjoyable. Each question was asked once, although model outputs vary between runs; the 95\% confidence interval spans about $\pm$7 percentage points for 180 questions and $\pm$18 for 30. A 3B model extracts the values and titles in (i) and (ii) and can misread them; in (iii), titles in prose or under another alias count as hallucinated. In (ii), explicit and indirect requests also differ in the requested count (three versus four or five); in (iii), some tag descriptions contain the tag name, and seed requests are scored leniently because AniList user recommendations cannot serve as ground truth, as the agent ranks candidates by those same votes. Finally, we evaluated the quantized models served by Ollama rather than the Bedrock deployment.
 
@@ -138,7 +157,7 @@ Our contributions are this agent; a deployment on Amazon Web Services (AWS), int
 
 \textbf{Benefits.} The assistant makes a large catalogue searchable in natural language. In our evaluation, grounding removed hallucinated titles (none with tools against 4--28\% without; Section~\ref{sec:results}), and small open-weight models let the agent run entirely on a user's computer.
 
-\textbf{Privacy.} The deployment processes personal data of students and staff, such as e-mail addresses, IP addresses and user identifiers, and is subject to the GDPR~\cite{gdpr}. Messages reach Bedrock through the stateless Chat Completions API; the optional Arize AX tracing would also store messages and replies, by default through a non-EU endpoint, which our GDPR checklist does not yet cover. Use beyond the course demonstration would call for a data processing agreement with the university (Art.~28), a record of processing activities (Art.~30), retention limits for logs and traces (Art.~5(1)(e)) and disabled model invocation logging; we would also move the stack from \texttt{us-east-2} to an EU region, avoiding transfers outside the EU (Arts.~44--49). \TODO{check with German which of these are done by the demo}
+\textbf{Privacy.} The deployment processes personal data of students and staff, such as e-mail addresses, IP addresses and user identifiers, and is subject to the GDPR~\cite{gdpr}. Messages reach Bedrock through the stateless Chat Completions API; the optional Arize AX tracing would also store messages and replies, by default through a non-EU endpoint, which our GDPR checklist does not yet cover. Use beyond the course demonstration would call for a data processing agreement with the university (Art.~28), a record of processing activities (Art.~30), retention limits for logs and traces (Art.~5(1)(e)) and disabled model invocation logging; we would also move the stack from \texttt{us-east-2} to an EU region, avoiding transfers outside the EU (Arts.~44--49). None of these measures is in place yet.
 
 \textbf{Bias and fairness.} The ranking favours popular titles: recommendations based on a reference title follow AniList users' votes, then shared genres and tags, then popularity, and requests without one default to popularity order, which may reinforce a feedback loop that hides lesser-known works~\cite{chaney2018confounding}.
 
@@ -154,7 +173,7 @@ Our contributions are this agent; a deployment on Amazon Web Services (AWS), int
 
 \instructions{Write a few sentences if you have or have not used any generative AI, and if so how.}
 
-\TODO{write the declaration}
+We used generative AI assistants (Claude Code with Claude skills, OpenAI Codex and GitHub Copilot) for writing and debugging code, reviewing pull requests, analysing the code and the evaluation logs, drafting and editing this report, writing the diagram scripts and checking references.
 
 
 \hfill \break
