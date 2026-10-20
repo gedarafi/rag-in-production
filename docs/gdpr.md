@@ -2,7 +2,7 @@
 
 What we still need to do before real students use the chatbot. The users are students and staff
 at EU universities (sign-in is limited to `uu.se` and `student.uu.se` in
-[`infra/live/aws/env.hcl`](infra/live/aws/env.hcl)), so the GDPR applies to everything we store
+[`infra/live/aws/env.hcl`](../infra/live/aws/env.hcl)), so the GDPR applies to everything we store
 about them. This is a checklist, not legal advice: confirm the final setup with the university's
 data protection officer.
 
@@ -29,7 +29,7 @@ data protection officer.
 ## Where the data lives
 
 - [ ] Move the AWS deployment to an EU region. `region` in
-      [`infra/live/aws/env.hcl`](infra/live/aws/env.hcl) is `us-east-2` today; `eu-north-1`
+      [`infra/live/aws/env.hcl`](../infra/live/aws/env.hcl) is `us-east-2` today; `eu-north-1`
       (Stockholm) is commented out next to it. Cognito, SES, Lambda, S3 and logs must all move.
 - [ ] Keep prompts in the EU. On bedrock-mantle (the default) the endpoint is regional
       (`bedrock-mantle.<region>.api.aws`), so check that the chosen model is offered there in the EU
@@ -50,7 +50,7 @@ data protection officer.
       as we can and write the chosen value in the privacy notice.
 - [ ] Check the API Gateway access log format: drop or truncate the IP address if we do not need it.
 - [ ] Never log chat messages, answers or email addresses; add a test that the Lambda error logs
-      in [`src/chat/handler.py`](src/chat/handler.py) contain only
+      in [`src/chat/handler.py`](../src/chat/handler.py) contain only
       the user ID and the error.
 - [ ] Decide how long a Cognito account lives without use, and delete inactive accounts
       automatically (for example, a scheduled Lambda).
@@ -61,7 +61,7 @@ data protection officer.
 ## Rights of the people using it
 
 - [ ] **Information** (Articles 13 and 14): a privacy notice linked from the sign-in page in
-      [`web/`](web) that says what we collect, why, for how long, who processes it and how to
+      [`web/`](../web) that says what we collect, why, for how long, who processes it and how to
       contact us and the data protection officer.
 - [ ] **Access and portability**: a way to export what we hold about one user (the Cognito
       attributes, and any logs that mention their user ID).

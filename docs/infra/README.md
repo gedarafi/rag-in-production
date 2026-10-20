@@ -1,9 +1,9 @@
 # Infrastructure
 
-How the sign-in page, the chat and the anime recommender are deployed, on LocalStack and on real AWS. The local RAG is in
-[README.md](README.md).
+How the sign-in page, the chat and the anime recommender are deployed, on LocalStack and on real AWS.
+To try them, see [testing](../testing.md).
 
-The infrastructure lives in [`infra/`](infra); the Lambdas' code lives in [`src/`](src):
+The infrastructure lives in [`infra/`](../../infra); the Lambdas' code lives in [`src/`](../../src):
 
 | Path | Contents |
 | --- | --- |
@@ -11,7 +11,7 @@ The infrastructure lives in [`infra/`](infra); the Lambdas' code lives in [`src/
 | `infra/modules/s3-bucket/` | OpenTofu module for a private, versioned, encrypted S3 bucket, with tests in `tests/` |
 | `infra/modules/auth/` | Cognito user pool with passwordless email-code sign-in, limited to allowed email domains; the pre sign-up Lambda's code is in `src/auth/` |
 | `infra/modules/chat-api/` | HTTP API with a Cognito JWT authorizer and a chat Lambda that answers with a Bedrock model; its code is in `src/chat/` |
-| `infra/modules/web/` | Private S3 bucket and CloudFront for the page in [`web/`](web); `/api/*` is forwarded to the chat API and, when an instance runs, `/recommend/*` to the recommender |
+| `infra/modules/web/` | Private S3 bucket and CloudFront for the page in [`web/`](../../web); `/api/*` is forwarded to the chat API and, when an instance runs, `/recommend/*` to the recommender |
 | `infra/modules/recommender-host/` | EC2 instance (with an Elastic IP) that serves the anime recommender, its S3 data bucket, an instance role (read the bucket, call bedrock-mantle, SSM) and a security group open to CloudFront only; its code is in `src/recommender/` |
 | `infra/modules/budget/` | Monthly cost budget for the AWS account, emailing at 80 % actual and 100 % forecasted spend (real AWS only) |
 | `infra/scripts/` | `local_flow.py` drives the local sign-in and chat flow; `diagram.py` draws the architecture diagram |
@@ -56,44 +56,29 @@ just destroy          # remove everything from infra/live/local
 
 Run `just` to see all recipes.
 
-## Trying the whole flow locally
-
-For the quickest start (one command, plus tracing in Phoenix), see
-[Try the chat locally](TESTING.md#try-the-chat-locally-and-see-its-traces) in TESTING.md.
+## What LocalStack covers
 
 `infra/live/local/` deploys the same `auth`, `chat-api` and `web` modules as `infra/live/aws/`
 (both share `infra/live/_units/`). LocalStack's Cognito has no passwordless sign-in, so locally
-users get a fixed password ([`infra/scripts/local_flow.py`](infra/scripts/local_flow.py)) and the
+users get a fixed password ([`infra/scripts/local_flow.py`](../../infra/scripts/local_flow.py)) and the
 email-code screens can only be tried on real AWS. Everything else is exercised: the pre sign-up
 Lambda's domain check, the confirmation code sent through SES, the JWT authorizer, the chat
 Lambda's Bedrock call and CloudFront's `/api/*` forwarding.
 
 LocalStack emulates Bedrock with a small open model (`qwen2.5:0.5b`, about 400 MB) that it runs
-with Ollama on CPU, whatever model the request names: the local chat checks the whole path, not
-the quality of the answers. The model is pulled and loaded when LocalStack starts, which takes a
-minute or two the first time. Bedrock is part of LocalStack's paid plans, so the auth token must
-include it.
-
-```sh
-just apply                                   # deploy
-just outputs                                 # page URL (open it in a browser), API URL, IDs
-just signup me@student.uu.se                 # register; the code is read from LocalStack's SES inbox
-just codes                                   # every code LocalStack has "emailed"
-just chat me@student.uu.se "What is week 3?" # sign in and ask through CloudFront
-just session me@student.uu.se                # paste the output in the page's browser console
-                                             # to sign the page in, then use the chat box
-just destroy
-```
-
+with Ollama on CPU, whatever model the request names, so it checks the path, not the quality of
+the answers. Bedrock is part of LocalStack's paid plans, so the auth token must include it.
 LocalStack doesn't apply CloudFront's security headers (CSP, HSTS) or check the token issuer
 strictly; check those on AWS.
+
+The steps to try the chat and the recommender locally are in [testing](../testing.md).
 
 ## Real AWS: sign-in page and chat
 
 `infra/live/aws/` deploys a sign-in page where people with an allowed university email
 (`@uu.se`, `@student.uu.se` by default) register and sign in with a one-time code sent to
 their inbox, then reach a chat box. The chat Lambda
-([`src/chat/handler.py`](src/chat/handler.py)) answers with a
+([`src/chat/handler.py`](../../src/chat/handler.py)) answers with a
 Bedrock model: by default Gemma 3 4B through Chat Completions on bedrock-mantle, Bedrock's
 OpenAI-compatible endpoint. Its quotas are separate from bedrock-runtime's, and the requests show
 up under the default project in the console. The Lambda signs these requests with its IAM role,
@@ -110,9 +95,9 @@ browser ── CloudFront ──┬── /            → S3 (web/)
    └── Cognito (email code; pre sign-up Lambda rejects other domains; codes sent through SES)
 ```
 
-![Architecture of the real AWS environment](docs/architecture.png)
+![Architecture of the real AWS environment](architecture.png)
 
-[`docs/architecture.png`](docs/architecture.png) is drawn by `just aws-diagram` from what is
+[`architecture.png`](architecture.png) is drawn by `just aws-diagram` from what is
 deployed: each icon is a service in a unit's OpenTofu state, and each arrow means that service's
 state refers to the other one (CloudFront's origins, the API's integration and authorizer,
 Cognito's pre sign-up trigger, the chat Lambda's model, and the bucket, user pool and model named
@@ -141,12 +126,12 @@ just aws-apply      # deploy
 just aws-outputs    # page URL, user pool and client IDs
 just aws-destroy    # remove everything, including registered users
 just web-dev        # serve web/ locally on http://localhost:8000 against the deployed API
-just aws-diagram    # redraw docs/architecture.png from the deployed services
+just aws-diagram    # redraw docs/infra/architecture.png from the deployed services
 ```
 
 ### The anime recommender on EC2
 
-`infra/live/aws/recommender-host/` runs the recommender ([`src/recommender/`](src/recommender)) on one
+`infra/live/aws/recommender-host/` runs the recommender ([`src/recommender/`](../../src/recommender)) on one
 EC2 instance, `t4g.medium` by default (2 vCPU, 4 GB, about $25 a month on demand; it serves about
 30 chatting users, since the models run on Bedrock). systemd runs `recommender serve`, a FastAPI
 service that checks the user's Cognito access token itself and answers under `/recommend/*`;
@@ -175,15 +160,8 @@ instead of the chat API when its `config.js` enables it, which the `web` module 
 instance runs.
 
 Locally, LocalStack holds only the data bucket (and the role and security group): its Bedrock
-doesn't enforce JSON schemas, so the service runs on your machine with Ollama and is traced in
-Phoenix:
-
-```sh
-just recommender-local-up              # start LocalStack, apply, build and publish the library
-just signup me@student.uu.se           # once
-just recommender-serve                 # the service on http://localhost:8080, traces in Phoenix
-just recommender-web me@student.uu.se  # the signed-in page on http://localhost:8000
-```
+doesn't enforce JSON schemas, so the service runs on your machine with Ollama; see
+[testing](../testing.md#try-the-anime-recommender-locally).
 
 ### Traces in Arize AX
 
@@ -219,7 +197,7 @@ just aws-mantle destroy     # remove it
 
 ## CI
 
-[`.github/workflows/infra.yml`](.github/workflows/infra.yml) runs on pull requests that touch
+[`.github/workflows/infra.yml`](../../.github/workflows/infra.yml) runs on pull requests that touch
 `infra/` or `web/`. The first job runs `just lint` and `just test-unit` (module tests with mocked
 providers, plus the Lambda unit tests). The second job starts LocalStack
 and runs `just test-localstack` and `just e2e`; it needs a `LOCALSTACK_AUTH_TOKEN` repository

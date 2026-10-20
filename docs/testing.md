@@ -1,6 +1,6 @@
 # Testing
 
-Needs the tools and the LocalStack auth token from [INFRA.md](INFRA.md#localstack-local-aws).
+Needs the tools and the LocalStack auth token from [infra](infra/README.md#localstack-local-aws).
 LocalStack's Cognito has no email-code sign-in, so local users get a fixed password and a snippet
 or a generated `config.js` stands in for the code screens. Phoenix (http://localhost:6006) shows
 the local traces; on AWS they go to Arize AX.
@@ -71,7 +71,7 @@ a code change; it doesn't reload.
 
 ## Check the deployment on real AWS
 
-After `just aws-apply` (see [INFRA.md](INFRA.md#the-anime-recommender-on-ec2)):
+After `just aws-apply` (see [infra](infra/README.md#the-anime-recommender-on-ec2)):
 
 1. `https://<url from just aws-outputs>/recommend/health` returns `"ready":true` once the instance
    has installed the package and pulled the library (a few minutes after a new instance).
@@ -92,9 +92,9 @@ aws ssm start-session --target <instance_id>   # then: journalctl -u recommender
 
 ## Automated tests
 
-The Python tests (pytest, in [`tests/`](tests) and [`infra/scripts/`](infra/scripts)) cover the
+The Python tests (pytest, in [`tests/`](../tests) and [`infra/scripts/`](../infra/scripts)) cover the
 chat and pre-sign-up Lambdas and the trace exporter with fake AWS clients, so they need no AWS and
-no LocalStack. The recommender's tests in [`tests/recommender/`](tests/recommender) need the
+no LocalStack. The recommender's tests in [`tests/recommender/`](../tests/recommender) need the
 project's own dependencies (NumPy, PyTorch, Gradio) but no models: they use stubs. The OpenTofu
 modules have `tofu test` suites in `infra/modules/*/tests/`.
 
@@ -118,4 +118,4 @@ just e2e                              # deploys to LocalStack, checks sign-in an
 CI from a fresh checkout's state: it runs `just clean` (deletes the OpenTofu and Terragrunt caches
 and the Lambda build), then lint and the unit tests, then starts a fresh LocalStack for the
 LocalStack test and `just e2e`, and stops it at the end. CI itself is described in
-[INFRA.md](INFRA.md#ci).
+[infra](infra/README.md#ci).
