@@ -23,7 +23,8 @@ locals {
   # Switch to ACTIVE once real users depend on the pool.
   deletion_protection = "INACTIVE"
 
-  # Chat model. "openai" calls Chat Completions on bedrock-mantle (bedrock-mantle.<region>.api.aws),
+  # The chat Lambda's model (the recommender's is recommender_model_id below). "openai" calls Chat
+  # Completions on bedrock-mantle (bedrock-mantle.<region>.api.aws),
   # whose quotas are separate from bedrock-runtime's; the requests show up under the default project
   # in the console. "converse" calls Converse on bedrock-runtime with a model or inference profile
   # such as us.amazon.nova-micro-v1:0.

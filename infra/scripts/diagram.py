@@ -267,7 +267,7 @@ app = typer.Typer(add_completion=False)
 @app.command()
 def main(
     live: Annotated[Path, typer.Option(help="Directory of the Terragrunt units to draw")] = Path("live/aws"),
-    out: Annotated[Path, typer.Option(help="Output file, without the .png")] = Path("../docs/architecture"),
+    out: Annotated[Path, typer.Option(help="Output file, without the .png")] = Path("../docs/infra/architecture"),
     title: Annotated[str, typer.Option(help="Diagram title")] = "RAG in Production on AWS",
     account_id: Annotated[str, typer.Option(envvar="RAG_AWS_ACCOUNT_ID", help="Replaced by <account> in names")] = "",
 ):

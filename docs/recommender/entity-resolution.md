@@ -39,9 +39,9 @@ planning prompts receive the confirmed mention roles.
 
 ## Verification and diagnostics
 
-```powershell
-.venv/Scripts/python.exe -m unittest discover -s tests -p test_entity_resolution.py
-.venv/Scripts/python.exe scripts/check_entity_resolution.py
+```sh
+uv run pytest tests/recommender/test_entity_resolution.py
+uv run python scripts/check_entity_resolution.py
 ```
 
 The live script uses the configured local model and saves decisions under
