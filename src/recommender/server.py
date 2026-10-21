@@ -37,6 +37,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, StreamingResponse
 from pydantic import BaseModel, Field
 
+from .errors import UserFacingError
+
 # How long a question waits for a free pipeline before the user hears "busy".
 QUEUE_SECONDS = 30
 # Seconds between keepalive lines; well inside CloudFront's 60-second origin read timeout.
@@ -122,6 +124,15 @@ def http_status(error: BaseException) -> int:
     return 502
 
 
+def user_message(error: BaseException) -> str | None:
+    """The message of the UserFacingError behind this error, if any; other messages stay in the log."""
+    while error is not None:
+        if isinstance(error, UserFacingError):
+            return str(error)
+        error = error.__cause__ or error.__context__
+    return None
+
+
 def load_library():
     """Settings of the library to serve: a pulled bundle, or a local workspace."""
     from .config import load_settings
@@ -193,6 +204,7 @@ def create_app(verify=None, pool_factory=None) -> FastAPI:
             except Exception as error:
                 print(f"Recommender failed for user {claims['sub']}: {type(error).__name__}: {error}", flush=True)
                 result["status"] = http_status(error)
+                result["message"] = user_message(error)
             finally:
                 pool.release(pipeline)
                 done.set()
@@ -205,8 +217,9 @@ def create_app(verify=None, pool_factory=None) -> FastAPI:
             if "answer" in result:
                 yield json.dumps({"type": "answer", "answer": result["answer"]}) + "\n"
             else:
-                message = ("The assistant is busy. Try again in a moment." if result["status"] == 429
-                           else "The assistant couldn't answer. Try again.")
+                message = result["message"] or ("The assistant is busy. Try again in a moment."
+                                                if result["status"] == 429
+                                                else "The assistant couldn't answer. Try again.")
                 yield json.dumps({"type": "error", "status": result["status"], "error": message}) + "\n"
 
         return StreamingResponse(lines(), media_type="application/x-ndjson",

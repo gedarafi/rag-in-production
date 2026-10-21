@@ -34,6 +34,9 @@ SYSTEM_PROMPT = (
 # Bedrock errors that mean "try again later" rather than "this request is broken".
 BUSY_ERRORS = {"ThrottlingException", "ServiceUnavailableException", "ModelNotReadyException"}
 BUSY_STATUSES = {429, 503}
+# Bedrock's daily token quota throttles with this in the message; waiting a moment won't help.
+DAILY_QUOTA_HINT = "per day"
+DAILY_QUOTA_MESSAGE = "The assistant has used up today's model quota. Try again tomorrow."
 
 _client = None
 _mantle = None
@@ -208,7 +211,10 @@ def answer(message: str, user_id: str) -> str:
         text = call(message, int(os.environ.get("MAX_TOKENS", "512"))).strip()
     except urllib.error.HTTPError as err:
         # bedrock-mantle answers errors with an HTTP status and a JSON body.
-        print(f"Bedrock call failed for user {user_id}: HTTP {err.code}: {err.read(500).decode(errors='replace')}")
+        detail = err.read(500).decode(errors="replace")
+        print(f"Bedrock call failed for user {user_id}: HTTP {err.code}: {detail}")
+        if err.code in BUSY_STATUSES and DAILY_QUOTA_HINT in detail:
+            raise ModelError(429, DAILY_QUOTA_MESSAGE) from err
         if err.code in BUSY_STATUSES:
             raise ModelError(429, "The assistant is busy. Try again in a moment.") from err
         raise ModelError(502, "The assistant couldn't answer. Try again.") from err
@@ -216,6 +222,8 @@ def answer(message: str, user_id: str) -> str:
         # botocore's ClientError carries the AWS error code; timeouts and connection errors don't.
         code = (getattr(err, "response", None) or {}).get("Error", {}).get("Code", "")
         print(f"Bedrock call failed for user {user_id}: {code or type(err).__name__}: {err}")
+        if code == "ThrottlingException" and DAILY_QUOTA_HINT in str(err):
+            raise ModelError(429, DAILY_QUOTA_MESSAGE) from err
         if code in BUSY_ERRORS:
             raise ModelError(429, "The assistant is busy. Try again in a moment.") from err
         if code:

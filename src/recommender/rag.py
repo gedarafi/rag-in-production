@@ -12,6 +12,7 @@ from .providers import BedrockModels, LocalModels
 from ..tracing import annotate, setup_tracing, stage, trace_id, tracer
 from .progress import Progress
 from .embedding_cache import cached_embed
+from .errors import UserFacingError
 from .anime_tools import AnimeTools, normalize, contains
 from .query_router import fast_answer
 from .semantic_router import SemanticRouter, RoutingPlanError
@@ -316,7 +317,7 @@ class RagPipeline:
                           ". Use only these source filenames: " + json.dumps(sources) + ".")
             answer = self.models.answer(prompt + correction, self.settings.temperature, self.settings.max_tokens)
             if not preserves_names(answer):
-                raise RuntimeError('The generated answer did not preserve the retrieved character identities after correction.')
+                raise UserFacingError('The generated answer did not preserve the retrieved character identities after correction.')
         # Filenames are provenance, not prose: never allow the model to invent one.
         def citation(match):
             source = match.group(1)

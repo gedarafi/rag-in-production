@@ -9,9 +9,9 @@ import urllib.error
 class AwsError(Exception):
     """Shaped like botocore's ClientError, so the tests need no boto3."""
 
-    def __init__(self, code):
-        super().__init__(code)
-        self.response = {"Error": {"Code": code, "Message": code}}
+    def __init__(self, code, message=None):
+        super().__init__(message or code)
+        self.response = {"Error": {"Code": code, "Message": message or code}}
 
 
 class FakeBedrock:
@@ -42,8 +42,8 @@ class FakeMantle:
         return res
 
 
-def http_error(status) -> urllib.error.HTTPError:
-    body = io.BytesIO(json.dumps({"error": {"code": str(status), "message": "nope"}}).encode())
+def http_error(status, message="nope") -> urllib.error.HTTPError:
+    body = io.BytesIO(json.dumps({"error": {"code": str(status), "message": message}}).encode())
     return urllib.error.HTTPError("https://bedrock-mantle.example/v1/chat/completions", status, "error", {}, body)
 
 
