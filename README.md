@@ -14,7 +14,10 @@ Needs the tools and the LocalStack auth token from [infra](docs/infra/README.md#
 Start LocalStack and Phoenix, deploy the stack to it and register yourself:
 
 ```sh
-just local-up me@student.uu.se
+just recommender-local-up              # LocalStack, apply, build and publish the library (once)
+just signup me@student.uu.se           # once
+just recommender-serve                 # terminal 1: the service on http://127.0.0.1:8080
+just recommender-web me@student.uu.se  # terminal 2: the page on http://localhost:8000
 ```
 
 It prints the page URL and how to sign in; [testing](docs/testing.md) has the rest.
