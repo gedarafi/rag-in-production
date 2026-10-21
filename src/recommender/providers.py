@@ -12,6 +12,7 @@ import requests
 from openinference.instrumentation import get_input_attributes, get_llm_attributes, get_output_attributes
 
 from .progress import Progress
+from .errors import UserFacingError
 from .recommendation_output import render_recommendations
 from ..tracing import annotate, event, tracer
 
@@ -292,7 +293,7 @@ class LocalModels:
         except (ValueError, KeyError, TypeError) as error:
             self.last_fact_validation_error = str(error)
             event('grounding_validation_failed', error=str(error))
-            raise RuntimeError('The model returned an invalid grounded response. Please retry.') from error
+            raise UserFacingError('The model returned an invalid grounded response. Please retry.') from error
         except requests.RequestException as error:
             raise RuntimeError(f'Could not reach Ollama for the grounded answer: {error}') from error
 

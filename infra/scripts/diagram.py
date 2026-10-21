@@ -249,10 +249,10 @@ def render(graph: Graph, out: Path, title: str):
             drawn[src] >> Edge(label=text, style=style) >> drawn[dst]
 
 
-def load_states(live: Path) -> dict[str, dict]:
-    """`show -json` of every unit under live/, read from its OpenTofu state."""
+def load_states(live: Path, skip: list[str] = ()) -> dict[str, dict]:
+    """`show -json` of every unit under live/ except those named in skip, read from its OpenTofu state."""
     units = {}
-    for unit in sorted(p.parent for p in live.glob("*/terragrunt.hcl")):
+    for unit in sorted(p.parent for p in live.glob("*/terragrunt.hcl") if p.parent.name not in skip):
         cmd = ["terragrunt", "run", "--non-interactive", "--log-level", "error", "--working-dir", str(unit), "--", "show", "-json"]
         result = subprocess.run(cmd, capture_output=True, text=True)
         if result.returncode != 0:
@@ -270,9 +270,10 @@ def main(
     out: Annotated[Path, typer.Option(help="Output file, without the .png")] = Path("../docs/infra/architecture"),
     title: Annotated[str, typer.Option(help="Diagram title")] = "RAG in Production on AWS",
     account_id: Annotated[str, typer.Option(envvar="RAG_AWS_ACCOUNT_ID", help="Replaced by <account> in names")] = "",
+    skip: Annotated[list[str] | None, typer.Option(help="Unit to leave off the diagram (repeatable)")] = None,
 ):
     """Draw the services deployed by the units under LIVE and the links between them."""
-    graph = build(load_states(live), account_id)
+    graph = build(load_states(live, skip or []), account_id)
     if not graph.nodes:
         raise SystemExit(f"No deployed services found under {live}: deploy first.")
     render(graph, out, title)

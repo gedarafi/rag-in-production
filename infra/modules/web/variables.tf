@@ -57,6 +57,12 @@ variable "recommender_origin_port" {
   default     = 8080
 }
 
+variable "domain_name" {
+  description = "Optional host name for the page, e.g. rag.example.com. Its DNS owner adds the certificate's validation CNAME and a CNAME to the distribution. Empty serves only the CloudFront address."
+  type        = string
+  default     = ""
+}
+
 variable "price_class" {
   description = "CloudFront price class. PriceClass_100 serves from Europe and North America, the cheapest."
   type        = string

@@ -1,6 +1,16 @@
 # Plan-only tests with a mocked provider. They need no LocalStack and no credentials.
 
 mock_provider "aws" {
+  alias = "us_east_1"
+
+  mock_resource "aws_acm_certificate" {
+    defaults = {
+      arn = "arn:aws:acm:us-east-1:123456789012:certificate/abc"
+    }
+  }
+}
+
+mock_provider "aws" {
   mock_data "aws_caller_identity" {
     defaults = {
       account_id = "123456789012"
@@ -133,5 +143,28 @@ run "routes_recommender_calls_to_the_instance_without_caching" {
   assert {
     condition     = strcontains(aws_s3_object.config.content, "\"recommender\":true")
     error_message = "The page must know the recommender is available."
+  }
+}
+
+run "serves_a_custom_domain_with_its_us_east_1_certificate" {
+  command = plan
+
+  variables {
+    domain_name = "rag.example.com"
+  }
+
+  assert {
+    condition     = aws_cloudfront_distribution.site.aliases == toset(["rag.example.com"]) && aws_acm_certificate.site[0].domain_name == "rag.example.com"
+    error_message = "The distribution must answer on the custom domain, with a certificate for it."
+  }
+
+  assert {
+    condition     = aws_cloudfront_distribution.site.viewer_certificate[0].ssl_support_method == "sni-only" && !aws_cloudfront_distribution.site.viewer_certificate[0].cloudfront_default_certificate
+    error_message = "With a custom domain the distribution must use its own certificate over SNI."
+  }
+
+  assert {
+    condition     = output.url == "https://rag.example.com"
+    error_message = "url must be the custom domain."
   }
 }

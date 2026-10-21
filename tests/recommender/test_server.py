@@ -11,6 +11,7 @@ from cryptography.hazmat.primitives.asymmetric import rsa
 from fastapi.testclient import TestClient
 
 from src.recommender import server
+from src.recommender.errors import UserFacingError
 
 ISSUER = 'https://cognito-idp.us-east-2.amazonaws.com/us-east-2_pool'
 KEY = rsa.generate_private_key(public_exponent=65537, key_size=2048)
@@ -111,6 +112,24 @@ class ServerTests(unittest.TestCase):
         last = json.loads(response.text.strip().splitlines()[-1])
         self.assertEqual((last['type'], last['status']), ('error', 429))
         self.assertFalse(self.pool.busy)
+
+    def last_error(self, failure):
+        client = self.client(Pipeline(error=failure))
+        with patch('builtins.print'):
+            response = self.ask(client, 'Bearer ' + token())
+        return json.loads(response.text.strip().splitlines()[-1])
+
+    def test_user_facing_failures_reach_the_page(self):
+        message = 'No supported recommendations were retrieved. Please rephrase your preferences and retry.'
+        wrapped = RuntimeError('Agent failed')
+        wrapped.__cause__ = UserFacingError(message)
+        for failure in (UserFacingError(message), wrapped):
+            with self.subTest(failure=failure):
+                self.assertEqual(self.last_error(failure), {'type': 'error', 'status': 502, 'error': message})
+
+    def test_internal_failures_stay_generic(self):
+        last = self.last_error(RuntimeError('Could not reach Ollama at http://10.0.0.5:11434: refused'))
+        self.assertEqual(last['error'], "The assistant couldn't answer. Try again.")
 
     def test_validation_rejects_oversized_messages(self):
         response = self.ask(self.client(Pipeline('x')), 'Bearer ' + token(), message='x' * 2001)

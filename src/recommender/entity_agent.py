@@ -12,6 +12,7 @@ from time import perf_counter
 import numpy as np
 
 from .embedding_cache import cached_embed
+from .errors import UserFacingError
 from .entity_store import EntityStore, KINDS
 from .anime_tools import contains, normalize
 from .tool_plan import plan_schema, validate_plan, resolve_references, compile_steps
@@ -388,7 +389,7 @@ class EntityAgent:
             self.last_usage['llm_calls'] += 1
         text = generate(prompt, self.settings.temperature, self.settings.max_tokens).strip()
         if not text:
-            raise RuntimeError('The language model returned an empty response.')
+            raise UserFacingError('The language model returned an empty response.')
         if wants_recommendations and state.get('excluded_features') and not re.search(
                 r'\b(?:catalog|metadata|tagged|listed|subplots? may|subplots? can)\b', text, re.I):
             self.last_usage['llm_calls'] += 1
@@ -399,9 +400,9 @@ class EntityAgent:
                             'with a short source-supported description each. Do not claim the excluded content never occurs.',
                             0, self.settings.max_tokens).strip()
             if not text:
-                raise RuntimeError('The language model returned an empty response.')
+                raise UserFacingError('The language model returned an empty response.')
             if not re.search(r'\b(?:catalog|metadata|tagged|listed|subplots? may|subplots? can)\b', text, re.I):
-                raise RuntimeError('The generated answer overstated the catalog exclusion after correction. Please retry.')
+                raise UserFacingError('The generated answer overstated the catalog exclusion after correction. Please retry.')
         if missing_recommendations:
             # Prompt instructions alone did not prevent memory-based lists in
             # the reported failure. Fail closed if the model still lists titles.
@@ -409,7 +410,7 @@ class EntityAgent:
             if (any(contains(normalize(text), normalize(alias))
                     for record in named for alias in record['aliases'])
                     or re.search(r'(?m)^\s*(?:\d+[.)]|[-*])\s+', text)):
-                raise RuntimeError('No supported recommendations were retrieved. Please rephrase your preferences and retry.')
+                raise UserFacingError('No supported recommendations were retrieved. Please rephrase your preferences and retry.')
         issues = self.identity_issues(text, self.bounded_evidence(evidence))
         if issues:
             if hasattr(self, 'last_usage'):
@@ -421,7 +422,7 @@ class EntityAgent:
                             'character comparisons. Do not repeat the incorrect draft.',
                             0, self.settings.max_tokens).strip()
             if not text or self.identity_issues(text, self.bounded_evidence(evidence)):
-                raise RuntimeError('The generated answer mixed anime identities after correction. Please retry.')
+                raise UserFacingError('The generated answer mixed anime identities after correction. Please retry.')
         allowed = self.sources(self.bounded_evidence(evidence))
         # Provenance formatting is metadata; all conversational wording is LLM-written.
         text = self.format_citations(text, allowed, strict=False)

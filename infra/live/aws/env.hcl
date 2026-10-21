@@ -53,6 +53,9 @@ locals {
   recommender_instance_type = get_env("RAG_RECOMMENDER_INSTANCE_TYPE", "t4g.medium")
   recommender_model_id      = get_env("RAG_RECOMMENDER_MODEL_ID", "qwen.qwen3-32b")
 
+  # Optional host name for the page (e.g. rag.example.com); empty serves only the CloudFront address.
+  web_domain_name = get_env("RAG_WEB_DOMAIN", "")
+
   # Lets `just web-dev` (http://localhost:8000) call the API directly.
   cors_allow_origins = ["http://localhost:8000"]
 }

@@ -111,6 +111,14 @@ def test_model_errors(monkeypatch, error, expected):
     assert "Exception" not in body["error"]  # no AWS internals in the reply
 
 
+def test_daily_quota_says_so(monkeypatch):
+    error = AwsError("ThrottlingException", "Too many tokens per day, please wait before trying again.")
+    monkeypatch.setattr(chat, "_client", FakeBedrock(error=error))
+    status, body = call(event({"message": "hi"}))
+    assert status == 429
+    assert "today's model quota" in body["error"]
+
+
 def test_empty_model_answer_is_an_error(monkeypatch):
     monkeypatch.setattr(chat, "_client", FakeBedrock(reply="   "))
     status, _ = call(event({"message": "hi"}))
@@ -158,6 +166,13 @@ def test_mantle_model_errors(mantle, monkeypatch, error, expected):
     assert status == expected
     assert "error" in body
     assert "HTTP" not in body["error"]  # no endpoint internals in the reply
+
+
+def test_mantle_daily_quota_says_so(mantle, monkeypatch):
+    monkeypatch.setattr(chat, "_mantle", FakeMantle(error=http_error(429, "Too many tokens per day")))
+    status, body = call(event({"message": "hi"}))
+    assert status == 429
+    assert "today's model quota" in body["error"]
 
 
 @pytest.mark.parametrize("reply", ["   ", None])  # None: a reasoning model ran out of tokens while thinking

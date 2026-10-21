@@ -341,6 +341,10 @@ function bind() {
   $("change-email").addEventListener("click", () => show("email"));
   $("sign-out").addEventListener("click", signOut);
 
+  if (useRecommender) {
+    $("message").placeholder =
+      'Ask about any anime or for recommendations, e.g. "What is Assassination Classroom about?" or "Recommend five comedy anime like it"';
+  }
   $("message").addEventListener("keydown", (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();

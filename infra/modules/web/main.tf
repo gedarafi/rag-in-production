@@ -102,6 +102,30 @@ resource "aws_s3_bucket_policy" "site" {
   depends_on = [aws_s3_bucket_public_access_block.site]
 }
 
+# ---------- Custom domain (optional) ----------
+# CloudFront only takes certificates from us-east-1. ACM validates by DNS: the domain's owner adds the
+# CNAME in the certificate_validation_record output, and apply waits here until ACM has issued it.
+
+resource "aws_acm_certificate" "site" {
+  count    = var.domain_name == "" ? 0 : 1
+  provider = aws.us_east_1
+
+  domain_name       = var.domain_name
+  validation_method = "DNS"
+  tags              = var.tags
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
+resource "aws_acm_certificate_validation" "site" {
+  count    = var.domain_name == "" ? 0 : 1
+  provider = aws.us_east_1
+
+  certificate_arn = aws_acm_certificate.site[0].arn
+}
+
 # ---------- CloudFront ----------
 
 resource "aws_cloudfront_origin_access_control" "site" {
@@ -145,6 +169,7 @@ resource "aws_cloudfront_distribution" "site" {
   default_root_object = "index.html"
   price_class         = var.price_class
   http_version        = "http2and3"
+  aliases             = var.domain_name == "" ? [] : [var.domain_name]
   tags                = var.tags
 
   origin {
@@ -227,6 +252,9 @@ resource "aws_cloudfront_distribution" "site" {
   }
 
   viewer_certificate {
-    cloudfront_default_certificate = true
+    cloudfront_default_certificate = var.domain_name == ""
+    acm_certificate_arn            = var.domain_name == "" ? null : aws_acm_certificate_validation.site[0].certificate_arn
+    ssl_support_method             = var.domain_name == "" ? null : "sni-only"
+    minimum_protocol_version       = var.domain_name == "" ? null : "TLSv1.2_2021"
   }
 }
