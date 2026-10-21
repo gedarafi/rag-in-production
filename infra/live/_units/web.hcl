@@ -36,6 +36,35 @@ dependency "recommender_host" {
   mock_outputs_allowed_terraform_commands = ["init", "validate", "plan"]
 }
 
+# The module's second provider, for the custom domain's certificate (CloudFront only takes us-east-1).
+generate "provider_us_east_1" {
+  path      = "provider_us_east_1.tf"
+  if_exists = "overwrite_terragrunt"
+  contents = local.env.target == "localstack" ? (<<-EOF
+    provider "aws" {
+      alias                       = "us_east_1"
+      region                      = "us-east-1"
+      access_key                  = "test"
+      secret_key                  = "test"
+      skip_credentials_validation = true
+      skip_metadata_api_check     = true
+      skip_requesting_account_id  = true
+
+      endpoints {
+        acm = "${get_env("LOCALSTACK_ENDPOINT", "http://localhost:4566")}"
+      }
+    }
+  EOF
+    ) : (<<-EOF
+    provider "aws" {
+      alias               = "us_east_1"
+      region              = "us-east-1"
+      allowed_account_ids = ["${try(local.env.account_id, "")}"]
+    }
+  EOF
+  )
+}
+
 inputs = {
   name_prefix           = local.env.name_prefix
   site_dir              = "${get_repo_root()}/web"
@@ -49,4 +78,5 @@ inputs = {
   # /recommend/* goes to the recommender instance, when the environment runs one.
   recommender_origin_domain = dependency.recommender_host.outputs.origin_domain
   recommender_origin_port   = dependency.recommender_host.outputs.origin_port
+  domain_name               = try(local.env.web_domain_name, "")
 }

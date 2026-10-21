@@ -13,7 +13,7 @@ The infrastructure lives in [`infra/`](../../infra); the Lambdas' code lives in 
 | `infra/modules/chat-api/` | HTTP API with a Cognito JWT authorizer and a chat Lambda that answers with a Bedrock model; its code is in `src/chat/` |
 | `infra/modules/web/` | Private S3 bucket and CloudFront for the page in [`web/`](../../web); `/api/*` is forwarded to the chat API and, when an instance runs, `/recommend/*` to the recommender |
 | `infra/modules/recommender-host/` | EC2 instance (with an Elastic IP) that serves the anime recommender, its S3 data bucket, an instance role (read the bucket, call bedrock-mantle, SSM) and a security group open to CloudFront only; its code is in `src/recommender/` |
-| `infra/modules/budget/` | Monthly cost budget for the AWS account, emailing at 80 % actual and 100 % forecasted spend (real AWS only) |
+| `infra/modules/budget/` | Monthly cost budget for the AWS account, emailing at 80 % actual and 100 % forecasted spend (real AWS only); see the [monthly cost estimate](costs.md) |
 | `infra/scripts/` | `local_flow.py` drives the local sign-in and chat flow; `diagram.py` draws the architecture diagram |
 | `infra/live/` | Terragrunt config; `live/local/` deploys to LocalStack, `live/aws/` to your real AWS account |
 | `web/` | Static sign-in and chat page (plain HTML, CSS and JavaScript; no build step) |

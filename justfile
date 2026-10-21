@@ -327,9 +327,9 @@ aws-outputs: _aws-check
 aws-destroy: _aws-check
     terragrunt run --all --non-interactive --working-dir {{aws_live}} -- destroy -auto-approve
 
-# Draw docs/infra/architecture.png from the services deployed to real AWS
+# Draw docs/infra/architecture.png from the services deployed to real AWS (without the unused chat API)
 aws-diagram: _aws-check
-    uv run --quiet --script scripts/diagram.py --live {{aws_live}} --out ../docs/infra/architecture
+    uv run --quiet --script scripts/diagram.py --live {{aws_live}} --out ../docs/infra/architecture --skip chat-api
 
 # Serve web/ on http://localhost:8000 against the API deployed on real AWS
 web-dev: _aws-check
