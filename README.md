@@ -10,12 +10,14 @@ A course chatbot and an anime recommender, run locally and deployed to AWS:
 
 ## Quick start
 
-Needs Python 3.14+, [uv](https://docs.astral.sh/uv/) and [Ollama](https://ollama.com/download) running.
+Needs the tools and the LocalStack auth token from [infra](docs/infra/README.md#localstack-local-aws).
+Start LocalStack and Phoenix, deploy the stack to it and register yourself:
 
 ```sh
-uv sync
-uv run anilist-gui   # the recommender on http://127.0.0.1:7861; click "Set up / resume"
+just local-up me@student.uu.se
 ```
+
+It prints the page URL and how to sign in; [testing](docs/testing.md) has the rest.
 
 ## Docs
 

@@ -69,6 +69,16 @@ All three trace to Phoenix, project **recommender**: every question is a `recomm
 with the agent's steps, the LLM calls and the retrieved passages. Restart `recommender-serve` after
 a code change; it doesn't reload.
 
+## Dev experience
+
+The quickest way to try the recommender, with no LocalStack and no `just`: Python 3.14+,
+[uv](https://docs.astral.sh/uv/) and [Ollama](https://ollama.com/download) running.
+
+```sh
+uv sync
+uv run anilist-gui   # the recommender on http://127.0.0.1:7861; click "Set up / resume"
+```
+
 ## Check the deployment on real AWS
 
 After `just aws-apply` (see [infra](infra/README.md#the-anime-recommender-on-ec2)):
