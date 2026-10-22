@@ -6,6 +6,7 @@ from pathlib import Path
 
 import numpy as np
 
+from . import RELEASE
 from .config import Settings
 from .documents import Chunk, load_chunks
 from .prompt_library import prompts_for
@@ -37,7 +38,7 @@ def retrieval_attributes(chunks: list[Chunk], scores: list[float] | None = None)
 class RagPipeline:
     def __init__(self, settings: Settings) -> None:
         self.settings = settings
-        setup_tracing(settings.tracing_endpoint, settings.tracing_project)
+        setup_tracing(settings.tracing_endpoint, settings.tracing_project, RELEASE)
         self._models = None
 
     @property

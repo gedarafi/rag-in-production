@@ -7,6 +7,9 @@ parameter RAG_TRACING_API_KEY_PARAMETER.
 
 Traces replace debug output: each pipeline stage is a span (stage()), notable decisions are span
 events (event()) and structured results are span attributes (annotate()).
+
+Every span carries the code's release (RELEASES.md) in its OpenInference metadata, so Phoenix can
+filter on it, e.g. `metadata["release"] == "v0.0.2"`; the trace resource has it as `service.version`.
 """
 
 from __future__ import annotations
@@ -28,6 +31,7 @@ tracer = OITracer(trace.get_tracer("rag-in-production"), config=TraceConfig())
 _provider = None
 _collector = None
 _endpoints: set[str] = set()
+_release = ""
 
 
 def _sdk_provider(project: str):
@@ -42,10 +46,12 @@ def _sdk_provider(project: str):
             # A test or another module installed one already; reuse it.
             _provider = current
         else:
-            _provider = TracerProvider(resource=Resource({"openinference.project.name": project}))
+            resource = {"openinference.project.name": project, **({"service.version": _release} if _release else {})}
+            _provider = TracerProvider(resource=Resource(resource))
             trace.set_tracer_provider(_provider)
     if _collector is None:
         _collector = _Collector()
+        _provider.add_span_processor(_ReleaseTagger())
         _provider.add_span_processor(_collector)
     return _provider
 
@@ -72,8 +78,13 @@ def export_headers(ssm=None) -> dict[str, str] | None:
     return headers
 
 
-def setup_tracing(endpoint: str, project: str = "rag-in-production") -> bool:
-    """Export spans to the Phoenix (or Arize) endpoint, if set; True if spans are exported."""
+def setup_tracing(endpoint: str, project: str = "rag-in-production", release: str = "") -> bool:
+    """Export spans to the Phoenix (or Arize) endpoint, if set; True if spans are exported.
+
+    release (a git tag such as "v0.0.2") is added to every span's metadata from now on.
+    """
+    global _release
+    _release = release or _release
     if not endpoint:
         return False
     if endpoint in _endpoints:
@@ -159,6 +170,18 @@ def trace_id(span=None) -> str:
     """The current (or given) span's trace ID as Phoenix shows it, or "" without a trace."""
     context = (span or trace.get_current_span()).get_span_context()
     return format(context.trace_id, "032x") if context.is_valid else ""
+
+
+class _ReleaseTagger(SpanProcessor):
+    """Sets each span's OpenInference metadata to {"release": ...} as the span starts.
+
+    Metadata set later on a span (openinference's using_metadata(), or `metadata` in its attributes)
+    replaces this; code that sets its own should include the release.
+    """
+
+    def on_start(self, span, parent_context=None):
+        if _release:
+            span.set_attribute("metadata", json.dumps({"release": _release}))
 
 
 # --- Capturing spans in-process (tests and evaluations) ---
