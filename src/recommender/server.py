@@ -3,10 +3,12 @@
 POST /recommend/chat  {"message": "...", "history": [{"role": "user"|"assistant", "content": "..."}]}
     Needs `Authorization: Bearer <Cognito access token>`. The response is NDJSON: {"type": "wait"}
     lines every few seconds while the models work (they keep CloudFront's origin timeout from firing on
-    a long answer), then one {"type": "answer", "answer": "...", "question_id": "..."} or
-    {"type": "error", "error": "..."}.
+    a long answer), then one {"type": "answer", "answer": "...", "question_id": "...", "feedback": true|false}
+    or {"type": "error", "error": "..."}. "feedback" asks the page to show 👍/👎: on a random share of the
+    answers, never on the security step's fixed replies.
 POST /recommend/feedback  {"question_id": "...", "rating": "up"|"down"}
-    Needs the same token. The user's verdict on an answer, written to the log for later evaluation.
+    Needs the same token. The user's verdict on an answer, written to the log for later evaluation and,
+    with Phoenix, annotated on the answer's trace as "user_feedback".
 GET /recommend/health
     No auth: whether the library is loaded, its version, and the code's release (RELEASES.md).
 
@@ -17,6 +19,7 @@ Configuration comes from the environment (on EC2, /etc/recommender.env):
   COGNITO_ISSUER, COGNITO_CLIENT_ID        which tokens to accept
   COGNITO_JWKS_URL                         the issuer's keys, when not at <issuer>/.well-known/jwks.json
   RECOMMENDER_WORKERS                      questions answered at once (default 8)
+  RECOMMENDER_FEEDBACK_RATE                share of answers that ask for 👍/👎 (default 0.25)
   RECOMMENDER_CORS_ORIGINS                 comma-separated origins for a page on another origin
   RAG_PHOENIX_ENDPOINT, RAG_PHOENIX_PROJECT where the traces go (Phoenix locally, Arize AX on EC2)
   RAG_TRACING_SPACE_ID                     Arize space, with the API key in the SSM parameter
@@ -28,9 +31,11 @@ import asyncio
 import json
 import os
 import queue
+import random
 import threading
 import time
 import uuid
+from collections import OrderedDict
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -38,12 +43,13 @@ import anyio
 import jwt
 import requests
 from asyncer import asyncify
-from fastapi import FastAPI, Header, HTTPException
+from fastapi import BackgroundTasks, FastAPI, Header, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, StreamingResponse
 from pydantic import BaseModel, Field
 
 from . import RELEASE
+from .. import tracing
 from .errors import UserFacingError
 
 # How long a question waits for a free pipeline before the user hears "busy".
@@ -52,6 +58,8 @@ QUEUE_SECONDS = 30
 KEEPALIVE_SECONDS = 10
 # Wait between attempts to load the library, e.g. before the first publish.
 RETRY_SECONDS = 60
+# Recent answers whose span feedback can still be annotated on; older ratings are only logged.
+FEEDBACK_ANSWERS = 10000
 
 
 class Turn(BaseModel):
@@ -172,11 +180,14 @@ def create_app(verify=None, pool_factory=None) -> FastAPI:
     verify = verify or TokenVerifier(os.environ["COGNITO_ISSUER"], os.environ["COGNITO_CLIENT_ID"],
                                      os.environ.get("COGNITO_JWKS_URL", ""))
     workers = int(os.environ.get("RECOMMENDER_WORKERS", "8"))
+    feedback_rate = float(os.environ.get("RECOMMENDER_FEEDBACK_RATE", "0.25"))
     # "limiter": threads for answering, apart from the shared pool that waiting for a pipeline uses, so
     # questions queued for a pipeline never hold up the ones that have one. Made on first use, in the loop.
     state = {"pool": None, "version": "", "error": "", "limiter": None}
     # Answers in progress; the event loop keeps only weak references to tasks.
     running = set()
+    # question_id -> the root span ID of an answer that asked for feedback, oldest first.
+    answer_spans = OrderedDict()
 
     def load():
         # Retry until a library is published and loads; /health reports the last error meanwhile.
@@ -223,20 +234,35 @@ def create_app(verify=None, pool_factory=None) -> FastAPI:
         started = time.perf_counter()
         # A task rather than work inside lines(): the response may stop iterating (the user left), and a
         # thread can't be stopped, so the pipeline goes back to the pool only once the thread is done.
-        answer = asyncio.ensure_future(asyncify(pipeline.ask, limiter=state["limiter"])(request.message, history))
+
+        def ask():
+            reply = pipeline.ask(request.message, history)
+            # Read in the thread, while no other question can use this pipeline.
+            path = (getattr(pipeline, "last_route", None) or {}).get("response_path", "")
+            # Ratings of small talk and refusals say nothing about the recommendations.
+            return reply, path, path != "security_agent" and random.random() < feedback_rate
+
+        answer = asyncio.ensure_future(asyncify(ask, limiter=state["limiter"])())
         running.add(answer)
 
         def finished(task):
             running.discard(task)
             trace_id = getattr(pipeline, "last_trace_id", "")
+            span_id = getattr(pipeline, "last_span_id", "")
             pool.release(pipeline)
             if task.cancelled():
                 return
             if error := task.exception():
                 print(f"Recommender failed for user {claims['sub']}: {type(error).__name__}: {error}", flush=True)
             else:
+                _, path, ask_feedback = task.result()
                 log_event("answer", question_id=question_id, user=claims["sub"], trace_id=trace_id,
+                          span_id=span_id, response_path=path or "recommender", feedback=ask_feedback,
                           seconds=round(time.perf_counter() - started, 3))
+                if span_id and ask_feedback:
+                    answer_spans[question_id] = span_id
+                    while len(answer_spans) > FEEDBACK_ANSWERS:
+                        answer_spans.popitem(last=False)
 
         answer.add_done_callback(finished)
 
@@ -249,18 +275,23 @@ def create_app(verify=None, pool_factory=None) -> FastAPI:
                                                   else "The assistant couldn't answer. Try again.")
                 yield json.dumps({"type": "error", "status": status, "error": message}) + "\n"
             else:
-                yield json.dumps({"type": "answer", "answer": answer.result(), "question_id": question_id}) + "\n"
+                reply, _, ask_feedback = answer.result()
+                yield json.dumps({"type": "answer", "answer": reply, "question_id": question_id,
+                                  "feedback": ask_feedback}) + "\n"
 
         return StreamingResponse(lines(), media_type="application/x-ndjson",
                                  headers={"Cache-Control": "no-store", "X-Accel-Buffering": "no"})
 
     @app.post("/recommend/feedback", status_code=204)
-    def feedback(request: Feedback, authorization: str | None = Header(default=None)):
+    def feedback(request: Feedback, background: BackgroundTasks, authorization: str | None = Header(default=None)):
         try:
             claims = verify(authorization)
         except Unauthorized:
             raise HTTPException(401, "Your session has ended. Sign in again.")
         log_event("feedback", question_id=request.question_id, user=claims["sub"], rating=request.rating)
+        if span_id := answer_spans.get(request.question_id):
+            # After the response, so a slow Phoenix never holds up the user.
+            background.add_task(tracing.send_feedback, span_id, request.rating, request.question_id)
 
     @app.exception_handler(HTTPException)
     async def error_body(_, error: HTTPException):

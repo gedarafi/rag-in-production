@@ -29,8 +29,11 @@ class AniListGuiTests(unittest.TestCase):
             # The answer's position in the chat maps to the question ID that feedback is logged with.
             self.assertEqual(result[5], {1: result[3]['question_id']})
             feedback = next(f.fn for f in app.fns.values() if f.fn and f.fn.__name__ == 'record_feedback')
-            with patch('src.recommender.anilist_gui.print_debug') as logged:
+            with patch('src.recommender.anilist_gui.print_debug') as logged, \
+                    patch('src.recommender.anilist_gui.send_feedback') as sent:
                 feedback(SimpleNamespace(index=1, liked=False), result[5])
+            # A failed answer has no span to annotate.
+            sent.assert_called_once_with('', 'down', result[3]['question_id'])
             logged.assert_called_once_with({'app': 'anilist', 'feedback': {
                 'question_id': result[3]['question_id'], 'message_index': 1, 'rating': 'down'}})
 
