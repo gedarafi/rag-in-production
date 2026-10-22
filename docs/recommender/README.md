@@ -74,14 +74,12 @@ More examples in [sample_screenshots/](../../sample_screenshots/).
 
 ```mermaid
 flowchart TD
-    A["Question + chat history"] --> GATE{"Security agent:<br/>small talk, unsafe or not English?"}
-    GATE -->|"Not English"| ENGLISH["Ask again in English, no LLM call"]
-    ENGLISH --> Z
-    GATE -->|"Greeting, thanks, bye, help"| CANNED["Fixed reply, no LLM call"]
-    GATE -->|"Prompt injection, secrets, SQL/code"| REFUSE["Fixed refusal, no LLM call"]
-    GATE -->|"Anything else"| B{"Workspace ready?"}
-    CANNED --> Z
-    REFUSE --> Z
+    A["Question + chat history"] --> RULES{"Security rules:<br/>small talk, unsafe or not English?"}
+    RULES -->|"Yes"| FIXED["Fixed reply or refusal, no LLM call"]
+    RULES -->|"Undecided"| REVIEW{"LLM: security review<br/>anime question or follow-up?"}
+    REVIEW -->|"Off-topic, small talk, unsafe, not English"| FIXED
+    REVIEW -->|"Anime, or the review failed"| B{"Workspace ready?"}
+    FIXED --> Z
     B -->|No| SETUP["Ask user to finish setup"]
     B -->|Yes| INT["LLM: interpret request<br/>entities, constraints, preferences"]
     INT --> D{"Independent recommendation request?"}
@@ -105,17 +103,20 @@ flowchart TD
 ```
 
 - **Security agent:** [security_agent.py](../../src/recommender/security_agent.py) reviews each
-  message with rules before anything else runs. English is the only supported language: a message
-  in another language (mostly non-Latin script, or more function words of Swedish, Spanish, French,
-  German, Portuguese or Dutch than of English) gets a fixed request to ask in English; romaji and
-  native titles inside an English question still pass. Whole-message small talk (greetings, thanks,
-  goodbyes, "what can you do?") gets a fixed reply; prompt injection, requests for secrets and
-  SQL/code injection get one refusal that doesn't say which rule matched. Neither costs an LLM
-  call, an embedding or a catalog lookup, and the conversation's subjects carry over, so "thanks"
-  followed by "something similar?" still knows the title. A greeting followed by a real question
-  ("Hi, what should I watch after Monster?") goes through the normal path. The debug view shows
-  `response_path: security_agent` and `security_category`.
-- **LLM calls:** request interpretation (one or a few small calls, depending on the request), one
+  message before the recommender runs. Rules decide the obvious cases for free: English is the only
+  supported language (mostly non-Latin script, or more function words of Swedish, Spanish, French,
+  German, Portuguese or Dutch than of English, gets a request to ask in English; romaji and native
+  titles inside an English question still pass), whole-message small talk gets a fixed reply, and
+  prompt injection, requests for secrets and SQL/code injection get one refusal that doesn't say
+  which rule matched. Messages the rules let through get one small LLM classification
+  (`security_review`) that sees the message and the last turns: anime questions and follow-ups go
+  on to the recommender; off-topic, small talk, help, other languages and unsafe or harmful requests
+  get the fixed reply for their category. The LLM only picks the category, never the reply text, and
+  if the call fails the message passes. `[security] llm_review = false` in `settings.toml` keeps only
+  the rules. The conversation's subjects carry over a gated turn, so "thanks" followed by
+  "something similar?" still knows the title. The debug view shows `response_path: security_agent`,
+  `security_category` and `security_review`.
+- **LLM calls:** the security review (unless the rules already decided), request interpretation (one or a few small calls, depending on the request), one
   planning call and one answer call, plus one optional correction when the answer mixes up
   identities. Tools run locally between them, with no LLM calls.
 - **Planning:** all tool steps are planned up front; later steps take IDs from earlier results
