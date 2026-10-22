@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import threading
+import uuid
 from copy import deepcopy
 from time import perf_counter
 
@@ -62,17 +63,21 @@ def build_app(config_path='settings.toml'):
                    [], 'Ready. Ask about anime.' if snapshot['ready'] else 'Finish setup to enable chat.',
                    {}, gr.update(value={}))
 
-    def ask_question(question, history):
+    def ask_question(question, history, question_ids):
         history = list(history or [])
+        question_ids = dict(question_ids or {})
         if not question.strip():
-            yield history, question, 'Enter a question about anime.', {}, gr.update(value={})
+            yield history, question, 'Enter a question about anime.', {}, gr.update(value={}), question_ids
             return
         previous = list(history)
         question = question.strip()
         history += [{'role': 'user', 'content': question}, {'role': 'assistant', 'content': 'Thinking...'}]
-        pending = {'app': 'anilist', 'question': question, 'status': 'running'}
+        # Ties feedback on the answer (by its position in the chat) to this question and its trace.
+        question_id = uuid.uuid4().hex
+        question_ids[len(history) - 1] = question_id
+        pending = {'app': 'anilist', 'question_id': question_id, 'question': question, 'status': 'running'}
         print_debug(pending)
-        yield history, '', 'Thinking…', pending, gr.update(value=pending)
+        yield history, '', 'Thinking…', pending, gr.update(value=pending), question_ids
         started = perf_counter()
         try:
             reply = workspace.ask(question, previous)
@@ -84,17 +89,26 @@ def build_app(config_path='settings.toml'):
                      'trace_id': getattr(workspace.pipeline, 'last_trace_id', '')}
             print_debug({**pending, 'status': 'completed', 'elapsed_seconds': debug['elapsed_seconds'],
                          'llm_calls': debug.get('llm_calls'), 'trace_id': debug['trace_id']})
-            yield history, '', 'Ready.', debug, gr.update(value=debug)
+            yield history, '', 'Ready.', debug, gr.update(value=debug), question_ids
         except (OSError, RuntimeError, ValueError) as error:
             history[-1] = {'role': 'assistant', 'content': f'Unable to answer: {error}'}
             debug = {**pending, **deepcopy(getattr(workspace.pipeline, 'last_route', {})), 'status': 'error',
                      'error': str(error), 'elapsed_seconds': round(perf_counter() - started, 6),
                      'trace_id': getattr(workspace.pipeline, 'last_trace_id', '')}
             print_debug(debug)
-            yield history, '', 'Unable to answer. Check setup or the message above.', debug, gr.update(value=debug)
+            yield (history, '', 'Unable to answer. Check setup or the message above.', debug, gr.update(value=debug),
+                   question_ids)
+
+    def record_feedback(data: gr.LikeData, question_ids):
+        """Log the user's 👍/👎 on an answer with its question ID, for evaluating the recommender later."""
+        index = data.index[0] if isinstance(data.index, (list, tuple)) else data.index
+        rating = {True: 'up', False: 'down'}.get(data.liked, data.liked or 'cleared')
+        print_debug({'app': 'anilist', 'feedback': {'question_id': (question_ids or {}).get(index, ''),
+                                                    'message_index': index, 'rating': rating}})
 
     with gr.Blocks(title='AniList Library') as app:
         debug_state = gr.State({})
+        question_ids = gr.State({})
         gr.Markdown('# AniList Library\nBuild your local anime library. Discover your next watch.', elem_id='anilist-header')
         with gr.Row():
             with gr.Column(scale=0, min_width=340, elem_id='setup-panel'):
@@ -136,11 +150,12 @@ def build_app(config_path='settings.toml'):
                            outputs=[steps, setup_status, question, send, chat, chat_status, debug_state, debug_output],
                            concurrency_id='anilist-workspace', concurrency_limit=1)
         for event in (send.click, question.submit):
-            event(ask_question, inputs=[question, chat],
-                  outputs=[chat, question, chat_status, debug_state, debug_output],
+            event(ask_question, inputs=[question, chat, question_ids],
+                  outputs=[chat, question, chat_status, debug_state, debug_output, question_ids],
                   concurrency_id='anilist-workspace', concurrency_limit=1)
-        clear.click(lambda: ([], '', 'Ready. Ask a question.', {}, gr.update(value={})),
-                    outputs=[chat, question, chat_status, debug_state, debug_output],
+        chat.like(record_feedback, inputs=[question_ids])
+        clear.click(lambda: ([], '', 'Ready. Ask a question.', {}, gr.update(value={}), {}),
+                    outputs=[chat, question, chat_status, debug_state, debug_output, question_ids],
                     concurrency_id='anilist-workspace', concurrency_limit=1)
     return app
 

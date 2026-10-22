@@ -233,7 +233,7 @@ async function sendMessage(text) {
   }
   if (res.status === 429) throw new Error("The assistant is busy. Try again in a moment.");
   if (!res.ok) throw new Error(data.error || "The assistant couldn't answer. Try again.");
-  return data.answer;
+  return { answer: data.answer };
 }
 
 async function askRecommender(text, token) {
@@ -257,7 +257,48 @@ async function askRecommender(text, token) {
   const last = JSON.parse(lines[lines.length - 1] || "{}");
   if (last.type !== "answer") throw new Error(last.error || "The assistant couldn't answer. Try again.");
   history = [...history, { role: "user", content: text }, { role: "assistant", content: last.answer }].slice(-20);
-  return last.answer;
+  return { answer: last.answer, questionId: last.question_id };
+}
+
+// The user's verdict on one answer; the recommender logs it with the question ID for evaluation.
+async function sendFeedback(questionId, rating) {
+  const token = await validAccessToken();
+  if (!token) throw new Error("Your session has ended. Sign in again.");
+  const res = await fetch(`${cfg.recommenderBase || cfg.apiBase}/recommend/feedback`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+    body: JSON.stringify({ question_id: questionId, rating }),
+  });
+  if (!res.ok) throw new Error("Couldn't save your feedback.");
+}
+
+function addFeedback(li, questionId) {
+  const box = document.createElement("div");
+  box.className = "feedback";
+  const label = document.createElement("span");
+  label.textContent = "Was this helpful?";
+  box.append(label);
+  for (const [rating, icon, title] of [["up", "👍", "Helpful"], ["down", "👎", "Not helpful"]]) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = icon;
+    button.title = title;
+    button.setAttribute("aria-label", title);
+    button.addEventListener("click", async () => {
+      for (const b of box.querySelectorAll("button")) b.disabled = true;
+      button.classList.add("chosen");
+      try {
+        await sendFeedback(questionId, rating);
+        label.textContent = "Thanks for the feedback!";
+      } catch (err) {
+        label.textContent = err.message;
+        button.classList.remove("chosen");
+        for (const b of box.querySelectorAll("button")) b.disabled = false;
+      }
+    });
+    box.append(button);
+  }
+  li.append(box);
 }
 
 function addMessage(text, who, pending = false) {
@@ -362,8 +403,10 @@ function bind() {
     const pending = addMessage("Thinking…", "bot", true);
     busy($("send"), async () => {
       try {
-        pending.textContent = await sendMessage(text);
+        const { answer, questionId } = await sendMessage(text);
+        pending.textContent = answer;
         pending.classList.remove("pending");
+        if (questionId) addFeedback(pending, questionId);
       } catch (err) {
         pending.remove();
         $("chat-error").textContent = err.message;

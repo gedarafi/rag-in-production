@@ -83,6 +83,7 @@ class ServerTests(unittest.TestCase):
         response = self.ask(self.client(pipeline), 'Bearer ' + token(), history=history)
         self.assertEqual(response.status_code, 200)
         last = json.loads(response.text.strip().splitlines()[-1])
+        self.assertRegex(last.pop('question_id'), '^[0-9a-f]{32}$')
         self.assertEqual(last, {'type': 'answer', 'answer': 'Try Gintama.'})
         self.assertEqual(pipeline.asked, [('Recommend a comedy', history)])
         self.assertFalse(self.pool.busy)
@@ -94,6 +95,7 @@ class ServerTests(unittest.TestCase):
             response = self.ask(self.client(Pipeline('Try Gintama.', gate=gate)), 'Bearer ' + token())
         lines = [json.loads(line) for line in response.text.strip().splitlines()]
         self.assertIn({'type': 'wait'}, lines[:-1])
+        self.assertRegex(lines[-1].pop('question_id'), '^[0-9a-f]{32}$')
         self.assertEqual(lines[-1], {'type': 'answer', 'answer': 'Try Gintama.'})
         self.assertFalse(self.pool.busy)
 
@@ -146,6 +148,29 @@ class ServerTests(unittest.TestCase):
     def test_internal_failures_stay_generic(self):
         last = self.last_error(RuntimeError('Could not reach Ollama at http://10.0.0.5:11434: refused'))
         self.assertEqual(last['error'], "The assistant couldn't answer. Try again.")
+
+    def test_feedback_is_logged_with_the_question_id_and_no_text(self):
+        client = self.client(Pipeline('Try Gintama.'))
+        with patch('builtins.print') as logged:
+            answer = json.loads(self.ask(client, 'Bearer ' + token()).text.strip().splitlines()[-1])
+            response = client.post('/recommend/feedback', json={'question_id': answer['question_id'], 'rating': 'up'},
+                                   headers={'Authorization': 'Bearer ' + token()})
+        self.assertEqual(response.status_code, 204)
+        events = [json.loads(call.args[0]) for call in logged.call_args_list]
+        self.assertEqual([(e['event'], e['question_id'], e['user']) for e in events],
+                         [('answer', answer['question_id'], 'user-1'), ('feedback', answer['question_id'], 'user-1')])
+        self.assertEqual(events[1]['rating'], 'up')
+        self.assertNotIn('Gintama', ''.join(call.args[0] for call in logged.call_args_list))
+
+    def test_feedback_needs_a_token_and_a_valid_rating(self):
+        client = self.client(Pipeline('x'))
+        body = {'question_id': 'a' * 32, 'rating': 'up'}
+        self.assertEqual(client.post('/recommend/feedback', json=body).status_code, 401)
+        for bad in ({'rating': 'meh'}, {'question_id': '../etc'}):
+            with self.subTest(bad=bad):
+                response = client.post('/recommend/feedback', json={**body, **bad},
+                                       headers={'Authorization': 'Bearer ' + token()})
+                self.assertEqual(response.status_code, 422)
 
     def test_validation_rejects_oversized_messages(self):
         response = self.ask(self.client(Pipeline('x')), 'Bearer ' + token(), message='x' * 2001)
