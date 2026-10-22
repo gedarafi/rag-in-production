@@ -16,10 +16,52 @@ class SchemaTests(unittest.TestCase):
         self.assertNotIn('title', schema)
         self.assertFalse(schema['additionalProperties'])
         item = schema['properties']['mentions']['items']
-        self.assertEqual(item['required'], ['meaning', 'text', 'kind', 'role', 'query'])
         self.assertEqual(item['properties']['meaning'], {'type': 'string', 'maxLength': 180})
         self.assertEqual(json_schema(ConceptRole)['properties']['role']['enum'],
                          ['required', 'excluded', 'preferred', 'irrelevant'])
+
+    def test_schemas_stay_exactly_as_the_steps_were_tuned_with(self):
+        # Ollama's constrained decoding changes with the schema, down to key and `required` order: with
+        # `meaning` before `text`, llama3.2:3b stopped quoting the request. These are the hand-written
+        # schemas the pipeline used before the models replaced them.
+        strings = {'type': 'array', 'items': {'type': 'string'}}
+        expected = {
+            MentionInterpretation: {
+                'type': 'object', 'additionalProperties': False,
+                'required': ['intent', 'use_previous_context', 'mentions'], 'properties': {
+                    'intent': {'enum': ['recommendation', 'factual', 'other']},
+                    'use_previous_context': {'type': 'boolean'},
+                    'mentions': {'type': 'array', 'maxItems': 16, 'items': {
+                        'type': 'object', 'additionalProperties': False,
+                        'required': ['meaning', 'text', 'kind', 'role', 'query'],
+                        'properties': {'text': {'type': 'string'}, 'query': {'type': 'string'},
+                                       'kind': {'enum': ['anime', 'character', 'genre', 'tag', 'description', 'other']},
+                                       'role': {'enum': ['subject', 'reference', 'required', 'excluded', 'preferred',
+                                                         'ambiguous']},
+                                       'meaning': {'type': 'string', 'maxLength': 180}}}}}},
+            Decomposition: {
+                'type': 'object', 'additionalProperties': False,
+                'required': ['intent', 'use_previous_context', 'entity_queries', 'required', 'excluded', 'preferred'],
+                'properties': {'intent': {'enum': ['recommendation', 'factual', 'other']},
+                               'use_previous_context': {'type': 'boolean'},
+                               **{key: {**strings, 'maxItems': 8}
+                                  for key in ('entity_queries', 'required', 'excluded', 'preferred')}}},
+            ConceptRole: {'type': 'object', 'additionalProperties': False, 'required': ['role'],
+                          'properties': {'role': {'enum': ['required', 'excluded', 'preferred', 'irrelevant']}}},
+            NumericRange: {'type': 'object', 'required': ['min', 'max'],
+                           'properties': {'min': {'type': ['number', 'null']}, 'max': {'type': ['number', 'null']}}},
+        }
+
+        def orders(node):
+            if isinstance(node, dict):
+                own = [list(node['properties']), node.get('required')] if 'properties' in node else []
+                return own + [order for value in node.values() for order in orders(value)]
+            return [order for value in node for order in orders(value)] if isinstance(node, list) else []
+
+        for model, schema in expected.items():
+            with self.subTest(model=model.__name__):
+                self.assertEqual(json_schema(model), schema)
+                self.assertEqual(orders(json_schema(model)), orders(schema))
 
     def test_replies_keep_their_json_types(self):
         decomposition = {'intent': 'factual', 'use_previous_context': False, 'entity_queries': ['Dune'],
