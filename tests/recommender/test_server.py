@@ -81,6 +81,16 @@ class ServerTests(unittest.TestCase):
         self.assertEqual(pipeline.asked, [('Recommend a comedy', history)])
         self.assertFalse(self.pool.busy)
 
+    def test_long_answers_keep_the_connection_alive_and_free_the_pipeline(self):
+        gate = threading.Event()
+        threading.Timer(0.3, gate.set).start()
+        with patch.object(server, 'KEEPALIVE_SECONDS', 0.05):
+            response = self.ask(self.client(Pipeline('Try Gintama.', gate=gate)), 'Bearer ' + token())
+        lines = [json.loads(line) for line in response.text.strip().splitlines()]
+        self.assertIn({'type': 'wait'}, lines[:-1])
+        self.assertEqual(lines[-1], {'type': 'answer', 'answer': 'Try Gintama.'})
+        self.assertFalse(self.pool.busy)
+
     def test_bad_tokens_are_rejected(self):
         client = self.client(Pipeline('x'))
         other = rsa.generate_private_key(public_exponent=65537, key_size=2048)

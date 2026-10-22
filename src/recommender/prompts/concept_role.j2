@@ -1,0 +1,9 @@
+Classify the role of ONE concept in the user request. Read negation and meaning.
+Examples: "Find games without combat", concept=combat -> excluded.
+"Find history books", concept=history -> required.
+"I'd prefer a gentle book", concept=gentle -> preferred.
+"Stories that weren't set in space", concept=space -> excluded.
+"Find funny films", concept=funny -> preferred.
+Use irrelevant if the concept is not requested. Return only JSON.
+REQUEST: {{ question }}
+CONCEPT: {{ concept }}

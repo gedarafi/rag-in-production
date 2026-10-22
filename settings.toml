@@ -4,6 +4,10 @@
 documents = "data/documents/custom"
 index = "data/index/custom"
 prompt = "prompts/answer.txt"
+# The recommender's LLM instructions are templates in src/recommender/prompts/. To change them for one
+# workspace or release, copy a template into a folder and name it here; its files replace the packaged
+# ones of the same name, e.g. prompt_overrides = "prompts/overrides"
+# prompt_overrides = ""
 
 [knowledge_base]
 default = "anilist"
@@ -26,6 +30,14 @@ ollama_url = "http://127.0.0.1:11434"
 # RAG_BEDROCK_MODEL_ID.)
 region = "us-east-2"
 model_id = "qwen.qwen3-32b"
+
+[llm]
+# Each LLM call is retried on throttling (429), a 5xx or a dropped connection, with exponential backoff
+# and jitter (a Retry-After header wins); other errors fail at once.
+max_attempts = 4
+backoff_seconds = 1
+max_backoff_seconds = 20
+connect_timeout = 5 # Seconds to connect; reading the answer keeps each step's own timeout
 
 [retrieval]
 chunk_size = 900

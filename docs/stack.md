@@ -19,6 +19,10 @@ What the project uses today, and what is planned. Versions and settings come fro
 | `numpy` | Vector index, stored in `data/index/` |
 | `pypdf`, `python-docx` | Reading `.pdf` and `.docx` documents |
 | `requests` | Calling the Ollama API |
+| `tenacity` | Retries with backoff on every recommender LLM call ([`src/recommender/providers.py`](../src/recommender/providers.py)) |
+| `pydantic` | Validated recommender settings, and the schemas of structured LLM replies ([`src/recommender/llm_schemas.py`](../src/recommender/llm_schemas.py)) |
+| `jinja2` | The recommender's LLM instructions as templates ([`src/recommender/prompts/`](../src/recommender/prompts)) |
+| `fastapi`, `uvicorn`, `asyncer` | The recommender web service ([`src/recommender/server.py`](../src/recommender/server.py)); `asyncer` runs each answer on a worker thread |
 | `arize-phoenix-otel`, `openinference-instrumentation` | Sending traces of the RAG to Phoenix ([`src/local/tracing.py`](../src/local/tracing.py)) |
 | `gradio` | Browser interfaces (`uv run anilist-gui` for the recommender, `uv run python -m src.local.gui` for the local RAG) |
 | `pytest`, `pytest-cov` | Python tests with a coverage report (`just test-py`; the `test` dependency group); `just test-phoenix` checks the chat Lambda's traces against a running Phoenix |

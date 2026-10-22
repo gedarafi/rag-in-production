@@ -63,6 +63,20 @@ class BundleTests(unittest.TestCase):
         settings = load_settings(release / 'settings.toml', 'anilist')
         self.assertEqual(settings.documents, (release / 'data/documents/anilist').resolve())
 
+    def test_a_prompt_override_folder_ships_with_its_settings(self):
+        root = self.settings.root
+        overrides = root / 'prompts/overrides'
+        overrides.mkdir()
+        (overrides / 'agent_reply_system.j2').write_text('Answer briefly.\n', encoding='utf-8')
+        self.settings = replace(self.settings, prompt_overrides=overrides)
+        self.config.write_text(self.config.read_text(encoding='utf-8').replace(
+            '# prompt_overrides = ""', 'prompt_overrides = "prompts/overrides"'), encoding='utf-8')
+        self.publish()
+        release = bundle.pull('data', self.target, s3=self.s3)
+        from src.recommender.prompt_library import prompts_for
+        settings = load_settings(release / 'settings.toml', 'anilist')
+        self.assertEqual(prompts_for(settings).render('agent_reply_system'), 'Answer briefly.')
+
     def test_pulling_the_current_version_again_downloads_nothing(self):
         self.publish()
         bundle.pull('data', self.target, s3=self.s3)
