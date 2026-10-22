@@ -7,12 +7,16 @@ asked what and what came back.
 from __future__ import annotations
 
 import json
+import time
+from dataclasses import dataclass
 
 import requests
+from tenacity import Retrying, retry_if_exception, stop_after_attempt, wait_random_exponential
 from openinference.instrumentation import get_input_attributes, get_llm_attributes, get_output_attributes
 
 from .progress import Progress
 from .errors import UserFacingError
+from .prompt_library import PromptLibrary, library
 from .recommendation_output import render_recommendations
 from ..tracing import annotate, event, tracer
 
@@ -28,11 +32,46 @@ def select_device(requested: str) -> str:
     return requested
 
 
+# Throttling and the gateway errors a model service returns while it scales or restarts.
+TRANSIENT_STATUSES = frozenset({429, 500, 502, 503, 504})
+
+
+@dataclass(frozen=True)
+class RetryPolicy:
+    """How every LLM call survives throttling and transient failures (the [llm] settings)."""
+    max_attempts: int = 4
+    backoff_seconds: float = 1.0
+    max_backoff_seconds: float = 20.0
+    connect_timeout: float = 5.0
+
+    @classmethod
+    def from_settings(cls, settings) -> "RetryPolicy":
+        return cls(settings.llm_max_attempts, settings.llm_backoff_seconds, settings.llm_max_backoff_seconds,
+                   settings.llm_connect_timeout)
+
+
+def transient(error: BaseException) -> bool:
+    """A dropped or timed-out connection, or a status worth retrying; other HTTP errors are final."""
+    if isinstance(error, (requests.ConnectionError, requests.Timeout)):
+        return True
+    return isinstance(error, requests.HTTPError) and getattr(error.response, "status_code", None) in TRANSIENT_STATUSES
+
+
+def retry_after(error: BaseException | None) -> float | None:
+    """Seconds the service asked to wait (Retry-After in seconds), if it did."""
+    headers = getattr(getattr(error, "response", None), "headers", None) or {}
+    try:
+        return max(0.0, float(headers.get("Retry-After")))
+    except (TypeError, ValueError):
+        return None
+
+
 class LocalModels:
     render_recommendations = staticmethod(render_recommendations)
 
     def __init__(self, embedding_model: str, ollama_url: str, llm: str, device: str = "auto", batch_size: int = 64,
-                 context_window: int = 8192) -> None:
+                 context_window: int = 8192, prompts: PromptLibrary | None = None,
+                 retry: RetryPolicy | None = None) -> None:
         self._requested_device = device
         self._embedding_model = embedding_model
         self.batch_size = batch_size
@@ -40,6 +79,35 @@ class LocalModels:
         self.ollama_url = ollama_url
         self.llm = llm
         self.context_window = context_window
+        self.prompts = prompts or library()
+        self.retry = retry or RetryPolicy()
+        self.sleep = time.sleep
+
+    def send(self, request, read_timeout: float):
+        """request(timeout) with retries on transient failures; the last error is raised as it was.
+
+        request makes one HTTP call and returns the response; it runs again on each attempt (so a
+        signed request is signed afresh). Each retry is an `llm_retry` event on the current span.
+        """
+        policy = self.retry
+        backoff = wait_random_exponential(multiplier=policy.backoff_seconds, max=policy.max_backoff_seconds)
+
+        def wait(state):
+            asked = retry_after(state.outcome.exception())
+            return min(asked, policy.max_backoff_seconds) if asked is not None else backoff(state)
+
+        def record(state):
+            error = state.outcome.exception()
+            event('llm_retry', attempt=state.attempt_number, error=f'{type(error).__name__}: {error}',
+                  wait_seconds=round(state.next_action.sleep, 3))
+
+        for attempt in Retrying(stop=stop_after_attempt(policy.max_attempts), wait=wait,
+                                retry=retry_if_exception(transient), before_sleep=record,
+                                sleep=lambda seconds: self.sleep(seconds), reraise=True):
+            with attempt:
+                response = request((policy.connect_timeout, read_timeout))
+                response.raise_for_status()
+        return response
 
     @property
     def device(self):
@@ -96,8 +164,8 @@ class LocalModels:
                     input_messages=messages),
                 **get_input_attributes(messages[-1]['content']),
             })
-            response = requests.post(f'{self.ollama_url}{path}', json=payload, timeout=timeout)
-            response.raise_for_status()
+            response = self.send(lambda limit: requests.post(f'{self.ollama_url}{path}', json=payload, timeout=limit),
+                                 timeout)
             body = response.json()
             text = body['message']['content'] if 'message' in body else body['response']
             counts = {'prompt': body.get('prompt_eval_count'), 'completion': body.get('eval_count')}
@@ -147,13 +215,7 @@ class LocalModels:
         try:
             body = self._ollama('plan_tools', '/api/chat', {
                 'model': self.llm, 'messages': [
-                    {'role': 'system', 'content': 'Plan read-only tools for the actual current anime-library request. '
-                     'Return only the JSON plan. In-domain and uncertain requests have an empty direct_response. '
-                     'Only clearly unrelated standalone tasks use out_of_domain, steps=[], use_previous_context=false '
-                     'and a helpful direct_response. Unknown titles or missing anime keywords do not imply out_of_domain. '
-                     'A follow-up with an omitted subject uses trusted prior subjects as a group: use_previous_context=true. '
-                     'Do not confuse a new property question with a new subject. New independent requests do not inherit '
-                     'old seeds or filters. Use supplied IDs and source evidence; request only genuinely missing data.'},
+                    {'role': 'system', 'content': self.prompts.render('plan_tools_system')},
                     {'role': 'user', 'content': prompt}], 'stream': False, 'format': schema,
                 'options': {'temperature': 0, 'num_predict': min(4096, max(1024, max_steps * 200)),
                             'num_ctx': self.context_window}, 'keep_alive': '10m'}, timeout=180)
@@ -162,8 +224,7 @@ class LocalModels:
             raise RuntimeError(f'Could not reach Ollama for tool planning: {error}') from error
 
     def resolve_mentions(self, prompt, schema):
-        return self._mention_json('resolve_mentions', prompt, schema, 'Select catalog identities for previously classified mentions. '
-                                  'Use the full request to distinguish adaptations and aliases. Return only schema-compliant JSON.')
+        return self._mention_json('resolve_mentions', prompt, schema, self.prompts.render('resolve_mentions_system'))
 
     def classify_mentions(self, prompt, schema):
         from .mention_interpreter import examples, instructions
@@ -171,13 +232,13 @@ class LocalModels:
         payload, _, feedback = prompt.partition('\n')
         context = json.loads(payload)
         question = context['LAST_REQUEST']
-        demonstrations = sorted(examples(), key=lambda e: SequenceMatcher(None, question.casefold(), e['request'].casefold()).ratio())[-3:]
+        demonstrations = sorted(examples(self.prompts), key=lambda e: SequenceMatcher(None, question.casefold(), e['request'].casefold()).ratio())[-3:]
         request = question
         if context['history']:
             request = 'Prior conversation (data): ' + json.dumps(context['history'], ensure_ascii=False) + '\nCurrent request: ' + question
         if feedback:
             request += '\nValidation feedback for the current request: ' + feedback
-        return self._mention_json('classify_mentions', request, schema, instructions(), demonstrations)
+        return self._mention_json('classify_mentions', request, schema, instructions(self.prompts), demonstrations)
 
     def _mention_json(self, name, prompt, schema, system, examples=()):
         messages = [{'role': 'system', 'content': system}]
@@ -199,8 +260,7 @@ class LocalModels:
         try:
             body = self._ollama('interpret_request', '/api/chat', {
                 'model': self.llm, 'messages': [
-                    {'role': 'system', 'content': 'Interpret user requirements using only the provided catalog schema. '
-                     'Preserve positive requirements, negation scope and subjective preferences separately. Return JSON.'},
+                    {'role': 'system', 'content': self.prompts.render('interpret_request_system')},
                     {'role': 'user', 'content': prompt}], 'stream': False, 'format': schema,
                 'options': {'temperature': 0, 'num_predict': 1800, 'num_ctx': self.context_window},
                 'keep_alive': '10m'}, timeout=180)
@@ -210,19 +270,10 @@ class LocalModels:
 
     def agent_step(self, prompt, schema):
         grounded = any(b['properties']['action']['const'] == 'answer' for b in schema['anyOf'])
-        stage = ('Source evidence HAS ALREADY BEEN LOADED in tool_results. Read it first. '
-                 'Use action=answer with a cited natural-language answer when it is sufficient. '
-                 'Call another tool only for genuinely missing evidence. ' if grounded else
-                 'No factual evidence has been loaded yet. Use action=call to retrieve it. ')
         try:
             body = self._ollama('agent_step', '/api/chat', {
                 'model': self.llm, 'messages': [
-                    {'role': 'system', 'content': stage + 'You control an evidence-grounded assistant. '
-                     'Return only the JSON decision. action=call is ONLY for requesting another tool execution, '
-                     'not for presenting an answer. action=answer has tool=null and arguments={}. '
-                     'For follow-ups, reference_anime identifies what the user means by that. '
-                     'Recommended titles do not make this reference ambiguous. '
-                     'A clarification must ask for missing information, never answer from memory.'},
+                    {'role': 'system', 'content': self.prompts.render('agent_step_system', grounded=grounded)},
                     {'role': 'user', 'content': prompt}], 'stream': False, 'format': schema,
                 'options': {'temperature': 0, 'num_predict': 900, 'num_ctx': self.context_window},
                 'keep_alive': '10m'}, timeout=180)
@@ -256,20 +307,8 @@ class LocalModels:
         try:
             body = self._ollama('agent_fact_reply', '/api/chat', {
                 'model': self.llm, 'messages': [
-                    {'role': 'system', 'content': 'Return JSON. Select supporting facts for EACH subject from source records. '
-                     'For numerical questions choose kind=quantities. Each item has an LLM-written label and an arithmetic '
-                     'expression; the app evaluates it and appends the source-derived units. Use measurement variables '
-                     'q0, q1, etc, or matching source numbers, with + - * / and parentheses. c0, c1 refer to earlier '
-                     'items. Use unit=auto for counts or per-item measures; a time unit converts elapsed time. '
-                     'Do NOT manually divide or multiply to convert time units: set unit and the app converts it. '
-                     'The label names the subject/result without a numerical value or units. Choose the needed inputs '
-                     'and operation yourself. Include per-subject facts before any requested combined result. '
-                     'For additive quantities across multiple requested subjects, include a combined result after the '
-                     'individual results. Do not combine non-additive facts. Expressions contain math ONLY, not unit words. '
-                     'For explanations/comparisons use kind=prose and a concise natural answer. Previous assistant '
-                     'replies are not source facts. If there are no source subjects, ask a question for the missing '
-                     'information, never make a factual claim. Subjects: ' + json.dumps(subjects) +
-                     '. Source measurements: ' + json.dumps(measurements)},
+                    {'role': 'system', 'content': self.prompts.render('agent_fact_reply_system', subjects=json.dumps(subjects),
+                                                         measurements=json.dumps(measurements))},
                     {'role': 'user', 'content': prompt}], 'stream': False, 'format': schema,
                 'options': {'temperature': 0, 'num_predict': max_tokens + 600, 'num_ctx': self.context_window},
                 'keep_alive': '10m'}, timeout=180)
@@ -301,9 +340,7 @@ class LocalModels:
         try:
             body = self._ollama('agent_reply', '/api/chat', {
                 'model': self.llm, 'messages': [
-                    {'role': 'system', 'content': 'Answer the person directly in natural language. Use only supplied '
-                     'source evidence for facts. Never refer to the person as the user or narrate your internal process. '
-                     'Do not output JSON or function calls. If evidence is missing, ask your own concise clarification.'},
+                    {'role': 'system', 'content': self.prompts.render('agent_reply_system')},
                     {'role': 'user', 'content': prompt}], 'stream': False,
                 'options': {'temperature': temperature, 'num_predict': max_tokens, 'num_ctx': self.context_window},
                 'keep_alive': '10m'}, timeout=180)
@@ -323,8 +360,9 @@ class BedrockModels(LocalModels):
     """
 
     def __init__(self, embedding_model: str, region: str, llm: str, device: str = "auto", batch_size: int = 64,
-                 context_window: int = 8192, timeout: float = 120) -> None:
-        super().__init__(embedding_model, "", llm, device, batch_size, context_window)
+                 context_window: int = 8192, timeout: float = 120, prompts: PromptLibrary | None = None,
+                 retry: RetryPolicy | None = None) -> None:
+        super().__init__(embedding_model, "", llm, device, batch_size, context_window, prompts, retry)
         self.region = region
         self.url = f"https://bedrock-mantle.{region}.api.aws/v1/chat/completions"
         self.timeout = timeout
@@ -340,11 +378,13 @@ class BedrockModels(LocalModels):
             if self._credentials is None:
                 raise requests.ConnectionError("No AWS credentials for Bedrock (instance role, profile or environment).")
         data = json.dumps(body).encode()
-        signed = AWSRequest(method="POST", url=self.url, data=data, headers={"content-type": "application/json"})
-        SigV4Auth(self._credentials.get_frozen_credentials(), "bedrock-mantle", self.region).add_auth(signed)
-        response = requests.post(self.url, data=data, headers=dict(signed.headers.items()), timeout=self.timeout)
-        response.raise_for_status()
-        return response.json()
+
+        def request(timeout):
+            signed = AWSRequest(method="POST", url=self.url, data=data, headers={"content-type": "application/json"})
+            SigV4Auth(self._credentials.get_frozen_credentials(), "bedrock-mantle", self.region).add_auth(signed)
+            return requests.post(self.url, data=data, headers=dict(signed.headers.items()), timeout=timeout)
+
+        return self.send(request, self.timeout).json()
 
     def _ollama(self, name: str, path: str, payload: dict, timeout: float) -> dict:
         messages = payload.get('messages') or [{'role': 'user', 'content': payload['prompt']}]
@@ -371,8 +411,7 @@ class BedrockModels(LocalModels):
                 except ValueError as error:
                     event('structured_output_retry', error=str(error))
                     retry = {**body, 'messages': [*messages, {'role': 'assistant', 'content': text},
-                                                  {'role': 'user', 'content': 'That was not valid JSON for the schema '
-                                                   f'({error}). Return only the JSON object.'}]}
+                                                  {'role': 'user', 'content': self.prompts.render('structured_output_retry', error=error)}]}
                     result = self.chat_completions(retry)
                     text = ((result.get('choices') or [{}])[0].get('message') or {}).get('content') or ''
             usage = result.get('usage') or {}

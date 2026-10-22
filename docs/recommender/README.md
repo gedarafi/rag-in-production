@@ -162,6 +162,47 @@ the model, chunking or index invalidates the readiness manifest; run setup again
 GUI options: `--config settings.toml --host 127.0.0.1 --port 7861`; `--share` asks Gradio for a
 public URL.
 
+Every setting is checked when it loads (and by `dataclasses.replace`): a bad value stops the start
+with a validation error naming the setting and the rule, such as `router_top_k` and "Input should be
+greater than or equal to 2".
+
+### LLM calls: retries and timeouts
+
+Each LLM call (Ollama or Bedrock) is retried on throttling (429), a 500/502/503/504 or a dropped or
+timed-out connection, with exponential backoff and jitter; a `Retry-After` header sets the wait
+instead. Other errors, such as a 400, fail at once. Every retry is an `llm_retry` event on the step's
+span, and when the attempts run out the web service still reports a final 429 as "busy".
+
+```toml
+[llm]
+max_attempts = 4
+backoff_seconds = 1
+max_backoff_seconds = 20
+connect_timeout = 5   # seconds; reading the answer keeps each step's own timeout
+```
+
+### Prompts
+
+The instructions of every LLM step are Jinja2 templates in
+[`src/recommender/prompts/`](../../src/recommender/prompts), one file per step or correction (for
+example `plan_tools.j2`, `answer.j2`, `agent_step.j2`, `route_plan.j2`); the code passes in only the
+data (JSON evidence, the question, flags such as `final` or `grounded`). `tools.json` holds the tool
+descriptions the planner reads, and `classify_mentions_examples.json` the few-shot examples for
+mention classification. A template is sent exactly as written, minus the file's final newline, and a
+missing value is an error rather than an empty gap.
+
+The templates ship in the wheel, so each code release has the instructions its steps expect. To
+change them without a code change, copy a template into a folder and name the folder in
+`settings.toml`; files there replace the packaged ones with the same name, and `recommender publish`
+ships the folder with the settings:
+
+```toml
+[paths]
+prompt_overrides = "prompts/overrides"
+```
+
+The older `prompts/answer.txt`, `clarify.txt`, `routes.json` and `features.json` stay where they were.
+
 ## Generated files
 
 | Location | Contents |

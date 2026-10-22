@@ -1,0 +1,105 @@
+[
+  {
+    "request": "What year did the original Naruto anime begin?",
+    "output": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "mentions": [
+        {
+          "text": "Naruto",
+          "query": "Naruto",
+          "kind": "anime",
+          "role": "subject",
+          "meaning": "Original TV adaptation"
+        }
+      ]
+    }
+  },
+  {
+    "request": "What is Air about?",
+    "output": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "mentions": [
+        {
+          "text": "Air",
+          "query": "Air",
+          "kind": "anime",
+          "role": "subject",
+          "meaning": "Requested title"
+        }
+      ]
+    }
+  },
+  {
+    "request": "When did Cowboy Bebop first air?",
+    "output": {
+      "intent": "factual",
+      "use_previous_context": false,
+      "mentions": [
+        {
+          "text": "Cowboy Bebop",
+          "query": "Cowboy Bebop",
+          "kind": "anime",
+          "role": "subject",
+          "meaning": "TV series; air is a verb"
+        }
+      ]
+    }
+  },
+  {
+    "request": "Recommend horror anime.",
+    "output": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "mentions": [
+        {
+          "text": "horror",
+          "query": "horror",
+          "kind": "genre",
+          "role": "required",
+          "meaning": "Desired genre"
+        }
+      ]
+    }
+  },
+  {
+    "request": "Recommend anime without Time Loop.",
+    "output": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "mentions": [
+        {
+          "text": "Time Loop",
+          "query": "Time Loop",
+          "kind": "tag",
+          "role": "excluded",
+          "meaning": "Excluded theme"
+        }
+      ]
+    }
+  },
+  {
+    "request": "Something comforting like Monster",
+    "output": {
+      "intent": "recommendation",
+      "use_previous_context": false,
+      "mentions": [
+        {
+          "text": "comforting",
+          "query": "comforting",
+          "kind": "description",
+          "role": "preferred",
+          "meaning": "Mood"
+        },
+        {
+          "text": "Monster",
+          "query": "Monster",
+          "kind": "anime",
+          "role": "reference",
+          "meaning": "Reference title"
+        }
+      ]
+    }
+  }
+]

@@ -4,6 +4,8 @@ import math
 import re
 
 from .anime_tools import normalize
+from .llm_schemas import NumericRange, json_schema, parse
+from .prompt_library import library
 
 ATTRIBUTE_DOCUMENTS = {
     'episodes': ['episodes', 'episode count number of episodes'],
@@ -18,8 +20,7 @@ BREVITY_DOCUMENTS = {
     'duration': ['short episodes brief episodes few minutes each episode']}
 PERIOD_DOCUMENTS = {'year': ['release decade era seventies eighties nineties 1980s 1990s 2000s']}
 
-RANGE_SCHEMA = {'type': 'object', 'required': ['min', 'max'],
-                'properties': {'min': {'type': ['number', 'null']}, 'max': {'type': ['number', 'null']}}}
+RANGE_SCHEMA = json_schema(NumericRange)
 
 COMPARISON_MEANINGS = {
     'gt': ('more than', 'over', 'greater than', 'after', 'later than'),
@@ -84,7 +85,8 @@ POLICIES = {
     'duration': {'maximum': 15}}
 
 
-def interpret_attributes(call, question, fields, meanings, retrieved, embed=None):
+def interpret_attributes(call, question, fields, meanings, retrieved, embed=None, prompts=None):
+    prompts = prompts or library()
     filters, preferences, notes, sources = [], [], [], []
     if fields.get('start_date') == 'date':
         from .release_dates import release_date_filters
@@ -121,8 +123,7 @@ def interpret_attributes(call, question, fields, meanings, retrieved, embed=None
             unit = 'release years' if field == 'year' else meanings[field]
             if decade:
                 period = min((text for text, mode in zip(field_sources, evidence['interpretations']) if mode == 'decade'), key=len)
-                result = call('Interpret the release period ' + json.dumps(period) +
-                              '. Return the inclusive start and end years as min and max. A decade covers ten years.',
+                result = call(prompts.render('release_period', period=json.dumps(period)),
                               {'type': 'object', 'required': ['min', 'max'], 'properties': {
                                   'min': {'type': 'number'}, 'max': {'type': 'number'}}})
                 if embed:
@@ -137,16 +138,11 @@ def interpret_attributes(call, question, fields, meanings, retrieved, embed=None
                 else:
                     relation = 0
             else:
-                result = call('Interpret the requested ' + unit + ' in ' + json.dumps(question) + '. '
-                          'Return the lower and upper bounds as min and max. Use null for a bound that was '
-                          'not requested. Do not cap an open range at the current year. ' +
-                          ('A decade covers ten years.' if field == 'year' else
-                           'Convert hours to minutes.' if field == 'duration' else '') +
-                          ' Respect negation.', RANGE_SCHEMA)
+                prompt = prompts.render('numeric_range', unit=unit, question=json.dumps(question),
+                                        is_year=field == 'year', is_duration=field == 'duration')
+                result = call(prompt, RANGE_SCHEMA)
             lo, hi = result.get('min'), result.get('max')
-            for value in (lo, hi):
-                if value is not None and (type(value) not in (int, float) or not math.isfinite(value)):
-                    raise ValueError('Invalid interpreted numeric boundary')
+            parse(NumericRange, {'min': lo, 'max': hi})
             if lo is not None and hi is not None and lo > hi:
                 raise ValueError('Interpreted numeric bounds are contradictory')
             bounds = []
@@ -157,9 +153,10 @@ def interpret_attributes(call, question, fields, meanings, retrieved, embed=None
                     elif embed:
                         operator = retrieve_comparison(embed, question, field, result[key], key == 'min')
                     else:
-                        operator = call('For the request ' + json.dumps(question) + ', interpret the ' + key +
-                                        ' boundary ' + str(result[key]) + ' of ' + meanings[field] + '. Use ' +
-                                        inclusive + ' if the boundary is included, ' + exclusive + ' if excluded.',
+                        prompt = prompts.render('boundary_operator', question=json.dumps(question), key=key,
+                                                value=str(result[key]), meaning=meanings[field],
+                                                inclusive=inclusive, exclusive=exclusive)
+                        operator = call(prompt,
                                         {'type': 'object', 'required': ['operator'],
                                          'properties': {'operator': {'enum': [inclusive, exclusive]}}})['operator']
                     # Zero is the natural lower domain of counts and runtimes,

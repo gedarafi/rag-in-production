@@ -66,7 +66,9 @@ class ToolPlanTests(unittest.TestCase):
         with closing(sqlite3.connect(self.catalog.database)) as db:
             db.execute("UPDATE anime SET data=json_set(data,'$.episodes',12,'$.duration',30) WHERE id='2'")
             db.commit()
-        self.agent.settings = replace(self.agent.settings, context_chars=500)
+        # Below the 1000 characters settings accept, to force trimming; set past the validation.
+        self.agent.settings = replace(self.agent.settings)
+        object.__setattr__(self.agent.settings, 'context_chars', 500)
         self.plan['steps'] = [step('get_anime', id='1'), step('get_anime', id='2')]
         self.ask('What are the similarities between Re:Zero and Other World?')
         self.assertEqual({row['id'] for row in self.agent.last_usage['selected_context']['anime']}, {'1', '2'})

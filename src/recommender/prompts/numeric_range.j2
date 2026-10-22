@@ -1,0 +1,1 @@
+Interpret the requested {{ unit }} in {{ question }}. Return the lower and upper bounds as min and max. Use null for a bound that was not requested. Do not cap an open range at the current year. {% if is_year %}A decade covers ten years.{% elif is_duration %}Convert hours to minutes.{% endif %} Respect negation.

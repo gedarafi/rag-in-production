@@ -5,14 +5,15 @@ import re
 import numpy as np
 
 from .anime_tools import normalize, contains
+from .llm_schemas import ConceptRole, Decomposition, json_schema, parse
+from .prompt_library import library, prompts_for
 from .request_constraints import catalog_text_values, mentioned_features, validate_request
 from .request_interpreter import DECOMPOSITION_SCHEMA, FIELD_MEANINGS, decomposition_prompt
 from .sqlite_catalog import STOP
 from .semantic_attributes import interpret_attributes, covered_property, retrieve_attributes
 
 
-ROLE_SCHEMA = {'type': 'object', 'additionalProperties': False, 'required': ['role'],
-               'properties': {'role': {'enum': ['required', 'excluded', 'preferred', 'irrelevant']}}}
+ROLE_SCHEMA = json_schema(ConceptRole)
 
 # Attribute vocabulary belongs to the schema, not to individual user requests.
 ATTRIBUTE_TERMS = {
@@ -32,20 +33,14 @@ PREFERENCE_STOP = STOP | {'story', 'stories', 'theme', 'themes', 'setting', 'set
                           'anime', 'animation', 'movie', 'movies', 'film', 'films'}
 
 
-def role_prompt(question, concept):
-    return '''Classify the role of ONE concept in the user request. Read negation and meaning.
-Examples: "Find games without combat", concept=combat -> excluded.
-"Find history books", concept=history -> required.
-"I'd prefer a gentle book", concept=gentle -> preferred.
-"Stories that weren't set in space", concept=space -> excluded.
-"Find funny films", concept=funny -> preferred.
-Use irrelevant if the concept is not requested. Return only JSON.
-REQUEST: ''' + question + '\nCONCEPT: ' + concept
+def role_prompt(question, concept, prompts=None):
+    return (prompts or library()).render('concept_role', question=question, concept=concept)
 
 
-def attribute_filters(call, question, fields, text_values, details=None, retrieved=None, embed=None):
+def attribute_filters(call, question, fields, text_values, details=None, retrieved=None, embed=None, prompts=None):
     """Interpret measurable attributes separately from thematic preferences."""
-    filters, preferences, notes, sources = interpret_attributes(call, question, fields, FIELD_MEANINGS, retrieved or {}, embed)
+    filters, preferences, notes, sources = interpret_attributes(call, question, fields, FIELD_MEANINGS, retrieved or {}, embed,
+                                                                prompts)
     if details is not None:
         details.update(numeric_preferences=preferences, limitations=notes, sources=sources)
     source = normalize(question)
@@ -61,10 +56,8 @@ def attribute_filters(call, question, fields, text_values, details=None, retriev
         schema = {'type': 'object', 'additionalProperties': False, 'required': ['applies', 'operator', 'value'],
                   'properties': {'applies': {'type': 'boolean'}, 'operator': {'enum': ['eq', 'ne']},
                                  'value': {'enum': values}}}
-        answer = call('Determine whether this ONE catalog attribute was explicitly requested. Do not infer a '
-                      'format, source or status from genre or mood. If not requested use applies=false. '
-                      'Use only existing values. eq requires it; ne excludes it. Return JSON.\n' + json.dumps(
-                          {'field': field, 'meaning': FIELD_MEANINGS[field], 'values': values, 'request': question}), schema)
+        data = json.dumps({'field': field, 'meaning': FIELD_MEANINGS[field], 'values': values, 'request': question})
+        answer = call((prompts or library()).render('attribute_requested', data=data), schema)
         if answer.get('applies'):
             filters.append({'field': field, 'operator': answer['operator'], 'value': answer['value'],
                             'source_text': question, 'mapping': 'exact'})
@@ -96,10 +89,13 @@ def lexical_preference(agent, phrase, features):
 
 def interpret(agent, question, history):
     resolution = None
+    prompts = prompts_for(agent.settings)
+    def role_of(phrase):
+        return parse(ConceptRole, call(role_prompt(question, phrase, prompts), ROLE_SCHEMA)).role
+
     def call(prompt, schema):
         if resolution is not None:
-            prompt += ('\nConfirmed mention roles (reference data): ' + json.dumps(resolution, ensure_ascii=False) +
-                       '\nNamed reference titles/characters are not content filters merely because their names also match categories.')
+            prompt += prompts.render('confirmed_roles', resolution=json.dumps(resolution, ensure_ascii=False))
         agent.last_usage['llm_calls'] += 1
         raw = agent.models.interpret_request(prompt, schema)
         agent.last_usage.setdefault('request_interpretation_outputs', []).append(raw)
@@ -110,14 +106,8 @@ def interpret(agent, question, history):
         from .mention_interpreter import classify
         decomposition, typed_mentions = classify(agent, question, history)
     else:
-        decomposition = call(decomposition_prompt(question, history), DECOMPOSITION_SCHEMA)
-    if not isinstance(decomposition, dict) or set(decomposition) != set(DECOMPOSITION_SCHEMA['required']):
-        raise ValueError('Invalid request decomposition')
-    if decomposition['intent'] not in ('recommendation', 'factual', 'other') or type(decomposition['use_previous_context']) is not bool:
-        raise ValueError('Invalid request decomposition intent')
-    for key in ('required', 'excluded', 'preferred', 'entity_queries'):
-        if not isinstance(decomposition[key], list) or len(decomposition[key]) > 8 or any(not isinstance(v, str) for v in decomposition[key]):
-            raise ValueError('Invalid request clause list')
+        decomposition = call(decomposition_prompt(question, history, prompts), DECOMPOSITION_SCHEMA)
+    parse(Decomposition, decomposition)
     from .entity_resolution import resolve_mentions
     resolution = resolve_mentions(agent, question, history, decomposition, typed_mentions=typed_mentions)
     if resolution is not None:
@@ -144,7 +134,8 @@ def interpret(agent, question, history):
                if normalize(phrase) not in PREFERENCE_STOP and normalize(phrase) in normalize(question)]
     retrieved = retrieve_attributes(agent.models.embed, question, phrases, fields, features)
     agent.last_usage['attribute_retrieval'] = retrieved
-    base['filters'] = attribute_filters(call, question, fields, agent._constraint_text_values, attributes, retrieved, agent.models.embed)
+    base['filters'] = attribute_filters(call, question, fields, agent._constraint_text_values, attributes, retrieved,
+                                        agent.models.embed, prompts)
     base['limitations'].extend(attributes['limitations'])
     property_sources = attributes['sources']
     base['entity_queries'] = [phrase for phrase in base['entity_queries']
@@ -206,7 +197,7 @@ def interpret(agent, question, history):
             # Exact catalog membership is structural. Only request polarity
             # needs an LLM decision; it cannot substitute a neighboring feature.
             candidate = sorted(exact, key=lambda r: r['field'] != 'genres')[0]
-            role = call(role_prompt(question, phrase), ROLE_SCHEMA)['role']
+            role = role_of(phrase)
             expanded = any(contains(normalize(p), normalize(phrase)) and normalize(p) != normalize(phrase)
                            for key in ('required', 'excluded', 'preferred', 'entity_queries') for p in decomposition[key])
             decision = {'candidate': candidate, 'role': role, 'mapping': 'broader' if expanded else 'exact'}
@@ -219,7 +210,7 @@ def interpret(agent, question, history):
                         'role': 'preferred', 'mapping': 'broader'}
         elif lexical_preference(agent, phrase, features):
             decision = {'candidate': lexical_preference(agent, phrase, features),
-                        'role': call(role_prompt(question, phrase), ROLE_SCHEMA)['role'], 'mapping': 'broader'}
+                        'role': role_of(phrase), 'mapping': 'broader'}
         else:
             options = []
             for kind in ('genre', 'tag'):
@@ -236,15 +227,8 @@ def interpret(agent, question, history):
                                             'role': ROLE_SCHEMA['properties']['role'],
                                             'operator': {'enum': ['eq', 'ne', 'lt', 'lte', 'gt', 'gte', 'contains', 'not_contains']},
                                             'value': {'type': 'string'}, 'mapping': {'enum': ['exact', 'broader']}}}
-            prompt = ('Resolve ONE property using existing catalog choices. Preference hierarchy: Genre, then Tags, '
-                      'then General Descriptions. Choose a genre only if it actually expresses the concept; otherwise '
-                      'try tags, then semantic descriptions. Factual attributes such as release dates, counts, lengths '
-                      'and formats use the corresponding structured field, independent of that preference hierarchy. '
-                      'Choose one numbered option. Respect negation in the whole request. For features copy the '
-                      'option value exactly; required uses eq, excluded uses ne. For scalar attributes return the '
-                      'actual typed comparison and value; apply negation to the comparison. General descriptions '
-                      'and subjective effects use preferred, not literal keyword filters. Return JSON.\n' +
-                      json.dumps({'request': question, 'property': phrase, 'choices': options}, ensure_ascii=False))
+            data = json.dumps({'request': question, 'property': phrase, 'choices': options}, ensure_ascii=False)
+            prompt = prompts.render('resolve_property', data=data)
             mapped = call(prompt, choice_schema)
             index = mapped['choice']
             if type(index) is not int or not 0 <= index < len(options):
@@ -256,7 +240,7 @@ def interpret(agent, question, history):
                 candidate = {'field': 'description', 'meaning': 'Unverified semantic description match'}
             decision = {'candidate': candidate, 'role': mapped['role'], 'mapping': mapped['mapping']}
             if candidate['field'] == 'description':
-                original_role = call(role_prompt(question, phrase), ROLE_SCHEMA)['role']
+                original_role = role_of(phrase)
                 decision['candidate'] = None
                 decision['role'] = 'preferred'
                 if original_role == 'excluded':
@@ -268,7 +252,7 @@ def interpret(agent, question, history):
                     base['limitations'].append('The exact requirement ' + repr(phrase) +
                                               ' is assessed semantically from descriptions, not verified by a catalog category.')
             else:
-                decision['role'] = call(role_prompt(question, phrase), ROLE_SCHEMA)['role']
+                decision['role'] = role_of(phrase)
                 decision.update(operator=mapped['operator'], value=candidate.get('value', mapped['value']))
         role = decision['role']
         if role not in ('required', 'excluded', 'preferred', 'irrelevant'):

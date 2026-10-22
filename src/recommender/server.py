@@ -21,6 +21,7 @@ Configuration comes from the environment (on EC2, /etc/recommender.env):
 """
 from __future__ import annotations
 
+import asyncio
 import json
 import os
 import queue
@@ -29,10 +30,11 @@ import time
 from dataclasses import dataclass
 from pathlib import Path
 
+import anyio
 import jwt
 import requests
+from asyncer import asyncify
 from fastapi import FastAPI, Header, HTTPException
-from fastapi.concurrency import run_in_threadpool
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, StreamingResponse
 from pydantic import BaseModel, Field
@@ -154,7 +156,12 @@ def create_app(verify=None, pool_factory=None) -> FastAPI:
                            allow_headers=["Authorization", "Content-Type"])
     verify = verify or TokenVerifier(os.environ["COGNITO_ISSUER"], os.environ["COGNITO_CLIENT_ID"],
                                      os.environ.get("COGNITO_JWKS_URL", ""))
-    state = {"pool": None, "version": "", "error": ""}
+    workers = int(os.environ.get("RECOMMENDER_WORKERS", "8"))
+    # "limiter": threads for answering, apart from the shared pool that waiting for a pipeline uses, so
+    # questions queued for a pipeline never hold up the ones that have one. Made on first use, in the loop.
+    state = {"pool": None, "version": "", "error": "", "limiter": None}
+    # Answers in progress; the event loop keeps only weak references to tasks.
+    running = set()
 
     def load():
         # Retry until a library is published and loads; /health reports the last error meanwhile.
@@ -164,7 +171,7 @@ def create_app(verify=None, pool_factory=None) -> FastAPI:
                     state["pool"], state["version"] = pool_factory()
                 else:
                     settings, version = load_library()
-                    state["pool"] = PipelinePool(settings, int(os.environ.get("RECOMMENDER_WORKERS", "8")))
+                    state["pool"] = PipelinePool(settings, workers)
                     state["version"] = version
                 state["error"] = ""
                 return
@@ -191,36 +198,34 @@ def create_app(verify=None, pool_factory=None) -> FastAPI:
         pool = state["pool"]
         if pool is None:
             raise HTTPException(503, "The recommender is starting. Try again in a minute.")
-        pipeline = await run_in_threadpool(pool.acquire, QUEUE_SECONDS)
+        pipeline = await asyncify(pool.acquire)(QUEUE_SECONDS)
         if pipeline is None:
             raise HTTPException(429, "The assistant is busy. Try again in a moment.")
         history = [turn.model_dump() for turn in request.history]
-        result = {}
-        done = threading.Event()
+        state["limiter"] = state["limiter"] or anyio.CapacityLimiter(workers)
+        # A task rather than work inside lines(): the response may stop iterating (the user left), and a
+        # thread can't be stopped, so the pipeline goes back to the pool only once the thread is done.
+        answer = asyncio.ensure_future(asyncify(pipeline.ask, limiter=state["limiter"])(request.message, history))
+        running.add(answer)
 
-        def work():
-            try:
-                result["answer"] = pipeline.ask(request.message, history)
-            except Exception as error:
+        def finished(task):
+            running.discard(task)
+            pool.release(pipeline)
+            if not task.cancelled() and (error := task.exception()):
                 print(f"Recommender failed for user {claims['sub']}: {type(error).__name__}: {error}", flush=True)
-                result["status"] = http_status(error)
-                result["message"] = user_message(error)
-            finally:
-                pool.release(pipeline)
-                done.set()
 
-        threading.Thread(target=work, daemon=True).start()
+        answer.add_done_callback(finished)
 
         async def lines():
-            while not await run_in_threadpool(done.wait, KEEPALIVE_SECONDS):
+            while not (await asyncio.wait({answer}, timeout=KEEPALIVE_SECONDS))[0]:
                 yield json.dumps({"type": "wait"}) + "\n"
-            if "answer" in result:
-                yield json.dumps({"type": "answer", "answer": result["answer"]}) + "\n"
+            if error := answer.exception():
+                status = http_status(error)
+                message = user_message(error) or ("The assistant is busy. Try again in a moment." if status == 429
+                                                  else "The assistant couldn't answer. Try again.")
+                yield json.dumps({"type": "error", "status": status, "error": message}) + "\n"
             else:
-                message = result["message"] or ("The assistant is busy. Try again in a moment."
-                                                if result["status"] == 429
-                                                else "The assistant couldn't answer. Try again.")
-                yield json.dumps({"type": "error", "status": result["status"], "error": message}) + "\n"
+                yield json.dumps({"type": "answer", "answer": answer.result()}) + "\n"
 
         return StreamingResponse(lines(), media_type="application/x-ndjson",
                                  headers={"Cache-Control": "no-store", "X-Accel-Buffering": "no"})

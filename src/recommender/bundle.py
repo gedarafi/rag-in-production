@@ -3,7 +3,9 @@
 A bundle is one zstd-compressed tar of what the pipeline reads at runtime:
 
   settings.toml                  the settings it was built with (RAG_* variables still override them)
-  prompts/
+  prompts/                       answer.txt, clarify.txt, routes.json, features.json, and the
+                                 prompt_overrides folder when the settings name one (the LLM step
+                                 templates themselves ship in the wheel)
   data/documents/anilist/        catalog.sqlite3 and the anime-*.md documents
   data/index/anilist/            chunks.json, vectors.npy and the tool/feature embedding caches
 
@@ -48,6 +50,11 @@ def runtime_files(settings: Settings, config: Path) -> dict[str, Path]:
     for path in sorted((settings.root / "prompts").glob("*")):
         if path.is_file():
             files[f"prompts/{path.name}"] = path
+    # The settings name this folder relative to their own, so it keeps its place in the release.
+    if settings.prompt_overrides and settings.prompt_overrides.is_dir():
+        for path in sorted(settings.prompt_overrides.rglob("*")):
+            if path.is_file():
+                files[str(path.relative_to(settings.root))] = path
     for folder in (settings.documents, settings.index):
         for path in sorted(folder.iterdir()):
             if (path.is_file() and path.name not in EXCLUDED and not path.name.endswith(SQLITE_SIDE_FILES)
