@@ -111,8 +111,10 @@ flowchart TD
   which rule matched. Messages the rules let through get one small LLM classification
   (`security_review`) that sees the message and the last turns: anime questions and follow-ups go
   on to the recommender; off-topic, small talk, help, other languages and unsafe or harmful requests
-  get the fixed reply for their category. The LLM only picks the category, never the reply text, and
-  if the call fails the message passes. `[security] llm_review = false` in `settings.toml` keeps only
+  get the fixed reply for their category. The LLM only picks the category (the `SecurityReview`
+  schema in `llm_schemas.py`), never the reply text, and if the call fails or its reply doesn't
+  validate the message passes. Its instructions are `security_review_system.j2` and
+  `security_review.j2` in the [prompts](#prompts) folder. `[security] llm_review = false` in `settings.toml` keeps only
   the rules. The conversation's subjects carry over a gated turn, so "thanks" followed by
   "something similar?" still knows the title. The debug view shows `response_path: security_agent`,
   `security_category` and `security_review`.
@@ -202,6 +204,14 @@ max_attempts = 4
 backoff_seconds = 1
 max_backoff_seconds = 20
 connect_timeout = 5   # seconds; reading the answer keeps each step's own timeout
+```
+
+The security agent's LLM review is one of these calls; to keep only its rules (no extra call per
+question):
+
+```toml
+[security]
+llm_review = false
 ```
 
 ### Prompts
