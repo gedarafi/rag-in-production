@@ -16,7 +16,13 @@ Start LocalStack and Phoenix, deploy the stack to it and register yourself:
 ```sh
 just recommender-local-up              # LocalStack, apply, build and publish the library (once)
 just signup me@student.uu.se           # once
+```
+
+```sh
 just recommender-serve                 # terminal 1: the service on http://127.0.0.1:8080
+```
+
+```sh
 just recommender-web me@student.uu.se  # terminal 2: the page on http://localhost:8000
 ```
 
