@@ -66,6 +66,28 @@ new recommendation request starts a fresh search, while "sad anime like that" ke
 **New chat** clears the history. Answers come only from the local data, and small local models can
 still misread a request; the debug view shows what was selected and retrieved.
 
+### Feedback
+
+Every answer gets 👍/👎 buttons (in the GUI and on the web page) so users can rate it. Each
+question gets a random `question_id`; for now the ratings only go to the logs, to evaluate and
+improve the recommender later:
+
+- **GUI:** the terminal prints `{"gui_debug": {"app": "anilist", "question_id": ...}}` when the
+  question starts and `{"gui_debug": {"app": "anilist", "feedback": {"question_id": ..., "rating":
+  "up"|"down"|"cleared"}}}` on a click. The debug view also shows the `question_id` and `trace_id`.
+- **Web service:** `recommender serve` writes one JSON line per answer and per rating to stdout
+  (`journalctl -u recommender` on EC2), with the Cognito user ID but never the question or answer
+  text:
+
+  ```json
+  {"event": "answer", "time": 1792000000.0, "question_id": "3f2a...", "user": "<sub>", "trace_id": "...", "seconds": 8.4}
+  {"event": "feedback", "time": 1792000012.5, "question_id": "3f2a...", "user": "<sub>", "rating": "down"}
+  ```
+
+  Join the two on `question_id`, then follow `trace_id` to the question, the answer and every
+  step in Phoenix or Arize AX. `POST /recommend/feedback {"question_id", "rating": "up"|"down"}`
+  takes the same bearer token as `/recommend/chat`.
+
 ![Recommendations after Steins;Gate](../../sample_screenshots/Screenshot%202026-10-14%20190555.png)
 
 More examples in [sample_screenshots/](../../sample_screenshots/).

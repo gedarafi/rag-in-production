@@ -3,7 +3,10 @@
 POST /recommend/chat  {"message": "...", "history": [{"role": "user"|"assistant", "content": "..."}]}
     Needs `Authorization: Bearer <Cognito access token>`. The response is NDJSON: {"type": "wait"}
     lines every few seconds while the models work (they keep CloudFront's origin timeout from firing on
-    a long answer), then one {"type": "answer", "answer": "..."} or {"type": "error", "error": "..."}.
+    a long answer), then one {"type": "answer", "answer": "...", "question_id": "..."} or
+    {"type": "error", "error": "..."}.
+POST /recommend/feedback  {"question_id": "...", "rating": "up"|"down"}
+    Needs the same token. The user's verdict on an answer, written to the log for later evaluation.
 GET /recommend/health
     No auth: whether the library is loaded, its version, and the code's release (RELEASES.md).
 
@@ -27,6 +30,7 @@ import os
 import queue
 import threading
 import time
+import uuid
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -58,6 +62,16 @@ class Turn(BaseModel):
 class ChatRequest(BaseModel):
     message: str = Field(min_length=1, max_length=2000)
     history: list[Turn] = Field(default_factory=list, max_length=40)
+
+
+class Feedback(BaseModel):
+    question_id: str = Field(pattern="^[0-9a-f]{32}$")
+    rating: str = Field(pattern="^(up|down)$")
+
+
+def log_event(event: str, **fields) -> None:
+    """One JSON line per event, for evaluation later; never the question or answer text (docs/gdpr.md)."""
+    print(json.dumps({"event": event, "time": round(time.time(), 3), **fields}), flush=True)
 
 
 class Unauthorized(Exception):
@@ -204,6 +218,9 @@ def create_app(verify=None, pool_factory=None) -> FastAPI:
             raise HTTPException(429, "The assistant is busy. Try again in a moment.")
         history = [turn.model_dump() for turn in request.history]
         state["limiter"] = state["limiter"] or anyio.CapacityLimiter(workers)
+        # Ties the user's feedback to this answer and its trace.
+        question_id = uuid.uuid4().hex
+        started = time.perf_counter()
         # A task rather than work inside lines(): the response may stop iterating (the user left), and a
         # thread can't be stopped, so the pipeline goes back to the pool only once the thread is done.
         answer = asyncio.ensure_future(asyncify(pipeline.ask, limiter=state["limiter"])(request.message, history))
@@ -211,9 +228,15 @@ def create_app(verify=None, pool_factory=None) -> FastAPI:
 
         def finished(task):
             running.discard(task)
+            trace_id = getattr(pipeline, "last_trace_id", "")
             pool.release(pipeline)
-            if not task.cancelled() and (error := task.exception()):
+            if task.cancelled():
+                return
+            if error := task.exception():
                 print(f"Recommender failed for user {claims['sub']}: {type(error).__name__}: {error}", flush=True)
+            else:
+                log_event("answer", question_id=question_id, user=claims["sub"], trace_id=trace_id,
+                          seconds=round(time.perf_counter() - started, 3))
 
         answer.add_done_callback(finished)
 
@@ -226,10 +249,18 @@ def create_app(verify=None, pool_factory=None) -> FastAPI:
                                                   else "The assistant couldn't answer. Try again.")
                 yield json.dumps({"type": "error", "status": status, "error": message}) + "\n"
             else:
-                yield json.dumps({"type": "answer", "answer": answer.result()}) + "\n"
+                yield json.dumps({"type": "answer", "answer": answer.result(), "question_id": question_id}) + "\n"
 
         return StreamingResponse(lines(), media_type="application/x-ndjson",
                                  headers={"Cache-Control": "no-store", "X-Accel-Buffering": "no"})
+
+    @app.post("/recommend/feedback", status_code=204)
+    def feedback(request: Feedback, authorization: str | None = Header(default=None)):
+        try:
+            claims = verify(authorization)
+        except Unauthorized:
+            raise HTTPException(401, "Your session has ended. Sign in again.")
+        log_event("feedback", question_id=request.question_id, user=claims["sub"], rating=request.rating)
 
     @app.exception_handler(HTTPException)
     async def error_body(_, error: HTTPException):

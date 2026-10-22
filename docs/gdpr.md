@@ -12,6 +12,7 @@ data protection officer.
 | --- | --- | --- |
 | Email address | Cognito user pool; SES sends the sign-in code to it | Sign-in |
 | Cognito user ID (`sub`) | Chat Lambda logs when a Bedrock call fails | Debugging |
+| Cognito user ID, question ID, 👍/👎 rating | Recommender service log (stdout, one line per answer and rating) | Evaluating answers |
 | IP address, user agent | API Gateway access logs, CloudFront | Operations |
 | Chat messages and answers | Sent to Bedrock; not stored by us | Answering the question |
 | Uploaded course documents (planned) | S3 and the Bedrock knowledge base | RAG |
