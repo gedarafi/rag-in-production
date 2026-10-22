@@ -183,6 +183,9 @@ class RagPipeline:
         security = SecurityAgent(self.models if self.settings.security_llm_review else None)
         with timed_stage({}, 'security_review'):
             verdict = security.review(question, history)
+            # On the stage span, so Phoenix shows the decision for passed messages too.
+            annotate(**{'recommender.security_review': security.last_review,
+                        'recommender.security_category': verdict.category if verdict else 'pass'})
         review = security.last_review
         if verdict:
             # Small talk, off-topic and unsafe requests never reach the recommender.
