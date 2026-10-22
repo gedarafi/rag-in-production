@@ -180,12 +180,15 @@ class RagPipeline:
         self.last_trace_id = trace_id()
         history = self.recent_history(history)
         annotate(**{"recommender.history_messages": len(history)})
+        security = SecurityAgent(self.models if self.settings.security_llm_review else None)
         with timed_stage({}, 'security_review'):
-            verdict = SecurityAgent().review(question)
+            verdict = security.review(question, history)
+        review = security.last_review
         if verdict:
-            # Small talk and unsafe requests never reach the LLM, embeddings or the catalog.
+            # Small talk, off-topic and unsafe requests never reach the recommender.
             self.last_route = {'response_path': 'security_agent', 'security_category': verdict.category,
-                               'blocked': verdict.blocked, 'llm_calls': 0}
+                               'blocked': verdict.blocked, 'security_review': review,
+                               'llm_calls': review['llm_calls']}
             annotate(**{'recommender.' + key: value for key, value in self.last_route.items()})
             if getattr(self, '_agent', None) is not None:
                 self._agent.carry_memory(history, question, verdict.reply)
@@ -199,8 +202,10 @@ class RagPipeline:
             try:
                 reply = self._agent.answer(question, history)
             finally:
-                self.last_route = {'agent_trace': getattr(self._agent, 'last_trace', []),
-                                   **getattr(self._agent, 'last_usage', {})}
+                usage = getattr(self._agent, 'last_usage', {})
+                self.last_route = {'agent_trace': getattr(self._agent, 'last_trace', []), **usage,
+                                   'security_review': review,
+                                   'llm_calls': usage.get('llm_calls', 0) + review['llm_calls']}
             return strip_source_citations(reply)
         with timed_stage({}, 'retrieval_and_answer'):
             return strip_source_citations(self._ask_retrieval(question, history))

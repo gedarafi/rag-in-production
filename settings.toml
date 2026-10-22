@@ -53,6 +53,11 @@ context_window = 8192 # Preserve routing instructions, tool evidence and recent 
 temperature = 0.2
 max_tokens = 700
 
+[security]
+# The security agent's rules always run first. With llm_review, messages they let through get one
+# small LLM classification: anime questions pass, anything else gets a fixed reply.
+llm_review = true
+
 [files]
 extensions = [".txt", ".md", ".pdf", ".docx"]
 
