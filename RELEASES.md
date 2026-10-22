@@ -5,6 +5,35 @@ the web page shows it next to the title, linked to these notes. To release, add 
 set `RELEASE` in [`src/recommender/__init__.py`](src/recommender/__init__.py) to the same tag, merge,
 then tag the merge commit (`git tag -a vX.Y.Z -m "..." && git push origin vX.Y.Z`).
 
+## v0.0.4 (2026-10-22)
+
+Users can rate answers with 👍/👎, and the ratings show up on the answers' traces in Phoenix.
+Answers are unchanged.
+
+### Added
+
+- **Feedback on answers.** Every answer gets a random `question_id`. The web page asks "Was this
+  helpful? 👍 👎" under a random share of the answers (`RECOMMENDER_FEEDBACK_RATE`, default 0.25),
+  never under the security agent's fixed replies; the server decides and says so with
+  `"feedback": true|false` on the answer line. The Gradio GUI has 👍/👎 on every answer. New
+  endpoint `POST /recommend/feedback {"question_id", "rating": "up"|"down"}`, with the same token as
+  `/recommend/chat`.
+- **In the log.** One JSON line per answer (`question_id`, Cognito user, `trace_id`, `span_id`,
+  `response_path`, `feedback`, seconds) and per rating, never the question or answer text
+  ([docs/gdpr.md](docs/gdpr.md)).
+- **In Phoenix.** Each rating is a `HUMAN` `user_feedback` annotation on the answer's
+  `recommender.ask` span: label `positive` or `negative`, score 1 or 0. The service assigns
+  Phoenix's `user_feedback` annotation config to the project (creating it if missing), so the
+  span's Annotations panel shows it; rating again replaces it. Filter with
+  `annotations['user_feedback'].label == 'negative'`. On Arize AX (EC2) the ratings are in the log
+  only.
+
+### Upgrade
+
+- AWS: `just aws-recommender-deploy` for the service, and `just aws-apply` to publish the new
+  `web/app.js`. No need to republish the library.
+- Locally: restart `just recommender-serve` and reload the page.
+
 ## v0.0.3 (2026-10-22)
 
 A security agent in front of the recommender: small talk, off-topic and unsafe messages are answered
