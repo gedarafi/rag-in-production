@@ -180,7 +180,7 @@ class RagPipeline:
         self.last_trace_id = trace_id()
         history = self.recent_history(history)
         annotate(**{"recommender.history_messages": len(history)})
-        security = SecurityAgent(self.models if self.settings.security_llm_review else None)
+        security = SecurityAgent(self.models if self.settings.security_llm_review else None, prompts_for(self.settings))
         with timed_stage({}, 'security_review'):
             verdict = security.review(question, history)
             # On the stage span, so Phoenix shows the decision for passed messages too.

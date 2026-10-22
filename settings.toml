@@ -39,6 +39,11 @@ backoff_seconds = 1
 max_backoff_seconds = 20
 connect_timeout = 5 # Seconds to connect; reading the answer keeps each step's own timeout
 
+[security]
+# The security agent's rules always run first. With llm_review, messages they let through get one
+# small LLM classification: anime questions pass, anything else gets a fixed reply.
+llm_review = true
+
 [retrieval]
 chunk_size = 900
 chunk_overlap = 150
@@ -52,11 +57,6 @@ agent_max_steps = 8 # Maximum local functions in the single plan; chat uses two 
 context_window = 8192 # Preserve routing instructions, tool evidence and recent conversation
 temperature = 0.2
 max_tokens = 700
-
-[security]
-# The security agent's rules always run first. With llm_review, messages they let through get one
-# small LLM classification: anime questions pass, anything else gets a fixed reply.
-llm_review = true
 
 [files]
 extensions = [".txt", ".md", ".pdf", ".docx"]

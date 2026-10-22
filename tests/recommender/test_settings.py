@@ -61,6 +61,10 @@ class SettingsTests(unittest.TestCase):
         self.assertEqual((settings.llm_max_attempts, settings.llm_connect_timeout, settings.prompt_overrides),
                          (4, 5.0, None))
 
+    def test_security_llm_review_is_on_unless_turned_off(self):
+        self.assertTrue(self.load(re.sub(r'(?ms)^\[security\].*?(?=^\[)', '', self.text)).security_llm_review)
+        self.assertFalse(self.load(self.text.replace('llm_review = true', 'llm_review = false')).security_llm_review)
+
     def test_prompt_overrides_resolve_against_the_settings_folder(self):
         settings = self.load(self.text.replace('# prompt_overrides = ""', 'prompt_overrides = "prompts/mine"'))
         self.assertEqual(settings.prompt_overrides, (self.config.parent / 'prompts/mine').resolve())
