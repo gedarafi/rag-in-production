@@ -74,7 +74,9 @@ More examples in [sample_screenshots/](../../sample_screenshots/).
 
 ```mermaid
 flowchart TD
-    A["Question + chat history"] --> GATE{"Security agent:<br/>small talk or unsafe?"}
+    A["Question + chat history"] --> GATE{"Security agent:<br/>small talk, unsafe or not English?"}
+    GATE -->|"Not English"| ENGLISH["Ask again in English, no LLM call"]
+    ENGLISH --> Z
     GATE -->|"Greeting, thanks, bye, help"| CANNED["Fixed reply, no LLM call"]
     GATE -->|"Prompt injection, secrets, SQL/code"| REFUSE["Fixed refusal, no LLM call"]
     GATE -->|"Anything else"| B{"Workspace ready?"}
@@ -103,7 +105,10 @@ flowchart TD
 ```
 
 - **Security agent:** [security_agent.py](../../src/recommender/security_agent.py) reviews each
-  message with rules before anything else runs. Whole-message small talk (greetings, thanks,
+  message with rules before anything else runs. English is the only supported language: a message
+  in another language (mostly non-Latin script, or more function words of Swedish, Spanish, French,
+  German, Portuguese or Dutch than of English) gets a fixed request to ask in English; romaji and
+  native titles inside an English question still pass. Whole-message small talk (greetings, thanks,
   goodbyes, "what can you do?") gets a fixed reply; prompt injection, requests for secrets and
   SQL/code injection get one refusal that doesn't say which rule matched. Neither costs an LLM
   call, an embedding or a catalog lookup, and the conversation's subjects carry over, so "thanks"
