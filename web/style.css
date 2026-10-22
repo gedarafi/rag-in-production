@@ -51,6 +51,7 @@ body {
 }
 
 .brand { font-weight: 600; }
+.release { margin-left: 8px; font-size: 13px; font-weight: 400; color: var(--muted); }
 .user { display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: 14px; }
 
 main {

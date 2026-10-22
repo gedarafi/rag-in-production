@@ -5,7 +5,7 @@ POST /recommend/chat  {"message": "...", "history": [{"role": "user"|"assistant"
     lines every few seconds while the models work (they keep CloudFront's origin timeout from firing on
     a long answer), then one {"type": "answer", "answer": "..."} or {"type": "error", "error": "..."}.
 GET /recommend/health
-    No auth: whether the library is loaded, and its version.
+    No auth: whether the library is loaded, its version, and the code's release (RELEASES.md).
 
 Configuration comes from the environment (on EC2, /etc/recommender.env):
   RECOMMENDER_BUCKET, RECOMMENDER_PREFIX   where bundle.py published the library (pulled at start)
@@ -39,6 +39,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, StreamingResponse
 from pydantic import BaseModel, Field
 
+from . import RELEASE
 from .errors import UserFacingError
 
 # How long a question waits for a free pipeline before the user hears "busy".
@@ -186,8 +187,8 @@ def create_app(verify=None, pool_factory=None) -> FastAPI:
     @app.get("/recommend/health")
     def health():
         ready = state["pool"] is not None
-        return JSONResponse({"ready": ready, "version": state["version"], "error": state["error"]},
-                            status_code=200 if ready else 503)
+        return JSONResponse({"ready": ready, "release": RELEASE, "version": state["version"],
+                             "error": state["error"]}, status_code=200 if ready else 503)
 
     @app.post("/recommend/chat")
     async def chat(request: ChatRequest, authorization: str | None = Header(default=None)):

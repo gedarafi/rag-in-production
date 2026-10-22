@@ -372,7 +372,23 @@ function bind() {
   });
 }
 
+// ---------- Release ----------
+
+// The recommender reports its release (a git tag); link it to that version's release notes.
+async function showRelease() {
+  if (!useRecommender) return;
+  const res = await fetch(`${cfg.recommenderBase || cfg.apiBase}/recommend/health`).catch(() => null);
+  const release = (await res?.json().catch(() => ({})))?.release;
+  if (!release) return;
+  const link = $("release");
+  link.textContent = release;
+  link.href = `https://github.com/gedarafi/rag-in-production/blob/${encodeURIComponent(release)}/RELEASES.md`;
+  link.title = "Release notes";
+  link.hidden = false;
+}
+
 async function init() {
+  showRelease();
   if (!cfg || !cfg.region || !cfg.userPoolClientId) {
     $("config-error").hidden = false;
     return;

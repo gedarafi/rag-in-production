@@ -1,5 +1,6 @@
 import json
 import threading
+from pathlib import Path
 import time
 import unittest
 from types import SimpleNamespace
@@ -10,7 +11,7 @@ import requests
 from cryptography.hazmat.primitives.asymmetric import rsa
 from fastapi.testclient import TestClient
 
-from src.recommender import server
+from src.recommender import RELEASE, server
 from src.recommender.errors import UserFacingError
 
 ISSUER = 'https://cognito-idp.us-east-2.amazonaws.com/us-east-2_pool'
@@ -69,7 +70,12 @@ class ServerTests(unittest.TestCase):
 
     def test_health_needs_no_token(self):
         response = self.client(Pipeline('x')).get('/recommend/health')
-        self.assertEqual(response.json(), {'ready': True, 'version': 'v1', 'error': ''})
+        self.assertEqual(response.json(), {'ready': True, 'release': RELEASE, 'version': 'v1', 'error': ''})
+
+    def test_release_is_the_newest_entry_in_the_release_notes(self):
+        import re
+        notes = (Path(__file__).resolve().parents[2] / 'RELEASES.md').read_text(encoding='utf-8')
+        self.assertEqual(re.search(r'(?m)^## (v\d+\.\d+\.\d+)\b', notes)[1], RELEASE)
 
     def test_signed_in_user_gets_the_answer_as_the_last_line(self):
         pipeline = Pipeline('Try Gintama.')
