@@ -1,8 +1,9 @@
 """The fixed shapes of structured LLM replies, as Pydantic models.
 
 Each model is both the JSON schema sent with the request (Ollama `format`, Bedrock `response_format`)
-and the check of what came back. Checks of meaning (a mention must quote the request, a role must not
-change) stay with the step that needs them. Schemas whose choices come from the catalog per request
+and the check of what came back. Field order matters: the model writes the keys in that order.
+Checks of meaning (a mention must quote the request, a role must not change) stay with the step
+that needs them. Schemas whose choices come from the catalog per request
 (tool plans, routing, entity selection) stay hand-built next to their step.
 """
 from __future__ import annotations
@@ -30,12 +31,17 @@ class Decomposition(Reply):
 
 
 class Mention(Reply):
-    # The length bound guides generation; a longer meaning is still accepted.
-    meaning: Annotated[str, WithJsonSchema({'type': 'string', 'maxLength': 180})]
+    # The schema must stay exactly as the step was tuned with: Ollama's constrained decoding changes with
+    # it, `required` order included. Field order is generation order: a schema-constrained model writes the keys as listed, and a small
+    # model copies the request's words reliably only when `text` comes first, before any interpretation.
     text: str
+    query: str
     kind: Literal['anime', 'character', 'genre', 'tag', 'description', 'other']
     role: Literal['subject', 'reference', 'required', 'excluded', 'preferred', 'ambiguous']
-    query: str
+    # The length bound guides generation; a longer meaning is still accepted.
+    meaning: Annotated[str, WithJsonSchema({'type': 'string', 'maxLength': 180})]
+
+    model_config = ConfigDict(json_schema_extra={'required': ['meaning', 'text', 'kind', 'role', 'query']})
 
 
 class MentionInterpretation(Reply):
@@ -51,8 +57,8 @@ class ConceptRole(Reply):
 # Bounds of a numeric request; null for a bound that wasn't requested. (A docstring would enter the schema.)
 class NumericRange(BaseModel):
     model_config = ConfigDict(strict=True, allow_inf_nan=False)
-    min: float | None
-    max: float | None
+    min: Annotated[float | None, WithJsonSchema({'type': ['number', 'null']})]
+    max: Annotated[float | None, WithJsonSchema({'type': ['number', 'null']})]
 
 
 class FactExtraction(Reply):
@@ -68,7 +74,8 @@ class TitleExtraction(Reply):
 
 
 def json_schema(model: type[BaseModel]) -> dict:
-    """The model's JSON schema, self-contained (nested models inlined) and without titles."""
+    """The model's JSON schema, self-contained (nested models inlined), without titles, and with bare
+    enums (no "type" beside them), as the hand-written schemas the steps were tuned with."""
     schema = model.model_json_schema()
     definitions = schema.pop('$defs', {})
 
@@ -76,7 +83,8 @@ def json_schema(model: type[BaseModel]) -> dict:
         if isinstance(node, dict):
             if '$ref' in node:
                 return clean(definitions[node['$ref'].rsplit('/', 1)[-1]])
-            return {key: clean(value) for key, value in node.items() if key != 'title'}
+            return {key: clean(value) for key, value in node.items()
+                    if key != 'title' and not (key == 'type' and 'enum' in node)}
         if isinstance(node, list):
             return [clean(item) for item in node]
         return node
