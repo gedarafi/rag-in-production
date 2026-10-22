@@ -268,6 +268,18 @@ class LocalModels:
         except requests.RequestException as error:
             raise RuntimeError(f'Could not interpret the request: {error}') from error
 
+    def review_message(self, prompt, schema, instructions):
+        try:
+            body = self._ollama('security_review', '/api/chat', {
+                'model': self.llm, 'messages': [{'role': 'system', 'content': instructions},
+                                                {'role': 'user', 'content': prompt}],
+                'stream': False, 'format': schema,
+                'options': {'temperature': 0, 'num_predict': 200, 'num_ctx': self.context_window},
+                'keep_alive': '10m'}, timeout=60)
+            return body['message']['content']
+        except requests.RequestException as error:
+            raise RuntimeError(f'Could not review the message: {error}') from error
+
     def agent_step(self, prompt, schema):
         grounded = any(b['properties']['action']['const'] == 'answer' for b in schema['anyOf'])
         try:

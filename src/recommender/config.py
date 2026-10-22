@@ -47,6 +47,8 @@ class Settings:
     llm_backoff_seconds: Annotated[float, Field(ge=0)] = 1.0
     llm_max_backoff_seconds: Annotated[float, Field(ge=0)] = 20.0
     llm_connect_timeout: Annotated[float, Field(gt=0)] = 5.0
+    # Messages the security agent's rules let through get one LLM classification (src/recommender/security_agent.py).
+    security_llm_review: bool = True
 
     @field_validator("ollama_url")
     @classmethod
@@ -82,6 +84,7 @@ TOML_FIELDS = {
     ("tracing", "endpoint"): "tracing_endpoint", ("tracing", "project"): "tracing_project",
     ("llm", "max_attempts"): "llm_max_attempts", ("llm", "backoff_seconds"): "llm_backoff_seconds",
     ("llm", "max_backoff_seconds"): "llm_max_backoff_seconds", ("llm", "connect_timeout"): "llm_connect_timeout",
+    ("security", "llm_review"): "security_llm_review",
 }
 
 # Settings the environment overrides, and the variables that do, the first one set winning.
