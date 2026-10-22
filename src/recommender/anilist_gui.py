@@ -9,6 +9,7 @@ from time import perf_counter
 
 import gradio as gr
 
+from ..tracing import send_feedback
 from .anilist_setup import AniListWorkspace
 from .config import load_settings
 from .gui import find_available_port, print_debug
@@ -45,6 +46,8 @@ def build_app(config_path='settings.toml'):
     if workspace.ready:
         # Load models and the catalog while the page opens, not on the first question.
         threading.Thread(target=workspace.warm, daemon=True).start()
+    # question_id -> the answer's root span, which feedback is annotated on in Phoenix.
+    answer_spans = {}
 
     def setup_workspace(source, rebuild, progress=gr.Progress()):
         terminal = TerminalProgress()
@@ -87,6 +90,9 @@ def build_app(config_path='settings.toml'):
             debug = {**pending, **deepcopy(getattr(workspace.pipeline, 'last_route', {})), 'status': 'completed',
                      'elapsed_seconds': round(perf_counter() - started, 6),
                      'trace_id': getattr(workspace.pipeline, 'last_trace_id', '')}
+            if debug.get('response_path') != 'security_agent':
+                # A rating of small talk or a refusal is only logged.
+                answer_spans[question_id] = getattr(workspace.pipeline, 'last_span_id', '')
             print_debug({**pending, 'status': 'completed', 'elapsed_seconds': debug['elapsed_seconds'],
                          'llm_calls': debug.get('llm_calls'), 'trace_id': debug['trace_id']})
             yield history, '', 'Ready.', debug, gr.update(value=debug), question_ids
@@ -100,11 +106,13 @@ def build_app(config_path='settings.toml'):
                    question_ids)
 
     def record_feedback(data: gr.LikeData, question_ids):
-        """Log the user's 👍/👎 on an answer with its question ID, for evaluating the recommender later."""
+        """Log the user's 👍/👎 on an answer with its question ID, and annotate its trace in Phoenix."""
         index = data.index[0] if isinstance(data.index, (list, tuple)) else data.index
         rating = {True: 'up', False: 'down'}.get(data.liked, data.liked or 'cleared')
-        print_debug({'app': 'anilist', 'feedback': {'question_id': (question_ids or {}).get(index, ''),
+        question_id = (question_ids or {}).get(index, '')
+        print_debug({'app': 'anilist', 'feedback': {'question_id': question_id,
                                                     'message_index': index, 'rating': rating}})
+        send_feedback(answer_spans.get(question_id, ''), rating, question_id)
 
     with gr.Blocks(title='AniList Library') as app:
         debug_state = gr.State({})

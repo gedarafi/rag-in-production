@@ -257,7 +257,8 @@ async function askRecommender(text, token) {
   const last = JSON.parse(lines[lines.length - 1] || "{}");
   if (last.type !== "answer") throw new Error(last.error || "The assistant couldn't answer. Try again.");
   history = [...history, { role: "user", content: text }, { role: "assistant", content: last.answer }].slice(-20);
-  return { answer: last.answer, questionId: last.question_id };
+  // The service asks for 👍/👎 on some answers only, never on small talk or refusals.
+  return { answer: last.answer, questionId: last.question_id, askFeedback: last.feedback === true };
 }
 
 // The user's verdict on one answer; the recommender logs it with the question ID for evaluation.
@@ -403,10 +404,10 @@ function bind() {
     const pending = addMessage("Thinking…", "bot", true);
     busy($("send"), async () => {
       try {
-        const { answer, questionId } = await sendMessage(text);
+        const { answer, questionId, askFeedback } = await sendMessage(text);
         pending.textContent = answer;
         pending.classList.remove("pending");
-        if (questionId) addFeedback(pending, questionId);
+        if (questionId && askFeedback) addFeedback(pending, questionId);
       } catch (err) {
         pending.remove();
         $("chat-error").textContent = err.message;

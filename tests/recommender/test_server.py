@@ -25,8 +25,11 @@ def token(**claims):
 
 
 class Pipeline:
-    def __init__(self, answer=None, error=None, gate=None):
+    last_span_id = 'ab' * 8
+
+    def __init__(self, answer=None, error=None, gate=None, route=None):
         self.answer, self.error, self.gate, self.asked = answer, error, gate, []
+        self.last_route = route or {}
 
     def ask(self, question, history):
         self.asked.append((question, history))
@@ -84,6 +87,7 @@ class ServerTests(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         last = json.loads(response.text.strip().splitlines()[-1])
         self.assertRegex(last.pop('question_id'), '^[0-9a-f]{32}$')
+        self.assertIsInstance(last.pop('feedback'), bool)  # random; see test_a_random_share_...
         self.assertEqual(last, {'type': 'answer', 'answer': 'Try Gintama.'})
         self.assertEqual(pipeline.asked, [('Recommend a comedy', history)])
         self.assertFalse(self.pool.busy)
@@ -96,6 +100,7 @@ class ServerTests(unittest.TestCase):
         lines = [json.loads(line) for line in response.text.strip().splitlines()]
         self.assertIn({'type': 'wait'}, lines[:-1])
         self.assertRegex(lines[-1].pop('question_id'), '^[0-9a-f]{32}$')
+        self.assertIsInstance(lines[-1].pop('feedback'), bool)
         self.assertEqual(lines[-1], {'type': 'answer', 'answer': 'Try Gintama.'})
         self.assertFalse(self.pool.busy)
 
@@ -161,6 +166,41 @@ class ServerTests(unittest.TestCase):
                          [('answer', answer['question_id'], 'user-1'), ('feedback', answer['question_id'], 'user-1')])
         self.assertEqual(events[1]['rating'], 'up')
         self.assertNotIn('Gintama', ''.join(call.args[0] for call in logged.call_args_list))
+
+    def test_feedback_is_annotated_on_the_answer_span(self):
+        client = self.client(Pipeline('Try Gintama.'))
+        headers = {'Authorization': 'Bearer ' + token()}
+        with patch('builtins.print'), patch('src.tracing.send_feedback') as sent, \
+                patch('src.recommender.server.random.random', return_value=0.0):
+            answer = json.loads(self.ask(client, 'Bearer ' + token()).text.strip().splitlines()[-1])
+            client.post('/recommend/feedback', json={'question_id': answer['question_id'], 'rating': 'down'},
+                        headers=headers)
+            # An answer the server doesn't remember is only logged.
+            response = client.post('/recommend/feedback', json={'question_id': 'a' * 32, 'rating': 'up'},
+                                   headers=headers)
+        self.assertEqual(response.status_code, 204)
+        sent.assert_called_once_with('ab' * 8, 'down', answer['question_id'])
+
+    def test_a_random_share_of_answers_asks_for_feedback(self):
+        for draw, asked in ((0.1, True), (0.25, False), (0.9, False)):
+            with self.subTest(draw=draw), patch('builtins.print'), \
+                    patch('src.recommender.server.random.random', return_value=draw):
+                last = json.loads(self.ask(self.client(Pipeline('Try Gintama.')), 'Bearer ' + token())
+                                  .text.strip().splitlines()[-1])
+                self.assertEqual((last['answer'], last['feedback']), ('Try Gintama.', asked))
+
+    def test_security_replies_never_ask_for_feedback(self):
+        pipeline = Pipeline('Hi! Ask me about anime.', route={'response_path': 'security_agent'})
+        with patch('builtins.print') as logged, patch('src.tracing.send_feedback') as sent, \
+                patch('src.recommender.server.random.random', return_value=0.0):
+            client = self.client(pipeline)
+            last = json.loads(self.ask(client, 'Bearer ' + token()).text.strip().splitlines()[-1])
+            client.post('/recommend/feedback', json={'question_id': last['question_id'], 'rating': 'up'},
+                        headers={'Authorization': 'Bearer ' + token()})
+        self.assertFalse(last['feedback'])
+        answer = json.loads(logged.call_args_list[0].args[0])
+        self.assertEqual((answer['response_path'], answer['feedback']), ('security_agent', False))
+        sent.assert_not_called()
 
     def test_feedback_needs_a_token_and_a_valid_rating(self):
         client = self.client(Pipeline('x'))

@@ -68,9 +68,13 @@ still misread a request; the debug view shows what was selected and retrieved.
 
 ### Feedback
 
-Every answer gets 👍/👎 buttons (in the GUI and on the web page) so users can rate it. Each
-question gets a random `question_id`; for now the ratings only go to the logs, to evaluate and
-improve the recommender later:
+Answers get 👍/👎 buttons so users can rate them. The web page asks on a random share of the
+answers (`RECOMMENDER_FEEDBACK_RATE`, default 0.25, so users aren't asked all the time) and never on
+the security step's fixed replies to small talk, off-topic or unsafe messages. The GUI, a developer
+tool, has them on every answer (Gradio can't hide them per message); ratings of security replies
+there are only logged. Each
+question gets a random `question_id`. The ratings go to the logs and, with Phoenix, onto the
+answer's trace, to evaluate and improve the recommender later:
 
 - **GUI:** the terminal prints `{"gui_debug": {"app": "anilist", "question_id": ...}}` when the
   question starts and `{"gui_debug": {"app": "anilist", "feedback": {"question_id": ..., "rating":
@@ -80,13 +84,22 @@ improve the recommender later:
   text:
 
   ```json
-  {"event": "answer", "time": 1792000000.0, "question_id": "3f2a...", "user": "<sub>", "trace_id": "...", "seconds": 8.4}
+  {"event": "answer", "time": 1792000000.0, "question_id": "3f2a...", "user": "<sub>", "trace_id": "...", "span_id": "...", "response_path": "recommender", "feedback": true, "seconds": 8.4}
   {"event": "feedback", "time": 1792000012.5, "question_id": "3f2a...", "user": "<sub>", "rating": "down"}
   ```
 
   Join the two on `question_id`, then follow `trace_id` to the question, the answer and every
   step in Phoenix or Arize AX. `POST /recommend/feedback {"question_id", "rating": "up"|"down"}`
   takes the same bearer token as `/recommend/chat`.
+- **Phoenix:** each 👍/👎 is also a `user_feedback` annotation on the answer's root span
+  (`recommender.ask`): label `positive` or `negative`, score 1 or 0, annotator `HUMAN`. The labels
+  are those of Phoenix's own `user_feedback` annotation config, which the service assigns to the
+  project on the first rating (creating it if missing); only then does the span's **Annotations**
+  panel show the rating. Filter the spans with
+  `annotations['user_feedback'].label == 'negative'`. Rating the same answer again replaces the
+  annotation; un-liking in the GUI (`cleared`) leaves it. The web service remembers the last
+  10 000 answers for this; ratings of older ones, and all ratings on Arize AX (EC2), are only in
+  the log.
 
 ![Recommendations after Steins;Gate](../../sample_screenshots/Screenshot%202026-10-14%20190555.png)
 

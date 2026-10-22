@@ -11,7 +11,7 @@ from .config import Settings
 from .documents import Chunk, load_chunks
 from .prompt_library import prompts_for
 from .providers import BedrockModels, LocalModels, RetryPolicy
-from ..tracing import annotate, setup_tracing, stage, trace_id, tracer
+from ..tracing import annotate, setup_tracing, span_id, stage, trace_id, tracer
 from .progress import Progress
 from .embedding_cache import cached_embed
 from .errors import UserFacingError
@@ -178,6 +178,8 @@ class RagPipeline:
         self.last_route = {}
         # Where to find this answer in Phoenix; "" when nothing records spans.
         self.last_trace_id = trace_id()
+        # The span that 👍/👎 feedback on this answer is annotated on.
+        self.last_span_id = span_id()
         history = self.recent_history(history)
         annotate(**{"recommender.history_messages": len(history)})
         security = SecurityAgent(self.models if self.settings.security_llm_review else None, prompts_for(self.settings))
