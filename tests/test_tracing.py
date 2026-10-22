@@ -81,3 +81,15 @@ def test_open_and_close_span_make_it_current():
         tracing.close_span(span, token)
     assert spans[0].attributes["openinference.span.kind"] == "TOOL"
     assert trace.get_current_span() is not span
+
+
+def test_every_span_carries_the_release_in_its_metadata(monkeypatch):
+    import json
+
+    monkeypatch.setattr(tracing, "_release", "")
+    assert tracing.setup_tracing("", release="v9.9.9") is False  # no export, but the release is kept
+    with tracing.capture_spans() as spans:
+        with tracing.stage("outer"), tracing.stage("inner", kind="llm"):
+            pass
+    assert {span.name: json.loads(span.attributes["metadata"]) for span in spans} == {
+        "outer": {"release": "v9.9.9"}, "inner": {"release": "v9.9.9"}}

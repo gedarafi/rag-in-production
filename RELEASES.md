@@ -27,6 +27,8 @@ the same text as in v0.0.1.
 - **Web service.** Answers run on their own worker threads (`asyncer`), and a pipeline returns to the
   pool only when its answer is done, even if the user has left.
 - **Release shown on the page.** `/recommend/health` reports the release, and the page shows it.
+- **Release in the traces.** Every span's metadata has `release`, so Phoenix can filter on
+  `metadata["release"] == "v0.0.2"`; the trace resource has it as `service.version`.
 
 ### Upgrade
 

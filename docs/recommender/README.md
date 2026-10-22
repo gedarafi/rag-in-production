@@ -138,6 +138,10 @@ just phoenix-down                                              # traces stay in 
 Without `just`, set `RAG_PHOENIX_ENDPOINT=http://localhost:6006/v1/traces` (or `[tracing] endpoint`
 in `settings.toml`); tracing is off while it is empty. On AWS the traces go to Arize AX.
 
+Every span carries the code's release (`RELEASE` in `src/recommender/__init__.py`, see
+[RELEASES.md](../../RELEASES.md)) in its metadata. To see one release's traces, filter the Phoenix
+span list with `metadata["release"] == "v0.0.2"`.
+
 ## Configuration
 
 Settings come from `settings.toml`; restart after changing them.

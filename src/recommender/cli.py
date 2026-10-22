@@ -139,9 +139,10 @@ def setup(config: str, source: Path | None, rebuild: bool) -> None:
 
 def ask(pipeline, settings, question: str, debug: bool) -> None:
     """Print the answer on stdout; the trace ID (and with --debug, the routing) on stderr."""
+    from . import RELEASE
     from ..tracing import flush, setup_tracing, trace_id, tracer
 
-    exporting = setup_tracing(settings.tracing_endpoint, settings.tracing_project)
+    exporting = setup_tracing(settings.tracing_endpoint, settings.tracing_project, RELEASE)
     started = time.perf_counter()
     with tracer.start_as_current_span("recommender.cli", openinference_span_kind="chain") as span:
         try:
