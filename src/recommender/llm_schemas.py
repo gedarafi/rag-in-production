@@ -73,6 +73,13 @@ class TitleExtraction(Reply):
     note: str
 
 
+class SecurityReview(Reply):
+    # anime passes to the recommender; every other category gets the security agent's fixed reply.
+    category: Literal['anime', 'greeting', 'thanks', 'farewell', 'help', 'off_topic', 'unsupported_language',
+                      'code_injection', 'harmful', 'prompt_injection', 'secrets']
+    reason: Annotated[str, WithJsonSchema({'type': 'string', 'maxLength': 200})]
+
+
 def json_schema(model: type[BaseModel]) -> dict:
     """The model's JSON schema, self-contained (nested models inlined), without titles, and with bare
     enums (no "type" beside them), as the hand-written schemas the steps were tuned with."""

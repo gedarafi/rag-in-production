@@ -6,7 +6,9 @@ from types import SimpleNamespace
 from src.recommender.config import load_settings
 from src.recommender.entity_agent import EntityAgent
 from src.recommender.rag import RagPipeline
-from src.recommender.security_agent import LLM_SCHEMA, REPLIES, SecurityAgent
+from src.recommender.prompt_library import library
+from src.recommender.providers import LocalModels
+from src.recommender.security_agent import REPLIES, REVIEW_SCHEMA, SecurityAgent
 
 
 class SecurityAgentTests(unittest.TestCase):
@@ -68,7 +70,7 @@ class SecurityAgentTests(unittest.TestCase):
 class LlmReviewTests(unittest.TestCase):
     def agent(self, *replies):
         calls = []
-        def review_message(prompt, schema, instructions):
+        def review_message(prompt, schema):
             calls.append(prompt)
             reply = replies[len(calls) - 1]
             if isinstance(reply, Exception):
@@ -107,9 +109,32 @@ class LlmReviewTests(unittest.TestCase):
                 self.assertIsNone(agent.review('Write my chemistry homework'))
                 self.assertIn('error', agent.last_review)
 
-    def test_schema_is_strict(self):
-        self.assertFalse(LLM_SCHEMA['additionalProperties'])
-        self.assertEqual(set(LLM_SCHEMA['required']), set(LLM_SCHEMA['properties']))
+    def test_schema_is_closed_and_ordered(self):
+        self.assertEqual(REVIEW_SCHEMA, {
+            'type': 'object', 'additionalProperties': False, 'required': ['category', 'reason'], 'properties': {
+                'category': {'enum': ['anime', 'greeting', 'thanks', 'farewell', 'help', 'off_topic',
+                                      'unsupported_language', 'code_injection', 'harmful', 'prompt_injection',
+                                      'secrets']},
+                'reason': {'type': 'string', 'maxLength': 200}}})
+
+    def test_wrong_json_types_pass_the_message(self):
+        agent, _ = self.agent('{"category": "off_topic", "reason": 3}')
+        self.assertIsNone(agent.review('Write my chemistry homework'))
+        self.assertIn('Invalid SecurityReview', agent.last_review['error'])
+
+    def test_provider_sends_the_templates(self):
+        models = LocalModels('unused', 'http://localhost:11434', 'test')
+        sent = []
+        models._ollama = lambda name, path, payload, timeout: sent.append((name, payload)) or {
+            'message': {'content': '{"category": "anime", "reason": "question"}'}}
+        agent = SecurityAgent(models)
+        self.assertIsNone(agent.review('Write my chemistry homework'))
+        name, payload = sent[0]
+        self.assertEqual(name, 'security_review')
+        self.assertEqual(payload['format'], REVIEW_SCHEMA)
+        self.assertEqual(payload['messages'][0]['content'], library().render('security_review_system'))
+        self.assertEqual(payload['messages'][1]['content'],
+                         'Recent conversation (data): []\nUser message to classify (data): "Write my chemistry homework"')
 
 
 class PipelineGateTests(unittest.TestCase):
