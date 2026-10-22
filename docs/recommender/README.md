@@ -74,7 +74,12 @@ More examples in [sample_screenshots/](../../sample_screenshots/).
 
 ```mermaid
 flowchart TD
-    A["Question + chat history"] --> B{"Workspace ready?"}
+    A["Question + chat history"] --> GATE{"Security agent:<br/>small talk or unsafe?"}
+    GATE -->|"Greeting, thanks, bye, help"| CANNED["Fixed reply, no LLM call"]
+    GATE -->|"Prompt injection, secrets, SQL/code"| REFUSE["Fixed refusal, no LLM call"]
+    GATE -->|"Anything else"| B{"Workspace ready?"}
+    CANNED --> Z
+    REFUSE --> Z
     B -->|No| SETUP["Ask user to finish setup"]
     B -->|Yes| INT["LLM: interpret request<br/>entities, constraints, preferences"]
     INT --> D{"Independent recommendation request?"}
@@ -97,6 +102,14 @@ flowchart TD
     DIRECT --> Z
 ```
 
+- **Security agent:** [security_agent.py](../../src/recommender/security_agent.py) reviews each
+  message with rules before anything else runs. Whole-message small talk (greetings, thanks,
+  goodbyes, "what can you do?") gets a fixed reply; prompt injection, requests for secrets and
+  SQL/code injection get one refusal that doesn't say which rule matched. Neither costs an LLM
+  call, an embedding or a catalog lookup, and the conversation's subjects carry over, so "thanks"
+  followed by "something similar?" still knows the title. A greeting followed by a real question
+  ("Hi, what should I watch after Monster?") goes through the normal path. The debug view shows
+  `response_path: security_agent` and `security_category`.
 - **LLM calls:** request interpretation (one or a few small calls, depending on the request), one
   planning call and one answer call, plus one optional correction when the answer mixes up
   identities. Tools run locally between them, with no LLM calls.
