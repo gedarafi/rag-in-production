@@ -154,6 +154,15 @@ class EntityAgent:
             self.memory.popitem(last=False)
         return text
 
+    def carry_memory(self, history, question, text):
+        """Keep the conversation's subjects across a turn answered without the pipeline."""
+        if not history:
+            return
+        snapshot = self.catalog.query("SELECT value FROM meta WHERE key='snapshot'")[0][0]
+        previous = self.memory.get((snapshot, self.history_key(history)))
+        if previous is not None:
+            self.remember(snapshot, history, question, text, previous, self.last_trace)
+
     def finish(self, question, history, state, current, evidence, retrieved):
         """Let the LLM speak directly once planning stops; no canned fallback."""
         answer_evidence = self.answer_evidence(question, evidence)

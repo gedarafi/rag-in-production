@@ -19,6 +19,7 @@ from .anime_tools import AnimeTools, normalize, contains
 from .query_router import fast_answer
 from .semantic_router import SemanticRouter, RoutingPlanError
 from .entity_agent import EntityAgent, strip_source_citations, timed_stage
+from .security_agent import SecurityAgent
 
 
 def retrieval_attributes(chunks: list[Chunk], scores: list[float] | None = None) -> dict:
@@ -179,6 +180,16 @@ class RagPipeline:
         self.last_trace_id = trace_id()
         history = self.recent_history(history)
         annotate(**{"recommender.history_messages": len(history)})
+        with timed_stage({}, 'security_review'):
+            verdict = SecurityAgent().review(question)
+        if verdict:
+            # Small talk and unsafe requests never reach the LLM, embeddings or the catalog.
+            self.last_route = {'response_path': 'security_agent', 'security_category': verdict.category,
+                               'blocked': verdict.blocked, 'llm_calls': 0}
+            annotate(**{'recommender.' + key: value for key, value in self.last_route.items()})
+            if getattr(self, '_agent', None) is not None:
+                self._agent.carry_memory(history, question, verdict.reply)
+            return verdict.reply
         with timed_stage({}, 'load_catalog'):
             catalog = self.anime_tools()
         if catalog:
