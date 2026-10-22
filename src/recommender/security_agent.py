@@ -1,6 +1,7 @@
 """A rule-based gate that reviews each message before the recommender pipeline runs.
 
-Small talk (greetings, thanks, goodbyes, "what can you do?") gets a fixed reply, and prompt
+English is the only supported language: a message in another language gets a fixed request to
+ask in English. Small talk (greetings, thanks, goodbyes, "what can you do?") gets a fixed reply, and prompt
 injection, secret probing and code injection get a fixed refusal, all without an LLM call,
 an embedding or a catalog lookup. Everything else, including a greeting followed by a real
 question, passes through unchanged.
@@ -19,15 +20,27 @@ class Verdict:
 
 
 # A message is small talk only when every word is one of these and one of them names its kind.
-GREETINGS = {'hi', 'hello', 'hey', 'heya', 'hiya', 'howdy', 'yo', 'greetings', 'sup', 'hej', 'hejsan', 'hallå',
-             'tjena', 'hola', 'buenas', 'morning', 'afternoon', 'evening'}
-THANKS = {'thanks', 'thank', 'thx', 'ty', 'cheers', 'tack', 'gracias', 'appreciate', 'great', 'awesome', 'perfect',
-          'nice', 'cool', 'ok', 'okay', 'got'}
-FAREWELLS = {'bye', 'goodbye', 'cya', 'later', 'night', 'farewell', 'hejdå', 'adios', 'adiós', 'care'}
+GREETINGS = {'hi', 'hello', 'hey', 'heya', 'hiya', 'howdy', 'yo', 'greetings', 'sup', 'morning', 'afternoon',
+             'evening'}
+THANKS = {'thanks', 'thank', 'thx', 'ty', 'cheers', 'appreciate', 'great', 'awesome', 'perfect', 'nice', 'cool',
+          'ok', 'okay', 'got'}
+FAREWELLS = {'bye', 'goodbye', 'cya', 'later', 'night', 'farewell', 'care'}
 FILLER = {'there', 'all', 'everyone', 'bot', 'assistant', 'friend', 'how', 'are', 'you', 'doing', 'whats', 'what',
           'up', 'good', 'it', 'so', 'much', 'a', 'lot', 'many', 'very', 'see', 'ya', 'soon', 'take', 'for', 'now',
           'and', 'oh'}
 SMALL_TALK_PHRASES = {'how are you', 'how are you doing', 'whats up', 'what up'}
+# Common function words of other languages that are not English words. Romaji particles
+# (no, wa, ga, ...) are left out so Japanese titles such as "Shingeki no Kyojin" stay English.
+FOREIGN = {
+    'och', 'är', 'jag', 'vad', 'vilka', 'vilken', 'inte', 'mig', 'någon', 'också', 'något', 'ett', 'hej', 'tack',  # sv
+    'el', 'los', 'las', 'que', 'qué', 'por', 'para', 'una', 'es', 'cómo', 'quién', 'puedes', 'del', 'con', 'hola',
+    'le', 'les', 'des', 'est', 'une', 'qui', 'quoi', 'pour', 'avec', 'je', 'vous', 'sur', 'bonjour',  # fr
+    'der', 'das', 'und', 'ist', 'ich', 'wer', 'nicht', 'mit', 'ein', 'eine', 'welche', 'hallo',  # de
+    'não', 'você', 'olá', 'het', 'een', 'niet',  # pt, nl
+}
+ENGLISH = {'the', 'a', 'an', 'is', 'are', 'was', 'what', 'who', 'which', 'how', 'about', 'and', 'of', 'to', 'in',
+           'for', 'with', 'me', 'i', 'you', 'like', 'similar', 'recommend', 'watch', 'show', 'some', 'any',
+           'give', 'tell', 'should', 'can', 'do', 'does', 'please'}
 HELP = re.compile(r"^(?:help|help me|what can you do|what do you do|who are you|what are you|how does this work"
                   r"|how do i use (?:this|you)|what can i ask(?: you)?|what do you know)$")
 
@@ -72,6 +85,7 @@ REPLIES = {
             "I can describe a show or a character, list its main cast, give facts such as episodes, year, studio "
             "or score, and recommend similar titles or ones matching genres, tags, years or length. "
             "Try " + EXAMPLES,
+    'unsupported_language': "I only support English. Please ask again in English, for example " + EXAMPLES,
     'blocked': "I can't help with that. I only answer questions about anime, their characters and "
                "recommendations from the library.",
 }
@@ -79,6 +93,18 @@ REPLIES = {
 
 def words(text: str) -> list[str]:
     return re.findall(r"[^\W\d_]+", re.sub(r"['’]", "", text.lower()))
+
+
+def english(text: str, tokens: list[str]) -> bool:
+    """Mostly Latin letters, and not more function words of another language than of English."""
+    letters = re.findall(r"[^\W\d_]", text)
+    latin = sum(1 for letter in letters if letter.isascii() or 'À' <= letter <= 'ɏ')
+    if letters and latin * 2 < len(letters):
+        return False
+    foreign = sum(token in FOREIGN for token in tokens) + len(re.findall(r'[¿¡]', text))
+    if tokens and all(token in FOREIGN for token in tokens):
+        return False  # "hej", "hola"
+    return foreign < 2 or foreign <= sum(token in ENGLISH for token in tokens)
 
 
 class SecurityAgent:
@@ -93,6 +119,8 @@ class SecurityAgent:
             if any(pattern.search(text) for pattern in patterns):
                 # One refusal for every category: the reply never says which rule matched.
                 return Verdict(category, REPLIES['blocked'], blocked=True)
+        if not english(text, tokens):
+            return Verdict('unsupported_language', REPLIES['unsupported_language'])
         normalized = ' '.join(tokens)
         if HELP.match(normalized):
             return Verdict('help', REPLIES['help'])

@@ -38,6 +38,23 @@ class SecurityAgentTests(unittest.TestCase):
                 self.assertTrue(verdict.blocked)
                 self.assertEqual(verdict.reply, REPLIES['blocked'])
 
+    def test_only_english_is_supported(self):
+        for question in ('Hej! Vad är en bra anime?', '¿Qué anime me recomiendas para ver?',
+                         'Quel est le meilleur anime pour moi?', 'Was ist das beste Anime und wer ist der Held?',
+                         'おすすめのアニメは？', 'Посоветуй аниме', 'hola', 'tack'):
+            with self.subTest(question=question):
+                verdict = SecurityAgent().review(question)
+                self.assertEqual(verdict.category, 'unsupported_language')
+                self.assertFalse(verdict.blocked)
+                self.assertEqual(verdict.reply, REPLIES['unsupported_language'])
+
+    def test_romaji_and_native_titles_in_english_questions_pass_through(self):
+        for question in ('Shingeki no Kyojin', 'What is Kimi no Na wa about?', 'Who is ルルーシュ?',
+                         'Recommend something like Re:Zero kara Hajimeru Isekai Seikatsu',
+                         'Tell me about El Cazador de la Bruja'):
+            with self.subTest(question=question):
+                self.assertIsNone(self.category(question))
+
     def test_library_questions_pass_through(self):
         for question in ('Hey, what should I watch after Steins;Gate?', 'Who is Naruto?', 'Steins;Gate',
                          'Recommend 3 comedy anime', 'Hello World', 'Good',
