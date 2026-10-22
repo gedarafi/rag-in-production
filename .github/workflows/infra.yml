@@ -54,6 +54,8 @@ jobs:
               - "infra/docker-compose.yml"
               - "infra/.opentofu-version"
               - "infra/.terragrunt-version"
+              - "infra/.just-version"
+              - ".github/actions/setup-infra/**"
               - "infra/scripts/local_flow.py"
               - ".github/workflows/infra.yml"
 

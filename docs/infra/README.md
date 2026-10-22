@@ -27,7 +27,7 @@ Requires [Docker](https://www.docker.com/), [just](https://just.systems/), the
 the scripts in `infra/scripts/` with their dependencies). `just aws-diagram` also needs
 [Graphviz](https://graphviz.org/download/) (`dot`). The versions are pinned in
 `infra/.opentofu-version` and `infra/.terragrunt-version`; [tenv](https://github.com/tofuutils/tenv)
-picks them up automatically.
+picks them up automatically. CI installs just at the version in `infra/.just-version`.
 
 ## LocalStack (local AWS)
 
